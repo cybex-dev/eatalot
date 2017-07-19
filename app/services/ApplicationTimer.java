@@ -1,0 +1,53 @@
+package services;
+
+import play.inject.ApplicationLifecycle;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.time.Clock;
+import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
+
+/**
+ * This class demonstrates how to run code when the
+ * application starts and stops. It starts index_user timer when the
+ * application starts. When the application stops it prints out how
+ * long the application was running for.
+ *
+ * This class is registered for Guice dependency injection in the
+ * Module class. We want the class to start when the application
+ * starts, so it is registered as an "eager singleton". See the code
+ * in the Module class to see how this happens.
+ *
+ * This class needs to run code when the server stops. It uses the
+ * application's {@link ApplicationLifecycle} to register index_user stop hook.
+ */
+@Singleton
+public class ApplicationTimer {
+
+    private final Clock clock;
+    private final ApplicationLifecycle appLifecycle;
+    private final Instant start;
+
+    private final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger("application");
+
+    @Inject
+    public ApplicationTimer(Clock clock, ApplicationLifecycle appLifecycle) {
+        this.clock = clock;
+        this.appLifecycle = appLifecycle;
+        // This code is called when the application starts.
+        start = clock.instant();
+        logger.info("ApplicationTimer demo: Starting application at " + start);
+
+        // When the application starts, register index_user stop hook with the
+        // ApplicationLifecycle object. The code inside the stop hook will
+        // be run when the application stops.
+        appLifecycle.addStopHook(() -> {
+            Instant stop = clock.instant();
+            Long runningTime = stop.getEpochSecond() - start.getEpochSecond();
+            logger.info("ApplicationTimer demo: Stopping application at " + clock.instant() + " after " + runningTime + "s.");
+            return CompletableFuture.completedFuture(null);
+        });
+    }
+
+}

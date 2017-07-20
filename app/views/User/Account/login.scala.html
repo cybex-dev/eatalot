@@ -1,0 +1,21 @@
+@(message: String)
+
+<html>
+    <header>
+        <title>Login Form</title>
+    </header>
+    <body>
+        <h1>Login Form</h1>
+        <br/>
+        <label>Email:</label> <input type="email" name="edtEmail"/>
+        <br/>
+        <br/>
+        <label>Password:</label> <input type="password" name="edtPassword"/>
+        <br/>
+        <label>@message</label>
+        <br/>
+        <form action="@controllers.User.routes.AccountController.doLogin()" method="post">
+            <input type="submit" value="Login">
+        </form>
+    </body>
+</html>

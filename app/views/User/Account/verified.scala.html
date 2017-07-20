@@ -1,0 +1,10 @@
+@()
+
+@Global.application.masterpage("Verified"){
+    <p>Email has been verified</p>
+    <br/>
+    <br/>
+    <form method="get" action="@controllers.User.routes.AccountController.login()">
+        <button type="submit">Login</button>
+    </form>
+}

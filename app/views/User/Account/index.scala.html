@@ -1,0 +1,28 @@
+@()
+
+<html>
+    <header>
+        <title>All users in list</title>
+    </header>
+    <body>
+        <h1>All users in list</h1>
+        <br>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Cellphone</th>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <form action="@controllers.User.routes.AccountController.login()" method="get">
+            <input type="submit" value="Login">
+        </form>
+        <br>
+        <form action="@controllers.User.routes.AccountController.create()" method="get">
+            <input type="submit" value="Register">
+        </form>
+    </body>
+</html>

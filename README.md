@@ -131,8 +131,11 @@ Note: you will have to select previos versions to get more information and docum
 
 Suggested youtube playlist to learn Play Framework:
  - https://www.youtube.com/playlist?list=PLYPFxrXyK0Bx9SBkNhJr1e2-NlIq4E7ED
- 
+
 Note: Leave him a comment if you want something explained or a video made
+
+Have a look at play examples aswel:
+ - https://www.playframework.com/documentation/2.2.x/JavaTodoList
 
 # Project Structure
 

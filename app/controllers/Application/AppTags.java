@@ -3,7 +3,7 @@ package controllers.Application;
 /**
  * Created by cybex on 2017/07/16.
  */
-public enum APPTags {
+public enum AppTags {
 
     SITENAME("EatAloT"),
     SITEURL("https://localhost/"),
@@ -11,7 +11,7 @@ public enum APPTags {
 
     private String string;
 
-    APPTags(String s) {
+    AppTags(String s) {
         this.string = s;
     }
 

@@ -1,6 +1,6 @@
 package controllers.User;
 
-import controllers.Application.APPTags;
+import controllers.Application.AppTags;
 import models.CRUD;
 import models.User.User;
 import org.simplejavamail.email.Email;
@@ -183,9 +183,9 @@ public class AccountController extends Controller implements CRUD {
      * @param user User data object saved to database, used for sending email
      */
     private void generateVerificationEmail(User user) {
-        String verificationUrl = APPTags.SITEURL.toString() + "/user/verified/" + user.getCRSFToken();
+        String verificationUrl = AppTags.SITEURL.toString() + "/user/verified/" + user.getCRSFToken();
         Email e = new EmailBuilder()
-                .from("Admin", "mailer@" + APPTags.SITEDOMAIN.toString())
+                .from("Admin", "mailer@" + AppTags.SITEDOMAIN.toString())
                 .to(user.getEmail())
                 .subject("Eatalot Account Verification")
                 .text("Welcome " + user.getName())
@@ -193,7 +193,7 @@ public class AccountController extends Controller implements CRUD {
                 .text("Please verified your account using the link provided below")
                 .textHTML("<i><a style=\"color:blue;font-size:2em;\" href=\"" + verificationUrl + "\"/></i>")
                 .text("")
-                .text("If you have not created an account at " + APPTags.SITENAME.toString() + " then ignore this email")
+                .text("If you have not created an account at " + AppTags.SITENAME.toString() + " then ignore this email")
                 .text("")
                 .text("Eatalot Team")
                 .embedImage("Eatalot Logo", new FileDataSource(new File("/assets/images/logo.png")))

@@ -1,0 +1,21 @@
+@import Global.Static.essentials
+@import controllers.Application.AppTags
+@import java.lang.String
+@import Global.Html5._
+
+@(pageTitle: String, obj: Object)
+
+@htmlNav = {
+
+}
+
+@htmlBody = {
+	clazz : String = "menu-item"
+	aside(clazz){
+		<a href="#">Basic Information</a>
+		<a href="#">Edit Address</a>
+		<a href="#">Change Password</a>
+	}
+}
+
+@essentials(pageTitle)(htmlNav)(htmlBody)

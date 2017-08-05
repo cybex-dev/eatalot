@@ -2,7 +2,7 @@ package services;
 
 /**
  * This interface demonstrates how to create index_user component that is injected
- * into index_user controller. The interface represents index_user counter that returns index_user
+ * into customerHome controller. The interface represents customerHome counter that returns customerHome
  * incremented number each time it is called.
  *
  * The Modules class binds this interface to the

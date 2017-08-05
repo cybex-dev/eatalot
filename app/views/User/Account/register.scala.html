@@ -1,23 +1,20 @@
+@import Global.Static.masterpage
 @import helper.CSRF
 @import models.User.User
 @import play.data.Form
 
-@(userform: Form[User])
+@(userForm: Form[User])
 
-<html>
-    <header>
-        <title>Register new User</title>
-    </header>
-    <body>
-        <h1>Register User</h1>
-        <br>
-        <br>
-        @helper.form(action = controllers.User.routes.AccountController.save()){
-            @CSRF.formField
-            @helper.inputText(userform("E-Mail"))
-            @helper.inputPassword(userform("Password"))
-            @helper.inputPassword(userform("Confirm Password"))
-            <input type="submit" value="Register"/>
-        }
-    </body>
-</html>
+
+@masterpage(" : Registration") {
+    <h1>Register User</h1>
+    <br>
+    <br>
+    @helper.form(action = controllers.User.routes.AccountController.save()) {
+        @CSRF.formField
+        @helper.inputText(userForm("E-Mail"))
+        @helper.inputPassword(userForm("Password"))
+        @helper.inputPassword(userForm("Confirm Password"))
+        <input class="button-bar" type="submit" value="Register"/>
+    }
+}

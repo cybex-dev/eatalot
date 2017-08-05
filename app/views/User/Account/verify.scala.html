@@ -1,7 +1,8 @@
 @import controllers.Application.AppTags
+@import Global.Static.masterpage
 
 @()
 
-@Global.application.masterpage("Verify Email"){
-    <p>Check your email for a verification link set from @AppTags.SITENAME.toString</p>
+@masterpage("Verify Email") {
+    <p>Check your email for a verification link sent from @AppTags.General.SITENAME.toString</p>
 }

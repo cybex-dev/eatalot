@@ -1,0 +1,51 @@
+@import Global.Html5.nav
+
+@(nav_extension: Html)
+
+@nav_section = {
+    <section class="menu-section">
+        <a class="top app-logo" href="customerHome.html">
+            <img src="/assets/images/logo.png"/>
+        </a>
+        <div class="navbar navbar-inverse set-radius-zero">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-pull-12">
+                        <div class="navbar-collapse collapse ">
+                            <ul class="nav navbar-nav navbar-left navbar-top">
+                                <li><a href="@controllers.User.routes.CustomerController.index()" class="menu-top-active">DASHBOARD</a></li>
+
+                                <li><a href="#">FORMS</a></li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+                                        UI ELEMENTS
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="ui.html">UI ELEMENTS</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">TABS & PANELS</a> </li>
+                                <li><a href="#">TABLES</a></li>
+                                <li><a href="#">BLANK PAGE</a></li>
+                            </ul>
+                            <ul class="right-container navbar-btn navbar-right">
+                                <ul class="top">
+                                    <label class="media-heading navbar-user pull-center">Welcome, User</label>
+                                </ul>
+                                <ul class="bottom text-center">
+                                    <a href="/user/login" class="btn btn-success pull-center">Login</a>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @nav_extension
+}
+
+@nav.apply("null", nav_section)

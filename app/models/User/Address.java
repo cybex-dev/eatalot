@@ -5,6 +5,8 @@ import io.ebean.Model;
 import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -16,7 +18,7 @@ import javax.persistence.Id;
 public class Address extends Model {
 
     @Id
-    @Constraints.Required
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String addressId;
     @Constraints.Required
     private String unitNumber;

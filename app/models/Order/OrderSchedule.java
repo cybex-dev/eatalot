@@ -5,6 +5,8 @@ import play.data.format.Formats;
 import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,7 +21,7 @@ import java.util.TimeZone;
 public class OrderSchedule extends Model {
 
     @Id
-    @Constraints.Required
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderSchedId;
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")

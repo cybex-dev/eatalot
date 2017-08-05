@@ -3,13 +3,19 @@ package controllers.User;
 import controllers.Application.AppTags;
 import models.CRUD;
 import models.User.User;
+import models.User.UserLogin;
 import org.simplejavamail.email.Email;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
+import play.Application;
+import play.Logger;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
+import views.html.Application.Home.index;
 import views.html.User.Account.*;
 
 import javax.activation.FileDataSource;
@@ -27,11 +33,15 @@ public class AccountController extends Controller implements CRUD {
     FormFactory formFactory;
 
     /**
-     * Should display default index page, showing User's home, with options of loging in or registering
+     * Should display default customerHome page, showing User's home, with options of loging in or registering
      * @return
      */
+    //default route : /user
     public Result index() {
-        return ok(index.render());
+        Http.Session session = session();
+        if (session.containsKey("id"))
+            return new CustomerController().index();
+        return ok(index.render(" :: Account"));
     }
 
     /**
@@ -39,7 +49,7 @@ public class AccountController extends Controller implements CRUD {
      * @return
      */
     public Result login() {
-        return ok(login.render(null));
+        return ok(login.render(formFactory.form(UserLogin.class)));
     }
 
     // TODO: 2017/07/18 Needs implementation
@@ -49,37 +59,57 @@ public class AccountController extends Controller implements CRUD {
      * @return
      */
     public Result doLogin() {
-        return TODO;
+        Form form = formFactory.form().bindFromRequest();
 
+        if (form == null) {
+            flash(AppTags.ErrorCodes.danger.toString(), "An error occurred!");
+            return badRequest(login.render(form));
+        }
 
-//        DynamicForm form = formFactory.form().bindFromRequest("id", "password");
-//
-//        String id = form.get("id");
-//        String password = form.get("password");
-//
-//        if (form == null)
-//            return notFound("Empty data");
-//
-//        Integer userId = -1;
-//        try {
-//            Integer t = Integer.parseInt(id);
-//            if (t.equals(userId))
-//                throw new Exception("Invalid User Exception");
-//            userId = t;
-//        }catch (Exception x){
-//            return notFound("Invalid User");
-//        }
-//
-//        Result result;
-//        if (User.validUser(userId, password)){
-//            Integer finalUserId = userId;
-//            User user = User.getAllUsers().stream().filter(user1 -> user1.id.equals(finalUserId)).findFirst().get();
-//            result = ok(index.render(user.id, user.name, user.emailVerified));
-//        }
-//        else {
-//            result = notFound(login.render("Invalid credentials!"));
-//        }
-//        return ok("hi");
+        if (form.hasErrors()) {
+            flash(AppTags.ErrorCodes.warning.toString(), "Please check all fields are correct");
+            return badRequest(login.render(form));
+        }
+
+        String email = form.field("edtEmail").toString();
+        String password = form.field("edtPassword").toString();
+
+        Boolean bRemember = Boolean.FALSE;
+        try {
+            bRemember = Boolean.parseBoolean(form.field("chkRemember").toString());
+        } catch (Exception x){
+            Logger.warn("AccountController: doLogin: could not convert boolean");
+        }
+
+        User user = null;
+        try {
+            List<User> userEmails = User.find.query().where().ilike("email", email).findPagedList().getList();
+            if (userEmails.size() > 1){
+                Logger.warn("Multiple emails exist: [ " + email + " ]");
+                flash(AppTags.ErrorCodes.danger.toString(), "An server error occurred, please try again later!");
+                return internalServerError(login.render(form));
+            }
+            if (userEmails.size() == 0){
+                flash(AppTags.ErrorCodes.warning.toString(), "Username/Password combination invalid");
+                return internalServerError(login.render(form));
+            }
+            user = userEmails.get(0);
+        }catch (Exception x){
+            Logger.warn("Exception - AccountController: doLogin:\n" + x.toString());
+            flash(AppTags.ErrorCodes.danger.toString(), "An critical error occurred, we apologize for any inconvenience!");
+            return internalServerError(login.render(form));
+        }
+
+        Result result;
+        if (user.getPassword().equals(password)){
+
+            result = new CustomerController().index();
+        }
+        else {
+            flash(AppTags.ErrorCodes.warning.toString(), "Incorrect username/password combination");
+            result = notFound(login.render(form));
+        }
+        return result;
     }
 
     /**
@@ -87,8 +117,13 @@ public class AccountController extends Controller implements CRUD {
      * @return
      */
     public Result create() {
-        Form<User> userForm = formFactory.form(User.class);
-        return ok(views.html.User.Account.register.render(userForm));
+        Form userForm = formFactory.form(User.class);
+        return ok(register.render(userForm));
+    }
+
+    public Result logout(){
+        AppTags.Session.User.clear(session());
+        return ok(index.render(" :: Welcome"));
     }
 
     /**
@@ -98,11 +133,25 @@ public class AccountController extends Controller implements CRUD {
     // TODO: 2017/07/18 Needs fixing, capture fields in form, then create new user with those fields
     public Result save() {
         Form userForm = formFactory.form().bindFromRequest();
+
+        if (userForm.hasErrors()){
+            flash(AppTags.ErrorCodes.warning.toString(), "Please check all fields");
+            return badRequest(register.render(userForm));
+        }
+
         String CRSFToken = userForm.field("crsfToken").getValue().get();
         User u = null;
         u.setToken(CRSFToken);
         u.save();
-        generateVerificationEmail(u);
+
+        try {
+            generateVerificationEmail(u);
+        }catch (Exception x){
+            Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
+            flash(AppTags.ErrorCodes.warning.toString(), "Unable to process request, please try again later!");
+            return ok(verify.render());
+        }
+
         return ok(verify.render());
     }
 
@@ -183,9 +232,9 @@ public class AccountController extends Controller implements CRUD {
      * @param user User data object saved to database, used for sending email
      */
     private void generateVerificationEmail(User user) {
-        String verificationUrl = AppTags.SITEURL.toString() + "/user/verified/" + user.getCRSFToken();
+        String verificationUrl = AppTags.General.SITEURL.toString() + "/user/verified/" + user.getCRSFToken();
         Email e = new EmailBuilder()
-                .from("Admin", "mailer@" + AppTags.SITEDOMAIN.toString())
+                .from("Admin", "mailer@" + AppTags.General.SITEDOMAIN.toString())
                 .to(user.getEmail())
                 .subject("Eatalot Account Verification")
                 .text("Welcome " + user.getName())
@@ -193,7 +242,7 @@ public class AccountController extends Controller implements CRUD {
                 .text("Please verified your account using the link provided below")
                 .textHTML("<i><a style=\"color:blue;font-size:2em;\" href=\"" + verificationUrl + "\"/></i>")
                 .text("")
-                .text("If you have not created an account at " + AppTags.SITENAME.toString() + " then ignore this email")
+                .text("If you have not created an account at " + AppTags.General.SITENAME.toString() + " then ignore this email")
                 .text("")
                 .text("Eatalot Team")
                 .embedImage("Eatalot Logo", new FileDataSource(new File("/assets/images/logo.png")))

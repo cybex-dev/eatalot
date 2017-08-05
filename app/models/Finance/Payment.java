@@ -6,6 +6,8 @@ import play.data.format.Formats;
 import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -16,7 +18,7 @@ import java.util.Date;
 public class Payment extends Model {
 
     @Id
-    @Constraints.Required
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String paymentId;
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")

@@ -1,0 +1,34 @@
+@import controllers.Application.AppTags
+@import Global.Html5._
+@import Global.Static._
+
+@(pageTitle: String)(navExt: Html)(bodyContent: Html)
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    @header {
+
+        @meta.apply()
+        @stylesheets.apply()
+
+        @title(AppTags.General.SITENAME + pageTitle)
+    }
+    @body {
+
+        @for(key <- Array(AppTags.ErrorCodes.values())) {
+            @if(flash().containsKey(key)) {
+                <div class="alert alert-@key">
+                    @flash.get(key)
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="glyphicon glyphicon-remove"></i></a>
+                </div>
+            }
+        }
+
+        @nav_wrapper(navExt)
+        @bodyContent
+        @footer_wrapper.apply()
+
+    }
+
+    @scripts.apply()
+
+</html>

@@ -1,0 +1,32 @@
+@import views.html.Global.Static.masterpage
+
+@(pageTitle: String)
+
+@bodyHtml = {
+    <p>The main loading page, add slider of images, text, etc</p>
+    <p>And some more images</p>
+}
+
+<html>
+@masterpage(pageTitle) {
+    <div class="body">
+        <h1>User's homepage</h1>
+        <p>TO order, loging or create an account (no login check yet)</p>
+
+        <div class="container-small">
+            <div class="pull-center">
+                <div class="align-center">
+                    <a href="@controllers.User.routes.AccountController.login()" class="btn btn-success">
+                        Login to EatAloT</a>
+                    <br/>
+                    <br/>
+                    <a href="@controllers.User.routes.AccountController.create()" class="btn btn-default">
+                        Create Account</a>
+                    <br/>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</html>

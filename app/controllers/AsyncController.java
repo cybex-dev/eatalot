@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * This controller contains an action that demonstrates how to write
- * simple asynchronous code in index_user controller. It uses index_user timer to
- * asynchronously delay sending index_user response for 1 second.
+ * simple asynchronous code in customerHome controller. It uses customerHome timer to
+ * asynchronously delay sending customerHome response for 1 second.
  */
 @Singleton
 public class AsyncController extends Controller {
@@ -28,9 +28,9 @@ public class AsyncController extends Controller {
 
     /**
      * @param actorSystem We need the {@link ActorSystem}'s
-     * {@link Scheduler} to run code after index_user delay.
-     * @param exec We need index_user Java {@link Executor} to apply the result
-     * of the {@link CompletableFuture} and index_user Scala
+     * {@link Scheduler} to run code after customerHome delay.
+     * @param exec We need customerHome Java {@link Executor} to apply the result
+     * of the {@link CompletableFuture} and customerHome Scala
      * {@link ExecutionContext} so we can use the Akka {@link Scheduler}.
      * An {@link ExecutionContextExecutor} implements both interfaces.
      */
@@ -41,12 +41,12 @@ public class AsyncController extends Controller {
     }
 
     /**
-     * An action that returns index_user plain text message after index_user delay
+     * An action that returns customerHome plain text message after customerHome delay
      * of 1 second.
      *
      * The configuration in the <code>routes</code> file means that this method
-     * will be called when the application receives index_user <code>GET</code> request with
-     * index_user path of <code>/message</code>.
+     * will be called when the application receives customerHome <code>GET</code> request with
+     * customerHome path of <code>/message</code>.
      */
     public CompletionStage<Result> message() {
         return getFutureMessage(5, TimeUnit.SECONDS).thenApplyAsync(s -> ok(views.html.User.Account.verified.render()), exec);

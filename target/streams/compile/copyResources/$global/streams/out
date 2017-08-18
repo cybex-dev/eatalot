@@ -1,0 +1,8 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/logback.xml,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/evolutions,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/application.conf,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/messages,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/messages)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/routes,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/evolutions/default,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/project-eatalot/conf/evolutions/default/1.sql,/home/cybex/Projects/project-eatalot/target/scala-2.12/classes/evolutions/default/1.sql)[0m

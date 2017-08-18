@@ -1,8 +1,10 @@
 package controllers.Application;
 
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
-import views.html.index;
+import play.routing.JavaScriptReverseRouter;
+import views.html.Application.Home.index;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -10,14 +12,21 @@ import views.html.index;
  */
 public class HomeController extends Controller {
 
+    public Result invalidRoute(String path) {
+        return notFound("Oops...\n\nThe page \"" + path + "\" does not exist");
+    }
+
     /**
-     * An action that renders an HTML page with a index message.
+     * An action that renders an HTML page with a customerHome message.
      * The configuration in the <code>routes</code> file means that
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render("Welcome to EatAloT"));
+        Result result = AppTags.Session.checkExistingLogin(request(), session());
+        if (result != null)
+            return result;
+        return ok(index.render());
     }
 
 }

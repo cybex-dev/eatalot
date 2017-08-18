@@ -1,0 +1,16 @@
+2017-08-18 21:37:05,261 [INFO] from application in scala-execution-context-global-64 - Creating Pool for datasource 'default'
+2017-08-18 21:37:05,704 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-64 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-08-18 21:37:06,889 [INFO] from application in scala-execution-context-global-64 - ApplicationTimer demo: Starting application at 2017-08-18T19:37:06.889Z
+2017-08-18 21:37:07,600 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-64 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-08-18 21:37:07,909 [INFO] from play.api.http.EnabledFilters in scala-execution-context-global-64 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2017-08-18 21:37:07,920 [INFO] from play.api.Play in scala-execution-context-global-64 - Application started (Dev)
+2017-08-18 21:37:12,912 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-14 - AppTags::loadSessionAndRedirectUser
+java.lang.NullPointerException
+2017-08-18 21:37:40,698 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-14 - AppTags::loadSessionAndRedirectUser
+java.lang.NullPointerException

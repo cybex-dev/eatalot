@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import java.util.concurrent.Executor;
 
 /**
- * This is index_user simple filter that adds index_user header to all requests.
+ * This is customerHome simple filter that adds customerHome header to all requests.
  */
 @Singleton
 public class ExampleFilter extends EssentialFilter {

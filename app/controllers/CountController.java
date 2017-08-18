@@ -9,7 +9,7 @@ import javax.inject.Singleton;
 
 /**
  * This controller demonstrates how to use dependency injection to
- * bind index_user component into index_user controller class. The class contains an
+ * bind customerHome component into customerHome controller class. The class contains an
  * action that shows an incrementing count to users. The {@link Counter}
  * object is injected by the Guice dependency injection system.
  */
@@ -26,7 +26,7 @@ public class CountController extends Controller {
     /**
      * An action that responds with the {@link Counter}'s current
      * count. The result is plain text. This action is mapped to
-     * <code>GET</code> requests with index_user path of <code>/count</code>
+     * <code>GET</code> requests with customerHome path of <code>/count</code>
      * requests by an entry in the <code>routes</code> config file.
      */
     public Result count() {

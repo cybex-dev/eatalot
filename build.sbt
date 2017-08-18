@@ -17,7 +17,10 @@ PlayKeys.playDefaultPort := 8080
 // Test Database
 libraryDependencies += jdbc
 libraryDependencies += javaJdbc
-//libraryDependencies += "com.h2database" % "h2" % "1.4.194"
+libraryDependencies += evolutions
+
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"
+libraryDependencies += "com.typesafe.play" %% "play-mailer-guice" % "6.0.1"
 
 // Testing libraries for dealing with CompletionStage...
 libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test

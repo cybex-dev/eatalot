@@ -1,18 +1,21 @@
 package models.Order;
 
+import controllers.Application.AppTags;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by cybex on 2017/07/13.
  */
 @Entity
 public class QueueType extends Model{
-
     @Id
+    @Constraints.Required
+    @Constraints.Min(49)
+    @Constraints.Max(50)
+    private Long typeId;
     @Constraints.Required
     private String type;
     @Constraints.Required

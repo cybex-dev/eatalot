@@ -1,12 +1,12 @@
 package models.Finance;
 
+import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -14,20 +14,22 @@ import java.util.Date;
  */
 @Entity
 public class Payment extends Model {
-
     @Id
     @Constraints.Required
-    private String paymentId;
+    @GeneratedValue
+    private Long paymentId;
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
     private Date date;
+    @Constraints.Required
+    private Date time;
     @Constraints.Required
     private Double amount;
     private Boolean isCash;
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 
-    public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash) {
+    public Payment(@Constraints.Required Long paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash) {
         this.paymentId = paymentId;
         this.date = date;
         this.amount = amount;

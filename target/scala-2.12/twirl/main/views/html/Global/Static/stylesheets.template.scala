@@ -33,9 +33,9 @@ object stylesheets extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.ap
 Seq[Any](format.raw/*1.4*/("""
 
 """),format.raw/*3.1*/("""<!-- BOOTSTRAP CORE STYLE  -->
-<link href="assets/stylesheets/bootstrap.css" rel="stylesheet" />
+<link href=""""),_display_(/*4.14*/routes/*4.20*/.Assets.versioned("stylesheets/bootstrap.css")),format.raw/*4.66*/("""" rel="stylesheet" />
     <!-- MAIN STYLE  -->
-<link href="assets/stylesheets/main.css" rel="stylesheet" />"""))
+<link href=""""),_display_(/*6.14*/routes/*6.20*/.Assets.versioned("stylesheets/main.css")),format.raw/*6.61*/("""" rel="stylesheet" />"""))
       }
     }
   }
@@ -51,11 +51,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Aug 03 15:47:39 SAST 2017
+                  DATE: Thu Aug 17 21:50:29 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/stylesheets.scala.html
-                  HASH: f65ec1bfbdedc2b82bdaf43e518634db42bc717c
-                  MATRIX: 961->1|1057->3|1085->5
-                  LINES: 28->1|33->1|35->3
+                  HASH: a08a1c68361a6e1acfaf329e85d95e3025637c98
+                  MATRIX: 961->1|1057->3|1085->5|1155->49|1169->55|1235->101|1321->161|1335->167|1396->208
+                  LINES: 28->1|33->1|35->3|36->4|36->4|36->4|38->6|38->6|38->6
                   -- GENERATED --
               */
           

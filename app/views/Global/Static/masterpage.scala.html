@@ -1,15 +1,16 @@
 @import Global.Html5._
 @import Global.Static._
 
-@(pageTitle: String)(content: Html)
+@(pageTitle: String, bodyContent: Html)
 
-@navSection = {
+@navContent = {
 
 }
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+@scriptsContent = {
 
-    @essentials(pageTitle){@navSection}{@content}
-</html>
+}
+
+@essentials(pageTitle, navContent, bodyContent, scriptsContent)
 
 

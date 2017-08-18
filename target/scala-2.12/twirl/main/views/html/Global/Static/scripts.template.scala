@@ -34,11 +34,13 @@ Seq[Any](format.raw/*1.4*/("""
 
 """),format.raw/*3.1*/("""<!-- JAVASCRIPT FILES TO BE  PLACED AT THE BOTTOM OF A PAGE TO REDUCE THE LOADING TIME  -->
 <!-- CORE JQUERY  -->
-<script src="assets/javascript/jquery-1.10.2.js"></script>
+<script src=""""),_display_(/*5.15*/routes/*5.21*/.Assets.versioned("javascripts/jquery-1.10.2.js")),format.raw/*5.70*/("""" rel="script"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
-<script src="assets/javascript/bootstrap.js"></script>
+<script src=""""),_display_(/*7.15*/routes/*7.21*/.Assets.versioned("javascripts/bootstrap.js")),format.raw/*7.66*/("""" rel="script"></script>
     <!-- MAIN/CUSTOM SCRIPTS  -->
-<script src="assets/javascript/main.js"></script>"""))
+<script src=""""),_display_(/*9.15*/routes/*9.21*/.Assets.versioned("javascripts/main.js")),format.raw/*9.61*/("""" rel="script"></script>
+
+<script src=""""),_display_(/*11.15*/routes/*11.21*/.Assets.versioned("javascripts/carousel.js")),format.raw/*11.65*/("""" rel="script"></script>"""))
       }
     }
   }
@@ -54,11 +56,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Aug 03 15:47:39 SAST 2017
+                  DATE: Thu Aug 17 21:50:29 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/scripts.scala.html
-                  HASH: bd484c3e6423e2d8e190e1731ce085e7fd01e6f6
-                  MATRIX: 957->1|1053->3|1081->5
-                  LINES: 28->1|33->1|35->3
+                  HASH: 5f60ea0ade7c263d07c3ee5431c00240264d9efc
+                  MATRIX: 957->1|1053->3|1081->5|1235->133|1249->139|1318->188|1415->259|1429->265|1494->310|1593->383|1607->389|1667->429|1734->469|1749->475|1814->519
+                  LINES: 28->1|33->1|35->3|37->5|37->5|37->5|39->7|39->7|39->7|41->9|41->9|41->9|43->11|43->11|43->11
                   -- GENERATED --
               */
           

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Aug 05 21:16:56 SAST 2017
+// @DATE:Fri Aug 18 19:03:52 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:14
+// @LINE:15
 package controllers.User.javascript {
 
-  // @LINE:29
+  // @LINE:36
   class ReverseCustomerController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,67 @@ package controllers.User.javascript {
     }
 
   
-    // @LINE:29
+    // @LINE:39
+    def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.edit",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Profile"})
+        }
+      """
+    )
+  
+    // @LINE:41
+    def create: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.create",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register"})
+        }
+      """
+    )
+  
+    // @LINE:43
+    def completeRegistration: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.completeRegistration",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Registration/Completing"})
+        }
+      """
+    )
+  
+    // @LINE:37
+    def register: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.register",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register"})
+        }
+      """
+    )
+  
+    // @LINE:42
+    def reverify: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.reverify",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Registration/Reverify"})
+        }
+      """
+    )
+  
+    // @LINE:44
+    def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.update",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Profile"})
+        }
+      """
+    )
+  
+    // @LINE:36
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.index",
       """
@@ -30,19 +90,9 @@ package controllers.User.javascript {
       """
     )
   
-  }
-
-  // @LINE:14
-  class ReverseAccountController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:18
-    def verify: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.verify",
+    // @LINE:38
+    def verifyCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.verifyCustomer",
       """
         function(token0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Verify/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("token", encodeURIComponent(token0))})
@@ -50,19 +100,69 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:15
-    def create: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.create",
+  }
+
+  // @LINE:25
+  class ReverseStaffController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:29
+    def doLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.StaffController.doLogin",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Staff/Login"})
         }
       """
     )
   
-    // @LINE:22
+    // @LINE:27
+    def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.StaffController.logout",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Staff/Logout"})
+        }
+      """
+    )
+  
+    // @LINE:25
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.StaffController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Staff"})
+        }
+      """
+    )
+  
+    // @LINE:26
+    def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.StaffController.login",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Staff/Login"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:15
+  class ReverseUserController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:18
     def doLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.doLogin",
+      "controllers.User.UserController.doLogin",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Login"})
@@ -70,9 +170,9 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:16
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.logout",
+      "controllers.User.UserController.logout",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Logout"})
@@ -80,29 +180,9 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:21
-    def save: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.save",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register"})
-        }
-      """
-    )
-  
-    // @LINE:14
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User"})
-        }
-      """
-    )
-  
-    // @LINE:16
+    // @LINE:15
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.User.AccountController.login",
+      "controllers.User.UserController.login",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Login"})

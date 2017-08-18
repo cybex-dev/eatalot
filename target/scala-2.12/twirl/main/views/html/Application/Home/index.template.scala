@@ -23,53 +23,108 @@ import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import views.html.Global.Static.masterpage
 
-object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*3.2*/(pageTitle: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*3.2*/():play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*5.2*/bodyHtml/*5.10*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*5.2*/carousel/*5.10*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*5.14*/("""
-    """),format.raw/*6.5*/("""<p>The main loading page, add slider of images, text, etc</p>
-    <p>And some more images</p>
-""")))};
-Seq[Any](format.raw/*3.21*/("""
-
-"""),format.raw/*8.2*/("""
-
-"""),format.raw/*10.1*/("""<html>
-"""),_display_(/*11.2*/masterpage(pageTitle)/*11.23*/ {_display_(Seq[Any](format.raw/*11.25*/("""
-    """),format.raw/*12.5*/("""<div class="body">
-        <h1>User's homepage</h1>
-        <p>TO order, loging or create an account (no login check yet)</p>
-
-        <div class="container-small">
-            <div class="pull-center">
-                <div class="align-center">
-                    <a href=""""),_display_(/*19.31*/controllers/*19.42*/.User.routes.AccountController.login()),format.raw/*19.80*/("""" class="btn btn-success">
-                        Login to EatAloT</a>
-                    <br/>
-                    <br/>
-                    <a href=""""),_display_(/*23.31*/controllers/*23.42*/.User.routes.AccountController.create()),format.raw/*23.81*/("""" class="btn btn-default">
-                        Create Account</a>
-                    <br/>
-                    <br/>
+    """),format.raw/*6.5*/("""<div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="assets/images/food/food01.png" alt="" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/food/food02.png" alt="" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/food/food03.png" alt="" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/food/food04.png" alt="" />
+                        </div>
+                    </div>
+                        <!--INDICATORS-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                        <li data-target="#carousel-example" data-slide-to="3"></li>
+                    </ol>
+                        <!--PREVIUS-NEXT BUTTONS-->
+                    <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-""")))}),format.raw/*31.2*/("""
-"""),format.raw/*32.1*/("""</html>"""))
+""")))};def /*44.2*/bodyContent/*44.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*44.17*/("""
+    """),format.raw/*45.5*/("""<h1 class="html-editor-indent">Welcome to EatAloT</h1>
+    <br/>
+    <br/>
+    <h2 class="html-editor-indent">If you are hungry, you have come to the right place</h2>
+    <br/>
+    <br/>
+    """),format.raw/*51.37*/("""
+"""),_display_(/*52.2*/carousel),format.raw/*52.10*/("""
+    """),format.raw/*53.35*/("""
+    """),format.raw/*54.5*/("""<br/>
+    <h2>You can order a meal in 3 simple steps</h2>
+    <ul>
+        <li>
+            <Span class="text-large-bold">Step 1</Span>
+            <ul>
+                <li>Create an account <form action=""""),_display_(/*60.54*/controllers/*60.65*/.User.routes.CustomerController.register()),format.raw/*60.107*/("""" method="get">
+                    <button id="btnHomeRegisterRedirect" class="btn btn-default">Register</button>
+                </form></li>
+            </ul>
+        </li>
+        <li>
+            <Span class="text-large-bold">Step 2</Span>
+            <ul>
+                <li>Order a meal</li>
+            </ul>
+        </li>
+        <li>
+            <Span class="text-large-bold">Step 3</Span>
+            <ul>
+                <li><h4>Enjoy your meal!</h4></li>
+            </ul>
+        </li>
+    </ul>
+
+    <br/>
+    <br/>
+
+""")))};
+Seq[Any](format.raw/*3.4*/("""
+
+"""),format.raw/*42.2*/("""
+
+"""),format.raw/*82.2*/("""
+
+
+"""),_display_(/*85.2*/masterpage/*85.12*/.apply(" :: Welcome", bodyContent)))
       }
     }
   }
 
-  def render(pageTitle:String): play.twirl.api.HtmlFormat.Appendable = apply(pageTitle)
+  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (pageTitle) => apply(pageTitle)
+  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
 
   def ref: this.type = this
 
@@ -78,11 +133,11 @@ Seq[Any](format.raw/*3.21*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Aug 05 23:16:05 SAST 2017
+                  DATE: Thu Aug 17 21:50:29 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Application/Home/index.scala.html
-                  HASH: 2a0ad32ec1a5f43ba15ca85b6dbebfdadbd88c5e
-                  MATRIX: 668->1|1015->46|1112->68|1128->76|1208->80|1239->85|1373->65|1401->180|1430->182|1464->190|1494->211|1534->213|1566->218|1869->494|1889->505|1948->543|2129->697|2149->708|2209->747|2430->938|2458->939
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|39->3|41->8|43->10|44->11|44->11|44->11|45->12|52->19|52->19|52->19|56->23|56->23|56->23|64->31|65->32
+                  HASH: 04590b30a5c8feeafb279f47f11eab2abc36d339
+                  MATRIX: 668->1|1008->46|1088->51|1104->59|1184->63|1215->68|3133->1966|3153->1977|3234->1981|3266->1986|3485->2209|3513->2211|3542->2219|3575->2254|3607->2259|3840->2465|3860->2476|3924->2518|4496->48|4525->1963|4554->3052|4584->3056|4603->3066
+                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|72->44|72->44|74->44|75->45|81->51|82->52|82->52|83->53|84->54|90->60|90->60|90->60|113->3|115->42|117->82|120->85|120->85
                   -- GENERATED --
               */
           

@@ -49,7 +49,8 @@ public class AsyncController extends Controller {
      * customerHome path of <code>/message</code>.
      */
     public CompletionStage<Result> message() {
-        return getFutureMessage(5, TimeUnit.SECONDS).thenApplyAsync(s -> ok(views.html.User.Account.verified.render()), exec);
+//        return getFutureMessage(5, TimeUnit.SECONDS).thenApplyAsync(s -> ok(views.html.User.Customer.verified.render()), exec);
+        return null;
     }
 
     private CompletionStage<String> getFutureMessage(long time, TimeUnit timeUnit) {

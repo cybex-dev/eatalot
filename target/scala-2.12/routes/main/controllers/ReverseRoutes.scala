@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Aug 05 21:16:56 SAST 2017
+// @DATE:Fri Aug 18 19:03:52 SAST 2017
 
 import play.api.mvc.Call
 
@@ -9,17 +9,17 @@ import play.api.mvc.Call
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:35
+// @LINE:74
 package controllers {
 
-  // @LINE:37
+  // @LINE:76
   class ReverseAsyncController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:37
+    // @LINE:76
     def message(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "message")
@@ -27,14 +27,14 @@ package controllers {
   
   }
 
-  // @LINE:40
+  // @LINE:79
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:40
+    // @LINE:79
     def versioned(file:Asset): Call = {
       implicit val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -42,14 +42,14 @@ package controllers {
   
   }
 
-  // @LINE:35
+  // @LINE:74
   class ReverseCountController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:35
+    // @LINE:74
     def count(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "count")

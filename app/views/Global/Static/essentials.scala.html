@@ -2,33 +2,30 @@
 @import Global.Html5._
 @import Global.Static._
 
-@(pageTitle: String)(navExt: Html)(bodyContent: Html)
+@(pageTitle: String, navExt: Html, bodyContent: Html, scriptsContent: Html)
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-    @header {
-
+    @headerHtml = {
         @meta.apply()
         @stylesheets.apply()
-
         @title(AppTags.General.SITENAME + pageTitle)
     }
-    @body {
 
-        @for(key <- Array(AppTags.ErrorCodes.values())) {
+    @bodyHtml = {
+        @for(key <- Array("danger","warning","success","info")) {
             @if(flash().containsKey(key)) {
                 <div class="alert alert-@key">
-                    @flash.get(key)
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close"><i class="glyphicon glyphicon-remove"></i></a>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">@flash.get(key).toString<i class="glyphicon glyphicon-remove"></i></a>
                 </div>
             }
         }
-
         @nav_wrapper(navExt)
         @bodyContent
         @footer_wrapper.apply()
-
     }
 
-    @scripts.apply()
-
-</html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        @header.apply(headerHtml)
+        @body.apply("body", bodyHtml)
+        @scripts.apply()
+        @scriptsContent
+    </html>

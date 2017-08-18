@@ -53,3 +53,30 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+.text-large-bold {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.nav-text-enlarge {
+    font-size:18px;
+}
+
+.input-container {
+    background-color: lightgray;
+}
+
+.settings-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.button-padding {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

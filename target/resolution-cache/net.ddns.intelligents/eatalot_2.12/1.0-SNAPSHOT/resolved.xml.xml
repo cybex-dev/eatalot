@@ -4,7 +4,7 @@
 		module="eatalot_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170803154738"
+		publication="20170817215027"
 	>
 		<description>
 		EatAloT
@@ -54,6 +54,9 @@
 		<dependency org="com.typesafe.play" name="play-akka-http-server_2.12" rev="2.6.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc_2.12" rev="2.6.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-java-jdbc_2.12" rev="2.6.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-jdbc-evolutions_2.12" rev="2.6.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-mailer_2.12" rev="6.0.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-mailer-guice_2.12" rev="6.0.1" conf="compile->default(compile)"/>
 		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>
 		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
 		<dependency org="mysql" name="mysql-connector-java" rev="5.1.41" conf="compile->default(compile)"/>

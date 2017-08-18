@@ -27,23 +27,26 @@ import play.core.j.PlayFormsMagicForJava._
 object masterpage extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*4.2*/(pageTitle: String)(content: Html):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*4.2*/(pageTitle: String, bodyContent: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*6.2*/navSection/*6.12*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*6.2*/navContent/*6.12*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*6.16*/("""
 
+""")))};def /*10.2*/scriptsContent/*10.16*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*10.20*/("""
+
 """)))};
-Seq[Any](format.raw/*4.36*/("""
+Seq[Any](format.raw/*4.40*/("""
 
 """),format.raw/*8.2*/("""
 
-"""),format.raw/*10.1*/("""<html xmlns="http://www.w3.org/1999/xhtml">
+"""),format.raw/*12.2*/("""
 
-    """),_display_(/*12.6*/essentials(pageTitle)/*12.27*/{_display_(_display_(/*12.29*/navSection))}/*12.40*/{_display_(_display_(/*12.42*/content))}),format.raw/*12.50*/("""
-"""),format.raw/*13.1*/("""</html>
+"""),_display_(/*14.2*/essentials(pageTitle, navContent, bodyContent, scriptsContent)),format.raw/*14.64*/("""
 
 
 """))
@@ -51,9 +54,9 @@ Seq[Any](format.raw/*4.36*/("""
     }
   }
 
-  def render(pageTitle:String,content:Html): play.twirl.api.HtmlFormat.Appendable = apply(pageTitle)(content)
+  def render(pageTitle:String,bodyContent:Html): play.twirl.api.HtmlFormat.Appendable = apply(pageTitle,bodyContent)
 
-  def f:((String) => (Html) => play.twirl.api.HtmlFormat.Appendable) = (pageTitle) => (content) => apply(pageTitle)(content)
+  def f:((String,Html) => play.twirl.api.HtmlFormat.Appendable) = (pageTitle,bodyContent) => apply(pageTitle,bodyContent)
 
   def ref: this.type = this
 
@@ -62,11 +65,11 @@ Seq[Any](format.raw/*4.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Aug 03 15:47:39 SAST 2017
+                  DATE: Thu Aug 17 21:50:29 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/masterpage.scala.html
-                  HASH: 07b86e2bf9f7601db3a803c65f4d018c959cf24f
-                  MATRIX: 665->1|694->24|1031->49|1143->86|1161->96|1241->100|1283->83|1311->103|1340->105|1416->155|1446->176|1476->178|1498->189|1528->191|1559->199|1587->200
-                  LINES: 24->1|25->2|30->4|34->6|34->6|36->6|39->4|41->8|43->10|45->12|45->12|45->12|45->12|45->12|45->12|46->13
+                  HASH: 96ace2b8fd66d5b4ff8b11f32a84399997d7a5f8
+                  MATRIX: 665->1|694->24|1031->49|1147->90|1165->100|1245->104|1271->110|1294->124|1375->128|1417->87|1445->107|1474->131|1503->134|1586->196
+                  LINES: 24->1|25->2|30->4|34->6|34->6|36->6|38->10|38->10|40->10|43->4|45->8|47->12|49->14|49->14
                   -- GENERATED --
               */
           

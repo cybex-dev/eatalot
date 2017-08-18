@@ -1,7 +1,9 @@
 package controllers.Application;
 
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
+import play.routing.JavaScriptReverseRouter;
 import views.html.Application.Home.index;
 
 /**
@@ -10,6 +12,10 @@ import views.html.Application.Home.index;
  */
 public class HomeController extends Controller {
 
+    public Result invalidRoute(String path) {
+        return notFound("Oops...\n\nThe page \"" + path + "\" does not exist");
+    }
+
     /**
      * An action that renders an HTML page with a customerHome message.
      * The configuration in the <code>routes</code> file means that
@@ -17,7 +23,10 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render("Welcome to EatAloT"));
+        Result result = AppTags.Session.checkExistingLogin(request(), session());
+        if (result != null)
+            return result;
+        return ok(index.render());
     }
 
 }

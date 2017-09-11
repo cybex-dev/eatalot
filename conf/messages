@@ -28,3 +28,4 @@ error.cellphone_format=Invalid cellphone number, use format 0XX XXX XXXX
 password.require_length=Password requires atleast 8 characters
 password.require_caps=Requires atleast 1 capital letter
 password.require_special=Requires atleast 1 special character e.g. !, @, #, $, etc
+error.invalidVoucherCode=Invalid voucher code

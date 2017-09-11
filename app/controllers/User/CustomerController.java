@@ -8,12 +8,10 @@ import org.jetbrains.annotations.NotNull;
 import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
-import play.data.validation.ValidationError;
 import play.libs.mailer.MailerClient;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-import views.html.Application.Home.index;
 import views.html.User.Customer.*;
 import views.html.User.Customer.editProfile;
 
@@ -21,6 +19,7 @@ import javax.inject.Inject;
 import java.util.*;
 
 import static controllers.Application.AppTags.*;
+import static controllers.Application.AppTags.AppCookie.buildCookie;
 
 /**
  * Created by cybex on 2017/07/21.
@@ -49,12 +48,16 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
     public Result index() {
-        Http.Response response = response();
-        Http.Request request = request();
-        Http.Session session = session();
-        if (!Session.checkExistingSession(session()))
-            return AppTags.Session.loadSessionfromCookies(request(), session());
-        return ok(customerHome.render());
+        if (!Session.checkExistingSession(session())) {
+            Result result = Session.loadSessionfromCookies(request(), session());
+            if (result == null){
+//                flash(FlashCodes.warning.toString(), "An error occured while logging in, please try again");
+                return redirect(controllers.Application.routes.HomeController.index());
+            }
+            return result;
+        }
+        Long uId = Long.parseLong(Session.User.Customer.extract(session(), Session.User.id.toString()));
+        return ok(customerHome.render(UserInfo.fill(uId)));
     }
 
     /**
@@ -77,7 +80,7 @@ public class CustomerController extends Controller implements CRUD {
         Form<UserRegisterInfo> userForm = formFactory.form(UserRegisterInfo.class).bindFromRequest();
 
         if (userForm.hasErrors()) {
-            flash(ErrorCodes.warning.toString(), "Please check all fields");
+            flash(FlashCodes.warning.toString(), "Please check all fields");
             return badRequest(register.render(userForm));
         }
         UserRegisterInfo userRegisterInfo = userForm.get();
@@ -102,10 +105,10 @@ public class CustomerController extends Controller implements CRUD {
                 throw new Exception("EmailException: Verification email could not be sent");
         } catch (Exception x) {
             Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
-            flash(ErrorCodes.warning.toString(), "Unable to process request, please try again later!");
+            flash(FlashCodes.warning.toString(), "Unable to process request, please try again later!");
             return returnRegisterRequest("Error sending verification email", userForm, userEmail, csrfToken);
         }
-        flash(ErrorCodes.success.toString(), "Verification email has been sent");
+        flash(FlashCodes.success.toString(), "Verification email has been sent");
         return ok(verify.render());
     }
 
@@ -127,16 +130,16 @@ public class CustomerController extends Controller implements CRUD {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class).bindFromRequest();
         UserProfile userProfile = formUserProfile.get();
         if (formUserProfile.hasErrors()) {
-            flash(ErrorCodes.warning.toString(), "Please check entered information");
+            flash(FlashCodes.warning.toString(), "Please check entered information");
             return badRequest(editProfile.render(formUserProfile));
         }
 //        if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
-//            flash(ErrorCodes.warning.toString(), "Please check passwords match and are valid");
+//            flash(FlashCodes.warning.toString(), "Please check passwords match and are valid");
 //            return badRequest(editProfile.render(formUserProfile));
 //        }
         userProfile.setUserId(session(Session.User.id.toString()));
         userProfile.save();
-        flash(ErrorCodes.success.toString(), "Profile has been updated!");
+        flash(FlashCodes.success.toString(), "Profile has been updated!");
         return redirect(routes.CustomerController.index());
     }
 
@@ -178,7 +181,7 @@ public class CustomerController extends Controller implements CRUD {
         Form userForm = formFactory.form().bindFromRequest();
 
         if (userForm.hasErrors()) {
-            flash(ErrorCodes.warning.toString(), "Please check all fields");
+            flash(FlashCodes.warning.toString(), "Please check all fields");
             return badRequest(register.render(userForm));
         }
 
@@ -189,7 +192,7 @@ public class CustomerController extends Controller implements CRUD {
         if (list.size() == 1)
             try {
                 if (generateVerificationEmail(userEmail, CRSFToken)) {
-                    flash(ErrorCodes.success.toString(), "Verification email has been sent");
+                    flash(FlashCodes.success.toString(), "Verification email has been sent");
 //                    flash(User.ENABLETIME.toString(), "  5");
                     return ok(verify.render());
                 } else {
@@ -198,7 +201,7 @@ public class CustomerController extends Controller implements CRUD {
 
             } catch (Exception x) {
                 Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
-                flash(ErrorCodes.warning.toString(), "Error sending verification email");
+                flash(FlashCodes.warning.toString(), "Error sending verification email");
                 return badRequest(verify.render());
             }
         else {
@@ -233,7 +236,7 @@ public class CustomerController extends Controller implements CRUD {
      */
     @NotNull
     private Result returnRegisterRequest(String message, Form userForm, String email, String token) {
-        flash(ErrorCodes.warning.toString(), message);
+        flash(FlashCodes.warning.toString(), message);
         Map<String, String> m = new HashMap<>();
         m.put("E-Mail", email);
         m.put(Session.SessionTags.csrfTokenString.toString(), token);
@@ -244,7 +247,12 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     public Result registerComplete() {
-        Form<UserRegisterDetails> registerCompleteForm = formFactory.form(UserRegisterDetails.class);
+        String uId = AppCookie.extract(request(), AppCookie.user_id);
+        if (uId.isEmpty() || uId == null)
+            return AppTags.renderDefaultPage();
+        Customer customer = Customer.find.byId(Long.parseLong(uId));
+        Address address = customer.getAddress();
+        Form<UserRegisterDetails> registerCompleteForm = formFactory.form(UserRegisterDetails.class).bind(UserRegisterDetails.buildMap(customer, address));
         return ok(views.html.User.Customer.registerDetails.render(registerCompleteForm));
     }
 
@@ -267,14 +275,14 @@ public class CustomerController extends Controller implements CRUD {
         try {
             String uId = AppCookie.extract(request(), AppCookie.user_id);
             if (uId == null)
-                throw new Exception("UserID null Exception");
+                return internalServerError(invalid.render("Something went wrong, please try again!"));
             userId = Long.parseLong(uId);
         } catch (Exception x) {
             return internalServerError(invalid.render("Something went wrong, please try again!"));
         }
 
         if (registerForm.hasErrors()) {
-            flash(ErrorCodes.warning.toString(), "Please check all fields");
+            flash(FlashCodes.warning.toString(), "Please check all fields");
             return badRequest(registerDetails.render(registerForm));
         }
 
@@ -285,7 +293,7 @@ public class CustomerController extends Controller implements CRUD {
 
         if (!c.getToken().equals(cookieToken)) {
             AppCookie.clear(response(), AppCookie.RememberMe, AppCookie.user_id, AppCookie.user_type, AppCookie.user_token, AppCookie.Org);
-            flash().put(ErrorCodes.danger.toString(), "Token mismatch, close your browser and restart");
+            flash().put(FlashCodes.danger.toString(), "Token mismatch, close your browser and restart");
             return badRequest(invalid.render("Something went horribly wrong, please log in again!"));
         }
 
@@ -313,8 +321,19 @@ public class CustomerController extends Controller implements CRUD {
         c.setName(userRegisterDetails.getName());
         c.setSurname(userRegisterDetails.getSurname());
         c.setUserId(AppCookie.extractUserId(request()));
+        if (c.completeCheck())
+            c.setComplete(true);
+        else{
+            flash(FlashCodes.warning.toString(), "Some details are missing, please check all fields");
+            return badRequest(registerDetails.render(registerForm));
+        }
         c.save();
 
-        return redirect(routes.CustomerController.index());
+        Result result = redirect(routes.CustomerController.index());
+        result = result.withCookies(
+                buildCookie(AppCookie.user_id.toString(), String.valueOf(c.getUserId())),
+                buildCookie(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString()),
+                buildCookie(AppCookie.user_token.toString(), c.getToken()));
+        return result;
     }
 }

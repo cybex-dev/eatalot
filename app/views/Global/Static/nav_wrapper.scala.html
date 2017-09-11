@@ -17,32 +17,68 @@
                     <div class="col-md-pull-12">
                         <div class="navbar-collapse collapse ">
                             <ul class="nav navbar-nav navbar-left navbar-top nav-text-enlarge">
+                            @if(request.session.get(AppTags.Session.User.token.toString).isDefined) {
                                 @*The DASHBOARD [ /user ]*@
                                 <li><a href="@controllers.User.routes.CustomerController.index()" class="menu-top-active nav-text-enlarge"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
-                                    Dashboard</a></li>
+                                    Dashboard</a>
+                                </li>
+                                @*The MENU [ /Menu ]*@
+                                <li>
+                                    <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+                                        Menu
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        @*The MENU [ /Menu/Breakfasts ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#breakfasts">
+                                            Breakfasts</a></li>
+                                        @*The MENU [ /Menu/Lunches ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#lunches">
+                                            Lunches</a></li>
+                                        @*The MENU [ /Menu/Dinners ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#dinners">
+                                            Dinners</a></li>
+                                        @*The MENU [ /Menu/Desserts ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
+                                            Desserts</a></li>
+                                        @*The MENU [ /Menu/Snacks ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">
+                                            Snacks</a></li>
+                                    </ul>
+                                </li>
 
-                                @*The MENU [ /menu ]*@
-                                @*<li>*@
-                                    @*<a href="@controllers.Menu.routes.MenuController.index()" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">*@
-                                        @*MENU*@
-                                        @*<i class="fa fa-angle-down"></i>*@
-                                    @*</a>*@
-                                    @*<ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">*@
-                                        @*<li role="presentation"><a role="menuitem" tabindex="-1" href="#breakfasts">*@
-                                            @*Breakfasts</a></li>*@
-                                        @*<li role="presentation"><a role="menuitem" tabindex="-1" href="#lunches">*@
-                                            @*Lunches</a></li>*@
-                                        @*<li role="presentation"><a role="menuitem" tabindex="-1" href="#dinners">*@
-                                            @*Dinners</a></li>*@
-                                        @*<li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">*@
-                                            @*Desserts</a></li>*@
-                                        @*<li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">*@
-                                            @*Snacks</a></li>*@
-                                    @*</ul>*@
-                                @*</li>*@
-                                <li><a href="#">TODO</a> </li>
+                                <li><a href="#">Order Schedule</a></li>
+                                <li><a href="@controllers.Finance.routes.UserFinance.addFunds()">Add Funds</a> </li>
                                 <li><a href="#">TODO</a></li>
                                 <li><a href="#">TODO</a></li>
+                            } else {
+                                @*The MENU [ /Menu ]*@
+                                <li>
+                                    <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+                                        Menu
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        @*The MENU [ /Menu/Breakfasts ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#breakfasts">
+                                            Breakfasts</a></li>
+                                        @*The MENU [ /Menu/Lunches ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#lunches">
+                                            Lunches</a></li>
+                                        @*The MENU [ /Menu/Dinners ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#dinners">
+                                            Dinners</a></li>
+                                        @*The MENU [ /Menu/Desserts ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
+                                            Desserts</a></li>
+                                        @*The MENU [ /Menu/Snacks ]*@
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">
+                                            Snacks</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">TODO</a></li>
+                                <li><a href="#">TODO</a></li>
+                            }
                             </ul>
                             <ul class="right-container navbar-btn navbar-right">
                             @if(request.session.get(AppTags.Session.User.token.toString).isDefined) {

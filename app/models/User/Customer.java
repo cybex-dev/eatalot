@@ -17,6 +17,8 @@ public class Customer extends User {
     private Boolean emailVerified = false;
     @Constraints.Required
     private String token;
+    private boolean isComplete = false;
+    private Double balance = 0.00;
 
     public Customer(){}
 
@@ -31,6 +33,7 @@ public class Customer extends User {
 
     public void setToken(String token) {
         this.token = token;
+        save();
     }
 
     public Boolean getEmailVerified() {
@@ -39,6 +42,7 @@ public class Customer extends User {
 
     public void setEmailVerified(Boolean emailVerified) {
         this.emailVerified = emailVerified;
+        save();
     }
 
     public String getToken() {
@@ -51,6 +55,7 @@ public class Customer extends User {
 
     public void setAddressId(Long address) {
         this.addressId = address;
+        save();
     }
 
     public Address getAddress(){
@@ -63,14 +68,15 @@ public class Customer extends User {
 
     public void setStudent(Boolean status) {
         this.isStudent = status;
+        save();
     }
 
     /**
      * Checks all values of the Customer, returns true if the user's profile is complete
      * @return
      */
-    public boolean isComplete(){
-        return (super.isComplete() &&
+    public boolean completeCheck(){
+        return isComplete = (super.completeCheck() &&
                 emailVerified &&
                 Address.find.byId(addressId).isComplete());
     }
@@ -99,5 +105,30 @@ public class Customer extends User {
 
     public boolean isVerified() {
         return emailVerified;
+    }
+
+    public void setComplete(boolean complete) {
+        this.isComplete = complete;
+        save();
+    }
+
+    public boolean isComplete() {
+        return isComplete;
+    }
+
+    public void addFunds(Double value) {
+        balance += value;
+    }
+
+    public void pay(Double value) {
+        balance -= value;
+    }
+
+    public String  getBalance(){
+        return (balance == null) ? "0.00" : String.valueOf(balance);
+    }
+
+    public UserInfo getUserInfo(){
+        return new UserInfo(getUserId(), getName(), getSurname(), isComplete(), isStudent(), getBalance());
     }
 }

@@ -3,26 +3,20 @@ package controllers.Application;
 //import models.User.Customer;
 
 import controllers.Application.AppTags.AppCookie.UserType;
-import controllers.Delivery.DeliveryController;
-import controllers.Order.KitchenController;
-import controllers.User.CustomerController;
-import models.User.Customer;
-import models.User.UserRegisterDetails;
+import controllers.User.routes;
 import play.Logger;
 import play.data.Form;
-import play.mvc.Http.Session;
+import play.data.FormFactory;
 import play.mvc.Http;
 import play.mvc.Result;
-import scala.App;
 
-import java.util.Collection;
+import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.Optional;
 
 
-import static controllers.User.routes.*;
 import static play.mvc.Results.ok;
 import static play.mvc.Results.redirect;
-import static sun.security.krb5.internal.crypto.Nonce.value;
 
 /**
  * Created by cybex on 2017/07/16.
@@ -50,7 +44,7 @@ public class AppTags {
         }
     }
 
-    public enum ErrorCodes {
+    public enum FlashCodes {
         warning("warning"),
         danger("danger"),
         success("success"),
@@ -58,7 +52,7 @@ public class AppTags {
 
         private String value;
 
-        ErrorCodes(String input) {
+        FlashCodes(String input) {
             value = input;
         }
 
@@ -371,8 +365,10 @@ public class AppTags {
             Result result = null;
             String userId = session.get(User.id.toString()),
                     token = session.get(User.token.toString());
-            if (userId == null || token == null)
+            if (userId == null || token == null || userId.isEmpty() || token.isEmpty()) {
+                session.clear();
                 return result;
+            }
             try {
                 String s = session.get(AppCookie.user_type.toString());
                 switch (AppCookie.UserType.parse(s)) {
@@ -410,23 +406,18 @@ public class AppTags {
                     return null;
                 if (!org.equals(General.SITENAME.toString()))
                     return null;
-//                String rem = AppCookie.extract(request, AppCookie.RememberMe);
-//                if (rem == null)
-//                    return null;
-//                if (!rem.equals("true"))
-//                    return null;
                 String userId = AppCookie.extractString(request, AppCookie.user_id),
                         token = AppCookie.extractString(request, AppCookie.user_token),
                         type = AppCookie.extractString(request, AppCookie.user_type);
                 session.put(User.id.toString(), userId);
                 session.put(User.token.toString(), token);
                 session.put(AppCookie.user_type.toString(), type);
-                return loadSessionAndRedirectUser(session);
+
             } catch (Exception x) {
                 Logger.debug(x.toString());
+                return renderDefaultPage();
             }
-            return null;
-
+            return loadSessionAndRedirectUser(session);
         }
     }
 
@@ -511,6 +502,31 @@ public class AppTags {
                     return false;
             }
             return true;
+        }
+    }
+
+    public static Result renderDefaultPage() {
+        Result redirect = redirect(controllers.User.routes.UserController.login());
+        return redirect;
+    }
+
+    public static class Locale {
+
+
+        public enum Currency {
+            ZAR("R"),
+            USD("$");
+
+            private String symbol;
+
+            Currency(String symbol) {
+                this.symbol = symbol;
+            }
+
+            @Override
+            public String toString() {
+                return symbol;
+            }
         }
     }
 }

@@ -58,7 +58,7 @@ public abstract class User extends Model {
         this.cellNumber = cellNumber;
     }
 
-    public boolean isComplete(){
+    public boolean completeCheck(){
         return (name != null &&
                 !name.equals("") &&
                 surname != null &&

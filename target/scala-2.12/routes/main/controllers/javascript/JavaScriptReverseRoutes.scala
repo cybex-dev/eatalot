@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Aug 18 19:03:52 SAST 2017
+// @DATE:Sat Sep 02 14:47:31 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:74
+// @LINE:83
 package controllers.javascript {
 
-  // @LINE:76
+  // @LINE:85
   class ReverseAsyncController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:76
+    // @LINE:85
     def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AsyncController.message",
       """
@@ -32,7 +32,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:79
+  // @LINE:88
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -40,7 +40,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:79
+    // @LINE:88
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -52,7 +52,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:74
+  // @LINE:83
   class ReverseCountController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -60,7 +60,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:74
+    // @LINE:83
     def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CountController.count",
       """

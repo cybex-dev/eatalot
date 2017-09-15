@@ -31,15 +31,15 @@ public class AccountController extends Controller{
 
     /**
      * Check if there is an unsubmitted order from a previous session
+     * Resume previous order after logout
      * Set session to that orderId
      * There should only ever be one unsubmitted order per user
      */
-    // TODO: FIX doesn't work
     private void setCurrentOrder(){
         List<CustomerOrder> lstOrders = CustomerOrder.findOrderByUserId(session("email"));
         if (lstOrders != null) {
             for (CustomerOrder lstOrder : lstOrders) {
-                if (Objects.equals(lstOrder.getStatusId(), "unsubmitted")) {
+                if (lstOrder.getStatusId().equals("unsubmitted")) {
                     session("orderId", String.valueOf(lstOrder.getOrderId()));
                     break;
                 }

@@ -28,4 +28,4 @@ GET     /cart                  controllers.OrderController.getCart()
 
 POST    /cart/removemeal       controllers.OrderController.removeMealFromOrder(mealId: String)
 
-POST    /submit           controllers.OrderController.submitCart()
+POST    /submit                controllers.OrderController.submitCart()

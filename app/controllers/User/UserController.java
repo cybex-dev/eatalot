@@ -15,7 +15,9 @@ import views.html.User.User.login;
 
 import javax.inject.Inject;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import views.html.User.Customer.registerDetails;
 
@@ -108,12 +110,17 @@ public class UserController extends Controller {
                 result = redirect(routes.CustomerController.index());
             }
             else {
+                session().put(Session.User.id.toString(), String.valueOf(customer.getUserId()));
+                session().put(Session.User.token.toString(), String.valueOf(customer.getToken()));
+
                 result = ok(registerDetails.apply(formFactory.form(UserRegisterDetails.class)));
                 return result.withCookies(
                         buildCookie(AppCookie.newUser.toString(), AppCookie.newUser.toString()),
                         buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
                         buildCookie(AppCookie.Org.toString(), General.SITENAME.toString()),
-                        buildCookie(AppCookie.loginTime.toString(), time));
+                        buildCookie(AppCookie.loginTime.toString(), time),
+                        buildCookie(AppCookie.user_token.toString(), customer.getToken()),
+                        buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())));
             }
         } else {
             result = redirect(routes.CustomerController.index());

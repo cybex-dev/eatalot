@@ -23,6 +23,7 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
+        Http.Response response = response();
         Result result = AppTags.Session.checkExistingLogin(request(), session());
         if (result != null)
             return result;

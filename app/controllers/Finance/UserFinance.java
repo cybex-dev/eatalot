@@ -20,6 +20,7 @@ import javax.persistence.NonUniqueResultException;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import static controllers.Application.AppTags.*;
 
@@ -67,7 +68,8 @@ public class UserFinance extends Controller {
             flash().put(FlashCodes.success.toString(), Locale.Currency.ZAR.toString() + String.valueOf(voucher.getValue()) + " has been added to your account");
             HashMap<String, String> map = new HashMap<>();
             map.put("userId", Session.User.Customer.extract(session(),Session.User.id.toString()));
-            Customer c = Customer.find.byId(userFunds.getUserId());
+            Long userId = AppCookie.extractUserId(request());
+            Customer c = Customer.find.byId(userId);
             c.addFunds(voucher.getValue());
             c.save();
             return ok(AddFunds.render(formFactory.form(UserFunds.class).bind(map)));

@@ -11,9 +11,9 @@
     <p>Note: we only support redeeming vouchers bought at select stores, in future further methods will be added</p>
     <br/>
     <br/>
-    @helper.form( action = controllers.Finance.routes.UserFinance.doAddFunds() , args = 'class -> "body"){
+    @helper.form( action = controllers.Finance.routes.UserFinance.doAddFunds() , 'class -> "body"){
         @CSRF.formField
-        @helper.inputText(field = userFunds("voucherValue"), args = 'name -> "Voucher Code", 'display -> "inline")
+        @helper.inputText(userFunds("voucherValue"), 'name -> "Voucher Code", 'display -> "inline")
         <br/>
         <input type="submit" class="btn btn-success" value="Redeem">
     }

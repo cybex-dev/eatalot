@@ -1,12 +1,13 @@
-2017-09-11 16:55:39,924 [INFO] from application in scala-execution-context-global-62 - Creating Pool for datasource 'default'
-2017-09-11 16:55:40,340 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-62 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
-2017-09-11 16:55:41,577 [INFO] from application in scala-execution-context-global-62 - ApplicationTimer demo: Starting application at 2017-09-11T14:55:41.576Z
-2017-09-11 16:55:42,361 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-62 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2017-09-11 16:55:42,650 [INFO] from play.api.http.EnabledFilters in scala-execution-context-global-62 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-09-19 09:59:21,061 [INFO] from application in scala-execution-context-global-61 - Creating Pool for datasource 'default'
+2017-09-19 09:59:21,419 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-61 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-09-19 09:59:22,519 [INFO] from application in scala-execution-context-global-61 - ApplicationTimer demo: Starting application at 2017-09-19T07:59:22.518Z
+2017-09-19 09:59:23,586 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-61 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-09-19 09:59:24,245 [INFO] from play.api.http.EnabledFilters in scala-execution-context-global-61 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
     filters.ExampleFilter
 
-2017-09-11 16:55:42,658 [INFO] from play.api.Play in scala-execution-context-global-62 - Application started (Dev)
+2017-09-19 09:59:24,258 [INFO] from play.api.Play in scala-execution-context-global-61 - Application started (Dev)
+2017-09-19 10:00:42,390 [WARN] from play in application-akka.actor.default-dispatcher-3 - You are using status code '200' with flashing, which should only be used with a redirect status!

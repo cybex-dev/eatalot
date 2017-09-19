@@ -28,6 +28,7 @@ public class StaffController extends Controller {
     //default route : /user
     public Result index() {
         return ok(index.render());
+
 //        try {
 //            if (!response().cookies().stream().anyMatch(cookie -> cookie.name().equals(RememberMe.toString()) && cookie.value().equals(Boolean.TRUE))) {
 //

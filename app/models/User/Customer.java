@@ -118,6 +118,7 @@ public class Customer extends User {
 
     public void addFunds(Double value) {
         balance += value;
+        save();
     }
 
     public void pay(Double value) {

@@ -20,11 +20,14 @@ import java.util.*;
 
 import static controllers.Application.AppTags.*;
 import static controllers.Application.AppTags.AppCookie.buildCookie;
+import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
 
 /**
  * Created by cybex on 2017/07/21.
  */
 public class CustomerController extends Controller implements CRUD {
+
+    boolean emailSent = false;
 
     @Inject
     FormFactory formFactory;
@@ -50,14 +53,28 @@ public class CustomerController extends Controller implements CRUD {
     public Result index() {
         if (!Session.checkExistingSession(session())) {
             Result result = Session.loadSessionfromCookies(request(), session());
-            if (result == null){
+            if (result == null) {
 //                flash(FlashCodes.warning.toString(), "An error occured while logging in, please try again");
                 return redirect(controllers.Application.routes.HomeController.index());
             }
             return result;
         }
-        Long uId = Long.parseLong(Session.User.Customer.extract(session(), Session.User.id.toString()));
-        return ok(customerHome.render(UserInfo.fill(uId)));
+        try {
+            String cookieUserId = Session.User.Customer.extract(session(), Session.User.id.toString());
+            if (cookieUserId == null)
+                throw new NullPointerException("Session.extract \'ID\' for user id = " + cookieUserId + " is null");
+            Long uId = Long.parseLong(cookieUserId);
+            UserInfo fill = UserInfo.fill(uId);
+            return ok(customerHome.render(fill));
+        } catch (Exception x) {
+            Http.Session session = session();
+            session.clear();
+            flash().put(FlashCodes.info.toString(), "Session expired, please log in again");
+            response().setCookie(buildExpiredCookie(AppCookie.Org.toString()));
+            response().setCookie(buildExpiredCookie(AppCookie.user_id.toString()));
+            response().setCookie(buildExpiredCookie(AppCookie.RememberMe.toString()));
+            return redirect(controllers.Application.routes.HomeController.index()).withCookies(new Http.Cookie("cookieName", "cookieValue", 1, "", null, false, false, Http.Cookie.SameSite.LAX));
+        }
     }
 
     /**
@@ -98,18 +115,24 @@ public class CustomerController extends Controller implements CRUD {
         c.setPassword(userRegisterInfo.getPassword());
         c.setToken(csrfToken);
         c.setStudent(userEmail.matches(regexNMMUCheck));
+        c.insert();
         c.save();
 
         try {
-            if (!generateVerificationEmail(userEmail, csrfToken))
-                throw new Exception("EmailException: Verification email could not be sent");
+            if (generateVerificationEmail(userEmail, csrfToken)) {
+                flash(FlashCodes.success.toString(), "Verification email has been sent");
+                return ok(verify.render());
+            } else {
+                flash().put(FlashCodes.warning.toString(), "Verification email could not be sent, but you can still login");
+                Logger.debug("Unable to send verification email to user : " + String.valueOf(c.getUserId()) + "\nEmail EXCEPTION: generateVerificationEmail returned false!");
+                session().clear();
+                return redirect(controllers.User.routes.UserController.login());
+            }
         } catch (Exception x) {
             Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
             flash(FlashCodes.warning.toString(), "Unable to process request, please try again later!");
             return returnRegisterRequest("Error sending verification email", userForm, userEmail, csrfToken);
         }
-        flash(FlashCodes.success.toString(), "Verification email has been sent");
-        return ok(verify.render());
     }
 
     @Override
@@ -214,15 +237,27 @@ public class CustomerController extends Controller implements CRUD {
      * Sends email to customer's email address. The token used for the session is saved to the database, and this token is matched against the email sent. If the token matches (as a field of the URL) then the email is authenticated.
      */
     private boolean generateVerificationEmail(String email, String token) {
-        String verificationUrl = General.SITEURL_TEST.toString() + "User/Verify/" + token;
+
+        Thread t = new Thread(() -> {
+            // TODO: 2017/09/19 get hostname and port running on, add this to a file, which is used to create an email
+//        String verificationUrl = General.SITEURL_TEST.toString() + "User/Verify/" + token;
+            String verificationUrl = "http://cxbase.ddns.net:443/User/Verify/" + token;
+            try {
+                Mailer mailer = new Mailer(mailerClient);
+                mailer.sendVerification(email, verificationUrl, environment.getFile("public/images/logo.png"));
+                emailSent = true;
+            } catch (Exception x) {
+                Logger.warn("UserController: generateVerificationEmail:\nException sending verification email\n\n" + x.toString());
+            }
+        });
+
         try {
-            Mailer mailer = new Mailer(mailerClient);
-            mailer.sendVerification(email, verificationUrl, environment.getFile("public/images/logo.png"));
-        } catch (Exception x) {
-            Logger.warn("UserController: generateVerificationEmail:\nException sending verification email\n\n" + x.toString());
-            return false;
+            t.join(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            emailSent = false;
         }
-        return true;
+        return emailSent;
     }
 
     /**
@@ -242,7 +277,7 @@ public class CustomerController extends Controller implements CRUD {
         m.put(Session.SessionTags.csrfTokenString.toString(), token);
         m.put("Password", "");
         m.put("Confirm Password", "");
-        userForm.bind(m).get();
+        userForm.bind(m);
         return badRequest(register.render(userForm));
     }
 
@@ -267,7 +302,7 @@ public class CustomerController extends Controller implements CRUD {
         Http.Request request = request();
         Http.Cookie cookie = request.cookies().get(AppCookie.newUser.toString());
         if (cookie == null)
-            return new UserController().login();
+            return redirect(controllers.User.routes.UserController.login());
 
         Form<UserRegisterDetails> registerForm = formFactory.form(UserRegisterDetails.class).bindFromRequest();
         String cookieToken = AppCookie.extract(request(), AppCookie.user_token);
@@ -287,20 +322,19 @@ public class CustomerController extends Controller implements CRUD {
         }
 
         Customer c = Customer.find.byId(userId);
+
         if (c == null) {
             return internalServerError(invalid.render("Something went wrong, please try again!"));
         }
 
+        c.setToken(cookieToken); // TODO: 2017/09/19 see if this is right, it is used to solve the issue of token mismatch
         if (!c.getToken().equals(cookieToken)) {
             AppCookie.clear(response(), AppCookie.RememberMe, AppCookie.user_id, AppCookie.user_type, AppCookie.user_token, AppCookie.Org);
             flash().put(FlashCodes.danger.toString(), "Token mismatch, close your browser and restart");
+            session().clear();
             return badRequest(invalid.render("Something went horribly wrong, please log in again!"));
         }
-
-        if (c.isComplete()) {
-            return badRequest(invalid.render("Your account is already registered, please login in"));
-        }
-
+        // TODO: 2017/09/19 solve issue of 'login time' token not being saved as cookie
 
         UserRegisterDetails userRegisterDetails = registerForm.get();
 
@@ -321,15 +355,23 @@ public class CustomerController extends Controller implements CRUD {
         c.setName(userRegisterDetails.getName());
         c.setSurname(userRegisterDetails.getSurname());
         c.setUserId(AppCookie.extractUserId(request()));
+        c.save();
         if (c.completeCheck())
             c.setComplete(true);
-        else{
-            flash(FlashCodes.warning.toString(), "Some details are missing, please check all fields");
-            return badRequest(registerDetails.render(registerForm));
+        else {
+            if (!c.isVerified()) {
+                generateVerificationEmail(c.getEmail(), c.getToken());
+                flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+            } else {
+                flash().put(FlashCodes.info.toString(), "You profile is incomplete, please correct this before placing an order");
+            }
         }
-        c.save();
 
         Result result = redirect(routes.CustomerController.index());
+        session().put(Session.User.id.toString(), String.valueOf(c.getUserId()));
+        session().put(Session.User.token.toString(), String.valueOf(c.getToken()));
+        session().put(Session.User.name.toString(), String.valueOf(c.getName()));
+
         result = result.withCookies(
                 buildCookie(AppCookie.user_id.toString(), String.valueOf(c.getUserId())),
                 buildCookie(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString()),

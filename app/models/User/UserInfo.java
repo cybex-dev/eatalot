@@ -1,5 +1,7 @@
 package models.User;
 
+import java.util.logging.Logger;
+
 public class UserInfo {
     private Long userId;
     private String name, surname, balance;
@@ -65,7 +67,13 @@ public class UserInfo {
     }
 
     public static UserInfo fill(Long uId) {
-        Customer customer = Customer.find.byId(uId);
-        return new UserInfo(uId, customer.getName(), customer.getSurname(), customer.isComplete(), customer.isStudent(), String.valueOf(customer.getBalance()));
+        try {
+            Customer customer = Customer.find.byId(uId);
+            return new UserInfo(uId, customer.getName(), customer.getSurname(), customer.isComplete(), customer.isStudent(), String.valueOf(customer.getBalance()));
+        }
+        catch (Exception x){
+            Logger.getGlobal().info("Failed to acquire session info of user"+ String.valueOf(Math.toIntExact(uId)) + "\n" + x.toString());
+            return null;
+        }
     }
 }

@@ -4,7 +4,7 @@
 		module="eatalot$sources_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170911133255"
+		publication="20170917005822"
 	/>
 	<configurations>
 		<conf name="universal" visibility="public" description=""/>

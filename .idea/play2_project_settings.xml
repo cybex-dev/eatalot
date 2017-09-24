@@ -3,14 +3,14 @@
   <component name="Play2ExcludedModulesSettings">
     <option name="INFO">
       <map>
-        <entry key="EatAloT">
+        <entry key="eatalot">
           <value>
             <ProjectSettingsEntry>
               <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.6.1.jar" />
             </ProjectSettingsEntry>
           </value>
         </entry>
-        <entry key="root">
+        <entry key="myProject">
           <value>
             <ProjectSettingsEntry>
               <option name="confDir" value="$PROJECT_DIR$/app" />

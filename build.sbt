@@ -1,22 +1,18 @@
-// Project Information
-name := """EatAloT"""
-organization := "net.ddns.intelligents"
+name := """eatalot"""
+organization := "com.intelligents"
 
-// Version Information
 version := "1.0-SNAPSHOT"
+
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
+
 scalaVersion := "2.12.2"
 
-// Project Settings
-lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
-
-// Additional Settings
-PlayKeys.playDefaultPort := 8080
-
-// LIBRARIES
-
-// Test Database
+libraryDependencies += guice
+//libraryDependencies += "mysql" % "mysql-connector-java" % "5.7.18"
+libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.36"
 libraryDependencies += jdbc
 libraryDependencies += javaJdbc
+libraryDependencies += filters
 libraryDependencies += evolutions
 
 libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"

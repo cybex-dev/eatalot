@@ -12,11 +12,17 @@ GET     /menu                  controllers.OrderController.getMenu()
 
 GET     /menu/:menutype        controllers.OrderController.switchMenu(menutype: Integer)
 
+GET     /signup                controllers.AccountController.getSignUp
+
 POST    /addmealtoorder        controllers.OrderController.addMealToOrder(mealId: String)
 
 GET     /addmeal               controllers.OrderController.getAddMealToMenu
 
 POST    /postmeal              controllers.OrderController.addMeal
+
+GET     /dologin               controllers.AccountController.doLogin()
+
+GET     /dosignout             controllers.AccountController.doSignOut()
 
 GET     /cart                  controllers.OrderController.getCart()
 

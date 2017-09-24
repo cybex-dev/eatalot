@@ -4,8 +4,6 @@ import models.ordering.CustomerOrder;
 import play.api.mvc.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.global.master;
-import views.html.user.signup;
 
 import java.util.List;
 import java.util.Objects;
@@ -56,7 +54,7 @@ public class AccountController extends Controller{
     }
 
     public Result getSignUp(){
-        return ok(master.render("Sign up", signup.render()));
+        return ok(views.html.global.master.render("Sign up", views.html.user.signup.render()));
     }
 
     public static boolean isCustomer(){

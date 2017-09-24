@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * This class has index_user {@link Singleton} annotation because we need to make
  * sure we only use one counter per application. Without this
- * annotation we would get index_user new instance every time index_user {@link Counter} is
+ * annotation we would get customerHome new instance every time customerHome {@link Counter} is
  * injected.
  */
 @Singleton

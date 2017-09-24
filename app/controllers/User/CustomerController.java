@@ -371,6 +371,7 @@ public class CustomerController extends Controller implements CRUD {
         session().put(Session.User.id.toString(), String.valueOf(c.getUserId()));
         session().put(Session.User.token.toString(), String.valueOf(c.getToken()));
         session().put(Session.User.name.toString(), String.valueOf(c.getName()));
+        session().put(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString());
 
         result = result.withCookies(
                 buildCookie(AppCookie.user_id.toString(), String.valueOf(c.getUserId())),

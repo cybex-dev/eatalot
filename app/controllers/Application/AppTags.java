@@ -115,6 +115,7 @@ public class AppTags {
 
         /**
          * Browser does not remove cookies, so we replace them with expired, no value cookies
+         *
          * @param result
          */
         public static void logout(Result result) {
@@ -161,6 +162,17 @@ public class AppTags {
     }
 
     public static class Session {
+
+        public static boolean isValidUser(Http.Session session) {
+            return (session.containsKey(User.token.toString()) &&
+                    session.containsKey(User.id.toString()));
+        }
+
+        public static boolean isCustomer(Http.Session session) {
+            return (session.get(AppCookie.user_type.toString()).equals(UserType.CUSTOMER.toString()) &&
+                    session.containsKey(User.name.toString()));
+        }
+
 
         public enum User {
             email("email"),

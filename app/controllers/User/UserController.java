@@ -112,6 +112,7 @@ public class UserController extends Controller {
             else {
                 session().put(Session.User.id.toString(), String.valueOf(customer.getUserId()));
                 session().put(Session.User.token.toString(), String.valueOf(customer.getToken()));
+                session().put(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString());
 
                 result = ok(registerDetails.apply(formFactory.form(UserRegisterDetails.class)));
                 return result.withCookies(

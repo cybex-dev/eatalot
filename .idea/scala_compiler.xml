@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
+<<<<<<< HEAD
     <profile name="SBT 1" modules="myProject,root">
+=======
+    <profile name="SBT 1" modules="root,myProject">
+>>>>>>> Order-Management-Devel
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
       <parameters>
@@ -9,5 +13,6 @@
         <parameter value="utf8" />
       </parameters>
     </profile>
+    <profile name="SBT 2" modules="project-eatalot" />
   </component>
 </project>

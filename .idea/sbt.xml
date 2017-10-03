@@ -12,9 +12,12 @@
           </set>
         </option>
         <option name="sbtVersion" value="0.13.15" />
+<<<<<<< HEAD
         <option name="useAutoImport" value="true" />
         <option name="useOurOwnAutoImport" value="true" />
         <option name="useSbtShell" value="true" />
+=======
+>>>>>>> Order-Management-Devel
       </SbtProjectSettings>
     </option>
   </component>

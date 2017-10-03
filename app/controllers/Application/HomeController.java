@@ -23,11 +23,15 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
+<<<<<<< HEAD:app/controllers/Application/HomeController.java
         Http.Response response = response();
         Result result = AppTags.Session.checkExistingLogin(request(), session());
         if (result != null)
             return result;
         return ok(index.render());
+=======
+        return redirect(routes.OrderController.getMenu());
+>>>>>>> Order-Management-Devel:app/controllers/HomeController.java
     }
 
 }

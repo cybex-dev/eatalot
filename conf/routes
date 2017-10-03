@@ -2,8 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Shows EatAloT home page
-GET     /                                     controllers.Application.HomeController.index()
+# An example controller showing a sample home page
+GET     /                      controllers.HomeController.index
 
 
 ##disable this an you will recieve customerHome 403 forbidden error, the CRSF filter is used for cross site scripting prevention, use for authentication - used in POST requests
@@ -85,11 +85,8 @@ GET     /count                                   controllers.CountController.cou
 GET     /message                                 controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                            controllers.Assets.versioned(path="/public", file: Asset)
-GET     /*path                                   controllers.Application.HomeController.invalidRoute(path: String)
+GET     /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
 
-## Javascript routes
-#GET     /javascriptRoutes        controllers.JavascriptRoutesController
 GET     /menu                  controllers.OrderController.getMenu()
 
 GET     /menu/:menutype        controllers.OrderController.switchMenu(menutype: Integer)

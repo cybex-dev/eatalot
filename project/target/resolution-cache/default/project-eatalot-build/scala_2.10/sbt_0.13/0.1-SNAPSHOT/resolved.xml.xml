@@ -4,7 +4,11 @@
 		module="project-eatalot-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
+<<<<<<< HEAD
 		publication="20171003021151"
+=======
+		publication="20171003043053"
+>>>>>>> Order-Management-Devel
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
@@ -42,9 +46,16 @@
 			<artifact name="global-plugins" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="global-plugins" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+<<<<<<< HEAD
 		<dependency org="org.foundweekends.giter8" name="sbt-giter8-scaffold" rev="0.8.0" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
 		<dependency org="com.typesafe.play" name="sbt-plugin" rev="2.6.1" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
 		<dependency org="com.typesafe.sbt" name="sbt-play-ebean" rev="4.0.2" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
 		<dependency org="com.typesafe.sbt" name="sbt-play-enhancer" rev="1.1.0" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
+=======
+		<dependency org="com.typesafe.play" name="sbt-plugin" rev="2.6.1" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
+		<dependency org="com.typesafe.sbt" name="sbt-play-ebean" rev="4.0.2" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
+		<dependency org="com.typesafe.sbt" name="sbt-play-enhancer" rev="1.1.0" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
+		<dependency org="org.foundweekends.giter8" name="sbt-giter8-scaffold" rev="0.8.0" conf="compile->default(compile)" e:sbtVersion="0.13" e:scalaVersion="2.10"/>
+>>>>>>> Order-Management-Devel
 	</dependencies>
 </ivy-module>

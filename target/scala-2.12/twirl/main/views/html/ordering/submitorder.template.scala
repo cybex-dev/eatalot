@@ -46,7 +46,11 @@ Seq[Any]()
 
               /*
                   -- GENERATED --
+<<<<<<< HEAD
                   DATE: Sun Sep 24 23:41:09 SAST 2017
+=======
+                  DATE: Tue Oct 03 04:34:57 SAST 2017
+>>>>>>> Order-Management-Devel
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/ordering/submitorder.scala.html
                   HASH: c056b8700528ff6023da6fcf1ec29fbfdc536cc3
                   MATRIX: 

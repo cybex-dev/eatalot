@@ -1,11 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-<<<<<<< HEAD
-// @DATE:Sat Sep 02 14:47:31 SAST 2017
-=======
-// @DATE:Sun Sep 24 22:44:55 SAST 2017
->>>>>>> Order-Managment-Dev
+// @DATE:Sun Sep 24 23:41:08 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -13,51 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-<<<<<<< HEAD
 // @LINE:83
 package controllers.javascript {
 
-  // @LINE:85
-  class ReverseAsyncController(_prefix: => String) {
-=======
-// @LINE:6
-package controllers.javascript {
-
-  // @LINE:6
-  class ReverseHomeController(_prefix: => String) {
->>>>>>> Order-Managment-Dev
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-<<<<<<< HEAD
-    // @LINE:85
-    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AsyncController.message",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
-=======
-    // @LINE:6
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
->>>>>>> Order-Managment-Dev
-        }
-      """
-    )
-  
-  }
-
-<<<<<<< HEAD
   // @LINE:88
-=======
-  // @LINE:9
->>>>>>> Order-Managment-Dev
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -65,11 +20,7 @@ package controllers.javascript {
     }
 
   
-<<<<<<< HEAD
     // @LINE:88
-=======
-    // @LINE:9
->>>>>>> Order-Managment-Dev
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -81,28 +32,55 @@ package controllers.javascript {
   
   }
 
-<<<<<<< HEAD
   // @LINE:83
   class ReverseCountController(_prefix: => String) {
-=======
-  // @LINE:11
-  class ReverseOrderController(_prefix: => String) {
->>>>>>> Order-Managment-Dev
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-<<<<<<< HEAD
     // @LINE:83
     def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CountController.count",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "count"})
-=======
-    // @LINE:31
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:85
+  class ReverseAsyncController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:85
+    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AsyncController.message",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:93
+  class ReverseOrderController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:113
     def submitCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.submitCart",
       """
@@ -112,7 +90,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:93
     def getMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.getMenu",
       """
@@ -122,7 +100,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:29
+    // @LINE:111
     def removeMealFromOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.removeMealFromOrder",
       """
@@ -132,7 +110,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:95
     def switchMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.switchMenu",
       """
@@ -142,7 +120,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:21
+    // @LINE:103
     def addMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.addMeal",
       """
@@ -152,7 +130,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:99
     def addMealToOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.addMealToOrder",
       """
@@ -162,7 +140,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:19
+    // @LINE:101
     def getAddMealToMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.getAddMealToMenu",
       """
@@ -172,7 +150,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:109
     def getCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.getCart",
       """
@@ -184,7 +162,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:15
+  // @LINE:97
   class ReverseAccountController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -192,7 +170,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:23
+    // @LINE:105
     def doLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.doLogin",
       """
@@ -202,7 +180,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:97
     def getSignUp: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.getSignUp",
       """
@@ -212,13 +190,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:25
+    // @LINE:107
     def doSignOut: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.doSignOut",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "dosignout"})
->>>>>>> Order-Managment-Dev
         }
       """
     )

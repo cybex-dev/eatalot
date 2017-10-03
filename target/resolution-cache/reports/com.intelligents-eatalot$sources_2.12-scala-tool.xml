@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="scala-tool"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20170924003739"/>
+		date="20171002202137"/>
 	<dependencies>
 		<module organisation="org.scala-lang" name="scala-compiler">
 			<revision name="2.12.2" status="release" pubdate="20170413102020" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, optional, optional(default), master" position="3">
@@ -15,7 +15,7 @@
 				<metadata-artifact status="no" details="" size="3089" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.12.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.2/scala-compiler-2.12.2.pom"/>
 				<caller organisation="com.intelligents" name="eatalot$sources_2.12" conf="scala-tool" rev="2.12.2" rev-constraint-default="2.12.2" rev-constraint-dynamic="2.12.2" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="scala-compiler" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1791942" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.12.2-sources.jar">
+					<artifact name="scala-compiler" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1791942" time="4418" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.12.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.2/scala-compiler-2.12.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -24,10 +24,10 @@
 		<module organisation="jline" name="jline">
 			<revision name="2.14.3" status="release" pubdate="20170106114657" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, master(compile), compile(*), master" position="4">
 				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
-				<metadata-artifact status="no" details="" size="5033" time="0" location="/home/cybex/.ivy2/cache/jline/jline/ivy-2.14.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/jline/jline/2.14.3/jline-2.14.3.pom"/>
+				<metadata-artifact status="no" details="" size="5183" time="0" location="/home/cybex/.ivy2/cache/jline/jline/ivy-2.14.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/jline/jline/2.14.3/jline-2.14.3.pom"/>
 				<caller organisation="com.intelligents" name="eatalot$sources_2.12" conf="scala-tool" rev="2.14.3" rev-constraint-default="2.14.3" rev-constraint-dynamic="2.14.3" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="jline" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="110147" time="0" location="/home/cybex/.ivy2/cache/jline/jline/srcs/jline-2.14.3-sources.jar">
+					<artifact name="jline" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="110147" time="1058" location="/home/cybex/.ivy2/cache/jline/jline/srcs/jline-2.14.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/jline/jline/2.14.3/jline-2.14.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -39,7 +39,7 @@
 				<metadata-artifact status="no" details="" size="3137" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.pom"/>
 				<caller organisation="com.intelligents" name="eatalot$sources_2.12" conf="scala-tool" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="scala-xml_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="109199" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/srcs/scala-xml_2.12-1.0.6-sources.jar">
+					<artifact name="scala-xml_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="109199" time="1053" location="/home/cybex/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/srcs/scala-xml_2.12-1.0.6-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -51,7 +51,7 @@
 				<metadata-artifact status="no" details="" size="2825" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.12.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.2/scala-reflect-2.12.2.pom"/>
 				<caller organisation="com.intelligents" name="eatalot$sources_2.12" conf="scala-tool" rev="2.12.2" rev-constraint-default="2.12.2" rev-constraint-dynamic="2.12.2" callerrev="1.0-SNAPSHOT" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/"/>
 				<artifacts>
-					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="574818" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.12.2-sources.jar">
+					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="574818" time="1674" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.12.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.2/scala-reflect-2.12.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -63,7 +63,7 @@
 				<metadata-artifact status="no" details="" size="2653" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.2/scala-library-2.12.2.pom"/>
 				<caller organisation="com.intelligents" name="eatalot$sources_2.12" conf="scala-tool" rev="2.12.2" rev-constraint-default="2.12.2" rev-constraint-dynamic="2.12.2" callerrev="1.0-SNAPSHOT" extra-info.apiURL="http://www.scala-lang.org/api/2.12.2/"/>
 				<artifacts>
-					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="990185" time="0" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.2-sources.jar">
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="990185" time="2691" location="/home/cybex/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.2/scala-library-2.12.2-sources.jar"/>
 					</artifact>
 				</artifacts>

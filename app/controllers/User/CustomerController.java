@@ -8,15 +8,19 @@ import org.jetbrains.annotations.NotNull;
 import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
+import play.libs.concurrent.HttpExecutionContext;
 import play.libs.mailer.MailerClient;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import play.mvc.Security;
 import views.html.User.Customer.*;
 import views.html.User.Customer.editProfile;
 
 import javax.inject.Inject;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 import static controllers.Application.AppTags.*;
 import static controllers.Application.AppTags.AppCookie.buildCookie;
@@ -25,16 +29,22 @@ import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
 /**
  * Created by cybex on 2017/07/21.
  */
+@Security.Authenticated
 public class CustomerController extends Controller implements CRUD {
-
-    boolean emailSent = false;
 
     @Inject
     FormFactory formFactory;
     @Inject
+    play.Environment environment;
+    @Inject
     MailerClient mailerClient;
     @Inject
-    play.Environment environment;
+    HttpExecutionContext httpExecutionContext;
+
+    @Inject
+    public CustomerController(HttpExecutionContext ec) {
+        this.httpExecutionContext = ec;
+    }
 
     /**
      * <b>This should never be routed to</b>
@@ -93,12 +103,12 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
     @Override
-    public Result create() {
+    public CompletionStage<Result> create() {
         Form<UserRegisterInfo> userForm = formFactory.form(UserRegisterInfo.class).bindFromRequest();
 
         if (userForm.hasErrors()) {
             flash(FlashCodes.warning.toString(), "Please check all fields");
-            return badRequest(register.render(userForm));
+            return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
         }
         UserRegisterInfo userRegisterInfo = userForm.get();
         String csrfToken = "";
@@ -107,7 +117,7 @@ public class CustomerController extends Controller implements CRUD {
         String userEmail = userRegisterInfo.getEmail();
 
         if (Customer.find.query().where().eq(Database.User.email, userRegisterInfo.getEmail().toLowerCase()).findCount() != 0)
-            return returnRegisterRequest("Email exists, please login with this email address or use another", userForm, userEmail, csrfToken);
+            return CompletableFuture.completedFuture(returnRegisterRequest("Email exists, please login with this email address or use another", userForm, userEmail, csrfToken));
 
         Customer c = new Customer();
         String regexNMMUCheck = "([s]{0,1}[0-9]{8,9}|[a-zA-Z0-9\\. ]+)([@]{1})(live\\.|LIVE\\.){0,1}(nm|NM){0,1}[mM]{0,1}(u|U){0,1}(\\.){0,1}(ac|AC){0,1}(\\.){0,1}(za|ZA){0,1}";
@@ -118,25 +128,51 @@ public class CustomerController extends Controller implements CRUD {
         c.insert();
         c.save();
 
+        String finalCsrfToken = csrfToken;
+        return sendVerificationEmail(userEmail, csrfToken).thenApplyAsync(integer -> {
+            Result r = null;
+            switch (integer){
+                case 0:{
+                    ctx().flash().put(FlashCodes.success.toString(), "Verification email has been sent");
+                    r = ok();
+                    break;
+                }
+
+                case 1: {
+                    ctx().flash().put(FlashCodes.warning.toString(), "Verification email could not be sent, but you can still login");
+                    r = redirect(controllers.User.routes.UserController.login());
+                    break;
+                }
+
+                case 2:{
+                    flash(FlashCodes.warning.toString(), "Unable to process request, please try again later!");
+                    r = returnRegisterRequest("Error sending verification email", userForm, userEmail, finalCsrfToken);
+                    break;
+                }
+            }
+            return r;
+        }, httpExecutionContext.current());
+
+    }
+
+
+    private CompletionStage<Integer> sendVerificationEmail(String userEmail, String csrfToken) {
+        Integer result = 0;
         try {
-            if (generateVerificationEmail(userEmail, csrfToken)) {
-                flash(FlashCodes.success.toString(), "Verification email has been sent");
-                return ok(verify.render());
-            } else {
-                flash().put(FlashCodes.warning.toString(), "Verification email could not be sent, but you can still login");
-                Logger.debug("Unable to send verification email to user : " + String.valueOf(c.getUserId()) + "\nEmail EXCEPTION: generateVerificationEmail returned false!");
+            if (!generateVerificationEmail(userEmail, csrfToken)) {
+                Logger.debug("Unable to send verification email to user : " + userEmail + "\nEmail EXCEPTION: generateVerificationEmail returned false!");
                 session().clear();
-                return redirect(controllers.User.routes.UserController.login());
+                result = 1;
             }
         } catch (Exception x) {
             Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
-            flash(FlashCodes.warning.toString(), "Unable to process request, please try again later!");
-            return returnRegisterRequest("Error sending verification email", userForm, userEmail, csrfToken);
+            result = 2;
         }
+        return CompletableFuture.completedFuture(result);
     }
 
     @Override
-    public Result delete() {
+    public CompletionStage<Result> delete() {
         return null;
     }
 
@@ -149,12 +185,12 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @Override
-    public Result update() {
+    public CompletionStage<Result> update() {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class).bindFromRequest();
         UserProfile userProfile = formUserProfile.get();
         if (formUserProfile.hasErrors()) {
             flash(FlashCodes.warning.toString(), "Please check entered information");
-            return badRequest(editProfile.render(formUserProfile));
+            return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
         }
 //        if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
 //            flash(FlashCodes.warning.toString(), "Please check passwords match and are valid");
@@ -163,11 +199,11 @@ public class CustomerController extends Controller implements CRUD {
         userProfile.setUserId(session(Session.User.id.toString()));
         userProfile.save();
         flash(FlashCodes.success.toString(), "Profile has been updated!");
-        return redirect(routes.CustomerController.index());
+        return CompletableFuture.completedFuture(redirect(routes.CustomerController.index()));
     }
 
     @Override
-    public Result read() {
+    public CompletionStage<Result> read() {
         return null;
     }
 
@@ -238,26 +274,17 @@ public class CustomerController extends Controller implements CRUD {
      */
     private boolean generateVerificationEmail(String email, String token) {
 
-        Thread t = new Thread(() -> {
-            // TODO: 2017/09/19 get hostname and port running on, add this to a file, which is used to create an email
+        // TODO: 2017/09/19 get hostname and port running on, add this to a file, which is used to create an email
 //        String verificationUrl = General.SITEURL_TEST.toString() + "User/Verify/" + token;
-            String verificationUrl = "http://cxbase.ddns.net:443/User/Verify/" + token;
-            try {
-                Mailer mailer = new Mailer(mailerClient);
-                mailer.sendVerification(email, verificationUrl, environment.getFile("public/images/logo.png"));
-                emailSent = true;
-            } catch (Exception x) {
-                Logger.warn("UserController: generateVerificationEmail:\nException sending verification email\n\n" + x.toString());
-            }
-        });
-
+        String verificationUrl = "http://cxbase.ddns.net:443/User/Verify/" + token;
         try {
-            t.join(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            emailSent = false;
+            Mailer mailer = new Mailer(mailerClient);
+            mailer.sendVerification(email, verificationUrl, environment.getFile("public/images/logo.png"));
+            return true;
+        } catch (Exception x) {
+            Logger.warn("UserController: generateVerificationEmail:\nException sending verification email\n\n" + x.toString());
+            return false;
         }
-        return emailSent;
     }
 
     /**

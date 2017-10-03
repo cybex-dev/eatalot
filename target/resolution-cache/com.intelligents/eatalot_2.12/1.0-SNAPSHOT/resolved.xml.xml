@@ -4,7 +4,7 @@
 		module="eatalot_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20170924224454"
+		publication="20171002121542"
 	>
 		<description>
 		eatalot
@@ -52,9 +52,16 @@
 		<dependency org="com.typesafe.play" name="filters-helpers_2.12" rev="2.6.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-logback_2.12" rev="2.6.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-akka-http-server_2.12" rev="2.6.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-ahc-ws_2.12" rev="2.6.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-guice_2.12" rev="2.6.1" conf="compile->default(compile)"/>
-		<dependency org="mysql" name="mysql-connector-java" rev="5.1.36" conf="compile->default(compile)"/>
+		<dependency org="mysql" name="mysql-connector-java" rev="5.1.44" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc_2.12" rev="2.6.1" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-java-jdbc_2.12" rev="2.6.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-jdbc-evolutions_2.12" rev="2.6.1" conf="compile->default(compile)"/>
+		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>
+		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
+		<dependency org="org.bgee.log4jdbc-log4j2" name="log4jdbc-log4j2-jdbc4.1" rev="1.16" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-mailer_2.12" rev="6.0.1" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-mailer-guice_2.12" rev="6.0.1" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

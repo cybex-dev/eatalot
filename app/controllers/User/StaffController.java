@@ -10,12 +10,14 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 import views.html.Application.Home.index;
 import views.html.User.Staff.login;
 
 import javax.inject.Inject;
 import java.util.List;
 
+@Security.Authenticated
 public class StaffController extends Controller {
     @Inject
     FormFactory formFactory;

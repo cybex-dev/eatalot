@@ -153,7 +153,7 @@ public class AppTags {
         }
 
         public static Http.Cookie buildCookie(String id, String value) {
-            return new Http.Cookie(id, value, 2678400, "", General.SITEDOMAIN.toString(), false, false, Http.Cookie.SameSite.LAX);
+            return new Http.Cookie(id, value, 2678400, "/", General.SITEDOMAIN.toString(), false, false, Http.Cookie.SameSite.LAX);
         }
 
         public static Http.Cookie buildExpiredCookie(String id) {

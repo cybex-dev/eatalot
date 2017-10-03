@@ -10,6 +10,7 @@ import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import play.mvc.Security;
 import views.html.Application.Home.index;
 import views.html.User.User.login;
 
@@ -36,6 +37,7 @@ import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
  * </ul>
  */
 
+@Security.Authenticated
 public class UserController extends Controller {
 
     @Inject

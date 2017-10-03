@@ -4,11 +4,8 @@ import models.ordering.CustomerOrder;
 import play.api.mvc.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
-<<<<<<< HEAD
-=======
 import views.html.global.master;
 import views.html.user.signup;
->>>>>>> Order-Management-Devel
 
 import java.util.List;
 import java.util.Objects;
@@ -59,18 +56,12 @@ public class AccountController extends Controller{
     }
 
     public Result getSignUp(){
-<<<<<<< HEAD
-        return ok(views.html.global.master.render("Sign up", views.html.user.signup.render()));
-=======
+//        return ok(views.html.global.master.render("Sign up", views.html.user.signup.render()));
         return ok(master.render("Sign up", signup.render()));
->>>>>>> Order-Management-Devel
     }
 
     public static boolean isCustomer(){
         return Objects.equals(session("user"), "customer");
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> Order-Management-Devel

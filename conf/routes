@@ -3,7 +3,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                      controllers.HomeController.index
+GET     /                      controllers.Application.HomeController.index()
 
 
 ##disable this an you will recieve customerHome 403 forbidden error, the CRSF filter is used for cross site scripting prevention, use for authentication - used in POST requests

@@ -16,12 +16,14 @@ import javax.inject.Singleton;
 @Singleton
 public class CountController extends Controller {
 
-    private final Counter counter;
+//      See this for reason of below being commented out
+//      https://pastebin.com/DKzxbbyH
+    private /*final */Counter counter;
 
-    @Inject
+/*    @Inject
     public CountController(Counter counter) {
        this.counter = counter;
-    }
+    }*/
 
     /**
      * An action that responds with the {@link Counter}'s current

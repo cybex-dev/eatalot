@@ -61,11 +61,7 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-<<<<<<< HEAD
-                  DATE: Sun Sep 24 23:41:09 SAST 2017
-=======
-                  DATE: Tue Oct 03 04:34:57 SAST 2017
->>>>>>> Order-Management-Devel
+                  DATE: Tue Oct 03 05:56:09 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/ordering/addorder.scala.html
                   HASH: 79e0319f7fffd2f20c8b97704f54330d0acb9cda
                   MATRIX: 953->1|1049->3|1077->5|1196->98|1210->104|1256->130

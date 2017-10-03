@@ -50,7 +50,7 @@ Seq[Any](format.raw/*1.17*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Sep 24 23:41:09 SAST 2017
+                  DATE: Tue Oct 03 05:56:08 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Html5/figcaption.scala.html
                   HASH: 35c592e7cc2945fd63a9ada3cd88efbdec81a052
                   MATRIX: 964->1|1074->16|1102->18|1145->36|1172->43|1199->44

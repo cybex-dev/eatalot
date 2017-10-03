@@ -3,7 +3,6 @@
 
 # --- !Ups
 
-<<<<<<< HEAD
 create table address (
   address_id                    bigint auto_increment not null,
   unit_number                   varchar(255),
@@ -29,8 +28,6 @@ create table customer (
   constraint pk_customer primary key (user_id)
 );
 
-=======
->>>>>>> Order-Management-Devel
 create table customer_order (
   order_id                      bigint auto_increment not null,
   status_id                     varchar(255),
@@ -64,7 +61,6 @@ create table meal_order (
   constraint pk_meal_order primary key (meal_order_id)
 );
 
-<<<<<<< HEAD
 create table payment (
   payment_id                    bigint auto_increment not null,
   date                          datetime(6),
@@ -81,8 +77,6 @@ create table queue_type (
   constraint pk_queue_type primary key (type_id)
 );
 
-=======
->>>>>>> Order-Management-Devel
 create table recipe (
   recipe_id                     varchar(255) not null,
   num_people_serves             integer not null,
@@ -97,7 +91,6 @@ create table recipe_ingredients (
   constraint pk_recipe_ingredients primary key (recipe_id)
 );
 
-<<<<<<< HEAD
 create table redeemed_vouchers (
   voucher_code                  bigint auto_increment not null,
   voucher_id                    varchar(255),
@@ -132,11 +125,6 @@ drop table if exists address;
 
 drop table if exists customer;
 
-=======
-
-# --- !Downs
-
->>>>>>> Order-Management-Devel
 drop table if exists customer_order;
 
 drop table if exists ingredient;
@@ -145,23 +133,17 @@ drop table if exists meal;
 
 drop table if exists meal_order;
 
-<<<<<<< HEAD
 drop table if exists payment;
 
 drop table if exists queue_type;
 
-=======
->>>>>>> Order-Management-Devel
 drop table if exists recipe;
 
 drop table if exists recipe_ingredients;
 
-<<<<<<< HEAD
 drop table if exists redeemed_vouchers;
 
 drop table if exists staff;
 
 drop table if exists voucher;
 
-=======
->>>>>>> Order-Management-Devel

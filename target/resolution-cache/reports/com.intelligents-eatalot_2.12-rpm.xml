@@ -7,11 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="rpm"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-<<<<<<< HEAD
-		date="20171002121542"/>
-=======
-		date="20171003043107"/>
->>>>>>> Order-Management-Devel
+		date="20171003055541"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>

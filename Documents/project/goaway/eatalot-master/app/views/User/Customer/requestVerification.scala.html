@@ -1,0 +1,18 @@
+@import views.html.Global.Static.masterpage
+
+@()
+
+@bodyContent = {
+    <div class="container">
+        <div class="center-block">
+                <form class="input-group" href="@controllers.User.routes.CustomerController.reverify()" method="post">
+                    <input class="text-info" placeholder="Email Address" id="edtEmail">
+                    <br/>
+                    <br/>
+                    <input type="button" class="btn btn-default" value="Submit">
+                </form>
+        </div>
+    </div>
+}
+
+    @masterpage.apply(" :: Verify Account", bodyContent)

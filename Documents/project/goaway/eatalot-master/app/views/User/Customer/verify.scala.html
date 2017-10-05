@@ -1,0 +1,10 @@
+@import controllers.Application.AppTags
+@import Global.Static.masterpage
+
+@()
+
+@bodyContent = {
+    <p>Check your email for a verification link sent from @AppTags.General.SITENAME.toString</p>
+}
+
+@masterpage.apply(" :: Verify", bodyContent)

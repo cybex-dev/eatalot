@@ -1,0 +1,34 @@
+@import java.util.List
+@import models.Order.Ingredient
+@import helper.CSRF
+@import helper.form
+@(list: List[Ingredient])
+
+<html>
+    @if(list.size() == 0){
+        <p><i>dust</i></p>
+    }else{
+        <table>
+            <tr>
+                <td>Description</td>
+                <td>Quantity Ordered</td>
+            </tr>
+            @for(x <- 0 until list.size()){
+                @form(CSRF(controllers.Order.routes.KitchenController.getIngredientOrderPage(list.get(x).getIngredientId))) {
+                    <tr>
+                        <td>@list.get(x).getDescription</td>
+                        <td>@list.get(x).getQtyOrdered</td>
+                        <td><button type="submit" name="action" value="order">Order</button></td>
+                    </tr>
+                }
+            }
+        </table>
+    }
+    <table>
+        <tr>
+            <td>
+                <a href="@controllers.Order.routes.KitchenController.getNewIngredientPage">New Ingredient</a>
+            </td>
+        </tr>
+    </table>
+</html>

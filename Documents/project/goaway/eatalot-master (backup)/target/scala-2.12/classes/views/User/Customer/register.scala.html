@@ -1,0 +1,21 @@
+@import Global.Static.masterpage
+@import helper.CSRF
+@import models.User.UserRegisterInfo
+@import play.data.Form
+
+@(userForm: Form[UserRegisterInfo])
+
+@bodyContent = {
+    <h1>Register User</h1>
+    <br>
+    <br>
+    @helper.form(action = controllers.User.routes.CustomerController.create()) {
+        @CSRF.formField
+        @helper.inputText(userForm("email"), '_name -> "E-Mail", '_class -> "text-field")
+        @helper.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")
+        @helper.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")
+        <input class="btn btn-success" type="submit" value="Register"/>
+    }
+}
+
+@masterpage.apply(" :: Register", bodyContent)

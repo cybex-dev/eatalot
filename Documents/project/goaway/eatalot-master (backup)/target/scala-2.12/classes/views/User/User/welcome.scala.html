@@ -1,0 +1,16 @@
+@import views.html.Global.Static.masterpage
+
+@()
+
+@bodyContent = {
+    <br/>
+    <br/>
+    <div class="container pull-center">
+        <a class="btn btn-success" href="@controllers.User.routes.UserController.login()">Login</a>
+        <br/>
+        <br/>
+        <a class="btn btn-default" href="@controllers.User.routes.CustomerController.register()">Register</a>
+    </div>
+}
+
+@masterpage.apply(" :: Home",bodyContent)

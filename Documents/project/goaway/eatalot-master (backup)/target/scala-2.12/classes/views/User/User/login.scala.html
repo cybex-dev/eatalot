@@ -1,0 +1,25 @@
+@import Global.Static.masterpage
+@import play.data.Form
+@import helper._
+@import models.User.UserLoginInfo
+
+@(loginForm: Form[UserLoginInfo])
+
+@bodyContent = {
+    <h1>Login Form</h1>
+    <br/>
+    <div class="body">
+    @helper.form(action = controllers.User.routes.UserController.doLogin) {
+        @CSRF.formField
+        @inputText(loginForm("email"), '_name -> "E-Mail", '_class -> "text-field")
+        @inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")
+        @checkbox(loginForm("bRememberMe"), '_name -> "Remember Me")
+        @*<label><input type="checkbox" name="bRememberMe" /> Remember Me</label>*@
+        <br/>
+        <br/>
+        <input class="btn btn-success" type="submit" value="Login"/>
+    }
+    </div>
+}
+
+@masterpage.apply(" :: Login", bodyContent)

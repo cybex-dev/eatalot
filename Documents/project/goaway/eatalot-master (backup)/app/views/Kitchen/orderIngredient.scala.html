@@ -1,0 +1,26 @@
+@import models.Order.Ingredient
+@import helper.form
+@import helper.CSRF
+@import helper.textarea
+@(ingredient: Ingredient)
+<html>
+    @form(CSRF(controllers.Order.routes.KitchenController.editIngredient(ingredient.getIngredientId))){
+        <table>
+            <tr>
+                <td>Description</td>
+                <td>Quantity</td>
+            </tr>
+            <tr>
+                <td>@ingredient.getDescription</td>
+                <td>@ingredient.getQtyOrdered</td>
+            </tr>
+            <tr>
+                <td><label id="qty">New order quantity:</label></td>
+                <td><textarea name="qty" title="qty"></textarea></td>
+            </tr>
+        </table>
+        <button type="submit" name="action" value="edit">Change Quantity</button>
+        <button type="submit" name="action" value="remove">Remove Order</button>
+    }
+</html>
+

@@ -1,0 +1,82 @@
+.someClass{
+    font-size: 1em;
+}
+
+#someId{
+    font-style: italic;
+}
+
+.body{
+    padding: 15px;
+}
+
+.app-logo {
+    padding: 20px;
+}
+
+.footer .navbar{
+    background-color: #222;
+}
+
+.footer-left .footer {
+    float: left;
+}
+
+.footer-brand {
+    float: left;
+    font-style: italic;
+    font-size: 0.8em;
+    color: #777;
+    padding-top: 10px;
+}
+
+.navbar-user {
+    color: #fff;
+}
+
+.navbar-top {
+    padding-top: 10px;
+}
+
+.pull-center {
+    float: none;
+    text-align: center;
+}
+
+.pull-center .align-center{
+    display: inline-block;
+}
+
+.container-small{
+    padding-right: 30%;
+    padding-left: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-large-bold {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.nav-text-enlarge {
+    font-size:18px;
+}
+
+.input-container {
+    background-color: lightgray;
+}
+
+.settings-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.button-padding {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

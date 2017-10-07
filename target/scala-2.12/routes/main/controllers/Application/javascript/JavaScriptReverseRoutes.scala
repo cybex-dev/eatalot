@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Tue Oct 03 05:59:33 SAST 2017
+// @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
+// @DATE:Sat Oct 07 12:59:41 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -26,6 +26,16 @@ package controllers.Application.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:144
+    def invalidRoute: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.HomeController.invalidRoute",
+      """
+        function(path0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("path", path0)})
         }
       """
     )

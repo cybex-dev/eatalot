@@ -29,11 +29,10 @@ create table customer (
 );
 
 create table customer_order (
-  order_id                      bigint auto_increment not null,
+  order_id                      varchar(255) not null,
   status_id                     varchar(255),
   user_id                       varchar(255),
   payment_id                    varchar(255),
-  meal_order_id                 varchar(255),
   constraint pk_customer_order primary key (order_id)
 );
 

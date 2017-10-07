@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Tue Oct 03 05:59:33 SAST 2017
+// @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
+// @DATE:Sat Oct 07 12:59:41 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 

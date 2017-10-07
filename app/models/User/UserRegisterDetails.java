@@ -6,6 +6,8 @@ import play.data.validation.Constraints;
 import play.data.validation.Constraints.Required;
 
 import javax.validation.constraints.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserRegisterDetails {
     private String userId;
@@ -105,5 +107,18 @@ public class UserRegisterDetails {
 
     public Boolean getIsCommunity() {
         return isCommunity;
+    }
+
+    public static Map<String, String> buildMap(Customer customer, Address address) {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("userId", String.valueOf(customer.getUserId()));
+        map.put("name", String.valueOf(customer.getName()));
+        map.put("surname", String.valueOf(customer.getSurname()));
+        map.put("cellNumber", String.valueOf(customer.getCellNumber()));
+        map.put("unitNumber", String.valueOf(address.getUnitNumber()));
+        map.put("streetName", String.valueOf(address.getStreetName()));
+        map.put("communityName", String.valueOf(address.getCommunityName()));
+        map.put("isCommunity", String.valueOf(address.isCommunity()));
+        return map;
     }
 }

@@ -1,0 +1,23 @@
+@import models.Order.OrderSchedule
+@import Global.Static.masterpage
+@import play.data.Form
+@import views.html.helper.CSRF
+
+@(scheduleForm: Form[OrderSchedule])
+
+@bodyContent = {
+    <h1>Create order schedule</h1>
+    <br/>
+@helper.form( action = controllers.Order.routes.ScheduleController.doCreateSchedule()){
+    @CSRF.formField
+    @helper.inputText(scheduleForm("title"), '_name -> "Schedule Name")
+    <div class="container input-container">
+        <input class="btn btn-success button-padding" type="button" value="Create Schedule">
+    </div>
+}
+}
+
+@masterpage.apply(" :: Create Schedule", bodyContent)
+
+
+

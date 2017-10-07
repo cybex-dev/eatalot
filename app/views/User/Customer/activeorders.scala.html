@@ -1,0 +1,10 @@
+@import Global.Static.masterpage
+@import java.util.List
+
+@(activeOrderList: List[ActiveOrder])
+
+@bodyContent = {
+
+}
+
+@masterpage.apply(" :: Active Orders", bodyContent)

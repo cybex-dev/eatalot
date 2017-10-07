@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Aug 18 19:03:52 SAST 2017
+// @DATE:Fri Oct 06 21:38:00 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,22 +19,46 @@ package controllers.User {
     }
 
   
+    // @LINE:41
+    def paymentHistory(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "User/History/Purchases")
+    }
+  
     // @LINE:39
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:41
+    // @LINE:45
     def create(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "User/Register")
+      Call("PUT", _prefix + { _defaultPrefix } + "User/Register")
     }
   
     // @LINE:43
+    def viewPayment(paymentId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "User/History/Payment/" + implicitly[play.api.mvc.PathBindable[String]].unbind("paymentId", play.core.routing.dynamicString(paymentId)))
+    }
+  
+    // @LINE:40
+    def orderHistory(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "User/History/Orders")
+    }
+  
+    // @LINE:42
+    def viewOrder(orderId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "User/History/Order/" + implicitly[play.api.mvc.PathBindable[String]].unbind("orderId", play.core.routing.dynamicString(orderId)))
+    }
+  
+    // @LINE:47
     def completeRegistration(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "User/Registration/Completing")
+      Call("POST", _prefix + { _defaultPrefix } + "User/Register/Completing")
     }
   
     // @LINE:37
@@ -43,16 +67,16 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "User/Register")
     }
   
-    // @LINE:42
+    // @LINE:46
     def reverify(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "User/Registration/Reverify")
+      Call("POST", _prefix + { _defaultPrefix } + "User/Register/Reverify")
     }
   
-    // @LINE:44
+    // @LINE:48
     def update(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
+      Call("PUT", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
     // @LINE:36

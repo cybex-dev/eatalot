@@ -44,59 +44,95 @@ Seq[Any](format.raw/*9.17*/("""
                     <div class="col-md-pull-12">
                         <div class="navbar-collapse collapse ">
                             <ul class="nav navbar-nav navbar-left navbar-top nav-text-enlarge">
-                                """),format.raw/*20.60*/("""
-                                """),format.raw/*21.33*/("""<li><a href=""""),_display_(/*21.47*/controllers/*21.58*/.User.routes.CustomerController.index()),format.raw/*21.97*/("""" class="menu-top-active nav-text-enlarge"><img src=""""),_display_(/*21.151*/routes/*21.157*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*21.208*/(""""/>
-                                    Dashboard</a></li>
+                            """),_display_(/*20.30*/if(request.session.get(AppTags.Session.User.token.toString).isDefined)/*20.100*/ {_display_(Seq[Any](format.raw/*20.102*/("""
+                                """),format.raw/*21.60*/("""
+                                """),format.raw/*22.33*/("""<li><a href=""""),_display_(/*22.47*/controllers/*22.58*/.User.routes.CustomerController.index()),format.raw/*22.97*/("""" class="menu-top-active nav-text-enlarge"><img src=""""),_display_(/*22.151*/routes/*22.157*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*22.208*/(""""/>
+                                    Dashboard</a>
+                                </li>
+                                """),format.raw/*25.55*/("""
+                                """),format.raw/*26.33*/("""<li>
+                                    <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+                                        Menu
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        """),format.raw/*32.74*/("""
+                                        """),format.raw/*33.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#breakfasts">
+                                            Breakfasts</a></li>
+                                        """),format.raw/*35.71*/("""
+                                        """),format.raw/*36.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#lunches">
+                                            Lunches</a></li>
+                                        """),format.raw/*38.71*/("""
+                                        """),format.raw/*39.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#dinners">
+                                            Dinners</a></li>
+                                        """),format.raw/*41.72*/("""
+                                        """),format.raw/*42.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
+                                            Desserts</a></li>
+                                        """),format.raw/*44.70*/("""
+                                        """),format.raw/*45.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">
+                                            Snacks</a></li>
+                                    </ul>
+                                </li>
 
-                                """),format.raw/*24.55*/("""
-                                """),format.raw/*25.41*/("""
-                                    """),format.raw/*26.163*/("""
-                                        """),format.raw/*27.49*/("""
-                                        """),format.raw/*28.77*/("""
-                                    """),format.raw/*29.45*/("""
-                                    """),format.raw/*30.109*/("""
-                                        """),format.raw/*31.121*/("""
-                                            """),format.raw/*32.68*/("""
-                                        """),format.raw/*33.118*/("""
-                                            """),format.raw/*34.65*/("""
-                                        """),format.raw/*35.118*/("""
-                                            """),format.raw/*36.65*/("""
-                                        """),format.raw/*37.119*/("""
-                                            """),format.raw/*38.66*/("""
-                                        """),format.raw/*39.117*/("""
-                                            """),format.raw/*40.64*/("""
-                                    """),format.raw/*41.46*/("""
-                                """),format.raw/*42.42*/("""
-                                """),format.raw/*43.33*/("""<li><a href="#">TODO</a> </li>
+                                <li><a href="#">Order Schedule</a></li>
+                                <li><a href=""""),_display_(/*51.47*/controllers/*51.58*/.Finance.routes.UserFinance.addFunds()),format.raw/*51.96*/("""">Add Funds</a> </li>
                                 <li><a href="#">TODO</a></li>
                                 <li><a href="#">TODO</a></li>
-                            </ul>
+                            """)))}/*54.31*/else/*54.36*/{_display_(Seq[Any](format.raw/*54.37*/("""
+                                """),format.raw/*55.55*/("""
+                                """),format.raw/*56.33*/("""<li>
+                                    <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+                                        Menu
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        """),format.raw/*62.74*/("""
+                                        """),format.raw/*63.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#breakfasts">
+                                            Breakfasts</a></li>
+                                        """),format.raw/*65.71*/("""
+                                        """),format.raw/*66.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#lunches">
+                                            Lunches</a></li>
+                                        """),format.raw/*68.71*/("""
+                                        """),format.raw/*69.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#dinners">
+                                            Dinners</a></li>
+                                        """),format.raw/*71.72*/("""
+                                        """),format.raw/*72.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
+                                            Desserts</a></li>
+                                        """),format.raw/*74.70*/("""
+                                        """),format.raw/*75.41*/("""<li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">
+                                            Snacks</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">TODO</a></li>
+                                <li><a href="#">TODO</a></li>
+                            """)))}),format.raw/*81.30*/("""
+                            """),format.raw/*82.29*/("""</ul>
                             <ul class="right-container navbar-btn navbar-right">
-                            """),_display_(/*48.30*/if(request.session.get(AppTags.Session.User.token.toString).isDefined)/*48.100*/ {_display_(Seq[Any](format.raw/*48.102*/("""
-                                """),format.raw/*49.33*/("""<ul class="top">
-                                    <label class="media-heading navbar-user pull-center">Welcome, """),_display_(/*50.100*/session/*50.107*/.get(AppTags.Session.User.name.toString)),format.raw/*50.147*/("""
-                                    """),format.raw/*51.37*/("""</label>
-                                    <a href=""""),_display_(/*52.47*/controllers/*52.58*/.User.routes.CustomerController.edit()),format.raw/*52.96*/("""">
-                                        <img class="settings-icon" src=""""),_display_(/*53.74*/routes/*53.80*/.Assets.versioned("images/navigation/settings.png")),format.raw/*53.131*/("""">
+                            """),_display_(/*84.30*/if(request.session.get(AppTags.Session.User.token.toString).isDefined)/*84.100*/ {_display_(Seq[Any](format.raw/*84.102*/("""
+                                """),format.raw/*85.33*/("""<ul class="top">
+                                    <label class="media-heading navbar-user pull-center">Welcome, """),_display_(/*86.100*/session/*86.107*/.get(AppTags.Session.User.name.toString)),format.raw/*86.147*/("""
+                                    """),format.raw/*87.37*/("""</label>
+                                    <a href=""""),_display_(/*88.47*/controllers/*88.58*/.User.routes.CustomerController.edit()),format.raw/*88.96*/("""">
+                                        <img class="settings-icon" src=""""),_display_(/*89.74*/routes/*89.80*/.Assets.versioned("images/navigation/settings.png")),format.raw/*89.131*/("""">
                                     </a>
                                 </ul>
                                 <ul class="bottom text-center">
-                                    <a href=""""),_display_(/*57.47*/controllers/*57.58*/.User.routes.UserController.logout()),format.raw/*57.94*/("""" class="btn btn-danger pull-center">
+                                    <a href=""""),_display_(/*93.47*/controllers/*93.58*/.User.routes.UserController.logout()),format.raw/*93.94*/("""" class="btn btn-danger pull-center">
                                         Logout</a>
                                 </ul>
-                            """)))}/*60.31*/else/*60.36*/{_display_(Seq[Any](format.raw/*60.37*/("""
-                                """),format.raw/*61.33*/("""<ul class="top">
+                            """)))}/*96.31*/else/*96.36*/{_display_(Seq[Any](format.raw/*96.37*/("""
+                                """),format.raw/*97.33*/("""<ul class="top">
                                     <label class="media-heading navbar-user pull-center">
                                         Welcome, New User</label>
                                 </ul>
 
                                 <ul class="bottom text-center">
-                                    <a href=""""),_display_(/*67.47*/controllers/*67.58*/.User.routes.UserController.login()),format.raw/*67.93*/("""" class="btn btn-success pull-center">
+                                    <a href=""""),_display_(/*103.47*/controllers/*103.58*/.User.routes.UserController.login()),format.raw/*103.93*/("""" class="btn btn-success pull-center">
                                         Login</a>
                                 </ul>
-                            """)))}),format.raw/*70.30*/("""
+                            """)))}),format.raw/*106.30*/("""
 
-                            """),format.raw/*72.29*/("""</ul>
+                            """),format.raw/*108.29*/("""</ul>
                         </div>
                     </div>
                 </div>
@@ -104,13 +140,13 @@ Seq[Any](format.raw/*9.17*/("""
         </div>
     </section>
 
-"""),_display_(/*80.2*/nav_extension),format.raw/*80.15*/("""
+"""),_display_(/*116.2*/nav_extension),format.raw/*116.15*/("""
 """)))};
 Seq[Any](format.raw/*7.69*/("""
 
-"""),format.raw/*81.2*/("""
+"""),format.raw/*117.2*/("""
 
-"""),_display_(/*83.2*/nav/*83.5*/.apply("null", nav_section)))
+"""),_display_(/*119.2*/nav/*119.5*/.apply("null", nav_section)))
       }
     }
   }
@@ -126,11 +162,11 @@ Seq[Any](format.raw/*7.69*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Aug 18 19:03:53 SAST 2017
+                  DATE: Tue Oct 03 05:56:09 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html
-                  HASH: b430545540f83175ffe6f7e958bd53f3485bbf8d
-                  MATRIX: 665->1|696->165|1070->205|1215->275|1234->286|1314->290|1346->295|1443->365|1463->376|1523->415|1988->879|2049->912|2090->926|2110->937|2170->976|2252->1030|2268->1036|2341->1087|2461->1201|2522->1242|2588->1405|2657->1454|2726->1531|2791->1576|2857->1685|2927->1806|3000->1874|3070->1992|3143->2057|3213->2175|3286->2240|3356->2359|3429->2425|3499->2542|3572->2606|3637->2652|3698->2694|3759->2727|4085->3026|4165->3096|4206->3098|4267->3131|4411->3247|4428->3254|4490->3294|4555->3331|4637->3386|4657->3397|4716->3435|4819->3511|4834->3517|4907->3568|5126->3760|5146->3771|5203->3807|5378->3964|5391->3969|5430->3970|5491->4003|5840->4325|5860->4336|5916->4371|6103->4527|6161->4557|6325->4695|6359->4708|6400->272|6429->4710|6458->4713|6469->4716
-                  LINES: 24->1|25->6|30->7|34->9|34->9|36->9|37->10|38->11|38->11|38->11|47->20|48->21|48->21|48->21|48->21|48->21|48->21|48->21|51->24|52->25|53->26|54->27|55->28|56->29|57->30|58->31|59->32|60->33|61->34|62->35|63->36|64->37|65->38|66->39|67->40|68->41|69->42|70->43|75->48|75->48|75->48|76->49|77->50|77->50|77->50|78->51|79->52|79->52|79->52|80->53|80->53|80->53|84->57|84->57|84->57|87->60|87->60|87->60|88->61|94->67|94->67|94->67|97->70|99->72|107->80|107->80|109->7|111->81|113->83|113->83
+                  HASH: 09dd78730a2a956df3dfa2583e24fa93b05dc87e
+                  MATRIX: 665->1|696->165|1070->205|1215->275|1234->286|1314->290|1346->295|1443->365|1463->376|1523->415|1984->849|2064->919|2105->921|2166->981|2227->1014|2268->1028|2288->1039|2348->1078|2430->1132|2446->1138|2519->1189|2671->1335|2732->1368|3182->1823|3251->1864|3460->2075|3529->2116|3732->2321|3801->2362|4004->2568|4073->2609|4278->2815|4347->2856|4706->3188|4726->3199|4785->3237|4979->3413|4992->3418|5031->3419|5092->3474|5153->3507|5603->3962|5672->4003|5881->4214|5950->4255|6153->4460|6222->4501|6425->4707|6494->4748|6699->4954|6768->4995|7165->5361|7222->5390|7365->5506|7445->5576|7486->5578|7547->5611|7691->5727|7708->5734|7770->5774|7835->5811|7917->5866|7937->5877|7996->5915|8099->5991|8114->5997|8187->6048|8406->6240|8426->6251|8483->6287|8658->6444|8671->6449|8710->6450|8771->6483|9121->6805|9142->6816|9199->6851|9387->7007|9446->7037|9611->7175|9646->7188|9687->272|9717->7190|9747->7193|9759->7196
+                  LINES: 24->1|25->6|30->7|34->9|34->9|36->9|37->10|38->11|38->11|38->11|47->20|47->20|47->20|48->21|49->22|49->22|49->22|49->22|49->22|49->22|49->22|52->25|53->26|59->32|60->33|62->35|63->36|65->38|66->39|68->41|69->42|71->44|72->45|78->51|78->51|78->51|81->54|81->54|81->54|82->55|83->56|89->62|90->63|92->65|93->66|95->68|96->69|98->71|99->72|101->74|102->75|108->81|109->82|111->84|111->84|111->84|112->85|113->86|113->86|113->86|114->87|115->88|115->88|115->88|116->89|116->89|116->89|120->93|120->93|120->93|123->96|123->96|123->96|124->97|130->103|130->103|130->103|133->106|135->108|143->116|143->116|145->7|147->117|149->119|149->119
                   -- GENERATED --
               */
           

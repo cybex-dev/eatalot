@@ -21,9 +21,9 @@ public class Staff extends User {
     @Constraints.Required
     private String token;
 
-    public static Finder<Long, Staff> find = new Finder<Long, Staff>(Staff.class);
+    public static Finder<String, Staff> find = new Finder<String, Staff>(Staff.class);
 
-    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff) {
+    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff) {
         super(userId, name, surname, password, email, cellNumber);
         this.isKitchenStaff = isKitchenStaff;
     }
@@ -50,5 +50,9 @@ public class Staff extends User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public boolean isDeliveryStaff() {
+        return !isKitchenStaff;
     }
 }

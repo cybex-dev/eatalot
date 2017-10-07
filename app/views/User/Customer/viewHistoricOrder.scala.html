@@ -1,0 +1,78 @@
+@import models.Order.OrderItemDetail
+@import Global.Static.masterpage
+@import utility.DateInterpreterStatic
+@import controllers.Application.AppTags
+
+@(orderDetails: OrderItemDetail)
+
+@bodyContent = {
+    <h1>Order details</h1>
+    <br/>
+    <div class="split-pane">
+        <div class="left container input-container">
+            <label># Order</label>
+            <label>Amount</label>
+            <label>Cash Payment</label>
+            <label>Deliverer</label>
+            <label># Payment</label>
+            <label>Status</label>
+            <label>Scheduled</label>
+            <label>Date</label>
+            <label>Time</label>
+            <label>Total</label>
+        </div>
+
+        <div class="right container input-container">
+            <label>@orderDetails.orderId</label>
+            <label>@String.valueOf(orderDetails.amount)</label>
+            <label>@if(orderDetails.payment.isCash) {"Yes"} else {"No"}</label>
+            <label>@orderDetails.delivererName</label>
+            <label><a href="@controllers.User.routes.CustomerController.viewPayment(orderDetails.payment.getPaymentId)">
+                "#@orderDetails.payment.getPaymentId"</a></label>
+            <label>@orderDetails.status</label>
+            <label>@if(orderDetails.isScheduleOrder) {"Yes"} else {"No"}</label>
+            <label>@DateInterpreterStatic.getDateWithDayName(orderDetails.dateOrdered)</label>
+            <label>@DateInterpreterStatic.getTime(orderDetails.dateOrdered)</label>
+            <label>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(orderDetails.amount)</label>
+        </div>
+    </div>
+    <br/>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Hover Rows
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Meal #</th>
+                            <th>Meal Name</th>
+                            <th>Type</th>
+                            <th>Qty</th>
+                            <th>Unit Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for((mealOrderItem, index) <- orderDetails.mealOrders.zipWithIndex) {
+                            <tr class="gradeA @if((index % 2) == 0) {odd} else {even}">
+                                <td>@mealOrderItem.mealOrderId</td>
+                                <td>@mealOrderItem.mealName</td>
+                                <td>@mealOrderItem.mealType</td>
+                                <td>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(mealOrderItem.price)</td>
+                                <td>@String.valueOf(mealOrderItem.getQty)</td>
+                                <td>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(mealOrderItem.getTotal)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <input type="button" href="@controllers.User.routes.CustomerController.index()" value="Home">
+}
+
+@masterpage.apply(" :: Previous Orders", bodyContent)

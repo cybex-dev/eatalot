@@ -22,25 +22,27 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import views.html.Global.Static.masterpage
+/*2.2*/import models.User.UserInfo
+/*3.2*/import controllers.Application.AppTags.Locale
 
-object customerHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+object customerHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[UserInfo,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*3.2*/():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*5.2*/(userInfo: UserInfo):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*5.2*/bodyContent/*5.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*7.2*/bodyContent/*7.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*5.17*/("""
-    """),format.raw/*6.37*/("""
+Seq[Any](format.raw/*7.17*/("""
+    """),format.raw/*8.37*/("""
 
-    """),format.raw/*8.5*/("""<div class="row">
+    """),format.raw/*10.5*/("""<div class="row">
 
         <div class="col-md-3 col-sm-3 col-xs-6">
             <div class="alert alert-info back-widget-set text-center">
                 <i class="fa fa-history fa-5x"></i>
-                <h3>500+&nbsp; <i class="fa fa-dollar"></i></h3>
+                <h3>"""),_display_(/*15.22*/Locale/*15.28*/.Currency.ZAR.toString),format.raw/*15.50*/(""" """),_display_(/*15.52*/userInfo/*15.60*/.getBalance),format.raw/*15.71*/("""&nbsp; <i class="fa fa-dollar"></i></h3>
                 Cash
             </div>
         </div>
@@ -48,21 +50,21 @@ Seq[Any](format.raw/*5.17*/("""
             <div class="alert alert-success back-widget-set text-center">
                 <i class="fa fa-bars fa-5x"></i>
                 <h3>New</h3>
-                Order
+                Place Order
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-6">
             <div class="alert alert-warning back-widget-set text-center">
                 <i class="fa fa-recycle fa-5x"></i>
                 <h3>X</h3>
-                Orders Pending
+                Orders in Queue
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-6">
             <div class="alert alert-danger back-widget-set text-center">
                 <i class="fa fa-briefcase fa-5x"></i>
                 <h3>Order </h3>
-                Schedule
+                I Schedule
             </div>
         </div>
 
@@ -104,20 +106,20 @@ Seq[Any](format.raw/*5.17*/("""
         <br/>
         <br/>
     </div>
-    """),format.raw/*77.35*/("""
+    """),format.raw/*79.35*/("""
 """)))};
-Seq[Any](format.raw/*3.4*/("""
+Seq[Any](format.raw/*5.22*/("""
 
-"""),format.raw/*78.2*/("""
+"""),format.raw/*80.2*/("""
 
-"""),_display_(/*80.2*/masterpage/*80.12*/.apply(" :: Welcome", bodyContent)))
+"""),_display_(/*82.2*/masterpage/*82.12*/.apply(" :: Welcome", bodyContent)))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(userInfo:UserInfo): play.twirl.api.HtmlFormat.Appendable = apply(userInfo)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((UserInfo) => play.twirl.api.HtmlFormat.Appendable) = (userInfo) => apply(userInfo)
 
   def ref: this.type = this
 
@@ -126,11 +128,11 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Aug 18 08:43:46 SAST 2017
+                  DATE: Tue Oct 03 21:44:28 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/customerHome.scala.html
-                  HASH: e9d4fb397b9f524569ece3036723d0eddab09012
-                  MATRIX: 665->1|1012->46|1092->51|1111->62|1191->66|1223->103|1255->109|4153->3009|4193->48|4222->3011|4251->3014|4270->3024
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|38->8|107->77|109->3|111->78|113->80|113->80
+                  HASH: 29b3c77731866c1b07eeb9b8731f4faf7ca4acd9
+                  MATRIX: 665->1|715->45|750->74|1109->122|1207->145|1226->156|1306->160|1338->197|1371->203|1610->415|1625->421|1668->443|1697->445|1714->453|1746->464|4438->3158|4479->142|4508->3160|4537->3163|4556->3173
+                  LINES: 24->1|25->2|26->3|31->5|35->7|35->7|37->7|38->8|40->10|45->15|45->15|45->15|45->15|45->15|45->15|109->79|111->5|113->80|115->82|115->82
                   -- GENERATED --
               */
           

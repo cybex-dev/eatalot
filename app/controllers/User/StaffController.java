@@ -3,21 +3,22 @@ package controllers.User;
 import controllers.Application.AppTags;
 import controllers.Delivery.DeliveryController;
 import controllers.Order.KitchenController;
-import models.User.Customer;
 import models.User.Staff;
-import models.User.User;
 import models.User.UserLoginInfo;
 import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
+import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 import views.html.Application.Home.index;
 import views.html.User.Staff.login;
 
 import javax.inject.Inject;
 import java.util.List;
 
+@Security.Authenticated
 public class StaffController extends Controller {
     @Inject
     FormFactory formFactory;
@@ -30,6 +31,7 @@ public class StaffController extends Controller {
     //default route : /user
     public Result index() {
         return ok(index.render());
+
 //        try {
 //            if (!response().cookies().stream().anyMatch(cookie -> cookie.name().equals(RememberMe.toString()) && cookie.value().equals(Boolean.TRUE))) {
 //
@@ -72,16 +74,17 @@ public class StaffController extends Controller {
      *
      * @return
      */
+    @RequireCSRFCheck
     public Result doLogin() {
         Form<UserLoginInfo> form = formFactory.form(UserLoginInfo.class).bindFromRequest();
 
         if (form == null) {
-            flash(AppTags.ErrorCodes.danger.toString(), "An error occurred!");
+            flash(AppTags.FlashCodes.danger.toString(), "An error occurred!");
             return badRequest(login.render(form));
         }
 
         if (form.hasErrors()) {
-            flash(AppTags.ErrorCodes.warning.toString(), "Please check all fields are correct");
+            flash(AppTags.FlashCodes.warning.toString(), "Please check all fields are correct");
             return badRequest(login.render(form));
         }
 
@@ -93,7 +96,7 @@ public class StaffController extends Controller {
             bRemember = (form.field("chkRemember").getValue().get().toLowerCase().equals("on"));
         } catch (Exception x) {
             Logger.warn("UserController: doLogin: could not convert boolean");
-            flash(AppTags.ErrorCodes.warning.toString(), "An error occurred");
+            flash(AppTags.FlashCodes.warning.toString(), "An error occurred");
             return internalServerError(login.render(form));
         }
 
@@ -102,17 +105,17 @@ public class StaffController extends Controller {
             List<Staff> userEmails = Staff.find.query().where().eq(AppTags.Database.User.email, email).findList();
             if (userEmails.size() > 1) {
                 Logger.warn("Multiple emails exist: [ " + email + " ]");
-                flash(AppTags.ErrorCodes.danger.toString(), "An server error occurred, please try again later!");
+                flash(AppTags.FlashCodes.danger.toString(), "An server error occurred, please try again later!");
                 return internalServerError(login.render(form));
             }
             if (userEmails.size() == 0) {
-                flash(AppTags.ErrorCodes.warning.toString(), "Username/Password combination invalid");
+                flash(AppTags.FlashCodes.warning.toString(), "Username/Password combination invalid");
                 return internalServerError(login.render(form));
             }
             user = userEmails.get(0);
         } catch (Exception x) {
             Logger.warn("Exception - UserController: doLogin:\n" + x.toString());
-            flash(AppTags.ErrorCodes.danger.toString(), "An critical error occurred, we apologize for any inconvenience!");
+            flash(AppTags.FlashCodes.danger.toString(), "An critical error occurred, we apologize for any inconvenience!");
             return internalServerError(login.render(form));
         }
 
@@ -122,7 +125,7 @@ public class StaffController extends Controller {
                     ? new KitchenController().index()
                     : new DeliveryController().index();
         } else {
-            flash(AppTags.ErrorCodes.warning.toString(), "Incorrect username/password combination");
+            flash(AppTags.FlashCodes.warning.toString(), "Incorrect username/password combination");
             return notFound(login.render(form));
         }
     }

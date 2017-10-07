@@ -16,8 +16,10 @@ import java.util.Date;
 public class Payment extends Model {
     @Id
     @Constraints.Required
-    @GeneratedValue
-    private Long paymentId;
+    @Constraints.MinLength(10)
+    @Constraints.MaxLength(10)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String paymentId;
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
     private Date date;
@@ -29,10 +31,30 @@ public class Payment extends Model {
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 
-    public Payment(@Constraints.Required Long paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash) {
+    public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash) {
         this.paymentId = paymentId;
         this.date = date;
         this.amount = amount;
         this.isCash = isCash;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public Boolean isCash() {
+        return isCash;
+    }
+
+    public String getPaymentId() {
+        return paymentId;
     }
 }

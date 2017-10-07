@@ -3,26 +3,20 @@ package controllers.Application;
 //import models.User.Customer;
 
 import controllers.Application.AppTags.AppCookie.UserType;
-import controllers.Delivery.DeliveryController;
-import controllers.Order.KitchenController;
-import controllers.User.CustomerController;
-import models.User.Customer;
-import models.User.UserRegisterDetails;
+import controllers.User.routes;
 import play.Logger;
 import play.data.Form;
-import play.mvc.Http.Session;
+import play.data.FormFactory;
 import play.mvc.Http;
 import play.mvc.Result;
-import scala.App;
 
-import java.util.Collection;
+import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.Optional;
 
 
-import static controllers.User.routes.*;
 import static play.mvc.Results.ok;
 import static play.mvc.Results.redirect;
-import static sun.security.krb5.internal.crypto.Nonce.value;
 
 /**
  * Created by cybex on 2017/07/16.
@@ -50,7 +44,7 @@ public class AppTags {
         }
     }
 
-    public enum ErrorCodes {
+    public enum FlashCodes {
         warning("warning"),
         danger("danger"),
         success("success"),
@@ -58,7 +52,7 @@ public class AppTags {
 
         private String value;
 
-        ErrorCodes(String input) {
+        FlashCodes(String input) {
             value = input;
         }
 
@@ -121,6 +115,7 @@ public class AppTags {
 
         /**
          * Browser does not remove cookies, so we replace them with expired, no value cookies
+         *
          * @param result
          */
         public static void logout(Result result) {
@@ -158,7 +153,7 @@ public class AppTags {
         }
 
         public static Http.Cookie buildCookie(String id, String value) {
-            return new Http.Cookie(id, value, 2678400, "", General.SITEDOMAIN.toString(), false, false, Http.Cookie.SameSite.LAX);
+            return new Http.Cookie(id, value, 2678400, "/", General.SITEDOMAIN.toString(), false, false, Http.Cookie.SameSite.LAX);
         }
 
         public static Http.Cookie buildExpiredCookie(String id) {
@@ -167,6 +162,17 @@ public class AppTags {
     }
 
     public static class Session {
+
+        public static boolean isValidUser(Http.Session session) {
+            return (session.containsKey(User.token.toString()) &&
+                    session.containsKey(User.id.toString()));
+        }
+
+        public static boolean isCustomer(Http.Session session) {
+            return (session.get(AppCookie.user_type.toString()).equals(UserType.CUSTOMER.toString()) &&
+                    session.containsKey(User.name.toString()));
+        }
+
 
         public enum User {
             email("email"),
@@ -269,8 +275,7 @@ public class AppTags {
 
                 public static void load(Http.Session session, String userId, String token) {
                     try {
-                        Long id = Long.parseLong(userId);
-                        models.User.Customer c = models.User.Customer.find.byId(id);
+                        models.User.Customer c = models.User.Customer.find.byId(userId);
                         if (c.getToken().equals(token) && c.isComplete()) {
                             save(session, c);
                             session.put(AppCookie.user_type.toString(), UserType.CUSTOMER.toString());
@@ -292,8 +297,7 @@ public class AppTags {
 
                 public static void load(Http.Session session, String userId, String token) {
                     try {
-                        Long id = Long.parseLong(userId);
-                        models.User.Staff s = models.User.Staff.find.byId(id);
+                        models.User.Staff s = models.User.Staff.find.byId(userId);
                         if (s.getToken().equals(token)) {
                             save(session, s);
                             session.put(AppCookie.user_type.toString(), UserType.KITCHEN.toString());
@@ -315,8 +319,7 @@ public class AppTags {
 
                 public static void load(Http.Session session, String userId, String token) {
                     try {
-                        Long id = Long.parseLong(userId);
-                        models.User.Staff s = models.User.Staff.find.byId(id);
+                        models.User.Staff s = models.User.Staff.find.byId(userId);
                         if (s.getToken().equals(token)) {
                             save(session, s);
                             session.put(AppCookie.user_type.toString(), UserType.DELIVERY.toString());
@@ -371,8 +374,10 @@ public class AppTags {
             Result result = null;
             String userId = session.get(User.id.toString()),
                     token = session.get(User.token.toString());
-            if (userId == null || token == null)
+            if (userId == null || token == null || userId.isEmpty() || token.isEmpty()) {
+                session.clear();
                 return result;
+            }
             try {
                 String s = session.get(AppCookie.user_type.toString());
                 switch (AppCookie.UserType.parse(s)) {
@@ -410,23 +415,18 @@ public class AppTags {
                     return null;
                 if (!org.equals(General.SITENAME.toString()))
                     return null;
-//                String rem = AppCookie.extract(request, AppCookie.RememberMe);
-//                if (rem == null)
-//                    return null;
-//                if (!rem.equals("true"))
-//                    return null;
                 String userId = AppCookie.extractString(request, AppCookie.user_id),
                         token = AppCookie.extractString(request, AppCookie.user_token),
                         type = AppCookie.extractString(request, AppCookie.user_type);
                 session.put(User.id.toString(), userId);
                 session.put(User.token.toString(), token);
                 session.put(AppCookie.user_type.toString(), type);
-                return loadSessionAndRedirectUser(session);
+
             } catch (Exception x) {
                 Logger.debug(x.toString());
+                return renderDefaultPage();
             }
-            return null;
-
+            return loadSessionAndRedirectUser(session);
         }
     }
 
@@ -511,6 +511,31 @@ public class AppTags {
                     return false;
             }
             return true;
+        }
+    }
+
+    public static Result renderDefaultPage() {
+        Result redirect = redirect(controllers.User.routes.UserController.login());
+        return redirect;
+    }
+
+    public static class Locale {
+
+
+        public enum Currency {
+            ZAR("R"),
+            USD("$");
+
+            private String symbol;
+
+            Currency(String symbol) {
+                this.symbol = symbol;
+            }
+
+            @Override
+            public String toString() {
+                return symbol;
+            }
         }
     }
 }

@@ -1,40 +1,32 @@
 package controllers.User;
 
 import controllers.Application.AppTags;
-import controllers.Order.KitchenController;
-import controllers.Delivery.DeliveryController;
-import libs.Mailer;
-import models.CRUD;
 import models.User.Customer;
-import models.User.User;
 import models.User.UserLoginInfo;
 import models.User.UserRegisterDetails;
-import org.apache.commons.codec.digest.Crypt;
 import play.Logger;
-import play.api.libs.Crypto;
-import play.api.libs.Crypto$;
 import play.data.Form;
 import play.data.FormFactory;
-import play.data.validation.ValidationError;
+import play.filters.csrf.AddCSRFToken;
+import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-import scala.App;
+import play.mvc.Security;
 import views.html.Application.Home.index;
 import views.html.User.User.login;
 
 import javax.inject.Inject;
-import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 import views.html.User.Customer.registerDetails;
 
 import static controllers.Application.AppTags.*;
 import static controllers.Application.AppTags.AppCookie.buildCookie;
 import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
-import static controllers.Application.AppTags.AppCookie.clear;
 
 /**
  * Created by cybex on 2017/07/08.
@@ -58,6 +50,7 @@ public class UserController extends Controller {
      * @return
      */
     // /user
+    @AddCSRFToken
     public Result index() {
         Result result = AppTags.Session.checkExistingLogin(request(), session());
         if (result != null)
@@ -70,15 +63,15 @@ public class UserController extends Controller {
      *
      * @return
      */
-    //
+    @AddCSRFToken
     public Result login() {
         Http.Response response = response();
         Http.Request request = request();
         Http.Session session = session();
         Result result = AppTags.Session.checkExistingLogin(request(), session());
-        if (result != null)
-            return result;
-        return ok(login.render(formFactory.form(UserLoginInfo.class)));
+        if (result == null)
+            result = ok(login.render(formFactory.form(UserLoginInfo.class)));
+        return result;
     }
 
     /**
@@ -86,11 +79,12 @@ public class UserController extends Controller {
      *
      * @return
      */
+    @RequireCSRFCheck
     public Result doLogin() {
         Form<UserLoginInfo> form = formFactory.form(UserLoginInfo.class).bindFromRequest();
 
         if (form.hasErrors()) {
-            flash(ErrorCodes.warning.toString(), "Please check all fields are correct");
+            flash(FlashCodes.warning.toString(), "Please check all fields are correct");
             return badRequest(login.render(form));
         }
 
@@ -100,28 +94,46 @@ public class UserController extends Controller {
         try {
             List<Customer> userEmails = Customer.find.query().where().eq(Database.User.email, userLoginInfo.getEmail()).findList();
             if (userEmails.size() > 1) {
-                flash(ErrorCodes.danger.toString(), "An server error occurred, please try again later!");
+                flash(FlashCodes.danger.toString(), "An server error occurred, please try again later!");
                 return notFound(login.render(form));
             }
             if (userEmails.size() == 0) {
-                flash(ErrorCodes.warning.toString(), "Username/Password combination invalid");
+                flash(FlashCodes.warning.toString(), "Username/Password combination invalid");
                 return notFound(login.render(form));
             }
             customer = userEmails.get(0);
+            String s = form.field(Session.SessionTags.csrfTokenString.toString()).getValue().get();
+            customer.setToken(s);
         } catch (Exception x) {
             Logger.warn("Exception - UserController: doLogin:\n" + x.toString());
-            flash(ErrorCodes.danger.toString(), "An critical error occurred, we apologize for any inconvenience!");
+            flash(FlashCodes.danger.toString(), "An critical error occurred, we apologize for any inconvenience!");
             return internalServerError(login.render(form));
         }
 
         Result result;
+        String time = new Date().toString().replace(':', '-').replace(' ', '_');
         if (!customer.isComplete()) {
-            result = ok(registerDetails.apply(formFactory.form(UserRegisterDetails.class)));
-            result = result.withCookies(buildCookie(AppCookie.newUser.toString(), AppCookie.newUser.toString()));
+            if (customer.completeCheck()) {
+                customer.setComplete(true);
+                result = redirect(routes.CustomerController.index());
+            }
+            else {
+                session().put(Session.User.id.toString(), String.valueOf(customer.getUserId()));
+                session().put(Session.User.token.toString(), String.valueOf(customer.getToken()));
+                session().put(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString());
+
+                result = ok(registerDetails.apply(formFactory.form(UserRegisterDetails.class)));
+                return result.withCookies(
+                        buildCookie(AppCookie.newUser.toString(), AppCookie.newUser.toString()),
+                        buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
+                        buildCookie(AppCookie.Org.toString(), General.SITENAME.toString()),
+                        buildCookie(AppCookie.loginTime.toString(), time),
+                        buildCookie(AppCookie.user_token.toString(), customer.getToken()),
+                        buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())));
+            }
         } else {
             result = redirect(routes.CustomerController.index());
         }
-        String time = new Date().toString().replace(':', '-').replace(' ', '_');
         result = result.withCookies(
                 buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
                 buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())),

@@ -48,7 +48,7 @@ Seq[Any](format.raw/*1.16*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Aug 17 21:50:29 SAST 2017
+                  DATE: Tue Oct 03 05:56:09 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Html5/time.scala.html
                   HASH: 4d95af531c961abdbadbd63135be840b27eee2d6
                   MATRIX: 960->1|1069->15|1097->17|1129->24|1153->28

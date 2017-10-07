@@ -12,25 +12,29 @@ import javax.persistence.Table;
 @Entity
 public class Customer extends User {
 
-    private Long addressId;
+    @Constraints.Required
+    private String addressId;
     private Boolean isStudent = false;
     private Boolean emailVerified = false;
     @Constraints.Required
     private String token;
+    private boolean isComplete = false;
+    private Double balance = 0.00;
 
     public Customer(){}
 
-    public Customer(Long userId, String name, String surname, String email, String cellNumber, String password, Long addressId, Boolean isStudent, Boolean emailVerified) {
+    public Customer(String userId, String name, String surname, String email, String cellNumber, String password, String addressId, Boolean isStudent, Boolean emailVerified) {
         super(userId, name, surname, email, cellNumber, password);
         this.addressId = addressId;
         this.isStudent = isStudent;
         this.emailVerified = emailVerified;
     }
 
-    public static final Finder<Long, Customer> find = new Finder<Long, Customer>(Customer.class);
+    public static final Finder<String, Customer> find = new Finder<String, Customer>(Customer.class);
 
     public void setToken(String token) {
         this.token = token;
+        save();
     }
 
     public Boolean getEmailVerified() {
@@ -39,18 +43,20 @@ public class Customer extends User {
 
     public void setEmailVerified(Boolean emailVerified) {
         this.emailVerified = emailVerified;
+        save();
     }
 
     public String getToken() {
         return token;
     }
 
-    public Long getAddressId() {
+    public String getAddressId() {
         return addressId;
     }
 
-    public void setAddressId(Long address) {
+    public void setAddressId(String address) {
         this.addressId = address;
+        save();
     }
 
     public Address getAddress(){
@@ -63,14 +69,15 @@ public class Customer extends User {
 
     public void setStudent(Boolean status) {
         this.isStudent = status;
+        save();
     }
 
     /**
      * Checks all values of the Customer, returns true if the user's profile is complete
      * @return
      */
-    public boolean isComplete(){
-        return (super.isComplete() &&
+    public boolean completeCheck(){
+        return isComplete = (super.completeCheck() &&
                 emailVerified &&
                 Address.find.byId(addressId).isComplete());
     }
@@ -99,5 +106,31 @@ public class Customer extends User {
 
     public boolean isVerified() {
         return emailVerified;
+    }
+
+    public void setComplete(boolean complete) {
+        this.isComplete = complete;
+        save();
+    }
+
+    public boolean isComplete() {
+        return isComplete;
+    }
+
+    public void addFunds(Double value) {
+        balance += value;
+        save();
+    }
+
+    public void pay(Double value) {
+        balance -= value;
+    }
+
+    public String  getBalance(){
+        return (balance == null) ? "0.00" : String.valueOf(balance);
+    }
+
+    public UserInfo getUserInfo(){
+        return new UserInfo(getUserId(), getName(), getSurname(), isComplete(), isStudent(), getBalance());
     }
 }

@@ -29,7 +29,7 @@ public class UserProfile extends UserRegisterDetails{
         this.confirmPassword = confirmPassword;
     }
 
-    public UserProfile(Long userId) {
+    public UserProfile(String userId) {
         get(userId);
     }
 
@@ -41,7 +41,7 @@ public class UserProfile extends UserRegisterDetails{
         this.password = password;
     }
 
-    private void get(Long userId) {
+    private void get(String userId) {
         if (userId == null)
             return;
         try {
@@ -70,8 +70,7 @@ public class UserProfile extends UserRegisterDetails{
     public void save() {
         // TODO: 2017/08/18 add support for passsword
         String id = getUserId();
-        Long userId = Long.parseLong(id);
-        Customer c = Customer.find.byId(userId);
+        Customer c = Customer.find.byId(id);
         if (c == null)
             return;
         c.setName(getName());

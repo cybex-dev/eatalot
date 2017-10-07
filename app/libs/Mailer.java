@@ -47,6 +47,7 @@ public class Mailer {
     }
 
     public void sendWelcome(String name, String email_address, String token) {
+        // TODO implement this
 //        Email email = new Email()
 //                .setSubject("Simple email")
 //                .setFrom("Mister FROM <from@email.com>")
@@ -59,11 +60,12 @@ public class Mailer {
 //                .addAttachment("image.jpg", new File("/some/path/image.jpg"), cid)
 //                // sends text, HTML or both...
 //                .setBodyText("A text message")
-//                .setBodyHtml("<html><body><p>An <b>html</b> message with cid <img src=\"cid:" + cid + "\"></p></body></html>");
+//                    .setBodyHtml("<html><body><p>An <b>html</b> message with cid <img src=\"cid:" + cid + "\"></p></body></html>");
 //        mailerClient.send(email);
     }
 
     public void sendPasswordReset(String name, String email_address, String token) {
+        // TODO implement this
 //        Email email = new Email()
 //                .setSubject("Simple email")
 //                .setFrom("Mister FROM <from@email.com>")

@@ -21,8 +21,10 @@ public abstract class User extends Model {
 
     @Id
     @Constraints.Required
-    @GeneratedValue
-    private Long userId;
+    @Constraints.MinLength(10)
+    @Constraints.MaxLength(10)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String userId;
 
     @Constraints.MaxLength(50)
     private String name;
@@ -49,7 +51,7 @@ public abstract class User extends Model {
 
     public User(){}
 
-    public User(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
+    public User(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -58,7 +60,7 @@ public abstract class User extends Model {
         this.cellNumber = cellNumber;
     }
 
-    public boolean isComplete(){
+    public boolean completeCheck(){
         return (name != null &&
                 !name.equals("") &&
                 surname != null &&
@@ -95,11 +97,11 @@ public abstract class User extends Model {
         return stringBuilder.toString();
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

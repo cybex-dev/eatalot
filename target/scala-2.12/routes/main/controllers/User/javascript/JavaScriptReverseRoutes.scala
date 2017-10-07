@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Aug 18 19:03:52 SAST 2017
+// @DATE:Fri Oct 06 21:38:00 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,6 +20,16 @@ package controllers.User.javascript {
     }
 
   
+    // @LINE:41
+    def paymentHistory: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.paymentHistory",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/History/Purchases"})
+        }
+      """
+    )
+  
     // @LINE:39
     def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.edit",
@@ -30,22 +40,52 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:41
+    // @LINE:45
     def create: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.create",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register"})
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register"})
         }
       """
     )
   
     // @LINE:43
+    def viewPayment: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.viewHistoricPayment",
+      """
+        function(paymentId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/History/Payment/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("paymentId", encodeURIComponent(paymentId0))})
+        }
+      """
+    )
+  
+    // @LINE:40
+    def orderHistory: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.orderHistory",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/History/Orders"})
+        }
+      """
+    )
+  
+    // @LINE:42
+    def viewOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.CustomerController.viewOrder",
+      """
+        function(orderId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/History/Order/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("orderId", encodeURIComponent(orderId0))})
+        }
+      """
+    )
+  
+    // @LINE:47
     def completeRegistration: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.completeRegistration",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Registration/Completing"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register/Completing"})
         }
       """
     )
@@ -60,22 +100,22 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:42
+    // @LINE:46
     def reverify: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.reverify",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Registration/Reverify"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Register/Reverify"})
         }
       """
     )
   
-    // @LINE:44
+    // @LINE:48
     def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.update",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Profile"})
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Profile"})
         }
       """
     )

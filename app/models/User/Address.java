@@ -19,8 +19,10 @@ public class Address extends Model {
 
     @Id
     @Constraints.Required
-    @GeneratedValue
-    private Long addressId;
+    @Constraints.MinLength(10)
+    @Constraints.MaxLength(10)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String addressId;
     @Constraints.Required
     private String unitNumber;
     @Constraints.Required
@@ -30,7 +32,7 @@ public class Address extends Model {
 
     public Address(){}
 
-    public Address(@Constraints.Required Long addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
+    public Address(@Constraints.Required String addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
         this.addressId = addressId;
         this.unitNumber = unitNumber;
         this.streetName = streetName;
@@ -38,7 +40,7 @@ public class Address extends Model {
         this.isCommunity = isCommunity;
     }
 
-    public static Finder<Long, Address> find = new Finder<Long, Address>(Address.class);
+    public static Finder<String, Address> find = new Finder<String, Address>(Address.class);
 
     public String getUnitNumber() {
         return unitNumber;
@@ -105,7 +107,7 @@ public class Address extends Model {
         return stringBuilder.toString();
     }
 
-    public Long getAddressId() {
+    public String getAddressId() {
         return addressId;
     }
 }

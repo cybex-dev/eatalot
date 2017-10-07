@@ -12,10 +12,10 @@ import javax.persistence.*;
 @Entity
 public class QueueType extends Model{
     @Id
-    @Constraints.Required
-    @Constraints.Min(49)
-    @Constraints.Max(50)
-    private Long typeId;
+    @Constraints.MinLength(10)
+    @Constraints.MaxLength(10)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String typeId;
     @Constraints.Required
     private String type;
     @Constraints.Required

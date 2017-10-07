@@ -2,8 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Shows EatAloT home page
-GET     /                                     controllers.Application.HomeController.index()
+# An example controller showing a sample home page
+GET     /                      controllers.Application.HomeController.index()
 
 
 ##disable this an you will recieve customerHome 403 forbidden error, the CRSF filter is used for cross site scripting prevention, use for authentication - used in POST requests
@@ -37,6 +37,10 @@ GET        /User                                controllers.User.CustomerControl
 GET        /User/Register                       controllers.User.CustomerController.register()
 GET        /User/Verify/:token                  controllers.User.CustomerController.verifyCustomer(token: String)
 GET        /User/Profile                        controllers.User.CustomerController.edit()
+GET        /User/History/Orders                 controllers.User.CustomerController.orderHistory()
+GET        /User/History/Purchases              controllers.User.CustomerController.paymentHistory()
+GET        /User/History/Order/:orderId         controllers.User.CustomerController.viewOrder(orderId: String)
+GET        /User/History/Payment/:paymentId     controllers.User.CustomerController.viewPayment(paymentId: String)
 
 POST       /User/Register                       controllers.User.CustomerController.create()
 POST       /User/Registration/Reverify          controllers.User.CustomerController.reverify()
@@ -70,14 +74,48 @@ GET         /Delivery/User                       controllers.Delivery.DeliveryCo
 
 ##############################################################################
 
+# Finance Controller
+
+GET         /User/AddFunds                       controllers.Finance.UserFinance.addFunds()
+POST        /User/AddFunds                       controllers.Finance.UserFinance.doAddFunds()
+
+##############################################################################
+
+##############################################################################
+
+# Order - Management Package
+
+GET     /menu                  controllers.OrderController.getMenu()
+
+GET     /menu/:menutype        controllers.OrderController.switchMenu(menutype: Integer)
+
+GET     /signup                controllers.AccountController.getSignUp
+
+POST    /addmealtoorder        controllers.OrderController.addMealToOrder(mealId: String)
+
+GET     /addmeal               controllers.OrderController.getAddMealToMenu
+
+POST    /postmeal              controllers.OrderController.addMeal
+
+GET     /dologin               controllers.AccountController.doLogin()
+
+GET     /dosignout             controllers.AccountController.doSignOut()
+
+GET     /cart                  controllers.OrderController.getCart()
+
+POST    /cart/removemeal       controllers.OrderController.removeMealFromOrder(mealId: String)
+
+POST    /submit                controllers.OrderController.submitCart()
+
+##############################################################################
+
 # An example controller showing how to use dependency injection
 GET     /count                                   controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                                 controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                            controllers.Assets.versioned(path="/public", file: Asset)
-GET     /*path                                   controllers.Application.HomeController.invalidRoute(path: String)
+GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 
-## Javascript routes
-#GET     /javascriptRoutes        controllers.JavascriptRoutesController
+GET     /*path                  controllers.Application.HomeController.invalidRoute(path: String)
+

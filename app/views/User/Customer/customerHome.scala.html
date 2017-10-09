@@ -1,42 +1,51 @@
 @import views.html.Global.Static.masterpage
-@import models.User.UserInfo
 @import controllers.Application.AppTags.Locale
+@import helper._
+@import models.User.CustomerInfo
 
-@(userInfo: UserInfo)
+@(customerInfo: CustomerInfo)
 
 @bodyContent = {
     @*Start of blocks and carousel*@
+    <div class="container row">
 
-    <div class="row">
-
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-info back-widget-set text-center">
-                <i class="fa fa-history fa-5x"></i>
-                <h3>@Locale.Currency.ZAR.toString @userInfo.getBalance&nbsp; <i class="fa fa-dollar"></i></h3>
-                Cash
+        <a href="@CSRF(controllers.User.routes.CustomerController.paymentHistory())">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-info back-widget-set text-center">
+                    <i class="fa fa-history fa-5x"></i>
+                    <h3>@Locale.Currency.ZAR.toString @customerInfo.getBalance &nbsp;
+                        <i class="fa fa-dollar"></i></h3>
+                    Cash
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-success back-widget-set text-center">
-                <i class="fa fa-bars fa-5x"></i>
-                <h3>New</h3>
-                Place Order
+        </a>
+        <a href="#">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <i class="fa fa-bars fa-5x"></i>
+                    <h3>New</h3>
+                    Place Order
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-warning back-widget-set text-center">
-                <i class="fa fa-recycle fa-5x"></i>
-                <h3>X</h3>
-                Orders in Queue
+        </a>
+        <a href="@CSRF(controllers.User.routes.CustomerController.activeOrders())">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert alert-warning back-widget-set text-center">
+                    <i class="fa fa-recycle fa-5x"></i>
+                    <h3>@String.valueOf(customerInfo.getActiveOrderCount())</h3>
+                    Orders in Queue
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-danger back-widget-set text-center">
-                <i class="fa fa-briefcase fa-5x"></i>
-                <h3>Order </h3>
-                I Schedule
+        </a>
+        <a href="@CSRF(controllers.Order.routes.ScheduleController.index())">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="alert @if(customerInfo.isScheduleActive){alert-success}else{alert-danger} back-widget-set text-center">
+                    <i class="fa fa-briefcase fa-5x"></i>
+                    <h3>@if(customerInfo.isScheduleActive){"Active"}else{"Inactive"}</h3>
+                    Order Schedule
+                </div>
             </div>
-        </div>
+        </a>
 
     </div>
 

@@ -2,155 +2,131 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3072a07-8a1e-40ae-aa07-6a136aac7503" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources/74c22fd9-142a-4954-9986-9843759cd1f2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6__2_.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6__3_.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/SBT__mysql_mysql_connector_java_5_1_41_jar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/play2_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Module.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/services/ApplicationTimer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$3ab9ead5c7ba34e9d776$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$3ab9ead5c7ba34e9d776.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$3ab9ead5c7ba34e9d776.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$bf19f8f314d3c3c5fab1$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$bf19f8f314d3c3c5fab1.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$bf19f8f314d3c3c5fab1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$e9b447ab265dee7665b8$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$e9b447ab265dee7665b8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$e9b447ab265dee7665b8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0e425a009c0abd1ce1f9$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0e425a009c0abd1ce1f9$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0e425a009c0abd1ce1f9.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0e425a009c0abd1ce1f9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1ee5bae6f221035cd4a4$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1ee5bae6f221035cd4a4$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1ee5bae6f221035cd4a4.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1ee5bae6f221035cd4a4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$20af9a15d836ea43be62$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$20af9a15d836ea43be62$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$20af9a15d836ea43be62.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$20af9a15d836ea43be62.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3855040531c222f0a839$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3855040531c222f0a839$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3855040531c222f0a839.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3855040531c222f0a839.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3a63e95e475ae352714a$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3a63e95e475ae352714a$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3a63e95e475ae352714a.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3a63e95e475ae352714a.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3dae3c8d4d80c50ea81e$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3dae3c8d4d80c50ea81e$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3dae3c8d4d80c50ea81e.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$3dae3c8d4d80c50ea81e.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$415570fab0d88a4a55b8$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$415570fab0d88a4a55b8$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$415570fab0d88a4a55b8.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$415570fab0d88a4a55b8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4b2d449ff9b6b211c4cb$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4b2d449ff9b6b211c4cb$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4b2d449ff9b6b211c4cb.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4b2d449ff9b6b211c4cb.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9$$anonfun$root$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9$$anonfun$root$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9$$anonfun$root$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9$$anonfun$root$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$827fe2c68b5811759fd9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$867256b885583d5607c0$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$867256b885583d5607c0$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$867256b885583d5607c0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$867256b885583d5607c0.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$cb5153c02c4f5db75bd0$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$cb5153c02c4f5db75bd0$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$cb5153c02c4f5db75bd0.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$cb5153c02c4f5db75bd0.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d42224e3ea9d0b312275$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d42224e3ea9d0b312275$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d42224e3ea9d0b312275.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d42224e3ea9d0b312275.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d8b0e8548d01d76eea17$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d8b0e8548d01d76eea17$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d8b0e8548d01d76eea17.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$d8b0e8548d01d76eea17.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f03a9fa5e49d2bbf22f6$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f03a9fa5e49d2bbf22f6$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f03a9fa5e49d2bbf22f6.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f03a9fa5e49d2bbf22f6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f2841f2912dbf471629a$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f2841f2912dbf471629a$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f2841f2912dbf471629a.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f2841f2912dbf471629a.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f4e2eed962c725dbbbbb$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f4e2eed962c725dbbbbb$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f4e2eed962c725dbbbbb.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f4e2eed962c725dbbbbb.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ff8730800f076605ee2a$$anonfun$$sbtdef$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ff8730800f076605ee2a$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ff8730800f076605ee2a.cache" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ff8730800f076605ee2a.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascripts/jquery-1.10.2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/net.ddns.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/net.ddns.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-compile-internal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-compile.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-debian.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-docker.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-docs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-linux.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-optional.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-plugin.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-provided.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-rpm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-runtime-internal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-runtime.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-scala-tool.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-sources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test-internal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-universal-docs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-universal-src.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-universal.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-windows.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/Module.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$ErrorCodes.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/services/ApplicationTimer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/clean/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/jquery-1.10.2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/jquery-1.10.2.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/input_dsp" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/input_dsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/certificate/eatalot_secure.pem" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/jquery-1.10.2.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/annotations/Session.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/User/Customer/activeorders.scala.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$0d591e671142d48d31e7$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$0d591e671142d48d31e7.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$0d591e671142d48d31e7.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$2f79fee7de9d76e9aa63$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$2f79fee7de9d76e9aa63.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$2f79fee7de9d76e9aa63.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$6380e9ebc1e4553cdccf$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$6380e9ebc1e4553cdccf.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$6380e9ebc1e4553cdccf.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$d779807913cad699ec89$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$d779807913cad699ec89.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/project/target/config-classes/$d779807913cad699ec89.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0ef06e638e74fd959451$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0ef06e638e74fd959451$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0ef06e638e74fd959451.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$0ef06e638e74fd959451.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$14bcb4de7f719fe04855$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$14bcb4de7f719fe04855$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$14bcb4de7f719fe04855.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$14bcb4de7f719fe04855.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1d046ee67489f04d77a4$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1d046ee67489f04d77a4$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1d046ee67489f04d77a4.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1d046ee67489f04d77a4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1e1d43ab2f92e5fc3495$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1e1d43ab2f92e5fc3495$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1e1d43ab2f92e5fc3495.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$1e1d43ab2f92e5fc3495.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24$$anonfun$root$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24$$anonfun$root$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24$$anonfun$root$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24$$anonfun$root$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$4a2171ccb1e3a13ebc24.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$50756e586eacdecc694e$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$50756e586eacdecc694e$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$50756e586eacdecc694e.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$50756e586eacdecc694e.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$52f2ff2aacbde778e1ab$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$52f2ff2aacbde778e1ab$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$52f2ff2aacbde778e1ab.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$52f2ff2aacbde778e1ab.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$68f4a289ddbff01ea445$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$68f4a289ddbff01ea445$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$68f4a289ddbff01ea445.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$68f4a289ddbff01ea445.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7239cbb2d0d7db93e267$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7239cbb2d0d7db93e267$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7239cbb2d0d7db93e267.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7239cbb2d0d7db93e267.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7c9093ce036788f760d9$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7c9093ce036788f760d9$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7c9093ce036788f760d9.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7c9093ce036788f760d9.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7cfcbf841e0c7ba769af$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7cfcbf841e0c7ba769af$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7cfcbf841e0c7ba769af.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$7cfcbf841e0c7ba769af.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$af219a0e8574303028bd$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$af219a0e8574303028bd$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$af219a0e8574303028bd.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$af219a0e8574303028bd.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c0555d958d2ce37b24bb$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c0555d958d2ce37b24bb$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c0555d958d2ce37b24bb.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c0555d958d2ce37b24bb.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c24348ab44be98fdc196$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c24348ab44be98fdc196$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c24348ab44be98fdc196.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$c24348ab44be98fdc196.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$db7e6537e4f2b85b3ea2$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$db7e6537e4f2b85b3ea2$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$db7e6537e4f2b85b3ea2.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$db7e6537e4f2b85b3ea2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ebd740d81219a14e3954$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ebd740d81219a14e3954$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ebd740d81219a14e3954.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ebd740d81219a14e3954.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ed1a5d0325f58e47d120$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ed1a5d0325f58e47d120$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ed1a5d0325f58e47d120.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$ed1a5d0325f58e47d120.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f0d1bf0ad5bd40690e76$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f0d1bf0ad5bd40690e76$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f0d1bf0ad5bd40690e76.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$f0d1bf0ad5bd40690e76.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$fd83f6d0bc9e8f4d1f9e$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$fd83f6d0bc9e8f4d1f9e$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$fd83f6d0bc9e8f4d1f9e.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/project/target/config-classes/$fd83f6d0bc9e8f4d1f9e.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/Session.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier$Active.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier$Load.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier$Verifier.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderScheduleItems.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewSchedule$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewSchedule.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/viewSchedule.template.scala" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/User/UserInfo.java" afterPath="$PROJECT_DIR$/app/models/User/CustomerInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/inputs" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/inputs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$AppCookie$UserType.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$AppCookie$UserType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$AppCookie.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$AppCookie.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$General.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$General.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$SessionTags.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$SessionTags.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Customer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Customer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Delivery.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Delivery.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Kitchen.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Kitchen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/HomeController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CountController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/CountController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseAssets.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseAssets.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseAsyncController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseAsyncController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseCountController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/ReverseCountController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Finance/UserFinance.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Finance/UserFinance.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/KitchenController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/KitchenController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/ReverseScheduleController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/ReverseScheduleController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/javascript/ReverseScheduleController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/javascript/ReverseScheduleController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/routes$javascript.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/routes$javascript.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/routes.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/routes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/CustomerController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/CustomerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseCustomerController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseCustomerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseStaffController.class" />
@@ -160,69 +136,81 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseCustomerController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseCustomerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseStaffController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseUserController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseUserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseAssets.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseAssets.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseAsyncController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseAsyncController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseCountController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/javascript/ReverseCountController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/routes$javascript.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/routes$javascript.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/routes.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/routes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/libs/Mailer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/libs/Mailer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/CRUD.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/CRUD.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Finance/Payment.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Finance/Payment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/QueueType.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/QueueType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Finance/PaymentItemDetail.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Finance/PaymentItemDetail.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderItemDetail.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderItemDetail.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderSchedule.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderSchedule.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Address.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Address.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Customer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Customer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Staff.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Staff.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/User.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserInfo.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserInfo.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserProfile.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserProfile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserRegisterDetails.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserRegisterDetails.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/ordering/CustomerOrder.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/ordering/CustomerOrder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/ordering/Meal.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/ordering/Meal.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/ordering/MealOrder.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/ordering/MealOrder.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/nav_wrapper$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/nav_wrapper$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/utility/DateInterpreter.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/utility/DateInterpreter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/essentials$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/essentials$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/meta$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/meta$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/scripts$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/scripts$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/stylesheets$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/stylesheets$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/create$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/create$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/create.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/create.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/index$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/index$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/index.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/index.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/remove$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/remove$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/remove.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/remove.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/customerHome$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/customerHome$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/customerHome.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/customerHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/editProfile$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/editProfile$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/orderHistory$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/orderHistory$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/orderHistory.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/orderHistory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/paymentHistory$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/paymentHistory$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/paymentHistory.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/paymentHistory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewActiveOrders$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewActiveOrders$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewActiveOrders.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewActiveOrders.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/User/login$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/User/login$.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" afterPath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/input_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/input_dsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" afterPath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" afterPath="$PROJECT_DIR$/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/root-build.iml" afterPath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/root.iml" afterPath="$PROJECT_DIR$/.idea/modules/root.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/play2_project_settings.xml" afterPath="$PROJECT_DIR$/.idea/play2_project_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sbt.xml" afterPath="$PROJECT_DIR$/.idea/sbt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/annotations/Requires.java" afterPath="$PROJECT_DIR$/app/annotations/Requires.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/annotations/SessionVerifier.java" afterPath="$PROJECT_DIR$/app/annotations/SessionVerifier.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application/AppTags.java" afterPath="$PROJECT_DIR$/app/controllers/Application/AppTags.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application/HomeController.java" afterPath="$PROJECT_DIR$/app/controllers/Application/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CountController.java" afterPath="$PROJECT_DIR$/app/controllers/CountController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java" afterPath="$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" afterPath="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/KitchenController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/KitchenController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" afterPath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/StaffController.java" afterPath="$PROJECT_DIR$/app/controllers/User/StaffController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/UserController.java" afterPath="$PROJECT_DIR$/app/controllers/User/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/libs/Mailer.java" afterPath="$PROJECT_DIR$/app/libs/Mailer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/CRUD.java" afterPath="$PROJECT_DIR$/app/models/CRUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Finance/Payment.java" afterPath="$PROJECT_DIR$/app/models/Finance/Payment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" afterPath="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/QueueType.java" afterPath="$PROJECT_DIR$/app/models/Order/QueueType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" afterPath="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/OrderItemDetail.java" afterPath="$PROJECT_DIR$/app/models/Order/OrderItemDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/OrderScheduleItem.java" afterPath="$PROJECT_DIR$/app/models/Order/OrderScheduleItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Address.java" afterPath="$PROJECT_DIR$/app/models/User/Address.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Customer.java" afterPath="$PROJECT_DIR$/app/models/User/Customer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Staff.java" afterPath="$PROJECT_DIR$/app/models/User/Staff.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/User.java" afterPath="$PROJECT_DIR$/app/models/User/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/UserProfile.java" afterPath="$PROJECT_DIR$/app/models/User/UserProfile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/UserRegisterDetails.java" afterPath="$PROJECT_DIR$/app/models/User/UserRegisterDetails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/meta.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/meta.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" afterPath="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/viewHistoricOrder.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/viewHistoricOrder.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/viewHistoricPayment.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/viewHistoricPayment.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/User/login.scala.html" afterPath="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/messages" afterPath="$PROJECT_DIR$/conf/messages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/plugins.sbt" afterPath="$PROJECT_DIR$/project/plugins.sbt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.properties" afterPath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-compile-internal.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-compile-internal.xml" />
@@ -246,11 +234,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/$global/streams/export" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/$global/streams/export" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/main.js" afterPath="$PROJECT_DIR$/public/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/carousel.js" afterPath="$PROJECT_DIR$/public/javascripts/carousel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/application.conf" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/application.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/evolutions/default/1.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/messages" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/messages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/routes" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/routes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/ReverseRoutes.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/javascript/JavaScriptReverseRoutes.scala" />
@@ -258,6 +244,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Delivery/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Delivery/ReverseRoutes.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Delivery/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Delivery/javascript/JavaScriptReverseRoutes.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Delivery/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Delivery/routes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/ReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/javascript/JavaScriptReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/routes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/ReverseRoutes.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/javascript/JavaScriptReverseRoutes.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/routes.java" />
@@ -269,65 +258,27 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/routes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/Routes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/Routes.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/RoutesPrefix.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/RoutesPrefix.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Application/Home/index.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Application/Home/index.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/article.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/article.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/aside.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/aside.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/bdi.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/bdi.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/body.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/body.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/bodyHead.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/bodyHead.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/details.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/details.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/dialog.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/dialog.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/figcaption.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/figcaption.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/figure.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/figure.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/footer.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/footer.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/h_line.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/h_line.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/header.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/header.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/main.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/main.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/mark.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/mark.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/menuitem.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/menuitem.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/meter.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/meter.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/nav.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/nav.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/progress.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/progress.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/section.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/section.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/summary.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/summary.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/time.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/time.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/title.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/title.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/wbr.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Html5/wbr.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/essentials.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/essentials.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/footer_wrapper.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/footer_wrapper.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/masterpage.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/masterpage.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/meta.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/meta.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/nav_wrapper.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/nav_wrapper.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/scripts.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/scripts.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/stylesheets.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/stylesheets.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/create.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/create.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/index.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/index.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/customerHome.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/customerHome.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/editProfile.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/editProfile.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/invalid.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/invalid.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/orderHistory.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/orderHistory.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/paymentHistory.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/paymentHistory.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/register.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/register.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/registerDetails.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/registerDetails.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/requestVerification.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/requestVerification.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/verified.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/verified.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/verify.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/verify.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/deliveryHome.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/deliveryHome.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/kitchenHome.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/kitchenHome.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/login.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/login.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/viewActiveOrders.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/viewActiveOrders.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/User/login.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/User/login.template.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/User/welcome.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/User/welcome.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/main.js" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/main.js" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/carousel.js" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/carousel.js" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/carousel.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/resolution-cache/" />
     <ignored path="$PROJECT_DIR$/target/streams/" />
@@ -341,6 +292,39 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
+        <item name="customer_order" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
+        <item name="staff" type="e3449647:DbNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -348,14 +332,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ActiveOrder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/Order/ActiveOrder.java">
+      <file leaf-file-name="SessionVerifier.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+            <state relative-caret-position="160">
+              <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckCSRF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/annotations/CheckCSRF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Requires.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/annotations/Requires.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1066">
+              <caret line="108" column="66" lean-forward="false" selection-start-line="108" selection-start-column="66" selection-end-line="108" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Order/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaffController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/User/StaffController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-769">
+              <caret line="79" column="7" lean-forward="false" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/User/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="721">
+              <caret line="124" column="49" lean-forward="false" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#UserController#0" expanded="false" />
+                <element signature="docComment;method#index#0;class#UserController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/User/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="131" column="35" lean-forward="false" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -365,17 +430,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Order-Management-Devel</find>
-      <find>edit()</find>
-      <find>login()</find>
-      <find>doLogin()</find>
-      <find>doLo</find>
       <find>checkFailed</find>
       <find>doLogin</find>
       <find>do</find>
@@ -391,7 +453,27 @@
       <find>Async</find>
       <find>playdbuser</find>
       <find>removeOrder</find>
+      <find>login(</find>
+      <find>@RequireCSRFCheck</find>
+      <find>csrf</find>
+      <find>Staff</find>
+      <find>register</find>
+      <find>GenerationType.IDENTITY</find>
+      <find>save();</find>
+      <find>create(</find>
+      <find>edit(</find>
+      <find>user_id</find>
+      <find>remember</find>
+      <find>AppCook</find>
+      <find>Invalid Sesion</find>
+      <find>RememberMe</find>
+      <find>remember_me</find>
     </findStrings>
+    <replaceStrings>
+      <replace>//    @RequireCSRFCheck</replace>
+      <replace>GenerationType.AUTO</replace>
+      <replace>remember_me</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -404,57 +486,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/User/UserInfo.java" />
-        <option value="$PROJECT_DIR$/app/models/User/UserProfile.java" />
-        <option value="$PROJECT_DIR$/app/models/Finance/UserFunds.java" />
+        <option value="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
+        <option value="$PROJECT_DIR$/app/models/Order/OrderScheduleDays.java" />
+        <option value="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/activeorders.scala.html" />
+        <option value="$PROJECT_DIR$/public/javascripts/carousel.js" />
+        <option value="$PROJECT_DIR$/app/models/Order/OrderItemDetail.java" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
+        <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/viewHistoricOrder.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/viewHistoricPayment.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/register.scala.html" />
+        <option value="$PROJECT_DIR$/app/models/User/StaffOrderInteraction.java" />
+        <option value="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
+        <option value="$PROJECT_DIR$/app/models/Order/OrderScheduleItem.java" />
+        <option value="$PROJECT_DIR$/app/models/Finance/Payment.java" />
         <option value="$PROJECT_DIR$/app/models/Finance/RedeemedVouchers.java" />
         <option value="$PROJECT_DIR$/app/models/Finance/Voucher.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/QueueType.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer.java" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/meta.scala.html" />
         <option value="$PROJECT_DIR$/app/models/User/Address.java" />
-        <option value="$PROJECT_DIR$/app/models/User/User.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" />
-        <option value="$PROJECT_DIR$/app/controllers/User/PaymentItem.java" />
-        <option value="$PROJECT_DIR$/app/annotations/HttpsRequired.java" />
-        <option value="$PROJECT_DIR$/app/annotations/Requires.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Application/AppTags.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderItem.java" />
-        <option value="$PROJECT_DIR$/app/models/Finance/PaymentItem.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderItemBasic.java" />
-        <option value="$PROJECT_DIR$/app/models/Finance/PaymentItemBasic.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
-        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
-        <option value="$PROJECT_DIR$/app/views/Order/index.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderScheduleItems.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/Finance/PaymentItemDetail.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/viewHistoricPayment.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/User/StaffOrderInteraction.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Staff.java" />
-        <option value="$PROJECT_DIR$/app/models/Finance/Payment.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderItemDetail.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/activeorders.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" />
-        <option value="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/viewHistoricOrder.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/Order/MealOrderItem.java" />
-        <option value="$PROJECT_DIR$/app/models/ordering/CustomerOrder.java" />
-        <option value="$PROJECT_DIR$/app/utility/DateInterpreterStatic.java" />
-        <option value="$PROJECT_DIR$/app/utility/DateInterpreter.java" />
-        <option value="$PROJECT_DIR$/app/models/ordering/MealOrder.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/CustomerOrderDay.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/CustomerOrderItem.java" />
-        <option value="$PROJECT_DIR$/app/models/ordering/Meal.java" />
-        <option value="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/ReverseRoutes.scala" />
+        <option value="$PROJECT_DIR$/app/models/User/UserRegisterInfo.java" />
+        <option value="$PROJECT_DIR$/app/annotations/Session.java" />
+        <option value="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
         <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
+        <option value="$PROJECT_DIR$/public/stylesheets/bootstrap.css.map.css" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" />
+        <option value="$PROJECT_DIR$/app/models/User/UserProfile.java" />
+        <option value="$PROJECT_DIR$/app/utility/AppTags.java" />
+        <option value="$PROJECT_DIR$/app/models/User/UserInfo.java" />
+        <option value="$PROJECT_DIR$/app/models/User/CustomerInfo.java" />
+        <option value="$PROJECT_DIR$/app/models/User/User.java" />
+        <option value="$PROJECT_DIR$/app/models/User/authenticate.java" />
+        <option value="$PROJECT_DIR$/app/models/User/Authenticate.java" />
+        <option value="$PROJECT_DIR$/app/models/User/Customer.java" />
+        <option value="$PROJECT_DIR$/app/models/User/Staff.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Application/AppTags.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Application/HomeController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/Order/KitchenController.java" />
         <option value="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderScheduleDays.java" />
-        <option value="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/User/StaffController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/User/UserController.java" />
+        <option value="$PROJECT_DIR$/app/annotations/Requires.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier.java" />
       </list>
     </option>
   </component>
@@ -463,6 +545,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="Play2ProjectSettings">
     <option name="LANGUAGE_IMPORTS">
@@ -487,10 +575,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1534" />
     <option name="y" value="27" />
-    <option name="width" value="1221" />
-    <option name="height" value="665" />
+    <option name="width" value="859" />
+    <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -510,8 +597,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -550,6 +637,13 @@
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Delivery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="Finance" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -563,6 +657,13 @@
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -570,13 +671,7 @@
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -595,20 +690,6 @@
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="UserFinance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Global" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -616,30 +697,8 @@
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-              <item name="Schedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+              <item name="Global" type="462c0819:PsiDirectoryNode" />
+              <item name="Static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -649,7 +708,20 @@
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap.css" type="620a8d5e:NestingTreeNode" />
             </path>
           </expand>
           <select />
@@ -666,10 +738,20 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../eatalot_order_package" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="RequireCSR&#9;PSI&#9;JAVA://play.filters.csrf.RequireCSRFCheck&#10;CSRFFilter&#9;null&#9;null&#10;UserInfo&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/models/User/UserInfo.java" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/conf/certificate" />
+      <recent name="$PROJECT_DIR$/app/views/Order/Schedule" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="views" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="models.User" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="models.Order" />
@@ -677,8 +759,10 @@
       <recent name="controllers.User" />
       <recent name="annotations" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/Order/Schedule" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/conf/certificate" />
+      <recent name="$PROJECT_DIR$/public/javascripts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -848,47 +932,53 @@
       <workItem from="1507365031483" duration="19067000" />
       <workItem from="1507391176791" duration="1411000" />
       <workItem from="1507392629393" duration="2633000" />
-      <workItem from="1507395512755" duration="4000" />
+      <workItem from="1507395512755" duration="603000" />
+      <workItem from="1507397587435" duration="1484000" />
+      <workItem from="1507399077258" duration="36474000" />
+      <workItem from="1507492531589" duration="10769000" />
+      <workItem from="1507557979108" duration="5375000" />
+      <workItem from="1507567174701" duration="7052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136142000" />
+    <option name="totallyTimeSpent" value="197895000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1534" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="27" width="1366" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6222597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707182" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2028754" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18126889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46629834" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32715008" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -903,12 +993,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>70</line>
-          <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>44</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="58" />
         </line-breakpoint>
@@ -916,19 +1001,67 @@
           <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
           <line>41</line>
           <properties />
-          <option name="timeStamp" value="59" />
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
           <line>42</line>
           <properties />
-          <option name="timeStamp" value="65" />
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>43</line>
+          <url>jar://$USER_HOME$/.ivy2/cache/io.ebean/ebean/srcs/ebean-10.3.1-sources.jar!/io/ebeaninternal/server/deploy/parse/ReadAnnotations.java</url>
+          <line>54</line>
           <properties />
-          <option name="timeStamp" value="66" />
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/io.ebean/ebean/srcs/ebean-10.3.1-sources.jar!/io/ebeaninternal/server/deploy/parse/ReadAnnotations.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/io.ebean/ebean/srcs/ebean-10.3.1-sources.jar!/io/ebeaninternal/server/deploy/parse/ReadAnnotations.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/io.ebean/ebean/srcs/ebean-10.3.1-sources.jar!/io/ebeaninternal/server/deploy/BeanDescriptorManager.java</url>
+          <line>1332</line>
+          <properties />
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>150</line>
+          <properties />
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/User/UserRegisterInfo.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/User/UserRegisterDetails.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/User/UserProfile.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Application/HomeController.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFFilter.scala</url>
@@ -986,24 +1119,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFActions.scala</url>
-          <line>77</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFActions.scala</url>
-          <line>96</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFActions.scala</url>
-          <line>93</line>
-          <properties />
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFActions.scala</url>
           <line>131</line>
           <properties />
           <option name="timeStamp" value="52" />
@@ -1015,382 +1130,427 @@
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
-          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFActions.scala</url>
-          <line>103</line>
+          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFFilter.scala</url>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="72" />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFFilter.scala</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFFilter.scala</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFFilter.scala</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFFilter.scala</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="73" />
+      <option name="time" value="162" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/Finance/PaymentItemBasic.java">
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/UserRegisterDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="e#1821#1822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.customer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Order/ActiveOrder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Order/ScheduleController/index.scala" />
-    <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/remove.scala.html" />
-    <entry file="file://$PROJECT_DIR$/app/models/User/UserProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Order/remove.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/concurrent/CompletableFuture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="1812" column="59" lean-forward="true" selection-start-line="1812" selection-start-column="59" selection-end-line="1812" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewSchedule.scala.html" />
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="10" column="65" lean-forward="false" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="133" column="19" lean-forward="false" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="62" lean-forward="true" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/OrderController.java" />
-    <entry file="file://$PROJECT_DIR$/app/models/Finance/PaymentItemDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/masterpage.template.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/masterpage.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/register.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Address.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/StaffOrderInteraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Staff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderItemDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Finance/Payment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="56" column="34" lean-forward="false" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewHistoricPayment.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="347" column="41" lean-forward="false" selection-start-line="347" selection-start-column="41" selection-end-line="347" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="66" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewHistoricOrder.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/activeorders.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Order/MealOrderItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#855#856#0" expanded="false" />
-            <element signature="e#886#887#0" expanded="false" />
-            <element signature="e#981#982#0" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1050#1051#0" expanded="false" />
-            <element signature="e#1084#1085#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="40">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderScheduleItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="574" column="0" lean-forward="false" selection-start-line="574" selection-start-column="0" selection-end-line="614" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/CustomerOrderItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ordering/MealOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/utility/DateInterpreterStatic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="57" column="25" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/utility/DateInterpreter.java">
+    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderItemDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ordering/CustomerOrder.java">
+    <entry file="file://$PROJECT_DIR$/app/models/User/UserRegisterInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="14" column="81" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ordering/Meal.java">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/CSRFErrorHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="38" column="63" lean-forward="false" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
+        <state relative-caret-position="160">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/ReverseRoutes.scala">
+    <entry file="file://$PROJECT_DIR$/app/annotations/Session.java" />
+    <entry file="file://$PROJECT_DIR$/app/views/Application/Home/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/AddCSRFToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/filters-helpers_2.12/srcs/filters-helpers_2.12-2.6.1-sources.jar!/play/filters/csrf/RequireCSRFCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.queue_type">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.recipe_ingredients">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.ingredient">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.redeemed_vouchers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.recipe">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.play_evolutions">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.payment">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.meal_order">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1544">
+          <caret line="337" column="1" lean-forward="false" selection-start-line="337" selection-start-column="1" selection-end-line="337" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css.map.css" />
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="67" lean-forward="false" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="56" column="117" lean-forward="false" selection-start-line="56" selection-start-column="117" selection-end-line="56" selection-end-column="117" />
+        <state relative-caret-position="440">
+          <caret line="148" column="94" lean-forward="false" selection-start-line="148" selection-start-column="94" selection-end-line="148" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderScheduleDays.java">
+    <entry file="file://$PROJECT_DIR$/app/views/User/User/login.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="320">
+          <caret line="22" column="85" lean-forward="false" selection-start-line="22" selection-start-column="85" selection-end-line="22" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.customer_order">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/UserProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="112" column="5" lean-forward="false" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html">
+    <entry file="file://$PROJECT_DIR$/app/utility/AppTags.java" />
+    <entry file="file://$PROJECT_DIR$/app/models/User/Authenticate.java" />
+    <entry file="file://$PROJECT_DIR$/app/models/User/Authenticator.java" />
+    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="144" lean-forward="false" selection-start-line="16" selection-start-column="144" selection-end-line="16" selection-end-column="144" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/Staff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#418#433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/CustomerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="94" column="20" lean-forward="false" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application/AppTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="418" column="9" lean-forward="false" selection-start-line="418" selection-start-column="9" selection-end-line="418" selection-end-column="9" />
+          <folding>
+            <element signature="class#General#0;class#AppTags#0" expanded="false" />
+            <element signature="class#FlashCodes#0;class#AppTags#0" expanded="false" />
+            <marker date="1507573113483" expanded="false" signature="3650:3669" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="3683:3697" ph=" }" />
+            <marker date="1507573113483" expanded="false" signature="4651:4790" ph="{...}" />
+            <marker date="1507573113483" expanded="false" signature="4855:5034" ph="{...}" />
+            <marker date="1507573113483" expanded="false" signature="5267:5286" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="5300:5314" ph=" }" />
+            <marker date="1507573113483" expanded="false" signature="6936:6959" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="6978:6996" ph=" }" />
+            <marker date="1507573113483" expanded="false" signature="11670:11689" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="11703:11717" ph=" }" />
+            <marker date="1507573113483" expanded="false" signature="11777:11796" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="11809:11823" ph=" }" />
+            <marker date="1507573113483" expanded="false" signature="14897:16862" ph="{...}" />
+            <marker date="1507573113483" expanded="false" signature="16897:17731" ph="{...}" />
+            <marker date="1507573113483" expanded="false" signature="17778:17894" ph="{...}" />
+            <marker date="1507573113483" expanded="false" signature="17927:18255" ph="{...}" />
+            <marker date="1507573113483" expanded="false" signature="18078:18097" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="18118:18132" ph=" }" />
+            <marker date="1507573113483" expanded="false" signature="18192:18211" ph=" { " />
+            <marker date="1507573113483" expanded="false" signature="18225:18239" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Finance/UserFinance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/srcs/play_2.12-2.6.1-sources.jar!/play/mvc/With.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="43" lean-forward="false" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/KitchenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding>
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="139" column="74" lean-forward="false" selection-start-line="139" selection-start-column="74" selection-end-line="139" selection-end-column="74" />
+        <state relative-caret-position="80">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="131" column="35" lean-forward="false" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/StaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-769">
+          <caret line="79" column="7" lean-forward="false" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="124" column="49" lean-forward="false" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
           <folding>
-            <element signature="method#createSchedule#0;class#ScheduleController#0" expanded="false" />
-            <element signature="method#editScheduleName#0;class#ScheduleController#0" expanded="false" />
-            <element signature="method#updateOrderScheduleName#0;class#ScheduleController#0" expanded="false" />
-            <element signature="method#doCreateSchedule#0;class#ScheduleController#0" expanded="false" />
-            <element signature="method#clearSchedule#0;class#ScheduleController#0" expanded="false" />
-            <element signature="e#4047#4388#0" expanded="false" />
-            <element signature="method#clearScheduleItems#0;class#ScheduleController#0" expanded="false" />
-            <element signature="method#removeOrder#0;class#ScheduleController#0" expanded="false" />
-            <element signature="e#4804#5139#0" expanded="false" />
-            <element signature="method#removeOrderFromSchedule#0;class#ScheduleController#0" expanded="false" />
-            <element signature="e#6741#6788#0" expanded="false" />
+            <element signature="docComment;class#UserController#0" expanded="false" />
+            <element signature="docComment;method#index#0;class#UserController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/ActiveOrder.java">
+    <entry file="file://$PROJECT_DIR$/app/annotations/HttpsRequired.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="66">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/Requires.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1066">
+          <caret line="108" column="66" lean-forward="false" selection-start-line="108" selection-start-column="66" selection-end-line="108" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/CheckCSRF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

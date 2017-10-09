@@ -18,11 +18,12 @@ import javax.validation.Constraint;
 public class Address extends Model {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Constraints.Required
     @Constraints.MinLength(10)
     @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String addressId;
+    private Long addressId;
+
     @Constraints.Required
     private String unitNumber;
     @Constraints.Required
@@ -32,7 +33,7 @@ public class Address extends Model {
 
     public Address(){}
 
-    public Address(@Constraints.Required String addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
+    public Address(@Constraints.Required Long addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
         this.addressId = addressId;
         this.unitNumber = unitNumber;
         this.streetName = streetName;
@@ -108,6 +109,6 @@ public class Address extends Model {
     }
 
     public String getAddressId() {
-        return addressId;
+        return String.valueOf(addressId);
     }
 }

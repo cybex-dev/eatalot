@@ -24,18 +24,19 @@ import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import Global.Static.masterpage
 /*2.2*/import java.util.List
 /*3.2*/import models.Finance.PaymentItemBasic
+/*4.2*/import helper._
 
-object paymentHistory extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,List[PaymentItemBasic],play.twirl.api.HtmlFormat.Appendable] {
+object paymentHistory extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[PaymentItemBasic],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*4.2*/(pageTitle: String, paymentList: List[PaymentItemBasic]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*6.2*/(paymentList: List[PaymentItemBasic]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*7.6*/table/*7.11*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*9.6*/table/*9.11*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*7.15*/("""
-        """),format.raw/*8.9*/("""<div class="row pad-botm">
+Seq[Any](format.raw/*9.15*/("""
+        """),format.raw/*10.9*/("""<div class="row pad-botm">
             <div class="col-md-12">
                 <h4 class="header-line">Payments History</h4>
 
@@ -43,10 +44,10 @@ Seq[Any](format.raw/*7.15*/("""
 
         </div>
         <div class="panel panel-default">
-            """),format.raw/*16.44*/("""
-                """),format.raw/*17.36*/("""
-            """),format.raw/*18.23*/("""
-            """),format.raw/*19.13*/("""<div class="panel-body">
+            """),format.raw/*18.44*/("""
+                """),format.raw/*19.36*/("""
+            """),format.raw/*20.23*/("""
+            """),format.raw/*21.13*/("""<div class="panel-body">
                 <div class="table-responsive">
                     <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">
                         10</option><option value="25">25</option><option value="50">50</option><option value="100">
@@ -66,17 +67,17 @@ Seq[Any](format.raw/*7.15*/("""
                             </tr>
                         </thead>
                         <tbody>
-                            """),format.raw/*39.104*/("""
-                            """),_display_(/*40.30*/for((item, index) <- paymentList.zipWithIndex) yield /*40.76*/ {_display_(Seq[Any](format.raw/*40.78*/("""
-                                """),format.raw/*41.95*/("""
-                                """),format.raw/*42.33*/("""<tr class="gradeA """),_display_(/*42.52*/if((index % 2) == 0)/*42.72*/ {_display_(Seq[Any](format.raw/*42.74*/("""odd""")))}/*42.79*/else/*42.84*/{_display_(Seq[Any](format.raw/*42.85*/("""even""")))}),format.raw/*42.90*/("""">
-                                    <td class="sorting_1"><a href=""""),_display_(/*43.69*/controllers/*43.80*/.User.routes.CustomerController.viewPayment(item.paymentId)),format.raw/*43.139*/("""">"""),_display_(/*43.142*/item/*43.146*/.paymentId),format.raw/*43.156*/("""</a></td>
-                                    <td class=" ">"""),_display_(/*44.52*/item/*44.56*/.amount),format.raw/*44.63*/("""</td>
-                                    <td class=" ">"""),_display_(/*45.52*/if(item.isCash == true)/*45.75*/{_display_(Seq[Any](format.raw/*45.76*/(""""Yes"""")))}/*45.82*/else/*45.86*/{_display_(Seq[Any](format.raw/*45.87*/(""""No"""")))}),format.raw/*45.92*/("""</td>
-                                    <td class=" ">"""),_display_(/*46.52*/item/*46.56*/.delivererName),format.raw/*46.70*/("""</td>
+                            """),format.raw/*41.104*/("""
+                            """),_display_(/*42.30*/for((item, index) <- paymentList.zipWithIndex) yield /*42.76*/ {_display_(Seq[Any](format.raw/*42.78*/("""
+                                """),format.raw/*43.95*/("""
+                                """),format.raw/*44.33*/("""<tr class="gradeA """),_display_(/*44.52*/if((index % 2) == 0)/*44.72*/ {_display_(Seq[Any](format.raw/*44.74*/("""odd""")))}/*44.79*/else/*44.84*/{_display_(Seq[Any](format.raw/*44.85*/("""even""")))}),format.raw/*44.90*/("""">
+                                    <td class="sorting_1"><a href=""""),_display_(/*45.69*/controllers/*45.80*/.User.routes.CustomerController.viewPayment(item.paymentId)),format.raw/*45.139*/("""">"""),_display_(/*45.142*/item/*45.146*/.paymentId),format.raw/*45.156*/("""</a></td>
+                                    <td class=" ">"""),_display_(/*46.52*/item/*46.56*/.amount),format.raw/*46.63*/("""</td>
+                                    <td class=" ">"""),_display_(/*47.52*/if(item.isCash == true)/*47.75*/{_display_(Seq[Any](format.raw/*47.76*/(""""Yes"""")))}/*47.82*/else/*47.86*/{_display_(Seq[Any](format.raw/*47.87*/(""""No"""")))}),format.raw/*47.92*/("""</td>
+                                    <td class=" ">"""),_display_(/*48.52*/item/*48.56*/.delivererName),format.raw/*48.70*/("""</td>
                                 </tr>
-                            """)))}),format.raw/*48.30*/("""
-                        """),format.raw/*49.25*/("""</tbody>
+                            """)))}),format.raw/*50.30*/("""
+                        """),format.raw/*51.25*/("""</tbody>
                     </table>
 
                         <div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">
@@ -93,21 +94,25 @@ Seq[Any](format.raw/*7.15*/("""
 
             </div>
         </div>
+    """),_display_(/*68.6*/form( action = controllers.User.routes.CustomerController.index())/*68.72*/{_display_(Seq[Any](format.raw/*68.73*/("""
+        """),_display_(/*69.10*/CSRF/*69.14*/.formField),format.raw/*69.24*/("""
+        """),format.raw/*70.9*/("""<input class="btn btn-info" type="submit" name="Home">
+    """)))}),format.raw/*71.6*/("""
     """)))};
-Seq[Any](format.raw/*4.58*/("""
+Seq[Any](format.raw/*6.39*/("""
 
 
-    """),format.raw/*66.6*/("""
+    """),format.raw/*72.6*/("""
 
-    """),_display_(/*68.6*/masterpage/*68.16*/.apply(pageTitle, table)),format.raw/*68.40*/("""
+    """),_display_(/*74.6*/masterpage/*74.16*/.apply(" :: Past Payments", table)),format.raw/*74.50*/("""
 """))
       }
     }
   }
 
-  def render(pageTitle:String,paymentList:List[PaymentItemBasic]): play.twirl.api.HtmlFormat.Appendable = apply(pageTitle,paymentList)
+  def render(paymentList:List[PaymentItemBasic]): play.twirl.api.HtmlFormat.Appendable = apply(paymentList)
 
-  def f:((String,List[PaymentItemBasic]) => play.twirl.api.HtmlFormat.Appendable) = (pageTitle,paymentList) => apply(pageTitle,paymentList)
+  def f:((List[PaymentItemBasic]) => play.twirl.api.HtmlFormat.Appendable) = (paymentList) => apply(paymentList)
 
   def ref: this.type = this
 
@@ -116,11 +121,11 @@ Seq[Any](format.raw/*4.58*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Oct 06 20:53:11 SAST 2017
+                  DATE: Sun Oct 08 09:51:04 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/paymentHistory.scala.html
-                  HASH: 4619d82844b48a7ded47014df024fa0a60f2b956
-                  MATRIX: 665->1|704->34|733->57|1108->97|1242->161|1255->166|1335->170|1370->179|1613->425|1658->461|1699->484|1740->497|4031->2834|4088->2864|4150->2910|4190->2912|4251->3007|4312->3040|4358->3059|4387->3079|4427->3081|4450->3086|4463->3091|4502->3092|4538->3097|4636->3168|4656->3179|4737->3238|4768->3241|4782->3245|4814->3255|4902->3316|4915->3320|4943->3327|5027->3384|5059->3407|5098->3408|5123->3414|5136->3418|5175->3419|5211->3424|5295->3481|5308->3485|5343->3499|5447->3572|5500->3597|7170->153|7204->5228|7237->5235|7256->5245|7301->5269
-                  LINES: 24->1|25->2|26->3|31->4|35->7|35->7|37->7|38->8|46->16|47->17|48->18|49->19|69->39|70->40|70->40|70->40|71->41|72->42|72->42|72->42|72->42|72->42|72->42|72->42|72->42|73->43|73->43|73->43|73->43|73->43|73->43|74->44|74->44|74->44|75->45|75->45|75->45|75->45|75->45|75->45|75->45|76->46|76->46|76->46|78->48|79->49|97->4|100->66|102->68|102->68|102->68
+                  HASH: 1fe8b49076763cc90dba7598a26cfc453354c146
+                  MATRIX: 665->1|704->34|733->57|779->97|1124->115|1239->160|1252->165|1332->169|1368->178|1611->424|1656->460|1697->483|1738->496|4029->2833|4086->2863|4148->2909|4188->2911|4249->3006|4310->3039|4356->3058|4385->3078|4425->3080|4448->3085|4461->3090|4500->3091|4536->3096|4634->3167|4654->3178|4735->3237|4766->3240|4780->3244|4812->3254|4900->3315|4913->3319|4941->3326|5025->3383|5057->3406|5096->3407|5121->3413|5134->3417|5173->3418|5209->3423|5293->3480|5306->3484|5341->3498|5445->3571|5498->3596|7155->5227|7230->5293|7269->5294|7306->5304|7319->5308|7350->5318|7386->5327|7476->5387|7521->152|7555->5393|7588->5400|7607->5410|7662->5444
+                  LINES: 24->1|25->2|26->3|27->4|32->6|36->9|36->9|38->9|39->10|47->18|48->19|49->20|50->21|70->41|71->42|71->42|71->42|72->43|73->44|73->44|73->44|73->44|73->44|73->44|73->44|73->44|74->45|74->45|74->45|74->45|74->45|74->45|75->46|75->46|75->46|76->47|76->47|76->47|76->47|76->47|76->47|76->47|77->48|77->48|77->48|79->50|80->51|97->68|97->68|97->68|98->69|98->69|98->69|99->70|100->71|102->6|105->72|107->74|107->74|107->74
                   -- GENERATED --
               */
           

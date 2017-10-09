@@ -33,7 +33,7 @@ POST        /Staff/Login                            controllers.User.StaffContro
 ##############################################################################
 
 # Customer Controller
-GET         /User                                   controllers.User.CustomerController.index()
+GET         /User/Dashboard                         controllers.User.CustomerController.index()
 GET         /User/Register                          controllers.User.CustomerController.register()
 GET         /User/Verify/:token                     controllers.User.CustomerController.verifyCustomer(token: String)
 GET         /User/Profile                           controllers.User.CustomerController.edit()
@@ -42,10 +42,11 @@ GET         /User/History/Purchases                 controllers.User.CustomerCon
 GET         /User/History/Order/:orderId            controllers.User.CustomerController.viewOrder(orderId: String)
 GET         /User/History/Payment/:paymentId        controllers.User.CustomerController.viewPayment(paymentId: String)
 
-PUT         /User/Register                          controllers.User.CustomerController.create()
+POST        /User/Register                          controllers.User.CustomerController.create()
 POST        /User/Register/Reverify                 controllers.User.CustomerController.reverify()
 POST        /User/Register/Completing               controllers.User.CustomerController.completeRegistration()
-PUT         /User/Profile                           controllers.User.CustomerController.update()
+POST        /User/Profile                           controllers.User.CustomerController.update()
+POST        /User/ActiveOrders                      controllers.User.CustomerController.activeOrders()
 #GET        /User                 controllers.User.CustomerController.remove()
 
 # Customer Schedule
@@ -54,11 +55,12 @@ GET         /User/Schedule/New                      controllers.Order.ScheduleCo
 GET         /User/Schedule/AddOrder                 controllers.Order.ScheduleController.addOrder()
 GET         /User/Schedule/Edit                     controllers.Order.ScheduleController.editScheduleName()
 
-DELETE      /User/Schedule/Delete/:orderId          controllers.Order.ScheduleController.removeOrder(orderId: String)
-PUT         /User/Schedule/Edit                     controllers.Order.ScheduleController.updateScheduleName()
+POST        /User/Schedule/Delete/:orderId          controllers.Order.ScheduleController.removeOrder(orderId: String)
+POST        /User/Schedule/State                    controllers.Order.ScheduleController.setScheduleState()
+POST        /User/Schedule/Edit                     controllers.Order.ScheduleController.updateScheduleName()
 POST        /User/Schedule/New                      controllers.Order.ScheduleController.doCreateSchedule()
-PUT         /User/Schedule/AddOrder                 controllers.Order.ScheduleController.doAddOrder()
-DELETE      /User/Schedule/Clear                    controllers.Order.ScheduleController.clearSchedule()
+POST        /User/Schedule/AddOrder                 controllers.Order.ScheduleController.doAddOrder()
+POST        /User/Schedule/Clear                    controllers.Order.ScheduleController.clearSchedule()
 
 
 ##############################################################################
@@ -131,17 +133,17 @@ GET         /message                                controllers.AsyncController.
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
-GET         /assets/User/*file                      controllers.Assets.versioned(path="/public", file: Asset)
-GET         /assets/User/Registration/*file         controllers.Assets.versioned(path="/public", file: Asset)
-GET         /assets/Delivery/*file                  controllers.Assets.versioned(path="/public", file: Asset)
-GET         /assets/Kitchen/*file                   controllers.Assets.versioned(path="/public", file: Asset)
-GET         /assets/Staff/*file                     controllers.Assets.versioned(path="/public", file: Asset)
-GET         /assets/History/*file                   controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/User/*file                      controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/User/Registration/*file         controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/Delivery/*file                  controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/Kitchen/*file                   controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/Staff/*file                     controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/History/*file                   controllers.Assets.versioned(path="/public", file: Asset)
 
 # Javascript Routing
 #GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
 
-
+#GET         /assets/fonts/*file                     controllers.Assets.versioned(path="/public/fonts",file: Asset)
 
 # Default path if not found
 GET         /*path                                  controllers.Application.HomeController.invalidRoute(path: String)

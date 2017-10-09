@@ -2,8 +2,8 @@
 @import models.Order.OrderScheduleDays
 @import models.Order.CustomerOrderItem
 @import controllers.Application.AppTags
+@import helper.CSRF
 
-@import play.filters.csrf.AddCSRFToken
 @(orderScheduleWeek: OrderScheduleDays)
 
 @getCollapseName(dayName: String) = @{
@@ -12,45 +12,50 @@
 
 @generateDayTable(dayName: String, dayOrderList: List[CustomerOrderItem]) = {
 
-    @if(dayOrderList.size() == 0){
-        <label class="tab">No scheduled orders</label>
-    } else {
+@if(dayOrderList.size() == 0) {
+    <label class="tab">No scheduled orders</label>
+} else {
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="@getCollapseName(dayName)" class="collapse">dayName</a>
-                </h4>
-            </div>
-            <div id="@getCollapseName(dayName)" class="panel-collapse collapse" style="">
-                <div class="panel-body">
-                    @for((item, index) <- dayOrderList.zipWithIndex) {
-                        <tr class="gradeA @if((index % 2) == 0) {odd} else {even}">
-                            <td class="sorting_1"><a href="@controllers.User.routes.CustomerController.viewOrder(item.orderId)">@item.orderId</a></td>
-                            <td class=" ">@AppTags.Locale.Currency.ZAR.toString @item.amount</td>
-                            <td class=" ">@item.getTime()</td>
-                            <td class=" "><button class="btn btn-danger" href="@controllers.Order.routes.ScheduleController.removeOrder(item.orderId)">Remove</button></td>
-                        </tr>
-                    }
-                </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="@getCollapseName(dayName)" class="collapse">
+                    dayName</a>
+            </h4>
+        </div>
+        <div id="@getCollapseName(dayName)" class="panel-collapse collapse" style="">
+            <div class="panel-body">
+            @for((item, index) <- dayOrderList.zipWithIndex) {
+                <tr class="gradeA @if((index % 2) == 0){odd}else{even}">
+                    <td class="sorting_1"><a href="@controllers.User.routes.CustomerController.viewOrder(item.orderId)">@item.orderId</a></td>
+                    <td class=" ">@AppTags.Locale.Currency.ZAR.toString @item.amount</td>
+                    <td class=" ">@item.getTime()</td>
+                    <td class=" "><button class="btn btn-danger" href="@CSRF(controllers.Order.routes.ScheduleController.removeOrder(item.orderId))">Remove</button></td>
+                </tr>
+            }
             </div>
         </div>
-        }
+    </div>
+}
 
 }
 
 @bodyContent = {
-    @AddCSRFToken
     <h1>Your order schedule</h1>
     <br/>
 
 
-
-    @if(orderScheduleWeek == null){
-        <input type="submit" class="btn btn-info" name="Create Schedule" href="@controllers.Order.routes.ScheduleController.createSchedule()">
-    } else {
-        <input type="submit" class="btn btn-info" name="Change Schedule Name" href="@controllers.Order.routes.ScheduleController.editScheduleName()">
-    <div class="panel-group" id="accordion"><input type="button @if(orderScheduleWeek.isActive){btn-success}else{btn-warning}" name="@if(orderScheduleWeek.isActive){Active}else{Inactive}">
+@if(orderScheduleWeek == null) {
+    @helper.form ( action = @controllers.Order.routes.ScheduleController.createSchedule()){
+        @CSRF.formField
+        <input type="submit" class="btn btn-info" name="Create Schedule">
+    }
+} else {
+    @helper.form ( action = @controllers.Order.routes.ScheduleController.editScheduleName()){
+        @CSRF.formField
+        <input type="submit" class="btn btn-info" name="Change Schedule Name">
+    }
+    <div class="panel-group" id="accordion"><input type="button @if(orderScheduleWeek.isActive) {btn-success} else {btn-warning}" name="@if(orderScheduleWeek.isActive) {Active} else {Inactive}">
         @generateDayTable("Monday", orderScheduleWeek.getMonday)
         @generateDayTable("Tuesday", orderScheduleWeek.getTuesday)
         @generateDayTable("Wednesday", orderScheduleWeek.getWednesday)
@@ -60,8 +65,11 @@
         @generateDayTable("Sunday", orderScheduleWeek.getSunday)
         <input type="submit" class="btn btn-success" name="Add Order (TODO)" href="@controllers.Order.routes.ScheduleController.addOrder()">
     </div>
-    <input type="submit" class="btn btn-danger" name="Clear Schedule" href="@controllers.Order.routes.ScheduleController.clearSchedule()">
+    @helper.form ( action = @controllers.Order.routes.ScheduleController.clearSchedule()){
+        @CSRF.formField
+        <input type="submit" class="btn btn-info" name="Clear Schedule">
     }
+}
 }
 
 

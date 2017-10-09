@@ -1,5 +1,6 @@
 package controllers.User;
 
+import annotations.SessionVerifier;
 import controllers.Application.AppTags;
 import controllers.Delivery.DeliveryController;
 import controllers.Order.KitchenController;
@@ -8,17 +9,19 @@ import models.User.UserLoginInfo;
 import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
+import play.filters.csrf.AddCSRFToken;
 import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import play.mvc.With;
 import views.html.Application.Home.index;
 import views.html.User.Staff.login;
 
 import javax.inject.Inject;
 import java.util.List;
 
-@Security.Authenticated
+@With(SessionVerifier.LoadActive.class)
 public class StaffController extends Controller {
     @Inject
     FormFactory formFactory;
@@ -29,6 +32,7 @@ public class StaffController extends Controller {
      * @return
      */
     //default route : /user
+    @With(SessionVerifier.LoadActive.class)
     public Result index() {
         return ok(index.render());
 
@@ -74,7 +78,6 @@ public class StaffController extends Controller {
      *
      * @return
      */
-    @RequireCSRFCheck
     public Result doLogin() {
         Form<UserLoginInfo> form = formFactory.form(UserLoginInfo.class).bindFromRequest();
 

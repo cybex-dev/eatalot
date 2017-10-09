@@ -1,1 +1,49 @@
-@()
+@import Global.Static.masterpage
+@import java.util.List
+@import models.Order.ActiveOrder
+@import controllers.Application.AppTags
+@import helper.form
+@import helper.CSRF
+
+@(activeOrderList: List[ActiveOrder])
+
+@bodyContent = {
+    <h1>Active Orders</h1>
+    <br/>
+@if(activeOrderList.size() == 0){
+    <h6>No active orders</h6>
+} else {
+    @for(item <- activeOrderList) {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Order #@item.orderId</h4><p class="tab">Deliver Time: @item.getTime</p><button class="btn btn-warning" type="submit" href="#">Cancel Order</button>
+                <br/>
+                <h6 class="tab">Status = @item.queueStatus</h6>
+            </div>
+            <div class="panel-collapse" style="">
+                <div class="panel-body">
+                @for((mealOrderItem, index) <- item.mealOrdersList.zipWithIndex) {
+                    <tr class="gradeA @if((index % 2) == 0) {odd} else {even}">
+                        <td>@mealOrderItem.mealName</td>
+                        <td>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(mealOrderItem.price)</td>
+                        <td>@String.valueOf(mealOrderItem.getQty)</td>
+                        <td> = </td>
+                        <td>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(mealOrderItem.getTotal)</td>
+                    </tr>
+                }
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <h4 class="panel-footer">Total = @AppTags.Locale.Currency.ZAR.toString @item.amount</h4>
+        </div>
+        <br/>
+    }
+}
+    @form( action = controllers.User.routes.CustomerController.index()){
+        @CSRF.formField
+        <input class="btn btn-info" type="submit" name="Back">
+    }
+}
+
+@masterpage.apply(" :: Active Orders", bodyContent)

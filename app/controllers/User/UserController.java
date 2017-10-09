@@ -25,8 +25,7 @@ import java.util.Map;
 import views.html.User.Customer.registerDetails;
 
 import static controllers.Application.AppTags.*;
-import static controllers.Application.AppTags.AppCookie.buildCookie;
-import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
+import static controllers.Application.AppTags.AppCookie.*;
 
 /**
  * Created by cybex on 2017/07/08.
@@ -50,7 +49,6 @@ public class UserController extends Controller {
      * @return
      */
     // /user
-    @AddCSRFToken
     public Result index() {
         Result result = AppTags.Session.checkExistingLogin(request(), session());
         if (result != null)
@@ -63,7 +61,6 @@ public class UserController extends Controller {
      *
      * @return
      */
-    @AddCSRFToken
     public Result login() {
         Http.Response response = response();
         Http.Request request = request();
@@ -79,7 +76,6 @@ public class UserController extends Controller {
      *
      * @return
      */
-    @RequireCSRFCheck
     public Result doLogin() {
         Form<UserLoginInfo> form = formFactory.form(UserLoginInfo.class).bindFromRequest();
 
@@ -125,8 +121,8 @@ public class UserController extends Controller {
                 result = ok(registerDetails.apply(formFactory.form(UserRegisterDetails.class)));
                 return result.withCookies(
                         buildCookie(AppCookie.newUser.toString(), AppCookie.newUser.toString()),
-                        buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
-                        buildCookie(AppCookie.Org.toString(), General.SITENAME.toString()),
+                        buildCookie(AppCookie.remember_me.toString(), (userLoginInfo.getbRememberMe()) ? remember_me_true.toString() : remember_me_false.toString()),
+                        buildCookie(AppCookie.org.toString(), General.SITENAME.toString()),
                         buildCookie(AppCookie.loginTime.toString(), time),
                         buildCookie(AppCookie.user_token.toString(), customer.getToken()),
                         buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())));
@@ -135,11 +131,11 @@ public class UserController extends Controller {
             result = redirect(routes.CustomerController.index());
         }
         result = result.withCookies(
-                buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
+                buildCookie(AppCookie.remember_me.toString(), (userLoginInfo.getbRememberMe()) ? remember_me_true.toString() : remember_me_false.toString()),
                 buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())),
                 buildCookie(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString()),
                 buildCookie(AppCookie.user_token.toString(), customer.getToken()),
-                buildCookie(AppCookie.Org.toString(), General.SITENAME.toString()),
+                buildCookie(AppCookie.org.toString(), General.SITENAME.toString()),
                 buildCookie(AppCookie.loginTime.toString(), time));
         return result;
 }
@@ -147,7 +143,7 @@ public class UserController extends Controller {
     public Result logout() {
 
         Result redirect = redirect(controllers.Application.routes.HomeController.index()).withCookies(
-                buildExpiredCookie(AppCookie.RememberMe.toString()),
+                buildExpiredCookie(AppCookie.remember_me.toString()),
                 buildExpiredCookie(AppCookie.user_type.toString()),
                 buildExpiredCookie(AppCookie.user_id.toString()),
                 buildExpiredCookie(AppCookie.user_token.toString())

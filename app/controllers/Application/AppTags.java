@@ -63,13 +63,19 @@ public class AppTags {
     }
 
     public enum AppCookie {
-        Org("Org"),
-        RememberMe("RememberMe"),
+        org("org"),
+        
         user_id("UserID"),
         user_type("userType"),
         user_token("userToken"),
+        
         newUser("newUser"),
-        loginTime("loginTime");
+        
+        loginTime("loginTime"),
+
+        remember_me("remember_me"),
+        remember_me_true("true"),
+        remember_me_false("false");
 
         private String value;
 
@@ -120,7 +126,7 @@ public class AppTags {
          */
         public static void logout(Result result) {
             result.withCookies(
-                    buildExpiredCookie(AppCookie.RememberMe.toString()),
+                    buildExpiredCookie(AppCookie.remember_me.toString()),
                     buildExpiredCookie(AppCookie.user_type.toString()),
                     buildExpiredCookie(AppCookie.user_id.toString()),
                     buildExpiredCookie(AppCookie.user_token.toString())
@@ -349,7 +355,11 @@ public class AppTags {
         }
 
         public enum SessionTags {
-            csrfTokenString("csrfToken");
+            csrfTokenString("csrfToken"),
+            userProfile("userProfile"),
+            valid("valid"),
+            invalid("invalid"),
+            session_status("session_status");
 
             private String value;
 
@@ -410,7 +420,7 @@ public class AppTags {
 
         public static Result loadSessionfromCookies(Http.Request request, Http.Session session) {
             try {
-                String org = AppCookie.extract(request, AppCookie.Org);
+                String org = AppCookie.extract(request, AppCookie.org);
                 if (org == null)
                     return null;
                 if (!org.equals(General.SITENAME.toString()))

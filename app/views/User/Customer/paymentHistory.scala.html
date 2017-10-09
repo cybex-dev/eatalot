@@ -1,7 +1,9 @@
 @import Global.Static.masterpage
 @import java.util.List
 @import models.Finance.PaymentItemBasic
-@(pageTitle: String, paymentList: List[PaymentItemBasic])
+@import helper._
+
+@(paymentList: List[PaymentItemBasic])
 
 
     @table = {
@@ -63,6 +65,10 @@
 
             </div>
         </div>
+    @form( action = controllers.User.routes.CustomerController.index()){
+        @CSRF.formField
+        <input class="btn btn-info" type="submit" name="Home">
+    }
     }
 
-    @masterpage.apply(pageTitle, table)
+    @masterpage.apply(" :: Past Payments", table)

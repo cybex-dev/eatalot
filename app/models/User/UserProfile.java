@@ -2,14 +2,18 @@ package models.User;
 
 import play.Logger;
 import play.data.validation.Constraints;
+import play.data.validation.ValidationError;
 
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Class used to edit user profile
  */
 
-public class UserProfile extends UserRegisterDetails{
+public class UserProfile extends UserRegisterDetails implements Serializable, Constraints.Validatable<ValidationError> {
 
     // TODO: 2017/08/18 Add support for sectino updates and passowrd changes (with old password as test)
 //    @Constraints.MinLength(8)
@@ -84,14 +88,27 @@ public class UserProfile extends UserRegisterDetails{
         a.setUnitNumber(getUnitNumber());
         a.setStreetName(getStreetName());
         a.setIsCommunity(isCommunity());
-        if (!isCommunity())
-            a.setCommunityName("");
+        a.setCommunityName(getCommunityName());
 
-        c.save();
-        a.save();
+        a.update();
+        c.update();
     }
 
     public String getConfirmPassword() {
         return confirmPassword;
+    }
+
+    @Override
+    public ValidationError validate() {
+        if (!password.equals(confirmPassword))
+            return new ValidationError("confirmPassword", "Passwords do not match");
+        String p = password;
+        p = p.replace("[^a-z]", "");
+        if (p.length() == 0)
+            return new ValidationError("password", "Password requires atleast 1 upper case letter");
+        p = p.replace("[^A-Z]", "");
+        if (p.length() == 0)
+            return new ValidationError("password", "Password requires atleast 1 special character, e.g. !,@,#,$,etc");
+        return null;
     }
 }

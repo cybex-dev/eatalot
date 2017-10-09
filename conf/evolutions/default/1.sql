@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table address (
-  address_id                    varchar(255) not null,
+  address_id                    bigint auto_increment not null,
   unit_number                   varchar(255),
   street_name                   varchar(255),
   community_name                varchar(255),
@@ -13,7 +13,7 @@ create table address (
 );
 
 create table customer (
-  user_id                       varchar(255) not null,
+  user_id                       bigint auto_increment not null,
   name                          varchar(255),
   surname                       varchar(255),
   password                      varchar(255),
@@ -29,11 +29,12 @@ create table customer (
 );
 
 create table customer_order (
-  order_id                      bigint auto_increment not null,
+  order_id                      varchar(255) not null,
   status_id                     varchar(255),
   user_id                       varchar(255),
   payment_id                    varchar(255),
   meal_order_id                 varchar(255),
+  order_date                    datetime(6),
   constraint pk_customer_order primary key (order_id)
 );
 
@@ -54,7 +55,7 @@ create table meal (
 );
 
 create table meal_order (
-  meal_order_id                 bigint auto_increment not null,
+  meal_order_id                 varchar(255) not null,
   meal_id                       varchar(255),
   order_id                      varchar(255),
   order_qty                     integer not null,
@@ -66,15 +67,15 @@ create table order_schedule (
   order_sched_id                varchar(255) not null,
   user_id                       varchar(255),
   title                         varchar(255),
-  is_active                     tinyint(1) default 0 not null,
+  is_active                     tinyint(1) default 0,
   constraint pk_order_schedule primary key (order_sched_id)
 );
 
-create table order_schedule_items (
+create table order_schedule_item (
   order_sched_item_id           varchar(255) not null,
   order_id                      varchar(255),
   order_sched_id                varchar(255),
-  constraint pk_order_schedule_items primary key (order_sched_item_id)
+  constraint pk_order_schedule_item primary key (order_sched_item_id)
 );
 
 create table payment (
@@ -116,7 +117,7 @@ create table redeemed_vouchers (
 );
 
 create table staff (
-  user_id                       varchar(255) not null,
+  user_id                       bigint auto_increment not null,
   name                          varchar(255),
   surname                       varchar(255),
   password                      varchar(255),
@@ -124,7 +125,20 @@ create table staff (
   cell_number                   varchar(255),
   is_kitchen_staff              tinyint(1) default 0,
   token                         varchar(255),
+  alias                         varchar(255),
   constraint pk_staff primary key (user_id)
+);
+
+create table staff_order_interaction (
+  staff_order_interaction_id    varchar(255) not null,
+  staff_id                      varchar(255),
+  order_id                      varchar(255),
+  placed                        datetime(6),
+  start_processing              datetime(6),
+  finish_processing             datetime(6),
+  started_delivery              datetime(6),
+  finished_delivery             datetime(6),
+  constraint pk_staff_order_interaction primary key (staff_order_interaction_id)
 );
 
 create table voucher (
@@ -151,7 +165,7 @@ drop table if exists meal_order;
 
 drop table if exists order_schedule;
 
-drop table if exists order_schedule_items;
+drop table if exists order_schedule_item;
 
 drop table if exists payment;
 
@@ -164,6 +178,8 @@ drop table if exists recipe_ingredients;
 drop table if exists redeemed_vouchers;
 
 drop table if exists staff;
+
+drop table if exists staff_order_interaction;
 
 drop table if exists voucher;
 

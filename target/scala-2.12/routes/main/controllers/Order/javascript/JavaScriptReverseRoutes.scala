@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Oct 06 21:38:00 SAST 2017
+// @DATE:Sun Oct 08 23:34:50 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:52
+// @LINE:53
 package controllers.Order.javascript {
 
-  // @LINE:73
+  // @LINE:78
   class ReverseKitchenController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.Order.javascript {
     }
 
   
-    // @LINE:73
+    // @LINE:78
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.index",
       """
@@ -32,7 +32,7 @@ package controllers.Order.javascript {
   
   }
 
-  // @LINE:65
+  // @LINE:70
   class ReverseMenuController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -40,7 +40,7 @@ package controllers.Order.javascript {
     }
 
   
-    // @LINE:65
+    // @LINE:70
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.MenuController.index",
       """
@@ -52,7 +52,7 @@ package controllers.Order.javascript {
   
   }
 
-  // @LINE:52
+  // @LINE:53
   class ReverseScheduleController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -60,27 +60,57 @@ package controllers.Order.javascript {
     }
 
   
-    // @LINE:57
+    // @LINE:62
     def doAddOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.ScheduleController.doAddOrder",
       """
         function() {
-          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/AddOrder"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/AddOrder"})
+        }
+      """
+    )
+  
+    // @LINE:60
+    def updateScheduleName: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.ScheduleController.updateScheduleName",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/Edit"})
+        }
+      """
+    )
+  
+    // @LINE:63
+    def clearSchedule: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.ScheduleController.clearSchedule",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/Clear"})
         }
       """
     )
   
     // @LINE:58
-    def clearSchedule: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Order.ScheduleController.clearSchedule",
+    def removeOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.ScheduleController.removeOrder",
       """
-        function() {
-          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/Clear"})
+        function(orderId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/Delete/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("orderId", encodeURIComponent(orderId0))})
         }
       """
     )
   
-    // @LINE:54
+    // @LINE:56
+    def editScheduleName: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.ScheduleController.editScheduleName",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/Edit"})
+        }
+      """
+    )
+  
+    // @LINE:55
     def addOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.ScheduleController.addOrder",
       """
@@ -90,7 +120,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:53
+    // @LINE:54
     def createSchedule: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.ScheduleController.createSchedule",
       """
@@ -100,7 +130,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:56
+    // @LINE:61
     def doCreateSchedule: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.ScheduleController.doCreateSchedule",
       """
@@ -110,7 +140,17 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:52
+    // @LINE:59
+    def setScheduleState: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.ScheduleController.setScheduleState",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "User/Schedule/State"})
+        }
+      """
+    )
+  
+    // @LINE:53
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.ScheduleController.index",
       """

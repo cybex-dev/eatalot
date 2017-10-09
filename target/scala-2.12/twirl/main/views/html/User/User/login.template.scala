@@ -33,29 +33,34 @@ object login extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
     _display_ {
       {
 
-def /*8.2*/bodyContent/*8.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*8.6*/bodyContent/*8.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*8.17*/("""
-    """),format.raw/*9.5*/("""<h1>Login Form</h1>
-    <br/>
-    <div class="body">
-    """),_display_(/*12.6*/helper/*12.12*/.form(action = controllers.User.routes.UserController.doLogin)/*12.74*/ {_display_(Seq[Any](format.raw/*12.76*/("""
-        """),_display_(/*13.10*/CSRF/*13.14*/.formField),format.raw/*13.24*/("""
-        """),_display_(/*14.10*/inputText(loginForm("email"), '_name -> "E-Mail", '_class -> "text-field")),format.raw/*14.84*/("""
-        """),_display_(/*15.10*/inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")),format.raw/*15.93*/("""
-        """),_display_(/*16.10*/checkbox(loginForm("bRememberMe"), '_name -> "Remember Me")),format.raw/*16.69*/("""
-        """),format.raw/*17.84*/("""
-        """),format.raw/*18.9*/("""<br/>
+Seq[Any](format.raw/*8.21*/("""
+        """),format.raw/*9.9*/("""<h1>Login Form</h1>
         <br/>
-        <input class="btn btn-success" type="submit" value="Login"/>
-    """)))}),format.raw/*21.6*/("""
-    """),format.raw/*22.5*/("""</div>
-""")))};
+        <div class="body">
+            """),_display_(/*12.14*/helper/*12.20*/.form(action = controllers.User.routes.UserController.doLogin)/*12.82*/ {_display_(Seq[Any](format.raw/*12.84*/("""
+                """),_display_(/*13.18*/CSRF/*13.22*/.formField),format.raw/*13.32*/("""
+                """),_display_(/*14.18*/inputText(loginForm("email"), '_name -> "E-Mail", '_class -> "text-field")),format.raw/*14.92*/("""
+                """),_display_(/*15.18*/inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")),format.raw/*15.101*/("""
+                """),_display_(/*16.18*/checkbox(loginForm("bRememberMe"), '_name -> "Remember Me")),format.raw/*16.77*/("""
+                """),format.raw/*17.92*/("""
+                """),format.raw/*18.17*/("""<br/>
+                <input class="btn btn-success" type="submit" value="Login"/>
+                <br/>
+                <hr class="left" style="width: 10%" size="2px"/>
+            """)))}),format.raw/*22.14*/("""
+            """),_display_(/*23.14*/form( action = controllers.User.routes.CustomerController.register(), '_class -> "header-line")/*23.109*/ {_display_(Seq[Any](format.raw/*23.111*/("""
+                """),_display_(/*24.18*/CSRF/*24.22*/.formField),format.raw/*24.32*/("""
+                """),format.raw/*25.17*/("""<input class="btn btn-default" type="submit" value="Register"/>
+            """)))}),format.raw/*26.14*/("""
+        """),format.raw/*27.9*/("""</div>
+    """)))};
 Seq[Any](format.raw/*6.34*/("""
 
-"""),format.raw/*23.2*/("""
+    """),format.raw/*28.6*/("""
 
-"""),_display_(/*25.2*/masterpage/*25.12*/.apply(" :: Login", bodyContent)),format.raw/*25.44*/("""
+    """),_display_(/*30.6*/masterpage/*30.16*/.apply(" :: Login", bodyContent)),format.raw/*30.48*/("""
 """))
       }
     }
@@ -72,11 +77,11 @@ Seq[Any](format.raw/*6.34*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 03 21:44:28 SAST 2017
+                  DATE: Sun Oct 08 23:23:59 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/User/login.scala.html
-                  HASH: 4dca42cd87b814194a9efc419be7c813fbec3ce5
-                  MATRIX: 661->1|700->34|729->57|752->74|1102->109|1212->144|1231->155|1311->159|1342->164|1426->222|1441->228|1512->290|1552->292|1589->302|1602->306|1633->316|1670->326|1765->400|1802->410|1906->493|1943->503|2023->562|2060->646|2096->655|2220->749|2252->754|2299->141|2328->762|2357->765|2376->775|2429->807
-                  LINES: 24->1|25->2|26->3|27->4|32->6|36->8|36->8|38->8|39->9|42->12|42->12|42->12|42->12|43->13|43->13|43->13|44->14|44->14|45->15|45->15|46->16|46->16|47->17|48->18|51->21|52->22|54->6|56->23|58->25|58->25|58->25
+                  HASH: f2357afc4b564085315c10496b69958d5acdd065
+                  MATRIX: 661->1|700->34|729->57|752->74|1102->109|1212->148|1231->159|1311->163|1346->172|1447->246|1462->252|1533->314|1573->316|1618->334|1631->338|1662->348|1707->366|1802->440|1847->458|1952->541|1997->559|2077->618|2122->710|2167->727|2381->910|2422->924|2527->1019|2568->1021|2613->1039|2626->1043|2657->1053|2702->1070|2810->1147|2846->1156|2897->141|2930->1168|2963->1175|2982->1185|3035->1217
+                  LINES: 24->1|25->2|26->3|27->4|32->6|36->8|36->8|38->8|39->9|42->12|42->12|42->12|42->12|43->13|43->13|43->13|44->14|44->14|45->15|45->15|46->16|46->16|47->17|48->18|52->22|53->23|53->23|53->23|54->24|54->24|54->24|55->25|56->26|57->27|59->6|61->28|63->30|63->30|63->30
                   -- GENERATED --
               */
           

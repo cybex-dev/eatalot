@@ -1,17 +1,23 @@
 package controllers.User;
 
+import annotations.SessionVerifier;
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.Session;
 import libs.Mailer;
 import models.CRUD;
+import models.Finance.Payment;
 import models.Finance.PaymentItemBasic;
+import models.Order.ActiveOrder;
+import models.Order.MealOrderItem;
 import models.Order.OrderItemBasic;
 import models.User.*;
+import models.ordering.CustomerOrder;
+import models.ordering.Meal;
+import models.ordering.MealOrder;
 import org.jetbrains.annotations.NotNull;
 import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
-import play.filters.csrf.RequireCSRFCheck;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.mailer.MailerClient;
 import play.mvc.*;
@@ -31,7 +37,7 @@ import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
  * Created by cybex on 2017/07/21.
  */
 
-//@With(HttpsRequired.class)
+@With(SessionVerifier.LoadActive.class)
 public class CustomerController extends Controller implements CRUD {
 
     @Inject
@@ -46,6 +52,26 @@ public class CustomerController extends Controller implements CRUD {
     @Inject
     public CustomerController(HttpExecutionContext ec) {
         this.httpExecutionContext = ec;
+    }
+    
+    public CompletionStage<Result> activeOrders() {
+        return getActiveOrders(session().get(AppCookie.user_id.toString())).thenApplyAsync(activeOrders -> ok(viewActiveOrders.render(activeOrders)), httpExecutionContext.current());
+    }
+
+    private CompletionStage<List<ActiveOrder>> getActiveOrders(String userId) {
+        List<CustomerOrder> list = CustomerOrder.find.query().where().ilike("userId", userId).and().ilike("statusId", "pending").findList();
+        List<ActiveOrder> activeOrders = new ArrayList<>();
+        list.forEach(customerOrder -> {
+            List<MealOrder> mealOrderList = MealOrder.find.query().where().ilike("orderId", String.valueOf(customerOrder.getOrderId())).findList();
+            List<MealOrderItem> orderItemList  = new ArrayList<>();
+            mealOrderList.forEach(mealOrder -> {
+                Meal meal = Meal.find.byId(mealOrder.getMealId());
+                orderItemList.add(new MealOrderItem(String.valueOf(mealOrder.getMealOrderId()), new Double("0.00"), "", meal.getDescription(), mealOrder.getOrderQty(), meal.getCost()));
+            });
+            ActiveOrder activeOrder = new ActiveOrder(String.valueOf(customerOrder.getOrderId()), String.valueOf(Payment.find.byId(customerOrder.getPaymentId()).getAmount()), new Date(), customerOrder.getStatusId(),orderItemList);
+            activeOrders.add(activeOrder);
+        });
+        return CompletableFuture.completedFuture(activeOrders);
     }
 
     public CompletionStage<Result> viewPayment(String paymentId) {
@@ -70,32 +96,31 @@ public class CustomerController extends Controller implements CRUD {
      *
      * @return
      */
-//    @With(SessionVerifier.Load.class)
-//    @Security.Authenticated(SessionVerifier.Verifier.class)
+    @With(SessionVerifier.LoadActive.class)
     public Result index() {
-        if (!Session.checkExistingSession(session())) {
-            Result result = Session.loadSessionfromCookies(request(), session());
-            if (result == null) {
-//                flash(FlashCodes.warning.toString(), "An error occured while logging in, please try again");
-                return redirect(controllers.Application.routes.HomeController.index());
-            }
-            return result;
-        }
-        try {
+//        if (!Session.checkExistingSession(session())) {
+//            Result result = Session.loadSessionfromCookies(request(), session());
+//            if (result == null) {
+////                flash(FlashCodes.warning.toString(), "An error occured while logging in, please try again");
+//                return redirect(controllers.Application.routes.HomeController.index());
+//            }
+//            return result;
+//        }
+//        try {
             String cookieUserId = Session.User.Customer.extract(session(), Session.User.id.toString());
             if (cookieUserId == null)
                 throw new NullPointerException("Session.extract \'ID\' for user id = " + cookieUserId + " is null");
-            UserInfo fill = UserInfo.fill(cookieUserId);
+            CustomerInfo fill = CustomerInfo.fill(cookieUserId);
             return ok(customerHome.render(fill));
-        } catch (Exception x) {
-            Http.Session session = session();
-            session.clear();
-            flash().put(FlashCodes.info.toString(), "Session expired, please log in again");
-            response().setCookie(buildExpiredCookie(AppCookie.Org.toString()));
-            response().setCookie(buildExpiredCookie(AppCookie.user_id.toString()));
-            response().setCookie(buildExpiredCookie(AppCookie.RememberMe.toString()));
-            return redirect(controllers.Application.routes.HomeController.index()).withCookies(new Http.Cookie("cookieName", "cookieValue", 1, "", null, false, false, Http.Cookie.SameSite.LAX));
-        }
+//        } catch (Exception x) {
+//            Http.Session session = session();
+//            session.clear();
+//            flash().put(FlashCodes.info.toString(), "Session expired, please log in again");
+//            response().setCookie(buildExpiredCookie(AppCookie.org.toString()));
+//            response().setCookie(buildExpiredCookie(AppCookie.user_id.toString()));
+//            response().setCookie(buildExpiredCookie(AppCookie.remember_me.toString()));
+//            return redirect(controllers.Application.routes.HomeController.index()).withCookies(new Http.Cookie("cookieName", "cookieValue", 1, "", null, false, false, Http.Cookie.SameSite.LAX));
+//        }
     }
 
     /**
@@ -137,7 +162,6 @@ public class CustomerController extends Controller implements CRUD {
         c.setPassword(userRegisterInfo.getPassword());
         c.setToken(csrfToken);
         c.setStudent(userEmail.matches(regexNMMUCheck));
-        c.insert();
         c.save();
 
         String finalCsrfToken = csrfToken;
@@ -146,7 +170,7 @@ public class CustomerController extends Controller implements CRUD {
             switch (integer) {
                 case 0: {
                     ctx().flash().put(FlashCodes.success.toString(), "Verification email has been sent");
-                    r = ok();
+                    r = ok(verify.render());
                     break;
                 }
 
@@ -206,10 +230,10 @@ public class CustomerController extends Controller implements CRUD {
             flash(FlashCodes.warning.toString(), "Please check entered information");
             return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
         }
-//        if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
-//            flash(FlashCodes.warning.toString(), "Please check passwords match and are valid");
-//            return badRequest(editProfile.render(formUserProfile));
-//        }
+        if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
+            flash(FlashCodes.warning.toString(), "Please check passwords match and are valid");
+            return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
+        }
         userProfile.setUserId(session(Session.User.id.toString()));
         userProfile.save();
         flash(FlashCodes.success.toString(), "Profile has been updated!");
@@ -251,7 +275,6 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     //    @Security.Authenticated(SessionVerifier.class)
-    @RequireCSRFCheck
     public Result reverify() {
         Form userForm = formFactory.form().bindFromRequest();
 
@@ -343,7 +366,7 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
 //    @RequireCSRFCheck
-//    @Security.Authenticated(SessionVerifier.class)
+//    @Security.Authenticated(SessionVerifier.class)\
     public Result completeRegistration() {
         Http.Request request = request();
         Http.Cookie cookie = request.cookies().get(AppCookie.newUser.toString());
@@ -372,7 +395,7 @@ public class CustomerController extends Controller implements CRUD {
 
         c.setToken(cookieToken); // TODO: 2017/09/19 see if this is right, it is used to solve the issue of token mismatch
         if (!c.getToken().equals(cookieToken)) {
-            AppCookie.clear(response(), AppCookie.RememberMe, AppCookie.user_id, AppCookie.user_type, AppCookie.user_token, AppCookie.Org);
+            AppCookie.clear(response(), AppCookie.remember_me, AppCookie.user_id, AppCookie.user_type, AppCookie.user_token, AppCookie.org);
             flash().put(FlashCodes.danger.toString(), "Token mismatch, close your browser and restart");
             session().clear();
             return badRequest(invalid.render("Something went horribly wrong, please log in again!"));
@@ -396,7 +419,6 @@ public class CustomerController extends Controller implements CRUD {
         c.setCellNumber(userRegisterDetails.getCellNumber());
         c.setName(userRegisterDetails.getName());
         c.setSurname(userRegisterDetails.getSurname());
-        c.setUserId(AppCookie.extract(request(), AppCookie.user_id));
         c.save();
         if (c.completeCheck())
             c.setComplete(true);
@@ -427,7 +449,7 @@ public class CustomerController extends Controller implements CRUD {
     public CompletionStage<Result> orderHistory() {
         return getOrders().thenApplyAsync(orderItems -> {
             ctx().flash().put(FlashCodes.success.toString(), "Order History Results");
-            return ok(views.html.User.Customer.orderHistory.render(" :: Order History", orderItems));
+            return ok(views.html.User.Customer.orderHistory.render(orderItems));
         }, httpExecutionContext.current());
     }
 
@@ -444,7 +466,7 @@ public class CustomerController extends Controller implements CRUD {
     public CompletionStage<Result> paymentHistory() {
         return getPayments().thenApplyAsync(paymentItems -> {
             ctx().flash().put(FlashCodes.success.toString(), "Payment History Results");
-            return ok(views.html.User.Customer.paymentHistory.render(" :: Payment History", paymentItems));
+            return ok(views.html.User.Customer.paymentHistory.render(paymentItems));
         }, httpExecutionContext.current());
     }
 

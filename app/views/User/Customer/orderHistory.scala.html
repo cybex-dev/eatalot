@@ -1,9 +1,10 @@
 @import models.Order.OrderItemBasic
 @import java.util.List
 @import Global.Static.masterpage
+@import helper._
 
 @import controllers.Application.AppTags
-@(pageTitle: String, ordersList: List[OrderItemBasic])
+@(ordersList: List[OrderItemBasic])
 
     @table = {
         <div class="row pad-botm">
@@ -70,6 +71,10 @@
 
             </div>
         </div>
+        @form( action = controllers.User.routes.CustomerController.index()){
+            @CSRF.formField
+            <input class="btn btn-info" type="submit" name="Home">
+        }
     }
 
-    @masterpage.apply(pageTitle, table)
+    @masterpage.apply(" :: Past Orders", table)

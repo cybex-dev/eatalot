@@ -106,7 +106,7 @@ public class Requires {
         Http.Cookie userIdCookie = ctx.request().cookie(AppCookie.user_id.toString());
         Http.Cookie userTokenCookie = ctx.request().cookie(AppCookie.user_token.toString());
         Http.Cookie userTypeCookie = ctx.request().cookie(AppCookie.user_type.toString());
-        Http.Cookie orgCookie = ctx.request().cookie(AppCookie.Org.toString());
+        Http.Cookie orgCookie = ctx.request().cookie(AppCookie.org.toString());
         Http.Cookie loginTimeCookie = ctx.request().cookie(AppCookie.loginTime.toString());
 
         if (userIdCookie == null ||

@@ -5,21 +5,26 @@
 
 @(loginForm: Form[UserLoginInfo])
 
-@bodyContent = {
-    <h1>Login Form</h1>
-    <br/>
-    <div class="body">
-    @helper.form(action = controllers.User.routes.UserController.doLogin) {
-        @CSRF.formField
-        @inputText(loginForm("email"), '_name -> "E-Mail", '_class -> "text-field")
-        @inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")
-        @checkbox(loginForm("bRememberMe"), '_name -> "Remember Me")
-        @*<label><input type="checkbox" name="bRememberMe" /> Remember Me</label>*@
+    @bodyContent = {
+        <h1>Login Form</h1>
         <br/>
-        <br/>
-        <input class="btn btn-success" type="submit" value="Login"/>
+        <div class="body">
+            @helper.form(action = controllers.User.routes.UserController.doLogin) {
+                @CSRF.formField
+                @inputText(loginForm("email"), '_name -> "E-Mail", '_class -> "text-field")
+                @inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")
+                @checkbox(loginForm("bRememberMe"), '_name -> "Remember Me")
+                @*<label><input type="checkbox" name="bRememberMe" /> Remember Me</label>*@
+                <br/>
+                <input class="btn btn-success" type="submit" value="Login"/>
+                <br/>
+                <hr class="left" style="width: 10%" size="2px"/>
+            }
+            @form( action = controllers.User.routes.CustomerController.register(), '_class -> "header-line") {
+                @CSRF.formField
+                <input class="btn btn-default" type="submit" value="Register"/>
+            }
+        </div>
     }
-    </div>
-}
 
-@masterpage.apply(" :: Login", bodyContent)
+    @masterpage.apply(" :: Login", bodyContent)

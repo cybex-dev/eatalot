@@ -4,10 +4,8 @@ import controllers.Application.AppTags;
 import io.ebean.Finder;
 import play.data.validation.Constraints;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Optional;
 
 /**
  * Created by cybex on 2017/07/13.
@@ -18,12 +16,12 @@ public class Staff extends User {
 
     @Constraints.Required
     private Boolean isKitchenStaff;
-    @Constraints.Required
-    private String token;
+
+    private String alias;
 
     public static Finder<String, Staff> find = new Finder<String, Staff>(Staff.class);
 
-    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff) {
+    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff) {
         super(userId, name, surname, password, email, cellNumber);
         this.isKitchenStaff = isKitchenStaff;
     }
@@ -44,15 +42,24 @@ public class Staff extends User {
         return super.toString() + " [ " + (isKitchenStaff ? "Kitchen" : "Delivery") + " ]";
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
     public boolean isDeliveryStaff() {
         return !isKitchenStaff;
+    }
+
+    public Boolean getKitchenStaff() {
+        return isKitchenStaff;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public static boolean Authenticate(String id, String token, boolean isKitchenStaff) {
+        Optional<Staff> staff = Staff.find.query().where()
+                .idEq(id).and()
+                .eq("token", token)
+                .eq("is_kitchen_staff", isKitchenStaff)
+                .findOneOrEmpty();
+        return staff.isPresent();
     }
 }

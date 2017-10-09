@@ -1,5 +1,6 @@
 package controllers.Finance;
 
+import annotations.SessionVerifier;
 import controllers.Application.AppTags;
 import models.Finance.RedeemedVouchers;
 import models.Finance.UserFunds;
@@ -10,10 +11,12 @@ import play.Logger;
 import play.api.mvc.Flash;
 import play.data.Form;
 import play.data.FormFactory;
+import play.filters.csrf.AddCSRFToken;
 import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
+import play.mvc.With;
 import views.html.Finance.UserFinance.AddFunds;
 
 import javax.inject.Inject;
@@ -25,12 +28,12 @@ import java.util.List;
 
 import static controllers.Application.AppTags.*;
 
+@With(SessionVerifier.RequiresActive.class)
 public class UserFinance extends Controller {
 
     @Inject
     FormFactory formFactory;
 
-    @RequireCSRFCheck
     public Result addFunds(){
         if (!Session.checkExistingSession(session())){
             Result result = renderDefaultPage();

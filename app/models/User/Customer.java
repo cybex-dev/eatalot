@@ -1,13 +1,12 @@
 package models.User;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import controllers.Application.AppTags;
 import io.ebean.Finder;
+import models.Order.OrderSchedule;
+import models.Order.OrderScheduleItem;
 import play.data.validation.Constraints;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.util.Optional;
 
 @Entity
 public class Customer extends User {
@@ -16,14 +15,12 @@ public class Customer extends User {
     private String addressId;
     private Boolean isStudent = false;
     private Boolean emailVerified = false;
-    @Constraints.Required
-    private String token;
     private boolean isComplete = false;
     private Double balance = 0.00;
 
     public Customer(){}
 
-    public Customer(String userId, String name, String surname, String email, String cellNumber, String password, String addressId, Boolean isStudent, Boolean emailVerified) {
+    public Customer(Long userId, String name, String surname, String email, String cellNumber, String password, String addressId, Boolean isStudent, Boolean emailVerified) {
         super(userId, name, surname, email, cellNumber, password);
         this.addressId = addressId;
         this.isStudent = isStudent;
@@ -32,10 +29,6 @@ public class Customer extends User {
 
     public static final Finder<String, Customer> find = new Finder<String, Customer>(Customer.class);
 
-    public void setToken(String token) {
-        this.token = token;
-        save();
-    }
 
     public Boolean getEmailVerified() {
         return emailVerified;
@@ -43,12 +36,10 @@ public class Customer extends User {
 
     public void setEmailVerified(Boolean emailVerified) {
         this.emailVerified = emailVerified;
-        save();
+                if (super.getUserId() != null)
+            save();
     }
 
-    public String getToken() {
-        return token;
-    }
 
     public String getAddressId() {
         return addressId;
@@ -56,7 +47,8 @@ public class Customer extends User {
 
     public void setAddressId(String address) {
         this.addressId = address;
-        save();
+                if (super.getUserId() != null)
+            save();
     }
 
     public Address getAddress(){
@@ -69,7 +61,8 @@ public class Customer extends User {
 
     public void setStudent(Boolean status) {
         this.isStudent = status;
-        save();
+                if (super.getUserId() != null)
+            save();
     }
 
     /**
@@ -110,7 +103,8 @@ public class Customer extends User {
 
     public void setComplete(boolean complete) {
         this.isComplete = complete;
-        save();
+                if (super.getUserId() != null)
+            save();
     }
 
     public boolean isComplete() {
@@ -119,7 +113,8 @@ public class Customer extends User {
 
     public void addFunds(Double value) {
         balance += value;
-        save();
+                if (super.getUserId() != null)
+            save();
     }
 
     public void pay(Double value) {
@@ -130,7 +125,19 @@ public class Customer extends User {
         return (balance == null) ? "0.00" : String.valueOf(balance);
     }
 
-    public UserInfo getUserInfo(){
-        return new UserInfo(getUserId(), getName(), getSurname(), isComplete(), isStudent(), getBalance());
+    public CustomerInfo getUserInfo(){
+        OrderSchedule orderSchedule = OrderSchedule.find.query().where().ilike("userId", getUserId()).findOne();
+        boolean isActive = false;
+        int count = 0;
+        if (orderSchedule != null){
+            isActive = orderSchedule.isActive();
+            count = OrderScheduleItem.find.query().where().ilike("orderSchedId", orderSchedule.getOrderSchedId()).findCount();
+        }
+        return new CustomerInfo(getUserId(), getName(), getSurname(), isComplete(), isStudent(), getBalance(), count, isActive);
+    }
+
+    public static boolean Authenticate(String id, String token) {
+        Optional<Customer> customer = Customer.find.query().where().idEq(id).and().eq("token", token).findOneOrEmpty();
+        return customer.isPresent();
     }
 }

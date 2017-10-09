@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Oct 06 21:38:00 SAST 2017
+// @DATE:Sun Oct 08 23:34:50 SAST 2017
 
 import play.api.mvc.Call
 
@@ -34,7 +34,7 @@ package controllers.User {
     // @LINE:45
     def create(): Call = {
       
-      Call("PUT", _prefix + { _defaultPrefix } + "User/Register")
+      Call("POST", _prefix + { _defaultPrefix } + "User/Register")
     }
   
     // @LINE:43
@@ -76,19 +76,25 @@ package controllers.User {
     // @LINE:48
     def update(): Call = {
       
-      Call("PUT", _prefix + { _defaultPrefix } + "User/Profile")
+      Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
     // @LINE:36
     def index(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "User")
+      Call("GET", _prefix + { _defaultPrefix } + "User/Dashboard")
     }
   
     // @LINE:38
     def verifyCustomer(token:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Verify/" + implicitly[play.api.mvc.PathBindable[String]].unbind("token", play.core.routing.dynamicString(token)))
+    }
+  
+    // @LINE:49
+    def activeOrders(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "User/ActiveOrders")
     }
   
   }

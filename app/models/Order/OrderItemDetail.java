@@ -12,27 +12,26 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class OrderItemDetail {
-    public String orderId;//
-    public Date dateOrdered;//
-    public Double amount;//
+    public String orderId;
+    public Date dateOrdered;
+    public Double amount;
     public List<MealOrderItem> mealOrders;
-    public Boolean isScheduleOrder;//
+    public Boolean isScheduleOrder;
     public Payment payment;
     public String status;
     public String delivererName;
 
-    public OrderItemDetail(String orderId, Date dateOrdered, Double amount, List<MealOrder> mealOrders, Boolean isScheduleOrder, Payment payment, String status) {
+    public OrderItemDetail(String orderId, Date dateOrdered, Double amount, List<MealOrderItem> mealOrders, Boolean isScheduleOrder, Payment payment, String status) {
         this.orderId = orderId;
         this.dateOrdered = dateOrdered;
-        this.amount = amount;
+        this.amount = (amount != null)
+                ? payment.getAmount()
+                : amount;
         this.mealOrders = mealOrders;
         this.isScheduleOrder = isScheduleOrder;
         this.payment = payment;
         this.status = status;
 
-        amount = (amount != null)
-                ? payment.getAmount()
-                : amount;
         delivererName = getDelivererName();
 
     }

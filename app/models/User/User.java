@@ -20,11 +20,11 @@ import static controllers.Application.AppTags.Database.*;
 public abstract class User extends Model {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Constraints.Required
     @Constraints.MinLength(10)
     @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String userId;
+    private Long userId;
 
     @Constraints.MaxLength(50)
     private String name;
@@ -47,11 +47,14 @@ public abstract class User extends Model {
     @Pattern( regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
     private String cellNumber;
 
+    @Constraints.Required
+    private String token;
+
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 
     public User(){}
 
-    public User(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
+    public User(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -89,6 +92,16 @@ public abstract class User extends Model {
                 u.email.equals(email));
     }
 
+    public void setToken(String token) {
+        this.token = token;
+        if (userId != null)
+            save();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -98,11 +111,7 @@ public abstract class User extends Model {
     }
 
     public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+        return String.valueOf(userId);
     }
 
     public String getName() {

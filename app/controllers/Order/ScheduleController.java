@@ -1,15 +1,19 @@
 package controllers.Order;
 
+import annotations.SessionVerifier;
 import controllers.Application.AppTags;
 import controllers.Application.routes;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
 import play.data.Form;
 import play.data.FormFactory;
+import play.filters.csrf.AddCSRFToken;
+import play.filters.csrf.RequireCSRFCheck;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import play.mvc.With;
 import router.Routes;
 import views.html.Order.Schedule.create;
 
@@ -21,6 +25,7 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+@With(SessionVerifier.RequiresActive.class)
 public class ScheduleController extends Controller {
 
     @Inject
@@ -34,6 +39,7 @@ public class ScheduleController extends Controller {
     }
 
     // GET
+
     public Result createSchedule() {
         Form<OrderSchedule> scheduleForm = formFactory.form(OrderSchedule.class);
         return ok(create.render(scheduleForm));
@@ -116,6 +122,7 @@ public class ScheduleController extends Controller {
         return CompletableFuture.completedFuture(orderSchedule.clearSchedule());
     }
 
+    // DELETE
     public CompletionStage<Result> removeOrder(String orderId) {
         return removeOrderFromSchedule(orderId).thenApplyAsync(deleted -> {
             if (deleted)
@@ -134,6 +141,7 @@ public class ScheduleController extends Controller {
         return first.<CompletionStage<Boolean>>map(orderScheduleItem -> CompletableFuture.completedFuture(orderScheduleItem.delete())).orElseGet(() -> CompletableFuture.completedFuture(false));
     }
 
+    // PUT
     public CompletionStage<Result> setScheduleState(){
         return changeScheduleStatus(session().get(AppTags.AppCookie.user_id.toString())).thenApplyAsync(aBoolean -> {
             if (aBoolean){

@@ -1,5 +1,7 @@
 @import models.Finance.PaymentItemDetail
 @import Global.Static.masterpage
+@import helper.CSRF
+@import helper.form
 
 @(paymentDetails: PaymentItemDetail)
 
@@ -23,7 +25,10 @@
         </div>
     </div>
     <br/>
-    <input type="button" href="@controllers.User.routes.CustomerController.index()" value="Home">
+    @helper.form( action = controllers.User.routes.CustomerController.index()){
+        @CSRF.formField
+        <input class="btn btn-info" type="submit" name="Home">
+    }
 }
 
     @masterpage.apply(" :: Payment", bodyContent)

@@ -1,13 +1,12 @@
 package models.User;
 
+import models.User.Customer.Customer;
+import models.User.Customer.UserRegisterDetails;
 import play.Logger;
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
 
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Class used to edit user profile

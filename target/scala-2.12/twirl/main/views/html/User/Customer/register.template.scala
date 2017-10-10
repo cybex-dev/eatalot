@@ -23,7 +23,7 @@ import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import Global.Static.masterpage
 /*2.2*/import helper.CSRF
-/*3.2*/import models.User.UserRegisterInfo
+/*3.2*/import models.User.Customer.UserRegisterInfo
 /*4.2*/import play.data.Form
 
 object register extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[UserRegisterInfo],play.twirl.api.HtmlFormat.Appendable] {
@@ -41,7 +41,7 @@ Seq[Any](format.raw/*8.17*/("""
     <br>
     """),_display_(/*12.6*/helper/*12.12*/.form(action = controllers.User.routes.CustomerController.create())/*12.79*/ {_display_(Seq[Any](format.raw/*12.81*/("""
         """),_display_(/*13.10*/CSRF/*13.14*/.formField),format.raw/*13.24*/("""
-        """),_display_(/*14.10*/helper/*14.16*/.inputText(userForm("email"), '_name -> "E-Mail", '_class -> "text-field")),format.raw/*14.90*/("""
+        """),_display_(/*14.10*/helper/*14.16*/.inputText(userForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")),format.raw/*14.92*/("""
         """),_display_(/*15.10*/helper/*15.16*/.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")),format.raw/*15.99*/("""
         """),_display_(/*16.10*/helper/*16.16*/.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")),format.raw/*16.114*/("""
         """),format.raw/*17.9*/("""<input class="btn btn-success" type="submit" value="Register"/>
@@ -68,10 +68,10 @@ Seq[Any](format.raw/*6.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 08 14:59:07 SAST 2017
+                  DATE: Tue Oct 10 18:16:53 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/register.scala.html
-                  HASH: 257689cb2b61e3fb5f134bd89a1fbe551b505432
-                  MATRIX: 665->1|704->34|730->54|773->91|1118->115|1230->152|1249->163|1329->167|1360->172|1432->218|1447->224|1523->291|1563->293|1600->303|1613->307|1644->317|1681->327|1696->333|1791->407|1828->417|1843->423|1947->506|1984->516|1999->522|2119->620|2155->629|2254->698|2295->149|2324->700|2353->703|2372->713|2428->748
+                  HASH: a684b340db53affcc0e88dd5260371e79a1468e9
+                  MATRIX: 665->1|704->34|730->54|782->100|1127->124|1239->161|1258->172|1338->176|1369->181|1441->227|1456->233|1532->300|1572->302|1609->312|1622->316|1653->326|1690->336|1705->342|1802->418|1839->428|1854->434|1958->517|1995->527|2010->533|2130->631|2166->640|2265->709|2306->158|2335->711|2364->714|2383->724|2439->759
                   LINES: 24->1|25->2|26->3|27->4|32->6|36->8|36->8|38->8|39->9|42->12|42->12|42->12|42->12|43->13|43->13|43->13|44->14|44->14|44->14|45->15|45->15|45->15|46->16|46->16|46->16|47->17|48->18|50->6|52->19|54->21|54->21|54->21
                   -- GENERATED --
               */

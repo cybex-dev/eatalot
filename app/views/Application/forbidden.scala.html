@@ -1,0 +1,11 @@
+@import Global.Static.masterpage
+
+@(message: String)
+
+@bodyContent = {
+    <div class="center-block align-middle">
+        <p>@message</p>
+    </div>
+}
+
+@masterpage.apply(" :: Forbidden", bodyContent)

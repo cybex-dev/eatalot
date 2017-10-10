@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sun Oct 08 23:34:50 SAST 2017
+// @DATE:Tue Oct 10 18:23:07 SAST 2017
 
 package controllers.Finance;
 

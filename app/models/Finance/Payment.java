@@ -5,9 +5,11 @@ import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/14.
@@ -16,9 +18,6 @@ import java.util.Date;
 public class Payment extends Model {
     @Id
     @Constraints.Required
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String paymentId;
     @Constraints.Required
     @Formats.DateTime(pattern="dd/MM/yyyy")
@@ -28,14 +27,18 @@ public class Payment extends Model {
     @Constraints.Required
     private Double amount;
     private Boolean isCash;
+    private Boolean isPaid;
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 
-    public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash) {
+    public Payment(){}
+
+    public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash, Boolean isPaid) {
         this.paymentId = paymentId;
         this.date = date;
         this.amount = amount;
         this.isCash = isCash;
+        this.isPaid= isPaid;
     }
 
     public Date getDate() {
@@ -56,5 +59,27 @@ public class Payment extends Model {
 
     public String getPaymentId() {
         return paymentId;
+    }
+
+    public boolean isPaid(){
+        return isPaid;
+    }
+
+    public void setPaid(Boolean paid) {
+        isPaid = paid;
+        if (paymentId != null)
+            save();
+    }
+
+    public void setIsCashPayment(boolean isCashPayment){
+        isCash = isCashPayment;
+        if (paymentId != null)
+            save();
+    }
+
+    @Override
+    public void insert() {
+        paymentId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

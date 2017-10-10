@@ -3,16 +3,13 @@ package annotations;
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.AppCookie;
 import controllers.Application.AppTags.AppCookie.UserType;
-import controllers.User.routes;
-import models.User.Customer;
+import models.User.Customer.Customer;
 import models.User.Staff;
-import models.User.User;
 import play.Logger;
 import play.mvc.Action;
 import play.mvc.Http;
 import play.mvc.Result;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static java.util.concurrent.CompletableFuture.completedFuture;
@@ -23,9 +20,9 @@ public class Requires {
         @Override
         public CompletionStage<Result> call(Http.Context ctx) {
             boolean b = checkStandardCookies(ctx);
-            Http.Cookie newUserCookie = ctx.request().cookie(AppCookie.newUser.toString());
+            Http.Cookie newUserCookie = ctx.request().cookie(AppCookie.new_user.toString());
             if (newUserCookie != null) {
-                if (newUserCookie.value().equals(AppCookie.newUser.toString()) && b) {
+                if (newUserCookie.value().equals(AppCookie.new_user.toString()) && b) {
                     return this.delegate.call(ctx);
                 }
             }
@@ -107,7 +104,7 @@ public class Requires {
         Http.Cookie userTokenCookie = ctx.request().cookie(AppCookie.user_token.toString());
         Http.Cookie userTypeCookie = ctx.request().cookie(AppCookie.user_type.toString());
         Http.Cookie orgCookie = ctx.request().cookie(AppCookie.org.toString());
-        Http.Cookie loginTimeCookie = ctx.request().cookie(AppCookie.loginTime.toString());
+        Http.Cookie loginTimeCookie = ctx.request().cookie(AppCookie.login_time.toString());
 
         if (userIdCookie == null ||
                 userTokenCookie == null ||

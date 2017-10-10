@@ -3,17 +3,16 @@ package models.User;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 public class StaffOrderInteraction extends Model {
     @Id
     @Constraints.Required
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String staffOrderInteractionId;
 
     private String staffId;
@@ -89,5 +88,11 @@ public class StaffOrderInteraction extends Model {
 
     public void setFinishedDelivery(Date finishedDelivery) {
         this.finishedDelivery = finishedDelivery;
+    }
+
+    @Override
+    public void insert() {
+        staffOrderInteractionId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

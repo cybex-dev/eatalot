@@ -1,17 +1,13 @@
 package controllers.Application;
 
-//import models.User.Customer;
+//import models.User.Customer.Customer;
 
 import controllers.Application.AppTags.AppCookie.UserType;
-import controllers.User.routes;
 import play.Logger;
 import play.data.Form;
-import play.data.FormFactory;
 import play.mvc.Http;
 import play.mvc.Result;
 
-import javax.inject.Inject;
-import java.util.HashMap;
 import java.util.Optional;
 
 
@@ -69,9 +65,9 @@ public class AppTags {
         user_type("userType"),
         user_token("userToken"),
         
-        newUser("newUser"),
+        new_user("new_user"),
         
-        loginTime("loginTime"),
+        login_time("login_time"),
 
         remember_me("remember_me"),
         remember_me_true("true"),
@@ -136,7 +132,8 @@ public class AppTags {
         public enum UserType {
             CUSTOMER("CUSTOMER"),
             DELIVERY("DELIVERY"),
-            KITCHEN("KITCHEN");
+            KITCHEN("KITCHEN"),
+            ADMIN("ADMIN");
 
             private String value;
 
@@ -254,7 +251,7 @@ public class AppTags {
                  * @param customer
                  * @return
                  */
-                private static void save(Http.Session session, models.User.Customer customer) {
+                private static void save(Http.Session session, models.User.Customer.Customer customer) {
                     User.save(session, customer);
                     session.put(isStudent.value, String.valueOf(customer.isStudent()));
                     session.put(verified.value, String.valueOf(customer.isVerified()));
@@ -281,7 +278,7 @@ public class AppTags {
 
                 public static void load(Http.Session session, String userId, String token) {
                     try {
-                        models.User.Customer c = models.User.Customer.find.byId(userId);
+                        models.User.Customer.Customer c = models.User.Customer.Customer.find.byId(userId);
                         if (c.getToken().equals(token) && c.isComplete()) {
                             save(session, c);
                             session.put(AppCookie.user_type.toString(), UserType.CUSTOMER.toString());
@@ -437,64 +434,6 @@ public class AppTags {
                 return renderDefaultPage();
             }
             return loadSessionAndRedirectUser(session);
-        }
-    }
-
-    public static class Database {
-        public static class User {
-            public static final String userId = "user_id",
-                    name = "name",
-                    surname = "surname",
-                    password = "password",
-                    email = "email",
-                    cellNumber = "cell_number";
-        }
-
-        public static class Staff {
-            public static final String isKitchenStaff = "is_kitchen_staff",
-                    tableName = "staff";
-        }
-
-        public static class Customer {
-            public static final String addressId = "address_id",
-                    isStudent = "is_student",
-                    emailVerified = "email_verified",
-                    token = "token",
-                    tableName = "customer";
-        }
-
-        public static class Address {
-            public static final String addressId = "address_id",
-                    unitNumber = "unit_number",
-                    streetName = "street_name",
-                    communityName = "community_name",
-                    isCommunity = "is_community",
-                    tableName = "address";
-        }
-
-        public static class Order {
-
-            public static class OrderSchedule {
-                public final static String tableName = "order_schedule";
-            }
-
-            public static class QueueType {
-                public final static String tableName = "queue_type",
-                        typeId = "type_id",
-                        type = "type",
-                        description = "description";
-            }
-        }
-
-        public static class Finance {
-            public static class Payment {
-                public final static String tableName = "payment",
-                        paymentId = "payment_id",
-                        date = "date",
-                        time = "time",
-                        amount = "amount",
-                        isCash = "is_cash";
-            }
         }
     }
 

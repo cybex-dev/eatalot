@@ -10,11 +10,13 @@ import play.data.format.Formats;
 import play.data.validation.Constraints;
 import play.libs.streams.Accumulator;
 import scala.compat.java8.collectionImpl.Accumulator$;
+import utility.RandomString;
 
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -30,9 +32,6 @@ public class OrderSchedule extends Model {
 
     @Id
     @Constraints.Required
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderSchedId;
     @Constraints.Required
     private String userId;
@@ -106,6 +105,12 @@ public class OrderSchedule extends Model {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    @Override
+    public void insert() {
+        orderSchedId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 
 }

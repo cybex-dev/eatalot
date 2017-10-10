@@ -3,19 +3,18 @@ package models.Finance;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 public class RedeemedVouchers extends Model {
     @Id
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Constraints.Required
     private String voucherCode;
 
@@ -68,5 +67,11 @@ public class RedeemedVouchers extends Model {
 
     public void setRedeemedOn(Date redeemedOn) {
         this.redeemedOn = redeemedOn;
+    }
+
+    @Override
+    public void insert() {
+        voucherCode = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

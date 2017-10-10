@@ -1,19 +1,11 @@
 package annotations;
 
 import controllers.Application.AppTags;
-import controllers.User.routes;
-import models.User.Customer;
-import models.User.Staff;
 import play.filters.csrf.CSRF;
-import play.filters.csrf.CSRFErrorHandler;
 import play.mvc.Action;
 import play.mvc.Http;
 import play.mvc.Result;
-import scala.compat.java8.FutureConverters;
 
-import javax.inject.Inject;
-import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 

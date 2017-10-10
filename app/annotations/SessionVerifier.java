@@ -1,21 +1,14 @@
 package annotations;
 
-import controllers.Application.AppTags;
 import controllers.Application.AppTags.AppCookie;
 import controllers.Application.AppTags.FlashCodes;
 import controllers.Application.AppTags.Session.SessionTags;
-import controllers.Application.routes;
-import models.User.Customer;
-import models.User.CustomerInfo;
+import models.User.Customer.Customer;
 import models.User.Staff;
 import models.User.User;
-import play.Logger;
 import play.filters.csrf.CSRF;
 import play.mvc.*;
-import scala.Option;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -40,6 +33,7 @@ public class SessionVerifier extends Controller {
      * <p>
      * if a session has been loaded and is validated (i.e. correct), a session tag is added to prevent the rechecking, i.e. saves time
      */
+    // GET
     public static class LoadActive extends Action.Simple {
 
         @Override
@@ -79,6 +73,7 @@ public class SessionVerifier extends Controller {
                     removeLoginCookies(ctx);
 
                     ctx.flash().put(FlashCodes.warning.toString(), "Session invalid, please log in again");
+                    //re login
                 }
             }
 
@@ -125,6 +120,7 @@ public class SessionVerifier extends Controller {
                     session.put(AppCookie.user_token.toString(), csrfToken);
                 }
             } else {
+                // TODO: 2017/10/10 check url visited
                 flash().put(FlashCodes.danger.toString(), "No session token!");
             }
             return result;
@@ -150,6 +146,7 @@ public class SessionVerifier extends Controller {
      * <p>
      * If not found, redirect to login
      */
+    // POST
     public class RequiresActive extends Action.Simple {
 
         @Override
@@ -172,6 +169,22 @@ public class SessionVerifier extends Controller {
 
     }
 
+    // Logins
+    @With(LoadActive.class)
+    public class LoadOrRedirect extends Action.Simple{
+
+        @Override
+        public CompletionStage<Result> call(Http.Context ctx) {
+            String s = ctx.session().get(SessionTags.session_status.toString());
+            if (!s.equalsIgnoreCase(SessionTags.valid.toString())) {
+                return CompletableFuture.completedFuture(redirect(controllers.User.routes.UserController.login()));
+            }
+            // if valid, continue
+            // this is used for logins
+            return this.delegate.call(ctx);
+        }
+    }
+
     private static boolean checkValidCSRF(Http.Context ctx) {
         String csrfToken = "";
         if (CSRF.getToken(ctx.request()).isPresent()) {
@@ -185,7 +198,7 @@ public class SessionVerifier extends Controller {
         ctx.response().discardCookie(AppCookie.user_id.toString());
         ctx.response().discardCookie(AppCookie.user_type.toString());
         ctx.response().discardCookie(AppCookie.user_token.toString());
-        ctx.response().discardCookie(AppCookie.loginTime.toString());
+        ctx.response().discardCookie(AppCookie.login_time.toString());
         ctx.response().discardCookie(AppCookie.remember_me.toString());
     }
 
@@ -210,7 +223,7 @@ public class SessionVerifier extends Controller {
 //                return null;
 //            }
 //            Customer c = customerList.get(0);
-//            return c.getEmail();
+//            return c.getLoginId();
 //        }
 //
 //        private String getTokenFromHeader(Http.Request request) {

@@ -1,53 +1,13 @@
-@import views.html.Global.Static.masterpage
-@import controllers.Application.AppTags.Locale
-@import helper._
-@import models.User.CustomerInfo
+@import utility.DashboardButton
+@import java.util.List
+@import views.html.Global.Static.dashboard
+@import models.User.Customer.CustomerInfo
 
-@(customerInfo: CustomerInfo)
+@(dashButtons: List[DashboardButton], customerInfo: CustomerInfo)
 
 @bodyContent = {
     @*Start of blocks and carousel*@
-    <div class="container row">
 
-        <a href="@CSRF(controllers.User.routes.CustomerController.paymentHistory())">
-            <div class="col-md-3 col-sm-3 col-xs-6">
-                <div class="alert alert-info back-widget-set text-center">
-                    <i class="fa fa-history fa-5x"></i>
-                    <h3>@Locale.Currency.ZAR.toString @customerInfo.getBalance &nbsp;
-                        <i class="fa fa-dollar"></i></h3>
-                    Cash
-                </div>
-            </div>
-        </a>
-        <a href="#">
-            <div class="col-md-3 col-sm-3 col-xs-6">
-                <div class="alert alert-success back-widget-set text-center">
-                    <i class="fa fa-bars fa-5x"></i>
-                    <h3>New</h3>
-                    Place Order
-                </div>
-            </div>
-        </a>
-        <a href="@CSRF(controllers.User.routes.CustomerController.activeOrders())">
-            <div class="col-md-3 col-sm-3 col-xs-6">
-                <div class="alert alert-warning back-widget-set text-center">
-                    <i class="fa fa-recycle fa-5x"></i>
-                    <h3>@String.valueOf(customerInfo.getActiveOrderCount())</h3>
-                    Orders in Queue
-                </div>
-            </div>
-        </a>
-        <a href="@CSRF(controllers.Order.routes.ScheduleController.index())">
-            <div class="col-md-3 col-sm-3 col-xs-6">
-                <div class="alert @if(customerInfo.isScheduleActive){alert-success}else{alert-danger} back-widget-set text-center">
-                    <i class="fa fa-briefcase fa-5x"></i>
-                    <h3>@if(customerInfo.isScheduleActive){"Active"}else{"Inactive"}</h3>
-                    Order Schedule
-                </div>
-            </div>
-        </a>
-
-    </div>
 
     <div class="row">
         <div class="col-md-8 col-sm-8 col-xs-12">
@@ -88,4 +48,4 @@
     @*End of blocks and carousel*@
 }
 
-@masterpage.apply(" :: Welcome", bodyContent)
+@dashboard.apply(dashButtons, bodyContent)

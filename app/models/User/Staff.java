@@ -1,6 +1,5 @@
 package models.User;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import play.data.validation.Constraints;
 
@@ -21,9 +20,10 @@ public class Staff extends User {
 
     public static Finder<String, Staff> find = new Finder<String, Staff>(Staff.class);
 
-    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff) {
+    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff, String alias) {
         super(userId, name, surname, password, email, cellNumber);
         this.isKitchenStaff = isKitchenStaff;
+        this.alias = alias;
     }
 
     public Boolean isKitchenStaff() {
@@ -62,4 +62,14 @@ public class Staff extends User {
                 .findOneOrEmpty();
         return staff.isPresent();
     }
+
+    public void setKitchenStaff(Boolean kitchenStaff) {
+        isKitchenStaff = kitchenStaff;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+
 }

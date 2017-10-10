@@ -21,33 +21,36 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import views.html.Global.Static.masterpage
+/*1.2*/import utility.DashboardButton
+/*2.2*/import java.util.List
+/*3.2*/import views.html.Global.Static.dashboard
+/*4.2*/import models.User.KitchenStaff.KitchenStaffInfo
 
-object kitchenHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+object kitchenHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[DashboardButton],KitchenStaffInfo,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*3.2*/():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*6.2*/(dashButtons: List[DashboardButton], kitchenStaffInfo: KitchenStaffInfo):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*5.2*/bodyContent/*5.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*8.2*/bodyContent/*8.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*5.17*/("""
-    """),format.raw/*6.5*/("""<h1>Kitchen Page</h1>
+Seq[Any](format.raw/*8.17*/("""
+    """),format.raw/*9.5*/("""<h1>Kitchen Page</h1>
 """)))};
-Seq[Any](format.raw/*3.4*/("""
+Seq[Any](format.raw/*6.74*/("""
 
-"""),format.raw/*7.2*/("""
+"""),format.raw/*10.2*/("""
 
-"""),_display_(/*9.2*/masterpage/*9.12*/.apply(" :: Kitchen", bodyContent)),format.raw/*9.46*/("""
+"""),_display_(/*12.2*/dashboard/*12.11*/.apply(dashButtons, bodyContent)),format.raw/*12.43*/("""
 """))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(dashButtons:List[DashboardButton],kitchenStaffInfo:KitchenStaffInfo): play.twirl.api.HtmlFormat.Appendable = apply(dashButtons,kitchenStaffInfo)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((List[DashboardButton],KitchenStaffInfo) => play.twirl.api.HtmlFormat.Appendable) = (dashButtons,kitchenStaffInfo) => apply(dashButtons,kitchenStaffInfo)
 
   def ref: this.type = this
 
@@ -56,11 +59,11 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 03 05:56:09 SAST 2017
+                  DATE: Tue Oct 10 18:16:54 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Staff/kitchenHome.scala.html
-                  HASH: 9be8cc69e96b37fdbc6c1a1ca436f4294f86a471
-                  MATRIX: 662->1|1008->46|1088->51|1107->62|1187->66|1218->71|1279->48|1307->94|1335->97|1353->107|1407->141
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|38->3|40->7|42->9|42->9|42->9
+                  HASH: 6b8e1dd0eb68fab007d6bda345bfe3dca5a44d35
+                  MATRIX: 662->1|700->33|729->56|778->99|1169->150|1319->225|1338->236|1418->240|1449->245|1511->222|1540->268|1569->271|1587->280|1640->312
+                  LINES: 24->1|25->2|26->3|27->4|32->6|36->8|36->8|38->8|39->9|41->6|43->10|45->12|45->12|45->12
                   -- GENERATED --
               */
           

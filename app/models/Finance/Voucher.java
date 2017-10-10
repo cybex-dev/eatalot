@@ -3,19 +3,18 @@ package models.Finance;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 public class Voucher extends Model{
 
     @Id
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Constraints.Required
     private String voucherId;
 
@@ -56,5 +55,11 @@ public class Voucher extends Model{
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    @Override
+    public void insert() {
+        voucherId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

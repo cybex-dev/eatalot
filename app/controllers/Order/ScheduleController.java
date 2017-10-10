@@ -1,5 +1,6 @@
 package controllers.Order;
 
+import annotations.Routing;
 import annotations.SessionVerifier;
 import controllers.Application.AppTags;
 import controllers.Application.routes;
@@ -26,6 +27,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 @With(SessionVerifier.RequiresActive.class)
+@Routing.CustomersOnly
+@RequireCSRFCheck
 public class ScheduleController extends Controller {
 
     @Inject

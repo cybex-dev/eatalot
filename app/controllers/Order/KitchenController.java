@@ -6,11 +6,8 @@ import play.mvc.Result;
 import play.mvc.With;
 import views.html.User.Staff.kitchenHome;
 
-@With(SessionVerifier.LoadActive.class)
 public class KitchenController extends Controller {
-
-    @With(SessionVerifier.RequiresActive.class)
     public Result index(){
-        return ok(kitchenHome.render());
+        return TODO;
     }
 }

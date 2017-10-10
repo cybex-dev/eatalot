@@ -1,18 +1,16 @@
 package controllers.Finance;
 
+import annotations.Routing;
 import annotations.SessionVerifier;
-import controllers.Application.AppTags;
+import models.Finance.Payment;
 import models.Finance.RedeemedVouchers;
 import models.Finance.UserFunds;
 import models.Finance.Voucher;
-import models.User.Customer;
-import org.h2.mvstore.DataUtils;
+import models.User.Customer.Customer;
+import models.ordering.CustomerOrder;
 import play.Logger;
-import play.api.mvc.Flash;
 import play.data.Form;
 import play.data.FormFactory;
-import play.filters.csrf.AddCSRFToken;
-import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -24,9 +22,9 @@ import javax.persistence.NonUniqueResultException;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 import static controllers.Application.AppTags.*;
+
 
 @With(SessionVerifier.RequiresActive.class)
 public class UserFinance extends Controller {
@@ -34,6 +32,7 @@ public class UserFinance extends Controller {
     @Inject
     FormFactory formFactory;
 
+    @Routing.CustomersOnly
     public Result addFunds(){
         if (!Session.checkExistingSession(session())){
             Result result = renderDefaultPage();
@@ -47,6 +46,7 @@ public class UserFinance extends Controller {
         return ok(AddFunds.render(userFundsForm));
     }
 
+    @Routing.CustomersOnly
     public Result doAddFunds(){
         Form<UserFunds> form = formFactory.form(UserFunds.class).bindFromRequest();
         if (form.hasGlobalErrors()){
@@ -82,5 +82,25 @@ public class UserFinance extends Controller {
             flash().put(FlashCodes.warning.toString(), "An error occured, please try again!");
             return internalServerError(AddFunds.render(form));
         }
+    }
+
+    /**
+     * Assumes payment entity already exists
+     *
+     * Defines basic behavoiour of customer paying
+     *
+     * Accepts inputs used for processing payment.
+     * @param orderId order Id
+     * @param cashPayment boolean cash payment
+     * @return true if payment has been made, false if unsuccessful (insuffiecient funds or error)
+     */
+
+    @With(SessionVerifier.RequiresActive.class)
+    @Routing.CustomersDeliveryOnly
+    public boolean payMeal(String orderId, boolean cashPayment){
+        Payment payment = Payment.find.byId(CustomerOrder.find.byId(orderId).getPaymentId());
+        payment.setIsCashPayment(cashPayment);
+        payment.setPaid(true);
+        return true;
     }
 }

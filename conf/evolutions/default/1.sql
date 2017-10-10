@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table address (
-  address_id                    bigint auto_increment not null,
+  address_id                    varchar(255) not null,
   unit_number                   varchar(255),
   street_name                   varchar(255),
   community_name                varchar(255),
@@ -13,16 +13,16 @@ create table address (
 );
 
 create table customer (
-  user_id                       bigint auto_increment not null,
+  user_id                       varchar(255) not null,
   name                          varchar(255),
   surname                       varchar(255),
   password                      varchar(255),
   email                         varchar(255),
   cell_number                   varchar(255),
+  token                         varchar(255),
   address_id                    varchar(255),
   is_student                    tinyint(1) default 0,
   email_verified                tinyint(1) default 0,
-  token                         varchar(255),
   is_complete                   tinyint(1) default 0 not null,
   balance                       double,
   constraint pk_customer primary key (user_id)
@@ -84,6 +84,7 @@ create table payment (
   time                          datetime(6),
   amount                        double,
   is_cash                       tinyint(1) default 0,
+  is_paid                       tinyint(1) default 0,
   constraint pk_payment primary key (payment_id)
 );
 
@@ -117,14 +118,14 @@ create table redeemed_vouchers (
 );
 
 create table staff (
-  user_id                       bigint auto_increment not null,
+  user_id                       varchar(255) not null,
   name                          varchar(255),
   surname                       varchar(255),
   password                      varchar(255),
   email                         varchar(255),
   cell_number                   varchar(255),
-  is_kitchen_staff              tinyint(1) default 0,
   token                         varchar(255),
+  is_kitchen_staff              tinyint(1) default 0,
   alias                         varchar(255),
   constraint pk_staff primary key (user_id)
 );

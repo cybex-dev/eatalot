@@ -3,19 +3,18 @@ package models.Order;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 public class OrderScheduleItem extends Model {
     @Id
     @Constraints.Required
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderSchedItemId;
     @Constraints.Required
     private String orderId;
@@ -52,5 +51,11 @@ public class OrderScheduleItem extends Model {
 
     public void setOrderSchedId(String orderSchedId) {
         this.orderSchedId = orderSchedId;
+    }
+
+    @Override
+    public void insert() {
+        orderSchedItemId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

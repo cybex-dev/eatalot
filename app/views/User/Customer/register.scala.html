@@ -1,6 +1,6 @@
 @import Global.Static.masterpage
 @import helper.CSRF
-@import models.User.UserRegisterInfo
+@import models.User.Customer.UserRegisterInfo
 @import play.data.Form
 
 @(userForm: Form[UserRegisterInfo])
@@ -11,7 +11,7 @@
     <br>
     @helper.form(action = controllers.User.routes.CustomerController.create()) {
         @CSRF.formField
-        @helper.inputText(userForm("email"), '_name -> "E-Mail", '_class -> "text-field")
+        @helper.inputText(userForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
         @helper.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")
         @helper.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")
         <input class="btn btn-success" type="submit" value="Register"/>

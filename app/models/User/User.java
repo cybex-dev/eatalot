@@ -1,30 +1,23 @@
 package models.User;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
-
+import utility.RandomString;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-
-import static controllers.Application.AppTags.*;
-import static controllers.Application.AppTags.Database.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/08.
  */
 
 @MappedSuperclass
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)           // Gives a error [ Error injecting constructor, java.lang.NullPointerException ]
 public abstract class User extends Model {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Constraints.Required
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    private Long userId;
+    private String userId;
 
     @Constraints.MaxLength(50)
     private String name;
@@ -54,7 +47,7 @@ public abstract class User extends Model {
 
     public User(){}
 
-    public User(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
+    public User( @Constraints.Required String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -152,6 +145,12 @@ public abstract class User extends Model {
 
     public void setCellNumber(String cellNumber) {
         this.cellNumber = cellNumber;
+    }
+
+    @Override
+    public void insert() {
+        userId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 
 }

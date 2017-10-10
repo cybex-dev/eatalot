@@ -34,7 +34,7 @@ object verify extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Htm
 def /*6.2*/bodyContent/*6.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*6.17*/("""
-    """),format.raw/*7.5*/("""<p>Check your email for a verification link sent from """),_display_(/*7.60*/AppTags/*7.67*/.General.SITENAME.toString),format.raw/*7.93*/("""</p>
+    """),format.raw/*7.5*/("""<p>Check your loginId for a verification link sent from """),_display_(/*7.62*/AppTags/*7.69*/.General.SITENAME.toString),format.raw/*7.95*/("""</p>
 """)))};
 Seq[Any](format.raw/*4.4*/("""
 
@@ -57,10 +57,10 @@ Seq[Any](format.raw/*4.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 03 05:56:09 SAST 2017
+                  DATE: Tue Oct 10 18:16:53 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/verify.scala.html
-                  HASH: 8c11d91561b64ac8df0e1a6aadb51c4e7ccf8650
-                  MATRIX: 665->1|711->41|1041->75|1121->80|1140->91|1220->95|1251->100|1332->155|1347->162|1393->188|1437->77|1465->194|1494->197|1513->207|1567->240
+                  HASH: 2d94c5921559e8939c8b95a52ae07adeb816cc6f
+                  MATRIX: 665->1|711->41|1041->75|1121->80|1140->91|1220->95|1251->100|1334->157|1349->164|1395->190|1439->77|1467->196|1496->199|1515->209|1569->242
                   LINES: 24->1|25->2|30->4|34->6|34->6|36->6|37->7|37->7|37->7|37->7|39->4|41->8|43->10|43->10|43->10
                   -- GENERATED --
               */

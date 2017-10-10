@@ -5,9 +5,11 @@ import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 import scala.App;
+import utility.RandomString;
 
 import javax.persistence.*;
 import javax.validation.Constraint;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/13.
@@ -18,11 +20,8 @@ import javax.validation.Constraint;
 public class Address extends Model {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Constraints.Required
-    @Constraints.MinLength(10)
-    @Constraints.MaxLength(10)
-    private Long addressId;
+    private String addressId;
 
     @Constraints.Required
     private String unitNumber;
@@ -33,7 +32,7 @@ public class Address extends Model {
 
     public Address(){}
 
-    public Address(@Constraints.Required Long addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
+    public Address(@Constraints.Required String addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
         this.addressId = addressId;
         this.unitNumber = unitNumber;
         this.streetName = streetName;
@@ -110,5 +109,11 @@ public class Address extends Model {
 
     public String getAddressId() {
         return String.valueOf(addressId);
+    }
+
+    @Override
+    public void insert() {
+        addressId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

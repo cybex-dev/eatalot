@@ -1,7 +1,7 @@
 package controllers.User;
 
-import annotations.Routing;
-import annotations.SessionVerifier;
+import annotations.SessionVerifier.LoadOrRedirect;
+import annotations.Routing.StaffOnly;
 import models.User.DeliveryStaff.DeliveryStaffInfo;
 import models.User.KitchenStaff.KitchenStaffInfo;
 import play.data.FormFactory;
@@ -17,7 +17,7 @@ import java.util.List;
 
 import static controllers.Application.AppTags.AppCookie.*;
 
-@Routing.StaffOnly
+@StaffOnly
 public class StaffController extends Controller {
     @Inject
     FormFactory formFactory;
@@ -27,7 +27,7 @@ public class StaffController extends Controller {
      *
      * @return
      */
-    @With(SessionVerifier.LoadOrRedirect.class)
+    @With(LoadOrRedirect.class)
     public Result index() {
 
         List<DashboardButton> arrayList = new ArrayList<>();

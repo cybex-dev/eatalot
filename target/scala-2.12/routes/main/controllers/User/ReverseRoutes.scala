@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Tue Oct 10 18:23:07 SAST 2017
+// @DATE:Thu Oct 12 01:28:03 SAST 2017
 
 import play.api.mvc.Call
 
@@ -9,95 +9,110 @@ import play.api.mvc.Call
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:16
+// @LINE:17
 package controllers.User {
 
-  // @LINE:33
+  // @LINE:93
+  class ReverseAdminController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:93
+    def index(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard")
+    }
+  
+  }
+
+  // @LINE:34
   class ReverseCustomerController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:39
+    // @LINE:40
     def paymentHistory(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Purchases")
     }
   
-    // @LINE:45
+    // @LINE:46
     def doCompleteRegistration(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Register/Completing")
     }
   
-    // @LINE:37
+    // @LINE:38
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:43
+    // @LINE:44
     def create(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Register")
     }
   
-    // @LINE:41
+    // @LINE:42
     def viewPayment(paymentId:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Payment/" + implicitly[play.api.mvc.PathBindable[String]].unbind("paymentId", play.core.routing.dynamicString(paymentId)))
     }
   
-    // @LINE:38
+    // @LINE:39
     def orderHistory(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Orders")
     }
   
-    // @LINE:40
+    // @LINE:41
     def viewOrder(orderId:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Order/" + implicitly[play.api.mvc.PathBindable[String]].unbind("orderId", play.core.routing.dynamicString(orderId)))
     }
   
-    // @LINE:35
+    // @LINE:36
     def completeRegistration(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Register/Completing")
     }
   
-    // @LINE:34
+    // @LINE:35
     def register(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Register")
     }
   
-    // @LINE:44
+    // @LINE:45
     def reverify(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Register/Reverify")
     }
   
-    // @LINE:46
+    // @LINE:47
     def update(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:33
+    // @LINE:34
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Dashboard")
     }
   
-    // @LINE:36
+    // @LINE:37
     def verifyCustomer(token:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Verify/" + implicitly[play.api.mvc.PathBindable[String]].unbind("token", play.core.routing.dynamicString(token)))
     }
   
-    // @LINE:47
+    // @LINE:48
     def activeOrders(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/ActiveOrders")
@@ -105,14 +120,14 @@ package controllers.User {
   
   }
 
-  // @LINE:26
+  // @LINE:27
   class ReverseStaffController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:26
+    // @LINE:27
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Staff")
@@ -120,26 +135,26 @@ package controllers.User {
   
   }
 
-  // @LINE:16
+  // @LINE:17
   class ReverseUserController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:19
+    // @LINE:20
     def doLogin(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Login")
     }
   
-    // @LINE:17
+    // @LINE:18
     def logout(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Logout")
     }
   
-    // @LINE:16
+    // @LINE:17
     def login(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Login")

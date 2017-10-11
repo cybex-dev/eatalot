@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Tue Oct 10 18:23:07 SAST 2017
+// @DATE:Thu Oct 12 01:28:03 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,30 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:16
+// @LINE:17
 package controllers.User.javascript {
 
-  // @LINE:33
+  // @LINE:93
+  class ReverseAdminController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:93
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Dashboard"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:34
   class ReverseCustomerController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +40,7 @@ package controllers.User.javascript {
     }
 
   
-    // @LINE:39
+    // @LINE:40
     def paymentHistory: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.paymentHistory",
       """
@@ -30,7 +50,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:45
+    // @LINE:46
     def doCompleteRegistration: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.doCompleteRegistration",
       """
@@ -40,7 +60,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:37
+    // @LINE:38
     def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.edit",
       """
@@ -50,7 +70,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:43
+    // @LINE:44
     def create: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.create",
       """
@@ -60,7 +80,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:41
+    // @LINE:42
     def viewPayment: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.viewPayment",
       """
@@ -70,7 +90,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:38
+    // @LINE:39
     def orderHistory: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.orderHistory",
       """
@@ -80,7 +100,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:40
+    // @LINE:41
     def viewOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.viewOrder",
       """
@@ -90,7 +110,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:35
+    // @LINE:36
     def completeRegistration: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.completeRegistration",
       """
@@ -100,7 +120,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:35
     def register: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.register",
       """
@@ -110,7 +130,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:44
+    // @LINE:45
     def reverify: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.reverify",
       """
@@ -120,7 +140,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:46
+    // @LINE:47
     def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.update",
       """
@@ -130,7 +150,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:34
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.index",
       """
@@ -140,7 +160,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:37
     def verifyCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.verifyCustomer",
       """
@@ -150,7 +170,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:47
+    // @LINE:48
     def activeOrders: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.activeOrders",
       """
@@ -162,7 +182,7 @@ package controllers.User.javascript {
   
   }
 
-  // @LINE:26
+  // @LINE:27
   class ReverseStaffController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -170,7 +190,7 @@ package controllers.User.javascript {
     }
 
   
-    // @LINE:26
+    // @LINE:27
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.StaffController.index",
       """
@@ -182,7 +202,7 @@ package controllers.User.javascript {
   
   }
 
-  // @LINE:16
+  // @LINE:17
   class ReverseUserController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -190,7 +210,7 @@ package controllers.User.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:20
     def doLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.UserController.doLogin",
       """
@@ -200,7 +220,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:18
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.UserController.logout",
       """
@@ -210,7 +230,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:17
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.UserController.login",
       """

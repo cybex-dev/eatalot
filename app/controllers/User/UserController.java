@@ -1,30 +1,26 @@
 package controllers.User;
 
-import annotations.CheckCSRF;
-import annotations.Routing;
-import annotations.SessionVerifier;
+import annotations.Routing.AnyAllowed;
+import annotations.SessionVerifier.LoadActive;
+import annotations.SessionVerifier.LoadOrRedirect;
+import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
 import models.User.*;
+import models.User.Admin.Admin;
+import models.User.Admin.AdminInfo;
 import models.User.Customer.Customer;
 import models.User.Customer.CustomerInfo;
-import models.User.Customer.UserRegisterDetails;
-import models.User.DeliveryStaff.DeliveryStaffInfo;
-import models.User.KitchenStaff.KitchenStaffInfo;
 import play.data.Form;
 import play.data.FormFactory;
 import play.filters.csrf.CSRF;
+import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.*;
 import utility.Utility;
 import views.html.Application.Home.index;
-import views.html.User.Customer.customerHome;
-import views.html.User.Staff.deliveryHome;
-import views.html.User.Staff.kitchenHome;
 import views.html.User.User.login;
 
 import javax.inject.Inject;
 import java.util.Optional;
-
-import views.html.User.Customer.registerDetails;
 
 import static controllers.Application.AppTags.*;
 import static controllers.Application.AppTags.AppCookie.*;
@@ -41,7 +37,7 @@ import static models.User.Customer.Customer.*;
  * </ul>
  */
 
-@Routing.AnyAllowed
+@AnyAllowed
 public class UserController extends Controller {
 
     @Inject
@@ -53,7 +49,8 @@ public class UserController extends Controller {
      * @return
      */
     // /user
-    @With(SessionVerifier.LoadOrRedirect.class)
+    @RequireCSRFCheck
+    @With(LoadOrRedirect.class)
     public Result index() {
         return ok(index.render());
     }
@@ -63,7 +60,7 @@ public class UserController extends Controller {
      *
      * @return
      */
-    @With(SessionVerifier.LoadActive.class)
+    @With(LoadActive.class)
     public Result login() {
         return ok(login.render(formFactory.form(UserLoginInfo.class)));
     }
@@ -83,7 +80,7 @@ public class UserController extends Controller {
      *
      * @return
      */
-    @With(CheckCSRF.class)
+    @With(annotations.CheckCSRF.class)
     public Result doLogin() {
         Form<UserLoginInfo> form = formFactory.form(UserLoginInfo.class).bindFromRequest();
 
@@ -97,11 +94,11 @@ public class UserController extends Controller {
         User user = null;
         UserType userType = null;
 
-        Customer customer = find.query().where()
+        Optional<Customer> customer = find.query().where()
                 .eq("email", userLoginInfo.getLoginId())
                 .and()
                 .eq("password", userLoginInfo.getPassword())
-                .findOne();
+                .findOneOrEmpty();
 
         Optional<Staff> staffMember = Staff.find.query().where()
                 .eq("email", userLoginInfo.getLoginId())
@@ -110,26 +107,53 @@ public class UserController extends Controller {
                 .findList().stream()
                 .filter(s -> s.getPassword().equals(userLoginInfo.getPassword()))
                 .findFirst();
-        if (!staffMember.isPresent() && customer == null) {
+
+        Optional<Admin> admin = Admin.find.query().where()
+                .eq("alias", userLoginInfo.getLoginId())
+                .and()
+                .eq("password", userLoginInfo.getPassword())
+                .findOneOrEmpty();
+
+        Customer c = customer.orElse(null);
+        Staff s = staffMember.orElse(null);
+        Admin a = admin.orElse(null);
+
+        // user login not found
+        if (c == null &&
+                s == null &&
+                a == null) {
             flash(FlashCodes.warning.toString(), "Username/Password combination invalid");
             return notFound(login.render(form));
         }
 
-        if (!staffMember.isPresent()) {
-            userType = UserType.CUSTOMER;
-            user = customer;
+
+        Http.Context ctx = ctx();
+
+        if (c == null && s == null) {
+            userType = UserType.ADMIN;
         } else {
-            user = staffMember.get();
-            if (customer == null) {
-                userType = (staffMember.get().isKitchenStaff()) ? UserType.KITCHEN : UserType.DELIVERY;
-            } else {
+
+
+            // user login appears in staff and customer talbe
+            if (c != null &&
+                    s != null) {
                 flash().put(FlashCodes.warning.toString(), "Please log in using your staff");
                 return badRequest(login.render(form));
+            }
+
+            // determine if user is staff or customer
+            if (s == null) {
+                //user us customer
+                userType = UserType.CUSTOMER;
+                user = c;
+            } else {
+                //user is staff
+                userType = (s.isKitchenStaff()) ? UserType.KITCHEN : UserType.DELIVERY;
+                user = s;
             }
         }
 
         // user is authenticated, adding login cookies (if remember me is true) and session
-        Http.Context ctx = ctx();
 
         // response contains login cookies, session login also added via context
         Optional<CSRF.Token> token = CSRF.getToken(ctx.request());
@@ -140,17 +164,46 @@ public class UserController extends Controller {
 
         // get csrf token and login
         String csrfToken = token.get().value();
-        Utility.login(ctx(), user, csrfToken, userLoginInfo.getRememberMe());
+        if (userType == UserType.ADMIN) {
+            Utility.loginAdmin(ctx(), a, csrfToken);
 
-        // confirm login, by checking session and cookies
-        if (!response().cookie(user_id.toString()).isPresent() ||
-                !session().get(AppTags.Session.SessionTags.session_status.toString()).equals(AppTags.Session.SessionTags.valid.toString())) {
-            flash().put(FlashCodes.warning.toString(), "Login error occurred, please try again later!");
-            Utility.logout(ctx, session());
-            return internalServerError(index.render());
+            // confirm login, by checking session and cookies
+            if (!session().containsKey(user_id.toString()) ||
+                    !session().get(AppTags.Session.SessionTags.session_status.toString()).equals(AppTags.Session.SessionTags.valid.toString())) {
+                flash().put(FlashCodes.warning.toString(), "Admin login error, please speak to developers!");
+                Utility.logout(ctx, session());
+                return internalServerError(index.render());
+            }
+        }
+        else {
+            Utility.login(ctx(), user, csrfToken, userLoginInfo.getRememberMe());
+
+            // confirm login, by checking session
+            if (!session().containsKey(user_id.toString()) ||
+                    !session().get(AppTags.Session.SessionTags.session_status.toString()).equals(AppTags.Session.SessionTags.valid.toString())) {
+                flash().put(FlashCodes.warning.toString(), "Login error occurred, please try again later!");
+                Utility.logout(ctx, session());
+                return internalServerError(index.render());
+            }
+
+            //check if user wants to be remembered,  only for users, not admin
+            if (userLoginInfo.getRememberMe()) {
+                Http.Cookie rememberMeCookie = response().cookie(remember_me.toString()).orElse(null);
+                if (rememberMeCookie == null ||
+                        !rememberMeCookie.value().equals(remember_me_true.toString())){
+                    flash().put(FlashCodes.warning.toString(), "Couldn't save cookies!");
+                }
+            }
         }
 
         switch (userType) {
+
+            case ADMIN: {
+                flash(FlashCodes.success.toString(), "Logged in as admin.");
+                flash(FlashCodes.info.toString(), "After closing this window, you are logged out automatically.");
+                return redirect(controllers.User.routes.AdminController.index());
+            }
+
             case CUSTOMER: {
                 CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(user.getUserId());
                 return customerCheckComplete(customerInfo);
@@ -184,7 +237,7 @@ public class UserController extends Controller {
         return redirect(controllers.User.routes.CustomerController.completeRegistration());
     }
 
-    @With(SessionVerifier.RequiresActive.class)
+    @With(RequiresActive.class)
     public Result logout() {
 
         Utility.logout(ctx(), session());

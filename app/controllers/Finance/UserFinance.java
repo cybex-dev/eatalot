@@ -1,7 +1,8 @@
 package controllers.Finance;
 
-import annotations.Routing;
-import annotations.SessionVerifier;
+import annotations.Routing.CustomersDeliveryOnly;
+import annotations.Routing.CustomersOnly;
+import annotations.SessionVerifier.RequiresActive;
 import models.Finance.Payment;
 import models.Finance.RedeemedVouchers;
 import models.Finance.UserFunds;
@@ -26,13 +27,13 @@ import java.util.HashMap;
 import static controllers.Application.AppTags.*;
 
 
-@With(SessionVerifier.RequiresActive.class)
+@With(RequiresActive.class)
 public class UserFinance extends Controller {
 
     @Inject
     FormFactory formFactory;
 
-    @Routing.CustomersOnly
+    @CustomersOnly
     public Result addFunds(){
         if (!Session.checkExistingSession(session())){
             Result result = renderDefaultPage();
@@ -46,7 +47,7 @@ public class UserFinance extends Controller {
         return ok(AddFunds.render(userFundsForm));
     }
 
-    @Routing.CustomersOnly
+    @CustomersOnly
     public Result doAddFunds(){
         Form<UserFunds> form = formFactory.form(UserFunds.class).bindFromRequest();
         if (form.hasGlobalErrors()){
@@ -95,8 +96,8 @@ public class UserFinance extends Controller {
      * @return true if payment has been made, false if unsuccessful (insuffiecient funds or error)
      */
 
-    @With(SessionVerifier.RequiresActive.class)
-    @Routing.CustomersDeliveryOnly
+    @With(RequiresActive.class)
+    @CustomersDeliveryOnly
     public boolean payMeal(String orderId, boolean cashPayment){
         Payment payment = Payment.find.byId(CustomerOrder.find.byId(orderId).getPaymentId());
         payment.setIsCashPayment(cashPayment);

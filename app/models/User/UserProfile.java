@@ -51,7 +51,7 @@ public class UserProfile extends UserRegisterDetails implements Serializable, Co
             Customer c = Customer.find.byId(userId);
             if (c == null)
                 return;
-            Address a = Address.find.byId(c.getAddressId());
+            Address a = c.getAddress();
             if (a == null)
                 return;
             setName(c.getName());
@@ -81,7 +81,7 @@ public class UserProfile extends UserRegisterDetails implements Serializable, Co
         c.setCellNumber(getCellNumber());
         c.setPassword(getPassword());
 
-        Address a = Address.find.byId(c.getAddressId());
+        Address a = c.getAddress();
         if (a == null)
             return;
         a.setUnitNumber(getUnitNumber());

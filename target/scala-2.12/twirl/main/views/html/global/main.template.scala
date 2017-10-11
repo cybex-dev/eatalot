@@ -25,7 +25,7 @@ import play.core.j.PlayFormsMagicForJava._
 object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /*
- * This template is called from the `remove` template. This template
+ * This template is called from the `index` template. This template
  * handles the rendering of the page header and body tags. It takes
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
@@ -68,7 +68,7 @@ Seq[Any](format.raw/*7.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 03 05:56:09 SAST 2017
+                  DATE: Wed Oct 11 22:25:23 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/global/main.scala.html
                   HASH: 8aa472837eb83ede40999adfb357747ef18aca27
                   MATRIX: 1213->260|1338->290|1366->292|1446->397|1482->406|1517->414|1543->419|1632->481|1647->487|1726->544|1814->605|1829->611|1906->666|1968->790|2005->800|2033->807|2070->817|2111->831|2126->837|2203->893

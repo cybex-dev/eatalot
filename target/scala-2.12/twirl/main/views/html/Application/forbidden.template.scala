@@ -33,15 +33,18 @@ object forbidden extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.
 def /*5.2*/bodyContent/*5.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*5.17*/("""
-    """),format.raw/*6.5*/("""<div class="center-block align-middle">
-        <p>"""),_display_(/*7.13*/message),format.raw/*7.20*/("""</p>
+    """),format.raw/*6.5*/("""<div style="background-color: #ff9e9e;">
+        <div class="center-block align-middle">
+            <img src=""""),_display_(/*8.24*/routes/*8.30*/.Assets.versioned("images/navigation/forbidden.png")),format.raw/*8.82*/("""" class="top img-fluid">
+            <p class="bottom">"""),_display_(/*9.32*/message),format.raw/*9.39*/("""</p>
+        </div>
     </div>
 """)))};
 Seq[Any](format.raw/*3.19*/("""
 
-"""),format.raw/*9.2*/("""
+"""),format.raw/*12.2*/("""
 
-"""),_display_(/*11.2*/masterpage/*11.12*/.apply(" :: Forbidden", bodyContent)))
+"""),_display_(/*14.2*/masterpage/*14.12*/.apply(" :: Forbidden", bodyContent)))
       }
     }
   }
@@ -57,11 +60,11 @@ Seq[Any](format.raw/*3.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 10 18:16:53 SAST 2017
+                  DATE: Thu Oct 12 01:25:41 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Application/forbidden.scala.html
-                  HASH: a7f65d1a4b13ad5f4e0df1632177304c7217d2ff
-                  MATRIX: 663->1|1003->35|1098->55|1117->66|1197->70|1228->75|1306->127|1333->134|1389->52|1417->151|1446->154|1465->164
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|37->7|37->7|40->3|42->9|44->11|44->11
+                  HASH: 9bb33370153a30f3675984f0312ce20988cbd546
+                  MATRIX: 663->1|1003->35|1098->55|1117->66|1197->70|1228->75|1366->187|1380->193|1452->245|1534->301|1561->308|1632->52|1661->340|1690->343|1709->353
+                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|38->8|38->8|38->8|39->9|39->9|43->3|45->12|47->14|47->14
                   -- GENERATED --
               */
           

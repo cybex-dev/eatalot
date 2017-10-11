@@ -1,33 +1,29 @@
 package controllers.Order;
 
-import annotations.Routing;
-import annotations.SessionVerifier;
+import annotations.Routing.CustomersOnly;
+import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
-import controllers.Application.routes;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
 import play.data.Form;
 import play.data.FormFactory;
-import play.filters.csrf.AddCSRFToken;
 import play.filters.csrf.RequireCSRFCheck;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 import play.mvc.With;
-import router.Routes;
 import views.html.Order.Schedule.create;
 
 import javax.inject.Inject;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-@With(SessionVerifier.RequiresActive.class)
-@Routing.CustomersOnly
+@With(RequiresActive.class)
+@CustomersOnly
 @RequireCSRFCheck
 public class ScheduleController extends Controller {
 

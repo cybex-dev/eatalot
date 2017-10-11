@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
  */
 
 @Entity
+@Table(name = "order_schedule")
 public class OrderSchedule extends Model {
 
     @Id

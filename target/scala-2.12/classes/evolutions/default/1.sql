@@ -12,6 +12,14 @@ create table address (
   constraint pk_address primary key (address_id)
 );
 
+create table admin (
+  admin_id                      varchar(255) not null,
+  alias                         varchar(255),
+  password                      varchar(255),
+  token                         varchar(255),
+  constraint pk_admin primary key (admin_id)
+);
+
 create table customer (
   user_id                       varchar(255) not null,
   name                          varchar(255),
@@ -20,16 +28,20 @@ create table customer (
   email                         varchar(255),
   cell_number                   varchar(255),
   token                         varchar(255),
-  address_id                    varchar(255),
+  address_address_id            varchar(255),
+  order_schedule_order_sched_id varchar(255),
   is_student                    tinyint(1) default 0,
   email_verified                tinyint(1) default 0,
   is_complete                   tinyint(1) default 0 not null,
   balance                       double,
+  constraint uq_customer_address_address_id unique (address_address_id),
+  constraint uq_customer_order_schedule_order_sched_id unique (order_schedule_order_sched_id),
   constraint pk_customer primary key (user_id)
 );
 
 create table customer_order (
   order_id                      varchar(255) not null,
+  customer_user_id              varchar(255) not null,
   status_id                     varchar(255),
   user_id                       varchar(255),
   payment_id                    varchar(255),
@@ -80,6 +92,7 @@ create table order_schedule_item (
 
 create table payment (
   payment_id                    varchar(255) not null,
+  customer_user_id              varchar(255) not null,
   date                          datetime(6),
   time                          datetime(6),
   amount                        double,
@@ -149,10 +162,32 @@ create table voucher (
   constraint pk_voucher primary key (voucher_id)
 );
 
+alter table customer add constraint fk_customer_address_address_id foreign key (address_address_id) references address (address_id) on delete restrict on update restrict;
+
+alter table customer add constraint fk_customer_order_schedule_order_sched_id foreign key (order_schedule_order_sched_id) references order_schedule (order_sched_id) on delete restrict on update restrict;
+
+alter table customer_order add constraint fk_customer_order_customer_user_id foreign key (customer_user_id) references customer (user_id) on delete restrict on update restrict;
+create index ix_customer_order_customer_user_id on customer_order (customer_user_id);
+
+alter table payment add constraint fk_payment_customer_user_id foreign key (customer_user_id) references customer (user_id) on delete restrict on update restrict;
+create index ix_payment_customer_user_id on payment (customer_user_id);
+
 
 # --- !Downs
 
+alter table customer drop foreign key fk_customer_address_address_id;
+
+alter table customer drop foreign key fk_customer_order_schedule_order_sched_id;
+
+alter table customer_order drop foreign key fk_customer_order_customer_user_id;
+drop index ix_customer_order_customer_user_id on customer_order;
+
+alter table payment drop foreign key fk_payment_customer_user_id;
+drop index ix_payment_customer_user_id on payment;
+
 drop table if exists address;
+
+drop table if exists admin;
 
 drop table if exists customer;
 

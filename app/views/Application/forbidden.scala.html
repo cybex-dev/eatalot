@@ -3,8 +3,11 @@
 @(message: String)
 
 @bodyContent = {
-    <div class="center-block align-middle">
-        <p>@message</p>
+    <div style="background-color: #ff9e9e;">
+        <div class="center-block align-middle">
+            <img src="@routes.Assets.versioned("images/navigation/forbidden.png")" class="top img-fluid">
+            <p class="bottom">@message</p>
+        </div>
     </div>
 }
 

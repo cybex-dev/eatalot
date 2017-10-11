@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Tue Oct 10 18:23:07 SAST 2017
+// @DATE:Thu Oct 12 01:28:03 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:84
+// @LINE:85
 package controllers.Delivery.javascript {
 
-  // @LINE:84
+  // @LINE:85
   class ReverseDeliveryController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.Delivery.javascript {
     }
 
   
-    // @LINE:84
+    // @LINE:85
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Delivery.DeliveryController.index",
       """

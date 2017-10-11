@@ -1,0 +1,12 @@
+@import utility.DashboardButton
+@import java.util.List
+@import views.html.Global.Static.dashboard
+@import models.User.Admin.AdminInfo
+
+@(dashButtons: List[DashboardButton], adminInfo: AdminInfo)
+
+@bodyContent = {
+
+}
+
+@dashboard.apply(dashButtons, bodyContent)

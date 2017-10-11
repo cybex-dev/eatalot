@@ -1,15 +1,35 @@
 @import Global.Html5.nav
-@*//@import play.Play.current*@
-@*//@import play.i18n.Messages.Implicits._*@
-@*//@import play.mvc.Session*@
-@*//@import play.mvc.Request*@
 @import controllers.Application.AppTags
-@(nav_extension: Html)(implicit request: play.api.mvc.RequestHeader)
+@import controllers.Application.AppTags.AppCookie.UserType._
+@(nav_extension: Html)
+
+@getUserType = @{
+    session().get(AppTags.Session.SessionTags.session_status.toString)
+}
+
+@getUserHome = @{
+    if(!session().containsKey(AppTags.Session.SessionTags.session_status.toString)) {
+        controllers.Application.routes.HomeController.index()
+    } else {
+        var userType = getUserType
+        if(userType == CUSTOMER.toString) {
+            controllers.User.routes.CustomerController.index()
+        } else if(userType == KITCHEN.toString) {
+            controllers.User.routes.StaffController.index()
+        } else if(userType == DELIVERY.toString) {
+            controllers.User.routes.StaffController.index()
+        } else if(userType == ADMIN.toString) {
+            controllers.User.routes.AdminController.index()
+        } else {
+            controllers.Application.routes.HomeController.unknown()
+        }
+    }
+}
 
 @nav_section = {
     <section class="menu-section">
-        <a class="top app-logo" href="@controllers.User.routes.CustomerController.index()">
-            <img src="/assets/images/logo.png"/>
+        <a class="top app-logo" href="@getUserHome">
+            <img src="@routes.Assets.versioned("images/logo.png")"/>
         </a>
         <div class="navbar navbar-inverse set-radius-zero">
             <div class="container">
@@ -17,7 +37,7 @@
                     <div class="col-md-pull-12">
                         <div class="navbar-collapse collapse ">
                             <ul class="nav navbar-nav navbar-left navbar-top nav-text-enlarge">
-                            @if(request.session.get(AppTags.Session.User.token.toString).isDefined) {
+                            @if(session().containsKey(AppTags.Session.SessionTags.session_status.toString)) {
                                 @*The DASHBOARD [ /user ]*@
                                 <li><a href="@controllers.User.routes.CustomerController.index()" class="menu-top-active nav-text-enlarge"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
                                     Dashboard</a>
@@ -81,9 +101,10 @@
                             }
                             </ul>
                             <ul class="right-container navbar-btn navbar-right">
-                            @if(request.session.get(AppTags.Session.User.token.toString).isDefined) {
+                            @if(session().containsKey(AppTags.Session.SessionTags.session_status.toString)) {
                                 <ul class="top">
-                                    <label class="media-heading navbar-user pull-center">Welcome, @session.get(AppTags.Session.User.name.toString)
+                                    <label class="media-heading navbar-user pull-center">
+                                        Welcome, @session.get(AppTags.Session.User.name.toString)
                                     </label>
                                     <a href="@controllers.User.routes.CustomerController.edit()">
                                         <img class="settings-icon" src="@routes.Assets.versioned("images/navigation/settings.png")">
@@ -112,8 +133,7 @@
             </div>
         </div>
     </section>
-
-@nav_extension
 }
+
 
 @nav.apply("null", nav_section)

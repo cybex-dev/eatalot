@@ -1,6 +1,3 @@
-@import Global.Html5._
-@import Global.Static._
-
 @(pageTitle: String, bodyContent: Html)
 
 @navContent = {
@@ -11,6 +8,6 @@
 
 }
 
-@essentials(pageTitle, navContent, bodyContent, scriptsContent)
+@essentials.apply(pageTitle, navContent, bodyContent, scriptsContent)
 
 

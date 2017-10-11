@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Tue Oct 10 18:23:07 SAST 2017
+// @DATE:Thu Oct 12 01:28:03 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,13 +19,19 @@ package controllers.Application {
     }
 
   
+    // @LINE:8
+    def unknown(): Call = {
+      
+      Call("GET", _prefix)
+    }
+  
     // @LINE:6
     def index(): Call = {
       
       Call("GET", _prefix)
     }
   
-    // @LINE:147
+    // @LINE:156
     def invalidRoute(path:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("path", path))

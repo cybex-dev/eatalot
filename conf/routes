@@ -5,6 +5,7 @@
 # An example controller showing a sample home page
 GET         /                                       controllers.Application.HomeController.index()
 GET         /                                       controllers.Application.HomeController.forbiddenAccess()
+GET         /                                       controllers.Application.HomeController.unknown()
 
 
 ##disable this an you will recieve customerHome 403 forbidden error, the CRSF filter is used for cross site scripting prevention, use for authentication - used in POST requests
@@ -82,6 +83,14 @@ GET         /Kitchen                               controllers.Order.KitchenCont
 # Delivery Controller
 
 GET         /Delivery/User                          controllers.Delivery.DeliveryController.index()
+
+##############################################################################
+
+##############################################################################
+
+# Admin Controller
+
+GET         /Admin/Dashboard                         controllers.User.AdminController.index()
 
 ##############################################################################
 

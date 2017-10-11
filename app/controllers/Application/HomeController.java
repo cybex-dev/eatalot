@@ -1,17 +1,13 @@
 package controllers.Application;
 
-import annotations.Routing;
-import annotations.SessionVerifier;
-import com.typesafe.config.Optional;
-import play.filters.csrf.AddCSRFToken;
-import play.filters.csrf.RequireCSRFCheck;
+import annotations.Routing.AnyAllowed;
+import annotations.SessionVerifier.LoadActive;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
-import play.routing.JavaScriptReverseRouter;
 import views.html.Application.Home.index;
 import views.html.Application.forbidden;
+import views.html.Application.unknown;
 
 import static controllers.Application.AppTags.AppCookie.*;
 
@@ -19,7 +15,7 @@ import static controllers.Application.AppTags.AppCookie.*;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-@Routing.AnyAllowed
+@AnyAllowed
 public class HomeController extends Controller {
 
     public Result invalidRoute(String path) {
@@ -35,14 +31,27 @@ public class HomeController extends Controller {
     }
 
     /**
+     * Custom notFound page
+     */
+    public Result unknown() {
+        String message = "Page not found!";
+        return notFound(unknown.render(message));
+    }
+
+    /**
      * An action that renders an HTML page with a customerHome message.
      * The configuration in the <code>routes</code> file means that
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-    @With(SessionVerifier.LoadActive.class)
+    @With(LoadActive.class)
     public Result index() {
-        if (response().cookie(org.toString()).isPresent())
+        if (request().cookie(org.toString()) == null){
+            flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");
+            response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
+            return ok(index.render());
+        }
+        if (request().cookie(org.toString()).value().equals(AppTags.General.SITEURL.toString()))
             flash().put(AppTags.FlashCodes.info.toString(), "Welcome back!");
         else {
             flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");

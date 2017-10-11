@@ -5,13 +5,11 @@ import io.ebean.Model;
 import play.data.validation.Constraints;
 import utility.RandomString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
+@Table(name = "order_schedule_item")
 public class OrderScheduleItem extends Model {
     @Id
     @Constraints.Required

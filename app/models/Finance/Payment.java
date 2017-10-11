@@ -15,6 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by cybex on 2017/07/14.
  */
 @Entity
+@Table(name = "payment")
 public class Payment extends Model {
     @Id
     @Constraints.Required
@@ -28,6 +29,8 @@ public class Payment extends Model {
     private Double amount;
     private Boolean isCash;
     private Boolean isPaid;
+
+
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 

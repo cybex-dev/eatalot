@@ -17,6 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 // TODO: 2017/07/13 Add fields for suburb and city for larger projects
 @Entity
+@Table(name = "address")
 public class Address extends Model {
 
     @Id

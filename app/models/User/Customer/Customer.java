@@ -1,36 +1,51 @@
 package models.User.Customer;
 
 import io.ebean.Finder;
+import models.Finance.Payment;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
 import models.User.Address;
 import models.User.User;
+import models.ordering.CustomerOrder;
 import play.data.validation.Constraints;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Entity
+@Table(name = "customer")
 public class Customer extends User {
 
-    @Constraints.Required
-    private String addressId;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Address address;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private OrderSchedule orderSchedule;
+
     private Boolean isStudent = false;
     private Boolean emailVerified = false;
     private boolean isComplete = false;
     private Double balance = 0.00;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Payment> payments = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CustomerOrder> orders = new ArrayList<>();
+
     public Customer(){}
 
-    public Customer(String userId, String name, String surname, String email, String cellNumber, String password, String addressId, Boolean isStudent, Boolean emailVerified) {
+    public Customer(String userId, String name, String surname, String email, String cellNumber, String password, Address address, Boolean isStudent, Boolean emailVerified) {
         super(userId, name, surname, email, cellNumber, password);
-        this.addressId = addressId;
+        this.address = address;
         this.isStudent = isStudent;
         this.emailVerified = emailVerified;
     }
 
     public static final Finder<String, Customer> find = new Finder<String, Customer>(Customer.class);
-
 
     public Boolean getEmailVerified() {
         return emailVerified;
@@ -42,19 +57,8 @@ public class Customer extends User {
             save();
     }
 
-
-    public String getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(String address) {
-        this.addressId = address;
-                if (super.getUserId() != null)
-            save();
-    }
-
     public Address getAddress(){
-        return Address.find.byId(addressId);
+        return address;
     }
 
     public Boolean isStudent() {
@@ -74,7 +78,7 @@ public class Customer extends User {
     public boolean completeCheck(){
         return isComplete = (super.completeCheck() &&
                 emailVerified &&
-                Address.find.byId(addressId).isComplete());
+                address.isComplete());
     }
 
     /**
@@ -87,7 +91,7 @@ public class Customer extends User {
         Customer c = (Customer) obj;
         return (super.equals(obj) &&
                 c.isStudent.equals(isStudent) &&
-                c.addressId.equals(addressId));
+                c.address.equals(address));
     }
 
     @Override
@@ -131,5 +135,21 @@ public class Customer extends User {
     public static boolean Authenticate(String id, String token) {
         Optional<Customer> customer = Customer.find.query().where().idEq(id).and().eq("token", token).findOneOrEmpty();
         return customer.isPresent();
+    }
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public List<CustomerOrder> getOrders() {
+        return orders;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public OrderSchedule getOrderSchedule() {
+        return orderSchedule;
     }
 }

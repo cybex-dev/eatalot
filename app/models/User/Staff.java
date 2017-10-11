@@ -11,6 +11,7 @@ import java.util.Optional;
  */
 
 @Entity
+@Table(name = "staff")
 public class Staff extends User {
 
     @Constraints.Required

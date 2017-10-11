@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
+@Table(name = "staff_order_interaction")
 public class StaffOrderInteraction extends Model {
     @Id
     @Constraints.Required

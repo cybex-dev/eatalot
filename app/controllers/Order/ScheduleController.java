@@ -3,14 +3,18 @@ package controllers.Order;
 import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
+import controllers.Application.AppTags.Routes;
+import controllers.Order.routes;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
+import play.api.Play;
 import play.data.Form;
 import play.data.FormFactory;
 import play.filters.csrf.RequireCSRFCheck;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.routing.JavaScriptReverseRouter;
 
 import play.mvc.With;
 import views.html.Order.Schedule.create;
@@ -22,8 +26,6 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-@With(RequiresActive.class)
-@CustomersOnly
 @RequireCSRFCheck
 public class ScheduleController extends Controller {
 
@@ -33,23 +35,30 @@ public class ScheduleController extends Controller {
     HttpExecutionContext httpExecutionContext;
 
     // GET
+    @With(RequiresActive.class)
+    @CustomersOnly
     public Result index() {
         return play.mvc.Results.TODO;
     }
 
     // GET
-
+    @With(RequiresActive.class)
+    @CustomersOnly
     public Result createSchedule() {
         Form<OrderSchedule> scheduleForm = formFactory.form(OrderSchedule.class);
         return ok(create.render(scheduleForm));
     }
 
     // GET
+    @With(RequiresActive.class)
+    @CustomersOnly
     public Result addOrder() {
         return play.mvc.Results.TODO;
     }
 
     // GET
+    @With(RequiresActive.class)
+    @CustomersOnly
     public Result editScheduleName() {
         Map<String, String> map = new HashMap<>();
         OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(session().get(AppTags.AppCookie.user_id.toString()));
@@ -59,6 +68,8 @@ public class ScheduleController extends Controller {
     }
 
     // PUT
+    @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> updateScheduleName() {
         Form<OrderSchedule> form = formFactory.form(OrderSchedule.class).bindFromRequest();
         if (form.hasGlobalErrors())
@@ -72,6 +83,8 @@ public class ScheduleController extends Controller {
         }, httpExecutionContext.current());
     }
 
+    @With(RequiresActive.class)
+    @CustomersOnly
     private CompletionStage<Boolean> updateOrderScheduleName(String title){
         OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(session().get(AppTags.AppCookie.user_id.toString()));
         orderSchedule.setTitle(title);
@@ -80,6 +93,8 @@ public class ScheduleController extends Controller {
     }
 
     // POST
+    @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> doCreateSchedule() {
         Form<OrderSchedule> orderScheduleForm = formFactory.form(OrderSchedule.class);
         if (orderScheduleForm.hasGlobalErrors()) {
@@ -100,11 +115,15 @@ public class ScheduleController extends Controller {
     }
 
     // PUT
+    @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> doAddOrder() {
         return CompletableFuture.completedFuture(play.mvc.Results.TODO);
     }
 
     // DELETE
+    @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> clearSchedule() {
         String userId = session().get(AppTags.AppCookie.user_id.toString());
         return clearScheduleItems(userId).thenApplyAsync(deleted -> {
@@ -116,12 +135,16 @@ public class ScheduleController extends Controller {
         }, httpExecutionContext.current());
     }
 
+    @With(RequiresActive.class)
+    @CustomersOnly
     private CompletionStage<Boolean> clearScheduleItems(String userId){
         OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(userId);
         return CompletableFuture.completedFuture(orderSchedule.clearSchedule());
     }
 
     // DELETE
+    @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> removeOrder(String orderId) {
         return removeOrderFromSchedule(orderId).thenApplyAsync(deleted -> {
             if (deleted)
@@ -132,6 +155,8 @@ public class ScheduleController extends Controller {
         }, httpExecutionContext.current());
     }
 
+    @With(RequiresActive.class)
+    @CustomersOnly
     private CompletionStage<Boolean> removeOrderFromSchedule(String orderId){
         OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(session().get(AppTags.AppCookie.user_id.toString()));
         if (!orderSchedule.hasScheduledOrders())
@@ -141,6 +166,8 @@ public class ScheduleController extends Controller {
     }
 
     // PUT
+    @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> setScheduleState(){
         return changeScheduleStatus(session().get(AppTags.AppCookie.user_id.toString())).thenApplyAsync(aBoolean -> {
             if (aBoolean){
@@ -152,11 +179,21 @@ public class ScheduleController extends Controller {
         }, httpExecutionContext.current());
     }
 
+    @With(RequiresActive.class)
+    @CustomersOnly
     private CompletionStage<Boolean> changeScheduleStatus(String userId){
         OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(userId);
         boolean status = !orderSchedule.isActive();
         orderSchedule.setActive(status);
         return CompletableFuture.completedFuture(status);
+    }
+
+    public Result scheduleJSRoutes() {
+        return ok(
+                JavaScriptReverseRouter.create(Routes.ScheduleJSRoutes.toString(),
+                        routes.javascript.ScheduleController.setScheduleState()
+                )
+        ).as("text/javascript");
     }
 
 //    public static Result javascriptRoutes() {

@@ -7,8 +7,6 @@
 
 @bodyContent = {
     @*Start of blocks and carousel*@
-
-
     <div class="row">
         <div class="col-md-8 col-sm-8 col-xs-12">
             <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
@@ -46,6 +44,18 @@
         <br/>
     </div>
     @*End of blocks and carousel*@
+    <script type="text/javascript" charset="UTF-8">
+            var setScheduleStatus = function () {
+                scheduleJSRoutes.controllers.Order.ScheduleController.changeScheduleStatus(@customerInfo.getUserId).ajax({
+                    success: function (data) {
+                    },
+                    error: function () {
+                        alert("An error occured!")
+                    }
+                })
+            }
+            $('#').click(plus);
+    </script>
 }
 
 @dashboard.apply(dashButtons, bodyContent)

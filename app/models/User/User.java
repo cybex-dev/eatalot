@@ -45,7 +45,13 @@ public abstract class User extends Model {
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 
-    public User(){}
+    public User(){
+        generateId();
+    }
+
+    private void generateId() {
+        userId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+    }
 
     public User( @Constraints.Required String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
@@ -145,12 +151,6 @@ public abstract class User extends Model {
 
     public void setCellNumber(String cellNumber) {
         this.cellNumber = cellNumber;
-    }
-
-    @Override
-    public void insert() {
-        userId = new RandomString(16, ThreadLocalRandom.current()).nextString();
-        super.insert();
     }
 
 }

@@ -3,6 +3,7 @@ package controllers.Application;
 //import models.User.Customer.Customer;
 
 import controllers.Application.AppTags.AppCookie.UserType;
+import controllers.User.routes;
 import play.Logger;
 import play.data.Form;
 import play.mvc.Http;
@@ -161,6 +162,16 @@ public class AppTags {
 
         public static Http.Cookie buildExpiredCookie(String id) {
             return new Http.Cookie(id, "", -1, "", General.SITEDOMAIN.toString(), false, false, Http.Cookie.SameSite.LAX);
+        }
+    }
+
+    public enum Routes {
+        ScheduleJSRoutes("scheduleJSRoutes");
+
+        String name;
+
+        Routes(String routesName) {
+            name = routesName;
         }
     }
 
@@ -353,10 +364,13 @@ public class AppTags {
 
         public enum SessionTags {
             csrfTokenString("csrfToken"),
+            visited("visited"),
             userProfile("userProfile"),
             valid("valid"),
             invalid("invalid"),
-            session_status("session_status");
+            session_status("session_status"),
+			display_name("display_name"),
+            admin("admin");
 
             private String value;
 
@@ -395,12 +409,12 @@ public class AppTags {
                     }
                     case KITCHEN: {
                         User.Kitchen.load(session, userId, token);
-                        result = redirect(controllers.Order.routes.KitchenController.index());
+                        result = redirect(controllers.User.routes.KitchenStaffController.index());
                         break;
                     }
                     case DELIVERY: {
                         User.Delivery.load(session, userId, token);
-                        result = redirect(controllers.Delivery.routes.DeliveryController.index());
+                        result = redirect(controllers.User.routes.DeliveryStaffController.index());
                         break;
                     }
                 }

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Thu Oct 12 01:28:03 SAST 2017
+// @DATE:Fri Oct 13 07:57:43 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:101
+// @LINE:114
 package controllers.Finance.javascript {
 
-  // @LINE:101
+  // @LINE:114
   class ReverseUserFinance(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.Finance.javascript {
     }
 
   
-    // @LINE:103
+    // @LINE:116
     def doAddFunds: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Finance.UserFinance.doAddFunds",
       """
@@ -30,7 +30,7 @@ package controllers.Finance.javascript {
       """
     )
   
-    // @LINE:101
+    // @LINE:114
     def addFunds: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Finance.UserFinance.addFunds",
       """

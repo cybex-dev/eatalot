@@ -27,12 +27,13 @@ import java.util.HashMap;
 import static controllers.Application.AppTags.*;
 
 
-@With(RequiresActive.class)
+
 public class UserFinance extends Controller {
 
     @Inject
     FormFactory formFactory;
 
+    @With(RequiresActive.class)
     @CustomersOnly
     public Result addFunds(){
         if (!Session.checkExistingSession(session())){
@@ -47,6 +48,7 @@ public class UserFinance extends Controller {
         return ok(AddFunds.render(userFundsForm));
     }
 
+    @With(RequiresActive.class)
     @CustomersOnly
     public Result doAddFunds(){
         Form<UserFunds> form = formFactory.form(UserFunds.class).bindFromRequest();

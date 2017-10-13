@@ -58,7 +58,7 @@ Seq[Any](format.raw/*6.60*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Oct 12 00:48:23 SAST 2017
+                  DATE: Thu Oct 12 15:36:14 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Admin/adminHome.scala.html
                   HASH: f907affa0961cf74f71bd850cc558d1dc999ae9b
                   MATRIX: 662->1|700->33|729->56|778->99|1146->136|1282->197|1301->208|1381->212|1423->194|1452->215|1481->218|1499->227

@@ -2,22 +2,15 @@ package models.User.Customer;
 
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
-import play.i18n.MessagesApi;
 
-import javax.inject.Inject;
-import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class UserRegisterInfo implements Constraints.Validatable<ValidationError> {
 
     @Constraints.Required
     @Constraints.Email
-//    @Pattern(regexp=".+[@].+[.].+", message="Invalid email address!")
-    private String email;
+//    @Pattern(regexp=".+[@].+[.].+", message="Invalid loginId address!")
+    private String loginId;
     @Constraints.Required
     @Constraints.MinLength(8)
     @Pattern(regexp = "[\\S]{8,}", message = "Check password length, minimum length of 8\nCheck that no spaces are used")
@@ -25,12 +18,12 @@ public class UserRegisterInfo implements Constraints.Validatable<ValidationError
     //    @Pattern(regexp="[\\S]{8,}", message="Check password length, minimum length of 8\nCheck that no spaces are used")
     private String confirmPassword;
 
-    public String getEmail() {
-        return email;
+    public String getLoginId() {
+        return loginId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
     }
 
     public String getPassword() {

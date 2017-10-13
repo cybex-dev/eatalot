@@ -23,45 +23,44 @@ import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import views.html.helper.CSRF
 /*2.2*/import utility.DashboardButton
+/*3.2*/import java.util.List
 
 object dashboard extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[DashboardButton],Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*4.2*/(dashButtons: List[DashboardButton], bodyContent: Html):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*5.2*/(dashButtons: List[DashboardButton], bodyContent: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*6.2*/generateDashButton/*6.20*/(dashboardButton: DashboardButton):play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*7.2*/generateDashButton/*7.20*/(dashboardButton: DashboardButton, index: Integer):play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*6.58*/("""
-        """),format.raw/*7.9*/("""<a href=""""),_display_(/*7.19*/CSRF/*7.23*/.apply(dashboardButton.link)/*7.51*/(requestHeader)),format.raw/*7.66*/("""">
-            <div class="col-md-3 col-sm-3 col-xs-6">
-                <div class="alert """),_display_(/*9.36*/dashboardButton/*9.51*/.cssClassButtonColour),format.raw/*9.72*/(""" """),format.raw/*9.73*/("""back-widget-set text-center">
-                    <i class="fa """),_display_(/*10.35*/dashboardButton/*10.50*/.cssClassMainImage),format.raw/*10.68*/(""" """),format.raw/*10.69*/("""fa-5x"></i>
-                    <h3>"""),_display_(/*11.26*/dashboardButton/*11.41*/.largeText),format.raw/*11.51*/(""";
-                        <i class="fa """),_display_(/*12.39*/dashboardButton/*12.54*/.cssClassSecondaryImage),format.raw/*12.77*/(""""></i></h3>
-                """),_display_(/*13.18*/dashboardButton/*13.33*/.smallText),format.raw/*13.43*/("""
-                """),format.raw/*14.17*/("""</div>
+Seq[Any](format.raw/*7.74*/("""
+        """),format.raw/*8.9*/("""<a href=""""),_display_(/*8.19*/dashboardButton/*8.34*/.link),format.raw/*8.39*/("""">
+            <div class="col-md-3 col-sm-3 col-xs-6" id="dashButton"""),_display_(/*9.68*/index),format.raw/*9.73*/("""">
+                <div class="alert """),_display_(/*10.36*/dashboardButton/*10.51*/.cssClassButtonColour),format.raw/*10.72*/(""" """),format.raw/*10.73*/("""back-widget-set text-center">
+                    <i class="fa """),_display_(/*11.35*/dashboardButton/*11.50*/.cssClassMainImage),format.raw/*11.68*/(""" """),format.raw/*11.69*/("""fa-5x"></i>
+                    <h3>"""),_display_(/*12.26*/dashboardButton/*12.41*/.largeText),format.raw/*12.51*/("""
+                        """),format.raw/*13.25*/("""<i class="fa """),_display_(/*13.39*/dashboardButton/*13.54*/.cssClassSecondaryImage),format.raw/*13.77*/(""""></i></h3>
+                """),_display_(/*14.18*/dashboardButton/*14.33*/.smallText),format.raw/*14.43*/("""
+                """),format.raw/*15.17*/("""</div>
             </div>
         </a>
 """)))};def /*20.2*/bodyContent/*20.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*20.17*/("""
-
-    """),format.raw/*22.5*/("""<div class="container row">
-        """),_display_(/*23.10*/for(button <- dashButtons) yield /*23.36*/{_display_(Seq[Any](format.raw/*23.37*/("""
-            """),_display_(/*24.14*/generateDashButton(button)),format.raw/*24.40*/("""
-        """)))}),format.raw/*25.10*/("""
-    """),format.raw/*26.5*/("""</div>
+    """),format.raw/*21.5*/("""<div class="container row">
+        """),_display_(/*22.10*/for((button, index) <- dashButtons.zipWithIndex) yield /*22.58*/{_display_(Seq[Any](format.raw/*22.59*/("""
+            """),_display_(/*23.14*/generateDashButton(button, index)),format.raw/*23.47*/("""
+        """)))}),format.raw/*24.10*/("""
+    """),format.raw/*25.5*/("""</div>
 """)))};
-Seq[Any](format.raw/*4.57*/("""
+Seq[Any](format.raw/*5.57*/("""
 
-"""),format.raw/*17.2*/("""
+"""),format.raw/*18.2*/("""
 
+"""),format.raw/*26.2*/("""
 
-"""),format.raw/*27.2*/("""
-
-"""),_display_(/*29.2*/masterpage/*29.12*/.apply(" :: Dashboard", bodyContent)))
+"""),_display_(/*28.2*/masterpage/*28.12*/.apply(" :: Dashboard", bodyContent)))
       }
     }
   }
@@ -77,11 +76,11 @@ Seq[Any](format.raw/*4.57*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Oct 11 23:05:58 SAST 2017
+                  DATE: Fri Oct 13 07:57:44 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html
-                  HASH: d7fafa8ec21521d6c533384d877050875f068fb5
-                  MATRIX: 665->1|702->32|1061->65|1194->123|1220->141|1334->179|1369->188|1405->198|1417->202|1453->230|1488->245|1605->336|1628->351|1669->372|1697->373|1788->437|1812->452|1851->470|1880->471|1944->508|1968->523|1999->533|2066->573|2090->588|2134->611|2190->640|2214->655|2245->665|2290->682|2353->726|2373->737|2454->741|2487->747|2551->784|2593->810|2632->811|2673->825|2720->851|2761->861|2793->866|2840->120|2869->722|2899->874|2928->877|2947->887
-                  LINES: 24->1|25->2|30->4|34->6|34->6|36->6|37->7|37->7|37->7|37->7|37->7|39->9|39->9|39->9|39->9|40->10|40->10|40->10|40->10|41->11|41->11|41->11|42->12|42->12|42->12|43->13|43->13|43->13|44->14|47->20|47->20|49->20|51->22|52->23|52->23|52->23|53->24|53->24|54->25|55->26|57->4|59->17|62->27|64->29|64->29
+                  HASH: e99bb1582901c0bcd1a84b18082900020b64bee5
+                  MATRIX: 665->1|702->32|740->64|1090->88|1223->146|1249->164|1379->218|1414->227|1450->237|1473->252|1498->257|1594->327|1619->332|1684->370|1708->385|1750->406|1779->407|1870->471|1894->486|1933->504|1962->505|2026->542|2050->557|2081->567|2134->592|2175->606|2199->621|2243->644|2299->673|2323->688|2354->698|2399->715|2462->758|2482->769|2563->773|2595->778|2659->815|2723->863|2762->864|2803->878|2857->911|2898->921|2930->926|2977->143|3006->755|3035->934|3064->937|3083->947
+                  LINES: 24->1|25->2|26->3|31->5|35->7|35->7|37->7|38->8|38->8|38->8|38->8|39->9|39->9|40->10|40->10|40->10|40->10|41->11|41->11|41->11|41->11|42->12|42->12|42->12|43->13|43->13|43->13|43->13|44->14|44->14|44->14|45->15|48->20|48->20|50->20|51->21|52->22|52->22|52->22|53->23|53->23|54->24|55->25|57->5|59->18|61->26|63->28|63->28
                   -- GENERATED --
               */
           

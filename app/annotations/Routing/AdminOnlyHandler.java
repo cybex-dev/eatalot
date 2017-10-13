@@ -12,8 +12,9 @@ public class AdminOnlyHandler extends Action.Simple {
     @Override
     public CompletionStage<Result> call(Http.Context ctx) {
         AppTags.AppCookie.UserType userType = AppTags.AppCookie.UserType.parse(ctx.session().get(AppTags.AppCookie.user_type.toString()));
-
-        // TODO: 2017/10/10 admin session token
+        if (userType == AppTags.AppCookie.UserType.ADMIN)
+            return this.delegate.call(ctx);
         return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.forbiddenAccess()));
+
     }
 }

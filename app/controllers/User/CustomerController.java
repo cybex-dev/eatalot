@@ -29,6 +29,7 @@ import play.libs.concurrent.HttpExecutionContext;
 import play.libs.mailer.MailerClient;
 import play.mvc.*;
 import utility.DashboardButton;
+import utility.Utility;
 import views.html.User.Customer.*;
 import views.html.User.Customer.editProfile;
 
@@ -44,7 +45,6 @@ import static controllers.Application.AppTags.AppCookie.buildCookie;
  * Created by cybex on 2017/07/21.
  */
 
-@CustomersOnly
 public class CustomerController extends Controller implements CRUD {
 
     @Inject
@@ -79,13 +79,33 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
     @With(LoadOrRedirect.class)
+    @CustomersOnly
     public Result index() {
         List<DashboardButton> arrayList = new ArrayList<>();
-        arrayList.add(new DashboardButton());
-        arrayList.add(new DashboardButton());
-        arrayList.add(new DashboardButton());
-        arrayList.add(new DashboardButton());
-        return ok(customerHome.render(arrayList, CustomerInfo.GetCustomerInfo(session().get(AppCookie.user_id))));
+        CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session().get(AppCookie.user_id.toString()));
+        if (customerInfo != null) {
+            arrayList.add(
+                    new DashboardButton(
+                            AppTags.Locale.Currency.ZAR.toString().concat(customerInfo.getBalance()),
+                            "Balance",
+                            controllers.User.routes.CustomerController.paymentHistory()));
+            arrayList.add(
+                    new DashboardButton(
+                            String.valueOf(customerInfo.getActiveOrderCount()),
+                            "Active Orders",
+                            controllers.User.routes.CustomerController.activeOrders()));
+            arrayList.add(
+                    new DashboardButton(
+                            customerInfo.isScheduleActive() ? "Active" : "  Inactive",
+                            "Schedule",
+                            controllers.User.routes.CustomerController.paymentHistory()));
+            arrayList.add(
+                    new DashboardButton(
+                            "?",
+                            "???",
+                            controllers.Application.routes.HomeController.unknown()));
+        }
+        return ok(customerHome.render(arrayList, customerInfo));
     }
 
     /**
@@ -117,9 +137,9 @@ public class CustomerController extends Controller implements CRUD {
         String csrfToken = "";
         if (userForm.field(Session.SessionTags.csrfTokenString.toString()).getValue().isPresent())
             csrfToken = userForm.field(Session.SessionTags.csrfTokenString.toString()).getValue().get();
-        String userEmail = userRegisterInfo.getEmail();
+        String userEmail = userRegisterInfo.getLoginId();
 
-        if (Customer.find.query().where().eq("email", userRegisterInfo.getEmail().toLowerCase()).findCount() != 0)
+        if (Customer.find.query().where().eq("email", userRegisterInfo.getLoginId().toLowerCase()).findCount() != 0)
             return CompletableFuture.completedFuture(returnRegisterRequest("Email exists, please login with this email address or use another", userForm, userEmail, csrfToken));
 
         Customer c = new Customer();
@@ -179,6 +199,7 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> edit() {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class);
         UserProfile profile = new UserProfile(AppCookie.extract(request(), AppCookie.user_id));
@@ -190,6 +211,7 @@ public class CustomerController extends Controller implements CRUD {
 //    @Security.Authenticated(annotations.SessionVerifier.SessionVerifier.class)
     @Override
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> update() {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class).bindFromRequest();
         UserProfile userProfile = formUserProfile.get();
@@ -315,15 +337,20 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public Result completeRegistration() {
-        if (session().containsKey(AppCookie.new_user.toString())) {
+        if (!session().containsKey(AppCookie.new_user.toString())) {
             flash().put(FlashCodes.info.toString(), "Your account is already verified");
             return redirect(controllers.User.routes.CustomerController.index());
         }
         String uId = AppCookie.extract(request(), AppCookie.user_id);
-        if (uId.isEmpty() || uId == null)
-            return AppTags.renderDefaultPage();
+        if (uId == null)
+            return redirect(controllers.User.routes.UserController.login());
         Customer customer = Customer.find.byId(uId);
+        if (customer == null) {
+            flash().put(FlashCodes.warning.toString(), "An internal server error has occured!");
+            return redirect(controllers.User.routes.UserController.login());
+        }
         Address address = customer.getAddress();
         Form<UserRegisterDetails> registerCompleteForm = formFactory.form(UserRegisterDetails.class).bind(UserRegisterDetails.buildMap(customer, address));
         return ok(views.html.User.Customer.registerDetails.render(registerCompleteForm));
@@ -337,16 +364,15 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
     @With(RequiresActive.class)
+    @CustomersOnly
     public Result doCompleteRegistration() {
-        Http.Request request = request();
-        Http.Cookie cookie = request.cookies().get(AppCookie.new_user.toString());
-        if (cookie == null)
+        if (session().get(AppCookie.new_user.toString()) == null)
             return redirect(controllers.User.routes.UserController.login());
 
         Form<UserRegisterDetails> registerForm = formFactory.form(UserRegisterDetails.class).bindFromRequest();
-        String cookieToken = AppCookie.extract(request(), AppCookie.user_token);
+        String cookieToken = session().get(AppCookie.user_token.toString());
 
-        String uId = AppCookie.extract(request(), AppCookie.user_id);
+        String uId = session().get(AppCookie.user_id.toString());
 
         if (uId == null)
             return internalServerError(invalid.render("Something went wrong, please try again!"));
@@ -365,9 +391,9 @@ public class CustomerController extends Controller implements CRUD {
 
         c.setToken(cookieToken); // TODO: 2017/09/19 see if this is right, it is used to solve the issue of token mismatch
         if (!c.getToken().equals(cookieToken)) {
-            AppCookie.clear(response(), AppCookie.remember_me, AppCookie.user_id, AppCookie.user_type, AppCookie.user_token, AppCookie.org);
-            flash().put(FlashCodes.danger.toString(), "Token mismatch, close your browser and restart");
-            session().clear();
+            flash().put(FlashCodes.danger.toString(), "Token mismatch, your session may be compromised");
+            flash().put(FlashCodes.danger.toString(), "Please close your browser and restart");
+            Utility.logout(Http.Context.current(), session());
             return badRequest(invalid.render("Something went horribly wrong, please log in again!"));
         }
         // TODO: 2017/09/19 solve issue of 'login time' token not being saved as cookie
@@ -416,6 +442,7 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> orderHistory() {
         return getOrders().thenApplyAsync(orderItems -> {
             ctx().flash().put(FlashCodes.success.toString(), "Order History Results");
@@ -424,15 +451,18 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     private CompletableFuture<List<OrderItemBasic>> getOrders() {
         //find all orders of user
         //match all info of each order
         //add to list
-        return null;
+        List<OrderItemBasic> paymentList = new ArrayList<>();
+        return CompletableFuture.completedFuture(paymentList);
 
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> paymentHistory() {
         return getPayments().thenApplyAsync(paymentItems -> {
             ctx().flash().put(FlashCodes.success.toString(), "Payment History Results");
@@ -444,16 +474,20 @@ public class CustomerController extends Controller implements CRUD {
 //    @Security.Authenticated(annotations.SessionVerifier.SessionVerifier.class)
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletableFuture<List<PaymentItemBasic>> getPayments() {
-        return null;
+        List<PaymentItemBasic> paymentList = new ArrayList<>();
+        return CompletableFuture.completedFuture(paymentList);
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> activeOrders() {
         return getActiveOrders(session().get(AppCookie.user_id.toString())).thenApplyAsync(activeOrders -> ok(viewActiveOrders.render(activeOrders)), httpExecutionContext.current());
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     private CompletionStage<List<ActiveOrder>> getActiveOrders(String userId) {
         List<CustomerOrder> list = CustomerOrder.find.query().where().ilike("userId", userId).and().ilike("statusId", "pending").findList();
         List<ActiveOrder> activeOrders = new ArrayList<>();
@@ -471,11 +505,13 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> viewPayment(String paymentId) {
         return CompletableFuture.completedFuture(Results.TODO);
     }
 
     @With(RequiresActive.class)
+    @CustomersOnly
     public CompletionStage<Result> viewOrder(String ordersId) {
         return CompletableFuture.completedFuture(Results.TODO);
     }

@@ -24,7 +24,7 @@ POST        /User/Login                             controllers.User.UserControl
 ##############################################################################
 
 #Staff Controller
-GET         /Staff                                  controllers.User.StaffController.index()
+GET         /Staff                                  controllers.User.DeliveryStaffController.index()
 
 ##############################################################################
 
@@ -61,7 +61,6 @@ POST        /User/Schedule/New                      controllers.Order.ScheduleCo
 POST        /User/Schedule/AddOrder                 controllers.Order.ScheduleController.doAddOrder()
 POST        /User/Schedule/Clear                    controllers.Order.ScheduleController.clearSchedule()
 
-
 ##############################################################################
 
 # Menu Controller
@@ -72,17 +71,28 @@ GET         /Menu                                   controllers.Order.MenuContro
 
 ##############################################################################
 
-# Kitchen Controller
+# KitchenStaff Controller
 
-GET         /Kitchen                               controllers.Order.KitchenController.index()
+GET         /Kitchen/Dashboard                      controllers.User.KitchenStaffController.index()
+GET         /Kitchen/Order                          controllers.User.KitchenStaffController.viewOrder()
+GET         /Kitchen/Orders/Active                  controllers.User.KitchenStaffController.viewActiveOrders()
+GET         /Kitchen/Orders/Completed               controllers.User.KitchenStaffController.viewCompletedOrders()
+GET         /Kitchen/Orders/Queued                  controllers.User.KitchenStaffController.viewQueuedOrders()
 
 ##############################################################################
 
 ##############################################################################
 
-# Delivery Controller
+# DeliveryStaff Controller
 
-GET         /Delivery/User                          controllers.Delivery.DeliveryController.index()
+GET         /Delivery/Dashboard                     controllers.User.DeliveryStaffController.index()
+GET         /Delivery/Order                         controllers.User.DeliveryStaffController.viewOrder()
+GET         /Delivery/Order/Deliver                 controllers.User.DeliveryStaffController.deliverOrder()
+GET         /Delivery/Order/Checkout                controllers.User.DeliveryStaffController.checkoutOrder()
+GET         /Delivery/Orders/Completed              controllers.User.DeliveryStaffController.viewCompletedDeliveries()
+GET         /Delivery/Orders/Active                 controllers.User.DeliveryStaffController.viewActiveDeliveries()
+GET         /Delivery/Orders/Waiting                controllers.User.DeliveryStaffController.viewWaitingDeliveries()
+
 
 ##############################################################################
 
@@ -91,6 +101,9 @@ GET         /Delivery/User                          controllers.Delivery.Deliver
 # Admin Controller
 
 GET         /Admin/Dashboard                         controllers.User.AdminController.index()
+GET         /Admin/Manage/Meals                      controllers.User.AdminController.manageMeals()
+GET         /Admin/Manage/Users                      controllers.User.AdminController.manageUsers()
+GET         /Admin/Manage/Discounts                  controllers.User.AdminController.manageDiscounts()
 
 ##############################################################################
 
@@ -131,6 +144,9 @@ POST        /cart/removemeal                        controllers.OrderController.
 POST        /submit                                 controllers.OrderController.submitCart()
 
 ##############################################################################
+# Javascript Routing
+#GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
+GET         /assets/javascripts/scheduleJSRoutes    controllers.Order.ScheduleController.scheduleJSRoutes()
 
 # An example controller showing how to use dependency injection
 GET         /count                                  controllers.CountController.count
@@ -146,9 +162,6 @@ GET         /assets/*file                           controllers.Assets.versioned
 #GET         /assets/Kitchen/*file                   controllers.Assets.versioned(path="/public", file: Asset)
 #GET         /assets/Staff/*file                     controllers.Assets.versioned(path="/public", file: Asset)
 #GET         /assets/History/*file                   controllers.Assets.versioned(path="/public", file: Asset)
-
-# Javascript Routing
-#GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
 
 #GET         /assets/fonts/*file                     controllers.Assets.versioned(path="/public/fonts",file: Asset)
 

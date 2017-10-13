@@ -9,15 +9,19 @@ import views.html.Application.Home.index;
 import views.html.Application.forbidden;
 import views.html.Application.unknown;
 
+import java.util.Date;
+
 import static controllers.Application.AppTags.AppCookie.*;
+import static controllers.Application.AppTags.Session.SessionTags.visited;
 
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-@AnyAllowed
 public class HomeController extends Controller {
 
+
+    @AnyAllowed
     public Result invalidRoute(String path) {
         return notFound("Oops...\n\nThe page \"" + path + "\" does not exist");
     }
@@ -25,6 +29,8 @@ public class HomeController extends Controller {
     /**
      * Custom forbidden page
      */
+
+    @AnyAllowed
     public Result forbiddenAccess() {
         String message = "You are not allowed to access this page!";
         return forbidden(forbidden.render(message));
@@ -33,6 +39,8 @@ public class HomeController extends Controller {
     /**
      * Custom notFound page
      */
+
+    @AnyAllowed
     public Result unknown() {
         String message = "Page not found!";
         return notFound(unknown.render(message));
@@ -45,17 +53,21 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     @With(LoadActive.class)
+
     public Result index() {
-        if (request().cookie(org.toString()) == null){
-            flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");
-            response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
-            return ok(index.render());
-        }
-        if (request().cookie(org.toString()).value().equals(AppTags.General.SITEURL.toString()))
-            flash().put(AppTags.FlashCodes.info.toString(), "Welcome back!");
-        else {
-            flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");
-            response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
+        if (session().get(visited.toString()) == null) {
+            session().put(visited.toString(), remember_me_true.toString());
+            if (request().cookie(org.toString()) == null) {
+                flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");
+                response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
+                return ok(index.render());
+            }
+            if (request().cookie(org.toString()).value().equals(AppTags.General.SITEURL.toString()))
+                flash().put(AppTags.FlashCodes.info.toString(), "Welcome back!");
+            else {
+                flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");
+                response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
+            }
         }
         return ok(index.render());
     }

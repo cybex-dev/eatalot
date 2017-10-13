@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Thu Oct 12 01:28:03 SAST 2017
+// @DATE:Fri Oct 13 07:57:43 SAST 2017
 
 import play.api.mvc.Call
 
@@ -12,29 +12,14 @@ import _root_.play.libs.F
 // @LINE:52
 package controllers.Order {
 
-  // @LINE:77
-  class ReverseKitchenController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:77
-    def index(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "Kitchen")
-    }
-  
-  }
-
-  // @LINE:69
+  // @LINE:68
   class ReverseMenuController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:69
+    // @LINE:68
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Menu")
@@ -53,6 +38,12 @@ package controllers.Order {
     def doAddOrder(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Schedule/AddOrder")
+    }
+  
+    // @LINE:149
+    def scheduleJSRoutes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/scheduleJSRoutes")
     }
   
     // @LINE:59

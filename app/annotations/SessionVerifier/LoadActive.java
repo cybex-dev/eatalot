@@ -9,6 +9,7 @@ import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 import utility.Utility;
+
 import static utility.Utility.checkValidCSRF;
 import static utility.Utility.removeLoginCookies;
 import static utility.Utility.removeLoginSession;
@@ -47,7 +48,7 @@ public class LoadActive extends Action.Simple {
              */
             String session_status = session.get(AppTags.Session.SessionTags.session_status.toString());
             if (session_status.equalsIgnoreCase(AppTags.Session.SessionTags.valid.toString())) {
-                return delegate.call(ctx);
+                return this.delegate.call(ctx);
             } else {
                 //session was invalidated for some reason
                 if (session_status.equalsIgnoreCase(AppTags.Session.SessionTags.invalid.toString())) {
@@ -98,6 +99,38 @@ public class LoadActive extends Action.Simple {
         // check if cookie doesn't exist or remember me is set to false
         if (cookie == null || !cookie.value().equalsIgnoreCase(AppTags.AppCookie.remember_me_true.toString())) {
             return;
+        }
+        Http.Cookie cookieUserType = ctx.request().cookie(AppTags.AppCookie.user_type.toString());
+        if (cookieUserType == null)
+            return;
+        AppTags.AppCookie.UserType userType = AppTags.AppCookie.UserType.parse(cookieUserType.value());
+        if (userType == null)
+            return;
+        Http.Cookie cookieUserToken = ctx.request().cookie(AppTags.AppCookie.user_type.toString());
+        if (cookieUserToken == null)
+            return;
+        Http.Cookie cookieUserId = ctx.request().cookie(AppTags.AppCookie.user_type.toString());
+        if (cookieUserId == null)
+            return;
+
+        session.put(AppTags.AppCookie.user_id.toString(), cookieUserId.value());
+        session.put(AppTags.AppCookie.user_token.toString(), cookieUserToken.value());
+        session.put(AppTags.AppCookie.user_type.toString(), userType.toString());
+
+        if (userType == AppTags.AppCookie.UserType.ADMIN)
+            session.put(AppTags.Session.SessionTags.display_name.toString(), AppTags.Session.SessionTags.admin.toString());
+        else {
+            User user = null;
+            if (userType == AppTags.AppCookie.UserType.CUSTOMER) {
+                user = Customer.find.byId(cookieUserId.value());
+            } else if (userType == AppTags.AppCookie.UserType.DELIVERY ||
+                    userType == AppTags.AppCookie.UserType.KITCHEN) {
+                user = Staff.find.byId(cookieUserId.value());
+            } else
+                return;
+            if (user == null)
+                return;
+            session.put(AppTags.Session.SessionTags.display_name.toString(), user.getName().concat(" ").concat(user.getSurname()));
         }
     }
 

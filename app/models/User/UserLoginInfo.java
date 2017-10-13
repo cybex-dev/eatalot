@@ -18,14 +18,14 @@ public class UserLoginInfo {
     @Pattern(regexp = "(\\S){8,}", message = "password.require_length")
     private String password;
 
-    private Boolean bRememberMe = Boolean.FALSE;
+    private Boolean rememberMe = Boolean.FALSE;
 
     public UserLoginInfo(){}
 
     public UserLoginInfo(String email, String password, Boolean bRememberMe) {
         this.loginId = email;
         this.password = password;
-        this.bRememberMe = bRememberMe;
+        this.rememberMe = bRememberMe;
     }
 
     public String getLoginId() {
@@ -37,7 +37,7 @@ public class UserLoginInfo {
     }
 
     public Boolean getRememberMe() {
-        return bRememberMe;
+        return rememberMe;
     }
 
     public void setLoginId(String loginId) {
@@ -49,6 +49,6 @@ public class UserLoginInfo {
     }
 
     public void setRememberMe(Boolean bRememberMe) {
-        this.bRememberMe = bRememberMe;
+        this.rememberMe = bRememberMe;
     }
 }

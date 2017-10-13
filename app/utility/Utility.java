@@ -2,6 +2,8 @@ package utility;
 
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.AppCookie;
+import controllers.Application.AppTags.AppCookie.UserType;
+import controllers.Application.AppTags.Session.SessionTags;
 import models.User.Admin.Admin;
 import models.User.Staff;
 import models.User.User;
@@ -25,9 +27,21 @@ public class Utility {
     }
 
     public static void removeLoginSession(Http.Session session) {
+        String s = session.get(AppCookie.user_type.toString());
+        if (s != null) {
+            UserType userType = UserType.parse(s);
+            if (userType == UserType.ADMIN) {
+                String adminId = session.get(AppCookie.user_id.toString());
+                Admin admin = Admin.find.byId(adminId);
+                if (admin != null)
+                    admin.setToken("");
+            }
+        }
         session.remove(AppCookie.user_id.toString());
         session.remove(AppCookie.user_type.toString());
         session.remove(AppCookie.user_token.toString());
+        session.remove(SessionTags.session_status.toString());
+		session.remove(SessionTags.display_name.toString());
     }
 
     /**
@@ -46,17 +60,28 @@ public class Utility {
         //add session data
         session.put(AppCookie.user_id.toString(), user.getUserId());
         session.put(AppCookie.user_token.toString(), csrfToken);
-        String userType = AppCookie.UserType.CUSTOMER.toString();
+        String userType = UserType.CUSTOMER.toString();
         if (user instanceof Staff)
-            userType = ((Staff)user).isKitchenStaff() ? AppCookie.UserType.KITCHEN.toString() : AppCookie.UserType.DELIVERY.toString();
+            userType = ((Staff)user).isKitchenStaff() ? UserType.KITCHEN.toString() : UserType.DELIVERY.toString();
         session.put(AppCookie.user_type.toString(), userType);
-        session.put(AppTags.Session.SessionTags.session_status.toString(), AppTags.Session.SessionTags.valid.toString());
+        session.put(SessionTags.session_status.toString(), SessionTags.valid.toString());
+        String displayName = "User";
+        if (user.getName() != null)
+            displayName = user.getName();
+        if (user.getSurname() != null){
+            if (displayName.isEmpty())
+                displayName = user.getSurname();
+            else
+                displayName = displayName.concat(" ").concat(user.getSurname());
+        }
+		session.put(SessionTags.display_name.toString(), displayName);
 
         Http.Response response = ctx.response();
         if (rememberMe) {
             response.setCookie(AppCookie.buildCookie(AppCookie.user_id.toString(), user.getUserId()));
             response.setCookie(AppCookie.buildCookie(AppCookie.user_token.toString(), csrfToken));
             response.setCookie(AppCookie.buildCookie(AppCookie.user_type.toString(), userType));
+            response.setCookie(AppCookie.buildCookie(AppCookie.remember_me.toString(), AppCookie.remember_me_true.toString()));
         }
 
         String currentTime = new Date().toString().replace(':', '-').replace(' ', '_');
@@ -79,18 +104,20 @@ public class Utility {
         //add session data
         session.put(AppCookie.user_id.toString(), admin.getAdminId());
         session.put(AppCookie.user_token.toString(), csrfToken);
-        String userType = AppCookie.UserType.ADMIN.toString();
+        String userType = UserType.ADMIN.toString();
         session.put(AppCookie.user_type.toString(), userType);
-        session.put(AppTags.Session.SessionTags.session_status.toString(), AppTags.Session.SessionTags.valid.toString());
+        session.put(SessionTags.session_status.toString(), SessionTags.valid.toString());
+		session.put(SessionTags.display_name.toString(), SessionTags.admin.toString());
     }
 
     public static boolean checkValidCSRF(Http.Context ctx) {
-        String csrfToken = "";
-        if (CSRF.getToken(ctx.request()).isPresent()) {
-            csrfToken = CSRF.getToken(ctx.request()).get().value();
-        } else
-            return false;
-        return csrfToken.equalsIgnoreCase(ctx.session().get(AppCookie.user_token.toString()));
+        return CSRF.getToken(ctx.request()).isPresent();
+//        String csrfToken = "";
+//        if (CSRF.getToken(ctx.request()).isPresent()) {
+//            csrfToken = CSRF.getToken(ctx.request()).get().value();
+//        } else
+//            return false;
+//        return csrfToken.equalsIgnoreCase(ctx.session().get(AppCookie.user_token.toString()));
     }
 
 }

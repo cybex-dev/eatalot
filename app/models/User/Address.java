@@ -31,7 +31,14 @@ public class Address extends Model {
     private String communityName = "";
     private Boolean isCommunity = Boolean.FALSE;
 
-    public Address(){}
+    public Address(){
+        generateId();
+    }
+
+    private void generateId() {
+        addressId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+    }
+
 
     public Address(@Constraints.Required String addressId, @Constraints.Required String unitNumber, @Constraints.Required String streetName, String communityName, Boolean isCommunity) {
         this.addressId = addressId;

@@ -48,7 +48,8 @@ Seq[Any](format.raw/*1.4*/("""
 
 """),format.raw/*17.93*/("""
 
-"""),format.raw/*19.1*/("""<script src=""""),_display_(/*19.15*/routes/*19.21*/.Assets.versioned("javascripts/registerDetails.js")),format.raw/*19.72*/("""" rel="script"></script>"""))
+"""),format.raw/*19.1*/("""<script type="text/javascript" src=""""),_display_(/*19.38*/controllers/*19.49*/.Order.routes.ScheduleController.scheduleJSRoutes()),format.raw/*19.100*/(""""></script>
+"""))
       }
     }
   }
@@ -64,10 +65,10 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Oct 11 22:25:23 SAST 2017
+                  DATE: Fri Oct 13 07:57:44 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/scripts.scala.html
-                  HASH: 4a95b1ee88624c561d4ad8d5a78e2bb005627fb1
-                  MATRIX: 957->1|1053->3|1081->5|1235->133|1249->139|1318->188|1415->259|1429->265|1494->310|1593->383|1607->389|1667->429|1734->469|1749->475|1814->519|1868->640|1898->736|1928->830|1957->832|1998->846|2013->852|2085->903
+                  HASH: 3ed0c80fcc32a19e869fad190ec7da3601f524e4
+                  MATRIX: 957->1|1053->3|1081->5|1235->133|1249->139|1318->188|1415->259|1429->265|1494->310|1593->383|1607->389|1667->429|1734->469|1749->475|1814->519|1868->640|1898->736|1928->830|1957->832|2021->869|2041->880|2114->931
                   LINES: 28->1|33->1|35->3|37->5|37->5|37->5|39->7|39->7|39->7|41->9|41->9|41->9|43->11|43->11|43->11|45->13|47->15|49->17|51->19|51->19|51->19|51->19
                   -- GENERATED --
               */

@@ -23,7 +23,9 @@ public class RequiresActive extends Action.Simple {
 
     @Override
     public CompletionStage<Result> call(Http.Context ctx) {
-        if (!ctx.session().get(AppTags.Session.SessionTags.session_status.toString()).equalsIgnoreCase(AppTags.Session.SessionTags.valid.toString())) {
+        Http.Session session = ctx.session();
+        String s = session.get(AppTags.Session.SessionTags.session_status.toString());
+        if (s == null || !s.equalsIgnoreCase(AppTags.Session.SessionTags.valid.toString())) {
             ctx.flash().put("info", "invalid session, please login again!");
             removeLoginCookies(ctx);
             removeLoginSession(ctx.session());

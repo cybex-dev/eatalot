@@ -7,7 +7,6 @@ import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
 import models.User.*;
 import models.User.Admin.Admin;
-import models.User.Admin.AdminInfo;
 import models.User.Customer.Customer;
 import models.User.Customer.CustomerInfo;
 import play.data.Form;
@@ -37,7 +36,6 @@ import static models.User.Customer.Customer.*;
  * </ul>
  */
 
-@AnyAllowed
 public class UserController extends Controller {
 
     @Inject
@@ -49,8 +47,8 @@ public class UserController extends Controller {
      * @return
      */
     // /user
-    @RequireCSRFCheck
     @With(LoadOrRedirect.class)
+    @AnyAllowed
     public Result index() {
         return ok(index.render());
     }
@@ -61,7 +59,9 @@ public class UserController extends Controller {
      * @return
      */
     @With(LoadActive.class)
+    @AnyAllowed
     public Result login() {
+        Http.Session session = session();
         return ok(login.render(formFactory.form(UserLoginInfo.class)));
     }
 
@@ -209,9 +209,11 @@ public class UserController extends Controller {
                 return customerCheckComplete(customerInfo);
             }
 
-            case DELIVERY:
+            case DELIVERY: {
+                return redirect(controllers.User.routes.DeliveryStaffController.index());
+            }
             case KITCHEN: {
-                return redirect(controllers.User.routes.StaffController.index());
+                return redirect(controllers.User.routes.KitchenStaffController.index());
             }
         }
         flash().put(FlashCodes.warning.toString(), "An unknown login error occurred. Close your browser and try again.");
@@ -240,7 +242,7 @@ public class UserController extends Controller {
     @With(RequiresActive.class)
     public Result logout() {
 
-        Utility.logout(ctx(), session());
+            Utility.logout(ctx(), session());
         return redirect(controllers.Application.routes.HomeController.index());
 
 //        Result redirect = redirect(controllers.Application.routes.HomeController.index()).withCookies(

@@ -13,7 +13,7 @@
                 @CSRF.formField
                 @inputText(loginForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
                 @inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")
-                @checkbox(loginForm("bRememberMe"), '_name -> "Remember Me")
+                @checkbox(loginForm("rememberMe"), '_name -> "Remember Me")
                 @*<label><input type="checkbox" name="bRememberMe" /> Remember Me</label>*@
                 <br/>
                 <input class="btn btn-success" type="submit" value="Login"/>

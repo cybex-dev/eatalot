@@ -29,9 +29,11 @@ public class Mailer {
                     .setFrom("Admin@" + AppTags.General.SITEDOMAIN.toString())
                     .setSubject(AppTags.General.SITENAME.toString() + ": Account Verification")
                     .setBodyText("Cannot display HTML message in your client!")
-                    .setBodyHtml("Welcome " +
-                            "<br/><br/>Please verified your account using the link provided below:" +
-                            "<br/><br/><i><a style=\"color:blue;font-size:2em;\" href=\"" + verificationUrl + "\"/>Verify Account</i>" +
+                    .setBodyHtml("Welcome to Eatalot" +
+                            "<br/><br/>Please verify your account using hyperlink below:" +
+                            "<br/><br/><i><a style=\"color:blue;font-size:2em;\" href=\"" + verificationUrl + "\">Verify Account</i></a>" +
+                            "<br/><br/>or visiting the URL below:" +
+                            "<br/><br/><a href=\"" + verificationUrl + "\"/a>" +
                             "<br/><br/>If you have not created an account at " + AppTags.General.SITENAME.toString() + " then ignore this email" +
                             "<br/><br/>Regards," +
                             "<br/>The " + AppTags.General.SITENAME.toString() + " Team")

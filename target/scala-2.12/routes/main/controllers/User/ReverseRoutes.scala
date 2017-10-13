@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Thu Oct 12 01:28:03 SAST 2017
+// @DATE:Fri Oct 13 07:57:43 SAST 2017
 
 import play.api.mvc.Call
 
@@ -12,17 +12,35 @@ import _root_.play.libs.F
 // @LINE:17
 package controllers.User {
 
-  // @LINE:93
+  // @LINE:103
   class ReverseAdminController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:93
+    // @LINE:105
+    def manageUsers(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users")
+    }
+  
+    // @LINE:104
+    def manageMeals(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals")
+    }
+  
+    // @LINE:103
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard")
+    }
+  
+    // @LINE:106
+    def manageDiscounts(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts")
     }
   
   }
@@ -121,16 +139,99 @@ package controllers.User {
   }
 
   // @LINE:27
-  class ReverseStaffController(_prefix: => String) {
+  class ReverseDeliveryStaffController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
+    // @LINE:90
+    def deliverOrder(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Deliver")
+    }
+  
+    // @LINE:91
+    def checkoutOrder(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Checkout")
+    }
+  
+    // @LINE:92
+    def viewCompletedDeliveries(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Completed")
+    }
+  
+    // @LINE:94
+    def viewWaitingDeliveries(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Waiting")
+    }
+  
+    // @LINE:89
+    def viewOrder(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order")
+    }
+  
     // @LINE:27
     def index(): Call = {
+    
+      () match {
       
-      Call("GET", _prefix + { _defaultPrefix } + "Staff")
+        // @LINE:27
+        case ()  =>
+          
+          Call("GET", _prefix + { _defaultPrefix } + "Staff")
+      
+      }
+    
+    }
+  
+    // @LINE:93
+    def viewActiveDeliveries(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Active")
+    }
+  
+  }
+
+  // @LINE:76
+  class ReverseKitchenStaffController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:78
+    def viewActiveOrders(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Orders/Active")
+    }
+  
+    // @LINE:79
+    def viewCompletedOrders(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Orders/Completed")
+    }
+  
+    // @LINE:77
+    def viewOrder(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Order")
+    }
+  
+    // @LINE:80
+    def viewQueuedOrders(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Orders/Queued")
+    }
+  
+    // @LINE:76
+    def index(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Dashboard")
     }
   
   }

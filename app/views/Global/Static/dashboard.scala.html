@@ -1,14 +1,15 @@
 @import views.html.helper.CSRF
 @import utility.DashboardButton
+@import java.util.List
 
 @(dashButtons: List[DashboardButton], bodyContent: Html)
 
-@generateDashButton(dashboardButton: DashboardButton) = {
-        <a href="@CSRF.apply(dashboardButton.link)(requestHeader)">
-            <div class="col-md-3 col-sm-3 col-xs-6">
+@generateDashButton(dashboardButton: DashboardButton, index: Integer) = {
+        <a href="@dashboardButton.link">
+            <div class="col-md-3 col-sm-3 col-xs-6" id="dashButton@index">
                 <div class="alert @dashboardButton.cssClassButtonColour back-widget-set text-center">
                     <i class="fa @dashboardButton.cssClassMainImage fa-5x"></i>
-                    <h3>@dashboardButton.largeText;
+                    <h3>@dashboardButton.largeText
                         <i class="fa @dashboardButton.cssClassSecondaryImage"></i></h3>
                 @dashboardButton.smallText
                 </div>
@@ -16,12 +17,10 @@
         </a>
 }
 
-
 @bodyContent = {
-
     <div class="container row">
-        @for(button <- dashButtons){
-            @generateDashButton(button)
+        @for((button, index) <- dashButtons.zipWithIndex){
+            @generateDashButton(button, index)
         }
     </div>
 }

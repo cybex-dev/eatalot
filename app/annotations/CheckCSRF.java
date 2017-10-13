@@ -17,7 +17,7 @@ public class CheckCSRF extends Action<Result> {
     public CompletionStage<Result> call(Http.Context ctx) {
         CSRF.Token token = CSRF.getToken(ctx.request()).orElse(null);
         if (token != null) {
-            this.delegate.call(ctx);
+            return this.delegate.call(ctx);
         }
         return addCSRFToken(ctx);
     }
@@ -28,7 +28,7 @@ public class CheckCSRF extends Action<Result> {
         Optional<Http.Cookie> cookie = ctx.response().cookie(AppTags.Session.SessionTags.csrfTokenString.toString());
         if (cookie.isPresent()) {
             ctx.flash().put(AppTags.FlashCodes.success.toString(), "CSRF Token added: " + cookie.get().value());
-            this.delegate.call(ctx);
+            return this.delegate.call(ctx);
         }
 
         ctx.flash().put(AppTags.FlashCodes.success.toString(), "Session token invalid, please login again");

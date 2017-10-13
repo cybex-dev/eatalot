@@ -110,14 +110,18 @@ public class UserRegisterDetails {
 
     public static Map<String, String> buildMap(Customer customer, Address address) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("userId", String.valueOf(customer.getUserId()));
-        map.put("name", String.valueOf(customer.getName()));
-        map.put("surname", String.valueOf(customer.getSurname()));
-        map.put("cellNumber", String.valueOf(customer.getCellNumber()));
-        map.put("unitNumber", String.valueOf(address.getUnitNumber()));
-        map.put("streetName", String.valueOf(address.getStreetName()));
-        map.put("communityName", String.valueOf(address.getCommunityName()));
-        map.put("isCommunity", String.valueOf(address.isCommunity()));
+        if (customer != null) {
+            map.put("userId", customer.getUserId());
+            map.put("name", customer.getName() != null ? customer.getName() : "");
+            map.put("surname", customer.getSurname() != null ? customer.getSurname() : "");
+            map.put("cellNumber", customer.getCellNumber() != null ? customer.getCellNumber() : "");
+            if (address != null) {
+                map.put("unitNumber", address.getUnitNumber() != null ? address.getUnitNumber() : "");
+                map.put("streetName", address.getStreetName() != null ? address.getStreetName() : "");
+                map.put("communityName", address.getCommunityName() != null ? address.getCommunityName() : "");
+                map.put("isCommunity", String.valueOf(address.isCommunity()));
+            }
+        }
         return map;
     }
 }

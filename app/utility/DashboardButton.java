@@ -3,8 +3,9 @@ package utility;
 import play.api.mvc.Call;
 
 public class DashboardButton {
-    public String largeText, smallText;
-    public Call link;
+    public String largeText = "###",
+            smallText = "###";
+    public Call link = new Call("#", "#", "#");
     public String cssClassMainImage = "fa-history",
             cssClassSecondaryImage = "fa-dollar",
             cssClassButtonColour = "alert-info";

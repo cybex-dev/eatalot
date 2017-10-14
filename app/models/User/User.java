@@ -63,12 +63,12 @@ public abstract class User extends Model {
     }
 
     public boolean completeCheck(){
-        return (name != null &&
-                !name.equals("") &&
-                surname != null &&
-                !surname.equals("") &&
-                cellNumber != null &&
-                !cellNumber.equals(""));
+        return (getName() != null &&
+                !getName().equals("") &&
+                getSurname() != null &&
+                !getSurname().equals("") &&
+                getCellNumber() != null &&
+                !getCellNumber().equals(""));
     }
 
     //// TODO: 2017/08/14
@@ -93,7 +93,6 @@ public abstract class User extends Model {
 
     public void setToken(String token) {
         this.token = token;
-        if (userId != null)
             save();
     }
 
@@ -119,6 +118,7 @@ public abstract class User extends Model {
 
     public void setName(String name) {
         this.name = name;
+        save();
     }
 
     public String getSurname() {
@@ -127,6 +127,7 @@ public abstract class User extends Model {
 
     public void setSurname(String surname) {
         this.surname = surname;
+        save();
     }
 
     public String getPassword() {
@@ -135,6 +136,7 @@ public abstract class User extends Model {
 
     public void setPassword(String password) {
         this.password = password;
+        save();
     }
 
     public String getEmail() {
@@ -143,6 +145,7 @@ public abstract class User extends Model {
 
     public void setEmail(String email) {
         this.email = email;
+        save();
     }
 
     public String getCellNumber() {
@@ -151,6 +154,7 @@ public abstract class User extends Model {
 
     public void setCellNumber(String cellNumber) {
         this.cellNumber = cellNumber;
+        save();
     }
 
 }

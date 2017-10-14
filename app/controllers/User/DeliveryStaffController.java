@@ -1,22 +1,27 @@
 package controllers.User;
 
 import annotations.Routing.DeliveryStaffOnly;
-import annotations.SessionVerifier.LoadActive;
 import annotations.SessionVerifier.LoadOrRedirect;
-import annotations.Routing.StaffOnly;
 import annotations.SessionVerifier.RequiresActive;
+import controllers.Application.AppTags;
+import models.User.UserProfile;
+import models.User.UserDetails;
 import models.User.DeliveryStaff.DeliveryStaffInfo;
-import models.User.KitchenStaff.KitchenStaffInfo;
+import models.User.Staff;
+import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
 import utility.DashboardButton;
+import views.html.User.Staff.editDeliveryProfile;
 import views.html.User.Staff.deliveryHome;
-import views.html.User.Staff.kitchenHome;
 
 import javax.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 import static controllers.Application.AppTags.AppCookie.*;
 
@@ -83,6 +88,38 @@ public class DeliveryStaffController extends Controller {
     @DeliveryStaffOnly
     public Result viewOrder() {
         return play.mvc.Results.TODO;
+    }
+
+    @With(RequiresActive.class)
+    @DeliveryStaffOnly
+    public Result edit(){
+        Staff staff = Staff.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
+        Map<String, String> userInfoMap = UserDetails.buildMap(staff);
+        Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bind(userInfoMap);
+        return ok(editDeliveryProfile.render(userDetailsForm));
+    }
+
+    @With(RequiresActive.class)
+    @DeliveryStaffOnly
+    public CompletionStage<Result> doEdit(){
+        Staff staff = Staff.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
+        Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bindFromRequest();
+        if (!staff.isDeliveryStaff()){
+            flash().put(AppTags.FlashCodes.warning.toString(), "You are trying to edit someone else's profile, this will be reported!");
+            return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.forbiddenAccess()));
+        }
+        if (userDetailsForm.hasErrors()){
+            flash().put(AppTags.FlashCodes.warning.toString(), "Missing or incorrect fields");
+            return CompletableFuture.completedFuture(badRequest(editDeliveryProfile.render(userDetailsForm)));
+        }
+        UserProfile userDetails = userDetailsForm.get();
+        if (!userDetails.getPassword().equals(userDetails.getConfirmPassword())) {
+            flash(AppTags.FlashCodes.warning.toString(), "Please check passwords match and are valid");
+            return CompletableFuture.completedFuture(badRequest(editDeliveryProfile.render(userDetailsForm)));
+        }
+        userDetails.save(UserType.DELIVERY);
+        flash(AppTags.FlashCodes.success.toString(), "Profile has been updated!");
+        return CompletableFuture.completedFuture(redirect(controllers.User.routes.DeliveryStaffController.index()));
     }
 }
 

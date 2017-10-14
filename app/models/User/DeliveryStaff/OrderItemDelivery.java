@@ -1,4 +1,4 @@
-package models.User;
+package models.User.DeliveryStaff;
 
 public class OrderItemDelivery {
     public String orderId;

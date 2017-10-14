@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Oct 13 07:57:43 SAST 2017
+// @DATE:Sat Oct 14 13:03:12 SAST 2017
 
 import play.api.mvc.Call
 
@@ -40,7 +40,7 @@ package controllers.Order {
       Call("POST", _prefix + { _defaultPrefix } + "User/Schedule/AddOrder")
     }
   
-    // @LINE:149
+    // @LINE:158
     def scheduleJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/scheduleJSRoutes")

@@ -5,6 +5,7 @@ import annotations.SessionVerifier.LoadActive;
 import annotations.SessionVerifier.LoadOrRedirect;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
+import libs.Mailer;
 import models.User.*;
 import models.User.Admin.Admin;
 import models.User.Customer.Customer;
@@ -12,7 +13,6 @@ import models.User.Customer.CustomerInfo;
 import play.data.Form;
 import play.data.FormFactory;
 import play.filters.csrf.CSRF;
-import play.filters.csrf.RequireCSRFCheck;
 import play.mvc.*;
 import utility.Utility;
 import views.html.Application.Home.index;
@@ -200,7 +200,6 @@ public class UserController extends Controller {
 
             case ADMIN: {
                 flash(FlashCodes.success.toString(), "Logged in as admin.");
-                flash(FlashCodes.info.toString(), "After closing this window, you are logged out automatically.");
                 return redirect(controllers.User.routes.AdminController.index());
             }
 
@@ -226,11 +225,26 @@ public class UserController extends Controller {
         if (customer.isComplete())
             return redirect(routes.CustomerController.index());
         else {
-            //customer not profile not complete before, checking now
+            //customer details not complete , check if details complete manually
             if (customer.completeCheck()) {
                 // customer profile complete, setting flag
                 customer.setComplete(true);
                 return redirect(routes.CustomerController.index());
+            }
+            else {
+                //check if profile complete (all required info)
+                boolean profileComplete = customer.isProfileComplete(),
+                        emailVerified = customer.getEmailVerified();
+                if (profileComplete && !emailVerified){
+                    if (Mailer.SendVerificationEmail(customer.getEmail(), customer.getToken())){
+                        flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+                    }
+                    else {
+                        flash().put(FlashCodes.warning.toString(), "Unable to send verification email");
+                    }
+                    //verify email only
+                }
+                //else profile details required
             }
         }
 
@@ -244,19 +258,6 @@ public class UserController extends Controller {
 
             Utility.logout(ctx(), session());
         return redirect(controllers.Application.routes.HomeController.index());
-
-//        Result redirect = redirect(controllers.Application.routes.HomeController.index()).withCookies(
-//                buildExpiredCookie(AppCookie.remember_me.toString()),
-//                buildExpiredCookie(AppCookie.user_type.toString()),
-//                buildExpiredCookie(AppCookie.user_id.toString()),
-//                buildExpiredCookie(AppCookie.user_token.toString())
-//        );
-//        session().clear();
-////        AppCookie.logout(redirect);
-//        return redirect;
-//    }
-
-
     }
 }
 

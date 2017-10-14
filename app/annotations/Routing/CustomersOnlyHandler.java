@@ -13,8 +13,7 @@ public class CustomersOnlyHandler extends Action.Simple {
     public CompletionStage<Result> call(Http.Context ctx) {
         AppTags.AppCookie.UserType userType = AppTags.AppCookie.UserType.parse(ctx.session().get(AppTags.AppCookie.user_type.toString()));
 
-        return (userType == AppTags.AppCookie.UserType.CUSTOMER ||
-                userType == AppTags.AppCookie.UserType.ADMIN)
+        return (userType == AppTags.AppCookie.UserType.CUSTOMER)
                 ? this.delegate.call(ctx)
                 : CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.forbiddenAccess()));
     }

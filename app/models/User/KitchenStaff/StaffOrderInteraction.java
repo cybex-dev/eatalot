@@ -1,4 +1,4 @@
-package models.User;
+package models.User.KitchenStaff;
 
 import io.ebean.Finder;
 import io.ebean.Model;

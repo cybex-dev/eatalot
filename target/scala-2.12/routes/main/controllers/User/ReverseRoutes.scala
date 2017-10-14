@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Oct 13 07:57:43 SAST 2017
+// @DATE:Sat Oct 14 13:03:12 SAST 2017
 
 import play.api.mvc.Call
 
@@ -12,35 +12,47 @@ import _root_.play.libs.F
 // @LINE:17
 package controllers.User {
 
-  // @LINE:103
+  // @LINE:109
   class ReverseAdminController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:105
+    // @LINE:113
+    def edit(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Edit")
+    }
+  
+    // @LINE:115
+    def doEdit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Edit")
+    }
+  
+    // @LINE:111
     def manageUsers(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users")
     }
   
-    // @LINE:104
-    def manageMeals(): Call = {
+    // @LINE:112
+    def manageDiscounts(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals")
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts")
     }
   
-    // @LINE:103
+    // @LINE:109
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard")
     }
   
-    // @LINE:106
-    def manageDiscounts(): Call = {
+    // @LINE:110
+    def manageMeals(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts")
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals")
     }
   
   }
@@ -145,31 +157,43 @@ package controllers.User {
     }
 
   
-    // @LINE:90
+    // @LINE:93
     def deliverOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Deliver")
     }
   
-    // @LINE:91
+    // @LINE:98
+    def edit(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/User/Edit")
+    }
+  
+    // @LINE:94
     def checkoutOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Checkout")
     }
   
-    // @LINE:92
+    // @LINE:100
+    def doEdit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Delivery/User/Edit")
+    }
+  
+    // @LINE:95
     def viewCompletedDeliveries(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Completed")
     }
   
-    // @LINE:94
+    // @LINE:97
     def viewWaitingDeliveries(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Waiting")
     }
   
-    // @LINE:89
+    // @LINE:92
     def viewOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order")
@@ -189,7 +213,7 @@ package controllers.User {
     
     }
   
-    // @LINE:93
+    // @LINE:96
     def viewActiveDeliveries(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Active")
@@ -203,6 +227,18 @@ package controllers.User {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:81
+    def edit(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
+    }
+  
+    // @LINE:83
+    def doEdit(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
+    }
   
     // @LINE:78
     def viewActiveOrders(): Call = {

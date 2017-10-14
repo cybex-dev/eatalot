@@ -1,7 +1,5 @@
-document.getElementById("isCommunity").onclick(function () {
-    document.getElementById("communityName").enabled((document.getElementById("isCommunity").checked === true));
-})
-
-$('document').ready(function(){
-    document.getElementById("communityName").enabled(false);
+$(document).ready(function() {
+    $('#isCommunity').change(function () {
+        $('#communityName').prop('disabled', ($(this).is(':checked')))
+    });
 });

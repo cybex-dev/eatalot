@@ -1,18 +1,24 @@
 package models.User;
 
+import controllers.Application.AppTags;
+import libs.Mailer;
+import models.User.Admin.Admin;
+import models.User.Customer.Address;
 import models.User.Customer.Customer;
-import models.User.Customer.UserRegisterDetails;
+import models.User.UserDetails;
 import play.Logger;
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Class used to edit user profile
  */
 
-public class UserProfile extends UserRegisterDetails implements Serializable, Constraints.Validatable<ValidationError> {
+public class UserProfile extends UserDetails implements Serializable, Constraints.Validatable<ValidationError> {
 
     // TODO: 2017/08/18 Add support for sectino updates and passowrd changes (with old password as test)
 //    @Constraints.MinLength(8)
@@ -33,6 +39,7 @@ public class UserProfile extends UserRegisterDetails implements Serializable, Co
     }
 
     public UserProfile(String userId) {
+        super.setUserId(userId);
         get(userId);
     }
 
@@ -70,27 +77,64 @@ public class UserProfile extends UserRegisterDetails implements Serializable, Co
         return;
     }
 
-    public void save() {
-        // TODO: 2017/08/18 add support for passsword
+    public void save(AppTags.AppCookie.UserType userType) {
+
         String id = getUserId();
-        Customer c = Customer.find.byId(id);
-        if (c == null)
-            return;
-        c.setName(getName());
-        c.setSurname(getSurname());
-        c.setCellNumber(getCellNumber());
-        c.setPassword(getPassword());
+        switch (userType) {
+            case CUSTOMER:{
+                Customer c = Customer.find.byId(id);
+                if (c == null)
+                    return;
+                c.setName(getName());
+                c.setSurname(getSurname());
+                c.setCellNumber(getCellNumber());
 
-        Address a = c.getAddress();
-        if (a == null)
-            return;
-        a.setUnitNumber(getUnitNumber());
-        a.setStreetName(getStreetName());
-        a.setIsCommunity(isCommunity());
-        a.setCommunityName(getCommunityName());
+                if (!c.getPassword().equals(getPassword())){
+                    c.setPassword(getPassword());
+                    Mailer.SendPasswordChange(c.getName().concat(" ").concat(getSurname()), c.getEmail(), new Date().toString().replace(':', '-').replace(' ', '_'));
+                }
 
-        a.update();
-        c.update();
+                Address a = c.getAddress();
+                if (a == null)
+                    return;
+                a.setUnitNumber(getUnitNumber());
+                a.setStreetName(getStreetName());
+                a.setIsCommunity(isCommunity());
+                a.setCommunityName(getCommunityName());
+
+                a.update();
+                c.update();
+            }
+
+            case KITCHEN:
+            case DELIVERY:{
+                Staff staff = Staff.find.byId(id);
+                if (staff == null)
+                    return;
+
+                if (userType == AppTags.AppCookie.UserType.DELIVERY &&
+                        staff.isKitchenStaff())
+                    return;
+                staff.setName(getName());
+                staff.setSurname(getSurname());
+                staff.setCellNumber(getCellNumber());
+
+                if (!staff.getPassword().equals(getPassword())) {
+                    staff.setPassword(getPassword());
+                    Mailer.SendPasswordChange(getName().concat(" ").concat(getSurname()), staff.getEmail(), new Date().toString().replace(':', '-').replace(' ', '_'));
+                }
+
+                staff.save();
+            }
+
+            case ADMIN:{
+                Admin admin = Admin.find.byId(id);
+                if (admin == null)
+                    return;
+                admin.setPassword(getPassword());
+                admin.save();
+            }
+        }
     }
 
     public String getConfirmPassword() {

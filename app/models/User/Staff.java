@@ -70,6 +70,7 @@ public class Staff extends User {
 
     public void setAlias(String alias) {
         this.alias = alias;
+        save();
     }
 
 

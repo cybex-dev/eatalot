@@ -59,4 +59,9 @@ public class Admin extends Model {
     public String getAlias() {
         return alias;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+        save();
+    }
 }

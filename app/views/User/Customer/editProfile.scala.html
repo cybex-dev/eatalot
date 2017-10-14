@@ -1,9 +1,8 @@
 @import Global.Static.essentials
-@import models.User.UserProfile
 @import play.data.Form
 @import Global.Html5._
 @import helper.CSRF
-
+@import models.User.UserProfile
 @(userProfile: Form[UserProfile])
 
 @scriptsContent = {
@@ -32,6 +31,13 @@
             </div>
             <br/>
             <br/>
+            <div class="container input-container">
+                <h6>Change Password</h6>
+                @helper.inputText(userProfile("password"), '_name -> "Password")
+                @helper.inputText(userProfile("confirmPassword"), '_name -> "Confirm Password")
+            </div>
+            <br/>
+            <br/>
             <h2>Your Address</h2>
             <div class="container input-container">
                 @helper.inputText(userProfile("streetName"), '_name -> "Street")
@@ -46,6 +52,7 @@
             <div class="container input-container">
                 <input class="btn btn-default button-padding" type="button" href="@controllers.User.routes.CustomerController.index()" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
             </div>
+            <br/>
         }
     </div>
 }

@@ -1,14 +1,13 @@
-package models.User.Customer;
+package models.User;
 
-import models.User.Address;
-import models.User.Customer.Customer;
+import models.User.Customer.Address;
 import play.data.validation.Constraints.Required;
 
 import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserRegisterDetails {
+public class UserDetails {
     private String userId;
     @Required
     private String name;
@@ -26,10 +25,17 @@ public class UserRegisterDetails {
 
     private Boolean isCommunity = Boolean.FALSE;
 
-    public UserRegisterDetails() {
+    public UserDetails() {
     }
 
-    public UserRegisterDetails(String userId, String name, String surname, String mobile, String unitNumber, String streetName, String communityName, Boolean isCommunity) {
+    public UserDetails(String userId, String name, String surname, String mobile) {
+        this.userId = userId;
+        this.name = name;
+        this.surname = surname;
+        this.cellNumber = mobile;
+    }
+
+    public UserDetails(String userId, String name, String surname, String mobile, String unitNumber, String streetName, String communityName, Boolean isCommunity) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -108,13 +114,24 @@ public class UserRegisterDetails {
         return isCommunity;
     }
 
-    public static Map<String, String> buildMap(Customer customer, Address address) {
+    public static Map<String, String> buildMap(User user) {
         HashMap<String, String> map = new HashMap<>();
-        if (customer != null) {
-            map.put("userId", customer.getUserId());
-            map.put("name", customer.getName() != null ? customer.getName() : "");
-            map.put("surname", customer.getSurname() != null ? customer.getSurname() : "");
-            map.put("cellNumber", customer.getCellNumber() != null ? customer.getCellNumber() : "");
+        if (user != null) {
+            map.put("userId", user.getUserId());
+            map.put("name", user.getName() != null ? user.getName() : "");
+            map.put("surname", user.getSurname() != null ? user.getSurname() : "");
+            map.put("cellNumber", user.getCellNumber() != null ? user.getCellNumber() : "");
+        }
+        return map;
+    }
+
+    public static Map<String, String> buildMap(User user, Address address) {
+        HashMap<String, String> map = new HashMap<>();
+        if (user != null) {
+            map.put("userId", user.getUserId());
+            map.put("name", user.getName() != null ? user.getName() : "");
+            map.put("surname", user.getSurname() != null ? user.getSurname() : "");
+            map.put("cellNumber", user.getCellNumber() != null ? user.getCellNumber() : "");
             if (address != null) {
                 map.put("unitNumber", address.getUnitNumber() != null ? address.getUnitNumber() : "");
                 map.put("streetName", address.getStreetName() != null ? address.getStreetName() : "");

@@ -1,14 +1,11 @@
-package models.User;
+package models.User.Customer;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
-import scala.App;
 import utility.RandomString;
 
 import javax.persistence.*;
-import javax.validation.Constraint;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -31,7 +28,7 @@ public class Address extends Model {
     private String communityName = "";
     private Boolean isCommunity = Boolean.FALSE;
 
-    public Address(){
+    public Address() {
         generateId();
     }
 
@@ -82,17 +79,22 @@ public class Address extends Model {
         isCommunity = community;
     }
 
-    public boolean isComplete(){
-        return ((addressId != null) &&
-                streetName != null &&
-                !streetName.equals("") &&
-                unitNumber != null &&
-                !unitNumber.equals("") &&
-                ((!isCommunity) || (communityName != null && !communityName.equals(""))));
+    public boolean isComplete() {
+        refresh();
+        boolean b = getAddressId() != null,
+                b2 = getStreetName() != null && !getStreetName().isEmpty(),
+                b3 = getUnitNumber() != null && !getUnitNumber().isEmpty(),
+                b4 = isCommunity(),
+                b5 = getCommunityName() != null && !getCommunityName().isEmpty(),
+                b6 = (!b4) || b5;
+        return b && b2 && b3 && b6;
+
+
     }
 
     /**
      * Compares current address data to parameter address data. Ignores addressId comparison.
+     *
      * @param obj address to compare to
      * @return true if address data matches
      */

@@ -36,15 +36,9 @@ public class UserFinance extends Controller {
     @With(RequiresActive.class)
     @CustomersOnly
     public Result addFunds(){
-        if (!Session.checkExistingSession(session())){
-            Result result = renderDefaultPage();
-            Http.Flash flash = result.flash();
-            return result;
-        }
-        Form<UserFunds> userFundsForm = formFactory.form(UserFunds.class);
         HashMap<String, String> map = new HashMap<>();
-        map.put("userId", Session.User.Customer.extract(session(),Session.User.id.toString()));
-        userFundsForm.bind(map);
+        map.put("userId", session().get(AppCookie.user_id.toString()));
+        Form<UserFunds> userFundsForm = formFactory.form(UserFunds.class).bind(map);
         return ok(AddFunds.render(userFundsForm));
     }
 
@@ -60,9 +54,7 @@ public class UserFinance extends Controller {
         try {
             if (RedeemedVouchers.find.query().where().ilike("voucherId", userFunds.getVoucherCode()).findList().size() != 0){
                 flash().put(FlashCodes.warning.toString(), "Voucher has already been redeemed");
-                HashMap<String, String> map = new HashMap<>();
-                map.put("userId", Session.User.Customer.extract(session(),Session.User.id.toString()));
-                return badRequest(AddFunds.render(formFactory.form(UserFunds.class).bind(map)));
+                return badRequest(AddFunds.render(formFactory.form(UserFunds.class)));
             }
             RedeemedVouchers redeemedVoucher = new RedeemedVouchers(userFunds.getVoucherCode(), userFunds.getUserId(), new Date());
             redeemedVoucher.save();
@@ -74,12 +66,10 @@ public class UserFinance extends Controller {
                 Logger.warn("Exception: " + e.toString() + " UserFunds::validate\nCode : " + userFunds.getVoucherCode() + " has multiple occurances!");
             }
             flash().put(FlashCodes.success.toString(), Locale.Currency.ZAR.toString() + String.valueOf(voucher.getValue()) + " has been added to your account");
-            HashMap<String, String> map = new HashMap<>();
-            map.put("userId", Session.User.Customer.extract(session(),Session.User.id.toString()));
-            Customer c = Customer.find.byId(AppCookie.extract(request(), AppCookie.user_id));
+            Customer c = Customer.find.byId(session().get(AppCookie.user_id.toString()));
             c.addFunds(voucher.getValue());
             c.save();
-            return ok(AddFunds.render(formFactory.form(UserFunds.class).bind(map)));
+            return ok(AddFunds.render(formFactory.form(UserFunds.class)));
         }
         catch (Exception x){
             flash().put(FlashCodes.warning.toString(), "An error occured, please try again!");

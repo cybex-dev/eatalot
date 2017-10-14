@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Fri Oct 13 07:57:43 SAST 2017
+// @DATE:Sat Oct 14 13:03:12 SAST 2017
 
 
 package router {

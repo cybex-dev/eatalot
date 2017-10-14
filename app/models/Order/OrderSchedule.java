@@ -5,6 +5,7 @@ import io.ebean.Finder;
 import io.ebean.Model;
 import io.ebean.Transaction;
 import models.Finance.Payment;
+import models.User.Customer.Customer;
 import models.ordering.CustomerOrder;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
@@ -35,24 +36,19 @@ public class OrderSchedule extends Model {
     @Constraints.Required
     private String orderSchedId;
     @Constraints.Required
-    private String userId;
-    @Constraints.Required
     private String title;
-    //    @Constraints.Required
-//    @Formats.DateTime(pattern="dd/MM/yyyy")
-//    private Date date;
+
     private Boolean isActive = false;
 
     public static Finder<String, OrderSchedule> find = new Finder<>(OrderSchedule.class);
 
-    public OrderSchedule(@Constraints.Required String userId, @Constraints.Required String title, boolean isActive) {
-        this.userId = userId;
+    public OrderSchedule(@Constraints.Required String title, boolean isActive) {
         this.title = title;
         this.isActive = isActive;
     }
 
     public static OrderSchedule getOrderScheduleByUserId(String userId) {
-        return find.all().stream().filter(orderSchedule -> orderSchedule.getUserId().equals(userId)).findFirst().orElse(null);
+        return Customer.find.byId(userId).getOrderSchedule();
     }
 
     public boolean clearSchedule() {
@@ -82,14 +78,6 @@ public class OrderSchedule extends Model {
 
     public void setOrderSchedId(String orderSchedId) {
         this.orderSchedId = orderSchedId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getTitle() {

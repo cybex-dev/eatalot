@@ -1,11 +1,15 @@
 package controllers.User;
 
-import annotations.Requires;
 import annotations.Routing.AdminOnly;
 import annotations.SessionVerifier.LoadOrRedirect;
 import controllers.Application.AppTags;
+import models.User.Admin.Admin;
 import models.User.Admin.AdminInfo;
+import models.User.UserProfile;
+import models.User.UserDetails;
 import play.api.mvc.Call;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -15,17 +19,19 @@ import annotations.SessionVerifier.*;
 import views.html.User.Admin.manageDiscounts;
 import views.html.User.Admin.manageMeals;
 import views.html.User.Admin.manageUsers;
+import views.html.User.Admin.editAdminProfile;
 
-import static java.lang.annotation.ElementType.*;
+import javax.inject.Inject;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 public class AdminController extends Controller {
+
+    @Inject
+    FormFactory formFactory;
 
     @With(LoadOrRedirect.class)
     @AdminOnly
@@ -60,5 +66,35 @@ public class AdminController extends Controller {
     @AdminOnly
     public Result manageDiscounts(){
         return ok(manageDiscounts.render());
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result edit(){
+        Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class);
+        return ok(editAdminProfile.render(userDetailsForm));
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public CompletionStage<Result> doEdit(){
+        Admin admin = Admin.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
+        if (admin != null){
+            flash().put(AppTags.FlashCodes.danger.toString(), "An error occurred, changes not saved");
+            return CompletableFuture.completedFuture(redirect(controllers.User.routes.KitchenStaffController.index()));
+        }
+        Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bindFromRequest();
+        if (userDetailsForm.hasErrors()){
+            flash().put(AppTags.FlashCodes.warning.toString(), "Missing or incorrect fields");
+            return CompletableFuture.completedFuture(badRequest(editAdminProfile.render(userDetailsForm)));
+        }
+        UserProfile userDetails = userDetailsForm.get();
+        if (!userDetails.getPassword().equals(userDetails.getConfirmPassword())) {
+            flash(AppTags.FlashCodes.warning.toString(), "Please check passwords match and are valid");
+            return CompletableFuture.completedFuture(badRequest(editAdminProfile.render(userDetailsForm)));
+        }
+        userDetails.save(AppTags.AppCookie.UserType.ADMIN);
+        flash(AppTags.FlashCodes.success.toString(), "Admin profile updated!");
+        return CompletableFuture.completedFuture(redirect(controllers.User.routes.AdminController.index()));
     }
 }

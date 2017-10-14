@@ -12,11 +12,9 @@ import models.Finance.PaymentItemBasic;
 import models.Order.ActiveOrder;
 import models.Order.MealOrderItem;
 import models.Order.OrderItemBasic;
-import models.User.*;
-import models.User.Customer.Customer;
-import models.User.Customer.CustomerInfo;
-import models.User.Customer.UserRegisterDetails;
-import models.User.Customer.UserRegisterInfo;
+import models.User.Customer.*;
+import models.User.UserDetails;
+import models.User.UserProfile;
 import models.ordering.CustomerOrder;
 import models.ordering.Meal;
 import models.ordering.MealOrder;
@@ -50,13 +48,13 @@ public class CustomerController extends Controller implements CRUD {
     @Inject
     FormFactory formFactory;
     @Inject
-    play.Environment environment;
-    @Inject
-    MailerClient mailerClient;
-    @Inject
     HttpExecutionContext httpExecutionContext;
     @Inject
     Configuration configuration;
+    @Inject
+    MailerClient mailerClient;
+    @Inject
+    play.Environment environment;
 
     @Inject
     public CustomerController(HttpExecutionContext ec) {
@@ -181,7 +179,7 @@ public class CustomerController extends Controller implements CRUD {
     private CompletionStage<Integer> sendVerificationEmail(String userEmail, String csrfToken) {
         Integer result = 0;
         try {
-            if (!generateVerificationEmail(userEmail, csrfToken)) {
+            if (!Mailer.SendVerificationEmail(userEmail, csrfToken)) {
                 Logger.debug("Unable to send verification email to user : " + userEmail + "\nEmail EXCEPTION: generateVerificationEmail returned false!");
                 session().clear();
                 result = 1;
@@ -202,7 +200,7 @@ public class CustomerController extends Controller implements CRUD {
     @CustomersOnly
     public CompletionStage<Result> edit() {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class);
-        UserProfile profile = new UserProfile(AppCookie.extract(request(), AppCookie.user_id));
+        UserProfile profile = new UserProfile(session().get(AppCookie.user_id.toString()));
         formUserProfile = formUserProfile.fill(profile);
         return CompletableFuture.completedFuture(ok(editProfile.render(formUserProfile)));
     }
@@ -224,7 +222,7 @@ public class CustomerController extends Controller implements CRUD {
             return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
         }
         userProfile.setUserId(session(Session.User.id.toString()));
-        userProfile.save();
+        userProfile.save(AppCookie.UserType.CUSTOMER);
         flash(FlashCodes.success.toString(), "Profile has been updated!");
         return CompletableFuture.completedFuture(redirect(routes.CustomerController.index()));
     }
@@ -248,7 +246,8 @@ public class CustomerController extends Controller implements CRUD {
      */
     // TODO: 2017/07/18 Dev
     public Result verifyCustomer(String token) {
-        List<Customer> userList = Customer.find.query().where().eq("token", token).findList();
+        List<Customer> userList = Customer.find
+                .query().where().eq("token", token).findList();
         if (userList.size() == 0 ||
                 userList.size() > 1)
             return badRequest(invalid.render("Invalid verification URL, please login to have a new verification link set"));
@@ -278,7 +277,7 @@ public class CustomerController extends Controller implements CRUD {
         List<Customer> list = Customer.find.query().where().eq("email", userEmail.toLowerCase()).findList();
         if (list.size() == 1) {
             try {
-                if (generateVerificationEmail(userEmail, CRSFToken)) {
+                if (Mailer.SendVerificationEmail(userEmail, CRSFToken)) {
                     flash(FlashCodes.success.toString(), "Verification email has been sent");
 //                    flash(User.ENABLETIME.toString(), "  5");
                     return ok(verify.render());
@@ -297,23 +296,6 @@ public class CustomerController extends Controller implements CRUD {
 
     }
 
-    /**
-     * Sends email to customer's email address. The token used for the session is saved to the database, and this token is matched against the email sent. If the token matches (as a field of the URL) then the email is authenticated.
-     */
-    private boolean generateVerificationEmail(String email, String token) {
-
-        // TODO: 2017/09/19 get hostname and port running on, add this to a file, which is used to create an email
-//        String verificationUrl = General.SITEURL_TEST.toString() + "User/Verify/" + token;
-        String verificationUrl = "http://localhost  :8080/User/Verify/" + token;
-        try {
-            Mailer mailer = new Mailer(mailerClient);
-            mailer.sendVerification(email, verificationUrl, environment.getFile("public/images/logo.png"));
-            return true;
-        } catch (Exception x) {
-            Logger.warn("UserController: generateVerificationEmail:\nException sending verification email\n\n" + x.toString());
-            return false;
-        }
-    }
 
     /**
      * Returns the register request filling in information the user entered, with an appropriate error message
@@ -343,8 +325,10 @@ public class CustomerController extends Controller implements CRUD {
             flash().put(FlashCodes.info.toString(), "Your account is already verified");
             return redirect(controllers.User.routes.CustomerController.index());
         }
-        String uId = AppCookie.extract(request(), AppCookie.user_id);
+
+        String uId = session().get(AppCookie.user_id.toString());
         if (uId == null)
+            //todo problem here
             return redirect(controllers.User.routes.UserController.login());
         Customer customer = Customer.find.byId(uId);
         if (customer == null) {
@@ -352,7 +336,7 @@ public class CustomerController extends Controller implements CRUD {
             return redirect(controllers.User.routes.UserController.login());
         }
         Address address = customer.getAddress();
-        Form<UserRegisterDetails> registerCompleteForm = formFactory.form(UserRegisterDetails.class).bind(UserRegisterDetails.buildMap(customer, address));
+        Form<UserProfile> registerCompleteForm = formFactory.form(UserProfile.class).bind(UserProfile.buildMap(customer, address));
         return ok(views.html.User.Customer.registerDetails.render(registerCompleteForm));
     }
 
@@ -369,7 +353,7 @@ public class CustomerController extends Controller implements CRUD {
         if (session().get(AppCookie.new_user.toString()) == null)
             return redirect(controllers.User.routes.UserController.login());
 
-        Form<UserRegisterDetails> registerForm = formFactory.form(UserRegisterDetails.class).bindFromRequest();
+        Form<UserProfile> registerForm = formFactory.form(UserProfile.class).bindFromRequest();
         String cookieToken = session().get(AppCookie.user_token.toString());
 
         String uId = session().get(AppCookie.user_id.toString());
@@ -398,31 +382,35 @@ public class CustomerController extends Controller implements CRUD {
         }
         // TODO: 2017/09/19 solve issue of 'login time' token not being saved as cookie
 
-        UserRegisterDetails userRegisterDetails = registerForm.get();
+        UserDetails userDetails = registerForm.get();
 
         // set address
-        Address address = new Address();
-        if (userRegisterDetails.getIsCommunity()) {
-            address.setIsCommunity(true);
-            address.setCommunityName(userRegisterDetails.getCommunityName());
-        }
-        address.setStreetName(userRegisterDetails.getStreetName());
-        address.setUnitNumber(userRegisterDetails.getUnitNumber());
-        address.save();
+        Address address = c.getAddress();
+        address.setIsCommunity(userDetails.getIsCommunity());
+        address.setCommunityName(userDetails.getCommunityName());
+        address.setStreetName(userDetails.getStreetName());
+        address.setUnitNumber(userDetails.getUnitNumber());
+        address.update();
 
         //set customer
-        c.setAddress(address);
-        c.setCellNumber(userRegisterDetails.getCellNumber());
-        c.setName(userRegisterDetails.getName());
-        c.setSurname(userRegisterDetails.getSurname());
-        c.save();
+        c.setCellNumber(userDetails.getCellNumber());
+        c.setName(userDetails.getName());
+        c.setSurname(userDetails.getSurname());
+        c.update();
+
+        c.refresh();
+
+        Mailer.SendWelcome(c.getName(), c.getEmail());
 
         if (c.completeCheck())
             c.setComplete(true);
         else {
             if (!c.isVerified()) {
-                generateVerificationEmail(c.getEmail(), c.getToken());
-                flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+                if (Mailer.SendVerificationEmail(c.getEmail(), c.getToken())) {
+                    flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+                } else {
+                    flash().put(FlashCodes.warning.toString(), "Unable to send verification email");
+                }
             } else {
                 flash().put(FlashCodes.info.toString(), "You profile is incomplete, please correct this before placing an order");
             }
@@ -454,7 +442,7 @@ public class CustomerController extends Controller implements CRUD {
     @CustomersOnly
     private CompletableFuture<List<OrderItemBasic>> getOrders() {
         //find all orders of user
-        //match all info of each order
+        //match all info of each orderz
         //add to list
         List<OrderItemBasic> paymentList = new ArrayList<>();
         return CompletableFuture.completedFuture(paymentList);

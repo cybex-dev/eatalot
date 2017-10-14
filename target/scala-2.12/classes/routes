@@ -78,6 +78,9 @@ GET         /Kitchen/Order                          controllers.User.KitchenStaf
 GET         /Kitchen/Orders/Active                  controllers.User.KitchenStaffController.viewActiveOrders()
 GET         /Kitchen/Orders/Completed               controllers.User.KitchenStaffController.viewCompletedOrders()
 GET         /Kitchen/Orders/Queued                  controllers.User.KitchenStaffController.viewQueuedOrders()
+GET         /Kitchen/User/Edit                      controllers.User.KitchenStaffController.edit()
+
+POST        /Kitchen/User/Edit                      controllers.User.KitchenStaffController.doEdit()
 
 ##############################################################################
 
@@ -92,6 +95,9 @@ GET         /Delivery/Order/Checkout                controllers.User.DeliverySta
 GET         /Delivery/Orders/Completed              controllers.User.DeliveryStaffController.viewCompletedDeliveries()
 GET         /Delivery/Orders/Active                 controllers.User.DeliveryStaffController.viewActiveDeliveries()
 GET         /Delivery/Orders/Waiting                controllers.User.DeliveryStaffController.viewWaitingDeliveries()
+GET         /Delivery/User/Edit                     controllers.User.DeliveryStaffController.edit()
+
+POST        /Delivery/User/Edit                     controllers.User.DeliveryStaffController.doEdit()
 
 
 ##############################################################################
@@ -104,6 +110,9 @@ GET         /Admin/Dashboard                         controllers.User.AdminContr
 GET         /Admin/Manage/Meals                      controllers.User.AdminController.manageMeals()
 GET         /Admin/Manage/Users                      controllers.User.AdminController.manageUsers()
 GET         /Admin/Manage/Discounts                  controllers.User.AdminController.manageDiscounts()
+GET         /Admin/Edit                              controllers.User.AdminController.edit()
+
+POST        /Admin/Edit                              controllers.User.AdminController.doEdit()
 
 ##############################################################################
 

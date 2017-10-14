@@ -82,16 +82,16 @@ public class CustomerInfo extends UserInfo {
     }
 
     public static CustomerInfo GetCustomerInfo(String userId){
-        OrderSchedule orderSchedule = OrderSchedule.find.query().where().ilike("userId", userId).findOne();
+        Customer customer = Customer.find.byId(userId);
+        if (customer == null)
+            return null;
+        OrderSchedule orderSchedule = customer.getOrderSchedule();
         boolean isActive = false;
         int count = 0;
         if (orderSchedule != null){
             isActive = orderSchedule.isActive();
             count = OrderScheduleItem.find.query().where().ilike("orderSchedId", orderSchedule.getOrderSchedId()).findCount();
         }
-        Customer customer = Customer.find.byId(userId);
-        if (customer == null)
-            return null;
         return new CustomerInfo(customer.getUserId(), customer.getName(), customer.getSurname(), customer.getEmail(), customer.isComplete(), customer.isStudent(), customer.getBalance(), count, isActive);
     }
 }

@@ -61,7 +61,7 @@ Seq[Any](format.raw/*4.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Oct 12 15:36:13 SAST 2017
+                  DATE: Sat Oct 14 13:03:13 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/footer_wrapper.scala.html
                   HASH: d4193a38f1f6bc4ccf2be8a6bcafc75ceeaf4d62
                   MATRIX: 665->1|699->29|1032->58|1112->63|1133->76|1213->80|1244->85|1452->60|1481->255|1510->258|1524->264|1570->289

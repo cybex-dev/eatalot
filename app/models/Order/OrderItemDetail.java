@@ -2,14 +2,10 @@ package models.Order;
 
 import models.Finance.Payment;
 import models.User.Staff;
-import models.User.StaffOrderInteraction;
-import models.ordering.Meal;
-import models.ordering.MealOrder;
-import utility.DateInterpreterStatic;
+import models.User.KitchenStaff.StaffOrderInteraction;
 
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class OrderItemDetail {
     public String orderId;

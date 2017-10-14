@@ -7,6 +7,7 @@ import controllers.Application.AppTags.Routes;
 import controllers.Order.routes;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
+import models.User.Customer.Customer;
 import play.api.Play;
 import play.data.Form;
 import play.data.FormFactory;
@@ -97,19 +98,11 @@ public class ScheduleController extends Controller {
     @CustomersOnly
     public CompletionStage<Result> doCreateSchedule() {
         Form<OrderSchedule> orderScheduleForm = formFactory.form(OrderSchedule.class);
-        if (orderScheduleForm.hasGlobalErrors()) {
+        if (orderScheduleForm.hasErrors()) {
             flash().put(AppTags.FlashCodes.warning.toString(), "Invalid schedule name");
             return CompletableFuture.completedFuture(badRequest(create.render(orderScheduleForm)));
         }
-
         OrderSchedule orderSchedule = orderScheduleForm.get();
-        String userId = session().get(AppTags.AppCookie.user_id.toString());
-        if (!orderSchedule.getUserId().equals(userId)){
-            session().clear();
-            response().cookies().clear();
-            flash().put(AppTags.FlashCodes.warning.toString(), "Invalid session, please login again");
-            return CompletableFuture.completedFuture(redirect(controllers.User.routes.UserController.login()));
-        }
         orderSchedule.save();
         return CompletableFuture.completedFuture(redirect(controllers.Order.routes.ScheduleController.index()));
     }

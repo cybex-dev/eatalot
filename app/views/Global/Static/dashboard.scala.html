@@ -5,16 +5,18 @@
 @(dashButtons: List[DashboardButton], bodyContent: Html)
 
 @generateDashButton(dashboardButton: DashboardButton, index: Integer) = {
-        <a href="@dashboardButton.link">
-            <div class="col-md-3 col-sm-3 col-xs-6" id="dashButton@index">
+    @helper.form(dashboardButton.link) {
+        @CSRF.formField
+        <a><div class="col-md-3 col-sm-3 col-xs-6" id="dashButton@index">
                 <div class="alert @dashboardButton.cssClassButtonColour back-widget-set text-center">
                     <i class="fa @dashboardButton.cssClassMainImage fa-5x"></i>
                     <h3>@dashboardButton.largeText
                         <i class="fa @dashboardButton.cssClassSecondaryImage"></i></h3>
-                @dashboardButton.smallText
+                    @dashboardButton.smallText
                 </div>
             </div>
         </a>
+    }
 }
 
 @bodyContent = {

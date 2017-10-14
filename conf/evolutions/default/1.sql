@@ -28,12 +28,12 @@ create table customer (
   email                         varchar(255),
   cell_number                   varchar(255),
   token                         varchar(255),
-  address_address_id            varchar(255),
-  order_schedule_order_sched_id varchar(255),
   is_student                    tinyint(1) default 0,
   email_verified                tinyint(1) default 0,
   is_complete                   tinyint(1) default 0 not null,
   balance                       double,
+  address_address_id            varchar(255),
+  order_schedule_order_sched_id varchar(255),
   constraint uq_customer_address_address_id unique (address_address_id),
   constraint uq_customer_order_schedule_order_sched_id unique (order_schedule_order_sched_id),
   constraint pk_customer primary key (user_id)
@@ -77,7 +77,6 @@ create table meal_order (
 
 create table order_schedule (
   order_sched_id                varchar(255) not null,
-  user_id                       varchar(255),
   title                         varchar(255),
   is_active                     tinyint(1) default 0,
   constraint pk_order_schedule primary key (order_sched_id)

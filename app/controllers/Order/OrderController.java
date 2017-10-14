@@ -21,10 +21,19 @@ public class OrderController extends Controller implements StatusId {
 
 
     public Result getSubmitPage(){
+        //TODO: Uncomment once Customer is integrated
+//        return ok(master.render("Finalise Cart",
+//                submitCart.render(
+//                        CustomerOrder.findOrderById(session("orderId")),
+//                        Customer.findCustomerByEmail(session("email")))));
+        Customer customer = new Customer();
+        customer.setStudent(true);
+
         return ok(master.render("Finalise Cart",
                 submitCart.render(
                         CustomerOrder.findOrderById(session("orderId")),
-                        Customer.findCustomerByEmail(session("email")))));
+                        customer)));
+
     }
 
     public Result getHistoryPage() {
@@ -148,6 +157,12 @@ public class OrderController extends Controller implements StatusId {
             return redirect(controllers.Order.routes.AccountController.getSignUp());
     }
 
+    /**
+     * Submits the current cart for processing
+     * Changes order status from "unsubmitted" to "pending"
+     * Updates payment entry with discount if customer is student
+     * @return
+     */
     // TODO: Integrate Customer to subtract balance from order amount.
     public Result submitCart(){
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
@@ -155,6 +170,12 @@ public class OrderController extends Controller implements StatusId {
         Customer customer = Customer.findCustomerByEmail(session("email"));
 
         order.setStatusId(PENDING).update();
+
+        // ===== UNCOMMENT ONCE CUSTOMER IS INTEGRATED =====
+//        if(customer.isStudent()){
+//            payment.setAmount(payment.getAmount() - 0.15);
+//            payment.update();
+//        }
 
         String[] result = request().body().asFormUrlEncoded().get("payment");
         switch(result[0].toLowerCase()){

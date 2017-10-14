@@ -31,7 +31,7 @@ public class Payment extends Model {
     @Constraints.Required
     private String time;
 //    private Date time;
-    
+
     @Constraints.Required
     private Double amount;
     private Boolean isCash;

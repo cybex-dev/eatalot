@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
-// @DATE:Sat Oct 07 12:59:41 SAST 2017
+// @DATE:Sat Oct 14 09:33:00 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,7 +20,7 @@ package controllers.Order.javascript {
     }
 
   
-    // @LINE:133
+    // @LINE:135
     def getOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getOrderPage",
       """
@@ -30,7 +30,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:135
+    // @LINE:137
     def getPendingOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getPendingOrderPage",
       """
@@ -40,7 +40,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:121
+    // @LINE:123
     def getIngredientPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getIngredientPage",
       """
@@ -50,7 +50,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:127
+    // @LINE:129
     def getNewIngredientPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getNewIngredientPage",
       """
@@ -60,7 +60,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:129
+    // @LINE:131
     def addIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.addIngredient",
       """
@@ -70,7 +70,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:141
+    // @LINE:143
     def updateOrderStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.updateOrderStatus",
       """
@@ -80,7 +80,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:117
+    // @LINE:119
     def home: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.home",
       """
@@ -90,7 +90,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:139
+    // @LINE:141
     def getMealOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getMealOrderPage",
       """
@@ -100,7 +100,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:137
+    // @LINE:139
     def getProcessingOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getProcessingOrderPage",
       """
@@ -110,7 +110,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:125
+    // @LINE:127
     def editIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.editIngredient",
       """
@@ -130,7 +130,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:123
+    // @LINE:125
     def getIngredientOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.KitchenController.getIngredientOrderPage",
       """
@@ -170,12 +170,12 @@ package controllers.Order.javascript {
     }
 
   
-    // @LINE:109
+    // @LINE:111
     def submitCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.submitCart",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "submit"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "cart/submitcart"})
         }
       """
     )
@@ -190,12 +190,22 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:113
+    // @LINE:115
     def getViewOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getViewOrder",
       """
         function(orderId0) {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "history/order" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
+        }
+      """
+    )
+  
+    // @LINE:109
+    def getSubmitPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.OrderController.getSubmitPage",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cart/submit"})
         }
       """
     )
@@ -210,7 +220,7 @@ package controllers.Order.javascript {
       """
     )
   
-    // @LINE:111
+    // @LINE:113
     def getHistoryPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getHistoryPage",
       """

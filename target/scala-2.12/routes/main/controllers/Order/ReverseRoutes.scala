@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
-// @DATE:Sat Oct 07 12:59:41 SAST 2017
+// @DATE:Sat Oct 14 09:33:00 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,61 +19,61 @@ package controllers.Order {
     }
 
   
-    // @LINE:133
+    // @LINE:135
     def getOrderPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/customerorders")
     }
   
-    // @LINE:135
+    // @LINE:137
     def getPendingOrderPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/pendingorders")
     }
   
-    // @LINE:121
+    // @LINE:123
     def getIngredientPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/ingredients")
     }
   
-    // @LINE:127
+    // @LINE:129
     def getNewIngredientPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/ingredient/ordernew")
     }
   
-    // @LINE:129
+    // @LINE:131
     def addIngredient(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/ingredient/add")
     }
   
-    // @LINE:141
+    // @LINE:143
     def updateOrderStatus(orderId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/customerorders/mealorder/update" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("orderId", orderId)))))
     }
   
-    // @LINE:117
+    // @LINE:119
     def home(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen")
     }
   
-    // @LINE:139
+    // @LINE:141
     def getMealOrderPage(orderId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/customerorders/mealorder" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("orderId", orderId)))))
     }
   
-    // @LINE:137
+    // @LINE:139
     def getProcessingOrderPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/processingorders")
     }
   
-    // @LINE:125
+    // @LINE:127
     def editIngredient(id:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/ingredient/order/op" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
@@ -85,7 +85,7 @@ package controllers.Order {
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/User")
     }
   
-    // @LINE:123
+    // @LINE:125
     def getIngredientOrderPage(id:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/ingredients/order" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
@@ -115,10 +115,10 @@ package controllers.Order {
     }
 
   
-    // @LINE:109
+    // @LINE:111
     def submitCart(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "submit")
+      Call("POST", _prefix + { _defaultPrefix } + "cart/submitcart")
     }
   
     // @LINE:89
@@ -127,10 +127,16 @@ package controllers.Order {
       Call("GET", _prefix + { _defaultPrefix } + "menu")
     }
   
-    // @LINE:113
+    // @LINE:115
     def getViewOrder(orderId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "history/order" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("orderId", orderId)))))
+    }
+  
+    // @LINE:109
+    def getSubmitPage(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "cart/submit")
     }
   
     // @LINE:107
@@ -139,7 +145,7 @@ package controllers.Order {
       Call("POST", _prefix + { _defaultPrefix } + "cart/removemeal" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("mealId", mealId)))))
     }
   
-    // @LINE:111
+    // @LINE:113
     def getHistoryPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "history")

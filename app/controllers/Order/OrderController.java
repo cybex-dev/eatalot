@@ -1,10 +1,12 @@
 package controllers.Order;
 
+import models.Finance.Payment;
 import models.Order.*;
+import models.User.Customer;
 import play.mvc.Controller;
 import play.mvc.Result;
+import utility.StatusId;
 import views.html.Ordering.*;
-import views.html.Kitchen.*;
 import views.html.Global.Temp.*;
 
 import java.util.ArrayList;
@@ -13,8 +15,15 @@ import java.util.ArrayList;
  * Created by dylan on 2017/07/18.
  * Manages orders
  */
-public class OrderController extends Controller{
+public class OrderController extends Controller implements StatusId {
 
+
+    public Result getSubmitPage(){
+        return ok(master.render("Finalise Cart",
+                submitOrder.render(
+                        CustomerOrder.findOrderById(session("orderId")),
+                        Customer.findCustomerByEmail(session("email")))));
+    }
 
     public Result getHistoryPage() {
         return ok(master.render("Order History",
@@ -52,24 +61,20 @@ public class OrderController extends Controller{
     //TODO: (QoL) redirect to switchMenu instead of getMenu with meal type to keep user on same menu
     public Result addMealToOrder(String mealId){
         if(AccountController.isCustomer()) {
+            CustomerOrder order;
             if(session("orderId") == null){
-                CustomerOrder newOrder = new CustomerOrder();
-                newOrder.setUserId(session("email"));
-                newOrder.setStatusId("unsubmitted");
-                newOrder.save();
-                session("orderId", String.valueOf(newOrder.getOrderId()));
+                order = new CustomerOrder();
+                order.setUserId(session("email"));
+                order.setStatusId(UNSUBMITTED);
+                order.save();
+                session("orderId", String.valueOf(order.getOrderId()));
                 createMealOrder(mealId);
             }
             else{
-                if(CustomerOrder.findOrderById(session("orderId")) == null){
-                    CustomerOrder newOrder = new CustomerOrder();
-                    newOrder.setUserId(session("email"));
-                    newOrder.setStatusId("unsubmitted");
-                    newOrder.save();
-                    session("orderId", String.valueOf(newOrder.getOrderId()));
-                }
+                order = CustomerOrder.findOrderById(session("orderId"));
                 createMealOrder(mealId);
             }
+            order.updateCost();
             return redirect(controllers.Order.routes.OrderController.getMenu());
         } else
             return redirect(controllers.Order.routes.AccountController.getSignUp());
@@ -135,9 +140,24 @@ public class OrderController extends Controller{
     }
 
     public Result submitCart(){
-        CustomerOrder.findOrderById(session("orderId"))
-                .setStatusId("pending")
-                .save();
+        CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
+        Payment payment = order.getPaymentObject();
+        Customer customer = Customer.findCustomerByEmail(session("email"));
+
+        order.setStatusId(PENDING).update();
+
+        String[] result = request().body().asFormUrlEncoded().get("action");
+        switch(result[0].toLowerCase()){
+            case "cash":
+                payment.setCash(true);
+                break;
+            case "credit":
+                payment.setCash(false);
+                customer.pay(payment.getAmount());
+                customer.update();
+                break;
+        }
+        payment.update();
         session("orderId", null);
         return redirect(controllers.Order.routes.OrderController.getMenu());
     }

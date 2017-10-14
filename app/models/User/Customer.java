@@ -31,6 +31,16 @@ public class Customer extends User {
 
     public static final Finder<Long, Customer> find = new Finder<Long, Customer>(Customer.class);
 
+    /**
+     * ===== NEW =====
+     * Need a way to find a customer object.
+     * @param email of customer to be found
+     * @return customer
+     */
+    public static Customer findCustomerByEmail(String email){
+        return find.query().where().eq("email", email).findOne();
+    }
+
     public void setToken(String token) {
         this.token = token;
         save();
@@ -125,8 +135,12 @@ public class Customer extends User {
         balance -= value;
     }
 
-    public String  getBalance(){
+    public String getBalance(){
         return (balance == null) ? "0.00" : String.valueOf(balance);
+    }
+
+    public Double getBalanceNumeric(){
+        return balance;
     }
 
     public UserInfo getUserInfo(){

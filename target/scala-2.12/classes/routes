@@ -106,7 +106,9 @@ GET     /cart                   controllers.Order.OrderController.getCart()
 
 POST    /cart/removemeal        controllers.Order.OrderController.removeMealFromOrder(mealId: String)
 
-GET     /submit                 controllers.Order.OrderController.submitCart()
+GET     /cart/submit            controllers.Order.OrderController.getSubmitPage()
+
+POST    /cart/submitcart        controllers.Order.OrderController.submitCart()
 
 GET     /history                controllers.Order.OrderController.getHistoryPage()
 

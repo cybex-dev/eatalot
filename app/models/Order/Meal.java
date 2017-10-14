@@ -3,6 +3,7 @@ package models.Order;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.MealType;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import java.util.List;
  * Created by dylan on 2017/07/18.
  */
 @Entity
-public class Meal extends Model implements MealType{
+public class Meal extends Model implements MealType {
     @Id
     private String mealId;
     private String recipeId;

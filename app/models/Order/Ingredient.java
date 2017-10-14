@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by dylan on 2017/07/19.
@@ -55,7 +56,8 @@ public class Ingredient extends Model implements Constraints.Validatable<Validat
 
     @Override
     public void insert() {
-        ingredientId = String.valueOf(description.hashCode());
+        String hash = description + ThreadLocalRandom.current().nextInt(100, 1000);
+        ingredientId = String.valueOf(hash.hashCode());
         super.insert();
     }
 

@@ -2,35 +2,57 @@ package models.Order;
 
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebeaninternal.server.type.ScalarTypeJsonMap;
+import models.Finance.Payment;
 import play.data.validation.Constraints;
 import utility.Pair;
+import utility.StatusId;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by dylan on 2017/07/18.
  */
 @Entity
-public class CustomerOrder extends Model {
+public class CustomerOrder extends Model implements StatusId {
     @Id
     @Constraints.MinLength(10)
     @Constraints.MaxLength(10)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderId;
 
-    private String statusId = "unsubmitted";
+    private String statusId = UNSUBMITTED;
     private String userId;
     private String paymentId;
 //    private String mealOrderId; // Not needed
 
 
+    public CustomerOrder() {
+        setOrderId();
+        createPayment();
+    }
+
+    private void createPayment(){
+        Payment payment = new Payment(orderId);
+        paymentId = payment.getPaymentId();
+        payment.save();
+    }
+
+    public Payment getPaymentObject(){
+        return Payment.findPaymentById(paymentId);
+    }
+
+    public void updateCost(){
+        List<MealOrder> mealOrders = MealOrder.findMealOrderByOrderId(orderId);
+        final double[] total = {0};
+        mealOrders.stream().forEach(mealOrder -> total[0] += Meal.findMealByMealId(mealOrder.getMealId()).getCost() * mealOrder.getOrderQty());
+        Payment.findPaymentById(paymentId).setAmount(total[0]).update();
+    }
 
     private static Finder<Long, CustomerOrder> find = new Finder<Long, CustomerOrder>(CustomerOrder.class);
 
@@ -56,6 +78,15 @@ public class CustomerOrder extends Model {
                 .not()
                 .eq("statusId", "unsubmitted")
                 .findList();
+    }
+
+    @Override
+    public void insert() {
+        super.insert();
+    }
+
+    private void setOrderId() {
+        orderId = String.valueOf((statusId + ThreadLocalRandom.current().nextInt(100, 1000) + userId + ThreadLocalRandom.current().nextInt(100, 1000)).hashCode());
     }
 
     /**
@@ -115,6 +146,26 @@ public class CustomerOrder extends Model {
 
     public CustomerOrder setStatusId(String statusId) {
         this.statusId = statusId;
+        return this;
+    }
+
+    public CustomerOrder setPending(){
+        statusId = PENDING;
+        return this;
+    }
+
+    public CustomerOrder setProcessing(){
+        statusId = PROCESSING;
+        return this;
+    }
+
+    public CustomerOrder setDelivering(){
+        statusId = DELIVERING;
+        return this;
+    }
+
+    public CustomerOrder setCancelle(){
+        statusId = CANCELLED;
         return this;
     }
 

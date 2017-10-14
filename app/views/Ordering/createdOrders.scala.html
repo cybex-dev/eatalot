@@ -1,0 +1,23 @@
+@import models.Order.CustomerOrder
+@import java.util.List
+@import helper._
+@(list: List[CustomerOrder])
+
+<html>
+    <table>
+        <tr>
+            <td>Order Id</td>
+            <td>Status</td>
+        </tr>
+        @for(x <- 0 until list.size()){
+            @form(CSRF(controllers.Order.routes.OrderController.getViewOrder(list.get(x).getOrderId().toString))) {
+                <tr>
+                    <td>@list.get(x).getOrderId</td>
+                    <td>@list.get(x).getStatusId</td>
+                    <td><button type="submit">View</button></td>
+                </tr>
+
+            }
+        }
+    </table>
+</html>

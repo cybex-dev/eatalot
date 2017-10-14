@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3072a07-8a1e-40ae-aa07-6a136aac7503" name="Default" comment="Commit 6 &#10;&#10;Added discount to orders for customers that are students.&#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add validation for time and date orders - times before the current can be chosen by the user.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Finance/Payment.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Finance/Payment.class" />
+    <list default="true" id="b3072a07-8a1e-40ae-aa07-6a136aac7503" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/OrderController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Finance/Payment.java" afterPath="$PROJECT_DIR$/app/models/Finance/Payment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" />
     </list>
     <ignored path="$PROJECT_DIR$/target/resolution-cache/" />
     <ignored path="$PROJECT_DIR$/target/streams/" />
@@ -36,8 +33,8 @@
       <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/Order/OrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="162" column="65" lean-forward="false" selection-start-line="162" selection-start-column="65" selection-end-line="162" selection-end-column="65" />
+            <state relative-caret-position="2140">
+              <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1103,7 +1100,7 @@
       <workItem from="1507639521738" duration="2369000" />
       <workItem from="1507965256259" duration="2571000" />
       <workItem from="1507967871140" duration="2841000" />
-      <workItem from="1507970794601" duration="12004000" />
+      <workItem from="1507970794601" duration="12511000" />
     </task>
     <task id="LOCAL-00001" summary="Push 3 &#10;&#10;Changed class names and package name to be consistant.&#10;Added MealType interface.&#10;Implement MealType interface on Meal class.&#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add support for discount on orders.">
       <created>1507378432692</created>
@@ -1133,11 +1130,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507985967253</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit 6 &#10;&#10;Added discount to orders for customers that are students.&#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add validation for time and date orders - times before the current can be chosen by the user.">
+      <created>1507988484372</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1507988484372</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31308000" />
+    <option name="totallyTimeSpent" value="31815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="721" extended-state="6" />
@@ -1226,7 +1230,8 @@
     <MESSAGE value="Push 3 &#10;&#10;Changed class names and package name to be consistant.&#10;Added MealType interface.&#10;Implement MealType interface on Meal class.&#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add support for discount on orders." />
     <MESSAGE value="Commit 4 &#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add support for discount on orders.&#10;Add time for orders" />
     <MESSAGE value="Commit 5 &#10;&#10;Added support for customers to select a time and date for order. I used helpers that are browser specific unfortunately. If a browser is unsupported, it formats to a normal text field. They do not work on Firefox on my machine, not sure why but they do work on Safari on my phone and will most likely work on Android as well. &#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add support for discount on orders.&#10;Add validation for time and date orders - times before the current can be chosen by the user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 5 &#10;&#10;Added support for customers to select a time and date for order. I used helpers that are browser specific unfortunately. If a browser is unsupported, it formats to a normal text field. They do not work on Firefox on my machine, not sure why but they do work on Safari on my phone and will most likely work on Android as well. &#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add support for discount on orders.&#10;Add validation for time and date orders - times before the current can be chosen by the user." />
+    <MESSAGE value="Commit 6 &#10;&#10;Added discount to orders for customers that are students.&#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add validation for time and date orders - times before the current can be chosen by the user." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 6 &#10;&#10;Added discount to orders for customers that are students.&#10;&#10;TODO: &#10;&#10;Add support for images on meals.&#10;Add validation for time and date orders - times before the current can be chosen by the user." />
   </component>
   <component name="WindowStateProjectService">
     <state width="401" height="156" key="Git.Branch.Popup" />
@@ -1588,8 +1593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Order/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="162" column="65" lean-forward="false" selection-start-line="162" selection-start-column="65" selection-end-line="162" selection-end-column="65" />
+        <state relative-caret-position="2140">
+          <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

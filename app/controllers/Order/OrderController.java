@@ -5,10 +5,12 @@ import models.Order.*;
 import models.User.Customer;
 import play.mvc.Controller;
 import play.mvc.Result;
+import utility.Date;
 import utility.StatusId;
 import views.html.Ordering.*;
 import views.html.Global.Temp.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +22,7 @@ public class OrderController extends Controller implements StatusId {
 
     public Result getSubmitPage(){
         return ok(master.render("Finalise Cart",
-                submitOrder.render(
+                submitCart.render(
                         CustomerOrder.findOrderById(session("orderId")),
                         Customer.findCustomerByEmail(session("email")))));
     }
@@ -66,7 +68,14 @@ public class OrderController extends Controller implements StatusId {
                 order = new CustomerOrder();
                 order.setUserId(session("email"));
                 order.setStatusId(UNSUBMITTED);
+
+
+                Payment payment = new Payment(order.getOrderId());
+                order.setPaymentId(payment.getPaymentId());
+
+                payment.save();
                 order.save();
+
                 session("orderId", String.valueOf(order.getOrderId()));
                 createMealOrder(mealId);
             }
@@ -139,6 +148,7 @@ public class OrderController extends Controller implements StatusId {
             return redirect(controllers.Order.routes.AccountController.getSignUp());
     }
 
+    // TODO: Integrate Customer to subtract balance from order amount.
     public Result submitCart(){
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
         Payment payment = order.getPaymentObject();
@@ -146,17 +156,35 @@ public class OrderController extends Controller implements StatusId {
 
         order.setStatusId(PENDING).update();
 
-        String[] result = request().body().asFormUrlEncoded().get("action");
+        String[] result = request().body().asFormUrlEncoded().get("payment");
         switch(result[0].toLowerCase()){
             case "cash":
                 payment.setCash(true);
                 break;
             case "credit":
                 payment.setCash(false);
-                customer.pay(payment.getAmount());
-                customer.update();
+                // UNCOMMENT HERE WHEN INTEGRATED
+//                customer.pay(payment.getAmount());
+//                customer.update();
                 break;
         }
+
+
+//      OUTPUTS - DATE YYYY/MM/DD
+//              - TIME HH:MM
+        String[] time = request().body().asFormUrlEncoded().get("time");
+        String[] date = request().body().asFormUrlEncoded().get("date");
+
+//        System.out.println("=====HERE====    " + time[0]);
+
+//        try {
+        payment.setDate(date[0]);
+        payment.setTime(time[0]);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//            System.out.println("$$ ERROR: INVALID DATE FORMAT");
+//        }
+
         payment.update();
         session("orderId", null);
         return redirect(controllers.Order.routes.OrderController.getMenu());

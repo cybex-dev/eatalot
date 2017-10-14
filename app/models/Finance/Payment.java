@@ -11,6 +11,7 @@ import scala.xml.dtd.REQUIRED;
 import javax.persistence.*;
 import javax.validation.Constraint;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/14.
@@ -22,13 +23,31 @@ public class Payment extends Model {
     @GeneratedValue
     private String paymentId;
     @Constraints.Required
+
+    //TODO: I changed date & time to string, Date objects don't save right in database.
     @Formats.DateTime(pattern="dd/MM/yyyy")
-    private Date date;
+    private String date;
+//    private Date date;
     @Constraints.Required
-    private Date time;
+    private String time;
+//    private Date time;
+    
     @Constraints.Required
     private Double amount;
     private Boolean isCash;
+
+    public Payment() {
+        setPaymentId();
+    }
+
+    //TODO: Proper id generation, this one is shit
+    private void setPaymentId(){
+        paymentId = String.valueOf(String.valueOf((
+                ThreadLocalRandom.current().nextInt(10, 1000)
+                + ThreadLocalRandom.current().nextInt(10, 1000)
+                + ThreadLocalRandom.current().nextInt(100, 1000))).hashCode());
+
+    }
 
     // Needs foreign key to order.
     @Constraints.Required
@@ -48,15 +67,23 @@ public class Payment extends Model {
         paymentId = String.valueOf(orderId.hashCode());
     }
 
-    public Payment setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
-        return this;
     }
 
-    public Payment setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
-        return this;
     }
+
+    //    public Payment setDate(Date date) {
+//        this.date = date;
+//        return this;
+//    }
+//
+//    public Payment setTime(Date time) {
+//        this.time = time;
+//        return this;
+//    }
 
     public Payment setAmount(Double amount) {
         this.amount = amount;
@@ -72,13 +99,21 @@ public class Payment extends Model {
         return paymentId;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
+
+    //    public Date getDate() {
+//        return date;
+//    }
+//
+//    public Date getTime() {
+//        return time;
+//    }
 
     public Double getAmount() {
         return amount;

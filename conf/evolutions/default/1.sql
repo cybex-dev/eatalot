@@ -61,11 +61,12 @@ create table meal_order (
 );
 
 create table payment (
-  payment_id                    bigint auto_increment not null,
-  date                          datetime(6),
-  time                          datetime(6),
+  payment_id                    varchar(255) not null,
+  date                          varchar(255),
+  time                          varchar(255),
   amount                        double,
   is_cash                       tinyint(1) default 0,
+  order_id                      varchar(255),
   constraint pk_payment primary key (payment_id)
 );
 

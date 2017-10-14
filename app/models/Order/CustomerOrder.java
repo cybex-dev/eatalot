@@ -29,18 +29,15 @@ public class CustomerOrder extends Model implements StatusId {
     private String statusId = UNSUBMITTED;
     private String userId;
     private String paymentId;
+//    private String aymentId;
+
+//    private String date;
+//    private String time;
 //    private String mealOrderId; // Not needed
 
 
     public CustomerOrder() {
         setOrderId();
-        createPayment();
-    }
-
-    private void createPayment(){
-        Payment payment = new Payment(orderId);
-        paymentId = payment.getPaymentId();
-        payment.save();
     }
 
     public Payment getPaymentObject(){
@@ -135,6 +132,24 @@ public class CustomerOrder extends Model implements StatusId {
                 .eq("statusId", "processing")
                 .findList();
     }
+
+
+
+//    public String getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(String date) {
+//        this.date = date;
+//    }
+
+//    public String getTime() {
+//        return time;
+//    }
+//
+//    public void setTime(String time) {
+//        this.time = time;
+//    }
 
     public String getOrderId() {
         return orderId;

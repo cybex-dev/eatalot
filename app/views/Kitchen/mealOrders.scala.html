@@ -1,0 +1,44 @@
+@import models.Order.MealOrder
+@import models.Order.Meal
+@import utility.Pair
+@import java.util.List
+@import helper._
+@(list: List[Pair[MealOrder, Meal]], status: String)
+
+<html>
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>Type</td>
+            <td>Order Quantity</td>
+        </tr>
+
+        @form(CSRF(controllers.Order.routes.KitchenController.updateOrderStatus(list.get(0).getObject1().getOrderId))) {
+            @for(x <- 0 until list.size()) {
+                <tr>
+                    <td>@list.get(x).getObject2().getDescription</td>
+                    <td>@list.get(x).getObject2().getType</td>
+                    <td>@list.get(x).getObject1().getOrderQty</td>
+                </tr>
+            }
+            @status match{
+                case "pending" => {
+                    <tr>
+                        <td><button type="submit" name="action" value="process">Process</button></td>
+                    </tr>
+                }
+                case "processing" => {
+                    <tr>
+                        <td><button type="submit" name="action" value="deliver">Ready to deliver</button></td>
+                    </tr>
+                }
+                case _ =>{
+
+                }
+            }
+            <tr>
+                <td><button type="submit" name="action" value="cancel">Cancel Order</button></td>
+            </tr>
+        }
+    </table>
+</html>

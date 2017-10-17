@@ -140,28 +140,68 @@ POST        /User/AddFunds                          controllers.Finance.UserFina
 
 # Order - Management Package
 
-GET         /menu                                   controllers.OrderController.getMenu()
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
 
-GET         /menu/:menutype                         controllers.OrderController.switchMenu(menutype: Integer)
+GET     /menu                  controllers.OrderController.getMenu()
 
-GET         /signup                                 controllers.AccountController.getSignUp
+GET     /menu                   controllers.Order.OrderController.getMenu()
 
-POST        /addmealtoorder                         controllers.OrderController.addMealToOrder(mealId: String)
+GET     /menu/:menutype         controllers.Order.OrderController.switchMenu(menutype: Integer)
 
-GET         /addmeal                                controllers.OrderController.getAddMealToMenu
+GET     /signup                 controllers.Order.AccountController.getSignUp
 
-POST        /postmeal                               controllers.OrderController.addMeal
+POST    /addmealtoorder         controllers.Order.OrderController.addMealToOrder(mealId: String)
 
-GET         /dologin                                controllers.AccountController.doLogin()
+GET     /addmeal                controllers.Order.OrderController.getAddMealToMenu
 
-GET         /dosignout                              controllers.AccountController.doSignOut()
+POST    /postmeal               controllers.Order.OrderController.addMeal
 
-GET         /cart                                   controllers.OrderController.getCart()
+GET     /dologin                controllers.Order.AccountController.doLogin()
 
-POST        /cart/removemeal                        controllers.OrderController.removeMealFromOrder(mealId: String)
+GET     /dosignout              controllers.Order.AccountController.doSignOut()
 
-POST        /submit                                 controllers.OrderController.submitCart()
+GET     /cart                   controllers.Order.OrderController.getCart()
 
+POST    /cart/removemeal        controllers.Order.OrderController.removeMealFromOrder(mealId: String)
+
+GET     /cart/submit            controllers.Order.OrderController.getSubmitPage()
+
+POST    /cart/submitcart        controllers.Order.OrderController.submitCart()
+
+GET     /history                controllers.Order.OrderController.getHistoryPage()
+
+POST    /history/order          controllers.Order.OrderController.getViewOrder(orderId: String)
+
+# ===== Kitchen routes =====
+
+GET     /kitchen                            controllers.Order.KitchenController.home()
+
+# Maintain Ingredients
+
+GET     /kitchen/ingredients                controllers.Order.KitchenController.getIngredientPage()
+
+POST    /kitchen/ingredients/order          controllers.Order.KitchenController.getIngredientOrderPage(id: String)
+
+POST    /kitchen/ingredient/order/op        controllers.Order.KitchenController.editIngredient(id: String)
+
+GET     /kitchen/ingredient/ordernew        controllers.Order.KitchenController.getNewIngredientPage()
+
+POST    /kitchen/ingredient/add           controllers.Order.KitchenController.addIngredient()
+
+# Maintain Order
+
+GET     /kitchen/customerorders           controllers.Order.KitchenController.getOrderPage()
+
+GET     /kitchen/pendingorders            controllers.Order.KitchenController.getPendingOrderPage()
+
+GET     /kitchen/processingorders         controllers.Order.KitchenController.getProcessingOrderPage()
+
+POST    /kitchen/customerorders/mealorder controllers.Order.KitchenController.getMealOrderPage(orderId: String)
+
+POST    /kitchen/customerorders/mealorder/update    controllers.Order.KitchenController.updateOrderStatus(orderId: String)
+
+GET     /*path                            controllers.Application.HomeController.invalidRoute(path: String)
 ##############################################################################
 # Javascript Routing
 #GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
@@ -181,11 +221,6 @@ POST        /User/AddFunds                       controllers.Finance.UserFinance
 
 ##############################################################################
 
-# An example controller showing how to use dependency injection
-GET         /count                                  controllers.CountController.count
-
-# An example controller showing how to write asynchronous code
-GET         /message                                controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
@@ -199,5 +234,4 @@ GET         /assets/History/*file                   controllers.Assets.versioned
 #GET         /assets/fonts/*file                     controllers.Assets.versioned(path="/public/fonts",file: Asset)
 
 # Default path if not found
-GET         /*path                                  controllers.Application.HomeController.invalidRoute(path: String)
 

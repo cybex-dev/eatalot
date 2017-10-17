@@ -41,12 +41,18 @@ create table customer (
 
 create table customer_order (
   order_id                      varchar(255) not null,
+<<<<<<< HEAD
   customer_user_id              varchar(255) not null,
   status_id                     varchar(255),
   user_id                       varchar(255),
   payment_id                    varchar(255),
   meal_order_id                 varchar(255),
   order_date                    datetime(6),
+=======
+  status_id                     varchar(255),
+  user_id                       varchar(255),
+  payment_id                    varchar(255),
+>>>>>>> Order-Management-Devel
   constraint pk_customer_order primary key (order_id)
 );
 
@@ -91,12 +97,20 @@ create table order_schedule_item (
 
 create table payment (
   payment_id                    varchar(255) not null,
+<<<<<<< HEAD
   customer_user_id              varchar(255) not null,
   date                          datetime(6),
   time                          datetime(6),
   amount                        double,
   is_cash                       tinyint(1) default 0,
   is_paid                       tinyint(1) default 0,
+=======
+  date                          varchar(255),
+  time                          varchar(255),
+  amount                        double,
+  is_cash                       tinyint(1) default 0,
+  order_id                      varchar(255),
+>>>>>>> Order-Management-Devel
   constraint pk_payment primary key (payment_id)
 );
 
@@ -161,6 +175,7 @@ create table voucher (
   constraint pk_voucher primary key (voucher_id)
 );
 
+<<<<<<< HEAD
 alter table customer add constraint fk_customer_address_address_id foreign key (address_address_id) references address (address_id) on delete restrict on update restrict;
 
 alter table customer add constraint fk_customer_order_schedule_order_sched_id foreign key (order_schedule_order_sched_id) references order_schedule (order_sched_id) on delete restrict on update restrict;
@@ -184,6 +199,11 @@ drop index ix_customer_order_customer_user_id on customer_order;
 alter table payment drop foreign key fk_payment_customer_user_id;
 drop index ix_payment_customer_user_id on payment;
 
+=======
+
+# --- !Downs
+
+>>>>>>> Order-Management-Devel
 drop table if exists address;
 
 drop table if exists admin;

@@ -1,21 +1,14 @@
 package utility;
 
-import controllers.Application.AppTags;
 import controllers.Application.AppTags.AppCookie;
 import controllers.Application.AppTags.AppCookie.UserType;
 import controllers.Application.AppTags.Session.SessionTags;
-import controllers.routes;
-import libs.Mailer;
 import models.User.Admin.Admin;
 import models.User.Staff;
 import models.User.User;
-import play.Environment;
-import play.Logger;
 import play.filters.csrf.CSRF;
-import play.libs.mailer.MailerClient;
 import play.mvc.Http;
 
-import javax.inject.Inject;
 import java.util.Date;
 
 public class Utility {

@@ -8,13 +8,10 @@ import play.mvc.Action;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-import utility.Utility;
-
-import static utility.Utility.checkValidCSRF;
-import static utility.Utility.removeLoginCookies;
-import static utility.Utility.removeLoginSession;
 
 import java.util.concurrent.CompletionStage;
+
+import static utility.Utility.*;
 
 /**
  * For get requests, this checks if a session is active.

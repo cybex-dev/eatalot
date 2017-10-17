@@ -21,105 +21,75 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import views.html.Global.Static.masterpage
-/*2.2*/import models.User.UserInfo
-/*3.2*/import controllers.Application.AppTags.Locale
+/*1.2*/import java.util.List
+/*3.2*/import models.User.Customer.CustomerInfo
+/*4.2*/import utility.DashboardButton
+/*5.2*/import views.html.Global.Static.dashboard
 
-object customerHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[UserInfo,play.twirl.api.HtmlFormat.Appendable] {
+object customerHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[DashboardButton],CustomerInfo,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*5.2*/(userInfo: UserInfo):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*7.2*/(dashButtons: List[DashboardButton], customerInfo: CustomerInfo):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*7.2*/bodyContent/*7.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*9.6*/bodyContent/*9.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*7.17*/("""
-    """),format.raw/*8.37*/("""
-
-    """),format.raw/*10.5*/("""<div class="row">
-
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-info back-widget-set text-center">
-                <i class="fa fa-history fa-5x"></i>
-                <h3>"""),_display_(/*15.22*/Locale/*15.28*/.Currency.ZAR.toString),format.raw/*15.50*/(""" """),_display_(/*15.52*/userInfo/*15.60*/.getBalance),format.raw/*15.71*/("""&nbsp; <i class="fa fa-dollar"></i></h3>
-                Cash
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-success back-widget-set text-center">
-                <i class="fa fa-bars fa-5x"></i>
-                <h3>New</h3>
-                Order
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-warning back-widget-set text-center">
-                <i class="fa fa-recycle fa-5x"></i>
-                <h3>X</h3>
-                Orders Pending
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-            <div class="alert alert-danger back-widget-set text-center">
-                <i class="fa fa-briefcase fa-5x"></i>
-                <h3>Order </h3>
-                Schedule
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-12">
-            <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="assets/images/food/food04.png" alt="" />
+Seq[Any](format.raw/*9.21*/("""
+        """),format.raw/*10.41*/("""
+        """),format.raw/*11.9*/("""<div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="assets/images/food/food01.png" alt="" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/food/food02.png" alt="" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/food/food03.png" alt="" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/food/food04.png" alt="" />
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="assets/images/food/food04.png" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="assets/images/food/food04.png" alt="" />
-                    </div>
-                    <div class="item">
-                        <img src="assets/images/food/food04.png" alt="" />
-                    </div>
+                        <!--INDICATORS-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                        <li data-target="#carousel-example" data-slide-to="3"></li>
+                    </ol>
+                        <!--PREVIUS-NEXT BUTTONS-->
+                    <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </div>
-                    <!--INDICATORS-->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example" data-slide-to="1"></li>
-                    <li data-target="#carousel-example" data-slide-to="2"></li>
-                    <li data-target="#carousel-example" data-slide-to="3"></li>
-                </ol>
-                    <!--PREVIUS-NEXT BUTTONS-->
-                <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
             </div>
+            <br/>
+            <br/>
         </div>
-        <br/>
-        <br/>
-    </div>
-    """),format.raw/*79.35*/("""
-""")))};
-Seq[Any](format.raw/*5.22*/("""
 
-"""),format.raw/*80.2*/("""
+        <script href=""""),_display_(/*48.24*/controllers/*48.35*/.Order.routes.javascript.ScheduleController.scheduleJSRoutes),format.raw/*48.95*/("""" type="text/javascript"></script>
+        <script href=""""),_display_(/*49.24*/controllers/*49.35*/.User.routes.javascript.CustomerController.customerJSRoutes),format.raw/*49.94*/("""" type="text/javascript"></script>
 
-"""),_display_(/*82.2*/masterpage/*82.12*/.apply(" :: Welcome", bodyContent)))
+    """)))};
+Seq[Any](format.raw/*7.66*/("""
+
+    """),format.raw/*51.6*/("""
+
+    """),_display_(/*53.6*/dashboard/*53.15*/.apply(dashButtons, bodyContent)))
       }
     }
   }
 
-  def render(userInfo:UserInfo): play.twirl.api.HtmlFormat.Appendable = apply(userInfo)
+  def render(dashButtons:List[DashboardButton],customerInfo:CustomerInfo): play.twirl.api.HtmlFormat.Appendable = apply(dashButtons,customerInfo)
 
-  def f:((UserInfo) => play.twirl.api.HtmlFormat.Appendable) = (userInfo) => apply(userInfo)
+  def f:((List[DashboardButton],CustomerInfo) => play.twirl.api.HtmlFormat.Appendable) = (dashButtons,customerInfo) => apply(dashButtons,customerInfo)
 
   def ref: this.type = this
 
@@ -128,11 +98,11 @@ Seq[Any](format.raw/*5.22*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/User/Customer/customerHome.scala.html
-                  HASH: 9bcfa26c840f5e9beda7cd05097c16358dfd12f9
-                  MATRIX: 665->1|715->45|750->74|1109->122|1207->145|1226->156|1306->160|1338->197|1371->203|1610->415|1625->421|1668->443|1697->445|1714->453|1746->464|4429->3149|4470->142|4499->3151|4528->3154|4547->3164
-                  LINES: 24->1|25->2|26->3|31->5|35->7|35->7|37->7|38->8|40->10|45->15|45->15|45->15|45->15|45->15|45->15|109->79|111->5|113->80|115->82|115->82
+                  DATE: Wed Oct 18 00:03:04 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/customerHome.scala.html
+                  HASH: e141fbe5397e14623c4d107e15dba877fae3c157
+                  MATRIX: 665->1|694->25|742->67|780->99|1161->143|1303->214|1322->225|1402->229|1439->270|1475->279|3413->2190|3433->2201|3514->2261|3599->2319|3619->2330|3699->2389|3779->207|3812->2430|3845->2437|3863->2446
+                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|40->11|77->48|77->48|77->48|78->49|78->49|78->49|81->7|83->51|85->53|85->53
                   -- GENERATED --
               */
           

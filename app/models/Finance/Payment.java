@@ -1,15 +1,14 @@
 package models.Finance;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebeaninternal.server.lib.util.Str;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import utility.RandomString;
 
-import javax.persistence.*;
-import javax.validation.Constraint;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -58,10 +57,10 @@ public class Payment extends Model {
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 
-    public Payment(){}
-
     public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash, Boolean isPaid) {
         this.paymentId = paymentId;
+    }
+
     public static Payment findPaymentById(String paymentId){
         return find.query()
                 .where()
@@ -99,24 +98,8 @@ public class Payment extends Model {
         return this;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
     public Boolean isCash() {
         return isCash;
-    }
-
-    public String getPaymentId() {
-        return paymentId;
     }
 
     public boolean isPaid(){

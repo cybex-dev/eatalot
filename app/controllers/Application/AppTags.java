@@ -3,16 +3,9 @@ package controllers.Application;
 //import models.User.Customer.Customer;
 
 import controllers.Application.AppTags.AppCookie.UserType;
-import controllers.User.routes;
-import play.Logger;
-import play.data.Form;
 import play.mvc.Http;
 import play.mvc.Result;
 
-import java.util.Optional;
-
-
-import static play.mvc.Results.ok;
 import static play.mvc.Results.redirect;
 
 /**

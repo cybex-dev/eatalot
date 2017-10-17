@@ -9,8 +9,6 @@ import views.html.Application.Home.index;
 import views.html.Application.forbidden;
 import views.html.Application.unknown;
 
-import java.util.Date;
-
 import static controllers.Application.AppTags.AppCookie.*;
 import static controllers.Application.AppTags.Session.SessionTags.visited;
 

@@ -5,35 +5,29 @@ import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
-import controllers.Application.AppTags.Session;
+import controllers.Application.AppTags.*;
 import libs.Mailer;
 import models.CRUD;
 import models.Finance.Payment;
 import models.Finance.PaymentItemBasic;
-import models.Order.ActiveOrder;
-import models.Order.MealOrderItem;
-import models.Order.OrderItemBasic;
-import models.Order.OrderSchedule;
-import models.User.Customer.*;
+import models.Order.*;
+import models.User.Customer.Address;
+import models.User.Customer.Customer;
+import models.User.Customer.CustomerInfo;
+import models.User.Customer.UserRegisterInfo;
 import models.User.UserDetails;
 import models.User.UserProfile;
-import models.ordering.CustomerOrder;
-import models.ordering.Meal;
-import models.ordering.MealOrder;
 import org.jetbrains.annotations.NotNull;
 import play.Logger;
-import play.api.Configuration;
 import play.data.Form;
 import play.data.FormFactory;
 import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
-import play.libs.mailer.MailerClient;
 import play.mvc.*;
 import play.routing.JavaScriptReverseRouter;
 import utility.DashboardButton;
 import utility.Utility;
 import views.html.User.Customer.*;
-import views.html.User.Customer.editProfile;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -51,13 +45,9 @@ import static controllers.Application.AppTags.AppCookie.user_id;
 public class CustomerController extends Controller implements CRUD {
 
     @Inject
-    FormFactory formFactory;
+    private FormFactory formFactory;
     @Inject
-    HttpExecutionContext httpExecutionContext;
-    @Inject
-    Configuration configuration;
-    @Inject
-    MailerClient mailerClient;
+    private HttpExecutionContext httpExecutionContext;
 
     @Inject
     public CustomerController(HttpExecutionContext ec) {

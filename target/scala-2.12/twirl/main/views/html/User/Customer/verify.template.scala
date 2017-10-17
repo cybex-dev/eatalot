@@ -21,8 +21,8 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import controllers.Application.AppTags
-/*2.2*/import Global.Static.masterpage
+/*1.2*/import Global.Static.masterpage
+/*2.2*/import controllers.Application.AppTags
 
 object verify extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
@@ -57,10 +57,10 @@ Seq[Any](format.raw/*4.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/User/Customer/verify.scala.html
-                  HASH: 8c11d91561b64ac8df0e1a6aadb51c4e7ccf8650
-                  MATRIX: 665->1|711->41|1041->75|1121->80|1140->91|1220->95|1251->100|1332->155|1347->162|1393->188|1437->77|1465->194|1494->197|1513->207|1567->240
+                  DATE: Wed Oct 18 00:03:04 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/verify.scala.html
+                  HASH: 31cb371754af1902945e8bf5447194b0cd52e3d8
+                  MATRIX: 665->1|704->34|1041->75|1121->80|1140->91|1220->95|1251->100|1332->155|1347->162|1393->188|1437->77|1465->194|1494->197|1513->207|1567->240
                   LINES: 24->1|25->2|30->4|34->6|34->6|36->6|37->7|37->7|37->7|37->7|39->4|41->8|43->10|43->10|43->10
                   -- GENERATED --
               */

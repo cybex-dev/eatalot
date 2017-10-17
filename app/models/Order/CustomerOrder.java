@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -29,6 +30,9 @@ public class CustomerOrder extends Model implements StatusId {
     private String statusId = UNSUBMITTED;
     private String userId;
     private String paymentId;
+
+    //todo #NOTIFY [Charles] Added date of delivery object. This is saved automatically in the database, is required to display info for user and determine the delivery time and date
+    private Date deliveryDate;
 //    private String aymentId;
 
 //    private String date;
@@ -51,7 +55,8 @@ public class CustomerOrder extends Model implements StatusId {
         Payment.findPaymentById(paymentId).setAmount(total[0]).update();
     }
 
-    private static Finder<Long, CustomerOrder> find = new Finder<Long, CustomerOrder>(CustomerOrder.class);
+    //todo #NOTIFY [Charles] change access from private to public, is used to query database to get results when displaying info to user
+    public static Finder<Long, CustomerOrder> find = new Finder<Long, CustomerOrder>(CustomerOrder.class);
 
     /**
      * Finds a customer order by its orderId
@@ -200,6 +205,14 @@ public class CustomerOrder extends Model implements StatusId {
     public CustomerOrder setPaymentId(String paymentId) {
         this.paymentId = paymentId;
         return this;
+    }
+
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
 //    public String getMealOrderId() {

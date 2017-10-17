@@ -2,7 +2,6 @@ package models.Order;
 
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebeaninternal.server.lib.util.Str;
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
 

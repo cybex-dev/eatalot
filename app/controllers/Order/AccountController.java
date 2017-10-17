@@ -1,16 +1,13 @@
 package controllers.Order;
 
-import controllers.Order.OrderController;
 import models.Order.CustomerOrder;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.Global.Temp.master;
+import views.html.User.Temp.signup;
 
 import java.util.List;
 import java.util.Objects;
-
-import views.html.Ordering.*;
-import views.html.Global.Temp.*;
-import views.html.User.Temp.signup;
 
 /**
  * Created by dylan on 2017/07/22.

@@ -2,15 +2,13 @@ package controllers.Order;
 
 import models.Finance.Payment;
 import models.Order.*;
-import models.User.Customer;
+import models.User.Customer.Customer;
 import play.mvc.Controller;
 import play.mvc.Result;
-import utility.Date;
 import utility.StatusId;
+import views.html.Global.Temp.master;
 import views.html.Ordering.*;
-import views.html.Global.Temp.*;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 /**

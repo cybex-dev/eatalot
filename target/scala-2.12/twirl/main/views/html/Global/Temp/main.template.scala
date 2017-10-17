@@ -1,26 +1,8 @@
 
 package views.html.Global.Temp
 
-import _root_.play.twirl.api.TwirlFeatureImports._
-import _root_.play.twirl.api.TwirlHelperImports._
 import _root_.play.twirl.api.Html
-import _root_.play.twirl.api.JavaScript
-import _root_.play.twirl.api.Txt
-import _root_.play.twirl.api.Xml
-import models._
 import controllers._
-import play.api.i18n._
-import views.html._
-import play.api.templates.PlayMagic._
-import java.lang._
-import java.util._
-import scala.collection.JavaConverters._
-import play.core.j.PlayMagicForJava._
-import play.mvc._
-import play.api.data.Field
-import play.mvc.Http.Context.Implicit._
-import play.data._
-import play.core.j.PlayFormsMagicForJava._
 
 object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,Html,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -68,8 +50,8 @@ Seq[Any](format.raw/*7.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Global/Temp/main.scala.html
+                  DATE: Tue Oct 17 23:44:33 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Temp/main.scala.html
                   HASH: 8aa472837eb83ede40999adfb357747ef18aca27
                   MATRIX: 1218->260|1343->290|1371->292|1451->397|1487->406|1522->414|1548->419|1637->481|1652->487|1731->544|1819->605|1834->611|1911->666|1973->790|2010->800|2038->807|2075->817|2116->831|2131->837|2208->893
                   LINES: 33->7|38->7|40->9|43->12|44->13|44->13|44->13|45->14|45->14|45->14|46->15|46->15|46->15|49->19|50->20|50->20|52->22|52->22|52->22|52->22

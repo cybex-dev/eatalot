@@ -1,13 +1,12 @@
 package controllers.Order;
 
-import controllers.Application.AppTags;
-import io.ebeaninternal.server.lib.util.Str;
-import models.Order.*;
+import models.Order.CustomerOrder;
+import models.Order.Ingredient;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.Global.Temp.*;
+import views.html.Global.Temp.master;
 import views.html.Kitchen.*;
 
 import javax.inject.Inject;

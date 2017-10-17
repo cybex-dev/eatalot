@@ -1,33 +1,32 @@
 package controllers.User;
 
-import annotations.Routing.AdminOnly;
 import annotations.Routing.DeliveryStaffOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
-import models.User.Admin.AdminInfo;
-import models.User.UserProfile;
-import models.User.UserDetails;
 import models.User.DeliveryStaff.DeliveryStaffInfo;
 import models.User.Staff;
+import models.User.UserProfile;
 import play.data.Form;
 import play.data.FormFactory;
 import play.libs.Json;
-import play.mvc.*;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.With;
 import play.routing.JavaScriptReverseRouter;
 import utility.DashboardButton;
-import views.html.User.Staff.editDeliveryProfile;
 import views.html.User.Staff.deliveryHome;
+import views.html.User.Staff.editDeliveryProfile;
 
 import javax.inject.Inject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static controllers.Application.AppTags.AppCookie.*;
+import static controllers.Application.AppTags.AppCookie.UserType;
+import static controllers.Application.AppTags.AppCookie.user_id;
 
 public class DeliveryStaffController extends Controller {
     @Inject

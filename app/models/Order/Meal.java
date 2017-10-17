@@ -34,6 +34,7 @@ public class Meal extends Model implements MealType {
         this.cost = cost;
     }
 
+    //todo #NOTIFY [Charles] change access from private to public, is used to query database to get results when displaying info to user
     public static Finder<String, Meal> find = new Finder<String, Meal>(Meal.class);
 
     /**

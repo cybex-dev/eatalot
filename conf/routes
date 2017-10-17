@@ -143,8 +143,6 @@ POST        /User/AddFunds                          controllers.Finance.UserFina
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /menu                  controllers.OrderController.getMenu()
-
 GET     /menu                   controllers.Order.OrderController.getMenu()
 
 GET     /menu/:menutype         controllers.Order.OrderController.switchMenu(menutype: Integer)

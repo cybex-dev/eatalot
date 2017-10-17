@@ -22,36 +22,49 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import Global.Static.masterpage
-/*2.2*/import helper.CSRF
-/*3.2*/import models.User.UserRegisterInfo
-/*4.2*/import play.data.Form
+/*2.2*/import controllers.Application.AppTags.General
+/*3.2*/import helper.CSRF
+/*4.2*/import models.User.Customer.UserRegisterInfo
+/*5.2*/import play.data.Form
 
 object register extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Form[UserRegisterInfo],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*6.2*/(userForm: Form[UserRegisterInfo]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*7.2*/(userForm: Form[UserRegisterInfo]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*8.2*/bodyContent/*8.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*9.6*/bodyContent/*9.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*8.17*/("""
-    """),format.raw/*9.5*/("""<h1>Register User</h1>
-    <br>
-    <br>
-    """),_display_(/*12.6*/helper/*12.12*/.form(action = controllers.User.routes.CustomerController.create())/*12.79*/ {_display_(Seq[Any](format.raw/*12.81*/("""
-        """),_display_(/*13.10*/CSRF/*13.14*/.formField),format.raw/*13.24*/("""
-        """),_display_(/*14.10*/helper/*14.16*/.inputText(userForm("email"), '_name -> "E-Mail", '_class -> "text-field")),format.raw/*14.90*/("""
-        """),_display_(/*15.10*/helper/*15.16*/.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")),format.raw/*15.99*/("""
-        """),_display_(/*16.10*/helper/*16.16*/.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")),format.raw/*16.114*/("""
-        """),format.raw/*17.9*/("""<input class="btn btn-success" type="submit" value="Register"/>
-    """)))}),format.raw/*18.6*/("""
-""")))};
-Seq[Any](format.raw/*6.36*/("""
+Seq[Any](format.raw/*9.21*/("""
+        """),format.raw/*10.9*/("""<div class="body center-parent-small single-border">
+            <h1>Register for """),_display_(/*11.31*/General/*11.38*/.SITENAME.toString),format.raw/*11.56*/("""</h1>
+            <div class="center-child">
+                <br>
+                """),_display_(/*14.18*/helper/*14.24*/.form(action = controllers.User.routes.CustomerController.create())/*14.91*/ {_display_(Seq[Any](format.raw/*14.93*/("""
+                    """),_display_(/*15.22*/CSRF/*15.26*/.formField),format.raw/*15.36*/("""
+                    """),_display_(/*16.22*/helper/*16.28*/.inputText(userForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")),format.raw/*16.104*/("""
+                    """),format.raw/*17.21*/("""<br/>
+                    """),_display_(/*18.22*/helper/*18.28*/.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")),format.raw/*18.111*/("""
+                    """),_display_(/*19.22*/helper/*19.28*/.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")),format.raw/*19.126*/("""
+                    """),format.raw/*20.21*/("""<br/>
+                    <input class="btn btn-success" type="submit" value="Register"/>
+                """)))}),format.raw/*22.18*/("""
+                """),format.raw/*23.17*/("""<hr/>
+                """),_display_(/*24.18*/helper/*24.24*/.form(action = controllers.User.routes.UserController.login())/*24.86*/ {_display_(Seq[Any](format.raw/*24.88*/("""
+                    """),_display_(/*25.22*/CSRF/*25.26*/.formField),format.raw/*25.36*/("""
+                    """),format.raw/*26.21*/("""<input class="btn btn-default" type="submit" value="Login"/>
+                """)))}),format.raw/*27.18*/("""
+            """),format.raw/*28.13*/("""</div>
+            <br/>
+        </div>
+        <br/>
+    """)))};
+Seq[Any](format.raw/*7.36*/("""
 
-"""),format.raw/*19.2*/("""
+    """),format.raw/*32.6*/("""
 
-"""),_display_(/*21.2*/masterpage/*21.12*/.apply(" :: Register", bodyContent)),format.raw/*21.47*/("""
+    """),_display_(/*34.6*/masterpage/*34.16*/.apply(" :: Register", bodyContent)),format.raw/*34.51*/("""
 """))
       }
     }
@@ -68,11 +81,11 @@ Seq[Any](format.raw/*6.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/User/Customer/register.scala.html
-                  HASH: 257689cb2b61e3fb5f134bd89a1fbe551b505432
-                  MATRIX: 665->1|704->34|730->54|773->91|1118->115|1230->152|1249->163|1329->167|1360->172|1432->218|1447->224|1523->291|1563->293|1600->303|1613->307|1644->317|1681->327|1696->333|1791->407|1828->417|1843->423|1947->506|1984->516|1999->522|2119->620|2155->629|2254->698|2295->149|2324->700|2353->703|2372->713|2428->748
-                  LINES: 24->1|25->2|26->3|27->4|32->6|36->8|36->8|38->8|39->9|42->12|42->12|42->12|42->12|43->13|43->13|43->13|44->14|44->14|44->14|45->15|45->15|45->15|46->16|46->16|46->16|47->17|48->18|50->6|52->19|54->21|54->21|54->21
+                  DATE: Wed Oct 18 00:03:04 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/register.scala.html
+                  HASH: df4ff3a44486b26479466a06f8a760a8727cfd75
+                  MATRIX: 665->1|704->34|758->82|784->102|836->148|1181->172|1293->213|1312->224|1392->228|1428->237|1538->320|1554->327|1593->345|1703->428|1718->434|1794->501|1834->503|1883->525|1896->529|1927->539|1976->561|1991->567|2089->643|2138->664|2192->691|2207->697|2312->780|2361->802|2376->808|2496->906|2545->927|2683->1034|2728->1051|2778->1074|2793->1080|2864->1142|2904->1144|2953->1166|2966->1170|2997->1180|3046->1201|3155->1279|3196->1292|3294->206|3327->1351|3360->1358|3379->1368|3435->1403
+                  LINES: 24->1|25->2|26->3|27->4|28->5|33->7|37->9|37->9|39->9|40->10|41->11|41->11|41->11|44->14|44->14|44->14|44->14|45->15|45->15|45->15|46->16|46->16|46->16|47->17|48->18|48->18|48->18|49->19|49->19|49->19|50->20|52->22|53->23|54->24|54->24|54->24|54->24|55->25|55->25|55->25|56->26|57->27|58->28|63->7|65->32|67->34|67->34|67->34
                   -- GENERATED --
               */
           

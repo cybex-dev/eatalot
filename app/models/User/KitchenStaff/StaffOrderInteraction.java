@@ -5,7 +5,9 @@ import io.ebean.Model;
 import play.data.validation.Constraints;
 import utility.RandomString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 

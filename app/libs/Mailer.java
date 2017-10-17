@@ -3,13 +3,10 @@ package libs;
 import controllers.Application.AppTags;
 import org.apache.commons.mail.EmailAttachment;
 import play.Environment;
-import play.Logger;
 import play.api.Play;
 import play.libs.mailer.Email;
 import play.libs.mailer.MailerClient;
 
-import javax.activation.FileDataSource;
-import javax.annotation.Nullable;
 import javax.inject.Inject;
 import java.io.File;
 import java.util.Arrays;

@@ -1,7 +1,6 @@
 package annotations.SessionVerifier;
 
 import controllers.Application.AppTags;
-import controllers.User.routes;
 import play.mvc.Action;
 import play.mvc.Http;
 import play.mvc.Result;

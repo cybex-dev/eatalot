@@ -5,29 +5,34 @@ import annotations.SessionVerifier.RedirectToDashIfActive;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
 import libs.Mailer;
-import models.User.*;
 import models.User.Admin.Admin;
 import models.User.Customer.Customer;
 import models.User.Customer.CustomerInfo;
+import models.User.Staff;
+import models.User.User;
+import models.User.UserLoginInfo;
 import play.data.Form;
 import play.data.FormFactory;
 import play.filters.csrf.CSRF;
 import play.libs.concurrent.HttpExecutionContext;
-import play.mvc.*;
+import play.mvc.Controller;
+import play.mvc.Http;
+import play.mvc.Result;
+import play.mvc.With;
 import utility.Utility;
 import views.html.Application.Home.index;
 import views.html.User.User.login;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static controllers.Application.AppTags.*;
+import static controllers.Application.AppTags.AppCookie;
 import static controllers.Application.AppTags.AppCookie.*;
+import static controllers.Application.AppTags.FlashCodes;
 import static java.util.concurrent.CompletableFuture.supplyAsync;
-import static models.User.Customer.Customer.*;
+import static models.User.Customer.Customer.find;
 
 /**
  * Created by cybex on 2017/07/08.

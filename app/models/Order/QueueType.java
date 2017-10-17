@@ -1,11 +1,11 @@
 package models.Order;
 
-import controllers.Application.AppTags;
 import io.ebean.Model;
 import play.data.validation.Constraints;
 import utility.RandomString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**

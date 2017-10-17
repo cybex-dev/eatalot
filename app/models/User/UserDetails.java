@@ -2,10 +2,8 @@ package models.User;
 
 import models.User.Customer.Address;
 import play.data.validation.Constraints;
-import play.data.validation.Constraints.Required;
 import play.data.validation.ValidationError;
 
-import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 import java.util.Map;
 

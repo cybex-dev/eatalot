@@ -2,9 +2,7 @@ package models.Order;
 
 import utility.DateInterpreter;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class CustomerOrderItem extends DateInterpreter{
     public String orderId;

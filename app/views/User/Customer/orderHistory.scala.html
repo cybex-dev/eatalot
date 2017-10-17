@@ -1,9 +1,9 @@
-@import models.Order.OrderItemBasic
 @import java.util.List
-@import Global.Static.masterpage
-@import helper._
 
+@import Global.Static.masterpage
 @import controllers.Application.AppTags
+@import helper._
+@import models.Order.OrderItemBasic
 @(ordersList: List[OrderItemBasic])
 
     @table = {

@@ -7,20 +7,18 @@ import models.Finance.Payment;
 import models.Finance.RedeemedVouchers;
 import models.Finance.UserFunds;
 import models.Finance.Voucher;
+import models.Order.CustomerOrder;
 import models.User.Customer.Customer;
-import models.ordering.CustomerOrder;
 import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
 import views.html.Finance.UserFinance.AddFunds;
 
 import javax.inject.Inject;
 import javax.persistence.NonUniqueResultException;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -94,7 +92,7 @@ public class UserFinance extends Controller {
     @With(RequiresActive.class)
     @CustomersDeliveryOnly
     public boolean payMeal(String orderId, boolean cashPayment){
-        Payment payment = Payment.find.byId(CustomerOrder.find.byId(orderId).getPaymentId());
+        Payment payment = Payment.find.byId(CustomerOrder.find.byId(Long.parseLong(orderId)).getPaymentId());
         payment.setIsCashPayment(cashPayment);
         payment.setPaid(true);
         return true;

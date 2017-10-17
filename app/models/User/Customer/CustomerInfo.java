@@ -4,8 +4,6 @@ import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
 import models.User.UserInfo;
 
-import java.util.logging.Logger;
-
 public class CustomerInfo extends UserInfo {
     private boolean isScheduleActive;
     private String balance;

@@ -22,9 +22,8 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import java.util.List
-/*2.2*/import models.Order.Ingredient
-/*3.2*/import helper.CSRF
-/*4.2*/import helper.form
+/*3.2*/import helper.{CSRF, form}
+/*4.2*/import models.Order.Ingredient
 
 object ingredients extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[Ingredient],play.twirl.api.HtmlFormat.Appendable] {
 
@@ -79,11 +78,11 @@ Seq[Any](format.raw/*5.26*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 11:30:32 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Kitchen/ingredients.scala.html
-                  HASH: c74aea567d45fa9397ad265885eaea4fe46c31f3
-                  MATRIX: 659->1|688->24|726->56|752->76|1091->96|1210->120|1238->122|1275->134|1303->154|1341->155|1376->164|1418->188|1431->192|1470->193|1506->202|1668->337|1713->366|1752->367|1797->385|1913->491|1954->493|2003->514|2064->548|2077->552|2120->574|2182->609|2195->613|2237->634|2415->781|2460->795|2496->804|2540->818|2572->823|2663->887|2683->898|2756->950
-                  LINES: 24->1|25->2|26->3|27->4|32->5|37->5|39->7|40->8|40->8|40->8|41->9|42->10|42->10|42->10|43->11|48->16|48->16|48->16|49->17|49->17|49->17|50->18|51->19|51->19|51->19|52->20|52->20|52->20|55->23|56->24|57->25|58->26|59->27|62->30|62->30|62->30
+                  DATE: Wed Oct 18 00:03:04 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/ingredients.scala.html
+                  HASH: 6de887c4fa10ce02d2e8dd5d674027244eab03ed
+                  MATRIX: 659->1|688->25|722->53|1073->85|1192->109|1220->111|1257->123|1285->143|1323->144|1358->153|1400->177|1413->181|1452->182|1488->191|1650->326|1695->355|1734->356|1779->374|1895->480|1936->482|1985->503|2046->537|2059->541|2102->563|2164->598|2177->602|2219->623|2397->770|2442->784|2478->793|2522->807|2554->812|2645->876|2665->887|2738->939
+                  LINES: 24->1|25->3|26->4|31->5|36->5|38->7|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|47->16|47->16|47->16|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|51->20|51->20|54->23|55->24|56->25|57->26|58->27|61->30|61->30|61->30
                   -- GENERATED --
               */
           

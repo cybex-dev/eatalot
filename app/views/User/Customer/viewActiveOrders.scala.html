@@ -1,12 +1,9 @@
-@import Global.Static.masterpage
 @import java.util.List
-@import models.Order.ActiveOrder
-@import models.Order.MealOrderItem
-@import controllers.Application.AppTags
-@import helper.form
-@import helper.CSRF
 
-@import models.Order.MealOrderItem
+@import Global.Static.masterpage
+@import controllers.Application.AppTags
+@import helper.{CSRF, form}
+@import models.Order.{ActiveOrder, MealOrderItem}
 @(activeOrderList: List[ActiveOrder])
 
 @parseQueuePosition(pos: Integer) = {

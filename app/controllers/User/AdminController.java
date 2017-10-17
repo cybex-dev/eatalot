@@ -1,35 +1,25 @@
 package controllers.User;
 
 import annotations.Routing.AdminOnly;
-import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
+import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
 import models.User.Admin.Admin;
 import models.User.Admin.AdminInfo;
-import models.User.Customer.CustomerInfo;
 import models.User.UserProfile;
-import models.ordering.CustomerOrder;
 import play.api.mvc.Call;
-import play.libs.Json;
-import play.libs.concurrent.HttpExecutionContext;
 import play.data.Form;
 import play.data.FormFactory;
+import play.libs.Json;
+import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
 import play.routing.JavaScriptReverseRouter;
 import utility.DashboardButton;
-import annotations.SessionVerifier.*;
-import views.html.User.Admin.adminHome;
-import views.html.User.Admin.manageDiscounts;
-import views.html.User.Admin.manageMeals;
-import views.html.User.Admin.manageUsers;
-import views.html.User.Admin.editAdminProfile;
-import views.html.User.Customer.editProfile;
+import views.html.User.Admin.*;
 
 import javax.inject.Inject;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

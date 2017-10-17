@@ -5,22 +5,18 @@ import annotations.SessionVerifier.RequiresActive;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.Routes;
-import controllers.Order.routes;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleDays;
 import models.Order.OrderScheduleItem;
 import models.User.Customer.Customer;
-import play.api.Play;
 import play.data.Form;
 import play.data.FormFactory;
-import play.filters.csrf.RequireCSRFCheck;
 import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
-import play.routing.JavaScriptReverseRouter;
-
 import play.mvc.With;
+import play.routing.JavaScriptReverseRouter;
 import views.html.Order.Schedule.create;
 import views.html.Order.Schedule.index;
 

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
-// @DATE:Sat Oct 14 09:33:00 SAST 2017
+// @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
+// @DATE:Wed Oct 18 00:03:01 SAST 2017
 
 
 package router {

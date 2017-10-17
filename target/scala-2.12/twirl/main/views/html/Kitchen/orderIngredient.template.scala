@@ -21,30 +21,28 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import models.Order.Ingredient
-/*2.2*/import helper.form
-/*3.2*/import helper.CSRF
-/*4.2*/import helper.textarea
+/*1.2*/import helper.{CSRF, form}
+/*2.2*/import models.Order.Ingredient
 
 object orderIngredient extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Ingredient,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*5.2*/(ingredient: Ingredient):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*3.2*/(ingredient: Ingredient):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*5.26*/("""
-"""),format.raw/*6.1*/("""<html>
-    """),_display_(/*7.6*/form(CSRF(controllers.Order.routes.KitchenController.editIngredient(ingredient.getIngredientId)))/*7.103*/{_display_(Seq[Any](format.raw/*7.104*/("""
-        """),format.raw/*8.9*/("""<table>
+Seq[Any](format.raw/*3.26*/("""
+"""),format.raw/*4.1*/("""<html>
+    """),_display_(/*5.6*/form(CSRF(controllers.Order.routes.KitchenController.editIngredient(ingredient.getIngredientId)))/*5.103*/{_display_(Seq[Any](format.raw/*5.104*/("""
+        """),format.raw/*6.9*/("""<table>
             <tr>
                 <td>Description</td>
                 <td>Quantity</td>
             </tr>
             <tr>
-                <td>"""),_display_(/*14.22*/ingredient/*14.32*/.getDescription),format.raw/*14.47*/("""</td>
-                <td>"""),_display_(/*15.22*/ingredient/*15.32*/.getQtyOrdered),format.raw/*15.46*/("""</td>
+                <td>"""),_display_(/*12.22*/ingredient/*12.32*/.getDescription),format.raw/*12.47*/("""</td>
+                <td>"""),_display_(/*13.22*/ingredient/*13.32*/.getQtyOrdered),format.raw/*13.46*/("""</td>
             </tr>
             <tr>
                 <td><label id="qty">New order quantity:</label></td>
@@ -53,8 +51,8 @@ Seq[Any](format.raw/*5.26*/("""
         </table>
         <button type="submit" name="action" value="edit">Change Quantity</button>
         <button type="submit" name="action" value="remove">Remove Order</button>
-    """)))}),format.raw/*24.6*/("""
-"""),format.raw/*25.1*/("""</html>
+    """)))}),format.raw/*22.6*/("""
+"""),format.raw/*23.1*/("""</html>
 
 """))
       }
@@ -72,11 +70,11 @@ Seq[Any](format.raw/*5.26*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 11:30:32 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Kitchen/orderIngredient.scala.html
-                  HASH: 63b66d1176b8ea6c6c44b1b742b0eb619bb9eca7
-                  MATRIX: 659->1|697->33|723->53|749->73|1090->97|1209->121|1236->122|1273->134|1379->231|1418->232|1453->241|1632->393|1651->403|1687->418|1741->445|1760->455|1795->469|2208->852|2236->853
-                  LINES: 24->1|25->2|26->3|27->4|32->5|37->5|38->6|39->7|39->7|39->7|40->8|46->14|46->14|46->14|47->15|47->15|47->15|56->24|57->25
+                  DATE: Wed Oct 18 00:03:04 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/orderIngredient.scala.html
+                  HASH: ab7b3628dcf4db9b4f71c9c910f08e03c65ba1fa
+                  MATRIX: 659->1|693->29|1042->61|1161->85|1188->86|1225->98|1331->195|1370->196|1405->205|1584->357|1603->367|1639->382|1693->409|1712->419|1747->433|2160->816|2188->817
+                  LINES: 24->1|25->2|30->3|35->3|36->4|37->5|37->5|37->5|38->6|44->12|44->12|44->12|45->13|45->13|45->13|54->22|55->23
                   -- GENERATED --
               */
           

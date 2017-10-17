@@ -1,7 +1,5 @@
 package utility;
 
-import io.ebeaninternal.server.lib.util.Str;
-
 /**
  * Created by dylan on 2017/10/14.
  */

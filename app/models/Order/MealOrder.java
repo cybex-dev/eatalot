@@ -2,7 +2,6 @@ package models.Order;
 
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebeaninternal.server.lib.util.Str;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +32,8 @@ public class MealOrder extends Model{
         this.orderQty = 0;
     }
 
-    private static Finder<Long, MealOrder> find = new Finder<Long, MealOrder>(MealOrder.class);
+    //todo #NOTIFY [Charles] change access from private to public, is used to query database to get results when displaying info to user
+    public static Finder<Long, MealOrder> find = new Finder<Long, MealOrder>(MealOrder.class);
 
     /**
      * Check if a meal is already present in current order

@@ -1,27 +1,7 @@
 
 package views.html.Application.Home
 
-import _root_.play.twirl.api.TwirlFeatureImports._
-import _root_.play.twirl.api.TwirlHelperImports._
-import _root_.play.twirl.api.Html
-import _root_.play.twirl.api.JavaScript
-import _root_.play.twirl.api.Txt
-import _root_.play.twirl.api.Xml
-import models._
-import controllers._
-import play.api.i18n._
-import views.html._
-import play.api.templates.PlayMagic._
-import java.lang._
-import java.util._
-import scala.collection.JavaConverters._
-import play.core.j.PlayMagicForJava._
-import play.mvc._
-import play.api.data.Field
-import play.mvc.Http.Context.Implicit._
-import play.data._
-import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import views.html.Global.Static.masterpage
+import views.html.Global.Static.masterpage
 
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
@@ -133,8 +113,8 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Application/Home/index.scala.html
+                  DATE: Tue Oct 17 23:44:31 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Application/Home/index.scala.html
                   HASH: 04590b30a5c8feeafb279f47f11eab2abc36d339
                   MATRIX: 668->1|1008->46|1088->51|1104->59|1184->63|1215->68|3133->1966|3153->1977|3234->1981|3266->1986|3485->2209|3513->2211|3542->2219|3575->2254|3607->2259|3840->2465|3860->2476|3924->2518|4496->48|4525->1963|4554->3052|4584->3056|4603->3066
                   LINES: 24->1|29->3|33->5|33->5|35->5|36->6|72->44|72->44|74->44|75->45|81->51|82->52|82->52|83->53|84->54|90->60|90->60|90->60|113->3|115->42|117->82|120->85|120->85

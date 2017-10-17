@@ -1,26 +1,17 @@
 package models.Order;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebean.Transaction;
-import models.Finance.Payment;
 import models.User.Customer.Customer;
-import models.ordering.CustomerOrder;
-import play.data.format.Formats;
 import play.data.validation.Constraints;
-import play.libs.streams.Accumulator;
-import scala.compat.java8.collectionImpl.Accumulator$;
 import utility.RandomString;
 
-import javax.persistence.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 /**
  * Created by cybex on 2017/07/13.

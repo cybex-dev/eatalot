@@ -2,9 +2,9 @@ package models.User.Customer;
 
 import io.ebean.Finder;
 import models.Finance.Payment;
+import models.Order.CustomerOrder;
 import models.Order.OrderSchedule;
 import models.User.User;
-import models.ordering.CustomerOrder;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -137,6 +137,9 @@ public class Customer extends User {
         return (balance == null) ? "0.00" : String.valueOf(balance);
     }
 
+    public double getBalanceNumeric(){
+        return balance;
+    }
 
     public static boolean Authenticate(String id, String token) {
         Optional<Customer> customer = Customer.find.query().where().idEq(id).and().eq("token", token).findOneOrEmpty();
@@ -161,5 +164,9 @@ public class Customer extends User {
 
     public void setOrderSchedule(OrderSchedule orderSchedule) {
         this.orderSchedule = orderSchedule;
+    }
+
+    public static Customer findCustomerByEmail(String email) {
+        return find.query().where().eq("email", email).findOne();
     }
 }

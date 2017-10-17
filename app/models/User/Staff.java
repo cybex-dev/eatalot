@@ -3,7 +3,8 @@ package models.User;
 import io.ebean.Finder;
 import play.data.validation.Constraints;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Optional;
 
 /**

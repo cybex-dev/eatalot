@@ -1,6 +1,5 @@
 package models.Order;
 
-import models.ordering.Meal;
 import utility.DateInterpreter;
 
 import java.util.Date;

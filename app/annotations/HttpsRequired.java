@@ -1,21 +1,16 @@
 package annotations;
 
 //import org.junit.Before;
+
 import play.api.Play;
 import play.mvc.Action;
 import play.mvc.Controller;
 import play.mvc.Http;
-import com.typesafe.config.ConfigFactory;
 import play.mvc.Result;
 
-import javax.inject.Inject;
-
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-
-import static play.mvc.Controller.request;
 
 //https://stackoverflow.com/questions/7415030/enforce-https-routing-for-login-with-play-framework?rq=1
 public class HttpsRequired extends Action<Controller> {

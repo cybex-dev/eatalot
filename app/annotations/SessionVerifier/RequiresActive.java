@@ -4,14 +4,11 @@ import controllers.Application.AppTags;
 import play.mvc.Action;
 import play.mvc.Http;
 import play.mvc.Result;
-import utility.Utility;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static utility.Utility.checkValidCSRF;
-import static utility.Utility.removeLoginCookies;
-import static utility.Utility.removeLoginSession;
+import static utility.Utility.*;
 
 /**
  * Checks for an active session defined by the userInfo object

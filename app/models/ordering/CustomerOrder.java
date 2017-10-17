@@ -10,6 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Date;
+>>>>>>> Customer-Management
 import java.util.List;
 
 /**
@@ -22,14 +26,24 @@ public class CustomerOrder extends Model {
     @Constraints.MinLength(10)
     @Constraints.MaxLength(10)
     @GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
     private long orderId;
+=======
+    private String orderId;
+>>>>>>> Customer-Management
 
     private String statusId = "unsubmitted";
     private String userId;
     private String paymentId;
     private String mealOrderId;
+<<<<<<< HEAD
 
     private static Finder<Long, CustomerOrder> find = new Finder<Long, CustomerOrder>(CustomerOrder.class);
+=======
+    public Date orderDate;
+
+    public static Finder<String, CustomerOrder> find = new Finder<String, CustomerOrder>(CustomerOrder.class);
+>>>>>>> Customer-Management
 
     /**
      * Finds a customer order by its orderId
@@ -80,7 +94,11 @@ public class CustomerOrder extends Model {
     }
 
     public long getOrderId() {
+<<<<<<< HEAD
         return orderId;
+=======
+        return Long.parseLong(orderId);
+>>>>>>> Customer-Management
     }
 
     public String getStatusId() {

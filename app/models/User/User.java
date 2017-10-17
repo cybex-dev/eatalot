@@ -1,28 +1,23 @@
 package models.User;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
-
+import utility.RandomString;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-
-import static controllers.Application.AppTags.*;
-import static controllers.Application.AppTags.Database.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/08.
  */
 
 @MappedSuperclass
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)           // Gives a error [ Error injecting constructor, java.lang.NullPointerException ]
 public abstract class User extends Model {
 
     @Id
     @Constraints.Required
-    @GeneratedValue
-    private Long userId;
+    private String userId;
 
     @Constraints.MaxLength(50)
     private String name;
@@ -45,11 +40,20 @@ public abstract class User extends Model {
     @Pattern( regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
     private String cellNumber;
 
+    @Constraints.Required
+    private String token;
+
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 
-    public User(){}
+    public User(){
+        generateId();
+    }
 
-    public User(@Constraints.MinLength(10) @Constraints.MaxLength(10) Long userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
+    private void generateId() {
+        userId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+    }
+
+    public User( @Constraints.Required String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -59,12 +63,12 @@ public abstract class User extends Model {
     }
 
     public boolean completeCheck(){
-        return (name != null &&
-                !name.equals("") &&
-                surname != null &&
-                !surname.equals("") &&
-                cellNumber != null &&
-                !cellNumber.equals(""));
+        return (getName() != null &&
+                !getName().equals("") &&
+                getSurname() != null &&
+                !getSurname().equals("") &&
+                getCellNumber() != null &&
+                !getCellNumber().equals(""));
     }
 
     //// TODO: 2017/08/14
@@ -87,6 +91,15 @@ public abstract class User extends Model {
                 u.email.equals(email));
     }
 
+    public void setToken(String token) {
+        this.token = token;
+            save();
+    }
+
+    public String getToken() {
+        return token;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -95,12 +108,8 @@ public abstract class User extends Model {
         return stringBuilder.toString();
     }
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public String getUserId() {
+        return String.valueOf(userId);
     }
 
     public String getName() {
@@ -109,6 +118,7 @@ public abstract class User extends Model {
 
     public void setName(String name) {
         this.name = name;
+        save();
     }
 
     public String getSurname() {
@@ -117,6 +127,7 @@ public abstract class User extends Model {
 
     public void setSurname(String surname) {
         this.surname = surname;
+        save();
     }
 
     public String getPassword() {
@@ -125,6 +136,7 @@ public abstract class User extends Model {
 
     public void setPassword(String password) {
         this.password = password;
+        save();
     }
 
     public String getEmail() {
@@ -133,6 +145,7 @@ public abstract class User extends Model {
 
     public void setEmail(String email) {
         this.email = email;
+        save();
     }
 
     public String getCellNumber() {
@@ -141,6 +154,7 @@ public abstract class User extends Model {
 
     public void setCellNumber(String cellNumber) {
         this.cellNumber = cellNumber;
+        save();
     }
 
 }

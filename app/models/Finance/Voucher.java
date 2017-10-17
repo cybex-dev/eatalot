@@ -3,18 +3,18 @@ package models.Finance;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
+@Table(name = "voucher")
 public class Voucher extends Model{
 
     @Id
-    @GeneratedValue
     @Constraints.Required
-    private Long voucherId;
+    private String voucherId;
 
     @Constraints.Required
     private String voucherCode;
@@ -29,13 +29,13 @@ public class Voucher extends Model{
         this.value = value;
     }
 
-    public static Finder<Long , Voucher> find = new Finder<Long , Voucher>(Voucher.class);
+    public static Finder<String , Voucher> find = new Finder<String , Voucher>(Voucher.class);
 
-    public Long getVoucherId() {
+    public String getVoucherId() {
         return voucherId;
     }
 
-    public void setVoucherId(Long voucherId) {
+    public void setVoucherId(String voucherId) {
         this.voucherId = voucherId;
     }
 
@@ -53,5 +53,11 @@ public class Voucher extends Model{
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    @Override
+    public void insert() {
+        voucherId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

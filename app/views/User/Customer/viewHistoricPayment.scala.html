@@ -1,0 +1,34 @@
+@import models.Finance.PaymentItemDetail
+@import Global.Static.masterpage
+@import helper.CSRF
+@import helper.form
+
+@(paymentDetails: PaymentItemDetail)
+
+@bodyContent = {
+    <h1>Payment details</h1>
+    <br/>
+    <div class="split-pane">
+        <div class="left container input-container">
+            <label># Payment</label>
+            <label>Amount</label>
+            <label>Cash Payment</label>
+            <label>Deliverer</label>
+            <label># Order</label>
+        </div>
+        <div class="right container input-container">
+            <label>@paymentDetails.paymentId</label>
+            <label>@String.valueOf(paymentDetails.amount)</label>
+            <label>@if(paymentDetails.isCash){"Yes"}else{"No"}</label>
+            <label>@paymentDetails.deliveryStaffName</label>
+            <label><a href="@controllers.User.routes.CustomerController.viewOrder(paymentDetails.orderId)">"#@paymentDetails.orderId"</a></label>
+        </div>
+    </div>
+    <br/>
+    @helper.form( action = controllers.User.routes.CustomerController.index()){
+        @CSRF.formField
+        <input class="btn btn-info" type="submit" name="Home">
+    }
+}
+
+    @masterpage.apply(" :: Payment", bodyContent)

@@ -4,7 +4,11 @@
 		module="eatalot_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
+<<<<<<< HEAD
 		publication="20171003055541"
+=======
+		publication="20171017204632"
+>>>>>>> Customer-Management
 	>
 		<description>
 		eatalot

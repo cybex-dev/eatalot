@@ -1,7 +1,11 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
+<<<<<<< HEAD
 // @DATE:Tue Oct 03 05:59:33 SAST 2017
+=======
+// @DATE:Tue Oct 17 20:48:49 SAST 2017
+>>>>>>> Customer-Management
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +13,14 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:83
+// @LINE:143
 package controllers.javascript {
 
+<<<<<<< HEAD
   // @LINE:88
+=======
+  // @LINE:191
+>>>>>>> Customer-Management
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +28,11 @@ package controllers.javascript {
     }
 
   
+<<<<<<< HEAD
     // @LINE:88
+=======
+    // @LINE:191
+>>>>>>> Customer-Management
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -32,7 +44,11 @@ package controllers.javascript {
   
   }
 
+<<<<<<< HEAD
   // @LINE:83
+=======
+  // @LINE:185
+>>>>>>> Customer-Management
   class ReverseCountController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -40,7 +56,11 @@ package controllers.javascript {
     }
 
   
+<<<<<<< HEAD
     // @LINE:83
+=======
+    // @LINE:185
+>>>>>>> Customer-Management
     def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CountController.count",
       """
@@ -52,7 +72,11 @@ package controllers.javascript {
   
   }
 
+<<<<<<< HEAD
   // @LINE:85
+=======
+  // @LINE:188
+>>>>>>> Customer-Management
   class ReverseAsyncController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -60,7 +84,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:85
+    // @LINE:188
     def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AsyncController.message",
       """
@@ -72,7 +96,11 @@ package controllers.javascript {
   
   }
 
+<<<<<<< HEAD
   // @LINE:90
+=======
+  // @LINE:143
+>>>>>>> Customer-Management
   class ReverseOrderController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -80,7 +108,11 @@ package controllers.javascript {
     }
 
   
+<<<<<<< HEAD
     // @LINE:110
+=======
+    // @LINE:163
+>>>>>>> Customer-Management
     def submitCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.submitCart",
       """
@@ -90,7 +122,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:90
+=======
+    // @LINE:143
+>>>>>>> Customer-Management
     def getMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.getMenu",
       """
@@ -100,7 +136,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:108
+=======
+    // @LINE:161
+>>>>>>> Customer-Management
     def removeMealFromOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.removeMealFromOrder",
       """
@@ -110,7 +150,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:92
+=======
+    // @LINE:145
+>>>>>>> Customer-Management
     def switchMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.switchMenu",
       """
@@ -120,7 +164,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:100
+=======
+    // @LINE:153
+>>>>>>> Customer-Management
     def addMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.addMeal",
       """
@@ -130,7 +178,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:96
+=======
+    // @LINE:149
+>>>>>>> Customer-Management
     def addMealToOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.addMealToOrder",
       """
@@ -140,7 +192,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:98
+=======
+    // @LINE:151
+>>>>>>> Customer-Management
     def getAddMealToMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.getAddMealToMenu",
       """
@@ -150,7 +206,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:106
+=======
+    // @LINE:159
+>>>>>>> Customer-Management
     def getCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.OrderController.getCart",
       """
@@ -162,7 +222,11 @@ package controllers.javascript {
   
   }
 
+<<<<<<< HEAD
   // @LINE:94
+=======
+  // @LINE:147
+>>>>>>> Customer-Management
   class ReverseAccountController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -170,7 +234,11 @@ package controllers.javascript {
     }
 
   
+<<<<<<< HEAD
     // @LINE:102
+=======
+    // @LINE:155
+>>>>>>> Customer-Management
     def doLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.doLogin",
       """
@@ -180,7 +248,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:94
+=======
+    // @LINE:147
+>>>>>>> Customer-Management
     def getSignUp: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.getSignUp",
       """
@@ -190,7 +262,11 @@ package controllers.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:104
+=======
+    // @LINE:157
+>>>>>>> Customer-Management
     def doSignOut: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.doSignOut",
       """

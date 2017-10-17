@@ -1,7 +1,11 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
+<<<<<<< HEAD
 // @DATE:Tue Oct 03 05:59:33 SAST 2017
+=======
+// @DATE:Tue Oct 17 20:48:49 SAST 2017
+>>>>>>> Customer-Management
 
 import play.api.mvc.Call
 
@@ -19,12 +23,33 @@ package controllers.Application {
     }
 
   
+    // @LINE:8
+    def unknown(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "unknown")
+    }
+  
     // @LINE:6
     def index(): Call = {
       
       Call("GET", _prefix)
     }
   
+<<<<<<< HEAD
+=======
+    // @LINE:202
+    def invalidRoute(path:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("path", path))
+    }
+  
+    // @LINE:7
+    def forbiddenAccess(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "forbidden")
+    }
+  
+>>>>>>> Customer-Management
   }
 
 

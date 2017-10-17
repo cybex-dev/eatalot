@@ -7,29 +7,29 @@ import play.data.validation.ValidationError;
 import java.util.List;
 
 public class UserFunds implements Constraints.Validatable<ValidationError>{
-    private Long userId;
+    private String userId;
     private String voucherCode;
 
     public UserFunds(){}
 
-    public UserFunds(Long userId, String voucherValue) {
+    public UserFunds(String userId, String voucherValue) {
         this.userId = userId;
         this.voucherCode = voucherValue;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public String getVoucherValue() {
+    public String getVoucherCode() {
         return voucherCode;
     }
 
-    public void setVoucherValue(String voucherValue) {
+    public void setVoucherCode(String voucherValue) {
         this.voucherCode = voucherValue;
     }
 

@@ -36,7 +36,11 @@ public class Meal extends Model{
         this.cost = cost;
     }
 
+<<<<<<< HEAD
     private static Finder<Long, Meal> find = new Finder<Long, Meal>(Meal.class);
+=======
+    public static Finder<String, Meal> find = new Finder<String, Meal>(Meal.class);
+>>>>>>> Customer-Management
 
     public static List<Meal> findMealsByType(String type){
         return find.query().where()

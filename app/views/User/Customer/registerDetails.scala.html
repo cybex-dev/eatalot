@@ -1,46 +1,46 @@
 @import views.html.Global.Static.essentials
-@import models.User.UserRegisterDetails
 @import helper._
+@import models.User.UserProfile
 @import play.data.Form
 
-@(detailsForm: Form[UserRegisterDetails])
+@(userProfile: Form[UserProfile])
 
 @navContent = {
 
 }
 
 @bodyContent = {
-@helper.form(action = controllers.User.routes.CustomerController.completeRegistration()) {
-    <h1>Complete registration</h1>
-    <br/>
-    <div class="container input-container">
-        <h3>About you</h3>
-        @CSRF.formField
-        <div class="input-group input-container">
-            @helper.inputText(detailsForm("name"), '_name -> "Name")
-            @helper.inputText(detailsForm("surname"), '_name -> "Surname")
-        </div>
+    @helper.form(action = controllers.User.routes.CustomerController.doCompleteRegistration()) {
+        <h1>Complete registration</h1>
         <br/>
-        <br/>
-        <h3>Contact Info</h3>
-        <div class="input-group input-container">
-            @helper.inputText(detailsForm("cellNumber"), '_name -> "Mobile Number")
-        </div>
-        <br/>
-        <br/>
-        <h3>Address</h3>
-        <div class="input-group input-container">
-            @helper.inputText(detailsForm("streetName"), '_name -> "Street Name")
-            @helper.inputText(detailsForm("unitNumber"), '_name -> "Street/Communal Number")
+        <div class="container input-container">
+            <h3>About you</h3>
+            @CSRF.formField
+            <div class="input-group input-container">
+                @helper.inputText(userProfile("name"), '_name -> "Name")
+                @helper.inputText(userProfile("surname"), '_name -> "Surname")
+            </div>
             <br/>
-            @helper.inputText(detailsForm("communityName"), '_name -> "Community Name")
-            @helper.checkbox(detailsForm("isCommunity"), '_name -> "Reside in an apartment/complex")
-            <input type="submit" class="btn btn-default" value="Complete Registration">
+            <br/>
+            <h3>Contact Info</h3>
+            <div class="input-group input-container">
+            @helper.inputText(userProfile("cellNumber"), '_name -> "Mobile Number")
+            </div>
+            <br/>
+            <br/>
+            <h3>Address</h3>
+            <div class="input-group input-container">
+                @helper.inputText(userProfile("streetName"), '_name -> "Street Name")
+                @helper.inputText(userProfile("unitNumber"), '_name -> "Street/Communal Number")
+                <br/>
+                @helper.checkbox(userProfile("isCommunity"), '_name -> "Reside in an apartment/complex", '_id -> "chkComm")
+                @helper.inputText(userProfile("communityName"), '_name -> "Community Name", '_id -> "commName")
+                <input type="submit" class="btn btn-default" value="Complete Registration">
+            </div>
         </div>
-    </div>
-    <br/>
-    <p class="small">NOTE: all information is kept confidential</p>
-}
+        <br/>
+        <p class="small">NOTE: all information is kept confidential</p>
+    }
 
 }
 

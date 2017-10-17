@@ -1,0 +1,56 @@
+@import models.ordering.Meal
+@import java.util
+@import helper._
+@(meals: util.List[Meal], menuType: Integer)
+
+<!DOCTYPE html>
+<html>
+    <body>
+        @if(session.get("user") == null){
+            <a href="@routes.AccountController.getSignUp()">Sign up</a>
+        } else{
+            <p>Welcome @session.get("username")</p>
+            <a href="@routes.AccountController.doSignOut()">Sign out</a>
+        }
+
+        @*<a href="@routes.OrderController.getAddMealToMenu()">Add Order</a>*@
+        <h1>Menu</h1>
+        <table>
+            <tr><td><a href="@routes.OrderController.getMenu()">Menu</a></td></tr>
+            <tr><td><a href="@routes.OrderController.getCart()">Checkout</a></td></tr>
+        </table>
+        <table>
+            @menuType
+            <tr><td><a href="@routes.OrderController.switchMenu(0)">Breakfast</a></td></tr>
+            <tr><td><a href="@routes.OrderController.switchMenu(1)">Lunch</a></td></tr>
+            <tr><td><a href="@routes.OrderController.switchMenu(2)">Dinner</a></td></tr>
+        </table>
+        @if(meals.size() == 0){
+            <p>List is empty</p>
+        } else {
+            @for(x <- 0 until meals.size) {
+                @form(CSRF(routes.OrderController.addMealToOrder(meals.get(x).getMealId()))) {
+                    @*<form action="@routes.OrderController.addMealToOrder(meals.get(x).getMealId())" method="post">*@
+                    <table>
+                        <tr>
+                            <td>Meal</td>
+                            <td>Price</td>
+                            <td>Status</td>
+                        </tr>
+                        <tr>
+                            <td>@meals.get(x).getDescription()</td>
+                            <td>@meals.get(x).getCost()</td>
+                            <td>$$Status</td>
+                        </tr>
+                        <tr>
+                            <td>$$Image</td>
+                            <td></td>
+                            <td><button type="submit">Add to order</button></td>
+                        </tr>
+                    </table>
+                    @*</form>*@
+                }
+            }
+        }
+    </body>
+</html>

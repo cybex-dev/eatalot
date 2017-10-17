@@ -1,0 +1,61 @@
+@import views.html.helper.CSRF
+@import utility.DashboardButton
+@import java.util.List
+@import controllers.Application.AppTags.AppCookie.UserType._
+@import controllers.Application.AppTags.AppCookie.user_type
+
+@(dashButtons: List[DashboardButton], bodyContent: Html)
+
+    @generateDashButton(dashboardButton: DashboardButton, index: Integer) = {
+        <div class="col-md-3 col-sm-3 col-xs-6 div-button-hover" id="dashButton@index">
+            <a href="@CSRF(dashboardButton.link)">
+                <div class="alert @dashboardButton.cssClassButtonColour back-widget-set text-center">
+                    <i class="fa @dashboardButton.cssClassMainImage fa-5x"></i>
+                    <h3>@dashboardButton.largeText
+                        <i class="fa @dashboardButton.cssClassSecondaryImage"></i></h3>
+                    @dashboardButton.smallText
+                </div>
+            </a>
+        </div>
+    }
+
+    @bodyContent = {
+        <div class="container row">
+        @for((button, index) <- dashButtons.zipWithIndex) {
+            @generateDashButton(button, index)
+        }
+        </div>
+        <script type="text/javascript">
+                var link = null, s = "";
+                s = "@session().get(user_type.toString)";
+                switch (s) {
+                    case "CUSTOMER":
+                        link = customerJSRoutes.controllers.User.CustomerController.getCustomerDashUpdate();
+                        break;
+                    case "ADMIN":
+                        link = adminJSRoutes.controllers.User.AdminController.getAdminDashUpdate();
+                        break;
+                    case "KITCHEN":
+                        link = kitchenJSRoutes.controllers.User.KitchenStaffController.getKitchenDashUpdate();
+                        break;
+                    case "DELIVERY":
+                        link = deliveryJSRoutes.controllers.User.DeliveryStaffController.getDeliveryDashUpdate();
+                        break;
+                    default:
+                        alert("Unknown user_type: " + s);
+                        break;
+                }
+
+                var updateDom = function () {
+                    $.get(link.url, function (data) {
+                        alert(data)
+                    })
+                };
+                $(document).ready(function () {
+//                scope.setInterval(updateDom,2000)
+                    updateDom();
+                });
+        </script>
+    }
+
+    @masterpage.apply(" :: Dashboard", bodyContent)

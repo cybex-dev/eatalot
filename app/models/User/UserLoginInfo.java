@@ -1,7 +1,6 @@
 package models.User;
 
 
-import play.data.validation.Constraints;
 import javax.validation.constraints.Pattern;
 
 /**
@@ -9,47 +8,47 @@ import javax.validation.constraints.Pattern;
  */
 public class UserLoginInfo {
 
-    @Constraints.Required
-//    @Pattern(regexp = ".+[@].+[.].+", message = "Please check your email address")
-    @Constraints.Email
-    private String email;
+//    @Constraints.Required
+//    @Pattern(regexp = ".+[@].+[.].+", message = "Please check your loginId address")
+//    @Constraints.Email
+    private String loginId;
 
-    @Constraints.Required
-    @Constraints.MinLength(message = "Minimum length is 8", value = 8)
+//    @Constraints.Required
+//    @Constraints.MinLength(message = "Minimum length is 8", value = 8)
     @Pattern(regexp = "(\\S){8,}", message = "password.require_length")
     private String password;
 
-    private Boolean bRememberMe = Boolean.FALSE;
+    private Boolean rememberMe = Boolean.FALSE;
 
     public UserLoginInfo(){}
 
     public UserLoginInfo(String email, String password, Boolean bRememberMe) {
-        this.email = email;
+        this.loginId = email;
         this.password = password;
-        this.bRememberMe = bRememberMe;
+        this.rememberMe = bRememberMe;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLoginId() {
+        return loginId;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public Boolean getbRememberMe() {
-        return bRememberMe;
+    public Boolean getRememberMe() {
+        return rememberMe;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setbRememberMe(Boolean bRememberMe) {
-        this.bRememberMe = bRememberMe;
+    public void setRememberMe(Boolean bRememberMe) {
+        this.rememberMe = bRememberMe;
     }
 }

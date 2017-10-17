@@ -2,8 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Shows EatAloT home page
-GET     /                                     controllers.Application.HomeController.index()
+# An example controller showing a sample home page
+GET         /                                       controllers.Application.HomeController.index()
+GET         /forbidden                              controllers.Application.HomeController.forbiddenAccess()
+GET         /unknown                                controllers.Application.HomeController.unknown()
 
 
 ##disable this an you will recieve customerHome 403 forbidden error, the CRSF filter is used for cross site scripting prevention, use for authentication - used in POST requests
@@ -11,64 +13,164 @@ GET     /                                     controllers.Application.HomeContro
 
 ##############################################################################
 
-#User Controller
-GET        /User/Login                         controllers.User.UserController.login()
-GET        /User/Logout                        controllers.User.UserController.logout()
+# User Controller
+GET         /User/Login                             controllers.User.UserController.login()
+GET         /User/Logout                            controllers.User.UserController.logout()
 
-POST       /User/Login                         controllers.User.UserController.doLogin()
+POST        /User/Login                             controllers.User.UserController.doLogin()
 
 ##############################################################################
 
 ##############################################################################
 
 #Staff Controller
-GET        /Staff                              controllers.User.StaffController.index()
-GET        /Staff/Login                        controllers.User.StaffController.login()
-GET        /Staff/Logout                       controllers.User.StaffController.logout()
-
-POST       /Staff/Login                        controllers.User.StaffController.doLogin()
+GET         /Staff                                  controllers.User.DeliveryStaffController.index()
 
 ##############################################################################
 
 ##############################################################################
 
-#Customer Controller
-GET        /User                                controllers.User.CustomerController.index()
-GET        /User/Register                       controllers.User.CustomerController.register()
-GET        /User/Verify/:token                  controllers.User.CustomerController.verifyCustomer(token: String)
-GET        /User/Profile                        controllers.User.CustomerController.edit()
+# Customer Controller
+GET         /User                                   controllers.User.CustomerController.redirectHome()
+GET         /User/Dashboard                         controllers.User.CustomerController.index()
++nocsrf
+GET         /User/Dashboard/Update                  controllers.User.CustomerController.getCustomerDashUpdate()
+GET         /User/Register                          controllers.User.CustomerController.register()
+GET         /User/Register/Completing               controllers.User.CustomerController.completeRegistration()
+GET         /User/Verify/:token                     controllers.User.CustomerController.verifyCustomer(token: String)
+GET         /User/Profile                           controllers.User.CustomerController.edit()
+GET         /User/History/Orders                    controllers.User.CustomerController.orderHistory()
+GET         /User/History/Purchases                 controllers.User.CustomerController.paymentHistory()
+GET         /User/History/Order/:orderId            controllers.User.CustomerController.viewOrder(orderId: String)
+GET         /User/History/Payment/:paymentId        controllers.User.CustomerController.viewPayment(paymentId: String)
 
-POST       /User/Register                       controllers.User.CustomerController.create()
-POST       /User/Registration/Reverify          controllers.User.CustomerController.reverify()
-POST       /User/Registration/Completing        controllers.User.CustomerController.completeRegistration()
-POST       /User/Profile                        controllers.User.CustomerController.update()
-#GET        /User                 controllers.User.CustomerController.index()
+POST        /User/Register                          controllers.User.CustomerController.create()
+POST        /User/Register/Reverify                 controllers.User.CustomerController.reverify()
+POST        /User/Register/Completing               controllers.User.CustomerController.doCompleteRegistration()
+POST        /User/Profile                           controllers.User.CustomerController.update()
+POST        /User/ActiveOrders                      controllers.User.CustomerController.activeOrders()
+#GET        /User                 controllers.User.CustomerController.remove()
+
+# Customer Schedule
+GET         /User/Schedule                          controllers.Order.ScheduleController.index()
+GET         /User/Schedule/New                      controllers.Order.ScheduleController.createSchedule()
+GET         /User/Schedule/AddOrder                 controllers.Order.ScheduleController.addOrder()
+GET         /User/Schedule/Edit                     controllers.Order.ScheduleController.editScheduleName()
+
+POST        /User/Schedule/Delete/:orderId          controllers.Order.ScheduleController.removeOrder(orderId: String)
++nocsrf
+POST        /User/Schedule/ChangeState              controllers.Order.ScheduleController.setScheduleState()
+POST        /User/Schedule/Edit                     controllers.Order.ScheduleController.updateScheduleName()
+POST        /User/Schedule/New                      controllers.Order.ScheduleController.doCreateSchedule()
+POST        /User/Schedule/AddOrder                 controllers.Order.ScheduleController.doAddOrder()
+POST        /User/Schedule/Clear                    controllers.Order.ScheduleController.clearSchedule()
 
 ##############################################################################
 
-#Menu Controller
+# Menu Controller
 
-GET         /Menu                               controllers.Order.MenuController.index()
-
-##############################################################################
-
-##############################################################################
-
-# Kitchen Controller
-
-GET         /Kitchen/User                       controllers.Order.KitchenController.index()
+GET         /Menu                                   controllers.Order.MenuController.index()
 
 ##############################################################################
 
 ##############################################################################
 
-# Delivery Controller
+# KitchenStaff Controller
 
-GET         /Delivery/User                       controllers.Delivery.DeliveryController.index()
+GET         /Kitchen/Dashboard                      controllers.User.KitchenStaffController.index()
++nocsrf
+GET         /Kitchen/Dashboard/Update               controllers.User.KitchenStaffController.getKitchenDashUpdate()
+GET         /Kitchen/Order                          controllers.User.KitchenStaffController.viewOrder()
+GET         /Kitchen/Orders/Active                  controllers.User.KitchenStaffController.viewActiveOrders()
+GET         /Kitchen/Orders/Completed               controllers.User.KitchenStaffController.viewCompletedOrders()
+GET         /Kitchen/Orders/Queued                  controllers.User.KitchenStaffController.viewQueuedOrders()
+GET         /Kitchen/User/Edit                      controllers.User.KitchenStaffController.edit()
+
+POST        /Kitchen/User/Edit                      controllers.User.KitchenStaffController.doEdit()
 
 ##############################################################################
 
 ##############################################################################
+
+# DeliveryStaff Controller
+
+GET         /Delivery/Dashboard                     controllers.User.DeliveryStaffController.index()
++nocsrf
+GET         /Delivery/Dashboard/Update              controllers.User.DeliveryStaffController.getDeliveryDashUpdate()
+GET         /Delivery/Order                         controllers.User.DeliveryStaffController.viewOrder()
+GET         /Delivery/Order/Deliver                 controllers.User.DeliveryStaffController.deliverOrder()
+GET         /Delivery/Order/Checkout                controllers.User.DeliveryStaffController.checkoutOrder()
+GET         /Delivery/Orders/Completed              controllers.User.DeliveryStaffController.viewCompletedDeliveries()
+GET         /Delivery/Orders/Active                 controllers.User.DeliveryStaffController.viewActiveDeliveries()
+GET         /Delivery/Orders/Waiting                controllers.User.DeliveryStaffController.viewWaitingDeliveries()
+GET         /Delivery/User/Edit                     controllers.User.DeliveryStaffController.edit()
+
+POST        /Delivery/User/Edit                     controllers.User.DeliveryStaffController.doEdit()
+
+
+##############################################################################
+
+##############################################################################
+
+# Admin Controller
+
+GET         /Admin/Dashboard                         controllers.User.AdminController.index()
++nocsrf
+GET         /Admin/Dashboard/Update                  controllers.User.AdminController.getAdminDashUpdate()
+GET         /Admin/Manage/Meals                      controllers.User.AdminController.manageMeals()
+GET         /Admin/Manage/Users                      controllers.User.AdminController.manageUsers()
+GET         /Admin/Manage/Discounts                  controllers.User.AdminController.manageDiscounts()
+GET         /Admin/Edit                              controllers.User.AdminController.edit()
+
+POST        /Admin/Edit                              controllers.User.AdminController.doEdit()
+
+##############################################################################
+
+##############################################################################
+
+# Finance Controller
+
+GET         /User/AddFunds                          controllers.Finance.UserFinance.addFunds()
+
+POST        /User/AddFunds                          controllers.Finance.UserFinance.doAddFunds()
+
+##############################################################################
+
+##############################################################################
+
+# Order - Management Package
+
+GET         /menu                                   controllers.OrderController.getMenu()
+
+GET         /menu/:menutype                         controllers.OrderController.switchMenu(menutype: Integer)
+
+GET         /signup                                 controllers.AccountController.getSignUp
+
+POST        /addmealtoorder                         controllers.OrderController.addMealToOrder(mealId: String)
+
+GET         /addmeal                                controllers.OrderController.getAddMealToMenu
+
+POST        /postmeal                               controllers.OrderController.addMeal
+
+GET         /dologin                                controllers.AccountController.doLogin()
+
+GET         /dosignout                              controllers.AccountController.doSignOut()
+
+GET         /cart                                   controllers.OrderController.getCart()
+
+POST        /cart/removemeal                        controllers.OrderController.removeMealFromOrder(mealId: String)
+
+POST        /submit                                 controllers.OrderController.submitCart()
+
+##############################################################################
+# Javascript Routing
+#GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
++nocsrf
+GET         /assets/javascripts/scheduleJSRoutes    controllers.Order.ScheduleController.scheduleJSRoutes()
+GET         /assets/javascripts/customerJSRoutes    controllers.User.CustomerController.customerJSRoutes()
+GET         /assets/javascripts/adminJSRoutes       controllers.User.AdminController.adminJSRoutes()
+GET         /assets/javascripts/deliveryJSRoutes    controllers.User.DeliveryStaffController.deliveryJSRoutes()
+GET         /assets/javascripts/kitchenJSRoutes     controllers.User.KitchenStaffController.kitchenJSRoutes()
 
 # Finance Controller
 
@@ -80,13 +182,22 @@ POST        /User/AddFunds                       controllers.Finance.UserFinance
 ##############################################################################
 
 # An example controller showing how to use dependency injection
-GET     /count                                   controllers.CountController.count
+GET         /count                                  controllers.CountController.count
+
 # An example controller showing how to write asynchronous code
-GET     /message                                 controllers.AsyncController.message
+GET         /message                                controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                            controllers.Assets.versioned(path="/public", file: Asset)
-GET     /*path                                   controllers.Application.HomeController.invalidRoute(path: String)
+GET         /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/User/*file                      controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/User/Registration/*file         controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/Delivery/*file                  controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/Kitchen/*file                   controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/Staff/*file                     controllers.Assets.versioned(path="/public", file: Asset)
+#GET         /assets/History/*file                   controllers.Assets.versioned(path="/public", file: Asset)
 
-## Javascript routes
-#GET     /javascriptRoutes        controllers.JavascriptRoutesController
+#GET         /assets/fonts/*file                     controllers.Assets.versioned(path="/public/fonts",file: Asset)
+
+# Default path if not found
+GET         /*path                                  controllers.Application.HomeController.invalidRoute(path: String)
+

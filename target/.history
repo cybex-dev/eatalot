@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 compile
 run
 all {file:/home/cybex/Projects/project-eatalot/}root/products {file:/home/cybex/Projects/project-eatalot/}root/test:products
@@ -11,3 +12,5 @@ clean
 compile
 run
 ;reload; set org.jetbrains.sbt.StructureKeys.sbtStructureOptions in Global := "download resolveClassifiers" ;*/*:dumpStructureTo /tmp/sbt-structure.xml
+=======
+>>>>>>> Customer-Management-Dev

@@ -6,8 +6,13 @@
 		module="eatalot$sources_2.12"
 		revision="1.0-SNAPSHOT"
 		conf="plugin"
+<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot$sources_2.12-plugin.xml
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
 		date="20170917005822"/>
+=======
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20171016162556"/>
+>>>>>>> Customer-Management-Dev:project/target/resolution-cache/reports/default-project-eatalot-build-plugin.xml
 	<dependencies>
 	</dependencies>
 </ivy-report>

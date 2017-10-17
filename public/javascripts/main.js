@@ -1,50 +1,29 @@
 
-/*=============================================================
- Authour URI: www.binarytheme.com
- License: Commons Attribution 3.0
-
- http://creativecommons.org/licenses/by/3.0/
-
- 100% Free To use For Personal And Commercial Use.
- IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-
- ========================================================  */
-
-(function ($) {
-    "use strict";
-    var mainApp = {
-        slide_fun: function () {
-
-            $('#carousel-example').carousel({
-                interval:3000 // THIS TIME IS IN MILLI SECONDS
-            })
-
+var setScheduleStatus = function () {
+    scheduleJSRoutes.controllers.Order.ScheduleController.setScheduleState().ajax({
+        success: function (data) {
+            var btn = document.getElementById("btnScheduleStatus");
+            if (data["status"].equals("true")) {
+                btn.classList.add("btn-success");
+                btn.classList.remove("btn-warning");
+                btn.value = "Active"
+            } else {
+                btn.classList.add("btn-warning");
+                btn.classList.remove("btn-success");
+                btn.value = "Inactive"
+            }
         },
-        dataTable_fun: function () {
-
-            $('#dataTables-example').dataTable();
-
-        },
-
-        custom_fun:function()
-        {
-            /*====================================
-             WRITE YOUR   SCRIPTS  BELOW
-             ======================================*/
-
-
-
-
-        },
-
-    }
-
-
-    $(document).ready(function () {
-        mainApp.slide_fun();
-        mainApp.dataTable_fun();
-        mainApp.custom_fun();
-    });
-}(jQuery));
-
-
+        error: function (data) {
+            alert("An error occurred!")
+        }
+    })
+};
+var createSchedule = function () {
+    alert("Create schedule selected, please implement");
+};
+var changeScheduleName = function () {
+    alert("Change schedule name selected, please implement");
+};
+var clearSchedule = function () {
+    alert("Create schedule selected, please implement");
+};

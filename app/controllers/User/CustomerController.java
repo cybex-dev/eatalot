@@ -1,30 +1,53 @@
 package controllers.User;
 
+import annotations.CheckCSRF;
+import annotations.Routing.CustomersOnly;
+import annotations.SessionVerifier.LoadOrRedirectToLogin;
+import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
+import controllers.Application.AppTags.Session;
 import libs.Mailer;
 import models.CRUD;
-import models.User.*;
+import models.Finance.Payment;
+import models.Finance.PaymentItemBasic;
+import models.Order.ActiveOrder;
+import models.Order.MealOrderItem;
+import models.Order.OrderItemBasic;
+import models.Order.OrderSchedule;
+import models.User.Customer.*;
+import models.User.UserDetails;
+import models.User.UserProfile;
+import models.ordering.CustomerOrder;
+import models.ordering.Meal;
+import models.ordering.MealOrder;
 import org.jetbrains.annotations.NotNull;
 import play.Logger;
+import play.api.Configuration;
 import play.data.Form;
 import play.data.FormFactory;
+import play.libs.Json;
+import play.libs.concurrent.HttpExecutionContext;
 import play.libs.mailer.MailerClient;
-import play.mvc.Controller;
-import play.mvc.Http;
-import play.mvc.Result;
+import play.mvc.*;
+import play.routing.JavaScriptReverseRouter;
+import utility.DashboardButton;
+import utility.Utility;
 import views.html.User.Customer.*;
 import views.html.User.Customer.editProfile;
 
 import javax.inject.Inject;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 import static controllers.Application.AppTags.*;
 import static controllers.Application.AppTags.AppCookie.buildCookie;
-import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
+import static controllers.Application.AppTags.AppCookie.user_id;
 
 /**
  * Created by cybex on 2017/07/21.
  */
+
 public class CustomerController extends Controller implements CRUD {
 
     boolean emailSent = false;
@@ -32,9 +55,19 @@ public class CustomerController extends Controller implements CRUD {
     @Inject
     FormFactory formFactory;
     @Inject
+    HttpExecutionContext httpExecutionContext;
+    @Inject
+    Configuration configuration;
+    @Inject
     MailerClient mailerClient;
     @Inject
     play.Environment environment;
+
+    @Inject
+    public CustomerController(HttpExecutionContext ec) {
+        this.httpExecutionContext = ec;
+    }
+
 
     /**
      * <b>This should never be routed to</b>
@@ -50,31 +83,39 @@ public class CustomerController extends Controller implements CRUD {
      *
      * @return
      */
+    @With(LoadOrRedirectToLogin.class)
+    @CustomersOnly
     public Result index() {
-        if (!Session.checkExistingSession(session())) {
-            Result result = Session.loadSessionfromCookies(request(), session());
-            if (result == null) {
-//                flash(FlashCodes.warning.toString(), "An error occured while logging in, please try again");
-                return redirect(controllers.Application.routes.HomeController.index());
-            }
-            return result;
+        List<DashboardButton> arrayList = new ArrayList<>();
+        CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session().get(AppCookie.user_id.toString()));
+        if (customerInfo != null) {
+            arrayList.add(
+                    new DashboardButton(
+                            AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
+                            "Balance",
+                            controllers.User.routes.CustomerController.paymentHistory()));
+            arrayList.add(
+                    new DashboardButton(
+                            String.valueOf(customerInfo.getActiveOrderCount()),
+                            "Active Orders",
+                            controllers.User.routes.CustomerController.activeOrders()));
+            arrayList.add(
+                    new DashboardButton(
+                            "New",
+                            "Order",
+                            controllers.Application.routes.HomeController.unknown()));
+            arrayList.add(
+                    new DashboardButton(
+                            customerInfo.isScheduleActive() ? "Active" : "  Inactive",
+                            "Schedule",
+                            controllers.Order.routes.ScheduleController.index()));
         }
-        try {
-            String cookieUserId = Session.User.Customer.extract(session(), Session.User.id.toString());
-            if (cookieUserId == null)
-                throw new NullPointerException("Session.extract \'ID\' for user id = " + cookieUserId + " is null");
-            Long uId = Long.parseLong(cookieUserId);
-            UserInfo fill = UserInfo.fill(uId);
-            return ok(customerHome.render(fill));
-        } catch (Exception x) {
-            Http.Session session = session();
-            session.clear();
-            flash().put(FlashCodes.info.toString(), "Session expired, please log in again");
-            response().setCookie(buildExpiredCookie(AppCookie.Org.toString()));
-            response().setCookie(buildExpiredCookie(AppCookie.user_id.toString()));
-            response().setCookie(buildExpiredCookie(AppCookie.RememberMe.toString()));
-            return redirect(controllers.Application.routes.HomeController.index()).withCookies(new Http.Cookie("cookieName", "cookieValue", 1, "", null, false, false, Http.Cookie.SameSite.LAX));
-        }
+        return ok(customerHome.render(arrayList, customerInfo));
+    }
+
+    @With(CheckCSRF.class)
+    public Result redirectHome(){
+        return redirect(controllers.User.routes.CustomerController.index());
     }
 
     /**
@@ -82,6 +123,7 @@ public class CustomerController extends Controller implements CRUD {
      *
      * @return
      */
+    @With(annotations.CheckCSRF.class)
     public Result register() {
         Form<UserRegisterInfo> userForm = formFactory.form(UserRegisterInfo.class);
         return ok(register.render(userForm));
@@ -93,21 +135,22 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
     @Override
-    public Result create() {
+    @With(annotations.CheckCSRF.class)
+    public CompletionStage<Result> create() {
         Form<UserRegisterInfo> userForm = formFactory.form(UserRegisterInfo.class).bindFromRequest();
 
         if (userForm.hasErrors()) {
-            flash(FlashCodes.warning.toString(), "Please check all fields");
-            return badRequest(register.render(userForm));
+            flash(FlashCodes.danger.toString(), "Please check all fields");
+            return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
         }
         UserRegisterInfo userRegisterInfo = userForm.get();
         String csrfToken = "";
         if (userForm.field(Session.SessionTags.csrfTokenString.toString()).getValue().isPresent())
             csrfToken = userForm.field(Session.SessionTags.csrfTokenString.toString()).getValue().get();
-        String userEmail = userRegisterInfo.getEmail();
+        String userEmail = userRegisterInfo.getLoginId();
 
-        if (Customer.find.query().where().eq(Database.User.email, userRegisterInfo.getEmail().toLowerCase()).findCount() != 0)
-            return returnRegisterRequest("Email exists, please login with this email address or use another", userForm, userEmail, csrfToken);
+        if (Customer.find.query().where().eq("email", userRegisterInfo.getLoginId().toLowerCase()).findCount() != 0)
+            return CompletableFuture.completedFuture(returnRegisterRequest("Email exists, please login with this email address or use another", userForm, userEmail, csrfToken));
 
         Customer c = new Customer();
         String regexNMMUCheck = "([s]{0,1}[0-9]{8,9}|[a-zA-Z0-9\\. ]+)([@]{1})(live\\.|LIVE\\.){0,1}(nm|NM){0,1}[mM]{0,1}(u|U){0,1}(\\.){0,1}(ac|AC){0,1}(\\.){0,1}(za|ZA){0,1}";
@@ -115,62 +158,76 @@ public class CustomerController extends Controller implements CRUD {
         c.setPassword(userRegisterInfo.getPassword());
         c.setToken(csrfToken);
         c.setStudent(userEmail.matches(regexNMMUCheck));
-        c.insert();
+//        c.setOrderSchedule(new OrderSchedule());
+//        c.setAddress(new Address());
         c.save();
 
-        try {
-            if (generateVerificationEmail(userEmail, csrfToken)) {
-                flash(FlashCodes.success.toString(), "Verification email has been sent");
-                return ok(verify.render());
-            } else {
-                flash().put(FlashCodes.warning.toString(), "Verification email could not be sent, but you can still login");
-                Logger.debug("Unable to send verification email to user : " + String.valueOf(c.getUserId()) + "\nEmail EXCEPTION: generateVerificationEmail returned false!");
-                session().clear();
-                return redirect(controllers.User.routes.UserController.login());
+        final String finalCsrfToken = csrfToken;
+        CompletableFuture.supplyAsync(() -> Mailer.SendWelcome("New User", c.getEmail()), httpExecutionContext.current());
+        return CompletableFuture.supplyAsync(() -> Mailer.SendVerificationEmail(userEmail, finalCsrfToken), httpExecutionContext.current()).thenApply(aBoolean -> {
+            Result r = null;
+            if (aBoolean){
+                ctx().flash().put(FlashCodes.success.toString(), "Verification email has been sent");
+                r = ok(verify.render());
             }
-        } catch (Exception x) {
-            Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
-            flash(FlashCodes.warning.toString(), "Unable to process request, please try again later!");
-            return returnRegisterRequest("Error sending verification email", userForm, userEmail, csrfToken);
-        }
+            else {
+                ctx().flash().put(FlashCodes.danger.toString(), "Verification email could not be sent, but you can still login");
+                r = redirect(controllers.User.routes.UserController.login());
+            }
+            return r;
+        });
     }
 
     @Override
-    public Result delete() {
+    public CompletionStage<Result> delete() {
         return null;
     }
 
-    public Result edit() {
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> edit() {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class);
-        Long userId = AppCookie.extractUserId(request());
-        UserProfile profile = new UserProfile(userId);
+        UserProfile profile = new UserProfile(session().get(AppCookie.user_id.toString()), AppCookie.UserType.CUSTOMER);
         formUserProfile = formUserProfile.fill(profile);
-        return ok(editProfile.render(formUserProfile));
+        return CompletableFuture.completedFuture(ok(editProfile.render(formUserProfile)));
     }
 
+    //    @RequireCSRFCheck
+//    @Security.Authenticated(annotations.SessionVerifier.SessionVerifier.class)
     @Override
-    public Result update() {
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> update() {
         Form<UserProfile> formUserProfile = formFactory.form(UserProfile.class).bindFromRequest();
-        UserProfile userProfile = formUserProfile.get();
         if (formUserProfile.hasErrors()) {
-            flash(FlashCodes.warning.toString(), "Please check entered information");
-            return badRequest(editProfile.render(formUserProfile));
+            flash(FlashCodes.danger.toString(), "Please check entered information");
+            return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
         }
-//        if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
-//            flash(FlashCodes.warning.toString(), "Please check passwords match and are valid");
-//            return badRequest(editProfile.render(formUserProfile));
-//        }
-        userProfile.setUserId(session(Session.User.id.toString()));
-        userProfile.save();
+        UserProfile userProfile = formUserProfile.get();
+        userProfile.setConfirmPassword(formUserProfile.value().get().getConfirmPassword());
+        if (!userProfile.passwordsEmpty()) {
+            //if passwords are empty, user isn't changing them
+            String password = userProfile.getPassword(),
+                    confirmPassword = userProfile.getConfirmPassword();
+            if (!password.equals(confirmPassword)) {
+                //passswords do not match, notify
+                flash(FlashCodes.danger.toString(), "Please check passwords match and are valid");
+                return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
+            }
+            else {
+                flash(FlashCodes.info.toString(), "Password updated!");
+            }
+        }
+        userProfile.setUserId(session(user_id.toString()));
+        userProfile.save(AppCookie.UserType.CUSTOMER);
         flash(FlashCodes.success.toString(), "Profile has been updated!");
-        return redirect(routes.CustomerController.index());
+        return CompletableFuture.completedFuture(redirect(routes.CustomerController.index()));
     }
 
     @Override
-    public Result read() {
+    public CompletionStage<Result> read() {
         return null;
     }
-
 
     /**
      * Verifies a user's email address, if succcessful, sets flag in database for the user and
@@ -186,9 +243,11 @@ public class CustomerController extends Controller implements CRUD {
      */
     // TODO: 2017/07/18 Dev
     public Result verifyCustomer(String token) {
-        List<Customer> userList = Customer.find.query().where().eq(Database.Customer.token, token).findList();
-        if (userList.size() > 1)
-            return badRequest(invalid.render("Invalid verification URL, please request a new email verification link"));
+        List<Customer> userList = Customer.find
+                .query().where().eq("token", token).findList();
+        if (userList.size() == 0 ||
+                userList.size() > 1)
+            return badRequest(invalid.render("Invalid verification URL, please login to have a new verification link set"));
         Customer c = userList.get(0);
         if (c.getToken().isEmpty())
             return notFound(invalid.render("Verification URL has expired, please request a new email verification link"));
@@ -200,65 +259,41 @@ public class CustomerController extends Controller implements CRUD {
 
     }
 
-    public Result reverify() {
+    @With(annotations.CheckCSRF.class)
+    public CompletionStage<Result> reverify() {
         Form userForm = formFactory.form().bindFromRequest();
 
         if (userForm.hasErrors()) {
-            flash(FlashCodes.warning.toString(), "Please check all fields");
-            return badRequest(register.render(userForm));
+            flash(FlashCodes.danger.toString(), "Please check all fields");
+            return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
         }
 
         String userEmail = userForm.field("edtEmail").getValue().get(),
                 CRSFToken = userForm.field(Session.SessionTags.csrfTokenString.toString()).getValue().get();
 
-        List<Customer> list = Customer.find.query().where().eq(Database.User.email, userEmail.toLowerCase()).findList();
-        if (list.size() == 1)
-            try {
-                if (generateVerificationEmail(userEmail, CRSFToken)) {
-                    flash(FlashCodes.success.toString(), "Verification email has been sent");
-//                    flash(User.ENABLETIME.toString(), "  5");
-                    return ok(verify.render());
-                } else {
-                    throw new Exception("EmailException: Verification email could not be sent");
-                }
-
-            } catch (Exception x) {
-                Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
-                flash(FlashCodes.warning.toString(), "Error sending verification email");
-                return badRequest(verify.render());
-            }
-        else {
-            return returnRegisterRequest("Invalid Email", userForm, userEmail, CRSFToken);
+        List<Customer> list = Customer.find.query().where().eq("email", userEmail.toLowerCase()).findList();
+        if (list.size() != 1) {
+            return CompletableFuture.completedFuture(returnRegisterRequest("Invalid Email", userForm, userEmail, CRSFToken));
         }
-
-    }
-
-    /**
-     * Sends email to customer's email address. The token used for the session is saved to the database, and this token is matched against the email sent. If the token matches (as a field of the URL) then the email is authenticated.
-     */
-    private boolean generateVerificationEmail(String email, String token) {
-
-        Thread t = new Thread(() -> {
-            // TODO: 2017/09/19 get hostname and port running on, add this to a file, which is used to create an email
-//        String verificationUrl = General.SITEURL_TEST.toString() + "User/Verify/" + token;
-            String verificationUrl = "http://cxbase.ddns.net:443/User/Verify/" + token;
-            try {
-                Mailer mailer = new Mailer(mailerClient);
-                mailer.sendVerification(email, verificationUrl, environment.getFile("public/images/logo.png"));
-                emailSent = true;
-            } catch (Exception x) {
-                Logger.warn("UserController: generateVerificationEmail:\nException sending verification email\n\n" + x.toString());
-            }
-        });
 
         try {
-            t.join(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            emailSent = false;
+            return CompletableFuture
+                    .supplyAsync(() -> Mailer.SendVerificationEmail(userEmail, CRSFToken), httpExecutionContext.current())
+                    .thenApply(aBoolean -> {
+                        if (aBoolean) {
+                            flash(FlashCodes.success.toString(), "Verification email has been sent");
+                        } else {
+                            flash(FlashCodes.danger.toString(), "Verification email could not be sent");
+                        }
+                        return ok(verify.render());
+                    });
+        } catch (Exception x) {
+            Logger.debug("Unable to send verification email:\nREASON: " + x.toString());
+            flash(FlashCodes.danger.toString(), "Error sending verification email");
+            return CompletableFuture.completedFuture(badRequest(verify.render()));
         }
-        return emailSent;
     }
+
 
     /**
      * Returns the register request filling in information the user entered, with an appropriate error message
@@ -271,7 +306,7 @@ public class CustomerController extends Controller implements CRUD {
      */
     @NotNull
     private Result returnRegisterRequest(String message, Form userForm, String email, String token) {
-        flash(FlashCodes.warning.toString(), message);
+        flash(FlashCodes.danger.toString(), message);
         Map<String, String> m = new HashMap<>();
         m.put("E-Mail", email);
         m.put(Session.SessionTags.csrfTokenString.toString(), token);
@@ -281,13 +316,25 @@ public class CustomerController extends Controller implements CRUD {
         return badRequest(register.render(userForm));
     }
 
-    public Result registerComplete() {
-        String uId = AppCookie.extract(request(), AppCookie.user_id);
-        if (uId.isEmpty() || uId == null)
-            return AppTags.renderDefaultPage();
-        Customer customer = Customer.find.byId(Long.parseLong(uId));
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public Result completeRegistration() {
+        if (!session().containsKey(AppCookie.new_user.toString())) {
+            flash().put(FlashCodes.info.toString(), "Your account is already verified");
+            return redirect(controllers.User.routes.CustomerController.index());
+        }
+
+        String uId = session().get(AppCookie.user_id.toString());
+        if (uId == null)
+            //todo problem here
+            return redirect(controllers.User.routes.UserController.login());
+        Customer customer = Customer.find.byId(uId);
+        if (customer == null) {
+            flash().put(FlashCodes.danger.toString(), "An internal server error has occured!");
+            return redirect(controllers.User.routes.UserController.login());
+        }
         Address address = customer.getAddress();
-        Form<UserRegisterDetails> registerCompleteForm = formFactory.form(UserRegisterDetails.class).bind(UserRegisterDetails.buildMap(customer, address));
+        Form<UserProfile> registerCompleteForm = formFactory.form(UserProfile.class).bind(UserProfile.buildMap(customer, address));
         return ok(views.html.User.Customer.registerDetails.render(registerCompleteForm));
     }
 
@@ -298,30 +345,27 @@ public class CustomerController extends Controller implements CRUD {
      *
      * @return
      */
-    public Result completeRegistration() {
-        Http.Request request = request();
-        Http.Cookie cookie = request.cookies().get(AppCookie.newUser.toString());
-        if (cookie == null)
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public Result doCompleteRegistration() {
+        if (session().get(AppCookie.new_user.toString()) == null)
             return redirect(controllers.User.routes.UserController.login());
 
-        Form<UserRegisterDetails> registerForm = formFactory.form(UserRegisterDetails.class).bindFromRequest();
-        String cookieToken = AppCookie.extract(request(), AppCookie.user_token);
-        Long userId;
-        try {
-            String uId = AppCookie.extract(request(), AppCookie.user_id);
-            if (uId == null)
-                return internalServerError(invalid.render("Something went wrong, please try again!"));
-            userId = Long.parseLong(uId);
-        } catch (Exception x) {
+        Form<UserProfile> registerForm = formFactory.form(UserProfile.class).bindFromRequest();
+        String cookieToken = session().get(AppCookie.user_token.toString());
+
+        String uId = session().get(AppCookie.user_id.toString());
+
+        if (uId == null)
             return internalServerError(invalid.render("Something went wrong, please try again!"));
-        }
+
 
         if (registerForm.hasErrors()) {
-            flash(FlashCodes.warning.toString(), "Please check all fields");
+            flash(FlashCodes.danger.toString(), "Please check all fields");
             return badRequest(registerDetails.render(registerForm));
         }
 
-        Customer c = Customer.find.byId(userId);
+        Customer c = Customer.find.byId(uId);
 
         if (c == null) {
             return internalServerError(invalid.render("Something went wrong, please try again!"));
@@ -329,39 +373,40 @@ public class CustomerController extends Controller implements CRUD {
 
         c.setToken(cookieToken); // TODO: 2017/09/19 see if this is right, it is used to solve the issue of token mismatch
         if (!c.getToken().equals(cookieToken)) {
-            AppCookie.clear(response(), AppCookie.RememberMe, AppCookie.user_id, AppCookie.user_type, AppCookie.user_token, AppCookie.Org);
-            flash().put(FlashCodes.danger.toString(), "Token mismatch, close your browser and restart");
-            session().clear();
+            flash().put(FlashCodes.danger.toString(), "Token mismatch, your session may be compromised");
+            flash().put(FlashCodes.danger.toString(), "Please close your browser and restart");
+            Utility.logout(Http.Context.current(), session());
             return badRequest(invalid.render("Something went horribly wrong, please log in again!"));
         }
         // TODO: 2017/09/19 solve issue of 'login time' token not being saved as cookie
 
-        UserRegisterDetails userRegisterDetails = registerForm.get();
+        UserDetails userDetails = registerForm.get();
 
         // set address
-        Address address = new Address();
-        if (userRegisterDetails.getIsCommunity()) {
-            address.setIsCommunity(true);
-            address.setCommunityName(userRegisterDetails.getCommunityName());
-        }
-        address.setStreetName(userRegisterDetails.getStreetName());
-        address.setUnitNumber(userRegisterDetails.getUnitNumber());
-        address.save();
-        Long addressId = address.getAddressId();
+        Address address = c.getAddress();
+        address.setIsCommunity(userDetails.getIsCommunity());
+        address.setCommunityName(userDetails.getCommunityName());
+        address.setStreetName(userDetails.getStreetName());
+        address.setUnitNumber(userDetails.getUnitNumber());
+        address.update();
 
         //set customer
-        c.setAddressId(addressId);
-        c.setCellNumber(userRegisterDetails.getCellNumber());
-        c.setName(userRegisterDetails.getName());
-        c.setSurname(userRegisterDetails.getSurname());
-        c.setUserId(AppCookie.extractUserId(request()));
-        c.save();
+        c.setCellNumber(userDetails.getCellNumber());
+        c.setName(userDetails.getName());
+        c.setSurname(userDetails.getSurname());
+        c.update();
+
         if (c.completeCheck())
             c.setComplete(true);
         else {
             if (!c.isVerified()) {
-                generateVerificationEmail(c.getEmail(), c.getToken());
-                flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+                CompletableFuture.runAsync(() -> {
+                    if (Mailer.SendVerificationEmail(c.getEmail(), c.getToken())) {
+                        flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+                    } else {
+                        flash().put(FlashCodes.danger.toString(), "Unable to send verification email");
+                    }
+                }, httpExecutionContext.current());
             } else {
                 flash().put(FlashCodes.info.toString(), "You profile is incomplete, please correct this before placing an order");
             }
@@ -372,11 +417,107 @@ public class CustomerController extends Controller implements CRUD {
         session().put(Session.User.token.toString(), String.valueOf(c.getToken()));
         session().put(Session.User.name.toString(), String.valueOf(c.getName()));
         session().put(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString());
+        session().put(Session.SessionTags.display_name.toString(), c.getName().concat(" ").concat(c.getSurname()));
 
         result = result.withCookies(
                 buildCookie(AppCookie.user_id.toString(), String.valueOf(c.getUserId())),
                 buildCookie(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString()),
                 buildCookie(AppCookie.user_token.toString(), c.getToken()));
         return result;
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> orderHistory() {
+        return getOrders().thenApplyAsync(orderItems -> {
+            ctx().flash().put(FlashCodes.success.toString(), "Order History Results");
+            return ok(views.html.User.Customer.orderHistory.render(orderItems));
+        }, httpExecutionContext.current());
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    private CompletableFuture<List<OrderItemBasic>> getOrders() {
+        //find all orders of user
+        //match all info of each orderz
+        //add to list
+        List<OrderItemBasic> paymentList = new ArrayList<>();
+        return CompletableFuture.completedFuture(paymentList);
+
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> paymentHistory() {
+        return getPayments().thenApplyAsync(paymentItems -> {
+            ctx().flash().put(FlashCodes.success.toString(), "Payment History Results");
+            return ok(views.html.User.Customer.paymentHistory.render(paymentItems));
+        }, httpExecutionContext.current());
+    }
+
+//    @RequireCSRFCheck
+//    @Security.Authenticated(annotations.SessionVerifier.SessionVerifier.class)
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletableFuture<List<PaymentItemBasic>> getPayments() {
+        List<PaymentItemBasic> paymentList = new ArrayList<>();
+        return CompletableFuture.completedFuture(paymentList);
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> activeOrders() {
+        return getActiveOrders(session().get(AppCookie.user_id.toString())).thenApplyAsync(activeOrders -> ok(viewActiveOrders.render(activeOrders)), httpExecutionContext.current());
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    private CompletionStage<List<ActiveOrder>> getActiveOrders(String userId) {
+        List<CustomerOrder> list = CustomerOrder.find.query().where().ilike("userId", userId).and().ilike("statusId", "pending").findList();
+        List<ActiveOrder> activeOrders = new ArrayList<>();
+        list.forEach(customerOrder -> {
+            List<MealOrder> mealOrderList = MealOrder.find.query().where().ilike("orderId", String.valueOf(customerOrder.getOrderId())).findList();
+            List<MealOrderItem> orderItemList = new ArrayList<>();
+            mealOrderList.forEach(mealOrder -> {
+                Meal meal = Meal.find.byId(mealOrder.getMealId());
+                orderItemList.add(new MealOrderItem(String.valueOf(mealOrder.getMealOrderId()), new Double("0.00"), "", meal.getDescription(), mealOrder.getOrderQty(), meal.getCost()));
+            });
+            ActiveOrder activeOrder = new ActiveOrder(String.valueOf(customerOrder.getOrderId()), String.valueOf(Payment.find.byId(customerOrder.getPaymentId()).getAmount()), new Date(), customerOrder.getStatusId(), 0, orderItemList);
+            activeOrders.add(activeOrder);
+        });
+        return CompletableFuture.completedFuture(activeOrders);
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> viewPayment(String paymentId) {
+        return CompletableFuture.completedFuture(Results.TODO);
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public CompletionStage<Result> viewOrder(String ordersId) {
+        return CompletableFuture.completedFuture(Results.TODO);
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public Result getCustomerDashUpdate(){
+        CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session(user_id.toString()));
+        String s0 = AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
+                        s1 = String.valueOf(customerInfo.getActiveOrderCount()),
+                        s2 = "New",
+                        s3 = customerInfo.isScheduleActive() ? "Active" : "  Inactive";
+        Map<String, String> jsonMap = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+        return ok(Json.toJson(jsonMap));
+    }
+
+    public Result customerJSRoutes() {
+        return ok(
+                JavaScriptReverseRouter.create(Routes.CustomerJSRoutes.toString(),
+                        routes.javascript.CustomerController.getCustomerDashUpdate()
+                )
+        ).as("text/javascript");
     }
 }

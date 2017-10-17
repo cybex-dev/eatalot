@@ -6,7 +6,7 @@ constraint.min=Minimum value: {0}
 constraint.max=Maximum value: {0}
 constraint.minLength=Minimum length: {0}
 constraint.maxLength=Maximum length: {0}
-constraint.email=Email
+constraint.loginId=Email
 
 # --- Formats
 format.date=Date (''{0}'')
@@ -22,7 +22,7 @@ error.min=Must be greater or equal to {0}
 error.max=Must be less or equal to {0}
 error.minLength=Minimum length is {0}
 error.maxLength=Maximum length is {0}
-error.email=Valid email required
+error.loginId=Valid loginId required
 error.pattern=Must satisfy {0}
 error.cellphone_format=Invalid cellphone number, use format 0XX XXX XXXX
 password.require_length=Password requires atleast 8 characters

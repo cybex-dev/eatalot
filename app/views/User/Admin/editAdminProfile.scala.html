@@ -1,0 +1,49 @@
+@import Global.Static.essentials
+@import play.data.Form
+@import Global.Html5._
+@import helper.CSRF
+@import models.User.UserProfile
+
+@(userProfile: Form[UserProfile])
+
+@scriptsContent = {
+}
+
+@navContent = {
+
+}
+
+@userContent = {
+    <div class="input-group">
+        @helper.form(action = controllers.User.routes.CustomerController.update()){
+            @CSRF.formField
+            <h2>Your information</h2>
+            <br/>
+            <div class="container input-container">
+                <h4>Change Password</h4>
+                @helper.inputPassword(userProfile("password"), '_name -> "Password")
+                @helper.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password")
+            </div>
+            <br/>
+            <br/>
+            <div class="container input-container">
+                <input class="btn btn-default button-padding" type="button" onclick="location.href='@controllers.User.routes.AdminController.index()';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+            </div>
+            <br/>
+        }
+    </div>
+}
+
+@navSide = {
+    <a href="#" onclick="">Basic Information</a>
+    <a href="#">Edit Address</a>
+    <a href="#">Change Password</a>
+}
+
+@bodyContent = {
+@aside.apply("", navSide)
+
+@article.apply(userContent)
+}
+
+@essentials.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)

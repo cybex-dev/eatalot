@@ -42,13 +42,15 @@ Seq[Any](format.raw/*1.4*/("""
 
 <script src=""""),_display_(/*11.15*/routes/*11.21*/.Assets.versioned("javascripts/carousel.js")),format.raw/*11.65*/("""" rel="script"></script>
 
-"""),format.raw/*13.96*/("""
+<script src=""""),_display_(/*13.15*/routes/*13.21*/.Assets.versioned("javascripts/popper.js")),format.raw/*13.63*/("""" rel="script"></script>
 
-"""),format.raw/*15.95*/("""
+"""),format.raw/*15.96*/("""
 
-"""),format.raw/*17.93*/("""
+"""),format.raw/*17.95*/("""
 
-"""),format.raw/*19.1*/("""<script type="text/javascript" src=""""),_display_(/*19.38*/controllers/*19.49*/.Order.routes.ScheduleController.scheduleJSRoutes()),format.raw/*19.100*/(""""></script>
+"""),format.raw/*19.93*/("""
+
+"""),format.raw/*21.1*/("""<script type="text/javascript" src=""""),_display_(/*21.38*/controllers/*21.49*/.Order.routes.ScheduleController.scheduleJSRoutes()),format.raw/*21.100*/(""""></script>
 """))
       }
     }
@@ -65,11 +67,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 13:03:13 SAST 2017
+                  DATE: Sun Oct 15 09:18:11 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/scripts.scala.html
-                  HASH: 3ed0c80fcc32a19e869fad190ec7da3601f524e4
-                  MATRIX: 957->1|1053->3|1081->5|1235->133|1249->139|1318->188|1415->259|1429->265|1494->310|1593->383|1607->389|1667->429|1734->469|1749->475|1814->519|1868->640|1898->736|1928->830|1957->832|2021->869|2041->880|2114->931
-                  LINES: 28->1|33->1|35->3|37->5|37->5|37->5|39->7|39->7|39->7|41->9|41->9|41->9|43->11|43->11|43->11|45->13|47->15|49->17|51->19|51->19|51->19|51->19
+                  HASH: 42914e4f7493775883429e64e498670c522d7a1f
+                  MATRIX: 957->1|1053->3|1081->5|1235->133|1249->139|1318->188|1415->259|1429->265|1494->310|1593->383|1607->389|1667->429|1734->469|1749->475|1814->519|1881->559|1896->565|1959->607|2013->728|2043->824|2073->918|2102->920|2166->957|2186->968|2259->1019
+                  LINES: 28->1|33->1|35->3|37->5|37->5|37->5|39->7|39->7|39->7|41->9|41->9|41->9|43->11|43->11|43->11|45->13|45->13|45->13|47->15|49->17|51->19|53->21|53->21|53->21|53->21
                   -- GENERATED --
               */
           

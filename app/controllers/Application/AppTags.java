@@ -121,7 +121,11 @@ public class AppTags {
     }
 
     public enum Routes {
-        ScheduleJSRoutes("scheduleJSRoutes");
+        ScheduleJSRoutes("scheduleJSRoutes"),
+        CustomerJSRoutes("customerJSRoutes"),
+        DeliveryJSRoutes("deliveryJSRoutes"),
+        KitchenJSRoutes("kitchenJSRoutes"),
+        AdminJSRoutes("adminJSRoutes");
 
         String name;
 

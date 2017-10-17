@@ -1,53 +1,68 @@
 package controllers.User;
 
 import annotations.Routing.AdminOnly;
-import annotations.SessionVerifier.LoadOrRedirect;
+import annotations.Routing.CustomersOnly;
+import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import controllers.Application.AppTags;
 import models.User.Admin.Admin;
 import models.User.Admin.AdminInfo;
+import models.User.Customer.CustomerInfo;
 import models.User.UserProfile;
-import models.User.UserDetails;
+import models.ordering.CustomerOrder;
 import play.api.mvc.Call;
+import play.libs.Json;
+import play.libs.concurrent.HttpExecutionContext;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
+import play.routing.JavaScriptReverseRouter;
 import utility.DashboardButton;
 import annotations.SessionVerifier.*;
+import views.html.User.Admin.adminHome;
 import views.html.User.Admin.manageDiscounts;
 import views.html.User.Admin.manageMeals;
 import views.html.User.Admin.manageUsers;
 import views.html.User.Admin.editAdminProfile;
+import views.html.User.Customer.editProfile;
 
 import javax.inject.Inject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+
+import static controllers.Application.AppTags.AppCookie.user_id;
 
 public class AdminController extends Controller {
 
     @Inject
     FormFactory formFactory;
+    @Inject
+    HttpExecutionContext httpExecutionContext;
 
-    @With(LoadOrRedirect.class)
+    @With(LoadOrRedirectToLogin.class)
     @AdminOnly
-    public Result index(){
-        Http.Session session = session();
-        //flash().put(AppTags.FlashCodes.info.toString(), "Admin page still needs implementation");
+    public CompletionStage<Result> index(){
+        return CompletableFuture.supplyAsync(() -> {
+            double revenue = 0;
+            int ordersProcessing = 0;
+            int ordersReady = 0;
+            int numMeals = 0;
 
-        List<DashboardButton> arrayList = new ArrayList<>();
-        arrayList.add(new DashboardButton("", "Orders Ready", new Call("#" ,"#", "#")));
-        arrayList.add(new DashboardButton("", "Current Deliveries", new Call("#" ,"#", "#")));
-        arrayList.add(new DashboardButton("R ", "Revenue Today", new Call("#" ,"#", "#")));
-        arrayList.add(new DashboardButton("", "Meals Today", new Call("#" ,"#", "#")));
+            List<DashboardButton> arrayList = new ArrayList<>();
+            arrayList.add(new DashboardButton("R ".concat(String.valueOf(revenue)), "Revenue Today", new Call("#" ,"#", "#")));
+            arrayList.add(new DashboardButton(String.valueOf(ordersProcessing), "Orders in Kitchen", new Call("#" ,"#", "#")));
+            arrayList.add(new DashboardButton(String.valueOf(ordersReady), "Current Deliveries", new Call("#" ,"#", "#")));
+            arrayList.add(new DashboardButton(String.valueOf(numMeals), "Meals Today", new Call("#" ,"#", "#")));
 
-        AdminInfo adminInfo = new AdminInfo();
-
-        return ok(views.html.User.Admin.adminHome.render(arrayList, adminInfo));
+            AdminInfo adminInfo = new AdminInfo();
+            return ok(adminHome.render(arrayList, adminInfo));
+        }, httpExecutionContext.current());
     }
 
     @With(RequiresActive.class)
@@ -85,16 +100,44 @@ public class AdminController extends Controller {
         }
         Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bindFromRequest();
         if (userDetailsForm.hasErrors()){
-            flash().put(AppTags.FlashCodes.warning.toString(), "Missing or incorrect fields");
+            flash().put(AppTags.FlashCodes.danger.toString(), "Missing or incorrect fields");
             return CompletableFuture.completedFuture(badRequest(editAdminProfile.render(userDetailsForm)));
         }
-        UserProfile userDetails = userDetailsForm.get();
-        if (!userDetails.getPassword().equals(userDetails.getConfirmPassword())) {
-            flash(AppTags.FlashCodes.warning.toString(), "Please check passwords match and are valid");
-            return CompletableFuture.completedFuture(badRequest(editAdminProfile.render(userDetailsForm)));
+
+        UserProfile userProfile = userDetailsForm.get();
+        userProfile.setConfirmPassword(userDetailsForm.value().get().getConfirmPassword());
+        if (!userProfile.passwordsEmpty()) {
+            //if passwords are empty, user isn't changing them
+            if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
+                flash(AppTags.FlashCodes.danger.toString(), "Please check passwords match and are valid");
+                return CompletableFuture.completedFuture(badRequest(editAdminProfile.render(userDetailsForm)));
+            }
+            else
+                flash(AppTags.FlashCodes.info.toString(), "Password updated!");
         }
-        userDetails.save(AppTags.AppCookie.UserType.ADMIN);
+        userProfile.save(AppTags.AppCookie.UserType.ADMIN);
+
         flash(AppTags.FlashCodes.success.toString(), "Admin profile updated!");
         return CompletableFuture.completedFuture(redirect(controllers.User.routes.AdminController.index()));
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result getAdminDashUpdate(){
+        AdminInfo adminInfo = AdminInfo.GetAdminInfo(session(user_id.toString()));
+        String s0 = "",
+                s1 = "",
+                s2 = "",
+                s3 = "";
+        Map<String, String> jsonMap = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+        return ok(Json.toJson(jsonMap));
+    }
+
+    public Result adminJSRoutes() {
+        return ok(
+                JavaScriptReverseRouter.create(AppTags.Routes.AdminJSRoutes.toString(),
+                        routes.javascript.AdminController.getAdminDashUpdate()
+                )
+        ).as("text/javascript");
     }
 }

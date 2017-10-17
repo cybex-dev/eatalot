@@ -11,7 +11,7 @@ import java.util.concurrent.CompletionStage;
 
 // Logins
 @With(LoadActive.class)
-public class LoadOrRedirect extends Action.Simple {
+public class LoadOrRedirectToLogin extends Action.Simple {
 
     @Override
     public CompletionStage<Result> call(Http.Context ctx) {

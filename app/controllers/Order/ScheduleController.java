@@ -2,16 +2,19 @@ package controllers.Order;
 
 import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.RequiresActive;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.Routes;
 import controllers.Order.routes;
 import models.Order.OrderSchedule;
+import models.Order.OrderScheduleDays;
 import models.Order.OrderScheduleItem;
 import models.User.Customer.Customer;
 import play.api.Play;
 import play.data.Form;
 import play.data.FormFactory;
 import play.filters.csrf.RequireCSRFCheck;
+import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -19,6 +22,7 @@ import play.routing.JavaScriptReverseRouter;
 
 import play.mvc.With;
 import views.html.Order.Schedule.create;
+import views.html.Order.Schedule.index;
 
 import javax.inject.Inject;
 import java.util.HashMap;
@@ -39,7 +43,18 @@ public class ScheduleController extends Controller {
     @With(RequiresActive.class)
     @CustomersOnly
     public Result index() {
-        return play.mvc.Results.TODO;
+        String userId = session().get(AppTags.AppCookie.user_id.toString());
+        Customer customer = Customer.find.byId(userId);
+        if (customer == null) {
+            flash().put(AppTags.FlashCodes.danger.toString(), "An error occurred, please logout and login again");
+            return redirect(controllers.User.routes.CustomerController.index());
+        }
+        OrderSchedule orderSchedule = customer.getOrderSchedule();
+        if (orderSchedule.getTitle() == null){
+            return redirect(controllers.Order.routes.ScheduleController.createSchedule());
+        }
+        OrderScheduleDays orderScheduleDays = new OrderScheduleDays(orderSchedule.getOrderSchedId());
+        return ok(index.render(orderScheduleDays));
     }
 
     // GET
@@ -79,7 +94,7 @@ public class ScheduleController extends Controller {
             if (updated)
                 ctx().flash().put(AppTags.FlashCodes.success.toString(), "Schedule title");
             else
-                ctx().flash().put(AppTags.FlashCodes.warning.toString(), "Error updating schedule");
+                ctx().flash().put(AppTags.FlashCodes.danger.toString(), "Error updating schedule");
             return redirect(controllers.Order.routes.ScheduleController.index());
         }, httpExecutionContext.current());
     }
@@ -99,11 +114,17 @@ public class ScheduleController extends Controller {
     public CompletionStage<Result> doCreateSchedule() {
         Form<OrderSchedule> orderScheduleForm = formFactory.form(OrderSchedule.class);
         if (orderScheduleForm.hasErrors()) {
-            flash().put(AppTags.FlashCodes.warning.toString(), "Invalid schedule name");
+            flash().put(AppTags.FlashCodes.danger.toString(), "Invalid schedule name");
             return CompletableFuture.completedFuture(badRequest(create.render(orderScheduleForm)));
         }
         OrderSchedule orderSchedule = orderScheduleForm.get();
-        orderSchedule.save();
+
+        Customer customer = Customer.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
+        if (customer == null) {
+            flash().put(AppTags.FlashCodes.danger.toString(), "An error occurred, please logout and login again");
+            return CompletableFuture.completedFuture(redirect(controllers.User.routes.CustomerController.index()));
+        }
+        customer.getOrderSchedule().setTitle(orderSchedule.getTitle());
         return CompletableFuture.completedFuture(redirect(controllers.Order.routes.ScheduleController.index()));
     }
 
@@ -123,7 +144,7 @@ public class ScheduleController extends Controller {
             if (deleted)
                 ctx().flash().put(AppTags.FlashCodes.success.toString(), "Schedule cleared");
             else
-                ctx().flash().put(AppTags.FlashCodes.warning.toString(), "Error clearing schedule");
+                ctx().flash().put(AppTags.FlashCodes.danger.toString(), "Error clearing schedule");
             return redirect(controllers.Order.routes.ScheduleController.index());
         }, httpExecutionContext.current());
     }
@@ -143,7 +164,7 @@ public class ScheduleController extends Controller {
             if (deleted)
                 ctx().flash().put(AppTags.FlashCodes.success.toString(), "Order removed");
             else
-                ctx().flash().put(AppTags.FlashCodes.warning.toString(), "Error removing order");
+                ctx().flash().put(AppTags.FlashCodes.danger.toString(), "Error removing order");
             return redirect(controllers.Order.routes.ScheduleController.index());
         }, httpExecutionContext.current());
     }
@@ -162,23 +183,15 @@ public class ScheduleController extends Controller {
     @With(RequiresActive.class)
     @CustomersOnly
     public CompletionStage<Result> setScheduleState(){
-        return changeScheduleStatus(session().get(AppTags.AppCookie.user_id.toString())).thenApplyAsync(aBoolean -> {
-            if (aBoolean){
-                flash().put(AppTags.FlashCodes.success.toString(), "Schedule enabled");
-            } else {
-                flash().put(AppTags.FlashCodes.warning.toString(), "Schedule disabled");
-            }
-            return redirect(controllers.Order.routes.ScheduleController.index());
+        return CompletableFuture.supplyAsync(() -> {
+            String userId = session().get(AppTags.AppCookie.user_id.toString());
+            OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(userId);
+            boolean status = orderSchedule.isActive();
+            orderSchedule.setActive(!status);
+            ObjectNode jsonNodes = Json.newObject();
+            jsonNodes.put("status", status ? "true" : "false");
+            return ok(jsonNodes);
         }, httpExecutionContext.current());
-    }
-
-    @With(RequiresActive.class)
-    @CustomersOnly
-    private CompletionStage<Boolean> changeScheduleStatus(String userId){
-        OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(userId);
-        boolean status = !orderSchedule.isActive();
-        orderSchedule.setActive(status);
-        return CompletableFuture.completedFuture(status);
     }
 
     public Result scheduleJSRoutes() {
@@ -189,13 +202,4 @@ public class ScheduleController extends Controller {
         ).as("text/javascript");
     }
 
-//    public static Result javascriptRoutes() {
-//        response().setContentType("text/javascript");
-//        return ok(
-//                Routes.javascriptRouter("jsRoutes",
-//                        // Routes
-//                        controllers.Order.routes.javascript.ScheduleController.removeOrder("")
-//                )
-//        );
-//    }
 }

@@ -27,18 +27,19 @@ import play.core.j.PlayFormsMagicForJava._
 /*4.2*/import controllers.Application.AppTags.Session.SessionTags.session_status
 /*5.2*/import controllers.Application.AppTags.Session.SessionTags.valid
 /*6.2*/import controllers.Application.AppTags.AppCookie.user_type
+/*7.2*/import helper.CSRF
 
 object nav_wrapper extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Html,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*8.2*/(nav_extension: Html):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*9.2*/(nav_extension: Html):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*14.2*/buildCustomerNav/*14.18*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*15.2*/buildCustomerNav/*15.18*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*14.22*/("""
-    """),format.raw/*15.5*/("""<li><a href=""""),_display_(/*15.19*/controllers/*15.30*/.User.routes.CustomerController.index()),format.raw/*15.69*/("""" class=""""),_display_(/*15.79*/standardMenuCSSClass),format.raw/*15.99*/(""""><img src=""""),_display_(/*15.112*/routes/*15.118*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*15.169*/(""""/>
+Seq[Any](format.raw/*15.22*/("""
+    """),format.raw/*16.5*/("""<li><a href=""""),_display_(/*16.19*/controllers/*16.30*/.User.routes.CustomerController.index()),format.raw/*16.69*/("""" class=""""),_display_(/*16.79*/standardMenuCSSClass),format.raw/*16.99*/(""""><img src=""""),_display_(/*16.112*/routes/*16.118*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*16.169*/(""""/>
         Dashboard</a>
     </li>
     <li>
@@ -60,67 +61,67 @@ Seq[Any](format.raw/*14.22*/("""
         </ul>
     </li>
 
-    <li><a href=""""),_display_(/*37.19*/controllers/*37.30*/.Order.routes.ScheduleController.index()),format.raw/*37.70*/("""">View Order Schedule</a></li>
-    <li><a href=""""),_display_(/*38.19*/controllers/*38.30*/.Finance.routes.UserFinance.addFunds()),format.raw/*38.68*/("""">Add Funds</a> </li>
-    <li><a href=""""),_display_(/*39.19*/controllers/*39.30*/.User.routes.CustomerController.orderHistory()),format.raw/*39.76*/("""">Order History</a></li>
-    <li><a href=""""),_display_(/*40.19*/controllers/*40.30*/.User.routes.CustomerController.paymentHistory()),format.raw/*40.78*/("""">Payment History</a></li>
-""")))};def /*43.2*/buildKitchenStaffNav/*43.22*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+    <li><a href=""""),_display_(/*38.19*/CSRF(controllers.Order.routes.ScheduleController.index())),format.raw/*38.76*/("""">View Order Schedule</a></li>
+    <li><a href=""""),_display_(/*39.19*/CSRF(controllers.Finance.routes.UserFinance.addFunds())),format.raw/*39.74*/("""">Add Funds</a> </li>
+    <li><a href=""""),_display_(/*40.19*/CSRF(controllers.User.routes.CustomerController.orderHistory())),format.raw/*40.82*/("""">Order History</a></li>
+    <li><a href=""""),_display_(/*41.19*/CSRF(controllers.User.routes.CustomerController.paymentHistory())),format.raw/*41.84*/("""">Payment History</a></li>
+""")))};def /*44.2*/buildKitchenStaffNav/*44.22*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*43.26*/("""
-    """),format.raw/*44.5*/("""<li><a href=""""),_display_(/*44.19*/controllers/*44.30*/.User.routes.KitchenStaffController.index()),format.raw/*44.73*/("""" class=""""),_display_(/*44.83*/standardMenuCSSClass),format.raw/*44.103*/(""""><img src=""""),_display_(/*44.116*/routes/*44.122*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*44.173*/(""""/>
+Seq[Any](format.raw/*44.26*/("""
+    """),format.raw/*45.5*/("""<li><a href=""""),_display_(/*45.19*/controllers/*45.30*/.User.routes.KitchenStaffController.index()),format.raw/*45.73*/("""" class=""""),_display_(/*45.83*/standardMenuCSSClass),format.raw/*45.103*/(""""><img src=""""),_display_(/*45.116*/routes/*45.122*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*45.173*/(""""/>
         Dashboard</a>
     </li>
-    <li><a href=""""),_display_(/*47.19*/controllers/*47.30*/.User.routes.KitchenStaffController.viewActiveOrders()),format.raw/*47.84*/("""" class=""""),_display_(/*47.94*/standardMenuCSSClass),format.raw/*47.114*/(""""><img src=""""),_display_(/*47.127*/routes/*47.133*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*47.184*/(""""/>
+    <li><a href=""""),_display_(/*48.19*/controllers/*48.30*/.User.routes.KitchenStaffController.viewActiveOrders()),format.raw/*48.84*/("""" class=""""),_display_(/*48.94*/standardMenuCSSClass),format.raw/*48.114*/(""""><img src=""""),_display_(/*48.127*/routes/*48.133*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*48.184*/(""""/>
         Active Orders</a>
     </li>
-    <li><a href=""""),_display_(/*50.19*/controllers/*50.30*/.User.routes.KitchenStaffController.viewQueuedOrders()),format.raw/*50.84*/("""" class=""""),_display_(/*50.94*/standardMenuCSSClass),format.raw/*50.114*/(""""><img src=""""),_display_(/*50.127*/routes/*50.133*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*50.184*/(""""/>
+    <li><a href=""""),_display_(/*51.19*/controllers/*51.30*/.User.routes.KitchenStaffController.viewQueuedOrders()),format.raw/*51.84*/("""" class=""""),_display_(/*51.94*/standardMenuCSSClass),format.raw/*51.114*/(""""><img src=""""),_display_(/*51.127*/routes/*51.133*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*51.184*/(""""/>
         Queued Orders</a>
     </li>
-    <li><a href=""""),_display_(/*53.19*/controllers/*53.30*/.User.routes.KitchenStaffController.viewCompletedOrders()),format.raw/*53.87*/("""" class=""""),_display_(/*53.97*/standardMenuCSSClass),format.raw/*53.117*/(""""><img src=""""),_display_(/*53.130*/routes/*53.136*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*53.187*/(""""/>
+    <li><a href=""""),_display_(/*54.19*/controllers/*54.30*/.User.routes.KitchenStaffController.viewCompletedOrders()),format.raw/*54.87*/("""" class=""""),_display_(/*54.97*/standardMenuCSSClass),format.raw/*54.117*/(""""><img src=""""),_display_(/*54.130*/routes/*54.136*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*54.187*/(""""/>
         Completed Orders</a>
     </li>
-""")))};def /*58.2*/buildDeliveryNav/*58.18*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*59.2*/buildDeliveryNav/*59.18*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*58.22*/("""
-    """),format.raw/*59.5*/("""<li><a href=""""),_display_(/*59.19*/controllers/*59.30*/.User.routes.DeliveryStaffController.index()),format.raw/*59.74*/("""" class=""""),_display_(/*59.84*/standardMenuCSSClass),format.raw/*59.104*/(""""><img src=""""),_display_(/*59.117*/routes/*59.123*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*59.174*/(""""/>
+Seq[Any](format.raw/*59.22*/("""
+    """),format.raw/*60.5*/("""<li><a href=""""),_display_(/*60.19*/controllers/*60.30*/.User.routes.DeliveryStaffController.index()),format.raw/*60.74*/("""" class=""""),_display_(/*60.84*/standardMenuCSSClass),format.raw/*60.104*/(""""><img src=""""),_display_(/*60.117*/routes/*60.123*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*60.174*/(""""/>
         Dashboard</a>
     </li>
-    <li><a href=""""),_display_(/*62.19*/controllers/*62.30*/.User.routes.DeliveryStaffController.viewActiveDeliveries()),format.raw/*62.89*/("""" class=""""),_display_(/*62.99*/standardMenuCSSClass),format.raw/*62.119*/(""""><img src=""""),_display_(/*62.132*/routes/*62.138*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*62.189*/(""""/>
+    <li><a href=""""),_display_(/*63.19*/controllers/*63.30*/.User.routes.DeliveryStaffController.viewActiveDeliveries()),format.raw/*63.89*/("""" class=""""),_display_(/*63.99*/standardMenuCSSClass),format.raw/*63.119*/(""""><img src=""""),_display_(/*63.132*/routes/*63.138*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*63.189*/(""""/>
         Active Deliveries</a>
     </li>
-    <li><a href=""""),_display_(/*65.19*/controllers/*65.30*/.User.routes.DeliveryStaffController.viewWaitingDeliveries()),format.raw/*65.90*/("""" class=""""),_display_(/*65.100*/standardMenuCSSClass),format.raw/*65.120*/(""""><img src=""""),_display_(/*65.133*/routes/*65.139*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*65.190*/(""""/>
+    <li><a href=""""),_display_(/*66.19*/controllers/*66.30*/.User.routes.DeliveryStaffController.viewWaitingDeliveries()),format.raw/*66.90*/("""" class=""""),_display_(/*66.100*/standardMenuCSSClass),format.raw/*66.120*/(""""><img src=""""),_display_(/*66.133*/routes/*66.139*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*66.190*/(""""/>
         Waiting Deliveries</a>
     </li>
-    <li><a href=""""),_display_(/*68.19*/controllers/*68.30*/.User.routes.DeliveryStaffController.viewCompletedDeliveries()),format.raw/*68.92*/("""" class=""""),_display_(/*68.102*/standardMenuCSSClass),format.raw/*68.122*/(""""><img src=""""),_display_(/*68.135*/routes/*68.141*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*68.192*/(""""/>
+    <li><a href=""""),_display_(/*69.19*/controllers/*69.30*/.User.routes.DeliveryStaffController.viewCompletedDeliveries()),format.raw/*69.92*/("""" class=""""),_display_(/*69.102*/standardMenuCSSClass),format.raw/*69.122*/(""""><img src=""""),_display_(/*69.135*/routes/*69.141*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*69.192*/(""""/>
         Completed Deliveries</a>
     </li>
-""")))};def /*73.2*/buildAdminNav/*73.15*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*74.2*/buildAdminNav/*74.15*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*73.19*/("""
-    """),format.raw/*74.5*/("""<li><a href=""""),_display_(/*74.19*/controllers/*74.30*/.User.routes.CustomerController.index()),format.raw/*74.69*/("""" class=""""),_display_(/*74.79*/standardMenuCSSClass),format.raw/*74.99*/(""""><img src=""""),_display_(/*74.112*/routes/*74.118*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*74.169*/(""""/>
+Seq[Any](format.raw/*74.19*/("""
+    """),format.raw/*75.5*/("""<li><a href=""""),_display_(/*75.19*/controllers/*75.30*/.User.routes.CustomerController.index()),format.raw/*75.69*/("""" class=""""),_display_(/*75.79*/standardMenuCSSClass),format.raw/*75.99*/(""""><img src=""""),_display_(/*75.112*/routes/*75.118*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*75.169*/(""""/>
         Dashboard</a>
     </li>
-    <li><a href=""""),_display_(/*77.19*/controllers/*77.30*/.User.routes.AdminController.manageUsers()),format.raw/*77.72*/("""" class=""""),_display_(/*77.82*/standardMenuCSSClass),format.raw/*77.102*/(""""><img src=""""),_display_(/*77.115*/routes/*77.121*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*77.172*/(""""/>
+    <li><a href=""""),_display_(/*78.19*/controllers/*78.30*/.User.routes.AdminController.manageUsers()),format.raw/*78.72*/("""" class=""""),_display_(/*78.82*/standardMenuCSSClass),format.raw/*78.102*/(""""><img src=""""),_display_(/*78.115*/routes/*78.121*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*78.172*/(""""/>
         Manage Users</a>
     </li>
-    <li><a href=""""),_display_(/*80.19*/controllers/*80.30*/.User.routes.AdminController.manageMeals()),format.raw/*80.72*/("""" class=""""),_display_(/*80.82*/standardMenuCSSClass),format.raw/*80.102*/(""""><img src=""""),_display_(/*80.115*/routes/*80.121*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*80.172*/(""""/>
+    <li><a href=""""),_display_(/*81.19*/controllers/*81.30*/.User.routes.AdminController.manageMeals()),format.raw/*81.72*/("""" class=""""),_display_(/*81.82*/standardMenuCSSClass),format.raw/*81.102*/(""""><img src=""""),_display_(/*81.115*/routes/*81.121*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*81.172*/(""""/>
         Manage Meals</a>
     </li>
-    <li><a href=""""),_display_(/*83.19*/controllers/*83.30*/.User.routes.AdminController.manageDiscounts()),format.raw/*83.76*/("""" class=""""),_display_(/*83.86*/standardMenuCSSClass),format.raw/*83.106*/(""""><img src=""""),_display_(/*83.119*/routes/*83.125*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*83.176*/(""""/>
+    <li><a href=""""),_display_(/*84.19*/controllers/*84.30*/.User.routes.AdminController.manageDiscounts()),format.raw/*84.76*/("""" class=""""),_display_(/*84.86*/standardMenuCSSClass),format.raw/*84.106*/(""""><img src=""""),_display_(/*84.119*/routes/*84.125*/.Assets.versioned("images/navigation/nav_dash.png")),format.raw/*84.176*/(""""/>
         Set Discounts</a>
     </li>
-""")))};def /*88.2*/standardMenuCSSClass/*88.22*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*89.2*/standardMenuCSSClass/*89.22*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*88.26*/("""
-    """),format.raw/*89.5*/(""""menu-top-active nav-text-enlarge"
-""")))};def /*92.2*/buildBasicNav/*92.15*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+Seq[Any](format.raw/*89.26*/("""
+    """),format.raw/*90.5*/(""""menu-top-active nav-text-enlarge"
+""")))};def /*93.2*/buildBasicNav/*93.15*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*92.19*/("""
-    """),format.raw/*93.5*/("""<li><a href=""""),_display_(/*93.19*/controllers/*93.30*/.Application.routes.HomeController.index()),format.raw/*93.72*/("""" class=""""),_display_(/*93.82*/standardMenuCSSClass),format.raw/*93.102*/("""">
+Seq[Any](format.raw/*93.19*/("""
+    """),format.raw/*94.5*/("""<li><a href=""""),_display_(/*94.19*/controllers/*94.30*/.Application.routes.HomeController.index()),format.raw/*94.72*/("""" class=""""),_display_(/*94.82*/standardMenuCSSClass),format.raw/*94.102*/("""">
         Home</a>
     </li>
     <li>
-        <a href="#" class="dropdown-toggle """),_display_(/*97.45*/standardMenuCSSClass),format.raw/*97.65*/("""" id="ddlmenuItem" data-toggle="dropdown">
+        <a href="#" class="dropdown-toggle """),_display_(/*98.45*/standardMenuCSSClass),format.raw/*98.65*/("""" id="ddlmenuItem" data-toggle="dropdown">
             Menu
             <i class="fa fa-angle-down"></i>
         </a>
@@ -137,62 +138,62 @@ Seq[Any](format.raw/*92.19*/("""
                 Snacks</a></li>
         </ul>
     </li>
-    <li><a href="#" class=""""),_display_(/*114.29*/standardMenuCSSClass),format.raw/*114.49*/("""">
+    <li><a href="#" class=""""),_display_(/*115.29*/standardMenuCSSClass),format.raw/*115.49*/("""">
         Specials</a>
     </li>
-    <li><a href=""""),_display_(/*117.19*/controllers/*117.30*/.Application.routes.HomeController.unknown()),format.raw/*117.74*/("""" class=""""),_display_(/*117.84*/standardMenuCSSClass),format.raw/*117.104*/("""">
+    <li><a href=""""),_display_(/*118.19*/controllers/*118.30*/.Application.routes.HomeController.unknown()),format.raw/*118.74*/("""" class=""""),_display_(/*118.84*/standardMenuCSSClass),format.raw/*118.104*/("""">
         Contact Us</a>
     </li>
-""")))};def /*158.2*/getProfileButtons/*158.19*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*159.2*/getProfileButtons/*159.19*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*158.23*/("""
-"""),_display_(/*159.2*/if(isLoggedIn.equalsIgnoreCase("true"))/*159.41*/ {_display_(Seq[Any](format.raw/*159.43*/("""
-    """),_display_(/*160.6*/getLogoutButton),format.raw/*160.21*/("""
-""")))}/*161.3*/else/*161.8*/{_display_(Seq[Any](format.raw/*161.9*/("""
-    """),_display_(/*162.6*/getLoginButton),format.raw/*162.20*/("""
-""")))}),format.raw/*163.2*/("""
-""")))};def /*166.2*/getLoginButton/*166.16*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+Seq[Any](format.raw/*159.23*/("""
+"""),_display_(/*160.2*/if(isLoggedIn.equalsIgnoreCase("true"))/*160.41*/ {_display_(Seq[Any](format.raw/*160.43*/("""
+    """),_display_(/*161.6*/getLogoutButton),format.raw/*161.21*/("""
+""")))}/*162.3*/else/*162.8*/{_display_(Seq[Any](format.raw/*162.9*/("""
+    """),_display_(/*163.6*/getLoginButton),format.raw/*163.20*/("""
+""")))}),format.raw/*164.2*/("""
+""")))};def /*167.2*/getLoginButton/*167.16*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*166.20*/("""
-    """),format.raw/*167.5*/("""<a href=""""),_display_(/*167.15*/controllers/*167.26*/.User.routes.UserController.login()),format.raw/*167.61*/("""" class="btn btn-success pull-center">
+Seq[Any](format.raw/*167.20*/("""
+    """),format.raw/*168.5*/("""<a href=""""),_display_(/*168.15*/controllers/*168.26*/.User.routes.UserController.login()),format.raw/*168.61*/("""" class="btn btn-success pull-center">
         Login
     </a>
-""")))};def /*172.2*/getLogoutButton/*172.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*173.2*/getLogoutButton/*173.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*172.21*/("""
-    """),format.raw/*173.5*/("""<a href=""""),_display_(/*173.15*/controllers/*173.26*/.User.routes.UserController.logout()),format.raw/*173.62*/("""" class="btn btn-danger pull-center">
+Seq[Any](format.raw/*173.21*/("""
+    """),format.raw/*174.5*/("""<a href=""""),_display_(/*174.15*/controllers/*174.26*/.User.routes.UserController.logout()),format.raw/*174.62*/("""" class="btn btn-danger pull-center">
         Logout
     </a>
-""")))};def /*211.2*/getUserSideButton/*211.19*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*212.2*/getUserSideButton/*212.19*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*211.23*/("""
-    """),format.raw/*212.5*/("""<a href=""""),_display_(/*212.15*/getUserSettingsLink),format.raw/*212.34*/("""">
-        <img class="settings-icon" src=""""),_display_(/*213.42*/routes/*213.48*/.Assets.versioned("images/navigation/settings.png")),format.raw/*213.99*/("""">
+Seq[Any](format.raw/*212.23*/("""
+    """),format.raw/*213.5*/("""<a href=""""),_display_(/*213.15*/getUserSettingsLink),format.raw/*213.34*/("""">
+        <img class="settings-icon" src=""""),_display_(/*214.42*/routes/*214.48*/.Assets.versioned("images/navigation/settings.png")),format.raw/*214.99*/("""">
     </a>
-""")))};def /*217.2*/getRightBlockUserInfo/*217.23*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*218.2*/getRightBlockUserInfo/*218.23*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*217.27*/("""
-    """),format.raw/*218.5*/("""<ul class="top">
+Seq[Any](format.raw/*218.27*/("""
+    """),format.raw/*219.5*/("""<ul class="top">
         <label class="media-heading navbar-user pull-center">
-            Welcome, """),_display_(/*220.23*/if(isLoggedIn.equalsIgnoreCase("true"))/*220.62*/ {_display_(Seq[Any](format.raw/*220.64*/("""
-            """),format.raw/*221.13*/("""<a href=""""),_display_(/*221.23*/getUserHomeLink),format.raw/*221.38*/("""">
-            """),_display_(/*222.14*/session()/*222.23*/.get(AppTags.Session.SessionTags.display_name.toString)),format.raw/*222.78*/("""
-            """),format.raw/*223.13*/("""</a>
-            """),_display_(/*224.14*/getUserSideButton),format.raw/*224.31*/("""
-        """)))}/*225.11*/else/*225.16*/{_display_(Seq[Any](format.raw/*225.17*/("""
-            """),format.raw/*226.13*/("""New User
-        """)))}),format.raw/*227.10*/("""
-        """),format.raw/*228.9*/("""</label>
+            Welcome, """),_display_(/*221.23*/if(isLoggedIn.equalsIgnoreCase("true"))/*221.62*/ {_display_(Seq[Any](format.raw/*221.64*/("""
+            """),format.raw/*222.13*/("""<a href=""""),_display_(/*222.23*/getUserHomeLink),format.raw/*222.38*/("""">
+            """),_display_(/*223.14*/session()/*223.23*/.get(AppTags.Session.SessionTags.display_name.toString)),format.raw/*223.78*/("""
+            """),format.raw/*224.13*/("""</a>
+            """),_display_(/*225.14*/getUserSideButton),format.raw/*225.31*/("""
+        """)))}/*226.11*/else/*226.16*/{_display_(Seq[Any](format.raw/*226.17*/("""
+            """),format.raw/*227.13*/("""New User
+        """)))}),format.raw/*228.10*/("""
+        """),format.raw/*229.9*/("""</label>
     </ul>
     <ul class="bottom text-center">
-    """),_display_(/*231.6*/getProfileButtons),format.raw/*231.23*/("""
-    """),format.raw/*232.5*/("""</ul>
-""")))};def /*235.2*/nav_section/*235.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+    """),_display_(/*232.6*/getProfileButtons),format.raw/*232.23*/("""
+    """),format.raw/*233.5*/("""</ul>
+""")))};def /*236.2*/nav_section/*236.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*235.17*/("""
-    """),format.raw/*236.5*/("""<section class="menu-section">
-        <a class="top app-logo" href=""""),_display_(/*237.40*/getUserHomeLink),format.raw/*237.55*/("""">
-            <img src=""""),_display_(/*238.24*/routes/*238.30*/.Assets.versioned("images/logo.png")),format.raw/*238.66*/(""""/>
+Seq[Any](format.raw/*236.17*/("""
+    """),format.raw/*237.5*/("""<section class="menu-section">
+        <a class="top app-logo" href=""""),_display_(/*238.40*/getUserHomeLink),format.raw/*238.55*/("""">
+            <img src=""""),_display_(/*239.24*/routes/*239.30*/.Assets.versioned("images/logo.png")),format.raw/*239.66*/(""""/>
         </a>
         <div class="navbar navbar-inverse set-radius-zero">
             <div class="container">
@@ -200,20 +201,20 @@ Seq[Any](format.raw/*235.17*/("""
                     <div class="col-md-pull-12">
                         <div class="navbar-collapse collapse ">
                             <ul class="nav navbar-nav navbar-left navbar-top nav-text-enlarge">
-                            """),_display_(/*246.30*/getUserNav),format.raw/*246.40*/("""
-                            """),format.raw/*247.29*/("""</ul>
+                            """),_display_(/*247.30*/getUserNav),format.raw/*247.40*/("""
+                            """),format.raw/*248.29*/("""</ul>
                             <ul class="right-container navbar-btn navbar-right">
-                            """),_display_(/*249.30*/getRightBlockUserInfo),format.raw/*249.51*/("""
-                            """),format.raw/*250.29*/("""</ul>
+                            """),_display_(/*250.30*/getRightBlockUserInfo),format.raw/*250.51*/("""
+                            """),format.raw/*251.29*/("""</ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-""")))};def /*10.2*/getUserType/*10.13*/ = {{
+""")))};def /*11.2*/getUserType/*11.13*/ = {{
     session().get(user_type.toString)
-}};def /*122.2*/getUserNav/*122.12*/ = {{
+}};def /*123.2*/getUserNav/*123.12*/ = {{
     if(!session().containsKey(session_status.toString)) {
         buildBasicNav
     } else {
@@ -228,7 +229,7 @@ Seq[Any](format.raw/*235.17*/("""
             buildCustomerNav
         }
     }
-}};def /*139.2*/getUserHomeLink/*139.17*/ = {{
+}};def /*140.2*/getUserHomeLink/*140.17*/ = {{
     if(!session().containsKey(session_status.toString)) {
         controllers.Application.routes.HomeController.index()
     } else {
@@ -245,7 +246,7 @@ Seq[Any](format.raw/*235.17*/("""
             controllers.Application.routes.HomeController.unknown()
         }
     }
-}};def /*178.2*/isLoggedIn/*178.12*/ = {{
+}};def /*179.2*/isLoggedIn/*179.12*/ = {{
     if(session().containsKey(session_status.toString)) {
         if(session().get(session_status.toString).equalsIgnoreCase(valid.toString)) {
             "true"
@@ -257,7 +258,7 @@ Seq[Any](format.raw/*235.17*/("""
     else {
         "false"
     }
-}};def /*192.2*/getUserSettingsLink/*192.21*/ = {{
+}};def /*193.2*/getUserSettingsLink/*193.21*/ = {{
     if(!session().containsKey(session_status.toString)) {
         controllers.Application.routes.HomeController.forbiddenAccess()
     } else {
@@ -275,44 +276,44 @@ Seq[Any](format.raw/*235.17*/("""
         }
     }
 }};
-Seq[Any](format.raw/*8.23*/("""
+Seq[Any](format.raw/*9.23*/("""
 
-"""),format.raw/*12.2*/("""
+"""),format.raw/*13.2*/("""
 
-"""),format.raw/*41.2*/("""
+"""),format.raw/*42.2*/("""
 
-"""),format.raw/*56.2*/("""
+"""),format.raw/*57.2*/("""
 
-"""),format.raw/*71.2*/("""
+"""),format.raw/*72.2*/("""
 
-"""),format.raw/*86.2*/("""
+"""),format.raw/*87.2*/("""
 
-"""),format.raw/*90.2*/("""
+"""),format.raw/*91.2*/("""
 
-"""),format.raw/*120.2*/("""
+"""),format.raw/*121.2*/("""
 
-"""),format.raw/*137.2*/("""
+"""),format.raw/*138.2*/("""
 
-"""),format.raw/*156.2*/("""
+"""),format.raw/*157.2*/("""
 
-"""),format.raw/*164.2*/("""
+"""),format.raw/*165.2*/("""
 
-"""),format.raw/*170.2*/("""
+"""),format.raw/*171.2*/("""
 
-"""),format.raw/*176.2*/("""
+"""),format.raw/*177.2*/("""
 
-"""),format.raw/*190.2*/("""
+"""),format.raw/*191.2*/("""
 
-"""),format.raw/*209.2*/("""
+"""),format.raw/*210.2*/("""
 
-"""),format.raw/*215.2*/("""
+"""),format.raw/*216.2*/("""
 
-"""),format.raw/*233.2*/("""
+"""),format.raw/*234.2*/("""
 
-"""),format.raw/*257.2*/("""
+"""),format.raw/*258.2*/("""
 
 
-"""),_display_(/*260.2*/nav/*260.5*/.apply("null", nav_section)))
+"""),_display_(/*261.2*/nav/*261.5*/.apply("null", nav_section)))
       }
     }
   }
@@ -328,11 +329,11 @@ Seq[Any](format.raw/*8.23*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 17:42:48 SAST 2017
+                  DATE: Sun Oct 15 01:25:53 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html
-                  HASH: 1bb8176ab880f158fff549f5cf365af0395b1534
-                  MATRIX: 665->1|696->26|742->66|809->127|890->202|962->268|1329->329|1429->412|1454->428|1535->432|1567->437|1608->451|1628->462|1688->501|1725->511|1766->531|1807->544|1823->550|1896->601|2849->1527|2869->1538|2930->1578|3006->1627|3026->1638|3085->1676|3152->1716|3172->1727|3239->1773|3309->1816|3329->1827|3398->1875|3449->1906|3478->1926|3559->1930|3591->1935|3632->1949|3652->1960|3716->2003|3753->2013|3795->2033|3836->2046|3852->2052|3925->2103|4006->2157|4026->2168|4101->2222|4138->2232|4180->2252|4221->2265|4237->2271|4310->2322|4395->2380|4415->2391|4490->2445|4527->2455|4569->2475|4610->2488|4626->2494|4699->2545|4784->2603|4804->2614|4882->2671|4919->2681|4961->2701|5002->2714|5018->2720|5091->2771|5158->2818|5183->2834|5264->2838|5296->2843|5337->2857|5357->2868|5422->2912|5459->2922|5501->2942|5542->2955|5558->2961|5631->3012|5712->3066|5732->3077|5812->3136|5849->3146|5891->3166|5932->3179|5948->3185|6021->3236|6110->3298|6130->3309|6211->3369|6249->3379|6291->3399|6332->3412|6348->3418|6421->3469|6511->3532|6531->3543|6614->3605|6652->3615|6694->3635|6735->3648|6751->3654|6824->3705|6895->3756|6917->3769|6998->3773|7030->3778|7071->3792|7091->3803|7151->3842|7188->3852|7229->3872|7270->3885|7286->3891|7359->3942|7440->3996|7460->4007|7523->4049|7560->4059|7602->4079|7643->4092|7659->4098|7732->4149|7816->4206|7836->4217|7899->4259|7936->4269|7978->4289|8019->4302|8035->4308|8108->4359|8192->4416|8212->4427|8279->4473|8316->4483|8358->4503|8399->4516|8415->4522|8488->4573|8552->4617|8581->4637|8662->4641|8694->4646|8753->4685|8775->4698|8856->4702|8888->4707|8929->4721|8949->4732|9012->4774|9049->4784|9091->4804|9201->4887|9242->4907|10118->5755|10160->5775|10240->5827|10261->5838|10327->5882|10365->5892|10408->5912|10469->7242|10496->7259|10578->7263|10607->7265|10656->7304|10697->7306|10730->7312|10767->7327|10788->7330|10801->7335|10840->7336|10873->7342|10909->7356|10942->7358|10968->7363|10992->7377|11074->7381|11107->7386|11145->7396|11166->7407|11223->7442|11310->7508|11335->7523|11417->7527|11450->7532|11488->7542|11509->7553|11567->7589|11654->8754|11681->8771|11763->8775|11796->8780|11834->8790|11875->8809|11947->8853|11963->8859|12036->8910|12073->8926|12104->8947|12186->8951|12219->8956|12348->9057|12397->9096|12438->9098|12480->9111|12518->9121|12555->9136|12599->9152|12618->9161|12695->9216|12737->9229|12783->9247|12822->9264|12852->9275|12866->9280|12906->9281|12948->9294|12998->9312|13035->9321|13122->9381|13161->9398|13194->9403|13225->9413|13246->9424|13328->9428|13361->9433|13459->9503|13496->9518|13550->9544|13566->9550|13624->9586|14038->9972|14070->9982|14128->10011|14272->10127|14315->10148|14373->10177|14533->353|14553->364|14613->5952|14633->5962|15120->6437|15145->6452|15947->7655|15967->7665|16245->7931|16274->7950|17105->350|17134->409|17163->1903|17192->2815|17221->3753|17250->4614|17279->4682|17309->5949|17339->6434|17369->7239|17399->7360|17429->7505|17459->7652|17489->7928|17519->8751|17549->8923|17579->9410|17609->10314|17640->10318|17652->10321
-                  LINES: 24->1|25->2|26->3|27->4|28->5|29->6|34->8|38->14|38->14|40->14|41->15|41->15|41->15|41->15|41->15|41->15|41->15|41->15|41->15|63->37|63->37|63->37|64->38|64->38|64->38|65->39|65->39|65->39|66->40|66->40|66->40|67->43|67->43|69->43|70->44|70->44|70->44|70->44|70->44|70->44|70->44|70->44|70->44|73->47|73->47|73->47|73->47|73->47|73->47|73->47|73->47|76->50|76->50|76->50|76->50|76->50|76->50|76->50|76->50|79->53|79->53|79->53|79->53|79->53|79->53|79->53|79->53|82->58|82->58|84->58|85->59|85->59|85->59|85->59|85->59|85->59|85->59|85->59|85->59|88->62|88->62|88->62|88->62|88->62|88->62|88->62|88->62|91->65|91->65|91->65|91->65|91->65|91->65|91->65|91->65|94->68|94->68|94->68|94->68|94->68|94->68|94->68|94->68|97->73|97->73|99->73|100->74|100->74|100->74|100->74|100->74|100->74|100->74|100->74|100->74|103->77|103->77|103->77|103->77|103->77|103->77|103->77|103->77|106->80|106->80|106->80|106->80|106->80|106->80|106->80|106->80|109->83|109->83|109->83|109->83|109->83|109->83|109->83|109->83|112->88|112->88|114->88|115->89|116->92|116->92|118->92|119->93|119->93|119->93|119->93|119->93|119->93|123->97|123->97|140->114|140->114|143->117|143->117|143->117|143->117|143->117|146->158|146->158|148->158|149->159|149->159|149->159|150->160|150->160|151->161|151->161|151->161|152->162|152->162|153->163|154->166|154->166|156->166|157->167|157->167|157->167|157->167|160->172|160->172|162->172|163->173|163->173|163->173|163->173|166->211|166->211|168->211|169->212|169->212|169->212|170->213|170->213|170->213|172->217|172->217|174->217|175->218|177->220|177->220|177->220|178->221|178->221|178->221|179->222|179->222|179->222|180->223|181->224|181->224|182->225|182->225|182->225|183->226|184->227|185->228|188->231|188->231|189->232|190->235|190->235|192->235|193->236|194->237|194->237|195->238|195->238|195->238|203->246|203->246|204->247|206->249|206->249|207->250|214->10|214->10|216->122|216->122|231->139|231->139|248->178|248->178|260->192|260->192|278->8|280->12|282->41|284->56|286->71|288->86|290->90|292->120|294->137|296->156|298->164|300->170|302->176|304->190|306->209|308->215|310->233|312->257|315->260|315->260
+                  HASH: 957a791812032da3c4c5701da57900c5a7bfda10
+                  MATRIX: 665->1|696->26|742->66|809->127|890->202|962->268|1028->328|1355->349|1455->432|1480->448|1561->452|1593->457|1634->471|1654->482|1714->521|1751->531|1792->551|1833->564|1849->570|1922->621|2875->1547|2953->1604|3029->1653|3105->1708|3172->1748|3256->1811|3326->1854|3412->1919|3463->1950|3492->1970|3573->1974|3605->1979|3646->1993|3666->2004|3730->2047|3767->2057|3809->2077|3850->2090|3866->2096|3939->2147|4020->2201|4040->2212|4115->2266|4152->2276|4194->2296|4235->2309|4251->2315|4324->2366|4409->2424|4429->2435|4504->2489|4541->2499|4583->2519|4624->2532|4640->2538|4713->2589|4798->2647|4818->2658|4896->2715|4933->2725|4975->2745|5016->2758|5032->2764|5105->2815|5172->2862|5197->2878|5278->2882|5310->2887|5351->2901|5371->2912|5436->2956|5473->2966|5515->2986|5556->2999|5572->3005|5645->3056|5726->3110|5746->3121|5826->3180|5863->3190|5905->3210|5946->3223|5962->3229|6035->3280|6124->3342|6144->3353|6225->3413|6263->3423|6305->3443|6346->3456|6362->3462|6435->3513|6525->3576|6545->3587|6628->3649|6666->3659|6708->3679|6749->3692|6765->3698|6838->3749|6909->3800|6931->3813|7012->3817|7044->3822|7085->3836|7105->3847|7165->3886|7202->3896|7243->3916|7284->3929|7300->3935|7373->3986|7454->4040|7474->4051|7537->4093|7574->4103|7616->4123|7657->4136|7673->4142|7746->4193|7830->4250|7850->4261|7913->4303|7950->4313|7992->4333|8033->4346|8049->4352|8122->4403|8206->4460|8226->4471|8293->4517|8330->4527|8372->4547|8413->4560|8429->4566|8502->4617|8566->4661|8595->4681|8676->4685|8708->4690|8767->4729|8789->4742|8870->4746|8902->4751|8943->4765|8963->4776|9026->4818|9063->4828|9105->4848|9215->4931|9256->4951|10132->5799|10174->5819|10254->5871|10275->5882|10341->5926|10379->5936|10422->5956|10483->7286|10510->7303|10592->7307|10621->7309|10670->7348|10711->7350|10744->7356|10781->7371|10802->7374|10815->7379|10854->7380|10887->7386|10923->7400|10956->7402|10982->7407|11006->7421|11088->7425|11121->7430|11159->7440|11180->7451|11237->7486|11324->7552|11349->7567|11431->7571|11464->7576|11502->7586|11523->7597|11581->7633|11668->8798|11695->8815|11777->8819|11810->8824|11848->8834|11889->8853|11961->8897|11977->8903|12050->8954|12087->8970|12118->8991|12200->8995|12233->9000|12362->9101|12411->9140|12452->9142|12494->9155|12532->9165|12569->9180|12613->9196|12632->9205|12709->9260|12751->9273|12797->9291|12836->9308|12866->9319|12880->9324|12920->9325|12962->9338|13012->9356|13049->9365|13136->9425|13175->9442|13208->9447|13239->9457|13260->9468|13342->9472|13375->9477|13473->9547|13510->9562|13564->9588|13580->9594|13638->9630|14052->10016|14084->10026|14142->10055|14286->10171|14329->10192|14387->10221|14547->373|14567->384|14627->5996|14647->6006|15134->6481|15159->6496|15961->7699|15981->7709|16259->7975|16288->7994|17119->370|17148->429|17177->1947|17206->2859|17235->3797|17264->4658|17293->4726|17323->5993|17353->6478|17383->7283|17413->7404|17443->7549|17473->7696|17503->7972|17533->8795|17563->8967|17593->9454|17623->10358|17654->10362|17666->10365
+                  LINES: 24->1|25->2|26->3|27->4|28->5|29->6|30->7|35->9|39->15|39->15|41->15|42->16|42->16|42->16|42->16|42->16|42->16|42->16|42->16|42->16|64->38|64->38|65->39|65->39|66->40|66->40|67->41|67->41|68->44|68->44|70->44|71->45|71->45|71->45|71->45|71->45|71->45|71->45|71->45|71->45|74->48|74->48|74->48|74->48|74->48|74->48|74->48|74->48|77->51|77->51|77->51|77->51|77->51|77->51|77->51|77->51|80->54|80->54|80->54|80->54|80->54|80->54|80->54|80->54|83->59|83->59|85->59|86->60|86->60|86->60|86->60|86->60|86->60|86->60|86->60|86->60|89->63|89->63|89->63|89->63|89->63|89->63|89->63|89->63|92->66|92->66|92->66|92->66|92->66|92->66|92->66|92->66|95->69|95->69|95->69|95->69|95->69|95->69|95->69|95->69|98->74|98->74|100->74|101->75|101->75|101->75|101->75|101->75|101->75|101->75|101->75|101->75|104->78|104->78|104->78|104->78|104->78|104->78|104->78|104->78|107->81|107->81|107->81|107->81|107->81|107->81|107->81|107->81|110->84|110->84|110->84|110->84|110->84|110->84|110->84|110->84|113->89|113->89|115->89|116->90|117->93|117->93|119->93|120->94|120->94|120->94|120->94|120->94|120->94|124->98|124->98|141->115|141->115|144->118|144->118|144->118|144->118|144->118|147->159|147->159|149->159|150->160|150->160|150->160|151->161|151->161|152->162|152->162|152->162|153->163|153->163|154->164|155->167|155->167|157->167|158->168|158->168|158->168|158->168|161->173|161->173|163->173|164->174|164->174|164->174|164->174|167->212|167->212|169->212|170->213|170->213|170->213|171->214|171->214|171->214|173->218|173->218|175->218|176->219|178->221|178->221|178->221|179->222|179->222|179->222|180->223|180->223|180->223|181->224|182->225|182->225|183->226|183->226|183->226|184->227|185->228|186->229|189->232|189->232|190->233|191->236|191->236|193->236|194->237|195->238|195->238|196->239|196->239|196->239|204->247|204->247|205->248|207->250|207->250|208->251|215->11|215->11|217->123|217->123|232->140|232->140|249->179|249->179|261->193|261->193|279->9|281->13|283->42|285->57|287->72|289->87|291->91|293->121|295->138|297->157|299->165|301->171|303->177|305->191|307->210|309->216|311->234|313->258|316->261|316->261
                   -- GENERATED --
               */
           

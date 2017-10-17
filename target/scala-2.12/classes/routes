@@ -4,8 +4,8 @@
 
 # An example controller showing a sample home page
 GET         /                                       controllers.Application.HomeController.index()
-GET         /                                       controllers.Application.HomeController.forbiddenAccess()
-GET         /                                       controllers.Application.HomeController.unknown()
+GET         /forbidden                              controllers.Application.HomeController.forbiddenAccess()
+GET         /unknown                                controllers.Application.HomeController.unknown()
 
 
 ##disable this an you will recieve customerHome 403 forbidden error, the CRSF filter is used for cross site scripting prevention, use for authentication - used in POST requests
@@ -31,7 +31,10 @@ GET         /Staff                                  controllers.User.DeliverySta
 ##############################################################################
 
 # Customer Controller
+GET         /User                                   controllers.User.CustomerController.redirectHome()
 GET         /User/Dashboard                         controllers.User.CustomerController.index()
++nocsrf
+GET         /User/Dashboard/Update                  controllers.User.CustomerController.getCustomerDashUpdate()
 GET         /User/Register                          controllers.User.CustomerController.register()
 GET         /User/Register/Completing               controllers.User.CustomerController.completeRegistration()
 GET         /User/Verify/:token                     controllers.User.CustomerController.verifyCustomer(token: String)
@@ -55,7 +58,8 @@ GET         /User/Schedule/AddOrder                 controllers.Order.ScheduleCo
 GET         /User/Schedule/Edit                     controllers.Order.ScheduleController.editScheduleName()
 
 POST        /User/Schedule/Delete/:orderId          controllers.Order.ScheduleController.removeOrder(orderId: String)
-POST        /User/Schedule/State                    controllers.Order.ScheduleController.setScheduleState()
++nocsrf
+POST        /User/Schedule/ChangeState              controllers.Order.ScheduleController.setScheduleState()
 POST        /User/Schedule/Edit                     controllers.Order.ScheduleController.updateScheduleName()
 POST        /User/Schedule/New                      controllers.Order.ScheduleController.doCreateSchedule()
 POST        /User/Schedule/AddOrder                 controllers.Order.ScheduleController.doAddOrder()
@@ -74,6 +78,8 @@ GET         /Menu                                   controllers.Order.MenuContro
 # KitchenStaff Controller
 
 GET         /Kitchen/Dashboard                      controllers.User.KitchenStaffController.index()
++nocsrf
+GET         /Kitchen/Dashboard/Update               controllers.User.KitchenStaffController.getKitchenDashUpdate()
 GET         /Kitchen/Order                          controllers.User.KitchenStaffController.viewOrder()
 GET         /Kitchen/Orders/Active                  controllers.User.KitchenStaffController.viewActiveOrders()
 GET         /Kitchen/Orders/Completed               controllers.User.KitchenStaffController.viewCompletedOrders()
@@ -89,6 +95,8 @@ POST        /Kitchen/User/Edit                      controllers.User.KitchenStaf
 # DeliveryStaff Controller
 
 GET         /Delivery/Dashboard                     controllers.User.DeliveryStaffController.index()
++nocsrf
+GET         /Delivery/Dashboard/Update              controllers.User.DeliveryStaffController.getDeliveryDashUpdate()
 GET         /Delivery/Order                         controllers.User.DeliveryStaffController.viewOrder()
 GET         /Delivery/Order/Deliver                 controllers.User.DeliveryStaffController.deliverOrder()
 GET         /Delivery/Order/Checkout                controllers.User.DeliveryStaffController.checkoutOrder()
@@ -107,6 +115,8 @@ POST        /Delivery/User/Edit                     controllers.User.DeliverySta
 # Admin Controller
 
 GET         /Admin/Dashboard                         controllers.User.AdminController.index()
++nocsrf
+GET         /Admin/Dashboard/Update                  controllers.User.AdminController.getAdminDashUpdate()
 GET         /Admin/Manage/Meals                      controllers.User.AdminController.manageMeals()
 GET         /Admin/Manage/Users                      controllers.User.AdminController.manageUsers()
 GET         /Admin/Manage/Discounts                  controllers.User.AdminController.manageDiscounts()
@@ -155,7 +165,12 @@ POST        /submit                                 controllers.OrderController.
 ##############################################################################
 # Javascript Routing
 #GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
++nocsrf
 GET         /assets/javascripts/scheduleJSRoutes    controllers.Order.ScheduleController.scheduleJSRoutes()
+GET         /assets/javascripts/customerJSRoutes    controllers.User.CustomerController.customerJSRoutes()
+GET         /assets/javascripts/adminJSRoutes       controllers.User.AdminController.adminJSRoutes()
+GET         /assets/javascripts/deliveryJSRoutes    controllers.User.DeliveryStaffController.deliveryJSRoutes()
+GET         /assets/javascripts/kitchenJSRoutes     controllers.User.KitchenStaffController.kitchenJSRoutes()
 
 # An example controller showing how to use dependency injection
 GET         /count                                  controllers.CountController.count

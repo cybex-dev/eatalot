@@ -26,6 +26,12 @@ public class Mailer {
         environment = Play.current().injector().instanceOf(Environment.class);
     }
 
+    /**
+     * Call with CompletableFuture.supplyAsync(() -> Mailer.SendWelcome("New User", c.getEmail()), httpExecutionContext.current());
+     * @param name
+     * @param email_address
+     * @return
+     */
     public static boolean SendWelcome(String name, String email_address) {
         Email email = Mailer.StandardEmail()
                 .setTo(Arrays.asList(email_address))
@@ -82,6 +88,9 @@ public class Mailer {
 //        mailerClient.send(email);
         return false;
     }
+
+
+
 
     private boolean sendEmail(Email email) {
         try {

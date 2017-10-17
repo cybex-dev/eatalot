@@ -50,14 +50,14 @@ Seq[Any](format.raw/*16.17*/("""
             """),format.raw/*20.13*/("""<h2>Your information</h2>
             <br/>
             <div class="container input-container">
-                <h6>Change Password</h6>
-                """),_display_(/*24.18*/helper/*24.24*/.inputText(userProfile("password"), '_name -> "Password")),format.raw/*24.81*/("""
-                """),_display_(/*25.18*/helper/*25.24*/.inputText(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*25.96*/("""
+                <h4>Change Password</h4>
+                """),_display_(/*24.18*/helper/*24.24*/.inputPassword(userProfile("password"), '_name -> "Password")),format.raw/*24.85*/("""
+                """),_display_(/*25.18*/helper/*25.24*/.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*25.100*/("""
             """),format.raw/*26.13*/("""</div>
             <br/>
             <br/>
             <div class="container input-container">
-                <input class="btn btn-default button-padding" type="button" href=""""),_display_(/*30.84*/controllers/*30.95*/.User.routes.AdminController.index()),format.raw/*30.131*/("""" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+                <input class="btn btn-default button-padding" type="button" onclick="location.href='"""),_display_(/*30.102*/controllers/*30.113*/.User.routes.AdminController.index()),format.raw/*30.149*/("""';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
             </div>
             <br/>
         """)))}),format.raw/*33.10*/("""
@@ -104,10 +104,10 @@ Seq[Any](format.raw/*7.34*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 13:03:14 SAST 2017
+                  DATE: Sun Oct 15 15:05:45 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Admin/editAdminProfile.scala.html
-                  HASH: 55cb0266ab0f65ec029187b6f3050a86c8ceffe8
-                  MATRIX: 662->1|701->34|730->57|759->80|785->100|1142->133|1252->168|1274->182|1354->186|1379->191|1398->201|1479->205|1505->211|1525->222|1606->226|1638->231|1700->266|1715->272|1791->339|1830->340|1871->354|1884->358|1915->368|1956->381|2137->535|2152->541|2230->598|2275->616|2290->622|2383->694|2424->707|2629->885|2649->896|2707->932|2878->1072|2910->1077|2941->1088|2956->1095|3037->1099|3069->1104|3207->1222|3227->1233|3308->1237|3336->1239|3349->1244|3389->1263|3418->1266|3433->1273|3473->1292|3514->165|3543->188|3572->208|3601->1085|3630->1219|3659->1294|3688->1297|3707->1307|3795->1374
+                  HASH: 22af5b17c9f7664f14f44eb35284722e4c49bda4
+                  MATRIX: 662->1|701->34|730->57|759->80|785->100|1142->133|1252->168|1274->182|1354->186|1379->191|1398->201|1479->205|1505->211|1525->222|1606->226|1638->231|1700->266|1715->272|1791->339|1830->340|1871->354|1884->358|1915->368|1956->381|2137->535|2152->541|2234->602|2279->620|2294->626|2392->702|2433->715|2657->911|2678->922|2736->958|2909->1100|2941->1105|2972->1116|2987->1123|3068->1127|3100->1132|3238->1250|3258->1261|3339->1265|3367->1267|3380->1272|3420->1291|3449->1294|3464->1301|3504->1320|3545->165|3574->188|3603->208|3632->1113|3661->1247|3690->1322|3719->1325|3738->1335|3826->1402
                   LINES: 24->1|25->2|26->3|27->4|28->5|33->7|37->9|37->9|39->9|40->12|40->12|42->12|44->16|44->16|46->16|47->17|48->18|48->18|48->18|48->18|49->19|49->19|49->19|50->20|54->24|54->24|54->24|55->25|55->25|55->25|56->26|60->30|60->30|60->30|63->33|64->34|65->37|65->37|67->37|68->38|71->43|71->43|73->43|74->44|74->44|74->44|76->46|76->46|76->46|78->7|80->10|82->14|84->35|86->41|88->47|90->49|90->49|90->49
                   -- GENERATED --
               */

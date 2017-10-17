@@ -37,9 +37,9 @@ Seq[Any](format.raw/*5.17*/("""
     <br/>
     <p>Please login to complete registration</p>
     <br/>
-    <form method="get" action=""""),_display_(/*10.33*/controllers/*10.44*/.User.routes.UserController.login()),format.raw/*10.79*/("""">
-        <button type="submit">Login</button>
-    </form>
+    """),_display_(/*10.6*/helper/*10.12*/.form( action = controllers.User.routes.UserController.login())/*10.75*/{_display_(Seq[Any](format.raw/*10.76*/("""
+        """),format.raw/*11.9*/("""<button class="btn btn-default" type="submit">Login</button>
+    """)))}),format.raw/*12.6*/("""
 """)))};
 Seq[Any](format.raw/*3.4*/("""
 
@@ -61,11 +61,11 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 13:03:13 SAST 2017
+                  DATE: Tue Oct 17 12:12:51 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/verified.scala.html
-                  HASH: 2f705f63e4892406e45f38daa4ee8e6771849f2d
-                  MATRIX: 665->1|1008->46|1088->51|1107->62|1187->66|1218->71|1379->205|1399->216|1455->251|1554->48|1583->312|1612->315|1631->325
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|40->10|40->10|40->10|44->3|46->13|48->15|48->15
+                  HASH: ea342b8d25ec443cf3e3bc9167c1ae3168cacd46
+                  MATRIX: 665->1|1008->46|1088->51|1107->62|1187->66|1218->71|1351->178|1366->184|1438->247|1477->248|1513->257|1609->323|1649->48|1678->325|1707->328|1726->338
+                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|40->10|40->10|40->10|40->10|41->11|42->12|44->3|46->13|48->15|48->15
                   -- GENERATED --
               */
           

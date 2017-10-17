@@ -2,20 +2,33 @@
 @import helper.CSRF
 @import models.User.Customer.UserRegisterInfo
 @import play.data.Form
+@import controllers.Application.AppTags.General
 
 @(userForm: Form[UserRegisterInfo])
 
-@bodyContent = {
-    <h1>Register User</h1>
-    <br>
-    <br>
-    @helper.form(action = controllers.User.routes.CustomerController.create()) {
-        @CSRF.formField
-        @helper.inputText(userForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
-        @helper.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")
-        @helper.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")
-        <input class="btn btn-success" type="submit" value="Register"/>
+    @bodyContent = {
+        <div class="body center-parent-small single-border">
+            <h1>Register for @General.SITENAME.toString</h1>
+            <div class="center-child">
+                <br>
+                @helper.form(action = controllers.User.routes.CustomerController.create()) {
+                    @CSRF.formField
+                    @helper.inputText(userForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
+                    <br/>
+                    @helper.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")
+                    @helper.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")
+                    <br/>
+                    <input class="btn btn-success" type="submit" value="Register"/>
+                }
+                <hr/>
+                @helper.form(action = controllers.User.routes.UserController.login()) {
+                    @CSRF.formField
+                    <input class="btn btn-default" type="submit" value="Login"/>
+                }
+            </div>
+            <br/>
+        </div>
+        <br/>
     }
-}
 
-@masterpage.apply(" :: Register", bodyContent)
+    @masterpage.apply(" :: Register", bodyContent)

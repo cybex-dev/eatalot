@@ -1,16 +1,20 @@
 package controllers.User;
 
+import annotations.Routing.AdminOnly;
 import annotations.Routing.DeliveryStaffOnly;
-import annotations.SessionVerifier.LoadOrRedirect;
+import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
+import models.User.Admin.AdminInfo;
 import models.User.UserProfile;
 import models.User.UserDetails;
 import models.User.DeliveryStaff.DeliveryStaffInfo;
 import models.User.Staff;
 import play.data.Form;
 import play.data.FormFactory;
+import play.libs.Json;
 import play.mvc.*;
+import play.routing.JavaScriptReverseRouter;
 import utility.DashboardButton;
 import views.html.User.Staff.editDeliveryProfile;
 import views.html.User.Staff.deliveryHome;
@@ -34,7 +38,7 @@ public class DeliveryStaffController extends Controller {
      *
      * @return
      */
-    @With(LoadOrRedirect.class)
+    @With(LoadOrRedirectToLogin.class)
     @DeliveryStaffOnly
     public Result index() {
 
@@ -94,7 +98,7 @@ public class DeliveryStaffController extends Controller {
     @DeliveryStaffOnly
     public Result edit(){
         Staff staff = Staff.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
-        Map<String, String> userInfoMap = UserDetails.buildMap(staff);
+        Map<String, String> userInfoMap = UserProfile.buildMap(staff);
         Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bind(userInfoMap);
         return ok(editDeliveryProfile.render(userDetailsForm));
     }
@@ -105,21 +109,55 @@ public class DeliveryStaffController extends Controller {
         Staff staff = Staff.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
         Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bindFromRequest();
         if (!staff.isDeliveryStaff()){
-            flash().put(AppTags.FlashCodes.warning.toString(), "You are trying to edit someone else's profile, this will be reported!");
+            flash().put(AppTags.FlashCodes.danger.toString(), "You are trying to edit someone else's profile, this will be reported!");
             return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.forbiddenAccess()));
         }
         if (userDetailsForm.hasErrors()){
-            flash().put(AppTags.FlashCodes.warning.toString(), "Missing or incorrect fields");
+            flash().put(AppTags.FlashCodes.danger.toString(), "Missing or incorrect fields");
             return CompletableFuture.completedFuture(badRequest(editDeliveryProfile.render(userDetailsForm)));
         }
-        UserProfile userDetails = userDetailsForm.get();
-        if (!userDetails.getPassword().equals(userDetails.getConfirmPassword())) {
-            flash(AppTags.FlashCodes.warning.toString(), "Please check passwords match and are valid");
+        UserProfile userProfile = userDetailsForm.get();
+        userProfile.setConfirmPassword(userDetailsForm.value().get().getConfirmPassword());
+        if (!userProfile.passwordsEmpty()) {
+            //if passwords are empty, user isn't changing them
+            String password = userProfile.getPassword(),
+                    confirmPassword = userProfile.getConfirmPassword();
+            if (!password.equals(confirmPassword)) {
+                //passswords do not match, notify
+                flash(AppTags.FlashCodes.danger.toString(), "Please check passwords match and are valid");
+                return CompletableFuture.completedFuture(badRequest(editDeliveryProfile.render(userDetailsForm)));
+            }
+            else {
+                flash(AppTags.FlashCodes.info.toString(), "Password updated!");
+            }
+        }
+        if (!userProfile.getPassword().equals(userProfile.getConfirmPassword())) {
+            flash(AppTags.FlashCodes.danger.toString(), "Please check passwords match and are valid");
             return CompletableFuture.completedFuture(badRequest(editDeliveryProfile.render(userDetailsForm)));
         }
-        userDetails.save(UserType.DELIVERY);
+        userProfile.save(UserType.DELIVERY);
         flash(AppTags.FlashCodes.success.toString(), "Profile has been updated!");
         return CompletableFuture.completedFuture(redirect(controllers.User.routes.DeliveryStaffController.index()));
+    }
+
+    @With(RequiresActive.class)
+    @DeliveryStaffOnly
+    public Result getDeliveryDashUpdate(){
+        DeliveryStaffInfo deliveryStaffInfo = DeliveryStaffInfo.GetDeliveryStaffInfo(session(user_id.toString()));
+        String s0 = "",
+                s1 = "",
+                s2 = "",
+                s3 = "";
+        Map<String, String> jsonMap = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+        return ok(Json.toJson(jsonMap));
+    }
+
+    public Result deliveryJSRoutes() {
+        return ok(
+                JavaScriptReverseRouter.create(AppTags.Routes.DeliveryJSRoutes.toString(),
+                        routes.javascript.DeliveryStaffController.getDeliveryDashUpdate()
+                )
+        ).as("text/javascript");
     }
 }
 

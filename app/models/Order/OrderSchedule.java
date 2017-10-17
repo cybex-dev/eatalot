@@ -42,6 +42,10 @@ public class OrderSchedule extends Model {
 
     public static Finder<String, OrderSchedule> find = new Finder<>(OrderSchedule.class);
 
+    private void generateId() {
+        orderSchedId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+    }
+
     public OrderSchedule(@Constraints.Required String title, boolean isActive) {
         this.title = title;
         this.isActive = isActive;
@@ -70,6 +74,7 @@ public class OrderSchedule extends Model {
     }
 
     public OrderSchedule() {
+        generateId();
     }
 
     public String getOrderSchedId() {
@@ -78,6 +83,7 @@ public class OrderSchedule extends Model {
 
     public void setOrderSchedId(String orderSchedId) {
         this.orderSchedId = orderSchedId;
+        save();
     }
 
     public String getTitle() {
@@ -86,6 +92,7 @@ public class OrderSchedule extends Model {
 
     public void setTitle(String title) {
         this.title = title;
+        save();
     }
 
     public boolean isActive() {
@@ -94,6 +101,7 @@ public class OrderSchedule extends Model {
 
     public void setActive(boolean active) {
         isActive = active;
+        save();
     }
 
     @Override

@@ -2,29 +2,33 @@
 @import play.data.Form
 @import helper._
 @import models.User.UserLoginInfo
+@import controllers.Application.AppTags.General
 
 @(loginForm: Form[UserLoginInfo])
 
-    @bodyContent = {
-        <h1>Login Form</h1>
-        <br/>
-        <div class="body">
+@bodyContent = {
+    <div class="body center-parent-small single-border">
+        <h1>Login to @General.SITENAME.toString</h1>
+        <div class="center-child">
+            <br/>
             @helper.form(action = controllers.User.routes.UserController.doLogin) {
                 @CSRF.formField
                 @inputText(loginForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
                 @inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")
                 @checkbox(loginForm("rememberMe"), '_name -> "Remember Me")
-                @*<label><input type="checkbox" name="bRememberMe" /> Remember Me</label>*@
                 <br/>
                 <input class="btn btn-success" type="submit" value="Login"/>
                 <br/>
-                <hr class="left" style="width: 10%" size="2px"/>
             }
-            @form( action = controllers.User.routes.CustomerController.register(), '_class -> "header-line") {
+            <hr style="background-color: black;" size="3px"/>
+            @form(action = controllers.User.routes.CustomerController.register(), '_class -> "header-line") {
                 @CSRF.formField
                 <input class="btn btn-default" type="submit" value="Register"/>
             }
         </div>
-    }
+        <br/>
+    </div>
+    <br/>
+}
 
-    @masterpage.apply(" :: Login", bodyContent)
+@masterpage.apply(" :: Login", bodyContent)

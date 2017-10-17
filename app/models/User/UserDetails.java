@@ -1,24 +1,20 @@
 package models.User;
 
 import models.User.Customer.Address;
+import play.data.validation.Constraints;
 import play.data.validation.Constraints.Required;
+import play.data.validation.ValidationError;
 
 import javax.validation.constraints.Pattern;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserDetails {
+public class UserDetails implements Constraints.Validatable<ValidationError> {
     private String userId;
-    @Required
     private String name;
-    @Required
     private String surname;
-    @Required
-    @Pattern(regexp="[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message="error.cellphone_format")
     private String cellNumber;
-    @Required
     private String unitNumber;
-    @Required
     private String streetName;
     private String communityName;
 
@@ -122,6 +118,10 @@ public class UserDetails {
             map.put("surname", user.getSurname() != null ? user.getSurname() : "");
             map.put("cellNumber", user.getCellNumber() != null ? user.getCellNumber() : "");
         }
+        if (user instanceof Staff) {
+            Staff s = (Staff) user;
+            map.put("alias", s.getAlias() != null ? s.getAlias() : "");
+        }
         return map;
     }
 
@@ -140,5 +140,13 @@ public class UserDetails {
             }
         }
         return map;
+    }
+
+    @Override
+    public ValidationError validate() {
+        if (isCommunity && !communityName.isEmpty()) {
+            return new ValidationError("communityName", "Community/Complex name required");
+        }
+        return null;
     }
 }

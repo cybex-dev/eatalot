@@ -10,6 +10,39 @@
     padding: 15px;
 }
 
+.center-parent{
+    text-align:center;
+    width:80%;
+    margin: 0 auto;
+}
+
+.small-margin {
+    margin: 10px;
+}
+
+.small-indent {
+    margin-left: 5%;
+}
+
+.auto-margin {
+    margin: 0 auto;
+}
+
+.center-parent-small{
+    text-align:center;
+    width:40%;
+    margin: 0 auto;
+}
+
+.center-child {
+    display:inline-block;
+    margin: 0 auto;
+}
+
+.single-border {
+    border: 1px solid black;
+}
+
 .app-logo {
     padding: 20px;
 }
@@ -79,4 +112,28 @@
     margin-right: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.div-button-hover:hover a {
+    opacity:.60;
+    text-decoration: none;
+}
+.div-button-hover a{
+    opacity:1;
+    text-decoration: none;
+    text-align: center;
+}
+
+.div-button-hover div{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+.div-button-hover a:visited {
+    text-decoration: none;
+}
+
+.title-right-margin-large {
+    margin-right: 5em;
 }

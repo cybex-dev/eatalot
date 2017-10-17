@@ -1,35 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java" line="457" />
-    <bookmark url="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java" line="463" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java" line="452" />
+    <bookmark url="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java" line="458" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3072a07-8a1e-40ae-aa07-6a136aac7503" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/login.template.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e92baea2-5eae-4ec7-9df3-b052bc78140c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e92baea2-5eae-4ec7-9df3-b052bc78140c.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/.history" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier/RedirectToDashIfActive$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier/RedirectToDashIfActive.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/streams/compile/managedSources/$global/streams/out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/streams/compile/sources/$global/streams/out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/20e70254-abdc-4b37-9662-271fbe791710.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/annotations/SessionVerifier/RedirectToDashIfActive.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/customer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/popper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/customer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/popper.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/customer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/popper.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirect.java" afterPath="$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirectToLogin.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/javascripts/old/bootstrap.js" afterPath="$PROJECT_DIR$/public/javascripts/bootstrap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier/LoadOrRedirect.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier/LoadOrRedirectToLogin.class" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/old/bootstrap.js" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/bootstrap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/old/bootstrap.js" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier/RequiresActive.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/annotations/SessionVerifier/RequiresActive.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Locale$Currency.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Locale$Currency.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Locale.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Locale.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Routes.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Routes.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$SessionTags.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$SessionTags.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Customer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User$Customer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session$User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags$Session.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/AppTags.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/ReverseHomeController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/ReverseHomeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/javascript/ReverseHomeController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Application/javascript/ReverseHomeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Delivery/DeliveryController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Delivery/DeliveryController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Finance/UserFinance.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Finance/UserFinance.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/ReverseScheduleController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/ReverseScheduleController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/ScheduleController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/ScheduleController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/javascript/ReverseScheduleController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/Order/javascript/ReverseScheduleController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/AdminController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/AdminController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/CustomerController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/CustomerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/DeliveryStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/DeliveryStaffController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/KitchenStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/KitchenStaffController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseAdminController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseAdminController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseCustomerController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseCustomerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseDeliveryStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseDeliveryStaffController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseKitchenStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseKitchenStaffController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseUserController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/ReverseUserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/UserController$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/UserController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/UserController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseAdminController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseAdminController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseCustomerController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseCustomerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseDeliveryStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseDeliveryStaffController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseKitchenStaffController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseKitchenStaffController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseUserController.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/controllers/User/javascript/ReverseUserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/libs/Mailer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/libs/Mailer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/ActiveOrder.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/ActiveOrder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderSchedule.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/Order/OrderSchedule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Admin/Admin.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Admin/Admin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Admin/AdminInfo.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Admin/AdminInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Customer/Customer.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Customer/Customer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Customer/UserRegisterInfo.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Customer/UserRegisterInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Staff.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/Staff.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/User.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserDetails.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserDetails.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserProfile$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserProfile$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserProfile.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/models/User/UserProfile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/router/Routes.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/utility/DashboardButton.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/utility/DashboardButton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Finance/UserFinance/AddFunds$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Finance/UserFinance/AddFunds$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/dashboard$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/dashboard$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/nav_wrapper$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/nav_wrapper$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/scripts$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Global/Static/scripts$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/create$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/create$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/index$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/Order/Schedule/index$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Admin/adminHome$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Admin/adminHome$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Admin/editAdminProfile$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Admin/editAdminProfile$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/customerHome$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/customerHome$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/editProfile$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/editProfile$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/register$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/register$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/registerDetails$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/registerDetails$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/verified$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/verified$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewActiveOrders$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Customer/viewActiveOrders$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Staff/editDeliveryProfile$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Staff/editDeliveryProfile$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Staff/editKitchenProfile$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/Staff/editKitchenProfile$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/User/login$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/User/User/login$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/user/login$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/views/html/user/login$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" afterPath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" afterPath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" afterPath="$PROJECT_DIR$/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/annotations/Routing/CustomersOnlyHandler.java" afterPath="$PROJECT_DIR$/app/annotations/Routing/CustomersOnlyHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java" afterPath="$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application/AppTags.java" afterPath="$PROJECT_DIR$/app/controllers/Application/AppTags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java" afterPath="$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" afterPath="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/AdminController.java" afterPath="$PROJECT_DIR$/app/controllers/User/AdminController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" afterPath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java" afterPath="$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java" afterPath="$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/UserController.java" afterPath="$PROJECT_DIR$/app/controllers/User/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/libs/Mailer.java" afterPath="$PROJECT_DIR$/app/libs/Mailer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Admin/Admin.java" afterPath="$PROJECT_DIR$/app/models/User/Admin/Admin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Customer/Address.java" afterPath="$PROJECT_DIR$/app/models/User/Customer/Address.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" afterPath="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" afterPath="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Admin/AdminInfo.java" afterPath="$PROJECT_DIR$/app/models/User/Admin/AdminInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Customer/Customer.java" afterPath="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Customer/CustomerInfo.java" afterPath="$PROJECT_DIR$/app/models/User/Customer/CustomerInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Staff.java" afterPath="$PROJECT_DIR$/app/models/User/Staff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/User.java" afterPath="$PROJECT_DIR$/app/models/User/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Customer/UserRegisterInfo.java" afterPath="$PROJECT_DIR$/app/models/User/Customer/UserRegisterInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/UserDetails.java" afterPath="$PROJECT_DIR$/app/models/User/UserDetails.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/UserProfile.java" afterPath="$PROJECT_DIR$/app/models/User/UserProfile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/utility/DashboardButton.java" afterPath="$PROJECT_DIR$/app/utility/DashboardButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html" afterPath="$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" afterPath="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" afterPath="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Admin/adminHome.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Admin/adminHome.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/register.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/register.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/verified.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/verified.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/User/login.scala.html" afterPath="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user/login.scala.html" afterPath="$PROJECT_DIR$/app/views/user/login.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/evolutions/default/2.sql" afterPath="$PROJECT_DIR$/conf/evolutions/default/2.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.properties" afterPath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/default/project-eatalot-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-compile-internal.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-compile-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-compile.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-compile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-docs.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-docs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-optional.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-optional.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-plugin.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-pom.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-provided.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-provided.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-runtime-internal.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-runtime-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-runtime.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-runtime.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-scala-tool.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-scala-tool.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-sources.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-sources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-test-internal.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-test-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-test.xml" afterPath="$PROJECT_DIR$/project/target/resolution-cache/reports/default-project-eatalot-build-test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/main.js" afterPath="$PROJECT_DIR$/public/javascripts/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/registerDetails.js" afterPath="$PROJECT_DIR$/public/javascripts/registerDetails.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/application.conf" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/application.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/evolutions/default/2.sql" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/evolutions/default/2.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/classes/routes" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/routes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/ReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/javascript/JavaScriptReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Application/routes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/ReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/javascript/JavaScriptReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Finance/routes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/ReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/javascript/JavaScriptReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/routes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/ReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/ReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/ReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/javascript/JavaScriptReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/routes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/routes.java" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/routes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/Routes.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/Routes.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/RoutesPrefix.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/routes/main/router/RoutesPrefix.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Finance/UserFinance/AddFunds.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Finance/UserFinance/AddFunds.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/dashboard.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/dashboard.template.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/nav_wrapper.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/nav_wrapper.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/scripts.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/scripts.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/create.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/create.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/index.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/index.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Admin/adminHome.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Admin/adminHome.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Admin/editAdminProfile.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Admin/editAdminProfile.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/customerHome.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/customerHome.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/editProfile.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/editProfile.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/register.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/register.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/registerDetails.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/registerDetails.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/verified.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/verified.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/viewActiveOrders.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/viewActiveOrders.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/editDeliveryProfile.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/editDeliveryProfile.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/editKitchenProfile.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Staff/editKitchenProfile.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/User/login.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/User/login.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/user/login.template.scala" afterPath="$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/user/login.template.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/twirlCompileTemplates/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/twirlCompileTemplates/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/main.js" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/registerDetails.js" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/registerDetails.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/main.css" afterPath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/main.js" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/registerDetails.js" afterPath="$PROJECT_DIR$/target/web/public/main/javascripts/registerDetails.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/main.css" afterPath="$PROJECT_DIR$/target/web/public/main/stylesheets/main.css" />
     </list>
     <ignored path="$PROJECT_DIR$/target/resolution-cache/" />
     <ignored path="$PROJECT_DIR$/target/streams/" />
@@ -54,24 +236,36 @@
     <expand>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb@blacksmith" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb@blacksmith" type="e3449647:DbNodeDescriptor" />
         <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb@blacksmith" type="e3449647:DbNodeDescriptor" />
         <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
         <item name="address" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="eatalotdb@cxbase.ddns.net" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb@blacksmith" type="e3449647:DbNodeDescriptor" />
         <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
         <item name="customer" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="eatalotdb@blacksmith" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
+        <item name="order_schedule" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="eatalotdb@blacksmith" type="e3449647:DbNodeDescriptor" />
+        <item name="eatalotdb" type="e3449647:DbNodeDescriptor" />
+        <item name="staff" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
@@ -81,14 +275,131 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="SBT">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="eatalot" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserDetails.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/User/UserDetails.java">
+    <leaf>
+      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+            <state relative-caret-position="434">
+              <caret line="290" column="80" lean-forward="false" selection-start-line="290" selection-start-column="80" selection-end-line="290" selection-end-column="80" />
+              <folding>
+                <element signature="docComment;class#CustomerController#0" expanded="false" />
+                <element signature="docComment;method#index#0;class#CustomerController#0" expanded="false" />
+                <element signature="docComment;method#register#0;class#CustomerController#0" expanded="false" />
+                <element signature="docComment;method#create#0;class#CustomerController#0" expanded="false" />
+                <element signature="method#orderHistory#0;class#CustomerController#0" expanded="false" />
+                <element signature="e#18119#18312#0" expanded="false" />
+                <element signature="e#19092#19115#0" expanded="false" />
+                <element signature="method#activeOrders#0;class#CustomerController#0" expanded="false" />
+                <element signature="e#20366#20647#0" expanded="false" />
+                <element signature="method#viewPayment#0;class#CustomerController#0" expanded="false" />
+                <element signature="method#viewOrder#0;class#CustomerController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utility.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/utility/Utility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="764">
+              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mailer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/libs/Mailer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+              <folding>
+                <element signature="method#SendPasswordChange#0;class#Mailer#0" expanded="false" />
+                <element signature="method#sendPasswordReset#0;class#Mailer#0" expanded="false" />
+                <element signature="e#3348#3370#0" expanded="false" />
+                <element signature="method#sendEmail#0;class#Mailer#0" expanded="false" />
+                <element signature="method#StandardEmail#0;class#Mailer#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserProfile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/User/UserProfile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-118">
+              <caret line="120" column="27" lean-forward="false" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/User/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="266" column="34" lean-forward="false" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserFinance.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Finance/UserFinance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/User/Customer/register.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registerDetails.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+              <folding>
+                <element signature="e#1#43#0#Scala" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,41 +414,42 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@if(isLoggedIn</find>
-      <find>getLo</find>
-      <find>login_time</find>
-      <find>SessionTags</find>
-      <find>After</find>
-      <find>register()</find>
-      <find>create(</find>
-      <find>logout</find>
-      <find>completeReg</find>
-      <find>getUserHomeLink</find>
-      <find>return null</find>
-      <find>return nu</find>
-      <find>where()</find>
+      <find>JS</find>
+      <find>CustomerJSRoutes</find>
+      <find>User/Schedule</find>
+      <find>collapseO</find>
+      <find>collapse</find>
+      <find>collapseOne</find>
+      <find>header</find>
+      <find>line</find>
+      <find>header-line</find>
+      <find>async</find>
+      <find>getUserId</find>
+      <find>fill</find>
+      <find>map</find>
       <find>edit()</find>
-      <find>customerProfile</find>
-      <find>index</find>
-      <find>editProfile</find>
-      <find>sendVeri</find>
+      <find>nav-pills</find>
+      <find>An error</find>
+      <find>warning</find>
+      <find>address.isComplete(</find>
+      <find>try</find>
+      <find>setOrd</find>
+      <find>OrderSchedule() {</find>
+      <find>save</find>
+      <find>address()</find>
+      <find>public Addr</find>
       <find>generate</find>
-      <find>login(</find>
-      <find>detailsForm</find>
-      <find>registerD</find>
-      <find>generateVerificationEmail</find>
-      <find>==</find>
-      <find>==</find>
-      <find>Order History</find>
-      <find>Add F</find>
-      <find>loginAdm</find>
-      <find>extract</find>
-      <find>logged</find>
+      <find>doComplet</find>
+      <find>address(</find>
+      <find>doComplete</find>
+      <find>display_name</find>
+      <find>supplyAsync</find>
     </findStrings>
     <replaceStrings>
       <replace>//    @RequireCSRFCheck</replace>
@@ -150,6 +462,8 @@
       <replace>class=&quot;@standardMenuCSSClass&quot;</replace>
       <replace>userProfile</replace>
       <replace>.equalsIgnoreCase(</replace>
+      <replace>h4</replace>
+      <replace>danger</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -163,57 +477,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirect.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirectToLogin.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/RedirectIfActive.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/RedirectToHomeIfActive.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/RedirectTodASHIfActive.java" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/RedirectToDashIfActive.java" />
+        <option value="$PROJECT_DIR$/public/javascripts/registerDetails.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/customer.js" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
         <option value="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" />
-        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java" />
-        <option value="$PROJECT_DIR$/app/annotations/CheckCSRF.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/UserRegisterInfo.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/verify.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/User/UserLoginInfo.java" />
-        <option value="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/User/Address.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Application/HomeController.java" />
-        <option value="$PROJECT_DIR$/app/models/User/CustomerProfile.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/UserRegisterDetails.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/UserDetails.java" />
-        <option value="$PROJECT_DIR$/app/models/User/UserDetails.java" />
-        <option value="$PROJECT_DIR$/app/models/User/DeliveryStaff/OrderItemDelivery.java" />
-        <option value="$PROJECT_DIR$/app/models/User/KitchenStaff/StaffOrderInteraction.java" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/User/Staff/editProfile.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/User/Admin/editProfile.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/CustomerProfile.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/UserProfile.java" />
+        <option value="$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html" />
         <option value="$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" />
         <option value="$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Admin/adminHome.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Application/AppTags.java" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html" />
+        <option value="$PROJECT_DIR$/app/utility/DashboardButton.java" />
+        <option value="$PROJECT_DIR$/app/models/User/Admin/AdminInfo.java" />
         <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/user/login.scala.html" />
+        <option value="$PROJECT_DIR$/app/models/User/Customer/UserRegisterInfo.java" />
+        <option value="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/register.scala.html" />
+        <option value="$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java" />
+        <option value="$PROJECT_DIR$/public/javascripts/main.js" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
         <option value="$PROJECT_DIR$/app/controllers/User/AdminController.java" />
         <option value="$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java" />
         <option value="$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java" />
-        <option value="$PROJECT_DIR$/app/utility/MailManager.java" />
-        <option value="$PROJECT_DIR$/app/utility/Utility.java" />
-        <option value="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
         <option value="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
-        <option value="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" />
-        <option value="$PROJECT_DIR$/app/annotations/Routing/CustomersOnlyHandler.java" />
-        <option value="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/CustomerInfo.java" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/2.sql" />
-        <option value="$PROJECT_DIR$/app/controllers/Application/AppTags.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" />
-        <option value="$PROJECT_DIR$/app/libs/Mailer.java" />
-        <option value="$PROJECT_DIR$/app/models/User/UserProfile.java" />
-        <option value="$PROJECT_DIR$/public/javascripts/registerDetails.js" />
-        <option value="$PROJECT_DIR$/app/controllers/User/UserController.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/Address.java" />
-        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
+        <option value="$PROJECT_DIR$/conf/application.conf" />
         <option value="$PROJECT_DIR$/app/models/User/User.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Staff.java" />
-        <option value="$PROJECT_DIR$/app/models/User/Admin/Admin.java" />
+        <option value="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
+        <option value="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/verified.scala.html" />
+        <option value="$PROJECT_DIR$/app/libs/Mailer.java" />
+        <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
+        <option value="$PROJECT_DIR$/app/models/User/UserProfile.java" />
+        <option value="$PROJECT_DIR$/app/models/Order/ActiveOrder.java" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html" />
+        <option value="$PROJECT_DIR$/app/models/User/UserDetails.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/20e70254-abdc-4b37-9662-271fbe791710/console.sql" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Finance/UserFinance.java" />
+        <option value="$PROJECT_DIR$/app/controllers/User/UserController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
       </list>
     </option>
   </component>
@@ -252,9 +566,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1609" />
-    <option name="width" value="1346" />
-    <option name="height" value="547" />
+    <option name="x" value="1366" />
+    <option name="width" value="1920" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -274,7 +588,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,6 +605,19 @@
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="annotations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="annotations" type="462c0819:PsiDirectoryNode" />
+              <item name="SessionVerifier" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -299,6 +626,20 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Delivery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Finance" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -324,65 +665,6 @@
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Finance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="DeliveryStaff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="KitchenStaff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="utility" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,45 +678,7 @@
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Global" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Global" type="462c0819:PsiDirectoryNode" />
-              <item name="Static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-              <item name="Schedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -447,28 +691,13 @@
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Staff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="conf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -479,14 +708,14 @@
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -499,7 +728,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../eatalot_order_package" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="StaffCont&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/DeliveryStaffController.java&#10;Mailer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/libs/Mailer.java&#10;Mailr&#9;PSI&#9;JAVA://tyrex.resource.javamail.JavaMailResource&#10;UserFi&#9;PSI&#9;JAVA://controllers.Finance.UserFinance&#10;AddFunds&#9;null&#9;null&#10;Customer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/CustomerController.java&#10;AppTags&#9;PSI&#9;JAVA://controllers.Application.AppTags&#10;2.&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;nav&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;2.sq&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;registerDetails&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/Customer/registerDetails.scala.html&#10;routes&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;nav_wra&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;Kitchen&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/KitchenStaffController.java&#10;CustomerCon&#9;PSI&#9;JAVA://controllers.User.CustomerController&#10;UserContro&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/UserController.java&#10;register&#9;null&#9;null&#10;UserCon&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/UserController.java&#10;Utili&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/utility/Utility.java&#10;login_time&#9;PSI&#9;JAVA://controllers.Application.AppTags.AppCookie#login_time&#10;login_t&#9;PSI&#9;JAVA://controllers.Application.AppTags.AppCookie#login_time&#10;Home&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Application/HomeController.java&#10;HomeCont\&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Application/HomeController.java&#10;DashboardB&#9;PSI&#9;JAVA://utility.DashboardButton&#10;customerH&#9;null&#9;null&#10;customerHom&#9;null&#9;null&#10;deliveryH&#9;null&#9;null&#10;kitchenHome&#9;null&#9;null&#10;staff&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/StaffController.java&#10;RequireCSR&#9;PSI&#9;JAVA://play.filters.csrf.RequireCSRFCheck&#10;CSRFFilter&#9;null&#9;null&#10;UserInfo&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/models/User/UserInfo.java" />
+    <property name="SearchEverywhereHistoryKey" value="index&#9;null&#9;null&#10;UserFinan&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Finance/UserFinance.java&#10;dash&#9;null&#9;null&#10;registerDeta&#9;null&#9;null&#10;register&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/Customer/register.scala.html&#10;editPro&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/Customer/editProfile.scala.html&#10;display_name&#9;PSI&#9;JAVA://controllers.Application.AppTags.Session.SessionTags#display_name&#10;UserPro&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/models/User/UserProfile.java&#10;verifi&#9;null&#9;null&#10;Address&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/models/User/Customer/Address.java&#10;Customer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/models/User/Customer/Customer.java&#10;UserFInance&#9;PSI&#9;JAVA://controllers.Finance.UserFinance&#10;editProfile&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/Customer/editProfile.scala.html&#10;route&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;AppTag&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Application/AppTags.java&#10;UserCo&#9;PSI&#9;JAVA://controllers.User.UserController&#10;login.scala&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/user/login.scala.html&#10;2.&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;bootstrap&#9;null&#9;null&#10;routes&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;das&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;Cus&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/CustomerController.java&#10;Sc&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;Sche&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;na&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;nav&#9;null&#9;null&#10;dashb&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;Ad&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/AdminController.java&#10;dashboa&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;dashboard&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;Dashboar&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/utility/DashboardButton.java&#10;scripts&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/scripts.scala.html&#10;CustomerCon&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/CustomerController.java&#10;2.sq&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;2.sql&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;registerDe&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/public/javascripts/registerDetails.js&#10;nav_wr&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;customerHome&#9;null&#9;null&#10;StaffCont&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/DeliveryStaffController.java&#10;Mailer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/libs/Mailer.java&#10;Mailr&#9;PSI&#9;JAVA://tyrex.resource.javamail.JavaMailResource&#10;UserFi&#9;PSI&#9;JAVA://controllers.Finance.UserFinance&#10;AddFunds&#9;null&#9;null&#10;AppTags&#9;PSI&#9;JAVA://controllers.Application.AppTags&#10;registerDetails&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/Customer/registerDetails.scala.html&#10;nav_wra&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;Kitchen&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/KitchenStaffController.java&#10;UserContro&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/UserController.java&#10;UserCon&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/User/UserController.java&#10;Utili&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/utility/Utility.java" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/annotations" />
@@ -513,6 +742,8 @@
       <recent name="views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/javascripts" />
+      <recent name="$PROJECT_DIR$/public/javascripts/old" />
       <recent name="$PROJECT_DIR$/app/views/Application" />
       <recent name="$PROJECT_DIR$/conf/certificate" />
       <recent name="$PROJECT_DIR$/app/views/Order/Schedule" />
@@ -715,12 +946,20 @@
       <workItem from="1507891159494" duration="59000" />
       <workItem from="1507904256069" duration="4670000" />
       <workItem from="1507924157869" duration="40000" />
-      <workItem from="1507924346748" duration="43614000" />
+      <workItem from="1507924346748" duration="75785000" />
+      <workItem from="1508094869036" duration="5259000" />
+      <workItem from="1508100531247" duration="3328000" />
+      <workItem from="1508106217882" duration="740000" />
+      <workItem from="1508106963979" duration="3307000" />
+      <workItem from="1508126065298" duration="1943000" />
+      <workItem from="1508139707468" duration="20207000" />
+      <workItem from="1508186750507" duration="13503000" />
+      <workItem from="1508237022276" duration="12983000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="358273000" />
+    <option name="totallyTimeSpent" value="451714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1920" height="1044" extended-state="6" />
@@ -731,25 +970,25 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328541" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23867069" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3794643" sideWeight="0.49697885" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3155604" sideWeight="0.49697885" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32707182" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264418" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9109589" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18317358" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47580644" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17252396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47446457" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32254463" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -759,7 +998,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="540" y="37" width="722" height="316" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32254463" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -876,12 +1115,6 @@
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/models/User/UserDetails.java</url>
-          <line>77</line>
-          <properties />
-          <option name="timeStamp" value="143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/annotations/Routing/AdminOnlyHandler.java</url>
           <line>15</line>
           <properties />
@@ -900,13 +1133,13 @@
           <option name="timeStamp" value="251" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirect.java</url>
+          <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirectToLogin.java</url>
           <line>21</line>
           <properties />
           <option name="timeStamp" value="272" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirect.java</url>
+          <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirectToLogin.java</url>
           <line>25</line>
           <properties />
           <option name="timeStamp" value="274" />
@@ -916,12 +1149,6 @@
           <line>35</line>
           <properties />
           <option name="timeStamp" value="276" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/Application/HomeController.java</url>
-          <line>45</line>
-          <properties />
-          <option name="timeStamp" value="277" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/annotations/Routing/CustomersOnlyHandler.java</url>
@@ -948,14 +1175,8 @@
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>201</line>
-          <properties />
-          <option name="timeStamp" value="285" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java</url>
-          <line>37</line>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="288" />
         </line-breakpoint>
@@ -973,15 +1194,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java</url>
-          <line>31</line>
+          <line>32</line>
           <properties />
           <option name="timeStamp" value="302" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/AdminController.java</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="306" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/utility/Utility.java</url>
@@ -1075,297 +1290,326 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>131</line>
+          <line>141</line>
           <properties />
           <option name="timeStamp" value="350" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>140</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="354" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>193</line>
-          <properties />
-          <option name="timeStamp" value="399" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>225</line>
-          <properties />
-          <option name="timeStamp" value="402" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>231</line>
-          <properties />
-          <option name="timeStamp" value="406" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>183</line>
-          <properties />
-          <option name="timeStamp" value="428" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>185</line>
-          <properties />
-          <option name="timeStamp" value="429" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>184</line>
-          <properties />
-          <option name="timeStamp" value="430" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>325</line>
+          <line>321</line>
           <properties />
           <option name="timeStamp" value="466" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>353</line>
+          <line>349</line>
           <properties />
           <option name="timeStamp" value="471" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java</url>
-          <line>28</line>
+          <line>29</line>
           <properties />
           <option name="timeStamp" value="472" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java</url>
-          <line>35</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="473" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>361</line>
+          <line>357</line>
           <properties />
           <option name="timeStamp" value="478" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>367</line>
+          <line>363</line>
           <properties />
           <option name="timeStamp" value="482" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>366</line>
+          <line>362</line>
           <properties />
           <option name="timeStamp" value="484" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>372</line>
+          <line>368</line>
           <properties />
           <option name="timeStamp" value="485" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>407</line>
+          <line>399</line>
           <properties />
           <option name="timeStamp" value="487" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>408</line>
-          <properties />
-          <option name="timeStamp" value="488" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>405</line>
+          <line>397</line>
           <properties />
           <option name="timeStamp" value="490" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>380</line>
+          <line>376</line>
           <properties />
           <option name="timeStamp" value="493" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>414</line>
+          <line>408</line>
           <properties />
           <option name="timeStamp" value="495" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>266</line>
+          <line>261</line>
           <properties />
           <option name="timeStamp" value="499" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>268</line>
+          <line>263</line>
           <properties />
           <option name="timeStamp" value="500" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>273</line>
+          <line>268</line>
           <properties />
           <option name="timeStamp" value="501" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>276</line>
+          <line>271</line>
           <properties />
           <option name="timeStamp" value="502" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>228</line>
-          <properties />
-          <option name="timeStamp" value="505" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>233</line>
-          <properties />
-          <option name="timeStamp" value="506" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>237</line>
-          <properties />
-          <option name="timeStamp" value="507" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>238</line>
-          <properties />
-          <option name="timeStamp" value="508" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>239</line>
-          <properties />
-          <option name="timeStamp" value="509" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>240</line>
-          <properties />
-          <option name="timeStamp" value="510" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>241</line>
-          <properties />
-          <option name="timeStamp" value="511" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>242</line>
-          <properties />
-          <option name="timeStamp" value="512" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>243</line>
-          <properties />
-          <option name="timeStamp" value="513" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>409</line>
-          <properties />
-          <option name="timeStamp" value="522" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>411</line>
-          <properties />
-          <option name="timeStamp" value="523" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>418</line>
+          <line>412</line>
           <properties />
           <option name="timeStamp" value="524" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>203</line>
-          <properties />
-          <option name="timeStamp" value="525" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>204</line>
-          <properties />
-          <option name="timeStamp" value="526" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>402</line>
-          <properties />
-          <option name="timeStamp" value="534" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>404</line>
+          <line>396</line>
           <properties />
           <option name="timeStamp" value="535" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>376</line>
+          <line>372</line>
           <properties />
           <option name="timeStamp" value="538" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>398</line>
+          <line>394</line>
           <properties />
           <option name="timeStamp" value="567" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/User/UserController.java</url>
-          <line>250</line>
-          <properties />
-          <option name="timeStamp" value="568" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>388</line>
+          <line>384</line>
           <properties />
           <option name="timeStamp" value="569" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>389</line>
+          <line>385</line>
           <properties />
           <option name="timeStamp" value="570" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
-          <line>395</line>
+          <line>391</line>
           <properties />
           <option name="timeStamp" value="571" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="577" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="578" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>209</line>
+          <properties />
+          <option name="timeStamp" value="603" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>211</line>
+          <properties />
+          <option name="timeStamp" value="604" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>215</line>
+          <properties />
+          <option name="timeStamp" value="610" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/User/UserProfile.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="624" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/models/User/UserProfile.java</url>
+          <line>108</line>
+          <properties />
+          <option name="timeStamp" value="629" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>419</line>
+          <properties />
+          <option name="timeStamp" value="636" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>416</line>
+          <properties />
+          <option name="timeStamp" value="651" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Finance/UserFinance.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="658" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Finance/UserFinance.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="659" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>406</line>
+          <properties />
+          <option name="timeStamp" value="660" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>405</line>
+          <properties />
+          <option name="timeStamp" value="661" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>404</line>
+          <properties />
+          <option name="timeStamp" value="662" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>403</line>
+          <properties />
+          <option name="timeStamp" value="663" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>402</line>
+          <properties />
+          <option name="timeStamp" value="664" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
+          <line>401</line>
+          <properties />
+          <option name="timeStamp" value="665" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/controllers/User/CustomerController.java</url>
           <line>400</line>
           <properties />
-          <option name="timeStamp" value="572" />
+          <option name="timeStamp" value="666" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
+          <line>185</line>
+          <properties />
+          <option name="timeStamp" value="671" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
+          <line>193</line>
+          <properties />
+          <option name="timeStamp" value="672" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
+          <line>186</line>
+          <properties />
+          <option name="timeStamp" value="673" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
+          <line>154</line>
+          <properties />
+          <option name="timeStamp" value="674" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>4</line>
+          <option name="timeStamp" value="612" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>3</line>
+          <option name="timeStamp" value="613" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>1</line>
+          <option name="timeStamp" value="614" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>5</line>
+          <option name="timeStamp" value="615" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>6</line>
+          <option name="timeStamp" value="616" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>9</line>
+          <option name="timeStamp" value="617" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/javascripts/main.js</url>
+          <line>10</line>
+          <option name="timeStamp" value="618" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="573" />
+      <option name="time" value="675" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1374,349 +1618,25 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/editProfile.scala.html">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="73980">
+          <caret line="3699" column="10" lean-forward="false" selection-start-line="3699" selection-start-column="1" selection-end-line="3699" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Orders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6400">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/KitchenStaff/StaffOrderInteraction.java">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
+          <caret line="1038" column="36" lean-forward="false" selection-start-line="1038" selection-start-column="36" selection-end-line="1038" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#32#0#Scala" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <element signature="e#1#32#0#Scala" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="980">
-          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding>
-            <marker date="1507971718300" expanded="false" signature="130:131" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/CRUD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="80" column="4" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="22" column="51" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Staff/deliveryHome.scala.html">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#31#0#Scala" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="89" column="91" lean-forward="true" selection-start-line="89" selection-start-column="91" selection-end-line="89" selection-end-column="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/User/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="71" column="14" lean-forward="true" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <element signature="e#1#43#0#Scala" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/User/Customer/registerDetails.template.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <marker date="1507980230127" expanded="true" signature="5853:5904" ph="/.../" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/utility/MailManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play-mailer_2.12/srcs/play-mailer_2.12-6.0.1-sources.jar!/play/libs/mailer/MailerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="9" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="54" column="13" lean-forward="false" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding>
-            <element signature="e#1#30#0#Scala" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/annotations/Routing/CustomersOnly.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/annotations/Routing/CustomersOnlyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="65" lean-forward="false" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/utility/Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="103" column="7" lean-forward="false" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Customer/CustomerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/2.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="266" lean-forward="false" selection-start-line="20" selection-start-column="239" selection-end-line="20" selection-end-column="266" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Finance/UserFunds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="e#1#43#0#Scala" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Finance/Voucher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Finance/RedeemedVouchers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Finance/UserFinance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="69" column="15" lean-forward="false" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar!/tyrex/resource/javamail/JavaMailResource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/libs/Mailer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="method#SendWelcome#0;class#Mailer#0" expanded="false" />
-            <element signature="method#SendVerificationEmail#0;class#Mailer#0" expanded="false" />
-            <element signature="e#3138#3160#0" expanded="false" />
-            <element signature="method#sendEmail#0;class#Mailer#0" expanded="false" />
-            <element signature="e#4886#4887#0" expanded="true" />
-            <element signature="e#4954#4955#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.typesafe.play/play-java-forms_2.12/srcs/play-java-forms_2.12-2.6.1-sources.jar!/play/data/Form.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="594" column="19" lean-forward="false" selection-start-line="594" selection-start-column="19" selection-end-line="594" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/registerDetails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/UserProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-500">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.customer">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1727,139 +1647,410 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application/AppTags.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="122" column="10" lean-forward="false" selection-start-line="122" selection-start-column="10" selection-end-line="122" selection-end-column="10" />
-          <folding />
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.voucher">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Customer/Address.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="82" column="18" lean-forward="false" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
-          <folding>
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#3385#3386#0" expanded="true" />
-            <element signature="e#3433#3434#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Admin/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Staff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="72" column="15" lean-forward="false" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
-          <folding>
-            <element signature="docComment;class#Staff#0" expanded="false" />
-            <element signature="e#188#195#0" expanded="false" />
-            <element signature="method#Staff#0;class#Staff#0" expanded="false" />
-            <element signature="method#equals#0;class#Staff#0" expanded="false" />
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="method#Authenticate#0;class#Staff#0" expanded="false" />
-          </folding>
+    <entry file="das://table:/2c6ed4d0/e92baea2-5eae-4ec7-9df3-b052bc78140c/eatalotdb.customer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+        <state relative-caret-position="137">
+          <caret line="134" column="44" lean-forward="false" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1621">
+          <caret line="121" column="44" lean-forward="false" selection-start-line="121" selection-start-column="44" selection-end-line="121" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/KitchenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Delivery/DeliveryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/20e70254-abdc-4b37-9662-271fbe791710/eatalotdb.order_schedule">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Order/OrderSchedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+          <folding>
+            <element signature="e#1205#1206#0" expanded="false" />
+            <element signature="e#1298#1299#0" expanded="false" />
+            <element signature="e#2177#2178#0" expanded="false" />
+            <element signature="e#2205#2206#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/verified.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/Customer/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="156" column="15" lean-forward="false" selection-start-line="156" selection-start-column="15" selection-end-line="156" selection-end-column="15" />
+        <state relative-caret-position="54">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="53" selection-end-column="5" />
           <folding>
-            <element signature="docComment;class#User#0" expanded="false" />
-            <element signature="e#370#373#0" expanded="false" />
-            <element signature="e#550#571#0" expanded="false" />
-            <element signature="e#754#772#0" expanded="false" />
-            <element signature="e#927#953#0" expanded="false" />
-            <element signature="method#User#1;class#User#0" expanded="false" />
-            <element signature="method#completeCheck#0;class#User#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#User#0" expanded="false" />
-            <element signature="method#equals#0;class#User#0" expanded="false" />
-            <element signature="method#toString#0;class#User#0" expanded="false" />
+            <element signature="e#1301#1302#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1362#1363#0" expanded="false" />
+            <element signature="e#1449#1450#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/User/Customer/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="54">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#292#299#0" expanded="false" />
-            <element signature="method#Customer#1;class#Customer#0" expanded="false" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="docComment;method#completeCheck#0;class#Customer#0" expanded="false" />
-            <element signature="method#completeCheck#0;class#Customer#0" expanded="false" />
-            <element signature="method#isProfileComplete#0;class#Customer#0" expanded="false" />
-            <element signature="docComment;method#equals#0;class#Customer#0" expanded="false" />
-            <element signature="method#equals#0;class#Customer#0" expanded="false" />
-            <element signature="method#toString#0;class#Customer#0" expanded="false" />
-            <element signature="e#3538#3539#0" expanded="true" />
-            <element signature="method#Authenticate#0;class#Customer#0" expanded="false" />
+            <element signature="e#4189#4190#0" expanded="false" />
+            <element signature="e#4227#4228#0" expanded="false" />
+            <element signature="e#4375#4376#0" expanded="false" />
+            <element signature="e#4425#4426#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Order/ActiveOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/20e70254-abdc-4b37-9662-271fbe791710/eatalotdb.customer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/UserDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/20e70254-abdc-4b37-9662-271fbe791710/eatalotdb.address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application/AppTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="177" column="12" lean-forward="false" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
+          <folding>
+            <element signature="e#4161#4162#0" expanded="false" />
+            <element signature="e#4206#4207#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/Requires.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/HttpsRequired.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadActive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier/LoadOrRedirectToLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier/RedirectToDashIfActive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/annotations/SessionVerifier/RequiresActive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="28" column="67" lean-forward="false" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="111" column="48" lean-forward="false" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/20e70254-abdc-4b37-9662-271fbe791710/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="70" lean-forward="false" selection-start-line="0" selection-start-column="70" selection-end-line="0" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/2c6ed4d0/20e70254-abdc-4b37-9662-271fbe791710/eatalotdb.staff">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/register.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="49" lean-forward="false" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+          <folding>
+            <element signature="e#1#43#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/dashboard.template.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="65" column="30" lean-forward="false" selection-start-line="62" selection-start-column="22" selection-end-line="65" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="47" column="46" lean-forward="false" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <folding>
+            <element signature="e#1#31#0#Scala" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="52" column="8" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="53" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Finance/UserFinance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="49" column="28" lean-forward="false" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utility/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="764">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="266" column="34" lean-forward="false" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/libs/Mailer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="61" column="35" lean-forward="true" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+          <folding>
+            <element signature="method#SendPasswordChange#0;class#Mailer#0" expanded="false" />
+            <element signature="method#sendPasswordReset#0;class#Mailer#0" expanded="false" />
+            <element signature="e#3348#3370#0" expanded="false" />
+            <element signature="method#sendEmail#0;class#Mailer#0" expanded="false" />
+            <element signature="method#StandardEmail#0;class#Mailer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/UserProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="120" column="27" lean-forward="false" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="376" column="0" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+        <state relative-caret-position="434">
+          <caret line="290" column="80" lean-forward="false" selection-start-line="290" selection-start-column="80" selection-end-line="290" selection-end-column="80" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;class#CustomerController#0" expanded="false" />
             <element signature="docComment;method#index#0;class#CustomerController#0" expanded="false" />
             <element signature="docComment;method#register#0;class#CustomerController#0" expanded="false" />
             <element signature="docComment;method#create#0;class#CustomerController#0" expanded="false" />
-            <element signature="docComment;method#returnRegisterRequest#0;class#CustomerController#0" expanded="false" />
-            <element signature="method#returnRegisterRequest#0;class#CustomerController#0" expanded="false" />
-            <element signature="docComment;method#doCompleteRegistration#0;class#CustomerController#0" expanded="false" />
             <element signature="method#orderHistory#0;class#CustomerController#0" expanded="false" />
-            <element signature="e#17731#17924#0" expanded="false" />
-            <element signature="e#18704#18727#0" expanded="false" />
+            <element signature="e#18119#18312#0" expanded="false" />
+            <element signature="e#19092#19115#0" expanded="false" />
             <element signature="method#activeOrders#0;class#CustomerController#0" expanded="false" />
-            <element signature="method#getActiveOrders#0;class#CustomerController#0" expanded="false" />
-            <element signature="e#19710#20546#0" expanded="false" />
-            <element signature="e#19978#20259#0" expanded="false" />
+            <element signature="e#20366#20647#0" expanded="false" />
             <element signature="method#viewPayment#0;class#CustomerController#0" expanded="false" />
             <element signature="method#viewOrder#0;class#CustomerController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/User/UserController.java">
+    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/util/function/Supplier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="250" column="0" lean-forward="false" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="132">
+          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/UserDetails.java">
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Order/Schedule/index.template.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state relative-caret-position="100">
+          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding />
         </state>
       </provider>

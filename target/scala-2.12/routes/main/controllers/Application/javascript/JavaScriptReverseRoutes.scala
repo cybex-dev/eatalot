@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Oct 14 13:03:12 SAST 2017
+// @DATE:Mon Oct 16 01:08:43 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -25,7 +25,7 @@ package controllers.Application.javascript {
       "controllers.Application.HomeController.unknown",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "unknown"})
         }
       """
     )
@@ -40,7 +40,7 @@ package controllers.Application.javascript {
       """
     )
   
-    // @LINE:178
+    // @LINE:193
     def invalidRoute: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.HomeController.invalidRoute",
       """
@@ -55,7 +55,7 @@ package controllers.Application.javascript {
       "controllers.Application.HomeController.forbiddenAccess",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forbidden"})
         }
       """
     )

@@ -20,9 +20,32 @@ INSERT INTO customer (user_id, name, surname, password, email, cell_number, toke
 INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('10', 'John',       'Doe',        '12345678', 'john.doe@nmmu.ac.za',          '',           '.', TRUE,  TRUE,   FALSE,  80.00,    '9', '4');
 INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('11', 'Adam',       'Smith',      '12345678', 'adam.smaith@live.nmmu.ac.za',  '',           '.', TRUE,  FALSE,  FALSE,  0.00,     '8', '5');
 
+INSERT INTO staff (user_id, name, surname, password, email, cell_number, token, is_kitchen_staff, alias) VALUES ('2', 'Sousy',  'Helper',   '123456789', 'sousy@eatalot.com',     '0123456789', '.', TRUE ,   'sousy');
+INSERT INTO staff (user_id, name, surname, password, email, cell_number, token, is_kitchen_staff, alias) VALUES ('1', 'Johnny', 'Chef',     '123456789', 'headchef@eatalot.com',  '0123456789', '.', TRUE ,   'main man');
+INSERT INTO staff (user_id, name, surname, password, email, cell_number, token, is_kitchen_staff, alias) VALUES ('6', 'Bear',   'Grills',   '123456789', 'bgrils@eatalot.com',    '0123456789', '.', TRUE ,   'griller');
+INSERT INTO staff (user_id, name, surname, password, email, cell_number, token, is_kitchen_staff, alias) VALUES ('23', 'Gary',   'Waiter',  '123456789', 'garyw@eatalot.com',     '0123456789', '.', FALSE ,  'mrdeliver');
+INSERT INTO staff (user_id, name, surname, password, email, cell_number, token, is_kitchen_staff, alias) VALUES ('4', 'Harry',  'Houdini',  '123456789', 'hh@eatalot.com',        '0123456789', '.', FALSE ,  'x');
+
+INSERT INTO queue_type (type_id, type, description) VALUES ('1', 'Cancelled', 'The order was cancelled');
+INSERT INTO queue_type (type_id, type, description) VALUES ('2', 'Unsubmitted', 'The order has been saved, but not placed');
+INSERT INTO queue_type (type_id, type, description) VALUES ('3', 'Pending', 'The order is in awaiting preparation');
+INSERT INTO queue_type (type_id, type, description) VALUES ('4', 'Preparing', 'The order is being prepared');
+INSERT INTO queue_type (type_id, type, description) VALUES ('5', 'Ready', 'The order is ready for delivery');
+INSERT INTO queue_type (type_id, type, description) VALUES ('6', 'Delivering', 'The order is being delivered');
+INSERT INTO queue_type (type_id, type, description) VALUES ('7', 'Delivered', 'The order has been delivered');
+INSERT INTO queue_type (type_id, type, description) VALUES ('8', 'Not Delivered', 'The order has cannot be delivered');
+
+INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('1', 'welcome', 1000);
+INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('2', 'winner', 500);
+INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('3', 'free meal', 100);
+INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('4', 'a free lunch', 80);
+INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('5', 'teaser', 50);
+
 # --- !Downs
 
 DELETE FROM admin;
 DELETE FROM address;
 DELETE FROM order_schedule;
 DELETE FROM customer;
+DELETE FROM staff;
+DELETE FROM queue_type;

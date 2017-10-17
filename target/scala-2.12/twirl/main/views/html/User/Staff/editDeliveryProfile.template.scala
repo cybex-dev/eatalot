@@ -51,42 +51,48 @@ Seq[Any](format.raw/*17.17*/("""
             """),format.raw/*21.13*/("""<h2>Your information</h2>
             <br/>
             <div class="container input-container">
-                <h6>Your Personal Details</h6>
-                """),_display_(/*25.18*/helper/*25.24*/.inputText(userProfile("name"), '_name -> "Name")),format.raw/*25.73*/("""
-                """),_display_(/*26.18*/helper/*26.24*/.inputText(userProfile("surname"), '_name -> "Surname")),format.raw/*26.79*/("""
-            """),format.raw/*27.13*/("""</div>
+                <h4>Your Login Information</h4>
+                """),_display_(/*25.18*/helper/*25.24*/.inputText(userProfile("alias"), '_name -> "Login ID")),format.raw/*25.78*/("""
+            """),format.raw/*26.13*/("""</div>
             <br/>
             <div class="container input-container">
-                <h6>Your Contact Information</h6>
-                """),_display_(/*31.18*/helper/*31.24*/.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")),format.raw/*31.91*/("""
+                <h4>Change Password</h4>
+                """),_display_(/*30.18*/helper/*30.24*/.inputPassword(userProfile("password"), '_name -> "Password")),format.raw/*30.85*/("""
+                """),_display_(/*31.18*/helper/*31.24*/.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*31.100*/("""
             """),format.raw/*32.13*/("""</div>
             <br/>
             <br/>
             <div class="container input-container">
-                <h6>Change Password</h6>
-                """),_display_(/*37.18*/helper/*37.24*/.inputText(userProfile("password"), '_name -> "Password")),format.raw/*37.81*/("""
-                """),_display_(/*38.18*/helper/*38.24*/.inputText(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*38.96*/("""
+                <h4>Your Personal Details</h4>
+                """),_display_(/*37.18*/helper/*37.24*/.inputText(userProfile("name"), '_name -> "Name")),format.raw/*37.73*/("""
+                """),_display_(/*38.18*/helper/*38.24*/.inputText(userProfile("surname"), '_name -> "Surname")),format.raw/*38.79*/("""
             """),format.raw/*39.13*/("""</div>
             <br/>
+            <div class="container input-container">
+                <h4>Your Contact Information</h4>
+                """),_display_(/*43.18*/helper/*43.24*/.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")),format.raw/*43.91*/("""
+            """),format.raw/*44.13*/("""</div>
             <br/>
             <div class="container input-container">
-                <input class="btn btn-default button-padding" type="button" href=""""),_display_(/*43.84*/controllers/*43.95*/.User.routes.DeliveryStaffController.index()),format.raw/*43.139*/("""" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+                <input class="btn btn-default button-padding" type="button" onclick="location.href='"""),_display_(/*47.102*/controllers/*47.113*/.User.routes.DeliveryStaffController.index()),format.raw/*47.157*/("""';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
             </div>
             <br/>
-        """)))}),format.raw/*46.10*/("""
-    """),format.raw/*47.5*/("""</div>
-""")))};def /*50.2*/navSide/*50.9*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+        """)))}),format.raw/*50.10*/("""
+    """),format.raw/*51.5*/("""</div>
+""")))};def /*54.2*/navSide/*54.9*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*50.13*/("""
-    """),format.raw/*51.5*/("""<a href="#" onclick="">Basic Information</a>
+Seq[Any](format.raw/*54.13*/("""
+    """),format.raw/*55.5*/("""<a href="#" onclick="">Basic Information</a>
     <a href="#">Edit Address</a>
     <a href="#">Change Password</a>
-""")))};def /*56.2*/bodyContent/*56.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*60.2*/bodyContent/*60.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*56.17*/("""
-"""),_display_(/*57.2*/aside/*57.7*/.apply("", navSide)),format.raw/*57.26*/("""
+Seq[Any](format.raw/*60.17*/("""
+"""),_display_(/*61.2*/aside/*61.7*/.apply("", navSide)),format.raw/*61.26*/("""
 
-"""),_display_(/*59.2*/article/*59.9*/.apply(userContent)),format.raw/*59.28*/("""
+"""),_display_(/*63.2*/article/*63.9*/.apply(userContent)),format.raw/*63.28*/("""
+
+    """),format.raw/*65.5*/("""<script href=""""),_display_(/*65.20*/controllers/*65.31*/.User.routes.javascript.DeliveryStaffController.deliveryJSRoutes),format.raw/*65.95*/("""" type="text/javascript"></script>
 """)))};
 Seq[Any](format.raw/*8.34*/("""
 
@@ -94,13 +100,13 @@ Seq[Any](format.raw/*8.34*/("""
 
 """),format.raw/*15.2*/("""
 
-"""),format.raw/*48.2*/("""
+"""),format.raw/*52.2*/("""
 
-"""),format.raw/*54.2*/("""
+"""),format.raw/*58.2*/("""
 
-"""),format.raw/*60.2*/("""
+"""),format.raw/*66.2*/("""
 
-"""),_display_(/*62.2*/essentials/*62.12*/.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)),format.raw/*62.79*/("""
+"""),_display_(/*68.2*/essentials/*68.12*/.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)),format.raw/*68.79*/("""
 """))
       }
     }
@@ -117,11 +123,11 @@ Seq[Any](format.raw/*8.34*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 13:03:14 SAST 2017
+                  DATE: Sun Oct 15 23:36:45 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Staff/editDeliveryProfile.scala.html
-                  HASH: 200755888d0e99a52896bff622df748920b6ead2
-                  MATRIX: 662->1|701->34|730->57|759->80|785->100|823->133|1201->183|1312->218|1335->232|1416->236|1441->241|1460->251|1541->255|1567->261|1587->272|1668->276|1700->281|1762->316|1777->322|1859->395|1898->396|1939->410|1952->414|1983->424|2024->437|2211->597|2226->603|2296->652|2341->670|2356->676|2432->731|2473->744|2644->888|2659->894|2747->961|2788->974|2968->1127|2983->1133|3061->1190|3106->1208|3121->1214|3214->1286|3255->1299|3460->1477|3480->1488|3546->1532|3717->1672|3749->1677|3780->1688|3795->1695|3876->1699|3908->1704|4046->1822|4066->1833|4147->1837|4175->1839|4188->1844|4228->1863|4257->1866|4272->1873|4312->1892|4353->215|4382->238|4411->258|4440->1685|4469->1819|4498->1894|4527->1897|4546->1907|4634->1974
-                  LINES: 24->1|25->2|26->3|27->4|28->5|29->7|34->8|38->10|38->10|40->10|41->13|41->13|43->13|45->17|45->17|47->17|48->18|49->19|49->19|49->19|49->19|50->20|50->20|50->20|51->21|55->25|55->25|55->25|56->26|56->26|56->26|57->27|61->31|61->31|61->31|62->32|67->37|67->37|67->37|68->38|68->38|68->38|69->39|73->43|73->43|73->43|76->46|77->47|78->50|78->50|80->50|81->51|84->56|84->56|86->56|87->57|87->57|87->57|89->59|89->59|89->59|91->8|93->11|95->15|97->48|99->54|101->60|103->62|103->62|103->62
+                  HASH: e3f620a761f23121df76449d223d1790bd7d9f89
+                  MATRIX: 662->1|701->34|730->57|759->80|785->100|823->133|1201->183|1312->218|1335->232|1416->236|1441->241|1460->251|1541->255|1567->261|1587->272|1668->276|1700->281|1762->316|1777->322|1859->395|1898->396|1939->410|1952->414|1983->424|2024->437|2212->598|2227->604|2302->658|2343->671|2505->806|2520->812|2602->873|2647->891|2662->897|2760->973|2801->986|2987->1145|3002->1151|3072->1200|3117->1218|3132->1224|3208->1279|3249->1292|3420->1436|3435->1442|3523->1509|3564->1522|3770->1700|3791->1711|3857->1755|4030->1897|4062->1902|4093->1913|4108->1920|4189->1924|4221->1929|4359->2047|4379->2058|4460->2062|4488->2064|4501->2069|4541->2088|4570->2091|4585->2098|4625->2117|4658->2123|4700->2138|4720->2149|4805->2213|4880->215|4909->238|4938->258|4967->1910|4996->2044|5025->2249|5054->2252|5073->2262|5161->2329
+                  LINES: 24->1|25->2|26->3|27->4|28->5|29->7|34->8|38->10|38->10|40->10|41->13|41->13|43->13|45->17|45->17|47->17|48->18|49->19|49->19|49->19|49->19|50->20|50->20|50->20|51->21|55->25|55->25|55->25|56->26|60->30|60->30|60->30|61->31|61->31|61->31|62->32|67->37|67->37|67->37|68->38|68->38|68->38|69->39|73->43|73->43|73->43|74->44|77->47|77->47|77->47|80->50|81->51|82->54|82->54|84->54|85->55|88->60|88->60|90->60|91->61|91->61|91->61|93->63|93->63|93->63|95->65|95->65|95->65|95->65|97->8|99->11|101->15|103->52|105->58|107->66|109->68|109->68|109->68
                   -- GENERATED --
               */
           

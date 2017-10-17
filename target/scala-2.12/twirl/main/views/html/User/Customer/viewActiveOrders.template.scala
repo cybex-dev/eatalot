@@ -24,62 +24,131 @@ import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import Global.Static.masterpage
 /*2.2*/import java.util.List
 /*3.2*/import models.Order.ActiveOrder
-/*4.2*/import controllers.Application.AppTags
-/*5.2*/import helper.form
-/*6.2*/import helper.CSRF
+/*4.2*/import models.Order.MealOrderItem
+/*5.2*/import controllers.Application.AppTags
+/*6.2*/import helper.form
+/*7.2*/import helper.CSRF
+/*9.2*/import models.Order.MealOrderItem
 
 object viewActiveOrders extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[ActiveOrder],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*8.2*/(activeOrderList: List[ActiveOrder]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*10.2*/(activeOrderList: List[ActiveOrder]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*10.2*/bodyContent/*10.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*12.2*/parseQueuePosition/*12.20*/(pos: Integer):play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*10.17*/("""
-    """),format.raw/*11.5*/("""<h1>Active Orders</h1>
-    <br/>
-"""),_display_(/*13.2*/if(activeOrderList.size() == 0)/*13.33*/{_display_(Seq[Any](format.raw/*13.34*/("""
-    """),format.raw/*14.5*/("""<h6>No active orders</h6>
-""")))}/*15.3*/else/*15.8*/{_display_(Seq[Any](format.raw/*15.9*/("""
-    """),_display_(/*16.6*/for(item <- activeOrderList) yield /*16.34*/ {_display_(Seq[Any](format.raw/*16.36*/("""
-        """),format.raw/*17.9*/("""<div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">Order #"""),_display_(/*19.49*/item/*19.53*/.orderId),format.raw/*19.61*/("""</h4><p class="tab">Deliver Time: """),_display_(/*19.96*/item/*19.100*/.getTime),format.raw/*19.108*/("""</p><button class="btn btn-warning" type="submit" href="#">Cancel Order</button>
+Seq[Any](format.raw/*12.38*/("""
+    """),_display_(/*13.6*/if(pos == 0)/*13.18*/{_display_(Seq[Any](format.raw/*13.19*/("""
+        """),format.raw/*14.9*/(""""first"
+    """)))}/*15.7*/else/*15.12*/{_display_(Seq[Any](format.raw/*15.13*/("""
+        """),_display_(/*16.10*/if(pos == 1)/*16.22*/ {_display_(Seq[Any](format.raw/*16.24*/("""
+        """),format.raw/*17.9*/(""""next"
+        """)))}/*18.11*/else/*18.16*/{_display_(Seq[Any](format.raw/*18.17*/("""
+        """),format.raw/*19.9*/(""""#" """),_display_(/*19.14*/pos),format.raw/*19.17*/("""
+        """)))}),format.raw/*20.10*/("""
+    """)))}),format.raw/*21.6*/("""
+""")))};def /*24.2*/generateOrderContent/*24.22*/(activeOrder: ActiveOrder):play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*24.52*/("""
+    """),format.raw/*25.5*/("""<div class="small-margin">
+        <div class="row">
+            <div class="single-border">
+                <a href=""><h3># """),_display_(/*28.35*/activeOrder/*28.46*/.orderId),format.raw/*28.54*/("""</h3></a>
+                <hr/>
+                <div>
+                    <h3>Order Details</h3>
+                    <br/>
+                    <h6>Amount:</h6> """),_display_(/*33.39*/AppTags/*33.46*/.Locale.Currency.ZAR.toString),format.raw/*33.75*/(""" """),_display_(/*33.77*/activeOrder/*33.88*/.amount),format.raw/*33.95*/("""
+                    """),format.raw/*34.21*/("""<h6>Delivery Date:</h6> """),_display_(/*34.46*/activeOrder/*34.57*/.getDate),format.raw/*34.65*/("""
+                    """),format.raw/*35.21*/("""<h6>Delivery Time:</h6> """),_display_(/*35.46*/activeOrder/*35.57*/.getTime),format.raw/*35.65*/("""
+                    """),format.raw/*36.21*/("""<br/>
+                    <h6>Status:</h6> """),_display_(/*37.39*/activeOrder/*37.50*/.queueStatus),format.raw/*37.62*/("""
+                    """),format.raw/*38.21*/("""<h6>Position:</h6> """),_display_(/*38.41*/parseQueuePosition(activeOrder.queuePosition)),format.raw/*38.86*/("""
+                    """),format.raw/*39.21*/("""<br/>
+                </div>
+                <hr/>
                 <br/>
-                <h6 class="tab">Status = """),_display_(/*21.43*/item/*21.47*/.queueStatus),format.raw/*21.59*/("""</h6>
-            </div>
-            <div class="panel-collapse" style="">
-                <div class="panel-body">
-                """),_display_(/*25.18*/for((mealOrderItem, index) <- item.mealOrdersList.zipWithIndex) yield /*25.81*/ {_display_(Seq[Any](format.raw/*25.83*/("""
-                    """),format.raw/*26.21*/("""<tr class="gradeA """),_display_(/*26.40*/if((index % 2) == 0)/*26.60*/ {_display_(Seq[Any](format.raw/*26.62*/("""odd""")))}/*26.67*/else/*26.72*/{_display_(Seq[Any](format.raw/*26.73*/("""even""")))}),format.raw/*26.78*/("""">
-                        <td>"""),_display_(/*27.30*/mealOrderItem/*27.43*/.mealName),format.raw/*27.52*/("""</td>
-                        <td>"""),_display_(/*28.30*/AppTags/*28.37*/.Locale.Currency.ZAR.toString),format.raw/*28.66*/(""" """),_display_(/*28.68*/String/*28.74*/.valueOf(mealOrderItem.price)),format.raw/*28.103*/("""</td>
-                        <td>"""),_display_(/*29.30*/String/*29.36*/.valueOf(mealOrderItem.getQty)),format.raw/*29.66*/("""</td>
-                        <td> = </td>
-                        <td>"""),_display_(/*31.30*/AppTags/*31.37*/.Locale.Currency.ZAR.toString),format.raw/*31.66*/(""" """),_display_(/*31.68*/String/*31.74*/.valueOf(mealOrderItem.getTotal)),format.raw/*31.106*/("""</td>
-                    </tr>
-                """)))}),format.raw/*33.18*/("""
-                """),format.raw/*34.17*/("""</div>
+                <div class="small-indent auto-margin">
+                """),_display_(/*44.18*/generateMealTable(activeOrder.mealOrdersList, activeOrder.amount)),format.raw/*44.83*/("""
+                """),format.raw/*45.17*/("""</div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <h4 class="panel-footer">Total = """),_display_(/*38.47*/AppTags/*38.54*/.Locale.Currency.ZAR.toString),format.raw/*38.83*/(""" """),_display_(/*38.85*/item/*38.89*/.amount),format.raw/*38.96*/("""</h4>
+    </div>
+""")))};def /*51.2*/generateMealTable/*51.19*/(mealList: List[MealOrderItem], total: String):play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*51.69*/("""
+    """),format.raw/*52.5*/("""<div class="panel panel-default">
+        <div class="panel-heading">
+            Meals Ordered
         </div>
-        <br/>
-    """)))}),format.raw/*41.6*/("""
-""")))}),format.raw/*42.2*/("""
-    """),_display_(/*43.6*/form( action = controllers.User.routes.CustomerController.index())/*43.72*/{_display_(Seq[Any](format.raw/*43.73*/("""
-        """),_display_(/*44.10*/CSRF/*44.14*/.formField),format.raw/*44.24*/("""
-        """),format.raw/*45.9*/("""<input class="btn btn-info" type="submit" name="Back">
-    """)))}),format.raw/*46.6*/("""
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Price/per</th>
+                            <th>Quantity</th>
+                            <th></th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        """),_display_(/*69.26*/for((mealOrderItem, index) <- mealList.zipWithIndex) yield /*69.78*/ {_display_(Seq[Any](format.raw/*69.80*/("""
+                            """),format.raw/*70.29*/("""<tr>
+                                <td>"""),_display_(/*71.38*/mealOrderItem/*71.51*/.mealName),format.raw/*71.60*/("""</td>
+                                <td>"""),_display_(/*72.38*/AppTags/*72.45*/.Locale.Currency.ZAR.toString),format.raw/*72.74*/(""" """),_display_(/*72.76*/String/*72.82*/.valueOf(mealOrderItem.price)),format.raw/*72.111*/("""</td>
+                                <td>"""),_display_(/*73.38*/String/*73.44*/.valueOf(mealOrderItem.getQty)),format.raw/*73.74*/("""</td>
+                                <td> = </td>
+                                <td>"""),_display_(/*75.38*/AppTags/*75.45*/.Locale.Currency.ZAR.toString),format.raw/*75.74*/(""" """),_display_(/*75.76*/String/*75.82*/.valueOf(mealOrderItem.getTotal)),format.raw/*75.114*/("""</td>
+                            </tr>
+                        """)))}),format.raw/*77.26*/("""
+                        """),format.raw/*78.25*/("""<tr/>
+                        <tr>
+                            <td/>
+                            <td/>
+                            <td><h4>Order Total</h4></td>
+                            <td> = </td>
+                            <td><h4>"""),_display_(/*84.38*/AppTags/*84.45*/.Locale.Currency.ZAR.toString),format.raw/*84.74*/(""" """),format.raw/*84.75*/("""</h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+""")))};def /*93.2*/bodyContent/*93.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*93.17*/("""
+    """),format.raw/*94.5*/("""<h1>Active Orders</h1>
+    <br/>
+    """),_display_(/*96.6*/if(activeOrderList.size() == 0)/*96.37*/ {_display_(Seq[Any](format.raw/*96.39*/("""
+        """),format.raw/*97.9*/("""<h6>No active orders</h6>
+    """)))}/*98.7*/else/*98.12*/{_display_(Seq[Any](format.raw/*98.13*/("""
+        """),_display_(/*99.10*/for(item <- activeOrderList) yield /*99.38*/ {_display_(Seq[Any](format.raw/*99.40*/("""
+            """),_display_(/*100.14*/generateOrderContent(item)),format.raw/*100.40*/("""
+            """),format.raw/*101.13*/("""<br/>
+        """)))}),format.raw/*102.10*/("""
+    """)))}),format.raw/*103.6*/("""
+    """),_display_(/*104.6*/form(action = controllers.User.routes.CustomerController.index())/*104.71*/ {_display_(Seq[Any](format.raw/*104.73*/("""
+        """),_display_(/*105.10*/CSRF/*105.14*/.formField),format.raw/*105.24*/("""
+        """),format.raw/*106.9*/("""<input class="btn btn-info" type="submit" name="Back">
+    """)))}),format.raw/*107.6*/("""
+    """),format.raw/*108.5*/("""<br/>
+
 """)))};
-Seq[Any](format.raw/*8.38*/("""
+Seq[Any](format.raw/*10.38*/("""
 
-"""),format.raw/*47.2*/("""
+"""),format.raw/*22.2*/("""
 
-"""),_display_(/*49.2*/masterpage/*49.12*/.apply(" :: Active Orders", bodyContent)))
+"""),format.raw/*49.2*/("""
+
+"""),format.raw/*91.2*/("""
+
+"""),format.raw/*110.2*/("""
+
+"""),_display_(/*112.2*/masterpage/*112.12*/.apply(" :: Active Orders", bodyContent)))
       }
     }
   }
@@ -95,11 +164,11 @@ Seq[Any](format.raw/*8.38*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 13:03:14 SAST 2017
+                  DATE: Tue Oct 17 14:32:11 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/viewActiveOrders.scala.html
-                  HASH: 86b40ebf49ee04d6b6a1dac7c96d90f80e22ec05
-                  MATRIX: 665->1|704->34|733->57|772->90|818->130|844->150|1189->171|1304->210|1324->221|1405->225|1437->230|1497->264|1537->295|1576->296|1608->301|1653->329|1665->334|1703->335|1735->341|1779->369|1819->371|1855->380|2004->502|2017->506|2046->514|2108->549|2122->553|2152->561|2324->706|2337->710|2370->722|2530->855|2609->918|2649->920|2698->941|2744->960|2773->980|2813->982|2836->987|2849->992|2888->993|2924->998|2983->1030|3005->1043|3035->1052|3097->1087|3113->1094|3163->1123|3192->1125|3207->1131|3258->1160|3320->1195|3335->1201|3386->1231|3485->1303|3501->1310|3551->1339|3580->1341|3595->1347|3649->1379|3729->1428|3774->1445|3930->1574|3946->1581|3996->1610|4025->1612|4038->1616|4066->1623|4136->1663|4168->1665|4200->1671|4275->1737|4314->1738|4351->1748|4364->1752|4395->1762|4431->1771|4521->1831|4562->207|4591->1833|4620->1836|4639->1846
-                  LINES: 24->1|25->2|26->3|27->4|28->5|29->6|34->8|38->10|38->10|40->10|41->11|43->13|43->13|43->13|44->14|45->15|45->15|45->15|46->16|46->16|46->16|47->17|49->19|49->19|49->19|49->19|49->19|49->19|51->21|51->21|51->21|55->25|55->25|55->25|56->26|56->26|56->26|56->26|56->26|56->26|56->26|56->26|57->27|57->27|57->27|58->28|58->28|58->28|58->28|58->28|58->28|59->29|59->29|59->29|61->31|61->31|61->31|61->31|61->31|61->31|63->33|64->34|68->38|68->38|68->38|68->38|68->38|68->38|71->41|72->42|73->43|73->43|73->43|74->44|74->44|74->44|75->45|76->46|78->8|80->47|82->49|82->49
+                  HASH: ab56e09015734a1b0182796ca1587c5f7067fa69
+                  MATRIX: 665->1|704->34|733->57|772->90|813->125|859->165|885->185|911->206|1272->241|1387->280|1414->298|1509->316|1541->322|1562->334|1601->335|1637->344|1668->358|1681->363|1720->364|1757->374|1778->386|1818->388|1854->397|1889->414|1902->419|1941->420|1977->429|2009->434|2033->437|2074->447|2110->453|2135->458|2164->478|2271->508|2303->513|2457->640|2477->651|2506->659|2694->820|2710->827|2760->856|2789->858|2809->869|2837->876|2886->897|2938->922|2958->933|2987->941|3036->962|3088->987|3108->998|3137->1006|3186->1027|3257->1071|3277->1082|3310->1094|3359->1115|3406->1135|3472->1180|3521->1201|3693->1346|3779->1411|3824->1428|3900->1484|3926->1501|4053->1551|4085->1556|4741->2185|4809->2237|4849->2239|4906->2268|4975->2310|4997->2323|5027->2332|5097->2375|5113->2382|5163->2411|5192->2413|5207->2419|5258->2448|5328->2491|5343->2497|5394->2527|5509->2615|5525->2622|5575->2651|5604->2653|5619->2659|5673->2691|5769->2756|5822->2781|6088->3020|6104->3027|6154->3056|6183->3057|6347->3201|6367->3212|6448->3216|6480->3221|6544->3259|6584->3290|6624->3292|6660->3301|6709->3333|6722->3338|6761->3339|6798->3349|6842->3377|6882->3379|6924->3393|6972->3419|7014->3432|7061->3447|7098->3453|7131->3459|7206->3524|7247->3526|7285->3536|7299->3540|7331->3550|7368->3559|7459->3619|7492->3624|7540->277|7569->455|7598->1481|7627->3198|7657->3632|7687->3635|7707->3645
+                  LINES: 24->1|25->2|26->3|27->4|28->5|29->6|30->7|31->9|36->10|40->12|40->12|42->12|43->13|43->13|43->13|44->14|45->15|45->15|45->15|46->16|46->16|46->16|47->17|48->18|48->18|48->18|49->19|49->19|49->19|50->20|51->21|52->24|52->24|54->24|55->25|58->28|58->28|58->28|63->33|63->33|63->33|63->33|63->33|63->33|64->34|64->34|64->34|64->34|65->35|65->35|65->35|65->35|66->36|67->37|67->37|67->37|68->38|68->38|68->38|69->39|74->44|74->44|75->45|79->51|79->51|81->51|82->52|99->69|99->69|99->69|100->70|101->71|101->71|101->71|102->72|102->72|102->72|102->72|102->72|102->72|103->73|103->73|103->73|105->75|105->75|105->75|105->75|105->75|105->75|107->77|108->78|114->84|114->84|114->84|114->84|121->93|121->93|123->93|124->94|126->96|126->96|126->96|127->97|128->98|128->98|128->98|129->99|129->99|129->99|130->100|130->100|131->101|132->102|133->103|134->104|134->104|134->104|135->105|135->105|135->105|136->106|137->107|138->108|141->10|143->22|145->49|147->91|149->110|151->112|151->112
                   -- GENERATED --
               */
           

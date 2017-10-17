@@ -4,6 +4,7 @@
 @import controllers.Application.AppTags.Session.SessionTags.session_status
 @import controllers.Application.AppTags.Session.SessionTags.valid
 @import controllers.Application.AppTags.AppCookie.user_type
+@import helper.CSRF
 
 @(nav_extension: Html)
 
@@ -34,10 +35,10 @@
         </ul>
     </li>
 
-    <li><a href="@controllers.Order.routes.ScheduleController.index()">View Order Schedule</a></li>
-    <li><a href="@controllers.Finance.routes.UserFinance.addFunds()">Add Funds</a> </li>
-    <li><a href="@controllers.User.routes.CustomerController.orderHistory()">Order History</a></li>
-    <li><a href="@controllers.User.routes.CustomerController.paymentHistory()">Payment History</a></li>
+    <li><a href="@CSRF(controllers.Order.routes.ScheduleController.index())">View Order Schedule</a></li>
+    <li><a href="@CSRF(controllers.Finance.routes.UserFinance.addFunds())">Add Funds</a> </li>
+    <li><a href="@CSRF(controllers.User.routes.CustomerController.orderHistory())">Order History</a></li>
+    <li><a href="@CSRF(controllers.User.routes.CustomerController.paymentHistory())">Payment History</a></li>
 }
 
 @buildKitchenStaffNav = {

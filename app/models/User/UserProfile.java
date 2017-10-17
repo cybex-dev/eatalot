@@ -5,13 +5,11 @@ import libs.Mailer;
 import models.User.Admin.Admin;
 import models.User.Customer.Address;
 import models.User.Customer.Customer;
-import models.User.UserDetails;
 import play.Logger;
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -20,17 +18,19 @@ import java.util.Date;
 
 public class UserProfile extends UserDetails implements Serializable, Constraints.Validatable<ValidationError> {
 
-    // TODO: 2017/08/18 Add support for sectino updates and passowrd changes (with old password as test)
 //    @Constraints.MinLength(8)
 //    @Constraints.Required
 //    @Pattern(regexp="[\\S]{8,}", message="Check password length, minimum length of 8\nCheck that no spaces are used")
     private String password;
-//    @Constraints.MinLength(8)
+    //    @Constraints.MinLength(8)
 //    @Constraints.Required
 //    @Pattern(regexp="[\\S]{8,}", message="Check password length, minimum length of 8\nCheck that no spaces are used")
     private String confirmPassword;
 
-    public UserProfile(){}
+    private String alias;
+
+    public UserProfile() {
+    }
 
     public UserProfile(String userId, String name, String surname, String mobile, String unitNumber, String streetName, String communityName, Boolean isCommunity, @Constraints.Min(8) @Constraints.Required String password, @Constraints.Min(8) @Constraints.Required String confirmPassword) {
         super(userId, name, surname, mobile, unitNumber, streetName, communityName, isCommunity);
@@ -38,9 +38,9 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
         this.confirmPassword = confirmPassword;
     }
 
-    public UserProfile(String userId) {
+    public UserProfile(String userId, AppTags.AppCookie.UserType userType) {
         super.setUserId(userId);
-        get(userId);
+        fill(userId, userType);
     }
 
     public String getPassword() {
@@ -51,37 +51,64 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
         this.password = password;
     }
 
-    private void get(String userId) {
-        if (userId == null)
-            return;
-        try {
-            Customer c = Customer.find.byId(userId);
-            if (c == null)
-                return;
-            Address a = c.getAddress();
-            if (a == null)
-                return;
-            setName(c.getName());
-            setSurname(c.getSurname());
-            setCellNumber(c.getCellNumber());
-            setPassword(c.getPassword());
-            super.setCommunityName(a.getCommunityName());
-            super.setStreetName(a.getStreetName());
-            super.setUnitNumber(a.getUnitNumber());
-            super.setIsCommunity(a.isCommunity());
+    private void fill(String userId, AppTags.AppCookie.UserType userType) {
+        switch (userType) {
+            case ADMIN: {
+                setUserId(userId);
+                Admin admin = Admin.find.byId(userId);
+                if (admin == null)
+                    return;
+                setPassword(admin.getPassword());
+                confirmPassword = admin.getPassword();
+                break;
+            }
+            case CUSTOMER: {
+                try {
+                    Customer c = Customer.find.byId(userId);
+                    if (c == null)
+                        return;
+                    Address a = c.getAddress();
+                    if (a == null)
+                        return;
+                    c.setComplete(false);
+                    setUserId(userId);
+                    setName(c.getName());
+                    setSurname(c.getSurname());
+                    setCellNumber(c.getCellNumber());
+                    setPassword(c.getPassword());
+                    confirmPassword = c.getPassword();
+                    super.setCommunityName(a.getCommunityName());
+                    super.setStreetName(a.getStreetName());
+                    super.setUnitNumber(a.getUnitNumber());
+                    super.setIsCommunity(a.isCommunity());
+                } catch (Exception x) {
+                    Logger.warn(x.toString());
+                    return;
+                }
+                break;
+            }
+            case DELIVERY:
+            case KITCHEN: {
+                Staff staff = Staff.find.byId(userId);
+                if (staff == null)
+                    return;
+                setUserId(userId);
+                setName(staff.getName());
+                setSurname(staff.getSurname());
+                setCellNumber(staff.getCellNumber());
+                setAlias(staff.getAlias());
+                setPassword(staff.getPassword());
+                confirmPassword = staff.getPassword();
+                break;
+            }
         }
-        catch (Exception x){
-            Logger.warn(x.toString());
-            return;
-        }
-        return;
     }
 
     public void save(AppTags.AppCookie.UserType userType) {
 
-        String id = getUserId();
+        String id = super.getUserId();
         switch (userType) {
-            case CUSTOMER:{
+            case CUSTOMER: {
                 Customer c = Customer.find.byId(id);
                 if (c == null)
                     return;
@@ -89,7 +116,7 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
                 c.setSurname(getSurname());
                 c.setCellNumber(getCellNumber());
 
-                if (!c.getPassword().equals(getPassword())){
+                if (!passwordsEmpty() && !c.getPassword().equals(getPassword())) {
                     c.setPassword(getPassword());
                     Mailer.SendPasswordChange(c.getName().concat(" ").concat(getSurname()), c.getEmail(), new Date().toString().replace(':', '-').replace(' ', '_'));
                 }
@@ -107,7 +134,7 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
             }
 
             case KITCHEN:
-            case DELIVERY:{
+            case DELIVERY: {
                 Staff staff = Staff.find.byId(id);
                 if (staff == null)
                     return;
@@ -118,16 +145,17 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
                 staff.setName(getName());
                 staff.setSurname(getSurname());
                 staff.setCellNumber(getCellNumber());
+                staff.setAlias(getAlias());
 
-                if (!staff.getPassword().equals(getPassword())) {
+                if (!passwordsEmpty() && !staff.getPassword().equals(getPassword())) {
                     staff.setPassword(getPassword());
-                    Mailer.SendPasswordChange(getName().concat(" ").concat(getSurname()), staff.getEmail(), new Date().toString().replace(':', '-').replace(' ', '_'));
+                    Mailer.SendPasswordChange(staff.getName().concat(" ").concat(getSurname()), staff.getEmail(), new Date().toString().replace(':', '-').replace(' ', '_'));
                 }
 
                 staff.save();
             }
 
-            case ADMIN:{
+            case ADMIN: {
                 Admin admin = Admin.find.byId(id);
                 if (admin == null)
                     return;
@@ -139,6 +167,12 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
 
     public String getConfirmPassword() {
         return confirmPassword;
+    }
+
+    public boolean passwordsEmpty(){
+        boolean pw = (password == null || password.isEmpty()),
+                confPw = (confirmPassword== null || confirmPassword.isEmpty());
+        return pw && confPw;
     }
 
     @Override
@@ -153,5 +187,17 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
         if (p.length() == 0)
             return new ValidationError("password", "Password requires atleast 1 special character, e.g. !,@,#,$,etc");
         return null;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

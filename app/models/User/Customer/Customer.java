@@ -33,6 +33,10 @@ public class Customer extends User {
     private List<CustomerOrder> orders = new ArrayList<>();
 
     public Customer() {
+        if (address == null)
+            address = new Address();
+        if (orderSchedule == null)
+            orderSchedule = new OrderSchedule();
     }
 
     public Customer(String userId, String name, String surname, String email, String cellNumber, String password, Address address, Boolean isStudent, Boolean emailVerified) {
@@ -149,10 +153,13 @@ public class Customer extends User {
 
     public void setAddress(Address address) {
         this.address = address;
-        save();
     }
 
     public OrderSchedule getOrderSchedule() {
         return orderSchedule;
+    }
+
+    public void setOrderSchedule(OrderSchedule orderSchedule) {
+        this.orderSchedule = orderSchedule;
     }
 }

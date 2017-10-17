@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Oct 14 13:03:12 SAST 2017
+// @DATE:Mon Oct 16 01:08:43 SAST 2017
 
 import play.api.mvc.Call
 
@@ -12,44 +12,56 @@ import _root_.play.libs.F
 // @LINE:17
 package controllers.User {
 
-  // @LINE:109
+  // @LINE:117
   class ReverseAdminController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:113
+    // @LINE:123
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Edit")
     }
   
-    // @LINE:115
+    // @LINE:125
     def doEdit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "Admin/Edit")
     }
   
-    // @LINE:111
+    // @LINE:119
+    def getAdminDashUpdate(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard/Update")
+    }
+  
+    // @LINE:121
     def manageUsers(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users")
     }
   
-    // @LINE:112
+    // @LINE:122
     def manageDiscounts(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts")
     }
   
-    // @LINE:109
+    // @LINE:117
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard")
     }
   
-    // @LINE:110
+    // @LINE:171
+    def adminJSRoutes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/adminJSRoutes")
+    }
+  
+    // @LINE:120
     def manageMeals(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals")
@@ -64,85 +76,103 @@ package controllers.User {
     }
 
   
-    // @LINE:40
+    // @LINE:43
     def paymentHistory(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Purchases")
     }
   
-    // @LINE:46
+    // @LINE:49
     def doCompleteRegistration(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Register/Completing")
     }
   
-    // @LINE:38
+    // @LINE:41
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:44
+    // @LINE:47
     def create(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Register")
     }
   
-    // @LINE:42
+    // @LINE:45
     def viewPayment(paymentId:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Payment/" + implicitly[play.api.mvc.PathBindable[String]].unbind("paymentId", play.core.routing.dynamicString(paymentId)))
     }
   
-    // @LINE:39
+    // @LINE:42
     def orderHistory(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Orders")
     }
   
-    // @LINE:41
+    // @LINE:44
     def viewOrder(orderId:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/History/Order/" + implicitly[play.api.mvc.PathBindable[String]].unbind("orderId", play.core.routing.dynamicString(orderId)))
     }
   
-    // @LINE:36
+    // @LINE:37
+    def getCustomerDashUpdate(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "User/Dashboard/Update")
+    }
+  
+    // @LINE:39
     def completeRegistration(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Register/Completing")
     }
   
-    // @LINE:35
+    // @LINE:34
+    def redirectHome(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "User")
+    }
+  
+    // @LINE:38
     def register(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Register")
     }
   
-    // @LINE:45
+    // @LINE:48
     def reverify(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Register/Reverify")
     }
   
-    // @LINE:47
+    // @LINE:50
     def update(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:34
+    // @LINE:170
+    def customerJSRoutes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/customerJSRoutes")
+    }
+  
+    // @LINE:35
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Dashboard")
     }
   
-    // @LINE:37
+    // @LINE:40
     def verifyCustomer(token:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/Verify/" + implicitly[play.api.mvc.PathBindable[String]].unbind("token", play.core.routing.dynamicString(token)))
     }
   
-    // @LINE:48
+    // @LINE:51
     def activeOrders(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/ActiveOrders")
@@ -157,43 +187,55 @@ package controllers.User {
     }
 
   
-    // @LINE:93
+    // @LINE:101
     def deliverOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Deliver")
     }
   
-    // @LINE:98
+    // @LINE:172
+    def deliveryJSRoutes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/deliveryJSRoutes")
+    }
+  
+    // @LINE:106
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/User/Edit")
     }
   
-    // @LINE:94
+    // @LINE:102
     def checkoutOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Checkout")
     }
   
-    // @LINE:100
+    // @LINE:108
     def doEdit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "Delivery/User/Edit")
     }
   
-    // @LINE:95
+    // @LINE:99
+    def getDeliveryDashUpdate(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Delivery/Dashboard/Update")
+    }
+  
+    // @LINE:103
     def viewCompletedDeliveries(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Completed")
     }
   
-    // @LINE:97
+    // @LINE:105
     def viewWaitingDeliveries(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Waiting")
     }
   
-    // @LINE:92
+    // @LINE:100
     def viewOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order")
@@ -213,7 +255,7 @@ package controllers.User {
     
     }
   
-    // @LINE:96
+    // @LINE:104
     def viewActiveDeliveries(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Orders/Active")
@@ -221,50 +263,62 @@ package controllers.User {
   
   }
 
-  // @LINE:76
+  // @LINE:80
   class ReverseKitchenStaffController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:81
+    // @LINE:82
+    def getKitchenDashUpdate(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Dashboard/Update")
+    }
+  
+    // @LINE:87
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
     }
   
-    // @LINE:83
+    // @LINE:89
     def doEdit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
     }
   
-    // @LINE:78
+    // @LINE:173
+    def kitchenJSRoutes(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/kitchenJSRoutes")
+    }
+  
+    // @LINE:84
     def viewActiveOrders(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Orders/Active")
     }
   
-    // @LINE:79
+    // @LINE:85
     def viewCompletedOrders(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Orders/Completed")
     }
   
-    // @LINE:77
+    // @LINE:83
     def viewOrder(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Order")
     }
   
-    // @LINE:80
+    // @LINE:86
     def viewQueuedOrders(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Orders/Queued")
     }
   
-    // @LINE:76
+    // @LINE:80
     def index(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Kitchen/Dashboard")

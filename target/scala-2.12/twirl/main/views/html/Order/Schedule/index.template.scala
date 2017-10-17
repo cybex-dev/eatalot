@@ -26,89 +26,100 @@ import play.core.j.PlayFormsMagicForJava._
 /*3.2*/import models.Order.CustomerOrderItem
 /*4.2*/import controllers.Application.AppTags
 /*5.2*/import helper.CSRF
+/*6.2*/import helper.form
 
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[OrderScheduleDays,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*7.2*/(orderScheduleWeek: OrderScheduleDays):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*8.2*/(orderScheduleWeek: OrderScheduleDays):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
-def /*13.2*/generateDayTable/*13.18*/(dayName: String, dayOrderList: List[CustomerOrderItem]):play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*10.2*/generateDayTable/*10.18*/(dayName: String, dayOrderList: List[CustomerOrderItem]):play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*13.78*/("""
-
-"""),_display_(/*15.2*/if(dayOrderList.size() == 0)/*15.30*/ {_display_(Seq[Any](format.raw/*15.32*/("""
-    """),format.raw/*16.5*/("""<label class="tab">No scheduled orders</label>
-""")))}/*17.3*/else/*17.8*/{_display_(Seq[Any](format.raw/*17.9*/("""
-
-    """),format.raw/*19.5*/("""<div class="panel panel-default">
+Seq[Any](format.raw/*10.78*/("""
+    """),format.raw/*11.5*/("""<div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href=""""),_display_(/*22.75*/getCollapseName(dayName)),format.raw/*22.99*/("""" class="collapse">
-                    dayName</a>
+                <a data-toggle="collapse" data-parent="#accordion" href="#"""),_display_(/*14.76*/dayName),format.raw/*14.83*/("""" class="collapsed">"""),_display_(/*14.104*/dayName),format.raw/*14.111*/("""</a>
             </h4>
         </div>
-        <div id=""""),_display_(/*26.19*/getCollapseName(dayName)),format.raw/*26.43*/("""" class="panel-collapse collapse" style="">
-            <div class="panel-body">
-            """),_display_(/*28.14*/for((item, index) <- dayOrderList.zipWithIndex) yield /*28.61*/ {_display_(Seq[Any](format.raw/*28.63*/("""
-                """),format.raw/*29.17*/("""<tr class="gradeA """),_display_(/*29.36*/if((index % 2) == 0)/*29.56*/{_display_(Seq[Any](format.raw/*29.57*/("""odd""")))}/*29.61*/else/*29.65*/{_display_(Seq[Any](format.raw/*29.66*/("""even""")))}),format.raw/*29.71*/("""">
-                    <td class="sorting_1"><a href=""""),_display_(/*30.53*/controllers/*30.64*/.User.routes.CustomerController.viewOrder(item.orderId)),format.raw/*30.119*/("""">"""),_display_(/*30.122*/item/*30.126*/.orderId),format.raw/*30.134*/("""</a></td>
-                    <td class=" ">"""),_display_(/*31.36*/AppTags/*31.43*/.Locale.Currency.ZAR.toString),format.raw/*31.72*/(""" """),_display_(/*31.74*/item/*31.78*/.amount),format.raw/*31.85*/("""</td>
-                    <td class=" ">"""),_display_(/*32.36*/item/*32.40*/.getTime()),format.raw/*32.50*/("""</td>
-                    <td class=" "><button class="btn btn-danger" href=""""),_display_(/*33.73*/CSRF(controllers.Order.routes.ScheduleController.removeOrder(item.orderId))),format.raw/*33.148*/("""">Remove</button></td>
-                </tr>
-            """)))}),format.raw/*35.14*/("""
-            """),format.raw/*36.13*/("""</div>
+        <div id=""""),_display_(/*17.19*/dayName),format.raw/*17.26*/("""" class="panel-collapse collapse" style="height: 0px;">
+           <div class="panel-body">
+            """),_display_(/*19.14*/if(dayOrderList.size() == 0)/*19.42*/ {_display_(Seq[Any](format.raw/*19.44*/("""
+                    """),format.raw/*20.21*/("""<p class="tab">No scheduled orders</p>
+            """)))}/*21.15*/else/*21.20*/{_display_(Seq[Any](format.raw/*21.21*/("""
+
+                """),_display_(/*23.18*/for((item, index) <- dayOrderList.zipWithIndex) yield /*23.65*/ {_display_(Seq[Any](format.raw/*23.67*/("""
+                    """),format.raw/*24.21*/("""<tr class="gradeA """),_display_(/*24.40*/if((index % 2) == 0)/*24.60*/ {_display_(Seq[Any](format.raw/*24.62*/("""odd""")))}/*24.67*/else/*24.72*/{_display_(Seq[Any](format.raw/*24.73*/("""even""")))}),format.raw/*24.78*/("""">
+                        <td class="sorting_1"><a href=""""),_display_(/*25.57*/controllers/*25.68*/.User.routes.CustomerController.viewOrder(item.orderId)),format.raw/*25.123*/("""">"""),_display_(/*25.126*/item/*25.130*/.orderId),format.raw/*25.138*/("""</a></td>
+                        <td class=" ">"""),_display_(/*26.40*/AppTags/*26.47*/.Locale.Currency.ZAR.toString),format.raw/*26.76*/(""" """),_display_(/*26.78*/item/*26.82*/.amount),format.raw/*26.89*/("""</td>
+                        <td class=" ">"""),_display_(/*27.40*/item/*27.44*/.getTime),format.raw/*27.52*/("""</td>
+                        <td class=" "><button class="btn btn-danger" href=""""),_display_(/*28.77*/CSRF(controllers.Order.routes.ScheduleController.removeOrder(item.orderId))),format.raw/*28.152*/("""">Remove</button></td>
+                    </tr>
+                """)))}),format.raw/*30.18*/("""
+            """)))}),format.raw/*31.14*/("""
+        """),format.raw/*32.9*/("""</div>
         </div>
     </div>
-""")))}),format.raw/*39.2*/("""
+""")))};def /*37.2*/generateScheduleTable/*37.23*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-""")))};def /*43.2*/bodyContent/*43.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
-
-Seq[Any](format.raw/*43.17*/("""
-    """),format.raw/*44.5*/("""<h1>Your order schedule</h1>
-    <br/>
-
-
-"""),_display_(/*48.2*/if(orderScheduleWeek == null)/*48.31*/ {_display_(Seq[Any](format.raw/*48.33*/("""
-    """),_display_(/*49.6*/helper/*49.12*/.form),format.raw/*49.17*/(""" """),format.raw/*49.18*/("""( action = """),_display_(/*49.30*/controllers/*49.41*/.Order.routes.ScheduleController.createSchedule()),format.raw/*49.90*/(""")"""),format.raw/*49.91*/("""{"""),format.raw/*49.92*/("""
-        """),_display_(/*50.10*/CSRF/*50.14*/.formField),format.raw/*50.24*/("""
-        """),format.raw/*51.9*/("""<input type="submit" class="btn btn-info" name="Create Schedule">
-    """),format.raw/*52.5*/("""}"""),format.raw/*52.6*/("""
-""")))}/*53.3*/else/*53.8*/{_display_(Seq[Any](format.raw/*53.9*/("""
-    """),_display_(/*54.6*/helper/*54.12*/.form),format.raw/*54.17*/(""" """),format.raw/*54.18*/("""( action = """),_display_(/*54.30*/controllers/*54.41*/.Order.routes.ScheduleController.editScheduleName()),format.raw/*54.92*/(""")"""),format.raw/*54.93*/("""{"""),format.raw/*54.94*/("""
-        """),_display_(/*55.10*/CSRF/*55.14*/.formField),format.raw/*55.24*/("""
-        """),format.raw/*56.9*/("""<input type="submit" class="btn btn-info" name="Change Schedule Name">
-    """),format.raw/*57.5*/("""}"""),format.raw/*57.6*/("""
-    """),format.raw/*58.5*/("""<div class="panel-group" id="accordion"><input type="button """),_display_(/*58.66*/if(orderScheduleWeek.isActive)/*58.96*/ {_display_(Seq[Any](format.raw/*58.98*/("""btn-success""")))}/*58.111*/else/*58.116*/{_display_(Seq[Any](format.raw/*58.117*/("""btn-warning""")))}),format.raw/*58.129*/("""" name=""""),_display_(/*58.138*/if(orderScheduleWeek.isActive)/*58.168*/ {_display_(Seq[Any](format.raw/*58.170*/("""Active""")))}/*58.178*/else/*58.183*/{_display_(Seq[Any](format.raw/*58.184*/("""Inactive""")))}),format.raw/*58.193*/("""">
-        """),_display_(/*59.10*/generateDayTable("Monday", orderScheduleWeek.getMonday)),format.raw/*59.65*/("""
-        """),_display_(/*60.10*/generateDayTable("Tuesday", orderScheduleWeek.getTuesday)),format.raw/*60.67*/("""
-        """),_display_(/*61.10*/generateDayTable("Wednesday", orderScheduleWeek.getWednesday)),format.raw/*61.71*/("""
-        """),_display_(/*62.10*/generateDayTable("Thursday", orderScheduleWeek.getThursday)),format.raw/*62.69*/("""
-        """),_display_(/*63.10*/generateDayTable("Friday", orderScheduleWeek.getFriday)),format.raw/*63.65*/("""
-        """),_display_(/*64.10*/generateDayTable("Saturday", orderScheduleWeek.getSaturday)),format.raw/*64.69*/("""
-        """),_display_(/*65.10*/generateDayTable("Sunday", orderScheduleWeek.getSunday)),format.raw/*65.65*/("""
-        """),format.raw/*66.9*/("""<input type="submit" class="btn btn-success" name="Add Order (TODO)" href=""""),_display_(/*66.85*/controllers/*66.96*/.Order.routes.ScheduleController.addOrder()),format.raw/*66.139*/("""">
+Seq[Any](format.raw/*37.27*/("""
+    """),_display_(/*38.6*/form(action = controllers.Order.routes.ScheduleController.editScheduleName())/*38.83*/ {_display_(Seq[Any](format.raw/*38.85*/("""
+        """),_display_(/*39.10*/CSRF/*39.14*/.formField),format.raw/*39.24*/("""
+        """),format.raw/*40.9*/("""<h1>Your Order Schedule </h1><input type="button" class="btn btn-info" value=""""),_display_(/*40.88*/if(orderScheduleWeek == null)/*40.117*/{_display_(Seq[Any](format.raw/*40.118*/("""Create Schedule""")))}/*40.134*/else/*40.138*/{_display_(Seq[Any](format.raw/*40.139*/("""Change Schedule Name""")))}),format.raw/*40.160*/("""" onclick=""""),_display_(/*40.172*/if(orderScheduleWeek == null)/*40.201*/{_display_(Seq[Any](format.raw/*40.202*/("""createSchedule()""")))}/*40.219*/else/*40.223*/{_display_(Seq[Any](format.raw/*40.224*/("""changeScheduleName()""")))}),format.raw/*40.245*/(""""/>"""),_display_(/*40.249*/if(orderScheduleWeek != null)/*40.278*/{_display_(Seq[Any](format.raw/*40.279*/("""<input id="btnScheduleStatus" type="button" class="btn """),_display_(/*40.335*/if(orderScheduleWeek.isActive)/*40.365*/{_display_(Seq[Any](format.raw/*40.366*/("""btn-success""")))}/*40.378*/else/*40.382*/{_display_(Seq[Any](format.raw/*40.383*/("""btn-danger""")))}),format.raw/*40.394*/("""" onclick="setScheduleStatus("""),_display_(/*40.424*/session()/*40.433*/.get(AppTags.AppCookie.user_id.toString)),format.raw/*40.473*/(""")" value=""""),_display_(/*40.484*/if(orderScheduleWeek.isActive)/*40.514*/{_display_(Seq[Any](format.raw/*40.515*/("""Active""")))}/*40.522*/else/*40.526*/{_display_(Seq[Any](format.raw/*40.527*/("""Inactive""")))}),format.raw/*40.536*/("""">""")))}),format.raw/*40.539*/("""
+    """)))}),format.raw/*41.6*/("""
+    """),format.raw/*42.5*/("""<br/>
+    <div class="panel-group" id="accordion">
+        """),_display_(/*44.10*/generateDayTable("Monday", orderScheduleWeek.getMonday)),format.raw/*44.65*/("""<br/>
+        """),_display_(/*45.10*/generateDayTable("Tuesday", orderScheduleWeek.getTuesday)),format.raw/*45.67*/("""<br/>
+        """),_display_(/*46.10*/generateDayTable("Wednesday", orderScheduleWeek.getWednesday)),format.raw/*46.71*/("""<br/>
+        """),_display_(/*47.10*/generateDayTable("Thursday", orderScheduleWeek.getThursday)),format.raw/*47.69*/("""<br/>
+        """),_display_(/*48.10*/generateDayTable("Friday", orderScheduleWeek.getFriday)),format.raw/*48.65*/("""<br/>
+        """),_display_(/*49.10*/generateDayTable("Saturday", orderScheduleWeek.getSaturday)),format.raw/*49.69*/("""<br/>
+        """),_display_(/*50.10*/generateDayTable("Sunday", orderScheduleWeek.getSunday)),format.raw/*50.65*/("""<br/>
+        <br/>
+        """),_display_(/*52.10*/form(action = controllers.Order.routes.ScheduleController.addOrder(), '_class -> "pull-right")/*52.104*/ {_display_(Seq[Any](format.raw/*52.106*/("""
+            """),_display_(/*53.14*/CSRF/*53.18*/.formField),format.raw/*53.28*/("""
+            """),format.raw/*54.13*/("""<input type="submit" class="btn btn-success" value="Add Order (TODO)">
+            """)))}),format.raw/*55.14*/("""
+        """),format.raw/*56.9*/("""<br/>
+        <br/>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#Monday" class="">Collapsible Group Item #1</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" style="">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+        </div>
     </div>
-    """),_display_(/*68.6*/helper/*68.12*/.form),format.raw/*68.17*/(""" """),format.raw/*68.18*/("""( action = """),_display_(/*68.30*/controllers/*68.41*/.Order.routes.ScheduleController.clearSchedule()),format.raw/*68.89*/(""")"""),format.raw/*68.90*/("""{"""),format.raw/*68.91*/("""
-        """),_display_(/*69.10*/CSRF/*69.14*/.formField),format.raw/*69.24*/("""
-        """),format.raw/*70.9*/("""<input type="submit" class="btn btn-info" name="Clear Schedule">
-    """),format.raw/*71.5*/("""}"""),format.raw/*71.6*/("""
-""")))}),format.raw/*72.2*/("""
-""")))};def /*9.2*/getCollapseName/*9.17*/(dayName: String) = {{
-    "#collapse" + dayName
-}};
-Seq[Any](format.raw/*7.40*/("""
+    <br/>
+"""),_display_(/*72.2*/form(action = controllers.Order.routes.ScheduleController.clearSchedule(), '_class -> "pull-right")/*72.101*/ {_display_(Seq[Any](format.raw/*72.103*/("""
+    """),_display_(/*73.6*/CSRF/*73.10*/.formField),format.raw/*73.20*/("""
+    """),format.raw/*74.5*/("""<input type="submit" class="btn btn-danger" value="Clear Schedule">
+""")))}),format.raw/*75.2*/("""
+""")))};def /*78.2*/bodyContent/*78.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-"""),format.raw/*11.2*/("""
+Seq[Any](format.raw/*78.17*/("""
 
-"""),format.raw/*41.2*/("""
+    """),_display_(/*80.6*/generateScheduleTable),format.raw/*80.27*/("""
+""")))};
+Seq[Any](format.raw/*8.40*/("""
 
-"""),format.raw/*73.2*/("""
+"""),format.raw/*35.2*/("""
+
+"""),format.raw/*76.2*/("""
+
+"""),format.raw/*81.2*/("""
 
 
-"""),_display_(/*76.2*/masterpage/*76.12*/.apply(" :: Schedule", bodyContent)),format.raw/*76.47*/("""
+"""),_display_(/*84.2*/masterpage/*84.12*/.apply(" :: Schedule", bodyContent)),format.raw/*84.47*/("""
+
 
 
 
@@ -129,11 +140,11 @@ Seq[Any](format.raw/*7.40*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 13:03:14 SAST 2017
+                  DATE: Mon Oct 16 08:34:22 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Order/Schedule/index.scala.html
-                  HASH: 90b81c79c50e81c287766855780e2032c6765995
-                  MATRIX: 666->1|705->34|750->73|795->112|841->152|1175->173|1292->282|1317->298|1454->358|1483->361|1520->389|1560->391|1592->396|1658->445|1670->450|1708->451|1741->457|1949->638|1994->662|2124->765|2169->789|2290->883|2353->930|2393->932|2438->949|2484->968|2513->988|2552->989|2575->993|2588->997|2627->998|2663->1003|2745->1058|2765->1069|2842->1124|2873->1127|2887->1131|2917->1139|2989->1184|3005->1191|3055->1220|3084->1222|3097->1226|3125->1233|3193->1274|3206->1278|3237->1288|3342->1366|3439->1441|3528->1499|3569->1512|3633->1546|3659->1552|3679->1563|3760->1567|3792->1572|3860->1614|3898->1643|3938->1645|3970->1651|3985->1657|4011->1662|4040->1663|4079->1675|4099->1686|4169->1735|4198->1736|4227->1737|4264->1747|4277->1751|4308->1761|4344->1770|4441->1840|4469->1841|4489->1844|4501->1849|4539->1850|4571->1856|4586->1862|4612->1867|4641->1868|4680->1880|4700->1891|4772->1942|4801->1943|4830->1944|4867->1954|4880->1958|4911->1968|4947->1977|5049->2052|5077->2053|5109->2058|5197->2119|5236->2149|5276->2151|5308->2164|5322->2169|5362->2170|5406->2182|5443->2191|5483->2221|5524->2223|5551->2231|5565->2236|5605->2237|5646->2246|5685->2258|5761->2313|5798->2323|5876->2380|5913->2390|5995->2451|6032->2461|6112->2520|6149->2530|6225->2585|6262->2595|6342->2654|6379->2664|6455->2719|6491->2728|6594->2804|6614->2815|6679->2858|6724->2877|6739->2883|6765->2888|6794->2889|6833->2901|6853->2912|6922->2960|6951->2961|6980->2962|7017->2972|7030->2976|7061->2986|7097->2995|7193->3064|7221->3065|7253->3067|7277->214|7300->229|7380->211|7409->279|7438->1549|7467->3069|7497->3073|7516->3083|7572->3118
-                  LINES: 24->1|25->2|26->3|27->4|28->5|33->7|37->13|37->13|39->13|41->15|41->15|41->15|42->16|43->17|43->17|43->17|45->19|48->22|48->22|52->26|52->26|54->28|54->28|54->28|55->29|55->29|55->29|55->29|55->29|55->29|55->29|55->29|56->30|56->30|56->30|56->30|56->30|56->30|57->31|57->31|57->31|57->31|57->31|57->31|58->32|58->32|58->32|59->33|59->33|61->35|62->36|65->39|67->43|67->43|69->43|70->44|74->48|74->48|74->48|75->49|75->49|75->49|75->49|75->49|75->49|75->49|75->49|75->49|76->50|76->50|76->50|77->51|78->52|78->52|79->53|79->53|79->53|80->54|80->54|80->54|80->54|80->54|80->54|80->54|80->54|80->54|81->55|81->55|81->55|82->56|83->57|83->57|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|84->58|85->59|85->59|86->60|86->60|87->61|87->61|88->62|88->62|89->63|89->63|90->64|90->64|91->65|91->65|92->66|92->66|92->66|92->66|94->68|94->68|94->68|94->68|94->68|94->68|94->68|94->68|94->68|95->69|95->69|95->69|96->70|97->71|97->71|98->72|99->9|99->9|102->7|104->11|106->41|108->73|111->76|111->76|111->76
+                  HASH: 05f4c94c525aef2738c68294f9af77aeab56b829
+                  MATRIX: 666->1|705->34|750->73|795->112|841->152|867->172|1201->193|1318->234|1343->250|1480->310|1512->315|1721->497|1749->504|1798->525|1827->532|1910->588|1938->595|2070->700|2107->728|2147->730|2196->751|2267->804|2280->809|2319->810|2365->829|2428->876|2468->878|2517->899|2563->918|2592->938|2632->940|2655->945|2668->950|2707->951|2743->956|2829->1015|2849->1026|2926->1081|2957->1084|2971->1088|3001->1096|3077->1145|3093->1152|3143->1181|3172->1183|3185->1187|3213->1194|3285->1239|3298->1243|3327->1251|3436->1333|3533->1408|3630->1474|3675->1488|3711->1497|3768->1534|3798->1555|3879->1559|3911->1565|3997->1642|4037->1644|4074->1654|4087->1658|4118->1668|4154->1677|4260->1756|4299->1785|4339->1786|4375->1802|4389->1806|4429->1807|4482->1828|4522->1840|4561->1869|4601->1870|4638->1887|4652->1891|4692->1892|4745->1913|4777->1917|4816->1946|4856->1947|4940->2003|4980->2033|5020->2034|5052->2046|5066->2050|5106->2051|5149->2062|5207->2092|5226->2101|5288->2141|5327->2152|5367->2182|5407->2183|5434->2190|5448->2194|5488->2195|5529->2204|5564->2207|5600->2213|5632->2218|5719->2278|5795->2333|5837->2348|5915->2405|5957->2420|6039->2481|6081->2496|6161->2555|6203->2570|6279->2625|6321->2640|6401->2699|6443->2714|6519->2769|6575->2798|6679->2892|6720->2894|6761->2908|6774->2912|6805->2922|6846->2935|6961->3019|6997->3028|7998->4003|8107->4102|8148->4104|8180->4110|8193->4114|8224->4124|8256->4129|8355->4198|8380->4203|8400->4214|8481->4218|8514->4225|8556->4246|8597->231|8626->1531|8655->4200|8684->4248|8714->4252|8733->4262|8789->4297
+                  LINES: 24->1|25->2|26->3|27->4|28->5|29->6|34->8|38->10|38->10|40->10|41->11|44->14|44->14|44->14|44->14|47->17|47->17|49->19|49->19|49->19|50->20|51->21|51->21|51->21|53->23|53->23|53->23|54->24|54->24|54->24|54->24|54->24|54->24|54->24|54->24|55->25|55->25|55->25|55->25|55->25|55->25|56->26|56->26|56->26|56->26|56->26|56->26|57->27|57->27|57->27|58->28|58->28|60->30|61->31|62->32|65->37|65->37|67->37|68->38|68->38|68->38|69->39|69->39|69->39|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|70->40|71->41|72->42|74->44|74->44|75->45|75->45|76->46|76->46|77->47|77->47|78->48|78->48|79->49|79->49|80->50|80->50|82->52|82->52|82->52|83->53|83->53|83->53|84->54|85->55|86->56|102->72|102->72|102->72|103->73|103->73|103->73|104->74|105->75|106->78|106->78|108->78|110->80|110->80|112->8|114->35|116->76|118->81|121->84|121->84|121->84
                   -- GENERATED --
               */
           

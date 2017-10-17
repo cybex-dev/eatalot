@@ -2,6 +2,9 @@ package utility;
 
 import play.api.mvc.Call;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DashboardButton {
     public String largeText = "###",
             smallText = "###";
@@ -26,5 +29,14 @@ public class DashboardButton {
         this.cssClassButtonColour = cssClassButtonColour;
         this.cssClassMainImage = cssClassMainImage;
         this.cssClassSecondaryImage = cssClassSecondaryImage;
+    }
+
+    public static Map<String, String> dashbuttonJsonMap(String s0, String s1, String s2, String s3) {
+        Map<String, String> map = new HashMap<>();
+        map.put("dashButton0", s0);
+        map.put("dashButton1", s1);
+        map.put("dashButton2", s2);
+        map.put("dashButton3", s3);
+        return map;
     }
 }

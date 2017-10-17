@@ -33,8 +33,8 @@
                 @helper.inputText(userProfile("streetName"), '_name -> "Street Name")
                 @helper.inputText(userProfile("unitNumber"), '_name -> "Street/Communal Number")
                 <br/>
-                @helper.inputText(userProfile("communityName"), '_name -> "Community Name", '_id -> "commName")
                 @helper.checkbox(userProfile("isCommunity"), '_name -> "Reside in an apartment/complex", '_id -> "chkComm")
+                @helper.inputText(userProfile("communityName"), '_name -> "Community Name", '_id -> "commName")
                 <input type="submit" class="btn btn-default" value="Complete Registration">
             </div>
         </div>

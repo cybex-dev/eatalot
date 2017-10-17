@@ -23,6 +23,7 @@ import javax.persistence.NonUniqueResultException;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import static controllers.Application.AppTags.*;
 
@@ -46,14 +47,15 @@ public class UserFinance extends Controller {
     @CustomersOnly
     public Result doAddFunds(){
         Form<UserFunds> form = formFactory.form(UserFunds.class).bindFromRequest();
-        if (form.hasGlobalErrors()){
-            flash().put(FlashCodes.warning.toString(), "Please try again!");
+        if (form.hasErrors()){
+            flash().put(FlashCodes.danger.toString(), "Please try again!");
             return badRequest(AddFunds.render(form));
         }
         UserFunds userFunds = form.get();
         try {
-            if (RedeemedVouchers.find.query().where().ilike("voucherId", userFunds.getVoucherCode()).findList().size() != 0){
-                flash().put(FlashCodes.warning.toString(), "Voucher has already been redeemed");
+            List<RedeemedVouchers> voucherIdList = RedeemedVouchers.find.query().where().eq("voucherId", userFunds.getVoucherCode()).findList();
+            if (voucherIdList.size() != 0){
+                flash().put(FlashCodes.danger.toString(), "Voucher has already been redeemed");
                 return badRequest(AddFunds.render(formFactory.form(UserFunds.class)));
             }
             RedeemedVouchers redeemedVoucher = new RedeemedVouchers(userFunds.getVoucherCode(), userFunds.getUserId(), new Date());
@@ -72,7 +74,8 @@ public class UserFinance extends Controller {
             return ok(AddFunds.render(formFactory.form(UserFunds.class)));
         }
         catch (Exception x){
-            flash().put(FlashCodes.warning.toString(), "An error occured, please try again!");
+            x.printStackTrace();
+            flash().put(FlashCodes.danger.toString(), "An error occured, please try again!");
             return internalServerError(AddFunds.render(form));
         }
     }

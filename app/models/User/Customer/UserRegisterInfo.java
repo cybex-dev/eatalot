@@ -7,12 +7,12 @@ import javax.validation.constraints.Pattern;
 
 public class UserRegisterInfo implements Constraints.Validatable<ValidationError> {
 
-    @Constraints.Required
-    @Constraints.Email
+//    @Constraints.Required
+//    @Constraints.Email
 //    @Pattern(regexp=".+[@].+[.].+", message="Invalid loginId address!")
     private String loginId;
-    @Constraints.Required
-    @Constraints.MinLength(8)
+//    @Constraints.Required
+//    @Constraints.MinLength(8)
     @Pattern(regexp = "[\\S]{8,}", message = "Check password length, minimum length of 8\nCheck that no spaces are used")
     private String password;
     //    @Pattern(regexp="[\\S]{8,}", message="Check password length, minimum length of 8\nCheck that no spaces are used")

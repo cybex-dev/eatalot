@@ -7,11 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="test"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-		date="20170919093921"/>
-=======
-		date="20171014130114"/>
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
+		date="20171017204632"/>
 	<dependencies>
 		<module organisation="org.awaitility" name="awaitility">
 			<revision name="2.0.0" status="release" pubdate="20160617133547" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://awaitility.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="142">
@@ -61,33 +57,6 @@
 				</artifacts>
 			</revision>
 		</module>
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-		<module organisation="mysql" name="mysql-connector-java">
-			<revision name="5.1.41" status="release" pubdate="20170214222759" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://dev.mysql.com/doc/connector-j/en/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="86">
-				<license name="The GNU General Public License, Version 2" url="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html"/>
-				<metadata-artifact status="no" details="" size="2538" time="0" location="/home/cybex/.ivy2/cache/mysql/mysql-connector-java/ivy-5.1.41.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.pom"/>
-				<caller organisation="net.ddns.intelligents" name="eatalot_2.12" conf="test, compile, runtime" rev="5.1.41" rev-constraint-default="5.1.41" rev-constraint-dynamic="5.1.41" callerrev="1.0-SNAPSHOT"/>
-				<artifacts>
-					<artifact name="mysql-connector-java" type="jar" ext="jar" status="no" details="" size="992805" time="0" location="/home/cybex/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.41.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-		</module>
-		<module organisation="org.bgee.log4jdbc-log4j2" name="log4jdbc-log4j2-jdbc4.1">
-			<revision name="1.16" status="release" pubdate="20131212020429" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="85">
-				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="successful" details="" size="1392" time="1396" location="/home/cybex/.ivy2/cache/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1/ivy-1.16.xml" searched="true" original-local-location="/home/cybex/.ivy2/cache/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1/ivy-1.16.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/bgee/log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1/1.16/log4jdbc-log4j2-jdbc4.1-1.16.pom"/>
-				<caller organisation="net.ddns.intelligents" name="eatalot_2.12" conf="test, compile, runtime" rev="1.16" rev-constraint-default="1.16" rev-constraint-dynamic="1.16" callerrev="1.0-SNAPSHOT"/>
-				<artifacts>
-					<artifact name="log4jdbc-log4j2-jdbc4.1" type="jar" ext="jar" status="successful" details="" size="92812" time="10926" location="/home/cybex/.ivy2/cache/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1/jars/log4jdbc-log4j2-jdbc4.1-1.16.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/bgee/log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1/1.16/log4jdbc-log4j2-jdbc4.1-1.16.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-		</module>
-=======
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 		<module organisation="com.typesafe.play" name="play-mailer-guice_2.12">
 			<revision name="6.0.1" status="release" pubdate="20170801214847" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="101">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
@@ -100,32 +69,6 @@
 				</artifacts>
 			</revision>
 		</module>
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-		<module organisation="com.google.inject" name="guice">
-			<revision name="4.0" status="release" pubdate="20150428223326" resolver="sbt-chain" artresolver="sbt-chain" evicted="latest-revision" evicted-reason="" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
-				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="no" details="" size="5450" time="0" location="/home/cybex/.ivy2/cache/com.google.inject/guice/ivy-4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/inject/guice/4.0/guice-4.0.pom"/>
-				<evicted-by rev="4.1.0"/>
-				<caller organisation="com.typesafe.play" name="play-mailer-guice_2.12" conf="default, compile, runtime, master" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="6.0.1"/>
-				<artifacts>
-				</artifacts>
-			</revision>
-			<revision name="4.1.0" status="release" pubdate="20160617215314" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="100">
-				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
-				<metadata-artifact status="no" details="" size="5652" time="0" location="/home/cybex/.ivy2/cache/com.google.inject/guice/ivy-4.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/inject/guice/4.1.0/guice-4.1.0.pom"/>
-				<caller organisation="com.typesafe.play" name="play-mailer-guice_2.12" conf="default, compile, runtime, master" rev="4.0" rev-constraint-default="4.0" rev-constraint-dynamic="4.0" callerrev="6.0.1"/>
-				<caller organisation="com.google.inject.extensions" name="guice-assistedinject" conf="compile, runtime" rev="4.1.0" rev-constraint-default="4.1.0" rev-constraint-dynamic="4.1.0" callerrev="4.1.0"/>
-				<caller organisation="com.typesafe.play" name="play-guice_2.12" conf="default, compile, runtime, master" rev="4.1.0" rev-constraint-default="4.1.0" rev-constraint-dynamic="4.1.0" callerrev="2.6.1"/>
-				<caller organisation="com.typesafe.play" name="play-test_2.12" conf="default, compile, runtime, master" rev="4.1.0" rev-constraint-default="4.1.0" rev-constraint-dynamic="4.1.0" callerrev="2.6.1"/>
-				<artifacts>
-					<artifact name="guice" type="jar" ext="jar" status="no" details="" size="674028" time="0" location="/home/cybex/.ivy2/cache/com.google.inject/guice/jars/guice-4.1.0.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/google/inject/guice/4.1.0/guice-4.1.0.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-		</module>
-=======
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 		<module organisation="com.typesafe.play" name="play-mailer_2.12">
 			<revision name="6.0.1" status="release" pubdate="20170801214850" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="97">
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
@@ -224,11 +167,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ahc-ws_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="2.6.1" status="release" pubdate="20170707013320" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="87">
-=======
 			<revision name="2.6.1" status="release" pubdate="20170707013320" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="79">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3929" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-ahc-ws_2.12/ivy-2.6.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ahc-ws_2.12/2.6.1/play-ahc-ws_2.12-2.6.1.pom"/>
 				<caller organisation="com.intelligents" name="eatalot_2.12" conf="test, compile, runtime" rev="2.6.1" rev-constraint-default="2.6.1" rev-constraint-dynamic="2.6.1" callerrev="1.0-SNAPSHOT"/>
@@ -240,11 +179,7 @@
 			</revision>
 		</module>
 		<module organisation="javax.cache" name="cache-api">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.0" status="release" pubdate="20140328053442" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/jsr107/jsr107spec" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="98">
-=======
 			<revision name="1.0.0" status="release" pubdate="20140328053442" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/jsr107/jsr107spec" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="90">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="JSR-000107 JCACHE 2.9 Public Review - Updated Specification                 License             " url="https://raw.github.com/jsr107/jsr107spec/master/LICENSE.txt"/>
 				<metadata-artifact status="no" details="" size="4067" time="0" location="/home/cybex/.ivy2/cache/javax.cache/cache-api/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/cache/cache-api/1.0.0/cache-api-1.0.0.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws_2.12" conf="default, compile, runtime, master" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="2.6.1"/>
@@ -256,11 +191,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ahc-ws-standalone_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.1" status="release" pubdate="20170706012143" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="93">
-=======
 			<revision name="1.0.1" status="release" pubdate="20170706012143" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="85">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="4760" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-ahc-ws-standalone_2.12/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ahc-ws-standalone_2.12/1.0.1/play-ahc-ws-standalone_2.12-1.0.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws_2.12" conf="default, compile, runtime, master" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="2.6.1"/>
@@ -272,11 +203,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="shaded-oauth">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.1" status="release" pubdate="20170706012210" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="97">
-=======
 			<revision name="1.0.1" status="release" pubdate="20170706012210" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="2496" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/shaded-oauth/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/shaded-oauth/1.0.1/shaded-oauth-1.0.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws-standalone_2.12" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.0.1"/>
@@ -289,11 +216,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="shaded-asynchttpclient">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.1" status="release" pubdate="20170706012227" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="96">
-=======
 			<revision name="1.0.1" status="release" pubdate="20170706012227" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="2526" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/shaded-asynchttpclient/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/shaded-asynchttpclient/1.0.1/shaded-asynchttpclient-1.0.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws-standalone_2.12" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.0.1"/>
@@ -306,11 +229,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="cachecontrol_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.1.2" status="release" pubdate="20170131223121" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/cachecontrol" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="94">
-=======
 			<revision name="1.1.2" status="release" pubdate="20170131223121" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/cachecontrol" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="86">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="3517" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/cachecontrol_2.12/ivy-1.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/cachecontrol_2.12/1.1.2/cachecontrol_2.12-1.1.2.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws-standalone_2.12" conf="compile, runtime" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="1.0.1"/>
@@ -322,11 +241,7 @@
 			</revision>
 		</module>
 		<module organisation="org.joda" name="joda-convert">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.7" status="release" pubdate="20140804163718" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-convert/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="95">
-=======
 			<revision name="1.7" status="release" pubdate="20140804163718" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.joda.org/joda-convert/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="87">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="6252" time="0" location="/home/cybex/.ivy2/cache/org.joda/joda-convert/ivy-1.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/joda/joda-convert/1.7/joda-convert-1.7.pom"/>
 				<caller organisation="com.typesafe.play" name="cachecontrol_2.12" conf="compile, runtime" rev="1.7" rev-constraint-default="1.7" rev-constraint-dynamic="1.7" callerrev="1.1.2"/>
@@ -338,11 +253,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ws_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="2.6.1" status="release" pubdate="20170707013259" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="88">
-=======
 			<revision name="2.6.1" status="release" pubdate="20170707013259" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="80">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="4145" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-ws_2.12/ivy-2.6.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ws_2.12/2.6.1/play-ws_2.12-2.6.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws_2.12" conf="default, compile, runtime, master" rev="2.6.1" rev-constraint-default="2.6.1" rev-constraint-dynamic="2.6.1" callerrev="2.6.1"/>
@@ -354,11 +265,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ws-standalone-json_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.1" status="release" pubdate="20170706012200" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="92">
-=======
 			<revision name="1.0.1" status="release" pubdate="20170706012200" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="84">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="3998" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-ws-standalone-json_2.12/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone-json_2.12/1.0.1/play-ws-standalone-json_2.12-1.0.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ws_2.12" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="2.6.1"/>
@@ -370,11 +277,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ws-standalone-xml_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.1" status="release" pubdate="20170706012157" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="91">
-=======
 			<revision name="1.0.1" status="release" pubdate="20170706012157" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="83">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="4000" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-ws-standalone-xml_2.12/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone-xml_2.12/1.0.1/play-ws-standalone-xml_2.12-1.0.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ws_2.12" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="2.6.1"/>
@@ -386,11 +289,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-ws-standalone_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="1.0.1" status="release" pubdate="20170706012155" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="89">
-=======
 			<revision name="1.0.1" status="release" pubdate="20170706012155" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-ws" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="81">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="4116" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-ws-standalone_2.12/ivy-1.0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-ws-standalone_2.12/1.0.1/play-ws-standalone_2.12-1.0.1.pom"/>
 				<caller organisation="com.typesafe.play" name="play-ahc-ws-standalone_2.12" conf="compile, runtime" rev="1.0.1" rev-constraint-default="1.0.1" rev-constraint-dynamic="1.0.1" callerrev="1.0.1"/>
@@ -405,11 +304,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe" name="ssl-config-core_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="0.2.2" status="release" pubdate="20170308163931" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/ssl-config" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="90">
-=======
 			<revision name="0.2.2" status="release" pubdate="20170308163931" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/ssl-config" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="82">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
 				<metadata-artifact status="no" details="" size="3001" time="0" location="/home/cybex/.ivy2/cache/com.typesafe/ssl-config-core_2.12/ivy-0.2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.2/ssl-config-core_2.12-0.2.2.pom"/>
 				<caller organisation="com.typesafe.akka" name="akka-stream_2.12" conf="compile, runtime" rev="0.2.1" rev-constraint-default="0.2.1" rev-constraint-dynamic="0.2.1" callerrev="2.5.3"/>
@@ -1044,12 +939,8 @@
 		</module>
 		<module organisation="commons-logging" name="commons-logging">
 			<revision name="1.2" status="release" pubdate="20140705201228" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-logging/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="112">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-				<metadata-artifact status="no" details="" size="11508" time="0" location="/home/cybex/.ivy2/cache/commons-logging/commons-logging/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom"/>
-=======
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="11623" time="0" location="/home/cybex/.ivy2/cache/commons-logging/commons-logging/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom"/>
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="4.5.3"/>
 				<caller organisation="org.seleniumhq.selenium" name="selenium-remote-driver" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="3.4.0"/>
 				<caller organisation="org.seleniumhq.selenium" name="selenium-firefox-driver" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="3.4.0"/>
@@ -1187,11 +1078,7 @@
 			</revision>
 		</module>
 		<module organisation="com.typesafe.play" name="play-guice_2.12">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="2.6.1" status="release" pubdate="20170707013349" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="99">
-=======
 			<revision name="2.6.1" status="release" pubdate="20170707013349" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://playframework.com" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="91">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
 				<metadata-artifact status="no" details="" size="3598" time="0" location="/home/cybex/.ivy2/cache/com.typesafe.play/play-guice_2.12/ivy-2.6.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/play-guice_2.12/2.6.1/play-guice_2.12-2.6.1.pom"/>
 				<caller organisation="com.intelligents" name="eatalot_2.12" conf="test, compile, runtime" rev="2.6.1" rev-constraint-default="2.6.1" rev-constraint-dynamic="2.6.1" callerrev="1.0-SNAPSHOT"/>
@@ -1204,11 +1091,7 @@
 			</revision>
 		</module>
 		<module organisation="com.google.inject.extensions" name="guice-assistedinject">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-			<revision name="4.1.0" status="release" pubdate="20160617215329" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="101">
-=======
 			<revision name="4.1.0" status="release" pubdate="20160617215329" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="94">
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="5305" time="0" location="/home/cybex/.ivy2/cache/com.google.inject.extensions/guice-assistedinject/ivy-4.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/inject/extensions/guice-assistedinject/4.1.0/guice-assistedinject-4.1.0.pom"/>
 				<caller organisation="com.typesafe.play" name="play-guice_2.12" conf="default, compile, runtime, master" rev="4.1.0" rev-constraint-default="4.1.0" rev-constraint-dynamic="4.1.0" callerrev="2.6.1"/>
@@ -1973,12 +1856,8 @@
 		</module>
 		<module organisation="commons-io" name="commons-io">
 			<revision name="2.5" status="release" pubdate="20160422165236" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-io/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="116">
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-test.xml
-				<metadata-artifact status="no" details="" size="11354" time="0" location="/home/cybex/.ivy2/cache/commons-io/commons-io/ivy-2.5.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.pom"/>
-=======
 				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="11588" time="0" location="/home/cybex/.ivy2/cache/commons-io/commons-io/ivy-2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-io/commons-io/2.5/commons-io-2.5.pom"/>
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml
 				<caller organisation="net.sourceforge.htmlunit" name="htmlunit" conf="compile, runtime" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="2.27"/>
 				<caller organisation="org.fluentlenium" name="fluentlenium-core" conf="compile, runtime" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="3.2.0"/>
 				<artifacts>

@@ -1,11 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-<<<<<<< HEAD
-// @DATE:Sat Sep 02 14:47:31 SAST 2017
-=======
-// @DATE:Mon Oct 16 01:08:43 SAST 2017
->>>>>>> Customer-Management-Dev
+// @DATE:Tue Oct 17 20:48:49 SAST 2017
 
 import play.api.mvc.Call
 
@@ -13,23 +9,17 @@ import play.api.mvc.Call
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-<<<<<<< HEAD
-// @LINE:83
-package controllers {
-
-  // @LINE:85
-=======
 // @LINE:143
 package controllers {
 
-  // @LINE:182
+  // @LINE:191
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:182
+    // @LINE:191
     def versioned(file:Asset): Call = {
       implicit val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -37,14 +27,14 @@ package controllers {
   
   }
 
-  // @LINE:176
+  // @LINE:185
   class ReverseCountController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:176
+    // @LINE:185
     def count(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "count")
@@ -52,19 +42,14 @@ package controllers {
   
   }
 
-  // @LINE:179
->>>>>>> Customer-Management-Dev
+  // @LINE:188
   class ReverseAsyncController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-<<<<<<< HEAD
-    // @LINE:85
-=======
-    // @LINE:179
->>>>>>> Customer-Management-Dev
+    // @LINE:188
     def message(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "message")
@@ -72,24 +57,13 @@ package controllers {
   
   }
 
-<<<<<<< HEAD
-  // @LINE:88
-  class ReverseAssets(_prefix: => String) {
-=======
   // @LINE:143
   class ReverseOrderController(_prefix: => String) {
->>>>>>> Customer-Management-Dev
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-<<<<<<< HEAD
-    // @LINE:88
-    def versioned(file:Asset): Call = {
-      implicit val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public")))
-      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
-=======
     // @LINE:163
     def submitCart(): Call = {
       
@@ -136,30 +110,19 @@ package controllers {
     def getCart(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cart")
->>>>>>> Customer-Management-Dev
     }
   
   }
 
-<<<<<<< HEAD
-  // @LINE:83
-  class ReverseCountController(_prefix: => String) {
-=======
   // @LINE:147
   class ReverseAccountController(_prefix: => String) {
->>>>>>> Customer-Management-Dev
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-<<<<<<< HEAD
-    // @LINE:83
-    def count(): Call = {
-=======
     // @LINE:155
     def doLogin(): Call = {
->>>>>>> Customer-Management-Dev
       
       Call("GET", _prefix + { _defaultPrefix } + "dologin")
     }

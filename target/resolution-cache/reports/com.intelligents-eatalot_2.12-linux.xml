@@ -7,11 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="linux"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-<<<<<<< HEAD:target/resolution-cache/reports/net.ddns.intelligents-eatalot_2.12-linux.xml
-		date="20170919093921"/>
-=======
-		date="20171014130114"/>
->>>>>>> Customer-Management-Dev:target/resolution-cache/reports/com.intelligents-eatalot_2.12-linux.xml
+		date="20171017204632"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>

@@ -30,18 +30,12 @@ create table customer (
   token                         varchar(255),
   is_student                    tinyint(1) default 0,
   email_verified                tinyint(1) default 0,
-<<<<<<< HEAD
-  token                         varchar(255),
-  is_complete                   tinyint(1) default 0 not null,
-  balance                       double,
-=======
   is_complete                   tinyint(1) default 0 not null,
   balance                       double,
   address_address_id            varchar(255),
   order_schedule_order_sched_id varchar(255),
   constraint uq_customer_address_address_id unique (address_address_id),
   constraint uq_customer_order_schedule_order_sched_id unique (order_schedule_order_sched_id),
->>>>>>> Customer-Management-Dev
   constraint pk_customer primary key (user_id)
 );
 
@@ -113,12 +107,6 @@ create table queue_type (
   constraint pk_queue_type primary key (type_id)
 );
 
-<<<<<<< HEAD
-create table redeemed_vouchers (
-  voucher_code                  bigint auto_increment not null,
-  voucher_id                    varchar(255),
-  user_id                       bigint,
-=======
 create table recipe (
   recipe_id                     varchar(255) not null,
   num_people_serves             integer not null,
@@ -137,7 +125,6 @@ create table redeemed_vouchers (
   voucher_code                  varchar(255) not null,
   voucher_id                    varchar(255),
   user_id                       varchar(255),
->>>>>>> Customer-Management-Dev
   redeemed_on                   datetime(6),
   constraint pk_redeemed_vouchers primary key (voucher_code)
 );
@@ -155,10 +142,6 @@ create table staff (
   constraint pk_staff primary key (user_id)
 );
 
-<<<<<<< HEAD
-create table voucher (
-  voucher_id                    bigint auto_increment not null,
-=======
 create table staff_order_interaction (
   staff_order_interaction_id    varchar(255) not null,
   staff_id                      varchar(255),
@@ -173,14 +156,11 @@ create table staff_order_interaction (
 
 create table voucher (
   voucher_id                    varchar(255) not null,
->>>>>>> Customer-Management-Dev
   voucher_code                  varchar(255),
   value                         double,
   constraint pk_voucher primary key (voucher_id)
 );
 
-<<<<<<< HEAD
-=======
 alter table customer add constraint fk_customer_address_address_id foreign key (address_address_id) references address (address_id) on delete restrict on update restrict;
 
 alter table customer add constraint fk_customer_order_schedule_order_sched_id foreign key (order_schedule_order_sched_id) references order_schedule (order_sched_id) on delete restrict on update restrict;
@@ -191,7 +171,6 @@ create index ix_customer_order_customer_user_id on customer_order (customer_user
 alter table payment add constraint fk_payment_customer_user_id foreign key (customer_user_id) references customer (user_id) on delete restrict on update restrict;
 create index ix_payment_customer_user_id on payment (customer_user_id);
 
->>>>>>> Customer-Management-Dev
 
 # --- !Downs
 
@@ -227,21 +206,15 @@ drop table if exists payment;
 
 drop table if exists queue_type;
 
-<<<<<<< HEAD
-=======
 drop table if exists recipe;
 
 drop table if exists recipe_ingredients;
 
->>>>>>> Customer-Management-Dev
 drop table if exists redeemed_vouchers;
 
 drop table if exists staff;
 
-<<<<<<< HEAD
-=======
 drop table if exists staff_order_interaction;
 
->>>>>>> Customer-Management-Dev
 drop table if exists voucher;
 

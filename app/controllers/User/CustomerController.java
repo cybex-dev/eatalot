@@ -58,8 +58,6 @@ public class CustomerController extends Controller implements CRUD {
     Configuration configuration;
     @Inject
     MailerClient mailerClient;
-    @Inject
-    HttpExecutionContext httpExecutionContext;
 
     @Inject
     public CustomerController(HttpExecutionContext ec) {

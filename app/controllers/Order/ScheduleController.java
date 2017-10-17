@@ -31,7 +31,6 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-@RequireCSRFCheck
 public class ScheduleController extends Controller {
 
     @Inject

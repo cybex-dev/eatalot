@@ -40,7 +40,6 @@ import static models.User.Customer.Customer.*;
  * </ul>
  */
 
-@Security.Authenticated
 public class UserController extends Controller {
 
     @Inject
@@ -53,26 +52,10 @@ public class UserController extends Controller {
      *
      * @return
      */
-    // /user
-//    @With(LoadOrRedirectToLogin.class)
     @With(RedirectToDashIfActive.class)
     @AnyAllowed
     public Result index() {
-//        AppTags.AppCookie.UserType userType = AppTags.AppCookie.UserType.parse(session().get(AppTags.AppCookie.user_type.toString()));
-//        switch (userType) {
-//            case ADMIN:
-//                return redirect(controllers.User.routes.AdminController.index());
-//            case KITCHEN:
-//                return redirect(controllers.User.routes.KitchenStaffController.index());
-//            case DELIVERY:
-//                return redirect(controllers.User.routes.DeliveryStaffController.index());
-//            case CUSTOMER:
-//                return redirect(controllers.User.routes.CustomerController.index());
-//            default: {
-//                flash().put(AppTags.FlashCodes.danger.toString(), "A redirect error occurred, please logout and login again");
         return redirect(controllers.Application.routes.HomeController.unknown());
-//            }
-//        }
     }
 
     /**

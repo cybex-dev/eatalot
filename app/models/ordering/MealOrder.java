@@ -7,10 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
-=======
 import java.util.Date;
->>>>>>> Customer-Management
 import java.util.List;
 
 /**
@@ -20,18 +17,11 @@ import java.util.List;
 public class MealOrder extends Model{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-<<<<<<< HEAD
-    private long mealOrderId;
-    private String mealId;
-    private String orderId;
-    private int orderQty;
-=======
     private String mealOrderId;
     private String mealId;
     private String orderId;
     private int orderQty;
     private Date date;
->>>>>>> Customer-Management
 
     public MealOrder() {
         this.orderQty = 0;
@@ -44,11 +34,7 @@ public class MealOrder extends Model{
         this.orderQty = 0;
     }
 
-<<<<<<< HEAD
-    private static Finder<Long, MealOrder> find = new Finder<Long, MealOrder>(MealOrder.class);
-=======
     public static Finder<String, MealOrder> find = new Finder<String, MealOrder>(MealOrder.class);
->>>>>>> Customer-Management
 
     /**
      * Check if a meal is already present in current order
@@ -104,11 +90,7 @@ public class MealOrder extends Model{
     }
 
     public long getMealOrderId(){
-<<<<<<< HEAD
-        return mealOrderId;
-=======
         return Long.parseLong(mealOrderId);
->>>>>>> Customer-Management
     }
 
     public String getMealId() {

@@ -137,3 +137,15 @@
 .title-right-margin-large {
     margin-right: 5em;
 }
+
+.btn {
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.button-small {
+    width: 70px;
+}

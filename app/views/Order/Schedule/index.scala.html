@@ -33,10 +33,6 @@
 }
 
 @generateScheduleTable = {
-    @form(action = controllers.Order.routes.ScheduleController.editScheduleName()) {
-        @CSRF.formField
-        <h1>Your Order Schedule </h1><input type="button" class="btn btn-info" value="@if(orderScheduleWeek == null){Create Schedule}else{Change Schedule Name}" onclick="@if(orderScheduleWeek == null){createSchedule()}else{changeScheduleName()}"/>@if(orderScheduleWeek != null){<input id="btnScheduleStatus" type="button" class="btn @if(orderScheduleWeek.isActive){btn-success}else{btn-danger}" onclick="setScheduleStatus(@session().get(AppTags.AppCookie.user_id.toString))" value="@if(orderScheduleWeek.isActive){Active}else{Inactive}">}
-    }
     <br/>
     <div class="panel-group" id="accordion">
         @generateDayTable("Monday", orderScheduleWeek.getMonday)<br/>
@@ -67,15 +63,19 @@
         </div>
     </div>
     <br/>
+
+}
+
+@bodyContent = {
+    @form(action = controllers.Order.routes.ScheduleController.editScheduleName()) {
+        @CSRF.formField
+        <h1>Your Order Schedule </h1><input type="button" class="btn btn-info" value="@if(orderScheduleWeek == null){Create Schedule}else{Change Schedule Name}" onclick="@if(orderScheduleWeek == null){createSchedule()}else{changeScheduleName()}"/>@if(orderScheduleWeek != null){<input id="btnScheduleStatus" type="button" class="btn button-small @if(orderScheduleWeek.isActive){btn-success}else{btn-danger}" onclick="setScheduleStatus(@session().get(AppTags.AppCookie.user_id.toString))" value="@if(orderScheduleWeek.isActive){Active}else{Inactive}">}
+    }
+    @generateScheduleTable
 @form(action = controllers.Order.routes.ScheduleController.clearSchedule(), '_class -> "pull-right") {
     @CSRF.formField
     <input type="submit" class="btn btn-danger" value="Clear Schedule">
 }
-}
-
-@bodyContent = {
-
-    @generateScheduleTable
 }
 
 

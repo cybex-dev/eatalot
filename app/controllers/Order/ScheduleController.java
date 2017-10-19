@@ -181,8 +181,8 @@ public class ScheduleController extends Controller {
         return CompletableFuture.supplyAsync(() -> {
             String userId = session().get(AppTags.AppCookie.user_id.toString());
             OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(userId);
-            boolean status = orderSchedule.isActive();
-            orderSchedule.setActive(!status);
+            boolean status = !orderSchedule.isActive();
+            orderSchedule.setActive(status);
             ObjectNode jsonNodes = Json.newObject();
             jsonNodes.put("status", status ? "true" : "false");
             return ok(jsonNodes);

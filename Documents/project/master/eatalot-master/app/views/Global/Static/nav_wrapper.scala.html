@@ -1,0 +1,260 @@
+@import Global.Html5.nav
+@import controllers.Application.AppTags
+@import controllers.Application.AppTags.AppCookie.UserType._
+@import controllers.Application.AppTags.AppCookie.user_type
+@import controllers.Application.AppTags.Session.SessionTags.{session_status, valid}
+@import helper.CSRF
+
+@(nav_extension: Html)
+
+@getUserType = @{
+    session().get(user_type.toString)
+}
+
+@buildCustomerNav = {
+    <li><a href="@controllers.User.routes.CustomerController.index()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Dashboard</a>
+    </li>
+    <li>
+        <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">
+            Menu
+            <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(0)">
+                Breakfasts</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(1)">
+                Lunches</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(2)">
+                Dinners</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
+                Desserts</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">
+                Snacks</a></li>
+        </ul>
+    </li>
+
+    <li><a href="@CSRF(controllers.Order.routes.ScheduleController.index())">View Order Schedule</a></li>
+    <li><a href="@CSRF(controllers.Finance.routes.UserFinance.addFunds())">Add Funds</a> </li>
+    <li><a href="@CSRF(controllers.User.routes.CustomerController.orderHistory())">Order History</a></li>
+    <li><a href="@CSRF(controllers.User.routes.CustomerController.paymentHistory())">Payment History</a></li>
+}
+
+@buildKitchenStaffNav = {
+    <li><a href="@controllers.User.routes.KitchenStaffController.index()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Dashboard</a>
+    </li>
+    <li><a href="@controllers.User.routes.KitchenStaffController.viewActiveOrders()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Active Orders</a>
+    </li>
+    <li><a href="@controllers.User.routes.KitchenStaffController.viewQueuedOrders()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Queued Orders</a>
+    </li>
+    <li><a href="@controllers.User.routes.KitchenStaffController.viewCompletedOrders()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Completed Orders</a>
+    </li>
+}
+
+@buildDeliveryNav = {
+    <li><a href="@controllers.User.routes.DeliveryStaffController.index()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Dashboard</a>
+    </li>
+    <li><a href="@controllers.User.routes.DeliveryStaffController.viewActiveDeliveries()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Active Deliveries</a>
+    </li>
+    <li><a href="@controllers.User.routes.DeliveryStaffController.viewWaitingDeliveries()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Waiting Deliveries</a>
+    </li>
+    <li><a href="@controllers.User.routes.DeliveryStaffController.viewCompletedDeliveries()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Completed Deliveries</a>
+    </li>
+}
+
+@buildAdminNav = {
+    <li><a href="@controllers.User.routes.CustomerController.index()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Dashboard</a>
+    </li>
+    <li><a href="@controllers.User.routes.AdminController.manageUsers()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Manage Users</a>
+    </li>
+    <li><a href="@controllers.User.routes.AdminController.manageMeals()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Manage Meals</a>
+    </li>
+    <li><a href="@controllers.User.routes.AdminController.manageDiscounts()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/navigation/nav_dash.png")"/>
+        Set Discounts</a>
+    </li>
+}
+
+@standardMenuCSSClass = {
+    "menu-top-active nav-text-enlarge"
+}
+
+@buildBasicNav = {
+    <li><a href="@controllers.Application.routes.HomeController.index()" class="@standardMenuCSSClass">
+        Home</a>
+    </li>
+    <li>
+        <a href="#" class="dropdown-toggle @standardMenuCSSClass" id="ddlmenuItem" data-toggle="dropdown">
+            Menu
+            <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(0)">
+                Breakfasts</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(1)">
+                Lunches</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(2)">
+                Dinners</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
+                Desserts</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#snacks">
+                Snacks</a></li>
+        </ul>
+    </li>
+    <li><a href="#" class="@standardMenuCSSClass">
+        Specials</a>
+    </li>
+    <li><a href="@controllers.Application.routes.HomeController.unknown()" class="@standardMenuCSSClass">
+        Contact Us</a>
+    </li>
+}
+
+@getUserNav = @{
+    if(!session().containsKey(session_status.toString)) {
+        buildBasicNav
+    } else {
+        var userType = getUserType
+        if(userType.equalsIgnoreCase(KITCHEN.toString)) {
+            buildKitchenStaffNav
+        } else if(userType.equalsIgnoreCase(DELIVERY.toString)) {
+            buildDeliveryNav
+        } else if(userType.equalsIgnoreCase(ADMIN.toString)) {
+            buildAdminNav
+        } else {
+            buildCustomerNav
+        }
+    }
+}
+
+@getUserHomeLink = @{
+    if(!session().containsKey(session_status.toString)) {
+        controllers.Application.routes.HomeController.index()
+    } else {
+        var userType = getUserType
+        if(userType.equalsIgnoreCase(CUSTOMER.toString)) {
+            controllers.User.routes.CustomerController.index()
+        } else if(userType.equalsIgnoreCase(KITCHEN.toString)) {
+            controllers.User.routes.KitchenStaffController.index()
+        } else if(userType.equalsIgnoreCase(DELIVERY.toString)) {
+            controllers.User.routes.DeliveryStaffController.index()
+        } else if(userType.equalsIgnoreCase(ADMIN.toString)) {
+            controllers.User.routes.AdminController.index()
+        } else {
+            controllers.Application.routes.HomeController.unknown()
+        }
+    }
+}
+
+@getProfileButtons = {
+@if(isLoggedIn.equalsIgnoreCase("true")) {
+    @getLogoutButton
+} else {
+    @getLoginButton
+}
+}
+
+@getLoginButton = {
+    <a href="@controllers.User.routes.UserController.login()" class="btn btn-success pull-center">
+        Login
+    </a>
+}
+
+@getLogoutButton = {
+    <a href="@controllers.User.routes.UserController.logout()" class="btn btn-danger pull-center">
+        Logout
+    </a>
+}
+
+@isLoggedIn = @{
+    if(session().containsKey(session_status.toString)) {
+        if(session().get(session_status.toString).equalsIgnoreCase(valid.toString)) {
+            "true"
+        }
+        else {
+            "false"
+        }
+    }
+    else {
+        "false"
+    }
+}
+
+@getUserSettingsLink = @{
+    if(!session().containsKey(session_status.toString)) {
+        controllers.Application.routes.HomeController.forbiddenAccess()
+    } else {
+        var userType = getUserType
+        if(userType.equalsIgnoreCase(CUSTOMER.toString)) {
+            controllers.User.routes.CustomerController.edit()
+        } else if(userType.equalsIgnoreCase(KITCHEN.toString)) {
+            controllers.User.routes.KitchenStaffController.edit()
+        } else if(userType.equalsIgnoreCase(DELIVERY.toString)) {
+            controllers.User.routes.DeliveryStaffController.edit()
+        } else if(userType.equalsIgnoreCase(ADMIN.toString)) {
+            controllers.User.routes.AdminController.edit()
+        } else {
+            controllers.Application.routes.HomeController.forbiddenAccess()
+        }
+    }
+}
+
+@getUserSideButton = {
+    <a href="@getUserSettingsLink">
+        <img class="settings-icon" src="@routes.Assets.versioned("images/navigation/settings.png")">
+    </a>
+}
+
+@getRightBlockUserInfo = {
+    <ul class="top">
+        <label class="media-heading navbar-user pull-center">
+            Welcome, @if(isLoggedIn.equalsIgnoreCase("true")) {
+            <a href="@getUserHomeLink">
+            @session().get(AppTags.Session.SessionTags.display_name.toString)
+            </a>
+            @getUserSideButton
+        } else {
+            New User
+        }
+        </label>
+    </ul>
+    <ul class="bottom text-center">
+    @getProfileButtons
+    </ul>
+}
+
+@nav_section = {
+    <section class="menu-section">
+        <a class="top app-logo" href="@getUserHomeLink">
+            <img src="@routes.Assets.versioned("images/logo.png")"/>
+        </a>
+        <div class="navbar navbar-inverse set-radius-zero">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-pull-12">
+                        <div class="navbar-collapse collapse ">
+                            <ul class="nav navbar-nav navbar-left navbar-top nav-text-enlarge">
+                            @getUserNav
+                            </ul>
+                            <ul class="right-container navbar-btn navbar-right">
+                            @getRightBlockUserInfo
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+@nav.apply("null", nav_section)

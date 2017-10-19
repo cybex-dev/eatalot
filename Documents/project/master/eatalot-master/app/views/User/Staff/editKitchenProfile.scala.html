@@ -1,0 +1,65 @@
+@import Global.Html5._
+@import Global.Static.essentials
+@import helper.CSRF
+@import models.User.UserProfile
+@import play.data.Form
+@(userProfile: Form[UserProfile])
+
+@scriptsContent = {
+}
+
+@navContent = {
+
+}
+
+@userContent = {
+    <div class="input-group">
+        @helper.form( action = controllers.User.routes.KitchenStaffController.doEdit()){
+            @CSRF.formField
+            <h2>Your information</h2>
+            <br/>
+            <div class="container input-container">
+                <h4>Your Login Information</h4>
+                @helper.inputText(userProfile("alias"), '_name -> "Login ID")
+            </div>
+            <br/>
+            <div class="container input-container">
+                <h4>Change Password</h4>
+                @helper.inputText(userProfile("password"), '_name -> "Password")
+                @helper.inputText(userProfile("confirmPassword"), '_name -> "Confirm Password")
+            </div>
+            <br/>
+            <br/>
+            <div class="container input-container">
+                <h6>Your Personal Details</h6>
+                @helper.inputPassword(userProfile("name"), '_name -> "Name")
+                @helper.inputPassword(userProfile("surname"), '_name -> "Surname")
+            </div>
+            <br/>
+            <div class="container input-container">
+                <h6>Your Contact Information</h6>
+                @helper.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")
+            </div>
+            <br/>
+            <div class="container input-container">
+                <input class="btn btn-default button-padding" type="button" onclick="location.href='@controllers.User.routes.KitchenStaffController.index()';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+            </div>
+            <br/>
+        }
+    </div>
+}
+
+@navSide = {
+    <a href="#" onclick="">Basic Information</a>
+    <a href="#">Edit Address</a>
+    <a href="#">Change Password</a>
+}
+
+@bodyContent = {
+@aside.apply("", navSide)
+
+@article.apply(userContent)
+    <script href="@controllers.User.routes.javascript.KitchenStaffController.kitchenJSRoutes" type="text/javascript"></script>
+}
+
+@essentials.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)

@@ -1,0 +1,13 @@
+@import java.util.List
+
+@import models.User.DeliveryStaff.DeliveryStaffInfo
+@import utility.DashboardButton
+@import views.html.Global.Static.dashboard
+
+@(dashButtons: List[DashboardButton], deliveryStaffInfo: DeliveryStaffInfo)
+
+@bodyContent = {
+    <h1>Delivery Page</h1>
+}
+
+@dashboard.apply(dashButtons, bodyContent)

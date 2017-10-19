@@ -1,0 +1,15 @@
+@import views.html.Global.Static.masterpage
+
+@()
+
+@bodyContent = {
+    <h2>Email has been verified</h2>
+    <br/>
+    <p>Please login to complete registration</p>
+    <br/>
+    @helper.form( action = controllers.User.routes.UserController.login()){
+        <button class="btn btn-default" type="submit">Login</button>
+    }
+}
+
+@masterpage.apply("Verified", bodyContent)

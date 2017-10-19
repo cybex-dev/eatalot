@@ -1,0 +1,98 @@
+@import Global.Static.masterpage
+@import helper.CSRF
+@import models.User.UserProfile
+@import play.data.Form
+
+@(userProfile: Form[UserProfile])
+
+@scriptsContent = {
+    <script src="@routes.Assets.versioned("javascripts/registerDetails.js")" rel="script"></script>
+}
+
+@navContent = {
+
+}
+
+@passwordContent = {
+    <br/>
+    <div class="container input-container">
+        <h4>Change Password</h4>
+        <i>(Only edit password fields if you intend to change them)</i>
+        @helper.inputPassword(userProfile("password"), '_name -> "Password")
+        @helper.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password", '_id -> "confirmPassword")
+    </div>
+    <br/>
+}
+
+@userInfoContent = {
+    <br/>
+    <div class="container input-container">
+        <h4>Your Personal Details</h4>
+        @helper.inputText(userProfile("name"), '_name -> "Name")
+        @helper.inputText(userProfile("surname"), '_name -> "Surname")
+    </div>
+    <br/>
+    <div class="container input-container">
+        <h4>Your Contact Information</h4>
+        @helper.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")
+    </div>
+    <br/>
+}
+
+@addressContent = {
+    <br/>
+    <div class="container input-container">
+        <h4>Street Address</h4>
+        @helper.inputText(userProfile("streetName"), '_name -> "Street")
+        @helper.inputText(userProfile("unitNumber"), '_name -> "House/Unit Number")
+    </div>
+    <br/>
+    <div class="container input-container">
+        <h4>Community Information</h4>
+        @helper.checkbox(userProfile("isCommunity"), '_name -> "Do you live in a complex or apartment?")
+        @helper.inputText(userProfile("communityName"), '_name -> "Name of building/complex")
+    </div>
+    <br/>
+    <div class="container input-container">
+        <input class="btn btn-default button-padding" type="button" onclick="location.href = '@controllers.User.routes.CustomerController.index()';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+    </div>
+    <br/>
+}
+
+@navTabsContent = {
+@helper.form(action = controllers.User.routes.CustomerController.update()) {
+    @CSRF.formField
+    <div class="panel-body">
+        <div class="center-parent">
+            <ul class="nav nav-pills center-child">
+                <li class="active"><a href="#userInfo" data-toggle="tab">Basic Information</a>
+                </li>
+                <li class=""><a href="#password" data-toggle="tab">Change Password</a>
+                </li>
+                <li class=""><a href="#address" data-toggle="tab">Change Address</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="userInfo">
+            @userInfoContent
+            </div>
+            <div class="tab-pane fade" id="password">
+            @passwordContent
+            </div>
+            <div class="tab-pane fade" id="address">
+            @addressContent
+            </div>
+        </div>
+    </div>
+
+}
+}
+
+@bodyContent = {
+    <h2 class="center-parent">Profile Information</h2>
+@navTabsContent
+}
+
+@masterpage.apply(" :: Edit Profile", bodyContent)

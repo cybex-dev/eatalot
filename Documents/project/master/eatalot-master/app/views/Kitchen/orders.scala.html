@@ -1,0 +1,27 @@
+@import java.util.List
+
+@import helper.{CSRF, form}
+@import models.Order.CustomerOrder
+@(list: List[CustomerOrder])
+
+<html>
+    @if(list.isEmpty){
+        <p><i>dust</i></p>
+    }else{
+        <table>
+            <tr>
+                <td>Order Number</td>
+                <td>Status</td>
+            </tr>
+            @for(x <- 0 until list.size()){
+                @form(CSRF(controllers.Order.routes.KitchenController.getMealOrderPage(list.get(x).getOrderId().toString))) {
+                    <tr>
+                        <td>@list.get(x).getOrderId</td>
+                        <td>@list.get(x).getStatusId</td>
+                        <td><button type="submit" value="viewOrder">View Order</button></td>
+                    </tr>
+                }
+            }
+        </table>
+    }
+</html>

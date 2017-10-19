@@ -1,0 +1,22 @@
+@import java.util.List
+
+@import models.Order.{Meal, MealOrder}
+@import utility.Pair
+@(list: List[Pair[MealOrder, Meal]])
+
+<html>
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Cost</td>
+        </tr>
+        @for(x <- 0 until list.size()){
+            <tr>
+                <td>@list.get(x).getObject2().getDescription()</td>
+                <td>@list.get(x).getObject1().getOrderQty()</td>
+                <td>@list.get(x).getObject2().getCost()</td>
+            </tr>
+        }
+    </table>
+</html>

@@ -1,0 +1,52 @@
+@import helper._
+@import models.User.UserProfile
+@import play.data.Form
+@import views.html.Global.Static.essentials
+
+@(userProfile: Form[UserProfile])
+
+@navContent = {
+
+}
+
+@bodyContent = {
+    @helper.form(action = controllers.User.routes.CustomerController.doCompleteRegistration()) {
+        <h1>Complete registration</h1>
+        <br/>
+        <div class="container input-container">
+            <h3>About you</h3>
+            @CSRF.formField
+            <div class="input-group input-container">
+                @helper.inputText(userProfile("name"), '_name -> "Name")
+                @helper.inputText(userProfile("surname"), '_name -> "Surname")
+            </div>
+            <br/>
+            <br/>
+            <h3>Contact Info</h3>
+            <div class="input-group input-container">
+            @helper.inputText(userProfile("cellNumber"), '_name -> "Mobile Number")
+            </div>
+            <br/>
+            <br/>
+            <h3>Address</h3>
+            <div class="input-group input-container">
+                @helper.inputText(userProfile("streetName"), '_name -> "Street Name")
+                @helper.inputText(userProfile("unitNumber"), '_name -> "Street/Communal Number")
+                <br/>
+                @helper.checkbox(userProfile("isCommunity"), '_name -> "Reside in an apartment/complex", '_id -> "chkComm")
+                @helper.inputText(userProfile("communityName"), '_name -> "Community Name", '_id -> "commName")
+                <input type="submit" class="btn btn-default" value="Complete Registration">
+            </div>
+        </div>
+        <br/>
+        <p class="small">NOTE: all information is kept confidential</p>
+    }
+
+}
+
+@scriptsContent = {
+    <script src="@routes.Assets.versioned("javascripts/registerDetails.js")" rel="script"></script>
+}
+
+
+@essentials.apply(" :: User Details", navContent, bodyContent, scriptsContent)

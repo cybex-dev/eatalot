@@ -1,0 +1,96 @@
+@import helper.{CSRF, form}
+@import models.Order.CustomerOrder
+@import models.User.Customer.Customer
+
+@(order: CustomerOrder, customer: Customer)
+
+<html>
+    <body>
+        @form(CSRF(controllers.Order.routes.OrderController.submitCart())) {
+            <table>
+                <tr>
+                    <td>Cost:</td>
+                    <td>R @order.getPaymentObject().getAmount()</td>
+                </tr>
+                <tr>
+                    @if(customer.isStudent){
+                        <td>Discount:</td>
+                        <td>%15.00</td>
+                    }else{
+                        <td>Discount:</td>
+                        <td>%0.00</td>
+                    }
+                </tr>
+                <tr>
+                    @if(customer.isStudent){
+                        <td>Total Cost:</td>
+                        <td>R @(order.getPaymentObject().getAmount()- order.getPaymentObject().getAmount() * 0.15)</td>
+                    }else{
+                        <td>Total Cost:</td>
+                        <td>R @order.getPaymentObject().getAmount()</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Select Payment Option:</td>
+
+                    @*TODO: Integrate Customer to Order, Customer object needed to check balance.*@
+                    @if(customer.getBalanceNumeric >= order.getPaymentObject.getAmount){
+                        <td>
+                            <label for="credit"></label>
+                            <input id="credit" type="radio" name="payment" value="credit">
+                        </td>
+                    }else{
+                        <td>
+                            <p>Insufficient balance for credit payment.</p>
+                        </td>
+                    }
+                    @*<td>*@
+                        @*TODO: REMOVE once Customer is integrated*@
+                        @*<label for="credit">Credit</label>*@
+                        @*<input id="credit" type="radio" name="payment" value="credit">*@
+                    @*</td>*@
+                    <td>
+                        <label for="cash">Cash</label>
+                        <input id="cash" type="radio" name="payment" value="cash"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select data and time for delivery:</td>
+                    <td>
+                        @*TIME INPUT DEPENDS ON BROWSER SUPPORT, IT NEEDS TO PROVIDE A TIME HELPER*@
+                        @*SAFARI WORKS*@
+                        @*OUTPUTS - YYYY/MM/DD*@
+                        <label for="date">Date:</label>
+                        <input id="date" type="date" name="date"/>
+                    </td>
+                    <td>
+                        <label for="time">Time:</label>
+                        <input id="time" type="time" name="time"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            @*TODO: fix*@
+                            Once you click submit,<br>
+                            your order status will<br>
+                            change to "Pending" where it<br>
+                            awaits approval of our staff.<br>
+                            Once approved it will enter<br>
+                            the "Processing" stage then<br>
+                            into "Delivering".<br>
+                            You will be notified of these<br>
+                            status changes and can check<br>
+                            up on them at any time.
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        }
+    </body>
+</html>

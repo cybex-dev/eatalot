@@ -1,0 +1,151 @@
+.someClass{
+    font-size: 1em;
+}
+
+#someId{
+    font-style: italic;
+}
+
+.body{
+    padding: 15px;
+}
+
+.center-parent{
+    text-align:center;
+    width:80%;
+    margin: 0 auto;
+}
+
+.small-margin {
+    margin: 10px;
+}
+
+.small-indent {
+    margin-left: 5%;
+}
+
+.auto-margin {
+    margin: 0 auto;
+}
+
+.center-parent-small{
+    text-align:center;
+    width:40%;
+    margin: 0 auto;
+}
+
+.center-child {
+    display:inline-block;
+    margin: 0 auto;
+}
+
+.single-border {
+    border: 1px solid black;
+}
+
+.app-logo {
+    padding: 20px;
+}
+
+.footer .navbar{
+    background-color: #222;
+}
+
+.footer-left .footer {
+    float: left;
+}
+
+.footer-brand {
+    float: left;
+    font-style: italic;
+    font-size: 0.8em;
+    color: #777;
+    padding-top: 10px;
+}
+
+.navbar-user {
+    color: #fff;
+}
+
+.navbar-top {
+    padding-top: 10px;
+}
+
+.pull-center {
+    float: none;
+    text-align: center;
+}
+
+.pull-center .align-center{
+    display: inline-block;
+}
+
+.container-small{
+    padding-right: 30%;
+    padding-left: 30%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-large-bold {
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.nav-text-enlarge {
+    font-size:18px;
+}
+
+.input-container {
+    background-color: lightgray;
+}
+
+.settings-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.button-padding {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.div-button-hover:hover a {
+    opacity:.60;
+    text-decoration: none;
+}
+.div-button-hover a{
+    opacity:1;
+    text-decoration: none;
+    text-align: center;
+}
+
+.div-button-hover div{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+.div-button-hover a:visited {
+    text-decoration: none;
+}
+
+.title-right-margin-large {
+    margin-right: 5em;
+}
+
+.btn {
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.button-small {
+    width: 70px;
+}

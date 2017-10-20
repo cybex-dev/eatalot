@@ -502,7 +502,9 @@ public class CustomerController extends Controller implements CRUD {
     public Result customerJSRoutes() {
         return ok(
                 JavaScriptReverseRouter.create(Routes.CustomerJSRoutes.toString(),
-                        routes.javascript.CustomerController.getCustomerDashUpdate()
+                        routes.javascript.CustomerController.getCustomerDashUpdate(),
+                        routes.javascript.CustomerController.orderHistory(),
+                        routes.javascript.CustomerController.paymentHistory()
                 )
         ).as("text/javascript");
     }

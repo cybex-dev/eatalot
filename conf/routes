@@ -57,6 +57,7 @@ GET         /User/Schedule/New                      controllers.Order.ScheduleCo
 GET         /User/Schedule/AddOrder                 controllers.Order.ScheduleController.addOrder()
 GET         /User/Schedule/Edit                     controllers.Order.ScheduleController.editScheduleName()
 
++nocsrf
 POST        /User/Schedule/Delete/:orderId          controllers.Order.ScheduleController.removeOrder(orderId: String)
 +nocsrf
 POST        /User/Schedule/ChangeState              controllers.Order.ScheduleController.setScheduleState()
@@ -141,7 +142,6 @@ POST        /User/AddFunds                          controllers.Finance.UserFina
 # Order - Management Package
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
 
 GET     /menu                   controllers.Order.OrderController.getMenu()
 
@@ -199,26 +199,27 @@ POST    /kitchen/customerorders/mealorder controllers.Order.KitchenController.ge
 
 POST    /kitchen/customerorders/mealorder/update    controllers.Order.KitchenController.updateOrderStatus(orderId: String)
 
-GET     /*path                            controllers.Application.HomeController.invalidRoute(path: String)
 ##############################################################################
+
 # Javascript Routing
+
 #GET        /assets/javascripts/routes               controllers.Order.ScheduleController.javascriptRoutes()
 +nocsrf
 GET         /assets/javascripts/scheduleJSRoutes    controllers.Order.ScheduleController.scheduleJSRoutes()
++nocsrf
 GET         /assets/javascripts/customerJSRoutes    controllers.User.CustomerController.customerJSRoutes()
++nocsrf
 GET         /assets/javascripts/adminJSRoutes       controllers.User.AdminController.adminJSRoutes()
++nocsrf
 GET         /assets/javascripts/deliveryJSRoutes    controllers.User.DeliveryStaffController.deliveryJSRoutes()
++nocsrf
 GET         /assets/javascripts/kitchenJSRoutes     controllers.User.KitchenStaffController.kitchenJSRoutes()
 
-# Finance Controller
-
-GET         /User/AddFunds                       controllers.Finance.UserFinance.addFunds()
-POST        /User/AddFunds                       controllers.Finance.UserFinance.doAddFunds()
-
 ##############################################################################
 
 ##############################################################################
 
+# Asset Routes
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file                           controllers.Assets.versioned(path="/public", file: Asset)
@@ -231,5 +232,11 @@ GET         /assets/History/*file                   controllers.Assets.versioned
 
 #GET         /assets/fonts/*file                     controllers.Assets.versioned(path="/public/fonts",file: Asset)
 
-# Default path if not found
+##############################################################################
 
+##############################################################################
+
+# Default path if not found
+GET         /*path                                  controllers.Application.HomeController.invalidRoute(path: String)
+
+##############################################################################

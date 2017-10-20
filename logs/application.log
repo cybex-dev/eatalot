@@ -1,143 +1,39 @@
-2017-10-18 00:04:13,403 [INFO] from application in scala-execution-context-global-68 - Creating Pool for datasource 'default'
-2017-10-18 00:04:28,901 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-68 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
-2017-10-18 00:04:30,520 [ERROR] from org.jdbcdslog.StatementLogger in scala-execution-context-global-68 - java.sql.Statement.executeQuery: select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%';
-throws exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'eatalotdb.play_evolutions' doesn't exist
-com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'eatalotdb.play_evolutions' doesn't exist
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
-	at com.mysql.jdbc.Util.getInstance(Util.java:408)
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2483)
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2441)
-	at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1381)
-	at com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:108)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.executeQuery(HikariProxyStatement.java)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.jdbcdslog.StatementLoggingHandler.invoke(StatementLoggingHandler.java:27)
-	at com.sun.proxy.$Proxy32.executeQuery(Unknown Source)
-	at play.api.db.evolutions.DatabaseEvolutions.executeQuery(EvolutionsApi.scala:313)
-	at play.api.db.evolutions.DatabaseEvolutions.checkEvolutionsState(EvolutionsApi.scala:268)
-	at play.api.db.evolutions.DatabaseEvolutions.databaseEvolutions(EvolutionsApi.scala:135)
-	at play.api.db.evolutions.DatabaseEvolutions.scripts(EvolutionsApi.scala:110)
-	at play.api.db.evolutions.DatabaseEvolutions.scripts(EvolutionsApi.scala:125)
-	at play.api.db.evolutions.DefaultEvolutionsApi.scripts(EvolutionsApi.scala:90)
-	at play.api.db.evolutions.ApplicationEvolutions.$anonfun$runEvolutions$1(ApplicationEvolutions.scala:53)
-	at play.api.db.evolutions.ApplicationEvolutions.withLock(ApplicationEvolutions.scala:100)
-	at play.api.db.evolutions.ApplicationEvolutions.runEvolutions(ApplicationEvolutions.scala:49)
-	at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1(ApplicationEvolutions.scala:42)
-	at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1$adapted(ApplicationEvolutions.scala:42)
-	at scala.collection.immutable.List.foreach(List.scala:389)
-	at play.api.db.evolutions.ApplicationEvolutions.start(ApplicationEvolutions.scala:42)
-	at play.api.db.evolutions.ApplicationEvolutions.<init>(ApplicationEvolutions.scala:151)
-	at play.api.db.evolutions.ApplicationEvolutionsProvider.get$lzycompute(EvolutionsModule.scala:50)
-	at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:49)
-	at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:40)
-	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
-	at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:72)
-	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:61)
-	at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:62)
-	at com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(ProviderToInternalFactoryAdapter.java:46)
-	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)
-	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
-	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:194)
-	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:41)
-	at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:205)
-	at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:199)
-	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1085)
-	at com.google.inject.internal.InternalInjectorCreator.loadEagerSingletons(InternalInjectorCreator.java:199)
-	at com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:180)
-	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
-	at com.google.inject.Guice.createInjector(Guice.java:99)
-	at com.google.inject.Guice.createInjector(Guice.java:84)
-	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:185)
-	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:137)
-	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$6(DevServerStart.scala:171)
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$3(DevServerStart.scala:168)
-	at scala.Option.map(Option.scala:146)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$2(DevServerStart.scala:133)
-	at scala.util.Success.flatMap(Try.scala:247)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:131)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
-2017-10-18 00:04:31,543 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-8 - 
-
-! @75kcie6cg - Internal server error, for (GET) [/User/Dashboard] ->
- 
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.ApplicationEvolutions.$anonfun$runEvolutions$1(ApplicationEvolutions.scala:78)
-	at play.api.db.evolutions.ApplicationEvolutions.withLock(ApplicationEvolutions.scala:100)
-	at play.api.db.evolutions.ApplicationEvolutions.runEvolutions(ApplicationEvolutions.scala:49)
-	at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1(ApplicationEvolutions.scala:42)
-	at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1$adapted(ApplicationEvolutions.scala:42)
-	at scala.collection.immutable.List.foreach(List.scala:389)
-	at play.api.db.evolutions.ApplicationEvolutions.start(ApplicationEvolutions.scala:42)
-	at play.api.db.evolutions.ApplicationEvolutions.<init>(ApplicationEvolutions.scala:151)
-	at play.api.db.evolutions.ApplicationEvolutionsProvider.get$lzycompute(EvolutionsModule.scala:50)
-	at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:49)
-	at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:40)
-	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)
-	at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:72)
-	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:61)
-	at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:62)
-	at com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(ProviderToInternalFactoryAdapter.java:46)
-	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)
-	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
-	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:194)
-	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:41)
-	at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:205)
-	at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:199)
-	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1085)
-	at com.google.inject.internal.InternalInjectorCreator.loadEagerSingletons(InternalInjectorCreator.java:199)
-	at com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:180)
-	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)
-	at com.google.inject.Guice.createInjector(Guice.java:99)
-	at com.google.inject.Guice.createInjector(Guice.java:84)
-	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:185)
-	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:137)
-	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$6(DevServerStart.scala:171)
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$3(DevServerStart.scala:168)
-	at scala.Option.map(Option.scala:146)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$2(DevServerStart.scala:133)
-	at scala.util.Success.flatMap(Try.scala:247)
-	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:131)
-	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
-	at scala.util.Success.$anonfun$map$1(Try.scala:251)
-	at scala.util.Success.map(Try.scala:209)
-	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
-	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
-	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
-	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
-	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
-	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
-	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
-2017-10-18 00:04:50,650 [INFO] from application in scala-execution-context-global-99 - Shutting down connection pool.
-2017-10-18 00:04:51,088 [INFO] from application in scala-execution-context-global-99 - Creating Pool for datasource 'default'
-2017-10-18 00:04:51,127 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-99 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
-2017-10-18 00:04:52,646 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-99 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2017-10-18 00:04:53,131 [INFO] from play.api.Play in scala-execution-context-global-99 - Application started (Dev)
+2017-10-20 18:19:55,754 [INFO] from application in scala-execution-context-global-62 - Creating Pool for datasource 'default'
+2017-10-20 18:19:56,722 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-62 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:19:59,065 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-62 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:19:59,491 [INFO] from play.api.Play in scala-execution-context-global-62 - Application started (Dev)
+2017-10-20 18:22:20,755 [INFO] from application in scala-execution-context-global-109 - Shutting down connection pool.
+2017-10-20 18:22:21,564 [INFO] from application in scala-execution-context-global-109 - Creating Pool for datasource 'default'
+2017-10-20 18:22:21,589 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-109 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:22:23,755 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-109 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:22:23,934 [INFO] from play.api.Play in scala-execution-context-global-109 - Application started (Dev)
+2017-10-20 18:23:39,238 [INFO] from application in scala-execution-context-global-166 - Shutting down connection pool.
+2017-10-20 18:23:39,747 [INFO] from application in scala-execution-context-global-166 - Creating Pool for datasource 'default'
+2017-10-20 18:23:39,770 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-166 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:23:43,157 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-166 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:23:43,281 [INFO] from play.api.Play in scala-execution-context-global-166 - Application started (Dev)
+2017-10-20 18:24:08,252 [INFO] from application in scala-execution-context-global-226 - Shutting down connection pool.
+2017-10-20 18:24:08,479 [INFO] from application in scala-execution-context-global-226 - Creating Pool for datasource 'default'
+2017-10-20 18:24:08,490 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-226 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:24:08,886 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-226 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:24:09,049 [INFO] from play.api.Play in scala-execution-context-global-226 - Application started (Dev)
+2017-10-20 18:24:33,271 [INFO] from application in scala-execution-context-global-280 - Shutting down connection pool.
+2017-10-20 18:24:33,985 [INFO] from application in scala-execution-context-global-280 - Creating Pool for datasource 'default'
+2017-10-20 18:24:33,994 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-280 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:24:34,349 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-280 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:24:34,459 [INFO] from play.api.Play in scala-execution-context-global-280 - Application started (Dev)
+2017-10-20 18:31:36,308 [INFO] from application in scala-execution-context-global-359 - Shutting down connection pool.
+2017-10-20 18:31:36,601 [INFO] from application in scala-execution-context-global-359 - Creating Pool for datasource 'default'
+2017-10-20 18:31:36,625 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-359 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:31:42,727 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-359 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:31:42,794 [INFO] from play.api.Play in scala-execution-context-global-359 - Application started (Dev)
+2017-10-20 18:35:15,702 [INFO] from application in scala-execution-context-global-455 - Shutting down connection pool.
+2017-10-20 18:35:16,072 [INFO] from application in scala-execution-context-global-455 - Creating Pool for datasource 'default'
+2017-10-20 18:35:16,108 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-455 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:35:23,123 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-455 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:35:23,194 [INFO] from play.api.Play in scala-execution-context-global-455 - Application started (Dev)
+2017-10-20 18:36:51,966 [INFO] from application in scala-execution-context-global-539 - Shutting down connection pool.
+2017-10-20 18:36:52,409 [INFO] from application in scala-execution-context-global-539 - Creating Pool for datasource 'default'
+2017-10-20 18:36:52,422 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-539 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-20 18:37:12,952 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-539 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-20 18:37:13,049 [INFO] from play.api.Play in scala-execution-context-global-539 - Application started (Dev)

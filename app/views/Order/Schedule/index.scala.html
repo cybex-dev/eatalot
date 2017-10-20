@@ -3,19 +3,36 @@
 @import helper.{CSRF, form}
 @import models.Order.{CustomerOrderItem, OrderScheduleDays}
 
-@(orderScheduleWeek: OrderScheduleDays)
+@(scheduleName: String, orderScheduleWeek: OrderScheduleDays)
 
 @generateDayTable(dayName: String, dayOrderList: List[CustomerOrderItem]) = {
+
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#@dayName" class="collapsed">@dayName</a>
-            </h4>
+        <div class="panel-heading schedule-week">
+            <a data-toggle="collapse" data-parent="#accordion" href="#@dayName" class="collapsed">
+                <div>
+                    <div class="row">
+                        <div class="pull-left margin-left-small">
+                            <h2 class="panel-title larger-text schedule-text @if(dayOrderList.size() > 0) {schedule-day-bold}">
+                            @dayName
+                            </h2>
+                            <h5 class="schedule-text margin-left-small">
+                            @if(dayOrderList.size() == 0) {
+                                No orders
+                            } else {
+                                @dayOrderList.size orders
+                            }
+                            </h5>
+                        </div>
+                    </div>
+
+                </div>
+            </a>
         </div>
         <div id="@dayName" class="panel-collapse collapse" style="height: 0px;">
-           <div class="panel-body">
+            <div class="panel-body">
             @if(dayOrderList.size() == 0) {
-                    <p class="tab">No scheduled orders</p>
+                <p class="tab">No scheduled orders</p>
             } else {
 
                 @for((item, index) <- dayOrderList.zipWithIndex) {
@@ -23,59 +40,88 @@
                         <td class="sorting_1"><a href="@controllers.User.routes.CustomerController.viewOrder(item.orderId)">@item.orderId</a></td>
                         <td class=" ">@AppTags.Locale.Currency.ZAR.toString @item.amount</td>
                         <td class=" ">@item.getTime</td>
-                        <td class=" "><button class="btn btn-danger" href="@CSRF(controllers.Order.routes.ScheduleController.removeOrder(item.orderId))">Remove</button></td>
+                        <td class=" "><button class="btn btn-danger" onclick="removeScheduleOrder(item.orderId)">Remove</button></td>
                     </tr>
                 }
             }
-        </div>
+            </div>
         </div>
     </div>
 }
 
 @generateScheduleTable = {
+@if(orderScheduleWeek != null) {
+    <button onclick="addOrder()" type="button" class="btn btn-success add-button text-bold">
+        Add Order<img class="small-icon invert align-button-contents" src="@routes.Assets.versioned("images/icons/add.png")">
+    </button>
     <br/>
+    <br/>
+}
     <div class="panel-group" id="accordion">
-        @generateDayTable("Monday", orderScheduleWeek.getMonday)<br/>
-        @generateDayTable("Tuesday", orderScheduleWeek.getTuesday)<br/>
-        @generateDayTable("Wednesday", orderScheduleWeek.getWednesday)<br/>
-        @generateDayTable("Thursday", orderScheduleWeek.getThursday)<br/>
-        @generateDayTable("Friday", orderScheduleWeek.getFriday)<br/>
-        @generateDayTable("Saturday", orderScheduleWeek.getSaturday)<br/>
-        @generateDayTable("Sunday", orderScheduleWeek.getSunday)<br/>
+        @generateDayTable("Monday", orderScheduleWeek.getMonday) <br/>
+        @generateDayTable("Tuesday", orderScheduleWeek.getTuesday) <br/>
+        @generateDayTable("Wednesday", orderScheduleWeek.getWednesday) <br/>
+        @generateDayTable("Thursday", orderScheduleWeek.getThursday) <br/>
+        @generateDayTable("Friday", orderScheduleWeek.getFriday) <br/>
+        @generateDayTable("Saturday", orderScheduleWeek.getSaturday) <br/>
+        @generateDayTable("Sunday", orderScheduleWeek.getSunday) <br/>
         <br/>
-        @form(action = controllers.Order.routes.ScheduleController.addOrder(), '_class -> "pull-right") {
-            @CSRF.formField
-            <input type="submit" class="btn btn-success" value="Add Order (TODO)">
-            }
-        <br/>
-        <br/>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#Monday" class="">Collapsible Group Item #1</a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" style="">
-                <div class="panel-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>
+        <div class="col-md-12">
+            <div class="pull-right">
+                <input type="button" class="btn btn-danger " onclick="clearSchedule()" value="Clear Schedule">
             </div>
         </div>
+        <br/>
+        <br/>
     </div>
-    <br/>
+}
 
+@getHeader = {
+    <div class="col-lg">
+        <div class="pull-center">
+            <div class="row-width-center">
+            @if(orderScheduleWeek == null) {
+                <div class="display-inline">
+                    <h1 class="float-left">Your Order Schedule</h1>
+                </div>
+                <br/>
+                <input class="btn btn-info margin-left-small" type="button" onclick="createSchedule()" value="Create Order Schedule"/>
+            } else {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-left">
+                            <h1 class="small-margin"><span class="underline">Schedule:</span> @scheduleName
+                                <a href="#edit" onclick="changeScheduleName()">
+                                    <img id="editScheduleName" class="schedule-heading small-image" src="@routes.Assets.versioned("images/icons/edit.png")">
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="pull-right margin-left-small">
+                            <h4 class="text-bold">Schedule Status: <input type="button" class="btn button-status @if(orderScheduleWeek.isActive) {btn-success} else {btn-danger}" onclick="setScheduleStatus()" id="btnScheduleStatus" value="@if(orderScheduleWeek.isActive) {Active} else {Inactive}"></h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br/>
+        }
+    </div>
+    </div>
+    </div>
 }
 
 @bodyContent = {
-    @form(action = controllers.Order.routes.ScheduleController.editScheduleName()) {
-        @CSRF.formField
-        <h1>Your Order Schedule </h1><input type="button" class="btn btn-info" value="@if(orderScheduleWeek == null){Create Schedule}else{Change Schedule Name}" onclick="@if(orderScheduleWeek == null){createSchedule()}else{changeScheduleName()}"/>@if(orderScheduleWeek != null){<input id="btnScheduleStatus" type="button" class="btn button-small @if(orderScheduleWeek.isActive){btn-success}else{btn-danger}" onclick="setScheduleStatus(@session().get(AppTags.AppCookie.user_id.toString))" value="@if(orderScheduleWeek.isActive){Active}else{Inactive}">}
+
+@getHeader
+    <div class="row-width-center">
+    @if(orderScheduleWeek != null) {
+        @generateScheduleTable
+    } else {
+        <br/>
+        <h6 >No order schedule</h6>
     }
-    @generateScheduleTable
-@form(action = controllers.Order.routes.ScheduleController.clearSchedule(), '_class -> "pull-right") {
-    @CSRF.formField
-    <input type="submit" class="btn btn-danger" value="Clear Schedule">
-}
+    </div>
 }
 
 

@@ -7,8 +7,10 @@
 @(dashButtons: List[DashboardButton], bodyContent: Html)
 
     @generateDashButton(dashboardButton: DashboardButton, index: Integer) = {
+    @helper.form(action = dashboardButton.link) {
         <div class="col-md-3 col-sm-3 col-xs-6 div-button-hover" id="dashButton@index">
-            <a href="@CSRF(dashboardButton.link)">
+            <a>
+                @CSRF.formField
                 <div class="alert @dashboardButton.cssClassButtonColour back-widget-set text-center">
                     <i class="fa @dashboardButton.cssClassMainImage fa-5x"></i>
                     <h3>@dashboardButton.largeText
@@ -18,28 +20,31 @@
             </a>
         </div>
     }
+    }
 
     @bodyContent = {
-        <div class="container row">
-        @for((button, index) <- dashButtons.zipWithIndex) {
-            @generateDashButton(button, index)
-        }
+        <div class="row">
+            <div class="container-dashboard center-parent">
+            @for((button, index) <- dashButtons.zipWithIndex) {
+                @generateDashButton(button, index)
+            }
+            </div>
         </div>
         <script type="text/javascript">
-                var link = null, s = "";
+                var link = null,
                 s = "@session().get(user_type.toString)";
                 switch (s) {
                     case "CUSTOMER":
-                        link = customerJSRoutes.controllers.User.CustomerController.getCustomerDashUpdate();
+                        link = CustomerJSRoutes.controllers.User.CustomerController.getCustomerDashUpdate();
                         break;
                     case "ADMIN":
-                        link = adminJSRoutes.controllers.User.AdminController.getAdminDashUpdate();
+                        link = AdminJSRoutes.controllers.User.AdminController.getAdminDashUpdate();
                         break;
                     case "KITCHEN":
-                        link = kitchenJSRoutes.controllers.User.KitchenStaffController.getKitchenDashUpdate();
+                        link = KitchenJSRoutes.controllers.User.KitchenStaffController.getKitchenDashUpdate();
                         break;
                     case "DELIVERY":
-                        link = deliveryJSRoutes.controllers.User.DeliveryStaffController.getDeliveryDashUpdate();
+                        link = DeliveryJSRoutes.controllers.User.DeliveryStaffController.getDeliveryDashUpdate();
                         break;
                     default:
                         alert("Unknown user_type: " + s);

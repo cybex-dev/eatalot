@@ -49,7 +49,7 @@ public class ScheduleController extends Controller {
             return redirect(controllers.Order.routes.ScheduleController.createSchedule());
         }
         OrderScheduleDays orderScheduleDays = new OrderScheduleDays(orderSchedule.getOrderSchedId());
-        return ok(index.render(orderScheduleDays));
+        return ok(index.render(orderSchedule.getTitle(), orderScheduleDays));
     }
 
     // GET
@@ -57,14 +57,14 @@ public class ScheduleController extends Controller {
     @CustomersOnly
     public Result createSchedule() {
         Form<OrderSchedule> scheduleForm = formFactory.form(OrderSchedule.class);
-        return ok(create.render(scheduleForm));
+        return ok(create.render(true, scheduleForm));
     }
 
     // GET
     @With(RequiresActive.class)
     @CustomersOnly
     public Result addOrder() {
-        return play.mvc.Results.TODO;
+        return redirect(controllers.Order.routes.KitchenController.home());
     }
 
     // GET
@@ -75,7 +75,7 @@ public class ScheduleController extends Controller {
         OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(session().get(AppTags.AppCookie.user_id.toString()));
         map.put("title", orderSchedule.getTitle());
         Form<OrderSchedule> orderScheduleForm = formFactory.form(OrderSchedule.class).bind(map);
-        return ok(create.render(orderScheduleForm));
+        return ok(create.render(false, orderScheduleForm));
     }
 
     // PUT
@@ -84,10 +84,10 @@ public class ScheduleController extends Controller {
     public CompletionStage<Result> updateScheduleName() {
         Form<OrderSchedule> form = formFactory.form(OrderSchedule.class).bindFromRequest();
         if (form.hasGlobalErrors())
-            return CompletableFuture.completedFuture(badRequest(create.render(form)));
+            return CompletableFuture.completedFuture(badRequest(create.render(false, form)));
         return updateOrderScheduleName(form.get().getTitle()).thenApplyAsync(updated -> {
             if (updated)
-                ctx().flash().put(AppTags.FlashCodes.success.toString(), "Schedule title");
+                ctx().flash().put(AppTags.FlashCodes.success.toString(), "Schedule title updated");
             else
                 ctx().flash().put(AppTags.FlashCodes.danger.toString(), "Error updating schedule");
             return redirect(controllers.Order.routes.ScheduleController.index());
@@ -110,7 +110,7 @@ public class ScheduleController extends Controller {
         Form<OrderSchedule> orderScheduleForm = formFactory.form(OrderSchedule.class);
         if (orderScheduleForm.hasErrors()) {
             flash().put(AppTags.FlashCodes.danger.toString(), "Invalid schedule name");
-            return CompletableFuture.completedFuture(badRequest(create.render(orderScheduleForm)));
+            return CompletableFuture.completedFuture(badRequest(create.render(true, orderScheduleForm)));
         }
         OrderSchedule orderSchedule = orderScheduleForm.get();
 
@@ -120,6 +120,7 @@ public class ScheduleController extends Controller {
             return CompletableFuture.completedFuture(redirect(controllers.User.routes.CustomerController.index()));
         }
         customer.getOrderSchedule().setTitle(orderSchedule.getTitle());
+        flash().put(AppTags.FlashCodes.success.toString(), "Schedule created");
         return CompletableFuture.completedFuture(redirect(controllers.Order.routes.ScheduleController.index()));
     }
 
@@ -191,8 +192,16 @@ public class ScheduleController extends Controller {
 
     public Result scheduleJSRoutes() {
         return ok(
-                JavaScriptReverseRouter.create(Routes.ScheduleJSRoutes.toString(),
-                        routes.javascript.ScheduleController.setScheduleState()
+                JavaScriptReverseRouter.create(
+                        Routes.ScheduleJSRoutes.toString(),
+                        routes.javascript.ScheduleController.setScheduleState(),
+                        routes.javascript.ScheduleController.removeOrder(),
+                        routes.javascript.ScheduleController.addOrder(),
+                        routes.javascript.ScheduleController.clearSchedule(),
+                        routes.javascript.ScheduleController.createSchedule(),
+                        routes.javascript.ScheduleController.editScheduleName(),
+                        routes.javascript.ScheduleController.updateScheduleName(),
+                        routes.javascript.ScheduleController.doCreateSchedule()
                 )
         ).as("text/javascript");
     }

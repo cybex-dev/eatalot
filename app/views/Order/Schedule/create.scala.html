@@ -3,21 +3,41 @@
 @import play.data.Form
 @import views.html.helper.CSRF
 
-@(scheduleForm: Form[OrderSchedule])
+@(create: Boolean, scheduleForm: Form[OrderSchedule])
 
-@bodyContent = {
-    <h1>Create order schedule</h1>
-    <br/>
-    @helper.form(action = controllers.Order.routes.ScheduleController.doCreateSchedule()) {
-        @CSRF.formField
-        @helper.inputText(scheduleForm("title"), '_name -> "Schedule Name")
-        <div class="container input-container">
-            <input class="btn btn-success button-padding" type="button" value="Create Schedule">
+    @getLink = @{
+        if(create) {
+            controllers.Order.routes.ScheduleController.doCreateSchedule()
+        } else {
+            controllers.Order.routes.ScheduleController.updateScheduleName()
+        }
+    }
+
+    @pageTitle = @{
+        if(create) {
+            " :: Set Schedule Name"
+        } else {
+            " :: Update Schedule Name"
+        }
+    }
+
+    @bodyContent = {
+        <div class="container-dashboard">
+            <h1 class="margin-left-small">@if(create) {Create} else {Update} Order Schedule</h1>
+            <br/>
+            @helper.form(action = getLink) {
+                @CSRF.formField
+                <div class="center-parent">
+                    <div class="center-child">
+                        @helper.inputText(scheduleForm("title"), '_name -> "Schedule Name")
+                        <input class="btn btn-success button-padding" type="submit" value="@if(create) {Create} else {Update} Schedule">
+                    </div>
+                </div>
+            }
         </div>
     }
-}
 
-@masterpage.apply(" :: Create Schedule", bodyContent)
+    @masterpage.apply(pageTitle, bodyContent)
 
 
 

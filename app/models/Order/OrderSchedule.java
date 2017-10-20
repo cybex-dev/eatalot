@@ -26,7 +26,6 @@ public class OrderSchedule extends Model {
     @Id
     @Constraints.Required
     private String orderSchedId;
-    @Constraints.Required
     private String title;
 
     private Boolean isActive = false;

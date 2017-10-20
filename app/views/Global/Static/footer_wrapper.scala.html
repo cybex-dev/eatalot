@@ -2,12 +2,14 @@
 
 @()
 
-@footerContent = {
-    <div class="footer navbar-inverse">
-        <div class="container">
-            <p class="footer-brand">Created by Intelligents 2017 (NMU)</p>
+    @footerContent = {
+        <div class="footer navbar-inverse round-corners-small small-margin">
+            <div class="container center-parent">
+                <div class="center-child">
+                    <p class="footer-brand">Created by Intelligents 2017 (NMU)</p>
+                </div>
+            </div>
         </div>
-    </div>
-}
+    }
 
-@footer.apply("", footerContent)
+    @footer.apply("null", footerContent)

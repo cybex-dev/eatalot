@@ -1,0 +1,37 @@
+@import models.Order.MealOrder
+@()
+<div>
+    <img src="@routes.Assets.versioned("images/logo.png")" href="@controllers.Application.routes.HomeController.index()" />
+</div>
+
+<div style="float: left">
+    @if(session.get("display_name") == null){
+        <a href="@controllers.User.routes.UserController.login()">Sign up</a>
+    } else{
+        <p>Welcome @session.get("display_name")
+        <br>
+        <a href="@controllers.Order.routes.AccountController.doSignOut()">Sign out</a>
+        </p>
+    }
+
+
+</div>
+
+<div class="cart-wrapper">
+    <a href="@controllers.Order.routes.OrderController.getCart()"><img src="@routes.Assets.versioned("images/menu/cart.png")" class="cart-image" /></a>
+    @if(session.get("display_name") != null){
+        @*<p class="cart-wrapper">@MealOrder.findMealOrderByOrderId(session.get("orderId")).size()</p>*@
+        <p class="cart-wrapper">5</p>
+    }
+</div>
+
+<div class="nav-menu-wrapper">
+    <div class="nav-bar">
+        <ul>
+            <li><a href="@controllers.User.routes.CustomerController.index">Dashboard</a></li>
+            <li><a href="@controllers.Application.routes.HomeController.index()">Home</a></li>
+            <li><a href="@controllers.Order.routes.OrderController.getCart()">Checkout</a></li>
+            <li><a href="@controllers.Order.routes.OrderController.getMenu()">Menu</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: mintcream;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.image{
+    display: block;
+    width: 50%;
+    height: auto;
+    padding-right: 0px;
+}
+.bottom_row{
+    border-bottom: solid thin;
+
+}
+td h3{
+    padding: 5%;
+    padding-bottom: 0;
+    padding-top: 0;;
+}
+table.menu_table{
+    /*border: 10px solid black;*/
+}
+.cart-wrapper{
+    float: right;
+
+}
+.cart-image{
+    float: right;
+    max-width: 30%;
+    max-height: 30%;
+}
+.nav-menu-wrapper{
+    border: 1px solid #e7e7e7;
+    background-color: black;
+    display: inline-block;
+    width: 100%;
+    /*display: flex;*/
+}
+.nav-menu-type-wrapper{
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    display: flex;
+}
+.nav-bar{
+    display: inline-block;
+    /*margin-right: 5%;*/
+    /*margin-left: 5%;*/
+    text-align: center;
+    margin-top: 0;
+    font-size: 0;
+    width: inherit;
+    /*vertical-align: top;*/
+}
+.nav-bar ul {
+    /*display: block; text-align:center;*/
+    list-style-type: none;
+    /*margin: 0;*/
+    padding: 0;
+    overflow: hidden;
+
+    /*border: 1px solid #e7e7e7;*/
+    /*background-color: #f3f3f3;*/
+}
+
+.nav-bar li {
+    float: left;
+    font-size: 15px;
+}
+
+.nav-bar li a {
+    display: block;
+    color: #7b7a78;
+    text-align: center;
+    padding: 14px 10px;
+
+    text-decoration: none;
+}
+
+.nav-bar li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.nav-bar li a.selected_menu {
+    color: white;
+    background-color: #007bff;
+    /*background-color: #4CAF50;*/
+}
+table {
+    border-collapse: collapse;
+}
+/*tr {*/
+    /*border: 10px solid black;*/
+/*}*/

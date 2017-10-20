@@ -1,0 +1,61 @@
+@(menuType: Int)
+
+<div class="nav-menu-type-wrapper">
+    @menuType match{
+        case 0 => {
+            <div class="nav-bar">
+                <ul>
+                    <li><a class="selected_menu" href="@controllers.Order.routes.OrderController.switchMenu(0)">Breakfast</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(1)">Lunch</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(2)">Dinner</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(3)">Desert</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(4)">Snacks</a></li>
+                </ul>
+            </div>
+        }
+        case 1 => {
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(0)">Breakfast</a></li>
+                    <li><a class="selected_menu" href="@controllers.Order.routes.OrderController.switchMenu(1)">Lunch</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(2)">Dinner</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(3)">Desert</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(4)">Snacks</a></li>
+                </ul>
+            </div>
+        }
+        case 2 =>{
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(0)">Breakfast</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(1)">Lunch</a></li>
+                    <li><a class="selected_menu" href="@controllers.Order.routes.OrderController.switchMenu(2)">Dinner</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(3)">Desert</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(4)">Snacks</a></li>
+                </ul>
+            </div>
+        }
+        case 3 =>{
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(0)">Breakfast</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(1)">Lunch</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(2)">Dinner</a></li>
+                    <li><a class="selected_menu" href="@controllers.Order.routes.OrderController.switchMenu(3)">Desert</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(4)">Snacks</a></li>
+                </ul>
+            </div>
+        }
+        case 4 =>{
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(0)">Breakfast</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(1)">Lunch</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(2)">Dinner</a></li>
+                    <li><a href="@controllers.Order.routes.OrderController.switchMenu(3)">Desert</a></li>
+                    <li><a class="selected_menu" href="@controllers.Order.routes.OrderController.switchMenu(4)">Snacks</a></li>
+                </ul>
+            </div>
+        }
+    }
+</div>

@@ -174,5 +174,6 @@
     <orderEntry type="library" name="SBT: ch.qos.logback:logback-core:1.2.3:jar" level="project" />
     <orderEntry type="library" name="SBT: ch.qos.logback:logback-classic:1.2.3:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: cglib:cglib-nodep:3.2.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.eclipse.jetty.websocket:websocket-common:9.4.5.v20170502:jar" level="project" />
   </component>
 </module>

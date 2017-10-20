@@ -22,9 +22,11 @@ public class Customer extends User {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
+//    private String addressId;
 
     @OneToOne(cascade = CascadeType.ALL)
     private OrderSchedule orderSchedule;
+//    private String orderScheduleId;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Payment> payments = new ArrayList<>();

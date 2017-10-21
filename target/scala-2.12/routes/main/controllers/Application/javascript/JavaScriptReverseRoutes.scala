@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
-// @DATE:Sat Oct 14 09:33:00 SAST 2017
+// @SOURCE:/home/cybex/Projects/eatalot-temp/conf/routes
+// @DATE:Sat Oct 21 09:12:55 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,6 +20,16 @@ package controllers.Application.javascript {
     }
 
   
+    // @LINE:8
+    def unknown: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.HomeController.unknown",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "unknown"})
+        }
+      """
+    )
+  
     // @LINE:6
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.HomeController.index",
@@ -30,12 +40,22 @@ package controllers.Application.javascript {
       """
     )
   
-    // @LINE:146
+    // @LINE:202
     def invalidRoute: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.HomeController.invalidRoute",
       """
         function(path0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("path", path0)})
+        }
+      """
+    )
+  
+    // @LINE:7
+    def forbiddenAccess: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.HomeController.forbiddenAccess",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forbidden"})
         }
       """
     )

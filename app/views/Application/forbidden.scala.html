@@ -1,0 +1,14 @@
+@import Global.Static.masterpage
+
+@(message: String)
+
+@bodyContent = {
+    <div style="background-color: #ff9e9e;">
+        <div class="center-block align-middle">
+            <img src="@routes.Assets.versioned("images/navigation/forbidden.png")" class="top img-fluid">
+            <p class="bottom">@message</p>
+        </div>
+    </div>
+}
+
+@masterpage.apply(" :: Forbidden", bodyContent)

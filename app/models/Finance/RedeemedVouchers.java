@@ -3,43 +3,45 @@ package models.Finance;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
+@Table(name = "redeemed_vouchers")
 public class RedeemedVouchers extends Model {
     @Id
-    @GeneratedValue
     @Constraints.Required
-    private Long voucherCode;
+    private String voucherCode;
 
     @Constraints.Required
     private String voucherId;
 
     @Constraints.Required
-    private Long userId;
+    private String userId;
 
     @Constraints.Required
     private Date redeemedOn;
 
-    public static Finder<Long, RedeemedVouchers> find = new Finder<Long, RedeemedVouchers>(RedeemedVouchers.class);
+    public static Finder<String, RedeemedVouchers> find = new Finder<String, RedeemedVouchers>(RedeemedVouchers.class);
 
     public RedeemedVouchers(){}
 
-    public RedeemedVouchers(@Constraints.Required String voucherId, @Constraints.Required Long userId, @Constraints.Required Date redeemedOn) {
+    public RedeemedVouchers(@Constraints.Required String voucherId, @Constraints.Required String userId, @Constraints.Required Date redeemedOn) {
         this.voucherId = voucherId;
         this.userId = userId;
         this.redeemedOn = redeemedOn;
     }
 
-    public Long getVoucherCode() {
+    public String getVoucherCode() {
         return voucherCode;
     }
 
-    public void setVoucherCode(Long voucherCode) {
+    public void setVoucherCode(String voucherCode) {
         this.voucherCode = voucherCode;
     }
 
@@ -51,11 +53,11 @@ public class RedeemedVouchers extends Model {
         this.voucherId = voucherId;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -65,5 +67,11 @@ public class RedeemedVouchers extends Model {
 
     public void setRedeemedOn(Date redeemedOn) {
         this.redeemedOn = redeemedOn;
+    }
+
+    @Override
+    public void insert() {
+        voucherCode = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

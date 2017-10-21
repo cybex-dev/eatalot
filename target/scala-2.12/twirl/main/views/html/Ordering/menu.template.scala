@@ -22,69 +22,56 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import java.util
-/*2.2*/import helper._
-/*3.2*/import models.Order.Meal
+/*3.2*/import helper._
+/*4.2*/import models.Order.Meal
+/*5.2*/import controllers.Application.AppTags
 
 object menu extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[util.List[Meal],Integer,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*4.2*/(meals: util.List[Meal], menuType: Integer):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*6.2*/(meals: util.List[Meal], menuType: Integer):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*4.45*/("""
+Seq[Any](format.raw/*6.45*/("""
 
-"""),format.raw/*6.1*/("""<!DOCTYPE html>
+"""),format.raw/*8.1*/("""<!DOCTYPE html>
 <html>
+    <head>
+        <link href=""""),_display_(/*11.22*/routes/*11.28*/.Assets.versioned("stylesheets/mobile.css")),format.raw/*11.71*/("""" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width">
+    </head>
     <body>
-        """),_display_(/*9.10*/if(session.get("user") == null)/*9.41*/{_display_(Seq[Any](format.raw/*9.42*/("""
-            """),format.raw/*10.13*/("""<a href=""""),_display_(/*10.23*/controllers/*10.34*/.Order.routes.AccountController.getSignUp()),format.raw/*10.77*/("""">Sign up</a>
-        """)))}/*11.11*/else/*11.15*/{_display_(Seq[Any](format.raw/*11.16*/("""
-            """),format.raw/*12.13*/("""<p>Welcome """),_display_(/*12.25*/session/*12.32*/.get("username")),format.raw/*12.48*/("""</p>
-            <a href=""""),_display_(/*13.23*/controllers/*13.34*/.Order.routes.AccountController.doSignOut()),format.raw/*13.77*/("""">Sign out</a>
-        """)))}),format.raw/*14.10*/("""
-
-        """),format.raw/*16.79*/("""
-        """),format.raw/*17.9*/("""<h1>Menu</h1>
-        <table>
-            <tr><td><a href=""""),_display_(/*19.31*/controllers/*19.42*/.Order.routes.OrderController.getMenu()),format.raw/*19.81*/("""">Menu</a></td></tr>
-            <tr><td><a href=""""),_display_(/*20.31*/controllers/*20.42*/.Order.routes.OrderController.getCart()),format.raw/*20.81*/("""">Checkout</a></td></tr>
-        </table>
-        <table>
-            """),_display_(/*23.14*/menuType),format.raw/*23.22*/("""
-            """),format.raw/*24.13*/("""<tr><td><a href=""""),_display_(/*24.31*/controllers/*24.42*/.Order.routes.OrderController.switchMenu(0)),format.raw/*24.85*/("""">Breakfast</a></td></tr>
-            <tr><td><a href=""""),_display_(/*25.31*/controllers/*25.42*/.Order.routes.OrderController.switchMenu(1)),format.raw/*25.85*/("""">Lunch</a></td></tr>
-            <tr><td><a href=""""),_display_(/*26.31*/controllers/*26.42*/.Order.routes.OrderController.switchMenu(2)),format.raw/*26.85*/("""">Dinner</a></td></tr>
-        </table>
-        """),_display_(/*28.10*/if(meals.size() == 0)/*28.31*/{_display_(Seq[Any](format.raw/*28.32*/("""
-            """),format.raw/*29.13*/("""<p>List is empty</p>
-        """)))}/*30.11*/else/*30.16*/{_display_(Seq[Any](format.raw/*30.17*/("""
-            """),_display_(/*31.14*/for(x <- 0 until meals.size) yield /*31.42*/ {_display_(Seq[Any](format.raw/*31.44*/("""
-                """),_display_(/*32.18*/form(CSRF(controllers.Order.routes.OrderController.addMealToOrder(meals.get(x).getMealId())))/*32.111*/ {_display_(Seq[Any](format.raw/*32.113*/("""
-                    """),format.raw/*33.119*/("""
-                    """),format.raw/*34.21*/("""<table>
-                        <tr>
-                            <td>Meal</td>
-                            <td>Price</td>
-                            <td>Status</td>
-                        </tr>
-                        <tr>
-                            <td>"""),_display_(/*41.34*/meals/*41.39*/.get(x).getDescription()),format.raw/*41.63*/("""</td>
-                            <td>"""),_display_(/*42.34*/meals/*42.39*/.get(x).getCost()),format.raw/*42.56*/("""</td>
-                            <td>$$Status</td>
-                        </tr>
-                        <tr>
-                            <td>$$Image</td>
-                            <td></td>
-                            <td><button type="submit">Add to order</button></td>
-                        </tr>
-                    </table>
-                    """),format.raw/*51.32*/("""
-                """)))}),format.raw/*52.18*/("""
-            """)))}),format.raw/*53.14*/("""
-        """)))}),format.raw/*54.10*/("""
-    """),format.raw/*55.5*/("""</body>
+        """),format.raw/*15.79*/("""
+        """),_display_(/*16.10*/header()),format.raw/*16.18*/("""
+        """),_display_(/*17.10*/selectedMenu(menuType: Integer)),format.raw/*17.41*/("""
+        """),_display_(/*18.10*/if(meals.size() == 0)/*18.31*/{_display_(Seq[Any](format.raw/*18.32*/("""
+            """),format.raw/*19.13*/("""<p>List is empty</p>
+        """)))}/*20.11*/else/*20.16*/{_display_(Seq[Any](format.raw/*20.17*/("""
+            """),format.raw/*21.13*/("""<table>
+                <tr class="bottom_row">
+                    <td><h3>Meal</h3></td>
+                    <td><h3>Price</h3></td>
+                    """),format.raw/*25.40*/("""
+                """),format.raw/*26.17*/("""</tr>
+            """),_display_(/*27.14*/for(x <- 0 until meals.size) yield /*27.42*/ {_display_(Seq[Any](format.raw/*27.44*/("""
+                """),_display_(/*28.18*/form(CSRF(controllers.Order.routes.OrderController.addMealToOrder(meals.get(x).getMealId())))/*28.111*/ {_display_(Seq[Any](format.raw/*28.113*/("""
+                    """),format.raw/*29.21*/("""<tr>
+                        <td>"""),_display_(/*30.30*/meals/*30.35*/.get(x).getDescription()),format.raw/*30.59*/("""</td>
+                        <td>"""),_display_(/*31.30*/meals/*31.35*/.get(x).getCost()),format.raw/*31.52*/("""</td>
+                        """),format.raw/*32.46*/("""
+                    """),format.raw/*33.21*/("""</tr>
+                    <tr class="bottom_row">
+                        <td><img class="image" src=""""),_display_(/*35.54*/routes/*35.60*/.Assets.versioned("images/menu/" + meals.get(x).getImage)),format.raw/*35.117*/(""""/></td>
+                        """),format.raw/*36.38*/("""
+                        """),format.raw/*37.25*/("""<td colspan="2"><button type="submit">Add to order</button></td>
+                    </tr>
+                """)))}),format.raw/*39.18*/("""
+            """)))}),format.raw/*40.14*/("""
+            """),format.raw/*41.13*/("""</table>
+        """)))}),format.raw/*42.10*/("""
+    """),format.raw/*43.5*/("""</body>
 </html>"""))
       }
     }
@@ -101,11 +88,11 @@ Seq[Any](format.raw/*4.45*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Ordering/menu.scala.html
-                  HASH: 3b177f95a22535b78519116f1dddae9e503e773c
-                  MATRIX: 660->1|684->19|707->36|1052->62|1190->105|1218->107|1287->150|1326->181|1364->182|1405->195|1442->205|1462->216|1526->259|1568->283|1581->287|1620->288|1661->301|1700->313|1716->320|1753->336|1807->363|1827->374|1891->417|1946->441|1984->521|2020->530|2107->590|2127->601|2187->640|2265->691|2285->702|2345->741|2443->812|2472->820|2513->833|2558->851|2578->862|2642->905|2725->961|2745->972|2809->1015|2888->1067|2908->1078|2972->1121|3048->1170|3078->1191|3117->1192|3158->1205|3207->1236|3220->1241|3259->1242|3300->1256|3344->1284|3384->1286|3429->1304|3532->1397|3573->1399|3623->1518|3672->1539|3957->1797|3971->1802|4016->1826|4082->1865|4096->1870|4134->1887|4516->2252|4565->2270|4610->2284|4651->2294|4683->2299
-                  LINES: 24->1|25->2|26->3|31->4|36->4|38->6|41->9|41->9|41->9|42->10|42->10|42->10|42->10|43->11|43->11|43->11|44->12|44->12|44->12|44->12|45->13|45->13|45->13|46->14|48->16|49->17|51->19|51->19|51->19|52->20|52->20|52->20|55->23|55->23|56->24|56->24|56->24|56->24|57->25|57->25|57->25|58->26|58->26|58->26|60->28|60->28|60->28|61->29|62->30|62->30|62->30|63->31|63->31|63->31|64->32|64->32|64->32|65->33|66->34|73->41|73->41|73->41|74->42|74->42|74->42|83->51|84->52|85->53|86->54|87->55
+                  DATE: Sat Oct 21 09:12:57 SAST 2017
+                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Ordering/menu.scala.html
+                  HASH: fe00a95ee49af6322224666d93d961a652063c63
+                  MATRIX: 660->1|684->20|707->37|739->63|1098->103|1236->146|1264->148|1346->203|1361->209|1425->252|1566->435|1603->445|1632->453|1669->463|1721->494|1758->504|1788->525|1827->526|1868->539|1917->570|1930->575|1969->576|2010->589|2193->763|2238->780|2284->799|2328->827|2368->829|2413->847|2516->940|2557->942|2606->963|2667->997|2681->1002|2726->1026|2788->1061|2802->1066|2840->1083|2898->1134|2947->1155|3077->1258|3092->1264|3171->1321|3232->1367|3285->1392|3424->1500|3469->1514|3510->1527|3559->1545|3591->1550
+                  LINES: 24->1|25->3|26->4|27->5|32->6|37->6|39->8|42->11|42->11|42->11|46->15|47->16|47->16|48->17|48->17|49->18|49->18|49->18|50->19|51->20|51->20|51->20|52->21|56->25|57->26|58->27|58->27|58->27|59->28|59->28|59->28|60->29|61->30|61->30|61->30|62->31|62->31|62->31|63->32|64->33|66->35|66->35|66->35|67->36|68->37|70->39|71->40|72->41|73->42|74->43
                   -- GENERATED --
               */
           

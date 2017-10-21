@@ -2,17 +2,16 @@ package models.Order;
 
 import io.ebean.Finder;
 import io.ebean.Model;
+import libs.Mailer;
 import models.Finance.Payment;
+import models.User.Customer.Customer;
 import play.data.validation.Constraints;
+import play.libs.mailer.Email;
 import utility.Pair;
 import utility.StatusId;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -25,10 +24,14 @@ public class CustomerOrder extends Model implements StatusId {
     @Constraints.MaxLength(10)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderId;
-
     private String statusId = UNSUBMITTED;
-    private String userId;
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+    private String customerUserId;
     private String paymentId;
+
+    //todo #NOTIFY [Charles] Added date of delivery object. This is saved automatically in the database, is required to display info for user and determine the delivery time and date
+    private Date deliveryDate;
 //    private String aymentId;
 
 //    private String date;
@@ -51,7 +54,8 @@ public class CustomerOrder extends Model implements StatusId {
         Payment.findPaymentById(paymentId).setAmount(total[0]).update();
     }
 
-    private static Finder<Long, CustomerOrder> find = new Finder<Long, CustomerOrder>(CustomerOrder.class);
+    //todo #NOTIFY [Charles] change access from private to public, is used to query database to get results when displaying info to user
+    public static Finder<Long, CustomerOrder> find = new Finder<Long, CustomerOrder>(CustomerOrder.class);
 
     /**
      * Finds a customer order by its orderId
@@ -83,7 +87,7 @@ public class CustomerOrder extends Model implements StatusId {
     }
 
     private void setOrderId() {
-        orderId = String.valueOf((statusId + ThreadLocalRandom.current().nextInt(100, 1000) + userId + ThreadLocalRandom.current().nextInt(100, 1000)).hashCode());
+        orderId = String.valueOf((statusId + ThreadLocalRandom.current().nextInt(100, 1000) + customerUserId + ThreadLocalRandom.current().nextInt(100, 1000)).hashCode());
     }
 
     /**
@@ -166,11 +170,13 @@ public class CustomerOrder extends Model implements StatusId {
 
     public CustomerOrder setPending(){
         statusId = PENDING;
+        notifyStatus();
         return this;
     }
 
     public CustomerOrder setProcessing(){
         statusId = PROCESSING;
+        notifyStatus();
         return this;
     }
 
@@ -184,12 +190,25 @@ public class CustomerOrder extends Model implements StatusId {
         return this;
     }
 
+    private void notifyStatus(){
+        Email email = new Email();
+        String[] list = {Customer.findCustomerByUserId(customerUserId).getEmail()};
+        email.setTo(Arrays.asList(list));
+        email.setSubject("Order: " + orderId + " status changed to " + statusId);
+        email.setBodyText("Your order status has been updated to " + statusId);
+        Mailer mailer = new Mailer();
+        if(mailer.sendEmail(email))
+            System.out.println("Email sent");
+        else
+            System.out.println("Email not sent");
+    }
+
     public String getUserId() {
-        return userId;
+        return customerUserId;
     }
 
     public CustomerOrder setUserId(String userId) {
-        this.userId = userId;
+        this.customerUserId = userId;
         return this;
     }
 
@@ -200,6 +219,14 @@ public class CustomerOrder extends Model implements StatusId {
     public CustomerOrder setPaymentId(String paymentId) {
         this.paymentId = paymentId;
         return this;
+    }
+
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
 //    public String getMealOrderId() {

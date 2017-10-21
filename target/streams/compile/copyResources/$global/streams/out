@@ -1,8 +1,13 @@
-[debug] Copy resource mappings: 
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/messages,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/messages)
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/application.conf,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/application.conf)
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/evolutions,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/evolutions)
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/routes)
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/logback.xml,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/logback.xml)
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/evolutions/default,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/evolutions/default)
-[debug] 	(/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/evolutions/default/1.sql,/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/target/scala-2.12/classes/evolutions/default/1.sql)
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/certificate,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/certificate)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/evolutions,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/logback.xml,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/messages,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/messages)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/routes,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/application.conf,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/certificate/eatalot_keystore.jks,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/certificate/eatalot_keystore.jks)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/certificate/eatalot_keystore.p12,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/certificate/eatalot_keystore.p12)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/certificate/eatalot_secure.pem,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/certificate/eatalot_secure.pem)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/evolutions/default,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/evolutions/default/1.sql,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/evolutions/default/1.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/cybex/Projects/eatalot-temp/conf/evolutions/default/2.sql,/home/cybex/Projects/eatalot-temp/target/scala-2.12/classes/evolutions/default/2.sql)[0m

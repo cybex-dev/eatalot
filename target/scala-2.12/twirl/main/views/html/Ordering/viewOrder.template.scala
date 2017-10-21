@@ -22,36 +22,34 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import java.util.List
-/*2.2*/import models.Order.Meal
-/*3.2*/import models.Order.MealOrder
+/*3.2*/import models.Order.{Meal, MealOrder}
 /*4.2*/import utility.Pair
-/*5.2*/import helper._
 
 object viewOrder extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[Pair[MealOrder, Meal]],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*6.2*/(list: List[Pair[MealOrder, Meal]]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*5.2*/(list: List[Pair[MealOrder, Meal]]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*6.37*/("""
+Seq[Any](format.raw/*5.37*/("""
 
-"""),format.raw/*8.1*/("""<html>
+"""),format.raw/*7.1*/("""<html>
     <table>
         <tr>
             <td>Description</td>
             <td>Quantity</td>
             <td>Cost</td>
         </tr>
-        """),_display_(/*15.10*/for(x <- 0 until list.size()) yield /*15.39*/{_display_(Seq[Any](format.raw/*15.40*/("""
-            """),format.raw/*16.13*/("""<tr>
-                <td>"""),_display_(/*17.22*/list/*17.26*/.get(x).getObject2().getDescription()),format.raw/*17.63*/("""</td>
-                <td>"""),_display_(/*18.22*/list/*18.26*/.get(x).getObject1().getOrderQty()),format.raw/*18.60*/("""</td>
-                <td>"""),_display_(/*19.22*/list/*19.26*/.get(x).getObject2().getCost()),format.raw/*19.56*/("""</td>
+        """),_display_(/*14.10*/for(x <- 0 until list.size()) yield /*14.39*/{_display_(Seq[Any](format.raw/*14.40*/("""
+            """),format.raw/*15.13*/("""<tr>
+                <td>"""),_display_(/*16.22*/list/*16.26*/.get(x).getObject2().getDescription()),format.raw/*16.63*/("""</td>
+                <td>"""),_display_(/*17.22*/list/*17.26*/.get(x).getObject1().getOrderQty()),format.raw/*17.60*/("""</td>
+                <td>"""),_display_(/*18.22*/list/*18.26*/.get(x).getObject2().getCost()),format.raw/*18.56*/("""</td>
             </tr>
-        """)))}),format.raw/*21.10*/("""
-    """),format.raw/*22.5*/("""</table>
+        """)))}),format.raw/*20.10*/("""
+    """),format.raw/*21.5*/("""</table>
 </html>"""))
       }
     }
@@ -68,11 +66,11 @@ Seq[Any](format.raw/*6.37*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Ordering/viewOrder.scala.html
-                  HASH: 352490fe8dfb60b1681e36a910011769d085eb47
-                  MATRIX: 660->1|689->24|721->50|758->81|785->102|1130->119|1260->154|1288->156|1459->300|1504->329|1543->330|1584->343|1637->369|1650->373|1708->410|1762->437|1775->441|1830->475|1884->502|1897->506|1948->536|2012->569|2044->574
-                  LINES: 24->1|25->2|26->3|27->4|28->5|33->6|38->6|40->8|47->15|47->15|47->15|48->16|49->17|49->17|49->17|50->18|50->18|50->18|51->19|51->19|51->19|53->21|54->22
+                  DATE: Sat Oct 21 09:12:57 SAST 2017
+                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Ordering/viewOrder.scala.html
+                  HASH: d60b96c3ee1c8110357b90b46d5d63dbd1e195fd
+                  MATRIX: 660->1|689->25|734->64|1083->85|1213->120|1241->122|1412->266|1457->295|1496->296|1537->309|1590->335|1603->339|1661->376|1715->403|1728->407|1783->441|1837->468|1850->472|1901->502|1965->535|1997->540
+                  LINES: 24->1|25->3|26->4|31->5|36->5|38->7|45->14|45->14|45->14|46->15|47->16|47->16|47->16|48->17|48->17|48->17|49->18|49->18|49->18|51->20|52->21
                   -- GENERATED --
               */
           

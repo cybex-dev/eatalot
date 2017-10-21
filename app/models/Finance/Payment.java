@@ -1,15 +1,13 @@
 package models.Finance;
 
-import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebeaninternal.server.lib.util.Str;
+import models.User.Customer.Customer;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
-import scala.xml.dtd.REQUIRED;
+import utility.RandomString;
 
 import javax.persistence.*;
-import javax.validation.Constraint;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,12 +15,14 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by cybex on 2017/07/14.
  */
 @Entity
+@Table(name = "payment")
 public class Payment extends Model {
     @Id
     @Constraints.Required
-    @GeneratedValue
     private String paymentId;
-    @Constraints.Required
+
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private String customerUserId;
 
     //TODO: I changed date & time to string, Date objects don't save right in database.
     @Formats.DateTime(pattern="dd/MM/yyyy")
@@ -35,6 +35,7 @@ public class Payment extends Model {
     @Constraints.Required
     private Double amount;
     private Boolean isCash;
+    private Boolean isPaid;
 
     public Payment() {
         setPaymentId();
@@ -49,11 +50,17 @@ public class Payment extends Model {
 
     }
 
+
+
     // Needs foreign key to order.
     @Constraints.Required
     private String orderId;
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
+
+    public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash, Boolean isPaid) {
+        this.paymentId = paymentId;
+    }
 
     public static Payment findPaymentById(String paymentId){
         return find.query()
@@ -87,7 +94,35 @@ public class Payment extends Model {
 
     public Payment setAmount(Double amount) {
         this.amount = amount;
+        this.isCash = isCash;
+        this.isPaid= isPaid;
         return this;
+    }
+
+    public Boolean isCash() {
+        return isCash;
+    }
+
+    public boolean isPaid(){
+        return isPaid;
+    }
+
+    public void setPaid(Boolean paid) {
+        isPaid = paid;
+        if (paymentId != null)
+            save();
+    }
+
+    public void setIsCashPayment(boolean isCashPayment){
+        isCash = isCashPayment;
+        if (paymentId != null)
+            save();
+    }
+
+    @Override
+    public void insert() {
+        paymentId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 
     public Payment setCash(Boolean cash) {
@@ -125,5 +160,13 @@ public class Payment extends Model {
 
     public String getOrderId() {
         return orderId;
+    }
+
+    public String getCustomerUserId() {
+        return customerUserId;
+    }
+
+    public void setCustomerUserId(String customerUserId) {
+        this.customerUserId = customerUserId;
     }
 }

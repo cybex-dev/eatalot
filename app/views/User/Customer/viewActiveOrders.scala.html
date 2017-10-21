@@ -1,0 +1,109 @@
+@import java.util.List
+
+@import Global.Static.masterpage
+@import controllers.Application.AppTags
+@import helper.{CSRF, form}
+@import models.Order.{ActiveOrder, MealOrderItem}
+@(activeOrderList: List[ActiveOrder])
+
+@parseQueuePosition(pos: Integer) = {
+    @if(pos == 0){
+        "first"
+    } else {
+        @if(pos == 1) {
+        "next"
+        } else {
+        "#" @pos
+        }
+    }
+}
+
+@generateOrderContent(activeOrder: ActiveOrder) = {
+    <div class="small-margin">
+        <div class="row">
+            <div class="single-border">
+                <a href=""><h3># @activeOrder.orderId</h3></a>
+                <hr/>
+                <div>
+                    <h3>Order Details</h3>
+                    <br/>
+                    <h6>Amount:</h6> @AppTags.Locale.Currency.ZAR.toString @activeOrder.amount
+                    <h6>Delivery Date:</h6> @activeOrder.getDate
+                    <h6>Delivery Time:</h6> @activeOrder.getTime
+                    <br/>
+                    <h6>Status:</h6> @activeOrder.queueStatus
+                    <h6>Position:</h6> @parseQueuePosition(activeOrder.queuePosition)
+                    <br/>
+                </div>
+                <hr/>
+                <br/>
+                <div class="small-indent auto-margin">
+                @generateMealTable(activeOrder.mealOrdersList, activeOrder.amount)
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@generateMealTable(mealList: List[MealOrderItem], total: String) = {
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Meals Ordered
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Price/per</th>
+                            <th>Quantity</th>
+                            <th></th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for((mealOrderItem, index) <- mealList.zipWithIndex) {
+                            <tr>
+                                <td>@mealOrderItem.mealName</td>
+                                <td>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(mealOrderItem.price)</td>
+                                <td>@String.valueOf(mealOrderItem.getQty)</td>
+                                <td> = </td>
+                                <td>@AppTags.Locale.Currency.ZAR.toString @String.valueOf(mealOrderItem.getTotal)</td>
+                            </tr>
+                        }
+                        <tr/>
+                        <tr>
+                            <td/>
+                            <td/>
+                            <td><h4>Order Total</h4></td>
+                            <td> = </td>
+                            <td><h4>@AppTags.Locale.Currency.ZAR.toString </h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+@bodyContent = {
+    <h1>Active Orders</h1>
+    <br/>
+    @if(activeOrderList.size() == 0) {
+        <h6>No active orders</h6>
+    } else {
+        @for(item <- activeOrderList) {
+            @generateOrderContent(item)
+            <br/>
+        }
+    }
+    @form(action = controllers.User.routes.CustomerController.index()) {
+        @CSRF.formField
+        <input class="btn btn-info" type="submit" name="Back">
+    }
+    <br/>
+
+}
+
+@masterpage.apply(" :: Active Orders", bodyContent)

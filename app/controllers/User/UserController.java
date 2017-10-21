@@ -1,30 +1,38 @@
 package controllers.User;
 
+import annotations.Routing.AnyAllowed;
+import annotations.SessionVerifier.RedirectToDashIfActive;
+import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
-import models.User.Customer;
+import libs.Mailer;
+import models.User.Admin.Admin;
+import models.User.Customer.Customer;
+import models.User.Customer.CustomerInfo;
+import models.User.Staff;
+import models.User.User;
 import models.User.UserLoginInfo;
-import models.User.UserRegisterDetails;
-import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
+import play.filters.csrf.CSRF;
+import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-import play.mvc.Security;
+import play.mvc.With;
+import utility.Utility;
 import views.html.Application.Home.index;
 import views.html.User.User.login;
 
 import javax.inject.Inject;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
-import views.html.User.Customer.registerDetails;
-
-import static controllers.Application.AppTags.*;
-import static controllers.Application.AppTags.AppCookie.buildCookie;
-import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
+import static controllers.Application.AppTags.AppCookie;
+import static controllers.Application.AppTags.AppCookie.*;
+import static controllers.Application.AppTags.FlashCodes;
+import static java.util.concurrent.CompletableFuture.supplyAsync;
+import static models.User.Customer.Customer.find;
 
 /**
  * Created by cybex on 2017/07/08.
@@ -37,23 +45,22 @@ import static controllers.Application.AppTags.AppCookie.buildExpiredCookie;
  * </ul>
  */
 
-@Security.Authenticated
 public class UserController extends Controller {
 
     @Inject
     FormFactory formFactory;
+    @Inject
+    HttpExecutionContext httpExecutionContext;
 
     /**
      * Should display default customerHome page, showing User's home, with options of loging in or registering
      *
      * @return
      */
-    // /user
+    @With(RedirectToDashIfActive.class)
+    @AnyAllowed
     public Result index() {
-        Result result = AppTags.Session.checkExistingLogin(request(), session());
-        if (result != null)
-            return result;
-        return ok(index.render());
+        return redirect(controllers.Application.routes.HomeController.unknown());
     }
 
     /**
@@ -61,96 +68,209 @@ public class UserController extends Controller {
      *
      * @return
      */
-    //
+    @With(RedirectToDashIfActive.class)
+    @AnyAllowed
     public Result login() {
-        Result result = AppTags.Session.checkExistingLogin(request(), session());
-        if (result != null)
-            return result;
         return ok(login.render(formFactory.form(UserLoginInfo.class)));
     }
 
     /**
      * Performs login operation, if successful, then redirect to user's home page
+     * <p>
+     * Overview:
+     * PRE login code
+     * checks, determine user type, check valid data passed
+     * login() save session data and cookie data (cookie data only if user wants to be remembered)
+     * POST login
+     * customer check complete, possibly complete registration
+     * <p>
+     * FINALLY Confirm Login
+     * checks if session is valid and user id cookie exists
      *
      * @return
      */
-    public Result doLogin() {
+    @With(annotations.CheckCSRF.class)
+    public CompletionStage<Result> doLogin() {
+        return tryLogin();
+    }
+
+    private CompletionStage<Result> tryLogin(){
         Form<UserLoginInfo> form = formFactory.form(UserLoginInfo.class).bindFromRequest();
 
         if (form.hasErrors()) {
-            flash(FlashCodes.warning.toString(), "Please check all fields are correct");
-            return badRequest(login.render(form));
+            flash(FlashCodes.danger.toString(), "Please check all fields are correct");
+            return CompletableFuture.completedFuture(badRequest(login.render(form)));
         }
 
         UserLoginInfo userLoginInfo = form.get();
         //init login
-        Customer customer = null;
-        try {
-            List<Customer> userEmails = Customer.find.query().where().eq(Database.User.email, userLoginInfo.getEmail()).findList();
-            if (userEmails.size() > 1) {
-                flash(FlashCodes.danger.toString(), "An server error occurred, please try again later!");
-                return notFound(login.render(form));
-            }
-            if (userEmails.size() == 0) {
-                flash(FlashCodes.warning.toString(), "Username/Password combination invalid");
-                return notFound(login.render(form));
-            }
-            customer = userEmails.get(0);
-            String s = form.field(Session.SessionTags.csrfTokenString.toString()).getValue().get();
-            customer.setToken(s);
-        } catch (Exception x) {
-            Logger.warn("Exception - UserController: doLogin:\n" + x.toString());
-            flash(FlashCodes.danger.toString(), "An critical error occurred, we apologize for any inconvenience!");
-            return internalServerError(login.render(form));
+        User user = null;
+        UserType userType = null;
+
+        Optional<Customer> customer = find.query().where()
+                .eq("email", userLoginInfo.getLoginId())
+                .and()
+                .eq("password", userLoginInfo.getPassword())
+                .findOneOrEmpty();
+
+        Optional<Staff> staffMember =  Staff.find.query().where()
+                .or()
+                .eq("alias", userLoginInfo.getLoginId())
+                .eq("email", userLoginInfo.getLoginId())
+                .endOr()
+                .findList().stream()
+                .filter(s -> s.getPassword().equals(userLoginInfo.getPassword()))
+                .findFirst();
+
+        Optional<Admin> admin = Admin.find.query().where()
+                .eq("alias", userLoginInfo.getLoginId())
+                .and()
+                .eq("password", userLoginInfo.getPassword())
+                .findOneOrEmpty();
+
+        Customer c = customer.orElse(null);
+        Staff s = staffMember.orElse(null);
+        Admin a = admin.orElse(null);
+
+        // user login not found
+        if (c == null &&
+                s == null &&
+                a == null) {
+            flash(FlashCodes.danger.toString(), "Username/Password combination invalid");
+            return CompletableFuture.completedFuture(notFound(login.render(form)));
         }
 
-        Result result;
-        String time = new Date().toString().replace(':', '-').replace(' ', '_');
-        if (!customer.isComplete()) {
-            if (customer.completeCheck()) {
-                customer.setComplete(true);
-                result = redirect(routes.CustomerController.index());
-            }
-            else {
-                session().put(Session.User.id.toString(), String.valueOf(customer.getUserId()));
-                session().put(Session.User.token.toString(), String.valueOf(customer.getToken()));
-                session().put(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString());
 
-                result = ok(registerDetails.apply(formFactory.form(UserRegisterDetails.class)));
-                return result.withCookies(
-                        buildCookie(AppCookie.newUser.toString(), AppCookie.newUser.toString()),
-                        buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
-                        buildCookie(AppCookie.Org.toString(), General.SITENAME.toString()),
-                        buildCookie(AppCookie.loginTime.toString(), time),
-                        buildCookie(AppCookie.user_token.toString(), customer.getToken()),
-                        buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())));
+        Http.Context ctx = ctx();
+
+        if (c == null && s == null) {
+            userType = UserType.ADMIN;
+        } else {
+
+            // user login appears in staff and customer talbe
+            if (c != null &&
+                    s != null) {
+                flash().put(FlashCodes.danger.toString(), "Please log in using your staff");
+                return CompletableFuture.completedFuture(badRequest(login.render(form)));
+            }
+
+            // determine if user is staff or customer
+            if (s == null) {
+                //user us customer
+                userType = UserType.CUSTOMER;
+                user = c;
+            } else {
+                //user is staff
+                userType = (s.isKitchenStaff()) ? UserType.KITCHEN : UserType.DELIVERY;
+                user = s;
+            }
+        }
+
+        // user is authenticated, adding login cookies (if remember me is true) and session
+
+        // response contains login cookies, session login also added via context
+        Optional<CSRF.Token> token = CSRF.getToken(ctx.request());
+        if (!token.isPresent()) {
+            flash(FlashCodes.danger.toString(), "No token present, close your browser and reopen it.");
+            return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.index()));
+        }
+
+        // get csrf token and login
+        String csrfToken = token.get().value();
+        if (userType == UserType.ADMIN) {
+            Utility.loginAdmin(ctx(), a, csrfToken);
+
+            // confirm login, by checking session and cookies
+            if (!session().containsKey(user_id.toString()) ||
+                    !session().get(AppTags.Session.SessionTags.session_status.toString()).equals(AppTags.Session.SessionTags.valid.toString())) {
+                flash().put(FlashCodes.danger.toString(), "Admin login error, please speak to developers!");
+                Utility.logout(ctx, session());
+                return CompletableFuture.completedFuture(internalServerError(index.render()));
             }
         } else {
-            result = redirect(routes.CustomerController.index());
+            Utility.login(ctx(), user, csrfToken, userLoginInfo.getRememberMe());
+
+            // confirm login, by checking session
+            if (!session().containsKey(user_id.toString()) ||
+                    !session().get(AppTags.Session.SessionTags.session_status.toString()).equals(AppTags.Session.SessionTags.valid.toString())) {
+                flash().put(FlashCodes.danger.toString(), "Login error occurred, please try again later!");
+                Utility.logout(ctx, session());
+                return CompletableFuture.completedFuture(internalServerError(index.render()));
+            }
+
+            //check if user wants to be remembered,  only for users, not admin
+            if (userLoginInfo.getRememberMe()) {
+                Http.Cookie rememberMeCookie = response().cookie(remember_me.toString()).orElse(null);
+                if (rememberMeCookie == null ||
+                        !rememberMeCookie.value().equals(remember_me_true.toString())) {
+                    flash().put(FlashCodes.danger.toString(), "Couldn't save cookies!");
+                }
+            }
         }
-        result = result.withCookies(
-                buildCookie(AppCookie.RememberMe.toString(), (userLoginInfo.getbRememberMe()) ? "true" : "false"),
-                buildCookie(AppCookie.user_id.toString(), String.valueOf(customer.getUserId())),
-                buildCookie(AppCookie.user_type.toString(), AppCookie.UserType.CUSTOMER.toString()),
-                buildCookie(AppCookie.user_token.toString(), customer.getToken()),
-                buildCookie(AppCookie.Org.toString(), General.SITENAME.toString()),
-                buildCookie(AppCookie.loginTime.toString(), time));
-        return result;
-}
 
-    public Result logout() {
+        switch (userType) {
 
-        Result redirect = redirect(controllers.Application.routes.HomeController.index()).withCookies(
-                buildExpiredCookie(AppCookie.RememberMe.toString()),
-                buildExpiredCookie(AppCookie.user_type.toString()),
-                buildExpiredCookie(AppCookie.user_id.toString()),
-                buildExpiredCookie(AppCookie.user_token.toString())
-        );
-        session().clear();
-//        AppCookie.logout(redirect);
-        return redirect;
+            case ADMIN: {
+                flash(FlashCodes.success.toString(), "Logged in as admin.");
+                return CompletableFuture.completedFuture(redirect(controllers.User.routes.AdminController.index()));
+            }
+
+            case CUSTOMER: {
+                CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(user.getUserId());
+                return customerCheckComplete(customerInfo);
+            }
+
+            case DELIVERY: {
+                return CompletableFuture.completedFuture(redirect(controllers.User.routes.DeliveryStaffController.index()));
+            }
+            case KITCHEN: {
+                return CompletableFuture.completedFuture(redirect(controllers.User.routes.KitchenStaffController.index()));
+            }
+        }
+        flash().put(FlashCodes.danger.toString(), "An unknown login error occurred. Close your browser and try again.");
+        return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.index()));
     }
 
+    private CompletionStage<Result> customerCheckComplete(CustomerInfo customerInfo) {
+        Customer customer = Customer.find.byId(customerInfo.getUserId());
 
+        if (customer == null)
+            return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.index()));
+
+        if (customer.isComplete())
+            return CompletableFuture.completedFuture(redirect(routes.CustomerController.index()));
+
+        //customer details not complete , check if details complete manually
+        if (customer.completeCheck()) {
+            // customer profile complete, setting flag
+            customer.setComplete(true);
+            return CompletableFuture.completedFuture(redirect(routes.CustomerController.index()));
+        }
+
+        //either profile is incomplete or email not verified
+        boolean profileComplete = customer.isProfileComplete(),
+                emailVerified = customer.getEmailVerified();
+
+        if (!emailVerified && profileComplete)
+            return supplyAsync(() -> {
+                if (Mailer.SendVerificationEmail(customer.getEmail(), customer.getToken())) {
+                    flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");
+                } else {
+                    flash().put(FlashCodes.danger.toString(), "Unable to send verification email");
+                }
+                return redirect(controllers.User.routes.CustomerController.index());
+            }, httpExecutionContext.current());
+
+        session().put(AppCookie.new_user.toString(), AppCookie.new_user.toString());
+        flash().put(FlashCodes.info.toString(), "Please complete your profile");
+        return CompletableFuture.completedFuture(redirect(controllers.User.routes.CustomerController.completeRegistration()));
+    }
+
+    @With(RequiresActive.class)
+    public Result logout() {
+
+        Utility.logout(ctx(), session());
+        return redirect(controllers.Application.routes.HomeController.index());
+    }
 }
 

@@ -1,7 +1,7 @@
-@import views.html.Global.Static.masterpage
+@import helper._
 @import models.Finance.UserFunds
 @import play.data.Form
-@import helper._
+@import views.html.Global.Static.masterpage
 
 @(userFunds : Form[UserFunds])
 
@@ -13,7 +13,7 @@
     <br/>
     @helper.form( action = controllers.Finance.routes.UserFinance.doAddFunds() , 'class -> "body"){
         @CSRF.formField
-        @helper.inputText(userFunds("voucherValue"), 'name -> "Voucher Code", 'display -> "inline")
+        <label>Voucher Code</label>@helper.inputText(userFunds("voucherValue"), '_name -> "")
         <br/>
         <input type="submit" class="btn btn-success" value="Redeem">
     }

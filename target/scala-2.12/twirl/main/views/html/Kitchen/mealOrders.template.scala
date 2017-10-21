@@ -21,11 +21,10 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
-/*1.2*/import models.Order.MealOrder
-/*2.2*/import models.Order.Meal
-/*3.2*/import utility.Pair
-/*4.2*/import java.util.List
-/*5.2*/import helper._
+/*1.2*/import java.util.List
+/*3.2*/import helper._
+/*4.2*/import models.Order.{Meal, MealOrder}
+/*5.2*/import utility.Pair
 
 object mealOrders extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[Pair[MealOrder, Meal]],String,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -85,11 +84,11 @@ Seq[Any](format.raw/*6.53*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 11:30:32 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Kitchen/mealOrders.scala.html
-                  HASH: f59c3f40b6cc21de94cb7d1ab813b15bc3cf7191
-                  MATRIX: 659->1|696->32|728->58|755->79|784->102|1137->119|1283->170|1311->172|1489->323|1608->432|1649->434|1690->448|1735->477|1775->479|1820->496|1877->526|1890->530|1946->565|2004->596|2017->600|2066->628|2124->659|2137->663|2190->695|2262->736|2303->750|2318->756|2333->762|2343->780|2369->797|2409->799|2458->820|2627->987|2656->1007|2696->1009|2745->1030|2923->1206|2941->1215|2980->1216|3031->1249|3072->1262|3233->1392|3265->1397
-                  LINES: 24->1|25->2|26->3|27->4|28->5|33->6|38->6|40->8|48->16|48->16|48->16|49->17|49->17|49->17|50->18|51->19|51->19|51->19|52->20|52->20|52->20|53->21|53->21|53->21|55->23|56->24|56->24|56->24|56->25|56->25|56->25|57->26|60->30|60->30|60->30|61->31|64->35|64->35|64->35|66->38|67->39|70->42|71->43
+                  DATE: Sat Oct 21 09:12:57 SAST 2017
+                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Kitchen/mealOrders.scala.html
+                  HASH: c283867ae5753fbf3222230df229a78ca27d937a
+                  MATRIX: 659->1|688->25|711->42|756->81|1113->102|1259->153|1287->155|1465->306|1584->415|1625->417|1666->431|1711->460|1751->462|1796->479|1853->509|1866->513|1922->548|1980->579|1993->583|2042->611|2100->642|2113->646|2166->678|2238->719|2279->733|2294->739|2309->745|2319->763|2345->780|2385->782|2434->803|2603->970|2632->990|2672->992|2721->1013|2899->1189|2917->1198|2956->1199|3007->1232|3048->1245|3209->1375|3241->1380
+                  LINES: 24->1|25->3|26->4|27->5|32->6|37->6|39->8|47->16|47->16|47->16|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|51->20|51->20|52->21|52->21|52->21|54->23|55->24|55->24|55->24|55->25|55->25|55->25|56->26|59->30|59->30|59->30|60->31|63->35|63->35|63->35|65->38|66->39|69->42|70->43
                   -- GENERATED --
               */
           

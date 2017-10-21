@@ -1,9 +1,13 @@
-@import views.html.Global.Static.masterpage
+@import java.util.List
 
-@()
+@import models.User.KitchenStaff.KitchenStaffInfo
+@import utility.DashboardButton
+@import views.html.Global.Static.dashboard
+
+@(dashButtons: List[DashboardButton], kitchenStaffInfo: KitchenStaffInfo)
 
 @bodyContent = {
     <h1>Kitchen Page</h1>
 }
 
-@masterpage.apply(" :: Kitchen", bodyContent)
+@dashboard.apply(dashButtons, bodyContent)

@@ -1,10 +1,12 @@
 package models.Order;
 
-import controllers.Application.AppTags;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.RandomString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/13.
@@ -12,10 +14,7 @@ import javax.persistence.*;
 @Entity
 public class QueueType extends Model{
     @Id
-    @Constraints.Required
-    @Constraints.Min(49)
-    @Constraints.Max(50)
-    private Long typeId;
+    private String typeId;
     @Constraints.Required
     private String type;
     @Constraints.Required
@@ -39,5 +38,11 @@ public class QueueType extends Model{
         return  type + " {" +
                 "description=\'" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public void insert() {
+        typeId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+        super.insert();
     }
 }

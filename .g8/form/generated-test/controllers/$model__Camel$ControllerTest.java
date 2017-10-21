@@ -1,20 +1,5 @@
 package controllers;
 
-import org.junit.Test;
-import play.Application;
-import play.filters.csrf.*;
-import play.inject.guice.GuiceApplicationBuilder;
-import play.mvc.*;
-import play.test.WithApplication;
-
-import java.util.HashMap;
-
-import static org.junit.Assert.assertEquals;
-import static play.mvc.Http.RequestBuilder;
-import static play.mvc.Http.Status.OK;
-import static play.test.Helpers.*;
-import static play.api.test.CSRFTokenHelper.*;
-
 public class $model;format="Camel"$ControllerTest extends WithApplication {
 
     @Override

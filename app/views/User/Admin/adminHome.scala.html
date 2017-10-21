@@ -1,0 +1,13 @@
+@import java.util.List
+
+@import models.User.Admin.AdminInfo
+@import utility.DashboardButton
+@import views.html.Global.Static.dashboard
+
+@(dashButtons: List[DashboardButton], adminInfo: AdminInfo)
+
+@bodyContent = {
+    <script href="@controllers.User.routes.javascript.AdminController.adminJSRoutes" type="text/javascript"></script>
+}
+
+@dashboard.apply(dashButtons, bodyContent)

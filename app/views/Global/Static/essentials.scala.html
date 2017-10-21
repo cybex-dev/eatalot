@@ -1,6 +1,6 @@
-@import controllers.Application.AppTags
 @import Global.Html5._
 @import Global.Static._
+@import controllers.Application.AppTags
 
 @(pageTitle: String, navExt: Html, bodyContent: Html, scriptsContent: Html)
 
@@ -14,7 +14,7 @@
         @for(key <- Array("danger","warning","success","info")) {
             @if(flash().containsKey(key)) {
                 <div class="alert alert-@key">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">@flash.get(key).toString<i class="glyphicon glyphicon-remove"></i></a>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">@flash.get(key).toString<i class="glyphicon glyphicon-book"></i></a>
                 </div>
             }
         }

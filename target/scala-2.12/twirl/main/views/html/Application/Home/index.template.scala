@@ -39,13 +39,13 @@ Seq[Any](format.raw/*5.14*/("""
                 <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="assets/images/food/food01.png" alt="" />
+                            <img src="assets/images/food/pancakes.png" alt="" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/food02.png" alt="" />
+                            <img src="assets/images/food/burger.png" alt="" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/food03.png" alt="" />
+                            <img src="assets/images/food/chickenwrap.png" alt="" />
                         </div>
                         <div class="item">
                             <img src="assets/images/food/food04.png" alt="" />
@@ -133,10 +133,10 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 07 12:53:16 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Application/Home/index.scala.html
-                  HASH: 04590b30a5c8feeafb279f47f11eab2abc36d339
-                  MATRIX: 668->1|1008->46|1088->51|1104->59|1184->63|1215->68|3133->1966|3153->1977|3234->1981|3266->1986|3485->2209|3513->2211|3542->2219|3575->2254|3607->2259|3840->2465|3860->2476|3924->2518|4496->48|4525->1963|4554->3052|4584->3056|4603->3066
+                  DATE: Sat Oct 21 09:12:56 SAST 2017
+                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Application/Home/index.scala.html
+                  HASH: 8f1aa9aed4a9df7ba66e78eef91f20c0b8370d2e
+                  MATRIX: 668->1|1008->46|1088->51|1104->59|1184->63|1215->68|3140->1973|3160->1984|3241->1988|3273->1993|3492->2216|3520->2218|3549->2226|3582->2261|3614->2266|3847->2472|3867->2483|3931->2525|4503->48|4532->1970|4561->3059|4591->3063|4610->3073
                   LINES: 24->1|29->3|33->5|33->5|35->5|36->6|72->44|72->44|74->44|75->45|81->51|82->52|82->52|83->53|84->54|90->60|90->60|90->60|113->3|115->42|117->82|120->85|120->85
                   -- GENERATED --
               */

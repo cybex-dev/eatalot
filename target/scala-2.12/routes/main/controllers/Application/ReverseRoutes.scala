@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/conf/routes
-// @DATE:Sat Oct 14 09:33:00 SAST 2017
+// @SOURCE:/home/cybex/Projects/eatalot-temp/conf/routes
+// @DATE:Sat Oct 21 09:12:55 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,16 +19,28 @@ package controllers.Application {
     }
 
   
+    // @LINE:8
+    def unknown(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "unknown")
+    }
+  
     // @LINE:6
     def index(): Call = {
       
       Call("GET", _prefix)
     }
   
-    // @LINE:146
+    // @LINE:202
     def invalidRoute(path:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("path", path))
+    }
+  
+    // @LINE:7
+    def forbiddenAccess(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "forbidden")
     }
   
   }

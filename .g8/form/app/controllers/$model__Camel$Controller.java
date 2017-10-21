@@ -1,13 +1,6 @@
 package controllers;
 
-import play.data.Form;
-import play.data.FormFactory;
-import play.mvc.Controller;
-import play.mvc.Result;
-
-import javax.inject.Inject;
-
-// Add the following to conf/routes 
+// Add the following to conf/routes
 /*
 GET     /$model;format="camel"$        controllers.$model;format="Camel"$Controller.$model;format="camel"$Get
 POST    /$model;format="camel"$        controllers.$model;format="Camel"$Controller.$model;format="camel"$Post

@@ -13,7 +13,7 @@ All compiles correctly, branch off this project and start developing your own us
 
 # Instructions for cloning
 
-First: Check email and accept invite for collaboration
+First: Check loginId and accept invite for collaboration
 
 1. Open up IntelliJ (Assuming you have installed: IntelliJ, Java JDK - latest, scala-sbt and has been added to your environment path - see below **)
 2. Install the scala plugin if you haven't done so

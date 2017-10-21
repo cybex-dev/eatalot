@@ -22,53 +22,55 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import java.util
-/*3.2*/import utility.Pair
-/*4.2*/import models.Order.MealOrder
-/*5.2*/import helper._
-/*6.2*/import models.Order.{CustomerOrder, Meal}
+/*3.2*/import helper._
+/*4.2*/import models.Order.{CustomerOrder, Meal, MealOrder}
+/*5.2*/import utility.Pair
 
 object cart extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[util.List[Pair[MealOrder, Meal]],CustomerOrder,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*7.2*/(meals: util.List[Pair[MealOrder, Meal]], order: CustomerOrder):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*6.2*/(meals: util.List[Pair[MealOrder, Meal]], order: CustomerOrder):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*7.65*/("""
+Seq[Any](format.raw/*6.65*/("""
 
-"""),format.raw/*9.1*/("""<!DOCTYPE html>
+"""),format.raw/*8.1*/("""<!DOCTYPE html>
 
 <html>
+    <head>
+        """),_display_(/*12.10*/stylesheets/*12.21*/.apply()),format.raw/*12.29*/("""
+    """),format.raw/*13.5*/("""</head>
     <body>
-        """),format.raw/*13.55*/("""
-        """),_display_(/*14.10*/if(meals != null && meals.size() == 0)/*14.48*/{_display_(Seq[Any](format.raw/*14.49*/("""
-            """),format.raw/*15.13*/("""<p><i>dust</i></p>
-        """)))}/*16.10*/else/*16.14*/{_display_(Seq[Any](format.raw/*16.15*/("""
-            """),format.raw/*17.13*/("""<table>
-                """),_display_(/*18.18*/for(x <- 0 until meals.size()) yield /*18.48*/ {_display_(Seq[Any](format.raw/*18.50*/("""
-                    """),_display_(/*19.22*/form(CSRF(controllers.Order.routes.OrderController.removeMealFromOrder(meals.get(x).getObject1.getMealId)))/*19.129*/ {_display_(Seq[Any](format.raw/*19.131*/("""
-                        """),format.raw/*20.25*/("""<tr>
+        """),format.raw/*15.55*/("""
+        """),_display_(/*16.10*/if(meals != null && meals.size() == 0)/*16.48*/{_display_(Seq[Any](format.raw/*16.49*/("""
+            """),format.raw/*17.13*/("""<p><i>dust</i></p>
+        """)))}/*18.10*/else/*18.14*/{_display_(Seq[Any](format.raw/*18.15*/("""
+            """),format.raw/*19.13*/("""<table>
+                """),_display_(/*20.18*/for(x <- 0 until meals.size()) yield /*20.48*/ {_display_(Seq[Any](format.raw/*20.50*/("""
+                    """),_display_(/*21.22*/form(CSRF(controllers.Order.routes.OrderController.removeMealFromOrder(meals.get(x).getObject1.getMealId)))/*21.129*/ {_display_(Seq[Any](format.raw/*21.131*/("""
+                        """),format.raw/*22.25*/("""<tr>
                             <td>Meal</td>
                             <td>Price</td>
                             <td>Status</td>
                         </tr>
                         <tr>
-                            <td>"""),_display_(/*26.34*/meals/*26.39*/.get(x).getObject2.getDescription),format.raw/*26.72*/("""</td>
-                            <td>"""),_display_(/*27.34*/meals/*27.39*/.get(x).getObject2.getCost),format.raw/*27.65*/("""</td>
+                            <td>"""),_display_(/*28.34*/meals/*28.39*/.get(x).getObject2.getDescription),format.raw/*28.72*/("""</td>
+                            <td>"""),_display_(/*29.34*/meals/*29.39*/.get(x).getObject2.getCost),format.raw/*29.65*/("""</td>
                             <td>$$Status</td>
                         </tr>
                         <tr>
                             <td>$$Image</td>
-                            <td>Quantity: """),_display_(/*32.44*/meals/*32.49*/.get(x).getObject1.getOrderQty),format.raw/*32.79*/("""</td>
+                            <td>Quantity: """),_display_(/*34.44*/meals/*34.49*/.get(x).getObject1.getOrderQty),format.raw/*34.79*/("""</td>
                             <td><button type="submit" name="action" value="remove">Remove Meal</button></td>
                         </tr>
-                    """)))}),format.raw/*35.22*/("""
-                """)))}),format.raw/*36.18*/("""
-            """),format.raw/*37.13*/("""</table>
-            <a href=""""),_display_(/*38.23*/controllers/*38.34*/.Order.routes.OrderController.getSubmitPage()),format.raw/*38.79*/("""">Submit Cart</a>
-        """)))}),format.raw/*39.10*/("""
-    """),format.raw/*40.5*/("""</body>
+                    """)))}),format.raw/*37.22*/("""
+                """)))}),format.raw/*38.18*/("""
+            """),format.raw/*39.13*/("""</table>
+            <a href=""""),_display_(/*40.23*/controllers/*40.34*/.Order.routes.OrderController.getSubmitPage()),format.raw/*40.79*/("""">Submit Cart</a>
+        """)))}),format.raw/*41.10*/("""
+    """),format.raw/*42.5*/("""</body>
 </html>"""))
       }
     }
@@ -85,11 +87,11 @@ Seq[Any](format.raw/*7.65*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 14 09:33:01 SAST 2017
-                  SOURCE: /home/dylan/Documents/project/goaway/eatalot-master (backup)/Order-Management-Devel/app/views/Ordering/cart.scala.html
-                  HASH: 1aeaa0619c9e27c376b7c387d7c51166ceb83308
-                  MATRIX: 660->1|684->20|711->41|748->72|771->89|1156->132|1314->195|1342->197|1413->286|1450->296|1497->334|1536->335|1577->348|1624->376|1637->380|1676->381|1717->394|1769->419|1815->449|1855->451|1904->473|2021->580|2062->582|2115->607|2368->833|2382->838|2436->871|2502->910|2516->915|2563->941|2789->1140|2803->1145|2854->1175|3051->1341|3100->1359|3141->1372|3199->1403|3219->1414|3285->1459|3343->1486|3375->1491
-                  LINES: 24->1|25->3|26->4|27->5|28->6|33->7|38->7|40->9|44->13|45->14|45->14|45->14|46->15|47->16|47->16|47->16|48->17|49->18|49->18|49->18|50->19|50->19|50->19|51->20|57->26|57->26|57->26|58->27|58->27|58->27|63->32|63->32|63->32|66->35|67->36|68->37|69->38|69->38|69->38|70->39|71->40
+                  DATE: Sat Oct 21 09:12:57 SAST 2017
+                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Ordering/cart.scala.html
+                  HASH: 1a56d34695b5fcabbc80d4a7437d07bc95c2bbfe
+                  MATRIX: 660->1|684->20|707->37|767->91|1130->112|1288->175|1316->177|1387->221|1407->232|1436->240|1468->245|1523->318|1560->328|1607->366|1646->367|1687->380|1734->408|1747->412|1786->413|1827->426|1879->451|1925->481|1965->483|2014->505|2131->612|2172->614|2225->639|2478->865|2492->870|2546->903|2612->942|2626->947|2673->973|2899->1172|2913->1177|2964->1207|3161->1373|3210->1391|3251->1404|3309->1435|3329->1446|3395->1491|3453->1518|3485->1523
+                  LINES: 24->1|25->3|26->4|27->5|32->6|37->6|39->8|43->12|43->12|43->12|44->13|46->15|47->16|47->16|47->16|48->17|49->18|49->18|49->18|50->19|51->20|51->20|51->20|52->21|52->21|52->21|53->22|59->28|59->28|59->28|60->29|60->29|60->29|65->34|65->34|65->34|68->37|69->38|70->39|71->40|71->40|71->40|72->41|73->42
                   -- GENERATED --
               */
           

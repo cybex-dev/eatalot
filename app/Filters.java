@@ -1,6 +1,6 @@
-import play.http.DefaultHttpFilters;
-import play.mvc.EssentialFilter;
 import play.filters.csrf.CSRFFilter;
+import play.http.DefaultHttpFilters;
+
 import javax.inject.Inject;
 
 /**

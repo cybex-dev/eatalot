@@ -1,14 +1,16 @@
 @import java.util
 
-@import utility.Pair
-@import models.Order.MealOrder
 @import helper._
-@import models.Order.{CustomerOrder, Meal}
+@import models.Order.{CustomerOrder, Meal, MealOrder}
+@import utility.Pair
 @(meals: util.List[Pair[MealOrder, Meal]], order: CustomerOrder)
 
 <!DOCTYPE html>
 
 <html>
+    <head>
+        @stylesheets.apply()
+    </head>
     <body>
         @**//TODO: (QoL) Add clear all meals button**@
         @if(meals != null && meals.size() == 0){

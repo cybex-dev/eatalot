@@ -5,6 +5,9 @@
 @import controllers.Application.AppTags.Session.SessionTags.{session_status, valid}
 @import helper.CSRF
 
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(0)">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(1)">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="@controllers.Order.routes.OrderController.switchMenu(2)">
 @(nav_extension: Html)
 
     @getUserType = @{
@@ -20,11 +23,8 @@
                 <i class="fa fa-angle-down"></i>
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#breakfasts">
                     Breakfasts</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#lunches">
                     Lunches</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#dinners">
                     Dinners</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#desserts">
                     Desserts</a></li>

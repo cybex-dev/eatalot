@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 
 <html>
+    <head>
+        @stylesheets.apply()
+    </head>
     <body>
         @**//TODO: (QoL) Add clear all meals button**@
         @if(meals != null && meals.size() == 0){

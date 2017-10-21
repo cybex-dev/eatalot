@@ -20,18 +20,20 @@ public class Meal extends Model implements MealType {
     private String description;
     @Constraints.Required
     private String type;
+    private String image;
     private double cost;
 
     public Meal(String mealId) {
         this.mealId = mealId;
     }
 
-    public Meal(String mealId, String recipeId, String description, String type, double cost) {
+    public Meal(String mealId, String recipeId, String description, String type, double cost, String image) {
         this.mealId = mealId;
         this.recipeId = recipeId;
         this.description = description;
         this.type = type;
         this.cost = cost;
+        this.image = image;
     }
 
     //todo #NOTIFY [Charles] change access from private to public, is used to query database to get results when displaying info to user
@@ -90,6 +92,10 @@ public class Meal extends Model implements MealType {
 
     public String getType() {
         return type;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public void setType(String type) {

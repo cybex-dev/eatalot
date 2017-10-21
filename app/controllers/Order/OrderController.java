@@ -1,10 +1,15 @@
 package controllers.Order;
 
+import controllers.Application.AppTags;
+import controllers.User.*;
+import io.ebean.Ebean;
 import models.Finance.Payment;
 import models.Order.*;
 import models.User.Customer.Customer;
+import org.h2.engine.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
+import scala.App;
 import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
@@ -20,17 +25,17 @@ public class OrderController extends Controller implements StatusId {
 
     public Result getSubmitPage(){
         //TODO: Uncomment once Customer is integrated
-//        return ok(master.render("Finalise Cart",
-//                submitCart.render(
-//                        CustomerOrder.findOrderById(session("orderId")),
-//                        Customer.findCustomerByEmail(session("email")))));
-        Customer customer = new Customer();
-        customer.setStudent(true);
-
         return ok(master.render("Finalise Cart",
                 submitCart.render(
                         CustomerOrder.findOrderById(session("orderId")),
-                        customer)));
+                        Customer.findCustomerByEmail(session("email")))));
+//        Customer customer = new Customer();
+//        customer.setStudent(true);
+
+//        return ok(master.render("Finalise Cart",
+//                submitCart.render(
+//                        CustomerOrder.findOrderById(session("orderId")),
+//                        customer)));
 
     }
 
@@ -58,6 +63,8 @@ public class OrderController extends Controller implements StatusId {
             case "0": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Breakfast"), 0)));
             case "1": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Lunch"), 1)));
             case "2": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Dinner"), 2)));
+            case "3": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Desert"), 3)));
+            case "4": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Snacks"), 4)));
             default: return badRequest();
         }
     }
@@ -69,19 +76,33 @@ public class OrderController extends Controller implements StatusId {
 
     //TODO: (QoL) redirect to switchMenu instead of getMenu with meal type to keep user on same menu
     public Result addMealToOrder(String mealId){
-        if(AccountController.isCustomer()) {
+        if(session(AppTags.AppCookie.user_type.toString()) == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())) {
             CustomerOrder order;
+            Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
             if(session("orderId") == null){
                 order = new CustomerOrder();
-                order.setUserId(session("email"));
+                order.setUserId(session(AppTags.AppCookie.user_id.toString()));
                 order.setStatusId(UNSUBMITTED);
-
 
                 Payment payment = new Payment(order.getOrderId());
                 order.setPaymentId(payment.getPaymentId());
+                order.setUserId(customer.getUserId());
+                payment.setCustomerUserId(customer.getUserId());
 
-                payment.save();
-                order.save();
+                customer.getOrders().add(order);
+                customer.getPayments().add(payment);
+
+//                Ebean.save(customer);
+                customer.update();
+
+                Ebean.insert(order);
+                Ebean.insert(payment);
+
+//                Ebean.save(order);
+//                Ebean.save(payment);
+
 
                 session("orderId", String.valueOf(order.getOrderId()));
                 createMealOrder(mealId);
@@ -93,7 +114,7 @@ public class OrderController extends Controller implements StatusId {
             order.updateCost();
             return redirect(controllers.Order.routes.OrderController.getMenu());
         } else
-            return redirect(controllers.Order.routes.AccountController.getSignUp());
+            return redirect(controllers.User.routes.UserController.login());
     }
 
     private void createMealOrder(String mealId){
@@ -143,16 +164,19 @@ public class OrderController extends Controller implements StatusId {
      */
     //TODO: Add submit order to page.
     public Result getCart(){
-        if(AccountController.isCustomer())
-            if(session("orderId") != null)
+        if(session(AppTags.AppCookie.user_type.toString()) == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())) {
+            if (session("orderId") != null)
                 return ok(master.render("Cart",
                         cart.render(
                                 CustomerOrder.findAllMealsFromOrder(session("orderId")),
                                 CustomerOrder.findOrderById(session("orderId")))));
             else
                 return ok(master.render("Cart", cart.render(new ArrayList<>(), null)));
+        }
         else
-            return redirect(controllers.Order.routes.AccountController.getSignUp());
+            return redirect(controllers.User.routes.UserController.login());
     }
 
     /**
@@ -207,47 +231,5 @@ public class OrderController extends Controller implements StatusId {
         payment.update();
         session("orderId", null);
         return redirect(controllers.Order.routes.OrderController.getMenu());
-    }
-
-    /**
-     * Method to add simulation data to database.
-     * Ingredient, Recipe Ingredient, Recipe and Meal.
-     * Recipe ids can determine meal type (B, L, D) - Breakfast, Lunch, Dinner.
-     * Re-run whenever database undergoes evolution and tables are dropped.
-     */
-    // TODO: Add more data
-    private void addData(){
-        // Ingredient 1
-        Ingredient ingredient1 = new Ingredient("1", "Bread", 5);
-        ingredient1.save();
-
-        // Recipe Ingredient 1
-        RecipeIngredients recipeIngredients1 = new RecipeIngredients("L1", "1", 5);
-        recipeIngredients1.save();
-
-        // Recipe 1
-        Recipe recipe1 = new Recipe("R1", 1, 10);
-        recipe1.save();
-
-        // Meal 1
-        Meal meal1 = new Meal("L1", "R1", "Burger", "Lunch", 50);
-        meal1.save();
-
-        // Ingredient 2
-        Ingredient ingredient2 = new Ingredient("2", "Chicken", 20);
-        ingredient2.save();
-
-        // Recipe Ingredient 2
-        RecipeIngredients recipeIngredients2 = new RecipeIngredients("Lw", "w", 12);
-        recipeIngredients2.save();
-
-        // Recipe 2
-        Recipe recipe2 = new Recipe("R2", 3, 14);
-        recipe2.save();
-
-        // Meal 2
-        Meal meal2 = new Meal("L2", "R2", "Fried Chicken", "Dinner", 150);
-        meal2.save();
-
     }
 }

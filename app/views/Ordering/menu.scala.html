@@ -2,56 +2,43 @@
 
 @import helper._
 @import models.Order.Meal
+@import controllers.Application.AppTags
 @(meals: util.List[Meal], menuType: Integer)
 
 <!DOCTYPE html>
 <html>
+    <head>
+        <link href="@routes.Assets.versioned("stylesheets/mobile.css")" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width">
+    </head>
     <body>
-        @if(session.get("user") == null){
-            <a href="@controllers.Order.routes.AccountController.getSignUp()">Sign up</a>
-        } else{
-            <p>Welcome @session.get("username")</p>
-            <a href="@controllers.Order.routes.AccountController.doSignOut()">Sign out</a>
-        }
-
         @*<a href="@routes.OrderController.getAddMealToMenu()">Add Order</a>*@
-        <h1>Menu</h1>
-        <table>
-            <tr><td><a href="@controllers.Order.routes.OrderController.getMenu()">Menu</a></td></tr>
-            <tr><td><a href="@controllers.Order.routes.OrderController.getCart()">Checkout</a></td></tr>
-        </table>
-        <table>
-            @menuType
-            <tr><td><a href="@controllers.Order.routes.OrderController.switchMenu(0)">Breakfast</a></td></tr>
-            <tr><td><a href="@controllers.Order.routes.OrderController.switchMenu(1)">Lunch</a></td></tr>
-            <tr><td><a href="@controllers.Order.routes.OrderController.switchMenu(2)">Dinner</a></td></tr>
-        </table>
+        @header()
+        @selectedMenu(menuType: Integer)
         @if(meals.size() == 0){
             <p>List is empty</p>
         } else {
+            <table>
+                <tr class="bottom_row">
+                    <td><h3>Meal</h3></td>
+                    <td><h3>Price</h3></td>
+                    @*<td>Status</td>*@
+                </tr>
             @for(x <- 0 until meals.size) {
                 @form(CSRF(controllers.Order.routes.OrderController.addMealToOrder(meals.get(x).getMealId()))) {
-                    @*<form action="@routes.OrderController.addMealToOrder(meals.get(x).getMealId())" method="post">*@
-                    <table>
-                        <tr>
-                            <td>Meal</td>
-                            <td>Price</td>
-                            <td>Status</td>
-                        </tr>
-                        <tr>
-                            <td>@meals.get(x).getDescription()</td>
-                            <td>@meals.get(x).getCost()</td>
-                            <td>$$Status</td>
-                        </tr>
-                        <tr>
-                            <td>$$Image</td>
-                            <td></td>
-                            <td><button type="submit">Add to order</button></td>
-                        </tr>
-                    </table>
-                    @*</form>*@
+                    <tr>
+                        <td>@meals.get(x).getDescription()</td>
+                        <td>@meals.get(x).getCost()</td>
+                        @*<td>$$Status</td>*@
+                    </tr>
+                    <tr class="bottom_row">
+                        <td><img class="image" src="@routes.Assets.versioned("images/menu/" + meals.get(x).getImage)"/></td>
+                        @*<td></td>*@
+                        <td colspan="2"><button type="submit">Add to order</button></td>
+                    </tr>
                 }
             }
+            </table>
         }
     </body>
 </html>

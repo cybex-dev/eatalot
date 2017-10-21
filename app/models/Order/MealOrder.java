@@ -26,7 +26,7 @@ public class MealOrder extends Model{
     }
 
     public MealOrder(String mealId, String orderId, int orderQty) {
-//        this.mealOrderId = mealOrderId;
+        this.mealOrderId = mealId + orderId;
         this.mealId = mealId;
         this.orderId = orderId;
         this.orderQty = 0;
@@ -67,6 +67,12 @@ public class MealOrder extends Model{
         catch (NullPointerException e){
             return null;
         }
+    }
+
+    @Override
+    public void save() {
+        mealOrderId = mealId + orderId;
+        super.save();
     }
 
     public void incrementQty(){

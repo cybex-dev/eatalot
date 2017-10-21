@@ -15,7 +15,7 @@ INSERT INTO order_schedule (order_sched_id, title, is_active) VALUES ('4', 'My o
 INSERT INTO order_schedule (order_sched_id, title, is_active) VALUES ('5', 'Normal', FALSE );
 
 INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('1',  'Charles',    'Dyason',     '12345678', 'k4gcybex@gmail.com',           '0720398806', '.', FALSE, TRUE,   TRUE,   200.00,   '3', '1');
-INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('3',  'Dylan',      'Francis',    '12345678', 'dyalan.francis@nmmu.ac.za',    '0711234567', '.', TRUE,  FALSE,  FALSE,  1500.00,  '6', '2');
+INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('3',  'Dylan',      'Francis',    '12345678', 'dfrancis1996@outlook.com',    '0711234567', '.', TRUE,  FALSE,  FALSE,  15000.00,  '6', '2');
 INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('8',  'Aavishkar',  'Bhagwandin', '12345678', 'aviskhar.b@gmail.com',         '0823457894', '.', FALSE, FALSE,  TRUE ,  500.00,   '7', '3');
 INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('10', 'John',       'Doe',        '12345678', 'john.doe@nmmu.ac.za',          '',           '.', TRUE,  TRUE,   FALSE,  80.00,    '9', '4');
 INSERT INTO customer (user_id, name, surname, password, email, cell_number, token, is_student, email_verified, is_complete, balance, address_address_id, order_schedule_order_sched_id) VALUES ('11', 'Adam',       'Smith',      '12345678', 'adam.smaith@live.nmmu.ac.za',  '',           '.', TRUE,  FALSE,  FALSE,  0.00,     '8', '5');
@@ -40,6 +40,20 @@ INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('2', 'winner', 500
 INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('3', 'free meal', 100);
 INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('4', 'a free lunch', 80);
 INSERT INTO voucher (voucher_id, voucher_code, value) VALUES ('5', 'teaser', 50);
+
+INSERT INTO ingredient(ingredient_id, description, qty_ordered) VALUES ('1', 'Bread', 5);
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R1', 1, 10);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L1', 'R1', 'Burger and Chips', 'Lunch', 'burger.png', 50);
+
+INSERT INTO ingredient(ingredient_id, description, qty_ordered) VALUES ('2','Chicken', 20);
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R2', 3, 14);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L2', 'R2', 'Chicken Wraps', 'Lunch', 'chickenwrap.png', 50);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R3', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L3', 'R3', 'Strawberry Pancakes', 'Breakfast', 'pancakes.png', 35);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R4', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L4', 'R4', 'Chicken Pasta', 'Dinner', 'chickenpasta.jpg', 45);
 
 # --- !Downs
 

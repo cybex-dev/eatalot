@@ -1,0 +1,40 @@
+
+// @GENERATOR:play-routes-compiler
+// @SOURCE:/home/cybex/Projects/eatalot-temp/conf/routes
+// @DATE:Sat Oct 21 09:12:55 SAST 2017
+
+import play.api.routing.JavaScriptReverseRoute
+
+
+import _root_.controllers.Assets.Asset
+import _root_.play.libs.F
+
+// @LINE:144
+package controllers.javascript {
+
+  // @LINE:144
+  class ReverseAssets(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:144
+    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Assets.versioned",
+      """
+        function(file1) {
+        
+          if (true) {
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
+          }
+        
+        }
+      """
+    )
+  
+  }
+
+
+}

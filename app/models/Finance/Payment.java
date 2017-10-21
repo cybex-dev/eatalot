@@ -2,6 +2,7 @@ package models.Finance;
 
 import io.ebean.Finder;
 import io.ebean.Model;
+import models.User.Customer.Customer;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import utility.RandomString;
@@ -9,6 +10,7 @@ import utility.RandomString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -21,7 +23,9 @@ public class Payment extends Model {
     @Id
     @Constraints.Required
     private String paymentId;
-    @Constraints.Required
+
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private String customerUserId;
 
     //TODO: I changed date & time to string, Date objects don't save right in database.
     @Formats.DateTime(pattern="dd/MM/yyyy")
@@ -50,6 +54,8 @@ public class Payment extends Model {
                 + ThreadLocalRandom.current().nextInt(100, 1000))).hashCode());
 
     }
+
+
 
     // Needs foreign key to order.
     @Constraints.Required
@@ -159,5 +165,13 @@ public class Payment extends Model {
 
     public String getOrderId() {
         return orderId;
+    }
+
+    public String getCustomerUserId() {
+        return customerUserId;
+    }
+
+    public void setCustomerUserId(String customerUserId) {
+        this.customerUserId = customerUserId;
     }
 }

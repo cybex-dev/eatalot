@@ -2,34 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb4e92d7-9f57-44a6-bff9-3ade41303aa1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/icons/add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/icons/edit.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/navigation/nav_dash.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/images/navigation/settings.png" afterPath="$PROJECT_DIR$/public/images/icons/settings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/icons/clear.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Application/contact_us.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Global/Static/show_flash.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/table-queries.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" afterPath="$PROJECT_DIR$/project/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/output_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" afterPath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" afterPath="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Application/Home/index.scala.html" afterPath="$PROJECT_DIR$/app/views/Application/Home/index.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application/HomeController.java" afterPath="$PROJECT_DIR$/app/controllers/Application/HomeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Application/forbidden.scala.html" afterPath="$PROJECT_DIR$/app/views/Application/forbidden.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Application/unknown.scala.html" afterPath="$PROJECT_DIR$/app/views/Application/unknown.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/footer_wrapper.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/footer_wrapper.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html" afterPath="$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" afterPath="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" afterPath="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" afterPath="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/User/login.scala.html" afterPath="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/main.js" afterPath="$PROJECT_DIR$/public/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/bootstrap-grid.min.css" afterPath="$PROJECT_DIR$/public/stylesheets/bootstrap-grid.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/main.css" afterPath="$PROJECT_DIR$/public/stylesheets/main.css" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,6 +53,54 @@
     </expand>
     <select />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="table-queries.js" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/public/javascripts/table-queries.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="0">
+                    <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="paymentHistory.scala.html" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="357">
+                    <caret line="73" column="14" lean-forward="false" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="editProfile.scala.html" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="203">
+                    <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -65,44 +108,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScheduleController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
+      <file leaf-file-name="orderHistory.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="122" column="46" lean-forward="false" selection-start-line="122" selection-start-column="46" selection-end-line="122" selection-end-column="46" />
+            <state relative-caret-position="904">
+              <caret line="79" column="14" lean-forward="false" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
               <folding>
-                <element signature="e#2288#2289#0" expanded="true" />
-                <element signature="e#2370#2371#0" expanded="true" />
+                <element signature="e#1#22#0#Scala" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/main.js">
+      <file leaf-file-name="editAdminProfile.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="64" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#22#0#Scala" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html">
+      <file leaf-file-name="editDeliveryProfile.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="99" column="48" lean-forward="false" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="20">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding>
+                <element signature="e#1#22#0#Scala" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stylesheets.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html">
+      <file leaf-file-name="editKitchenProfile.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="264">
+              <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+              <folding>
+                <element signature="e#1#22#0#Scala" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/routes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="102" lean-forward="false" selection-start-line="6" selection-start-column="102" selection-end-line="6" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -111,76 +169,57 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="308" column="21" lean-forward="false" selection-start-line="308" selection-start-column="21" selection-end-line="308" selection-end-column="21" />
+            <state relative-caret-position="524">
+              <caret line="358" column="19" lean-forward="false" selection-start-line="358" selection-start-column="19" selection-end-line="358" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav_wrapper.scala.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddFunds.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav_wrapper.scala.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="169" column="62" lean-forward="true" selection-start-line="169" selection-start-column="62" selection-end-line="169" selection-end-column="62" />
+            <state relative-caret-position="734">
+              <caret line="79" column="107" lean-forward="false" selection-start-line="79" selection-start-column="107" selection-end-line="79" selection-end-column="107" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/User/User/login.scala.html">
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="19" column="58" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderSchedule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Order/OrderSchedule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
-              <folding />
+              <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1312#1313#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addOrder</find>
-      <find>create</find>
-      <find>updateScheduleName</find>
-      <find>schedule</find>
-      <find>schedule-week</find>
-      <find>schedule-we</find>
-      <find>schedule-wee</find>
-      <find>Add oder</find>
-      <find>No orders</find>
-      <find>add</find>
-      <find>Ina</find>
-      <find>bold</find>
-      <find>Dashbo</find>
-      <find>Dashb</find>
-      <find>Dashboard</find>
-      <find>standardNavIconCSSClass</find>
-      <find>@standardNavIconCSSClass</find>
-      <find>&lt;img</find>
-      <find>large-icon</find>
       <find>getLo</find>
       <find>span</find>
       <find>class=&quot;text-bold&quot;&gt;Schedule Stat</find>
@@ -192,6 +231,25 @@
       <find>schedule stat</find>
       <find>setSc</find>
       <find>Active</find>
+      <find>orderHistory</find>
+      <find>25</find>
+      <find>Searc</find>
+      <find>Home</find>
+      <find>small-m</find>
+      <find>getLog</find>
+      <find>Welcome</find>
+      <find>bold</find>
+      <find>settings.pn</find>
+      <find>right-con</find>
+      <find>logout</find>
+      <find>settings.png</find>
+      <find>margin</find>
+      <find>Profile In</find>
+      <find>width-</find>
+      <find>Change</find>
+      <find>Contact U</find>
+      <find>unko</find>
+      <find>Set Dis</find>
     </findStrings>
     <replaceStrings>
       <replace>menu</replace>
@@ -215,26 +273,38 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/views/User/User/login.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/Application/unknown.scala.html" />
-        <option value="$PROJECT_DIR$/app/views/Application/forbidden.scala.html" />
         <option value="$PROJECT_DIR$/app/views/Application/Home/index.scala.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/bootstrap-grid.min.css" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/2.sql" />
-        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
         <option value="$PROJECT_DIR$/app/views/Global/Static/dashboard.scala.html" />
         <option value="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
-        <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/views/Global/Static/footer_wrapper.scala.html" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
         <option value="$PROJECT_DIR$/app/models/Order/OrderSchedule.java" />
-        <option value="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
         <option value="$PROJECT_DIR$/app/views/Global/Static/scripts.scala.html" />
         <option value="$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html" />
         <option value="$PROJECT_DIR$/public/javascripts/main.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html" />
         <option value="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
         <option value="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
+        <option value="$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html" />
+        <option value="$PROJECT_DIR$/public/javascripts/table-queries.js" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/show_flash.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
+        <option value="$PROJECT_DIR$/public/stylesheets/main.css" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Application/forbidden.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Application/unknown.scala.html" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/controllers/Application/HomeController.java" />
+        <option value="$PROJECT_DIR$/app/views/Application/contact_us.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html" />
       </list>
     </option>
   </component>
@@ -267,9 +337,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1035" />
-    <option name="width" value="1356" />
-    <option name="height" value="549" />
+    <option name="x" value="1366" />
+    <option name="width" value="1920" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -287,9 +357,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,7 +374,57 @@
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="UserFinance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Global" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Global" type="462c0819:PsiDirectoryNode" />
+              <item name="Static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -322,6 +440,37 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Order" type="462c0819:PsiDirectoryNode" />
               <item name="Schedule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="Customer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="Staff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
@@ -343,6 +492,19 @@
               <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
               <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="icons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="javascripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,7 +517,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,17 +528,18 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.scala.compiler.ScalaCompileServerForm" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eatalot_order_package" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="SearchEverywhereHistoryKey" value="styl&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/stylesheets.scala.html&#10;scripts&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/scripts.scala.html&#10;login&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/User/login.scala.html&#10;ROUTES&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;appli&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/application.conf&#10;application.conf&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/application.conf&#10;footer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/footer_wrapper.scala.html&#10;nav_wr&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;routes&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;Sche&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;Customer&#9;PSI&#9;JAVA://models.User.Customer.Customer&#10;nav_&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;nav_Wr&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;nav&#9;null&#9;null&#10;das&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;ScheduleController&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;2.sql&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;dashboard&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;Schedu&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;CustomerOrder&#9;PSI&#9;JAVA://models.Order.CustomerOrder" />
+    <property name="SearchEverywhereHistoryKey" value="routes&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;HomeCon&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Application/HomeController.java&#10;av_wr&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;nav_Wr&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;viewH&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/Customer/viewHistoricOrder.scala.html&#10;styl&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/stylesheets.scala.html&#10;scripts&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/scripts.scala.html&#10;login&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/User/login.scala.html&#10;ROUTES&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/routes&#10;appli&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/application.conf&#10;application.conf&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/application.conf&#10;footer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/footer_wrapper.scala.html&#10;nav_wr&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;Sche&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;Customer&#9;PSI&#9;JAVA://models.User.Customer.Customer&#10;nav_&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/nav_wrapper.scala.html&#10;nav&#9;null&#9;null&#10;das&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;ScheduleController&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;2.sql&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;dashboard&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html&#10;Schedu&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/controllers/Order/ScheduleController.java&#10;CustomerOrder&#9;PSI&#9;JAVA://models.Order.CustomerOrder" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images/icons" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/Application" />
       <recent name="$PROJECT_DIR$/public/images/icons" />
     </key>
   </component>
@@ -524,11 +689,12 @@
       <workItem from="1508406825558" duration="1852000" />
       <workItem from="1508410498708" duration="46651000" />
       <workItem from="1508502360512" duration="12487000" />
+      <workItem from="1508521714581" duration="16178000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60990000" />
+    <option name="totallyTimeSpent" value="77168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="1920" height="1044" extended-state="6" />
@@ -556,8 +722,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18157615" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -565,6 +730,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -576,133 +742,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
-          <line>137</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java</url>
-          <line>139</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/Order/KitchenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/2.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="43" lean-forward="false" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3820">
-          <caret line="191" column="38" lean-forward="false" selection-start-line="191" selection-start-column="38" selection-end-line="191" selection-end-column="38" />
-          <folding>
-            <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="69" lean-forward="false" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2600">
-          <caret line="130" column="1" lean-forward="false" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Application/Home/index.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Application/forbidden.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Application/unknown.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4520">
-          <caret line="226" column="26" lean-forward="true" selection-start-line="226" selection-start-column="26" selection-end-line="226" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Order/KitchenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3adccc8d-0f00-4515-b44a-50babbf165ca/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/utility/StatusId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Order/CustomerOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://src:table:/2c6ed4d0/3adccc8d-0f00-4515-b44a-50babbf165ca/eatalotdb.customer">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -722,13 +766,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Application/unknown.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Application/Home/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-74">
@@ -736,21 +773,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/dashboard.template.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/dashboard.template.scala" />
     <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap-grid.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -774,25 +797,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Application/forbidden.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="85" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/evolutions/default/2.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="7" column="68" lean-forward="false" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="506" column="77" lean-forward="false" selection-start-line="506" selection-start-column="77" selection-end-line="506" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,21 +812,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/javascript/JavaScriptReverseRoutes.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="93" column="8" lean-forward="false" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/footer_wrapper.template.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/Order/javascript/JavaScriptReverseRoutes.scala" />
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/twirl/main/views/html/Global/Static/footer_wrapper.template.scala" />
     <entry file="file://$PROJECT_DIR$/app/views/Global/Static/footer_wrapper.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -844,14 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="5916" column="1" lean-forward="false" selection-start-line="5916" selection-start-column="1" selection-end-line="5916" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -873,21 +860,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7200">
           <caret line="360" column="21" lean-forward="false" selection-start-line="360" selection-start-column="21" selection-end-line="360" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/icons/add.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="66" column="102" lean-forward="false" selection-start-line="66" selection-start-column="89" selection-end-line="66" selection-end-column="102" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/material.css">
@@ -900,7 +878,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/User/User/login.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="300">
           <caret line="19" column="58" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="58" />
           <folding />
         </state>
@@ -910,7 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,7 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="7" column="3309" lean-forward="false" selection-start-line="7" selection-start-column="3309" selection-end-line="7" selection-end-column="3309" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,38 +909,22 @@
     <entry file="file://$PROJECT_DIR$/app/views/Global/Static/stylesheets.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
-          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="308" column="21" lean-forward="false" selection-start-line="308" selection-start-column="21" selection-end-line="308" selection-end-column="21" />
+          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
+        <state relative-caret-position="1920">
           <caret line="99" column="48" lean-forward="false" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="169" column="62" lean-forward="true" selection-start-line="169" selection-start-column="62" selection-end-line="169" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="660">
           <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding />
         </state>
@@ -972,20 +932,210 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Order/OrderSchedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+        <state relative-caret-position="1280">
+          <caret line="85" column="5" lean-forward="false" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/javascript/JavaScriptReverseRoutes.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="163" column="8" lean-forward="false" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewHistoricOrder.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#32#0#Scala" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="419" column="59" lean-forward="false" selection-start-line="419" selection-start-column="47" selection-end-line="419" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/essentials.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="58" lean-forward="false" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
+        <state relative-caret-position="224">
           <caret line="122" column="46" lean-forward="false" selection-start-line="122" selection-start-column="46" selection-end-line="122" selection-end-column="46" />
           <folding>
-            <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
+            <element signature="e#7496#7522#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table-queries.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/show_flash.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="69" lean-forward="false" selection-start-line="3" selection-start-column="69" selection-end-line="3" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="73" column="14" lean-forward="false" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="358" column="19" lean-forward="false" selection-start-line="358" selection-start-column="19" selection-end-line="358" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Finance/UserFinance/AddFunds.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1312#1313#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="102" lean-forward="false" selection-start-line="6" selection-start-column="102" selection-end-line="6" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Application/contact_us.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Application/unknown.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Application/forbidden.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="904">
+          <caret line="79" column="14" lean-forward="false" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="237" column="16" lean-forward="false" selection-start-line="237" selection-start-column="16" selection-end-line="237" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="3767" column="16" lean-forward="false" selection-start-line="3767" selection-start-column="16" selection-end-line="3767" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Staff/editDeliveryProfile.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Staff/editKitchenProfile.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Global/Static/nav_wrapper.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="734">
+          <caret line="79" column="107" lean-forward="false" selection-start-line="79" selection-start-column="107" selection-end-line="79" selection-end-column="107" />
+          <folding />
         </state>
       </provider>
     </entry>

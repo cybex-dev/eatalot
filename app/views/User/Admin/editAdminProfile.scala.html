@@ -7,6 +7,7 @@
 @(userProfile: Form[UserProfile])
 
 @scriptsContent = {
+    <script href="@controllers.User.routes.javascript.AdminController.adminJSRoutes" type="text/javascript"></script>
 }
 
 @navContent = {
@@ -15,10 +16,12 @@
 
 @userContent = {
     <div class="input-group">
-        @helper.form(action = controllers.User.routes.CustomerController.update()){
-            @CSRF.formField
-            <h2>Your information</h2>
+    @helper.form(action = controllers.User.routes.CustomerController.update()) {
+        @CSRF.formField
+        <div class="margin-left-small">
+            <h1>Your information</h1>
             <br/>
+
             <div class="container input-container">
                 <h4>Change Password</h4>
                 @helper.inputPassword(userProfile("password"), '_name -> "Password")
@@ -26,18 +29,18 @@
             </div>
             <br/>
             <br/>
-            <div class="container input-container">
-                <input class="btn btn-default button-padding" type="button" onclick="location.href='@controllers.User.routes.AdminController.index()';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+        </div>
+        <div class="row">
+            <div class="pull-center">
+                <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.index()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
             </div>
-            <br/>
-        }
+        </div>
+        <br/>
+    }
     </div>
 }
 
 @navSide = {
-    <a href="#" onclick="">Basic Information</a>
-    <a href="#">Edit Address</a>
-    <a href="#">Change Password</a>
 }
 
 @bodyContent = {

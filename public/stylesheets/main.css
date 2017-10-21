@@ -308,3 +308,53 @@
     vertical-align: text-top;
     margin-top: -6px;
 }
+
+.search-box {
+    /* Add a search icon to input */
+    /* Position the search icon */
+    /* Do not repeat the icon image */
+    background: url("../public/images/icons/searchicon.png") no-repeat 10px 12px;
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.standard-box-height {
+    height: 45px;
+}
+
+.vertical-line {
+    border-left: thin solid #ffffff;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.margin-top-small {
+    margin-top: 8px;
+}
+
+.padding-top {
+    padding-top: 12px;
+}
+
+.margin-left-large {
+    margin-left: 25px;
+}
+
+.margin-left-very-small {
+    margin-left: 10px;
+}
+
+.alert-margin-top {
+    magin-top: 8px;
+}
+
+.align-center {
+    margin: 0 auto;
+}
+
+.text-larger {
+    font-size:1.2em;
+}

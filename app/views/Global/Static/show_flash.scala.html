@@ -1,0 +1,9 @@
+@(key: String, message: String, link_message: String = "", link: String = "")
+<a href="#" class="close" data-dismiss="alert" aria-label="close">
+    <div class="alert alert-@key alert-dismissable">
+        @message <a href="@link" class="alert-link">@link_message</a>
+    </div>
+</a>
+@*<div class="alert alert-@key alert-dismissable">*@
+@*<a href="#" class="close" data-dismiss="alert" aria-label="close"><div class="alert-top"> @message <a href="@link" class="alert-link">@link_message <img src="@routes.Assets.versioned("images/icons/clear.png")" class="margin-left-small small-icon"/></a></div></a>*@
+@*</div>*@

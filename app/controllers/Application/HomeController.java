@@ -8,6 +8,7 @@ import play.mvc.With;
 import views.html.Application.Home.index;
 import views.html.Application.forbidden;
 import views.html.Application.unknown;
+import views.html.Application.contact_us;
 
 import static controllers.Application.AppTags.AppCookie.*;
 import static controllers.Application.AppTags.Session.SessionTags.visited;
@@ -42,6 +43,11 @@ public class HomeController extends Controller {
     public Result unknown() {
         String message = "Page not found!";
         return notFound(unknown.render(message));
+    }
+
+    @AnyAllowed
+    public Result contactUs() {
+        return ok(contact_us.render());
     }
 
     /**

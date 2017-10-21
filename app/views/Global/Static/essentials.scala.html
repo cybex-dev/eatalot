@@ -13,11 +13,10 @@
     @bodyHtml = {
         @for(key <- Array("danger","warning","success","info")) {
             @if(flash().containsKey(key)) {
-                <div class="alert alert-@key">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">@flash.get(key).toString<i class="glyphicon glyphicon-book"></i></a>
-                </div>
+                @show_flash(key, flash().get(key).toString)
             }
         }
+
         @nav_wrapper(navExt)
         @bodyContent
         @footer_wrapper.apply()

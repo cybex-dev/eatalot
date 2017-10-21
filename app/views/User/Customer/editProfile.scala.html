@@ -21,7 +21,6 @@
         @helper.inputPassword(userProfile("password"), '_name -> "Password")
         @helper.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password", '_id -> "confirmPassword")
     </div>
-    <br/>
 }
 
 @userInfoContent = {
@@ -36,7 +35,6 @@
         <h4>Your Contact Information</h4>
         @helper.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")
     </div>
-    <br/>
 }
 
 @addressContent = {
@@ -52,11 +50,6 @@
         @helper.checkbox(userProfile("isCommunity"), '_name -> "Do you live in a complex or apartment?")
         @helper.inputText(userProfile("communityName"), '_name -> "Name of building/complex")
     </div>
-    <br/>
-    <div class="container input-container">
-        <input class="btn btn-default button-padding" type="button" onclick="location.href = '@controllers.User.routes.CustomerController.index()';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
-    </div>
-    <br/>
 }
 
 @navTabsContent = {
@@ -65,11 +58,11 @@
     <div class="panel-body">
         <div class="center-parent">
             <ul class="nav nav-pills center-child">
-                <li class="active"><a href="#userInfo" data-toggle="tab">Basic Information</a>
+                <li class="text-larger active"><a href="#userInfo" data-toggle="tab">Basic Information</a>
                 </li>
-                <li class=""><a href="#password" data-toggle="tab">Change Password</a>
+                <li class="text-larger"><a href="#password" data-toggle="tab">Change Password</a>
                 </li>
-                <li class=""><a href="#address" data-toggle="tab">Change Address</a>
+                <li class="text-larger"><a href="#address" data-toggle="tab">Change Address</a>
                 </li>
             </ul>
         </div>
@@ -91,8 +84,14 @@
 }
 
 @bodyContent = {
-    <h2 class="center-parent">Profile Information</h2>
+    <h1 class="center-parent">Profile Information</h1>
 @navTabsContent
+    <br/>
+    <div class="row">
+        <div class="pull-center">
+            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.CustomerController.index()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+        </div>
+    </div>
 }
 
 @masterpage.apply(" :: Edit Profile", bodyContent)

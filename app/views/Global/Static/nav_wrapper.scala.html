@@ -33,15 +33,19 @@
             </ul>
         </li>
 
-        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Finance.routes.UserFinance.addFunds())">Add Funds</a></li>
-        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Order.routes.ScheduleController.index())">Schedule</a></li>
-        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.User.routes.CustomerController.orderHistory())">Orders</a></li>
-        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.User.routes.CustomerController.paymentHistory())">Payments</a></li>
+        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Finance.routes.UserFinance.addFunds())">
+            Add Funds</a></li>
+        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Order.routes.ScheduleController.index())">
+            Schedule</a></li>
+        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.User.routes.CustomerController.orderHistory())">
+            Orders</a></li>
+        <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.User.routes.CustomerController.paymentHistory())">
+            Payments</a></li>
     }
 
     @buildKitchenStaffNav = {
         <li><a href="@controllers.User.routes.KitchenStaffController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon " src="@routes.Assets.versioned("images/icons/menu.png")"/>
-            </a>
+        </a>
         </li>
         <li><a href="@controllers.User.routes.KitchenStaffController.viewActiveOrders()" class="@standardMenuCSSClass">
             Active Orders</a>
@@ -56,7 +60,7 @@
 
     @buildDeliveryNav = {
         <li><a href="@controllers.User.routes.DeliveryStaffController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon " src="@routes.Assets.versioned("images/icons/menu.png")"/>
-            </a>
+        </a>
         </li>
         <li><a href="@controllers.User.routes.DeliveryStaffController.viewActiveDeliveries()" class="@standardMenuCSSClass">
             Active Deliveries</a>
@@ -71,21 +75,21 @@
 
     @buildAdminNav = {
         <li><a href="@controllers.User.routes.CustomerController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon " src="@routes.Assets.versioned("images/icons/menu.png")"/>
-            </a>
+        </a>
         </li>
-        <li><a href="@controllers.User.routes.AdminController.manageUsers()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/icons/menu.png")"/>
+        <li><a href="@controllers.User.routes.AdminController.manageUsers()" class="@standardMenuCSSClass">
             Manage Users</a>
         </li>
-        <li><a href="@controllers.User.routes.AdminController.manageMeals()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/icons/menu.png")"/>
+        <li><a href="@controllers.User.routes.AdminController.manageMeals()" class="@standardMenuCSSClass">
             Manage Meals</a>
         </li>
-        <li><a href="@controllers.User.routes.AdminController.manageDiscounts()" class="@standardMenuCSSClass"><img src="@routes.Assets.versioned("images/icons/menu.png")"/>
+        <li><a href="@controllers.User.routes.AdminController.manageDiscounts()" class="@standardMenuCSSClass">
             Set Discounts</a>
         </li>
     }
 
     @standardMenuCSSClass = {
-        menu-top-active nav-text-enlarge nav-menu-top-margin
+        menu-top-active nav-text-enlarge nav-menu-top-margin small-margin text-bold
     }
 
     @standardNavIconCSSClass = {
@@ -117,7 +121,7 @@
         <li><a href="#" class="@standardMenuCSSClass">
             Specials</a>
         </li>
-        <li><a href="@controllers.Application.routes.HomeController.unknown()" class="@standardMenuCSSClass">
+        <li><a href="@controllers.Application.routes.HomeController.contactUs()" class="@standardMenuCSSClass">
             Contact Us</a>
         </li>
     }
@@ -213,13 +217,13 @@
 
     @getUserSideButton = {
         <a href="@getUserSettingsLink">
-            <img class="small-icon" src="@routes.Assets.versioned("images/icons/settings.png")">
+            <img class="small-icon margin-left-very-small" src="@routes.Assets.versioned("images/icons/settings.png")">
         </a>
     }
 
     @getRightBlockUserInfo = {
-        <ul class="top">
-            <label class="media-heading navbar-user pull-center">
+        <div class="row"></div>
+            <label class="margin-top-small media-heading navbar-user pull-left nav-text-enlarge text-bold">
                 Welcome, @if(isLoggedIn.equalsIgnoreCase("true")) {
                 <a href="@getUserHomeLink">
                 @session().get(AppTags.Session.SessionTags.display_name.toString)
@@ -229,10 +233,12 @@
                 New User
             }
             </label>
-        </ul>
-        <ul class="bottom text-center">
-        @getProfileButtons
-        </ul>
+            <div class="pull-right vertical-line">
+                <div class="margin-left-large">
+                @getProfileButtons
+                </div>
+            </div>
+        </div>
     }
 
     @nav_section = {
@@ -249,7 +255,7 @@
                             <ul class="nav navbar-nav navbar-left navbar-top nav-text-enlarge">
                             @getUserNav
                             </ul>
-                            <ul class="right-container navbar-btn navbar-right">
+                            <ul class="right-container navbar-btn navbar-right padding-top">
                             @getRightBlockUserInfo
                             </ul>
                         </div>

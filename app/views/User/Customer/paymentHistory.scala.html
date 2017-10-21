@@ -7,69 +7,82 @@
 @(paymentList: List[PaymentItemBasic])
 
 
-    @table = {
-        <div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">Payments History</h4>
-
-            </div>
-
-        </div>
+@table = {
+    <div class="row-width-center">
         <div class="panel panel-default">
             @*<div class="panel-heading">*@
-                @*Advanced Tables*@
+            @*Advanced Tables*@
             @*</div>*@
             <div class="panel-body">
                 <div class="table-responsive">
-                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">
-                        10</option><option value="25">25</option><option value="50">50</option><option value="100">
-                        100</option></select>
-                        records per page</label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>
-                        Search:<input type="search" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
-                        <thead>
-                            <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Payment: activate to sort column ascending" style="width: 189px;">
-                                    # Payment</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 291px;">
-                                    Total</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Cash: activate to sort column ascending" style="width: 264px;">
-                                    Cash</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Delivered By: activate to sort column ascending" style="width: 160px;">
-                                    Delivered By</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @*https://groups.google.com/d/msg/play-framework/hEQ33y6_kSI/9pZ-RLRnRpsJ*@
-                            @for((item, index) <- paymentList.zipWithIndex) {
-                                @*//                            @if(remove < selectedLength)*@
-                                <tr class="gradeA @if((index % 2) == 0) {odd} else {even}">
-                                    <td class="sorting_1"><a href="@controllers.User.routes.CustomerController.viewPayment(item.paymentId)">@item.paymentId</a></td>
-                                    <td class=" ">@item.amount</td>
-                                    <td class=" ">@if(item.isCash == true){"Yes"}else{"No"}</td>
-                                    <td class=" ">@item.delivererName</td>
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="dataTables-example_filter" class="dataTables_filter">
+                                    <div class="pull-left">
+                                        <input id="searchInput" type="search" onkeyup="searchPayment()" placeholder="Search here..." class="form-control input-sm search-box standard-box-height" aria-controls="dataTables-example">
+                                    </div>
+                                    <div class="pull-left margin-left-small">
+                                        <h4>Filter:
+                                            <select id="paymentsTable_search_column" aria-controls="dataTables-example" class="standard-box-height form-control input-sm ">
+                                                <option value="query_payment_id">Payment Number</option>
+                                                <option value="query_total">Total Amount</option>
+                                                <option value="query_cash_payment">Cash Payments</option>
+                                                <option value="query_credit_payment">Credit Payments</option>
+                                                <option value="query_deliverer">Deliverer</option>
+                                            </select>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover dataTable no-footer" id="paymentsTable" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Payment: activate to sort column ascending" style="width: 189px;">
+                                        # Payment</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 291px;">
+                                        Total</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Cash: activate to sort column ascending" style="width: 264px;">
+                                        Cash</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Delivered By: activate to sort column ascending" style="width: 160px;">
+                                        Delivered By</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @*https://groups.google.com/d/msg/play-framework/hEQ33y6_kSI/9pZ-RLRnRpsJ*@
+                                @for((item, index) <- paymentList.zipWithIndex) {
+                                    <tr class="gradeA @if((index % 2) == 0) {odd} else {even}">
+                                        <td class="sorting_1"><a href="@CSRF(controllers.User.routes.CustomerController.viewPayment(item.paymentId))">@item.paymentId</a></td>
+                                        <td class=" ">@item.amount</td>
+                                        <td class=" ">@if(item.isCash == true) {"Yes"} else {"No"}</td>
+                                        <td class=" ">@item.delivererName</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">
-                            Showing 1 to 10 of 57 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">
-                            Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            1</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            2</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            3</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            4</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            5</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            6</a></li><li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">
-                            Next</a></li></ul></div></div></div></div>
                 </div>
-
             </div>
         </div>
-    @form( action = controllers.User.routes.CustomerController.index()){
-        @CSRF.formField
-        <input class="btn btn-info" type="submit" name="Home">
-    }
-    }
+        <div class="small-margin">
+        @form(action = controllers.User.routes.CustomerController.index()) {
+            @CSRF.formField
+            <input class="btn btn-info button-small" type="submit" value="Home">
+            }
+        </div>
+    </div>
+}
 
-    @masterpage.apply(" :: Past Payments", table)
+@bodyContent = {
+    <div class="row pad-botm">
+        <div class="col-md-12">
+            <h1 class="header-line">Payment History</h1>
+        </div>
+    </div>
+@table
+
+}
+
+@masterpage.apply(" :: Past Payments", bodyContent)

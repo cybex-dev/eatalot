@@ -5,30 +5,36 @@
 @(list: List[Ingredient])
 
 <html>
+
     @if(list.size() == 0){
         <p><i>dust</i></p>
     }else{
+        <div class="center-wrapper">
+            <table class="ingredient-table-wrapper">
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity Ordered</th>
+                </tr>
+                @for(x <- 0 until list.size()){
+                    @form(CSRF(controllers.Order.routes.KitchenController.getIngredientOrderPage(list.get(x).getIngredientId))) {
+                        <tr>
+                            <td>@list.get(x).getDescription</td>
+                            <td>@list.get(x).getQtyOrdered</td>
+                            <td><button type="submit" name="action" value="order">Order</button></td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    }
+
+    <div class="center-wrapper">
         <table>
             <tr>
-                <td>Description</td>
-                <td>Quantity Ordered</td>
+                <td>
+                    <a href="@controllers.Order.routes.KitchenController.getNewIngredientPage">New Ingredient</a>
+                </td>
             </tr>
-            @for(x <- 0 until list.size()){
-                @form(CSRF(controllers.Order.routes.KitchenController.getIngredientOrderPage(list.get(x).getIngredientId))) {
-                    <tr>
-                        <td>@list.get(x).getDescription</td>
-                        <td>@list.get(x).getQtyOrdered</td>
-                        <td><button type="submit" name="action" value="order">Order</button></td>
-                    </tr>
-                }
-            }
         </table>
-    }
-    <table>
-        <tr>
-            <td>
-                <a href="@controllers.Order.routes.KitchenController.getNewIngredientPage">New Ingredient</a>
-            </td>
-        </tr>
-    </table>
+    </div>
 </html>

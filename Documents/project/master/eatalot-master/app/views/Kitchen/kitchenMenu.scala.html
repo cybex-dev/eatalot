@@ -1,0 +1,29 @@
+@()
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/kitchen.css")">
+    </head>
+    <div class="nav-menu-wrapper">
+        <div class="nav-bar">
+            <ul>
+                <li>
+                    <a href="@controllers.Order.routes.KitchenController.home()">Dashboard</a>
+                </li>
+                <li>
+                    <a href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a>
+                </li>
+                <li>
+                    <a href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a>
+                </li>
+                <li>
+                    <a href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a>
+                </li>
+                <li>
+                    <a href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</html>

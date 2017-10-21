@@ -2,13 +2,16 @@
 @import models.Order.Ingredient
 @(ingredientForm: Form[Ingredient])
 <html>
-    @form(CSRF(controllers.Order.routes.KitchenController.addIngredient())){
-        @helper.inputText(ingredientForm("description"),
-            '_name -> "Ingredient Description",
-            '_class -> "text-field")
-        @helper.inputText(ingredientForm("qtyOrdered"),
-            '_name -> "Quantity (Optional)",
-            '_class -> "text-field")
-        <input type="submit" value="Add Ingredient"/>
-    }
+
+    <div class="center-wrapper">
+        @form(CSRF(controllers.Order.routes.KitchenController.addIngredient())){
+            @helper.inputText(ingredientForm("description"),
+                '_name -> "Ingredient Description",
+                '_class -> "text-field")
+            @helper.inputText(ingredientForm("qtyOrdered"),
+                '_name -> "Quantity",
+                '_class -> "text-field")
+            <input type="submit" value="Add Ingredient"/>
+        }
+    </div>
 </html>

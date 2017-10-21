@@ -2,6 +2,7 @@ package models.Finance;
 
 import io.ebean.Finder;
 import io.ebean.Model;
+import models.Order.CustomerOrder;
 import models.User.Customer.Customer;
 import play.data.format.Formats;
 import play.data.validation.Constraints;
@@ -20,11 +21,14 @@ public class Payment extends Model {
     @Id
     @Constraints.Required
     private String paymentId;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Customer customer;
+    // Needs foreign key to order.
+//    @Constraints.Required
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private CustomerOrder order;
 
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private String customerUserId;
-
-    //TODO: I changed date & time to string, Date objects don't save right in database.
+    //TODO: Revert to data and time objects
     @Formats.DateTime(pattern="dd/MM/yyyy")
     private String date;
 //    private Date date;
@@ -38,8 +42,15 @@ public class Payment extends Model {
     private Boolean isPaid;
 
     public Payment() {
+//        this.order = order;
+//        this.customer = customer;
         setPaymentId();
     }
+
+//    public Payment(CustomerOrder order) {
+//        this.order = order;
+//        setPaymentId();
+//    }
 
     //TODO: Proper id generation, this one is shit
     private void setPaymentId(){
@@ -49,12 +60,6 @@ public class Payment extends Model {
                 + ThreadLocalRandom.current().nextInt(100, 1000))).hashCode());
 
     }
-
-
-
-    // Needs foreign key to order.
-    @Constraints.Required
-    private String orderId;
 
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 
@@ -67,11 +72,6 @@ public class Payment extends Model {
                 .where()
                 .eq("paymentId", paymentId)
                 .findOne();
-    }
-
-    public Payment(String orderId) {
-        this.orderId = orderId;
-        paymentId = String.valueOf(orderId.hashCode());
     }
 
     public void setDate(String date) {
@@ -121,7 +121,7 @@ public class Payment extends Model {
 
     @Override
     public void insert() {
-        paymentId = new RandomString(16, ThreadLocalRandom.current()).nextString();
+//        paymentId = new RandomString(16, ThreadLocalRandom.current()).nextString();
         super.insert();
     }
 
@@ -158,15 +158,16 @@ public class Payment extends Model {
         return isCash;
     }
 
-    public String getOrderId() {
-        return orderId;
-    }
+//    public String getOrderId() {
+//        return order.getOrderId();
+//    }
 
-    public String getCustomerUserId() {
-        return customerUserId;
-    }
+//    public String getCustomerUserId() {
+//        return customer.getUserId();
+//    }
 
-    public void setCustomerUserId(String customerUserId) {
-        this.customerUserId = customerUserId;
-    }
+//    public Payment setCustomer(Customer customer) {
+//        this.customer = customer;
+//        return this;
+//    }
 }

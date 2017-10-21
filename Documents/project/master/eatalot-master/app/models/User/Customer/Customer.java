@@ -28,8 +28,8 @@ public class Customer extends User {
     private OrderSchedule orderSchedule;
 //    private String orderScheduleId;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Payment> payments = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Payment> payments = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<CustomerOrder> orders = new ArrayList<>();
@@ -148,9 +148,9 @@ public class Customer extends User {
         return customer.isPresent();
     }
 
-    public List<Payment> getPayments() {
-        return payments;
-    }
+//    public List<Payment> getPayments() {
+//        return payments;
+//    }
 
     public List<CustomerOrder> getOrders() {
         return orders;

@@ -41,10 +41,11 @@ create table customer (
 
 create table customer_order (
   order_id                      varchar(255) not null,
-  customer_user_id              varchar(255),
   status_id                     varchar(255),
-  payment_id                    varchar(255),
+  customer_user_id              varchar(255),
+  payment_payment_id            varchar(255),
   delivery_date                 datetime(6),
+  constraint uq_customer_order_payment_payment_id unique (payment_payment_id),
   constraint pk_customer_order primary key (order_id)
 );
 
@@ -89,13 +90,11 @@ create table order_schedule_item (
 
 create table payment (
   payment_id                    varchar(255) not null,
-  customer_user_id              varchar(255),
   date                          varchar(255),
   time                          varchar(255),
   amount                        double,
   is_cash                       tinyint(1) default 0,
   is_paid                       tinyint(1) default 0,
-  order_id                      varchar(255),
   constraint pk_payment primary key (payment_id)
 );
 
@@ -164,12 +163,22 @@ alter table customer add constraint fk_customer_address_address_id foreign key (
 
 alter table customer add constraint fk_customer_order_schedule_order_sched_id foreign key (order_schedule_order_sched_id) references order_schedule (order_sched_id) on delete restrict on update restrict;
 
+alter table customer_order add constraint fk_customer_order_customer_user_id foreign key (customer_user_id) references customer (user_id) on delete restrict on update restrict;
+create index ix_customer_order_customer_user_id on customer_order (customer_user_id);
+
+alter table customer_order add constraint fk_customer_order_payment_payment_id foreign key (payment_payment_id) references payment (payment_id) on delete restrict on update restrict;
+
 
 # --- !Downs
 
 alter table customer drop foreign key fk_customer_address_address_id;
 
 alter table customer drop foreign key fk_customer_order_schedule_order_sched_id;
+
+alter table customer_order drop foreign key fk_customer_order_customer_user_id;
+drop index ix_customer_order_customer_user_id on customer_order;
+
+alter table customer_order drop foreign key fk_customer_order_payment_payment_id;
 
 drop table if exists address;
 

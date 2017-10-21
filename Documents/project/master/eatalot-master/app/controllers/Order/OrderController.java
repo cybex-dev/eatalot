@@ -1,15 +1,12 @@
 package controllers.Order;
 
 import controllers.Application.AppTags;
-import controllers.User.*;
 import io.ebean.Ebean;
 import models.Finance.Payment;
 import models.Order.*;
 import models.User.Customer.Customer;
-import org.h2.engine.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
-import scala.App;
 import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
@@ -23,48 +20,75 @@ import java.util.ArrayList;
 public class OrderController extends Controller implements StatusId {
 
 
+    /**
+     * Allows for the viewing of the final page in submitting an order
+     * Displays total cost and any associated discounts
+     * Allows customer to select payment method - credit/cash
+     * Allows customer to select date and time for delivery
+     * @return
+     */
     public Result getSubmitPage(){
-        //TODO: Uncomment once Customer is integrated
         return ok(master.render("Finalise Cart",
+                masterOrder.render(
                 submitCart.render(
                         CustomerOrder.findOrderById(session("orderId")),
-                        Customer.findCustomerByEmail(session("email")))));
-//        Customer customer = new Customer();
-//        customer.setStudent(true);
-
-//        return ok(master.render("Finalise Cart",
-//                submitCart.render(
-//                        CustomerOrder.findOrderById(session("orderId")),
-//                        customer)));
-
+                        Customer.findCustomerByEmail(session("email"))))));
     }
 
+    /**
+     * Allows for the viewing of a Customers order history
+     * Displays all Customer orders associated with the customer's userId
+     * @return
+     */
     public Result getHistoryPage() {
         return ok(master.render("Order History",
-                createdOrders.render(CustomerOrder.findOrderByUserId(session("email")))));
+                masterOrder.render(
+                createdOrders.render(CustomerOrder.findOrderByUserId(session("email"))))));
     }
 
+    /**
+     * Allows for the viewing of a CustomerOrder
+     * Displays all MealOrders of a CustomerOrder
+     * @param orderId of order to be viewed
+     * @return
+     */
     public Result getViewOrder(String orderId) {
         return ok(master.render("View Order",
-                viewOrder.render(CustomerOrder.findAllMealsFromOrder(orderId))));
+                masterOrder.render(
+                viewOrder.render(CustomerOrder.findAllMealsFromOrder(orderId)))));
     }
 
     public Result removeOrder(String orderId){
         return redirect(controllers.Order.routes.OrderController.getHistoryPage());
     }
 
+    /**
+     * Fetches the menu type - Breakfast, Lunch, Dinner, Desert, Snacks - selected by user.
+     * Default menu is Breakfast when none are selected.
+     * @return
+     */
     public Result getMenu(){
-        // Uncomment and comment to add data after evolutions
-//        addData();
         if(flash("menuType") == null){
-            return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Breakfast"), 0)));
+            return ok(master.render("Place Order",
+                    masterOrder.render(
+                    menu.render(Meal.findMealsByType("Breakfast"), 0))));
         }
         switch(flash("menuType")){
-            case "0": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Breakfast"), 0)));
-            case "1": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Lunch"), 1)));
-            case "2": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Dinner"), 2)));
-            case "3": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Desert"), 3)));
-            case "4": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Snacks"), 4)));
+            case "0": return ok(master.render("Place Order",
+                    masterOrder.render(
+                    menu.render(Meal.findMealsByType("Breakfast"), 0))));
+            case "1": return ok(master.render("Place Order",
+                    masterOrder.render(
+                    menu.render(Meal.findMealsByType("Lunch"), 1))));
+            case "2": return ok(master.render("Place Order",
+                    masterOrder.render(
+                    menu.render(Meal.findMealsByType("Dinner"), 2))));
+            case "3": return ok(master.render("Place Order",
+                    masterOrder.render(
+                    menu.render(Meal.findMealsByType("Desert"), 3))));
+            case "4": return ok(master.render("Place Order",
+                    masterOrder.render(
+                    menu.render(Meal.findMealsByType("Snacks"), 4))));
             default: return badRequest();
         }
     }
@@ -82,23 +106,30 @@ public class OrderController extends Controller implements StatusId {
             CustomerOrder order;
             Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
             if(session("orderId") == null){
-                order = new CustomerOrder();
-                order.setUserId(session(AppTags.AppCookie.user_id.toString()));
+                order = new CustomerOrder(customer);
+                order.setCustomer(customer);
                 order.setStatusId(UNSUBMITTED);
 
-                Payment payment = new Payment(order.getOrderId());
-                order.setPaymentId(payment.getPaymentId());
-                order.setUserId(customer.getUserId());
-                payment.setCustomerUserId(customer.getUserId());
+                Payment payment = new Payment();
+                order.setPayment(payment);
+                order.setCustomer(customer);
+//                payment.setCustomer(customer);
 
                 customer.getOrders().add(order);
-                customer.getPayments().add(payment);
+//                customer.getPayments().add(payment);
+
+                customer.save();
+
+                payment.insert();
+                order.insert();
 
 //                Ebean.save(customer);
-                customer.update();
+//                customer.update();
 
-                Ebean.insert(order);
-                Ebean.insert(payment);
+
+
+//                Ebean.insert(order);
+//                Ebean.insert(payment);
 
 //                Ebean.save(order);
 //                Ebean.save(payment);
@@ -169,11 +200,14 @@ public class OrderController extends Controller implements StatusId {
         if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())) {
             if (session("orderId") != null)
                 return ok(master.render("Cart",
+                        masterOrder.render(
                         cart.render(
                                 CustomerOrder.findAllMealsFromOrder(session("orderId")),
-                                CustomerOrder.findOrderById(session("orderId")))));
+                                CustomerOrder.findOrderById(session("orderId"))))));
             else
-                return ok(master.render("Cart", cart.render(new ArrayList<>(), null)));
+                return ok(master.render("Cart",
+                        masterOrder.render(
+                                cart.render(new ArrayList<>(), null))));
         }
         else
             return redirect(controllers.User.routes.UserController.login());

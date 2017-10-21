@@ -1,20 +1,15 @@
 @import java.util
-
 @import helper._
 @import models.Order.Meal
+@import views.html.Ordering.selectedMenu
 @import controllers.Application.AppTags
 @(meals: util.List[Meal], menuType: Integer)
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="@routes.Assets.versioned("stylesheets/mobile.css")" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width">
-    </head>
     <body>
         @*<a href="@routes.OrderController.getAddMealToMenu()">Add Order</a>*@
-        @header()
-        @selectedMenu(menuType: Integer)
+        @selectedMenu.render(menuType)
         @if(meals.size() == 0){
             <p>List is empty</p>
         } else {

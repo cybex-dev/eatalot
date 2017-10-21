@@ -3,7 +3,7 @@
 @(ingredientForm: Form[Ingredient])
 <html>
 
-    <div class="center-wrapper">
+    @*<div class="center-wrapper">*@
         @form(CSRF(controllers.Order.routes.KitchenController.addIngredient())){
             @helper.inputText(ingredientForm("description"),
                 '_name -> "Ingredient Description",
@@ -13,5 +13,5 @@
                 '_class -> "text-field")
             <input type="submit" value="Add Ingredient"/>
         }
-    </div>
+    @*</div>*@
 </html>

@@ -1,29 +1,54 @@
-@()
+@(selected: Int)
 
-
+@*Not sure of a better way to do this??*@
 <html>
-    <head>
-        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/kitchen.css")">
-    </head>
-    <div class="nav-menu-wrapper">
-        <div class="nav-bar">
+    <div class="nav-menu-wrapper"><div class="nav-bar">
+    @selected match{
+        case 0 =>{
             <ul>
-                <li>
-                    <a href="@controllers.Order.routes.KitchenController.home()">Dashboard</a>
-                </li>
-                <li>
-                    <a href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a>
-                </li>
-                <li>
-                    <a href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a>
-                </li>
-                <li>
-                    <a href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a>
-                </li>
-                <li>
-                    <a href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a>
-                </li>
+                <li><a class="selected_menu" href="@controllers.Order.routes.KitchenController.home()">Dashboard</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a></li>
             </ul>
-        </div>
-    </div>
+        }
+        case 1 =>{
+            <ul>
+                <li><a href="@controllers.Order.routes.KitchenController.home()">Dashboard</a></li>
+                <li><a class="selected_menu" href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a></li>
+            </ul>
+        }
+        case 2 =>{
+            <ul>
+                <li><a href="@controllers.Order.routes.KitchenController.home()">Dashboard</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a></li>
+                <li><a class="selected_menu" href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a></li>
+            </ul>
+        }
+        case 3 =>{
+            <ul>
+                <li><a href="@controllers.Order.routes.KitchenController.home()">Dashboard</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a></li>
+                <li><a class="selected_menu" href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a></li>
+            </ul>
+        }
+        case 4 =>{
+            <ul>
+                <li><a href="@controllers.Order.routes.KitchenController.home()">Dashboard</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getIngredientPage()">Ingredients</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getOrderPage()">All Customer Orders</a></li>
+                <li><a href="@controllers.Order.routes.KitchenController.getPendingOrderPage()">Pending Orders</a></li>
+                <li><a class="selected_menu" href="@controllers.Order.routes.KitchenController.getProcessingOrderPage()">Processing Orders</a></li>
+            </ul>
+        }
+    }
+    </div></div>
 </html>

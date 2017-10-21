@@ -22,7 +22,9 @@ public class KitchenController extends Controller {
     }
 
     public Result home(){
-        return ok(master.render("Kitchen Home", kitchenHome.render()));
+        // TODO: Add kitchen dashboard to render
+        return ok(master.render("Kitchen Home",
+                masterKitchen.render(null, 0)));
     }
 
 //  ===== Maintain Orders =====
@@ -57,41 +59,48 @@ public class KitchenController extends Controller {
 
     public Result getPendingOrderPage(){
         return ok(master.render("Pending Orders",
-                orders.render(CustomerOrder.findAllPendingOrders())));
+                masterKitchen.render(
+                        orders.render(CustomerOrder.findAllPendingOrders()), 3)));
     }
 
     public Result getProcessingOrderPage(){
         return ok(master.render("Processing Orders",
-                orders.render(CustomerOrder.findAllProcessingOrders())));
+                masterKitchen.render(
+                        orders.render(CustomerOrder.findAllProcessingOrders()), 4)));
     }
 
     public Result getOrderPage(){
         return ok(master.render("Customer Orders",
-                orders.render(CustomerOrder.findAllOrders())));
+                masterKitchen.render(
+                        orders.render(CustomerOrder.findAllOrders()), 2)));
     }
 
     public Result getMealOrderPage(String orderId){
         return ok(master.render("Meal Orders",
-                mealOrders.render(CustomerOrder.findAllMealsFromOrder(orderId),
-                        CustomerOrder.findOrderById(orderId).getStatusId())));
+                masterKitchen.render(
+                        mealOrders.render(CustomerOrder.findAllMealsFromOrder(orderId),
+                        CustomerOrder.findOrderById(orderId).getStatusId()), 1)));
     }
 
 //  ===== Maintain Ingredients =====
 
     public Result getIngredientPage(){
         return ok(master.render("Ingredients",
-                ingredients.render(Ingredient.findAllIngredients())));
+                masterKitchen.render(
+                ingredients.render(Ingredient.findAllIngredients()), 1)));
     }
 
     public Result getNewIngredientPage(){
         Form<Ingredient> ingredientForm = formFactory.form(Ingredient.class);
         return ok(master.render("New Ingredient",
-                addIngredient.render(ingredientForm)));
+                masterKitchen.render(
+                addIngredient.render(ingredientForm), 1)));
     }
 
     public Result getIngredientOrderPage(String ingredientId){
         return ok(master.render("Order Ingredients",
-                orderIngredient.render(Ingredient.findIngredientById(ingredientId))));
+                masterKitchen.render(
+                orderIngredient.render(Ingredient.findIngredientById(ingredientId)), 1)));
     }
 
     public Result addIngredient(){

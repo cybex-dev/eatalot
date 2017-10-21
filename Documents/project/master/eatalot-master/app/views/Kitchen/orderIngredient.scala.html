@@ -2,8 +2,7 @@
 @import models.Order.Ingredient
 @(ingredient: Ingredient)
 <html>
-
-    <div class="center-wrapper">
+    @*<div class="center-wrapper">*@
         <div class="order-ingredient-table">
             @form(CSRF(controllers.Order.routes.KitchenController.editIngredient(ingredient.getIngredientId))){
                 <table class="ingredient-table-wrapper">
@@ -26,6 +25,6 @@
                 <button type="submit" name="action" value="remove">Remove Order</button>
             }
         </div>
-    </div>
+    @*</div>*@
 </html>
 

@@ -10,7 +10,7 @@
     } else{
         <p>Welcome @session.get("display_name")
         <br>
-        <a href="@controllers.Order.routes.AccountController.doSignOut()">Sign out</a>
+            <a href="@controllers.User.routes.UserController.logout">Sign out</a>
         </p>
     }
 
@@ -20,8 +20,7 @@
 <div class="cart-wrapper">
     <a href="@controllers.Order.routes.OrderController.getCart()"><img src="@routes.Assets.versioned("images/menu/cart.png")" class="cart-image" /></a>
     @if(session.get("display_name") != null){
-        @*<p class="cart-wrapper">@MealOrder.findMealOrderByOrderId(session.get("orderId")).size()</p>*@
-        <p class="cart-wrapper">5</p>
+        <p class="cart-wrapper">@MealOrder.findMealOrderByOrderId(session.get("orderId")).size()</p>
     }
 </div>
 

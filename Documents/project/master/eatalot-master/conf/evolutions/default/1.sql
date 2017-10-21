@@ -63,6 +63,7 @@ create table meal (
   type                          varchar(255),
   image                         varchar(255),
   cost                          double not null,
+  active                        tinyint(1) default 0 not null,
   constraint pk_meal primary key (meal_id)
 );
 
@@ -90,8 +91,6 @@ create table order_schedule_item (
 
 create table payment (
   payment_id                    varchar(255) not null,
-  date                          varchar(255),
-  time                          varchar(255),
   amount                        double,
   is_cash                       tinyint(1) default 0,
   is_paid                       tinyint(1) default 0,

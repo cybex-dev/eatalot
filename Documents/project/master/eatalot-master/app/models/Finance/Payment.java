@@ -28,29 +28,14 @@ public class Payment extends Model {
 //    @OneToOne(cascade = CascadeType.ALL)
 //    private CustomerOrder order;
 
-    //TODO: Revert to data and time objects
-    @Formats.DateTime(pattern="dd/MM/yyyy")
-    private String date;
-//    private Date date;
-    @Constraints.Required
-    private String time;
-//    private Date time;
-
     @Constraints.Required
     private Double amount;
     private Boolean isCash;
     private Boolean isPaid;
 
     public Payment() {
-//        this.order = order;
-//        this.customer = customer;
         setPaymentId();
     }
-
-//    public Payment(CustomerOrder order) {
-//        this.order = order;
-//        setPaymentId();
-//    }
 
     //TODO: Proper id generation, this one is shit
     private void setPaymentId(){
@@ -73,24 +58,6 @@ public class Payment extends Model {
                 .eq("paymentId", paymentId)
                 .findOne();
     }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    //    public Payment setDate(Date date) {
-//        this.date = date;
-//        return this;
-//    }
-//
-//    public Payment setTime(Date time) {
-//        this.time = time;
-//        return this;
-//    }
 
     public Payment setAmount(Double amount) {
         this.amount = amount;
@@ -134,22 +101,6 @@ public class Payment extends Model {
         return paymentId;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    //    public Date getDate() {
-//        return date;
-//    }
-//
-//    public Date getTime() {
-//        return time;
-//    }
-
     public Double getAmount() {
         return amount;
     }
@@ -158,16 +109,4 @@ public class Payment extends Model {
         return isCash;
     }
 
-//    public String getOrderId() {
-//        return order.getOrderId();
-//    }
-
-//    public String getCustomerUserId() {
-//        return customer.getUserId();
-//    }
-
-//    public Payment setCustomer(Customer customer) {
-//        this.customer = customer;
-//        return this;
-//    }
 }

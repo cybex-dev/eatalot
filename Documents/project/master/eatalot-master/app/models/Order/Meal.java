@@ -22,6 +22,7 @@ public class Meal extends Model implements MealType {
     private String type;
     private String image;
     private double cost;
+    private boolean active = false;
 
     public Meal(String mealId) {
         this.mealId = mealId;
@@ -83,6 +84,15 @@ public class Meal extends Model implements MealType {
     public MealType setDinner() {
         this.type = DINNER;
         return this;
+    }
+
+    public Meal setActive(){
+        active = true;
+        return this;
+    }
+
+    public boolean isActive(){
+        return active;
     }
 
     @Override

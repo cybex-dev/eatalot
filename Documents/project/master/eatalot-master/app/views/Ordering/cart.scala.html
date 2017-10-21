@@ -8,9 +8,6 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        @stylesheets.apply()
-    </head>
     <body>
         @**//TODO: (QoL) Add clear all meals button**@
         @if(meals != null && meals.size() == 0){
@@ -30,7 +27,7 @@
                             <td>$$Status</td>
                         </tr>
                         <tr>
-                            <td>$$Image</td>
+                            <td><img class="image" src="@routes.Assets.versioned("images/menu/" + meals.get(x).getObject2.getImage)"/></td>
                             <td>Quantity: @meals.get(x).getObject1.getOrderQty</td>
                             <td><button type="submit" name="action" value="remove">Remove Meal</button></td>
                         </tr>

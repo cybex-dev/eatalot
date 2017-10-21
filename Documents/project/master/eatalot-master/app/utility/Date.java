@@ -20,4 +20,10 @@ public class Date {
         java.util.Date time;
         return format.parse(tbr);
     }
+
+    public static java.util.Date readDateTime(String tbr) throws ParseException {
+        DateFormat format = new SimpleDateFormat("hh-MM-dd-MM-yyyy");
+        java.util.Date datetime;
+        return format.parse(tbr);
+    }
 }

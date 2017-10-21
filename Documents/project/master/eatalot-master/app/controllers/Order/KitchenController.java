@@ -6,11 +6,14 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
+import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Kitchen.*;
 
 import javax.inject.Inject;
 import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class KitchenController extends Controller {
 
@@ -69,17 +72,29 @@ public class KitchenController extends Controller {
                         orders.render(CustomerOrder.findAllProcessingOrders()), 4)));
     }
 
+    /**
+     * Displays list of all orders that are not unsubmitted or cancelled.
+     * @return
+     */
     public Result getOrderPage(){
         return ok(master.render("Customer Orders",
                 masterKitchen.render(
-                        orders.render(CustomerOrder.findAllOrders()), 2)));
+                        orders.render(CustomerOrder.findAllOrders()
+                                .stream()
+                                .filter(order -> (!order.getStatusId().equals(StatusId.CANCELLED) && !order.getStatusId().equals(StatusId.UNSUBMITTED))).collect(Collectors.toList())),
+                        2)));
     }
 
+    /**
+     * Returns all meal orders associated with the given orderId
+     * @param orderId
+     * @return
+     */
     public Result getMealOrderPage(String orderId){
         return ok(master.render("Meal Orders",
                 masterKitchen.render(
                         mealOrders.render(CustomerOrder.findAllMealsFromOrder(orderId),
-                        CustomerOrder.findOrderById(orderId).getStatusId()), 1)));
+                        CustomerOrder.findOrderById(orderId).getStatusId()), 2)));
     }
 
 //  ===== Maintain Ingredients =====

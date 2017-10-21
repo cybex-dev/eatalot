@@ -144,31 +144,15 @@ POST        /User/AddFunds                          controllers.Finance.UserFina
 GET     /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
 
 GET     /menu                   controllers.Order.OrderController.getMenu()
-
 GET     /menu/:menutype         controllers.Order.OrderController.switchMenu(menutype: Integer)
-
-GET     /signup                 controllers.Order.AccountController.getSignUp
-
 POST    /addmealtoorder         controllers.Order.OrderController.addMealToOrder(mealId: String)
-
 GET     /addmeal                controllers.Order.OrderController.getAddMealToMenu
-
 POST    /postmeal               controllers.Order.OrderController.addMeal
-
-GET     /dologin                controllers.Order.AccountController.doLogin()
-
-GET     /dosignout              controllers.Order.AccountController.doSignOut()
-
 GET     /cart                   controllers.Order.OrderController.getCart()
-
 POST    /cart/removemeal        controllers.Order.OrderController.removeMealFromOrder(mealId: String)
-
 GET     /cart/submit            controllers.Order.OrderController.getSubmitPage()
-
 POST    /cart/submitcart        controllers.Order.OrderController.submitCart()
-
 GET     /history                controllers.Order.OrderController.getHistoryPage()
-
 POST    /history/order          controllers.Order.OrderController.getViewOrder(orderId: String)
 
 # ===== Kitchen routes =====

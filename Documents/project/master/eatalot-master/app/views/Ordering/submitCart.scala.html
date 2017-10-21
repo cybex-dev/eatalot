@@ -36,7 +36,7 @@
                     @*TODO: Integrate Customer to Order, Customer object needed to check balance.*@
                     @if(customer.getBalanceNumeric >= order.getPaymentObject.getAmount){
                         <td>
-                            <label for="credit"></label>
+                            <label for="credit">Credit</label>
                             <input id="credit" type="radio" name="payment" value="credit">
                         </td>
                     }else{

@@ -1,6 +1,8 @@
 package controllers.Order;
 
-import controllers.Application.AppTags;
+import controllers.Application.*;
+import controllers.User.*;
+import controllers.User.routes;
 import io.ebean.Ebean;
 import models.Finance.Payment;
 import models.Order.*;
@@ -11,7 +13,9 @@ import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by dylan on 2017/07/18.
@@ -21,6 +25,10 @@ public class OrderController extends Controller implements StatusId {
 
 
     /**
+     * TODO: Possible bug:
+     *          Logged in, hit submit order, redirected to page that said I was verified?
+     *          Account is not verified.
+     *
      * Allows for the viewing of the final page in submitting an order
      * Displays total cost and any associated discounts
      * Allows customer to select payment method - credit/cash
@@ -28,11 +36,16 @@ public class OrderController extends Controller implements StatusId {
      * @return
      */
     public Result getSubmitPage(){
+        Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
+        if(customer == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(!customer.isComplete())
+            return redirect(controllers.User.routes.CustomerController.completeRegistration());
+
+        CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
         return ok(master.render("Finalise Cart",
                 masterOrder.render(
-                submitCart.render(
-                        CustomerOrder.findOrderById(session("orderId")),
-                        Customer.findCustomerByEmail(session("email"))))));
+                submitCart.render(order, order.getCustomer()))));
     }
 
     /**
@@ -113,27 +126,11 @@ public class OrderController extends Controller implements StatusId {
                 Payment payment = new Payment();
                 order.setPayment(payment);
                 order.setCustomer(customer);
-//                payment.setCustomer(customer);
-
                 customer.getOrders().add(order);
-//                customer.getPayments().add(payment);
-
                 customer.save();
 
                 payment.insert();
                 order.insert();
-
-//                Ebean.save(customer);
-//                customer.update();
-
-
-
-//                Ebean.insert(order);
-//                Ebean.insert(payment);
-
-//                Ebean.save(order);
-//                Ebean.save(payment);
-
 
                 session("orderId", String.valueOf(order.getOrderId()));
                 createMealOrder(mealId);
@@ -223,26 +220,24 @@ public class OrderController extends Controller implements StatusId {
     public Result submitCart(){
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
         Payment payment = order.getPaymentObject();
-        Customer customer = Customer.findCustomerByEmail(session("email"));
+        Customer customer = order.getCustomer();
 
         order.setStatusId(PENDING).update();
 
-        // ===== UNCOMMENT ONCE CUSTOMER IS INTEGRATED =====
-//        if(customer.isStudent()){
-//            payment.setAmount(payment.getAmount() - 0.15);
-//            payment.update();
-//        }
+        if(customer.isStudent()){
+            payment.setAmount(payment.getAmount() - 0.15);
+            payment.update();
+        }
 
         String[] result = request().body().asFormUrlEncoded().get("payment");
         switch(result[0].toLowerCase()){
             case "cash":
-                payment.setCash(true);
+                payment.setCash(true).setPaid(false);
                 break;
             case "credit":
-                payment.setCash(false);
-                // UNCOMMENT HERE WHEN INTEGRATED
-//                customer.pay(payment.getAmount());
-//                customer.update();
+                payment.setCash(false).setPaid(true);
+                customer.pay(payment.getAmount());
+                customer.update();
                 break;
         }
 
@@ -252,15 +247,13 @@ public class OrderController extends Controller implements StatusId {
         String[] time = request().body().asFormUrlEncoded().get("time");
         String[] date = request().body().asFormUrlEncoded().get("date");
 
-//        System.out.println("=====HERE====    " + time[0]);
-
-//        try {
-        payment.setDate(date[0]);
-        payment.setTime(time[0]);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//            System.out.println("$$ ERROR: INVALID DATE FORMAT");
-//        }
+        try {
+            Date datetime = utility.Date.readDateTime(time[0] + date[0]);
+            order.setDeliveryDate(datetime);
+            System.out.println(datetime.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         payment.update();
         session("orderId", null);

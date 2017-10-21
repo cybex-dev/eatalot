@@ -1,5 +1,7 @@
 package models.Order;
 
+import io.ebean.ExampleExpression;
+import io.ebean.Expr;
 import io.ebean.Finder;
 import io.ebean.Model;
 import libs.Mailer;
@@ -31,12 +33,6 @@ public class CustomerOrder extends Model implements StatusId {
     private Payment payment;
     //todo #NOTIFY [Charles] Added date of delivery object. This is saved automatically in the database, is required to display info for user and determine the delivery time and date
     private Date deliveryDate;
-//    private String paymentId;
-
-//    private String date;
-//    private String time;
-//    private String mealOrderId; // Not needed
-
 
     public CustomerOrder(Customer customer) {
         this.customer = customer;
@@ -73,11 +69,12 @@ public class CustomerOrder extends Model implements StatusId {
         }
     }
 
+    /**
+     * Returns list of all customer orders.
+     * @return
+     */
     public static List<CustomerOrder> findAllOrders(){
         return find.query()
-                .where()
-                .not()
-                .eq("statusId", "unsubmitted")
                 .findList();
     }
 
@@ -98,7 +95,7 @@ public class CustomerOrder extends Model implements StatusId {
     public static List<CustomerOrder> findOrderByUserId(String customerUserId){
         try{
             return find.query().where()
-                    .eq("customerUserId", customerUserId)
+                    .eq("customer_user_id", customerUserId)
                     .findList();
         }
         catch (NullPointerException e){

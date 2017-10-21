@@ -1,9 +1,177 @@
 @import Global.Static.masterpage
+@import java.util.List
+@import models.User.Admin.UserItem
+@import helper._
 
-@()
+@(customerList: List[UserItem], kitchenStaffList: List[UserItem], deliveryStaffList: List[UserItem])
 
-@bodyContent = {
-    <h1>Manage Users</h1>
-}
+    @getTableHeader(isCustomer: Boolean) = {
+        <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Order: activate to sort column ascending" style="width: 150px;">
+                    User Id</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Meals: activate to sort column ascending" style="width: 250px;">
+                    Name</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 250px;">
+                    Surname</th>
+                @if(!isCustomer) {
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 300px;">
+                        Alias</th>
+                }
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 400px;">
+                    Email</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 250px;">
+                    CellNumber</th>
 
-@masterpage.apply(" :: Manage Users", bodyContent)
+                @if(isCustomer) {
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 120px;">
+                        Email Verified</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 120px;">
+                        Profile Complete</th>
+                }
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 120px;">
+                    Profile Enabled</th>
+
+            </tr>
+        </thead>
+    }
+
+    @getColor(isActive: Boolean, isVerified: Boolean = true, index: Integer) = {
+    @if(isActive) {
+        @if(isVerified) {
+            @if((index % 2) == 0) {
+                odd
+            } else {
+                even
+            }
+        } else {
+            unverifiedAccount
+        }
+    } else {
+        disabledAccount
+    }
+    }
+
+    @getEditLink(isCustomer: Boolean, id: String) = @{
+        if(isCustomer) {
+            CSRF(controllers.User.routes.AdminController.editCustomer(id))
+        } else {
+            CSRF(controllers.User.routes.AdminController.editStaff(id))
+        }
+    }
+
+    @getTableBody(isCustomer: Boolean, list: List[UserItem]) = {
+        <tbody>
+            @*https://groups.google.com/d/msg/play-framework/hEQ33y6_kSI/9pZ-RLRnRpsJ*@
+            @for((item, index) <- list.zipWithIndex) {
+                <tr class="@getColor(item.isActive, if(isCustomer) {
+                    item.isVerified
+                } else {
+                    true
+                }, index)">
+                    <td class="sorting_1"><a href="@getEditLink(isCustomer, item.getUserId)">@item.getUserId</a></td>
+                    <td class="">@item.getName</td>
+                    <td class="">@item.getSurname</td>
+                    @if(!isCustomer) {
+                        <td class="sorting_1">@item.getAlias</td>
+                    }
+                    <td class="">@item.getEmail</td>
+                    <td class="">@item.getCellNumber</td>
+
+                    @if(isCustomer) {
+                        <td class=" "><input type="checkbox" disabled class="pull-center" @if(item.isVerified) {checked}/></td>
+                        <td class=" "><input type="checkbox" disabled class="pull-center" @if(item.isComplete) {checked}/></td>
+                    }
+
+                    <td class=" "><input type="checkbox" disabled class="pull-center"
+                        @if(item.isActive) {checked}/></td>
+                </tr>
+            }
+        </tbody>
+    }
+
+    @tableGeneric(isCustomer: Boolean, list: List[UserItem]) = {
+        <div class="panel panel-default">
+            @*<div class="panel-heading">*@
+            @*Advanced Tables*@
+            @*</div>*@
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table table-bordered no-footer table-hover dataTable" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            @getTableHeader(isCustomer)
+                            @getTableBody(isCustomer, list)
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+    @tableCustomers = {
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h1 class="header-line">Customers</h1>
+            </div>
+        </div>
+    @tableGeneric(true, customerList)
+    }
+
+    @tableKitchen = {
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h1 class="header-line">Kitchen Staff</h1>
+            </div>
+        </div>
+    @tableGeneric(false, kitchenStaffList)
+    }
+
+    @tableDelivery = {
+        <div class="row pad-botm">
+            <div class="col-md-12">
+                <h1 class="header-line">Delivery Staff</h1>
+            </div>
+        </div>
+    @tableGeneric(false, deliveryStaffList)
+    }
+
+    @bodyContent = {
+
+        <div class="panel-body">
+            <div class="center-parent">
+                <ul class="nav nav-pills center-child">
+                    <li class="text-larger active"><a href="#customerTab" data-toggle="tab">Customers</a>
+                    </li>
+                    <li class="text-larger"><a href="#kitchenTab" data-toggle="tab">Kitchen Staff</a>
+                    </li>
+                    <li class="text-larger"><a href="#deliveryTab" data-toggle="tab">Delivery Staff</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="customerTab">
+                @tableCustomers
+                </div>
+                <div class="tab-pane fade" id="kitchenTab">
+                @tableKitchen
+                </div>
+                <div class="tab-pane fade" id="deliveryTab">
+                @tableDelivery
+                </div>
+            </div>
+        </div>
+
+        <div class="row-width-center">
+            <div class="small-margin">
+            @form(action = controllers.User.routes.AdminController.index()) {
+                @CSRF.formField
+                <input class="btn btn-info button-small" type="submit" value="Home">
+                }
+            </div>
+        </div>
+
+    }
+
+    @masterpage.apply(" :: Manage Users", bodyContent)

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Oct 21 11:02:12 SAST 2017
+// @DATE:Sun Oct 22 04:28:34 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,7 +20,41 @@ package controllers.User.javascript {
     }
 
   
-    // @LINE:125
+    // @LINE:139
+    def updateStaff: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.updateStaff",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Users/Staff/Edit"})
+        }
+      """
+    )
+  
+    // @LINE:126
+    def addCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.addCustomer",
+      """
+        function() {
+        
+          if (true) {
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Users/Customer/New"})
+          }
+        
+        }
+      """
+    )
+  
+    // @LINE:144
+    def removeUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.removeUser",
+      """
+        function(userId0,userType1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Users/Remove/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", encodeURIComponent(userId0)) + "/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userType", encodeURIComponent(userType1))})
+        }
+      """
+    )
+  
+    // @LINE:133
     def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.AdminController.edit",
       """
@@ -30,7 +64,17 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:127
+    // @LINE:142
+    def removeMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.removeMeal",
+      """
+        function(mealId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Meals/Remove/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("mealId", encodeURIComponent(mealId0))})
+        }
+      """
+    )
+  
+    // @LINE:135
     def doEdit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.AdminController.doEdit",
       """
@@ -50,7 +94,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:123
+    // @LINE:125
     def manageUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.AdminController.manageUsers",
       """
@@ -60,12 +104,62 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:124
+    // @LINE:129
+    def editStaff: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.editStaff",
+      """
+        function(userId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Users/Staff/Edit" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", encodeURIComponent(userId0))})
+        }
+      """
+    )
+  
+    // @LINE:130
     def manageDiscounts: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.AdminController.manageDiscounts",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Discounts"})
+        }
+      """
+    )
+  
+    // @LINE:124
+    def editMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.editMeal",
+      """
+        function(mealId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Meals/Edit/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("mealId", encodeURIComponent(mealId0))})
+        }
+      """
+    )
+  
+    // @LINE:138
+    def updateCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.updateCustomer",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Users/Customer/Edit"})
+        }
+      """
+    )
+  
+    // @LINE:123
+    def addMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.addMeal",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Meals/Add"})
+        }
+      """
+    )
+  
+    // @LINE:128
+    def editCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.editCustomer",
+      """
+        function(userId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Users/Customer/Edit" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("userId", encodeURIComponent(userId0))})
         }
       """
     )
@@ -80,7 +174,17 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:213
+    // @LINE:137
+    def updateMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.User.AdminController.updateMeal",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "Admin/Manage/Meals/Edit"})
+        }
+      """
+    )
+  
+    // @LINE:232
     def adminJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.AdminController.adminJSRoutes",
       """
@@ -240,7 +344,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:211
+    // @LINE:230
     def customerJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.customerJSRoutes",
       """
@@ -300,7 +404,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:215
+    // @LINE:234
     def deliveryJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.DeliveryStaffController.deliveryJSRoutes",
       """
@@ -444,7 +548,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:217
+    // @LINE:236
     def kitchenJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.KitchenStaffController.kitchenJSRoutes",
       """

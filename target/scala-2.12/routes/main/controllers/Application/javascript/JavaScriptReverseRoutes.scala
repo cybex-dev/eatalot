@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Oct 21 11:02:12 SAST 2017
+// @DATE:Sun Oct 22 04:28:34 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -30,7 +30,7 @@ package controllers.Application.javascript {
       """
     )
   
-    // @LINE:241
+    // @LINE:262
     def invalidRoute: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.HomeController.invalidRoute",
       """

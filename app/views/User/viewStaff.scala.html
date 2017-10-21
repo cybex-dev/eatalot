@@ -1,0 +1,34 @@
+@import models.Finance.Discount
+@import play.data.Form
+@import helper._
+@import models.User.Staff
+@import Global.Static.masterpage
+
+
+@(staffForm: Form[Staff])
+
+@bodyContent = {
+    <h1>Edit User</h1>
+    <br/>
+@form( action = controllers.User.routes.AdminController.updateStaff() ){
+    @CSRF.formField
+    @inputText(staffForm("userId"), '_class -> "hidden-field")
+    @inputText(staffForm("name"), '_name -> "Name")
+    @inputText(staffForm("surname"), '_name -> "Surname")
+    @inputText(staffForm("alias"), '_name -> "Alias")
+    @inputText(staffForm("email"), '_name -> "Email")
+    @inputText(staffForm("cellNumber"), '_name -> "Cell Number")
+    @inputText(staffForm("password"), '_name -> "Password")
+    @inputText(staffForm("token"), '_class -> "hidden-field")
+    <br/>
+    @checkbox(staffForm("isKitchenStaff"), '_name -> "Is kitchen staff")
+    @checkbox(staffForm("isActive"), '_name -> "Account Active State")
+    <div class="row">
+        <div class="pull-center">
+            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+        </div>
+    </div>
+}
+}
+
+@masterpage.apply(" :: Edit Customer", bodyContent)

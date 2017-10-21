@@ -1,13 +1,12 @@
 package controllers.Finance;
 
+import annotations.Routing.AdminOnly;
 import annotations.Routing.CustomersDeliveryOnly;
 import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
-import models.Finance.Payment;
-import models.Finance.RedeemedVouchers;
-import models.Finance.UserFunds;
-import models.Finance.Voucher;
+import controllers.User.routes;
+import models.Finance.*;
 import models.Order.CustomerOrder;
 import models.User.Customer.Customer;
 import play.Logger;
@@ -17,6 +16,8 @@ import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
+import play.routing.JavaScriptReverseRouter;
+import views.html.Finance.Discount.viewDiscount;
 import views.html.Finance.UserFinance.AddFunds;
 
 import javax.inject.Inject;
@@ -29,7 +30,7 @@ import static controllers.Application.AppTags.*;
 
 
 
-public class UserFinance extends Controller {
+public class UserFinanceController extends Controller {
 
     @Inject
     FormFactory formFactory;
@@ -98,5 +99,69 @@ public class UserFinance extends Controller {
         payment.setIsCashPayment(cashPayment);
         payment.setPaid(true);
         return true;
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result addDiscount(){
+        Form<Discount> discountForm = formFactory.form(Discount.class);
+        return ok(viewDiscount.render(discountForm));
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result editDiscount(String discountId){
+        Discount discount = Discount.find.byId(discountId);
+        Form<Discount> discountForm = formFactory.form(Discount.class).fill(discount);
+        return ok(viewDiscount.render(discountForm));
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result updateDiscount(){
+        Form<Discount> discountForm = formFactory.form(Discount.class).bindFromRequest();
+        if (discountForm.hasErrors()){
+            flash().put(FlashCodes.danger.toString(), "Please check fields");
+            return badRequest(viewDiscount.render(discountForm));
+        }
+        Discount editedDiscount = discountForm.get();
+        String id = editedDiscount.getDiscountId();
+        Discount discount = null;
+        if (id != null && !id.isEmpty()) {
+            discount = Discount.find.byId(id);
+            discount.fill(editedDiscount);
+        }
+        else {
+            discount = new Discount(editedDiscount.getDescription(), editedDiscount.getPercentage());
+            discount.setEnabled(editedDiscount.isEnabled());
+        }
+        discount.save();
+        flash().put(FlashCodes.success.toString(), "Discount \'" + discount.getDescription() + "\' updated!");
+        return redirect(controllers.User.routes.AdminController.manageDiscounts());
+    }
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result removeDiscount(String discountId){
+        Discount discount = Discount.find.byId(discountId);
+        if (discount == null){
+            flash().put(FlashCodes.danger.toString(), "Failed to delete discount!");
+            return badRequest();
+        }
+        String discountName = discount.getDescription();
+        discount.delete();
+        flash().put(FlashCodes.success.toString(), "Discount \'" + discountName + "\' deleted!");
+        return ok();
+    }
+
+    public Result financeJSRoutes() {
+        return ok(
+                JavaScriptReverseRouter.create(Routes.FinanceJSRoutes.toString(),null
+//                        routes.javascript.UserFinanceController.addDiscount(),
+//                        routes.javascript.UserFinanceController.updateDiscount(),
+//                        routes.javascript.UserFinanceController.editDiscount(),
+//                        routes.javascript.UserFinanceController.removeDiscount()
+                )
+        ).as("text/javascript");
     }
 }

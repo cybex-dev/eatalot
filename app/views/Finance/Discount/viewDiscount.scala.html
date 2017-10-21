@@ -1,0 +1,27 @@
+@import models.Finance.Discount
+@import play.data.Form
+@import helper._
+@import Global.Static.masterpage
+
+
+@(discountForm: Form[Discount])
+
+@bodyContent = {
+    <h1>Edit Discount</h1>
+    <br/>
+    @form( action = controllers.Finance.routes.UserFinanceController.updateDiscount() ){
+        @CSRF.formField
+        @inputText(discountForm("discountId"), '_class -> "hidden-field")
+        @inputText(discountForm("description"), '_name -> "Description")
+        @inputText(discountForm("percentage"), '_name -> "Percentage")
+        @checkbox(discountForm("enabled"), '_name -> "Discount Status")
+        <br/>
+        <div class="row">
+            <div class="pull-center">
+                <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageDiscounts()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+            </div>
+        </div>
+    }
+}
+
+    @masterpage.apply(" :: Edit Discount", bodyContent)

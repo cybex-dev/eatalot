@@ -2,7 +2,9 @@ package models.User;
 
 import io.ebean.Finder;
 import io.ebean.Model;
+import models.User.Customer.Customer;
 import play.data.validation.Constraints;
+import utility.IdGenerator;
 import utility.RandomString;
 
 import javax.persistence.Id;
@@ -18,42 +20,32 @@ import java.util.concurrent.ThreadLocalRandom;
 public abstract class User extends Model {
 
     @Id
-    @Constraints.Required
     private String userId;
 
-    @Constraints.MaxLength(50)
     private String name;
 
-    @Constraints.MaxLength(100)
     private String surname;
 
-    @Constraints.Required
-    @Constraints.MinLength(8)
     @Pattern(regexp="[\\S]{8,}", message="Check password length, minimum length of 8\nCheck that no spaces are used")
     private String password;
 
-    @Constraints.Email
-    @Constraints.Required
     @Pattern(regexp="[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message="Invalid email address!")
     private String email;
 
-    @Constraints.MaxLength(10)
-    @Constraints.MinLength(10)
     @Pattern( regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
     private String cellNumber;
 
-    @Constraints.Required
     private String token;
+
+    private Boolean isActive;
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 
     public User(){
-        generateId();
+        userId = IdGenerator.generate();
     }
 
-    private void generateId() {
-        userId = new RandomString(16, ThreadLocalRandom.current()).nextString();
-    }
+
 
     public User( @Constraints.Required String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
@@ -159,4 +151,28 @@ public abstract class User extends Model {
         save();
     }
 
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public void fill(User user) {
+        if (!this.name.equals(user.name))
+            this.name = user.name;
+        if (!this.surname.equals(user.surname))
+            this.surname = user.surname;
+        if (!this.cellNumber.equals(user.cellNumber))
+            this.cellNumber = user.cellNumber;
+        if (!this.email.equals(user.email))
+            this.email = user.email;
+        if (this.isActive != user.isActive)
+            this.isActive = user.isActive;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

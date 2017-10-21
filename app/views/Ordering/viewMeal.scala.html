@@ -1,0 +1,59 @@
+@import models.Finance.Discount
+@import play.data.Form
+@import helper._
+@import models.Order.Meal
+@import Global.Static.masterpage
+
+
+@(meal: Form[Meal])
+
+@mealImage = @{
+    if(meal.get() != null) {
+        var image = meal.get().getImage
+        if(image != null) {
+            routes.Assets.versioned("images/menu/" + image)
+        }
+    }
+}
+
+@mealId = @{
+    meal.get().getMealId
+}
+
+@bodyContent = {
+    <div class="row-width-center">
+        <h1>Edit Meal</h1>
+        <br/>
+        <div class="input-container">
+        @form(action = controllers.User.routes.AdminController.updateMeal()) {
+            @CSRF.formField
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-left">
+                        <img src="@mealImage">
+                    </div>
+                    <div class="input-container pull-left">
+                        <div class="margin-left-small margin-top-small">
+                            @inputText(meal("mealId"), '_class -> "hidden-field")
+                            @inputText(meal("recipeId"), '_class -> "hidden-field")
+                            @inputText(meal("description"), '_name -> "Description:")
+                            @inputText(meal("type"), '_name -> "Meal Type:")
+                            @inputText(meal("image"), '_class -> "hidden-field")
+                            @inputText(meal("cost"), '_name -> "Meal Cost:")
+                            @checkbox(meal("active"), '_name -> "Meal Enabled:")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="pull-center">
+            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageMeals()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+        </div>
+    </div>
+}
+}
+
+@masterpage.apply(" :: Edit Meal", bodyContent)

@@ -3,6 +3,7 @@ package models.Order;
 import io.ebean.Finder;
 import io.ebean.Model;
 import play.data.validation.Constraints;
+import utility.IdGenerator;
 import utility.MealType;
 
 import javax.persistence.Entity;
@@ -22,6 +23,11 @@ public class Meal extends Model implements MealType {
     private String type;
     private String image;
     private double cost;
+    private boolean active = false;
+
+    public Meal(){
+        mealId = IdGenerator.generate();
+    }
 
     public Meal(String mealId) {
         this.mealId = mealId;
@@ -132,5 +138,26 @@ public class Meal extends Model implements MealType {
 
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void fill(Meal meal) {
+        setDescription(meal.getDescription());
+        setActive(meal.isActive());
+        setCost(meal.getCost());
+        setImage(meal.getImage());
+        setRecipeId(meal.getRecipeId());
+        setType(meal.getType());
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

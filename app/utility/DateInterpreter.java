@@ -62,6 +62,11 @@ public class DateInterpreter {
         return String.format("%dh%d", getHour(), getMinute());
     }
 
+    public boolean isToday() {
+        DateInterpreter dateInterpreter = new DateInterpreter(new Date());
+        return (getDate().equals(dateInterpreter.getDate()));
+    }
+
 
 }
 

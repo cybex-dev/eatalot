@@ -117,6 +117,7 @@ public class AppTags {
         ScheduleJSRoutes("scheduleJSRoutes"),
         CustomerJSRoutes("customerJSRoutes"),
         DeliveryJSRoutes("deliveryJSRoutes"),
+        FinanceJSRoutes("financeJSRoutes"),
         KitchenJSRoutes("kitchenJSRoutes"),
         AdminJSRoutes("adminJSRoutes");
 

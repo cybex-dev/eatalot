@@ -14,6 +14,7 @@ import play.data.FormFactory;
 import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
 import play.routing.JavaScriptReverseRouter;
@@ -180,7 +181,8 @@ public class ScheduleController extends Controller {
     @CustomersOnly
     public CompletionStage<Result> setScheduleState(){
         return CompletableFuture.supplyAsync(() -> {
-            String userId = session().get(AppTags.AppCookie.user_id.toString());
+            Http.Session session = session();
+            String userId = session.get(AppTags.AppCookie.user_id.toString());
             OrderSchedule orderSchedule = OrderSchedule.getOrderScheduleByUserId(userId);
             boolean status = !orderSchedule.isActive();
             orderSchedule.setActive(status);

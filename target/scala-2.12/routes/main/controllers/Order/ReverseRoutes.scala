@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Oct 21 11:02:12 SAST 2017
+// @DATE:Sun Oct 22 04:28:34 SAST 2017
 
 import play.api.mvc.Call
 
@@ -40,7 +40,7 @@ package controllers.Order {
       Call("POST", _prefix + { _defaultPrefix } + "User/Schedule/AddOrder")
     }
   
-    // @LINE:209
+    // @LINE:228
     def scheduleJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/scheduleJSRoutes")
@@ -102,74 +102,74 @@ package controllers.Order {
   
   }
 
-  // @LINE:147
+  // @LINE:166
   class ReverseOrderController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:169
+    // @LINE:188
     def submitCart(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "cart/submitcart")
     }
   
-    // @LINE:147
+    // @LINE:166
     def getMenu(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "menu")
     }
   
-    // @LINE:173
+    // @LINE:192
     def getViewOrder(orderId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "history/order" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("orderId", orderId)))))
     }
   
-    // @LINE:167
+    // @LINE:186
     def getSubmitPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cart/submit")
     }
   
-    // @LINE:165
+    // @LINE:184
     def removeMealFromOrder(mealId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "cart/removemeal" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("mealId", mealId)))))
     }
   
-    // @LINE:171
+    // @LINE:190
     def getHistoryPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "history")
     }
   
-    // @LINE:149
+    // @LINE:168
     def switchMenu(menutype:Integer): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "menu/" + implicitly[play.api.mvc.PathBindable[Integer]].unbind("menutype", menutype))
     }
   
-    // @LINE:157
+    // @LINE:176
     def addMeal(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "postmeal")
     }
   
-    // @LINE:153
+    // @LINE:172
     def addMealToOrder(mealId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addmealtoorder" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("mealId", mealId)))))
     }
   
-    // @LINE:155
+    // @LINE:174
     def getAddMealToMenu(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addmeal")
     }
   
-    // @LINE:163
+    // @LINE:182
     def getCart(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "cart")
@@ -177,74 +177,74 @@ package controllers.Order {
   
   }
 
-  // @LINE:177
+  // @LINE:196
   class ReverseKitchenController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:193
+    // @LINE:212
     def getOrderPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/customerorders")
     }
   
-    // @LINE:195
+    // @LINE:214
     def getPendingOrderPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/pendingorders")
     }
   
-    // @LINE:181
+    // @LINE:200
     def getIngredientPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/ingredients")
     }
   
-    // @LINE:187
+    // @LINE:206
     def getNewIngredientPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/ingredient/ordernew")
     }
   
-    // @LINE:189
+    // @LINE:208
     def addIngredient(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/ingredient/add")
     }
   
-    // @LINE:201
+    // @LINE:220
     def updateOrderStatus(orderId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/customerorders/mealorder/update" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("orderId", orderId)))))
     }
   
-    // @LINE:177
+    // @LINE:196
     def home(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen")
     }
   
-    // @LINE:199
+    // @LINE:218
     def getMealOrderPage(orderId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/customerorders/mealorder" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("orderId", orderId)))))
     }
   
-    // @LINE:197
+    // @LINE:216
     def getProcessingOrderPage(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "kitchen/processingorders")
     }
   
-    // @LINE:185
+    // @LINE:204
     def editIngredient(id:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/ingredient/order/op" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
     }
   
-    // @LINE:183
+    // @LINE:202
     def getIngredientOrderPage(id:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "kitchen/ingredients/order" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("id", id)))))
@@ -252,26 +252,26 @@ package controllers.Order {
   
   }
 
-  // @LINE:151
+  // @LINE:170
   class ReverseAccountController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:159
+    // @LINE:178
     def doLogin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "dologin")
     }
   
-    // @LINE:151
+    // @LINE:170
     def getSignUp(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "signup")
     }
   
-    // @LINE:161
+    // @LINE:180
     def doSignOut(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "dosignout")

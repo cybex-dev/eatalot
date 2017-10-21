@@ -143,7 +143,9 @@ public class Customer extends User {
 
     public static boolean Authenticate(String id, String token) {
         Optional<Customer> customer = Customer.find.query().where().idEq(id).and().eq("token", token).findOneOrEmpty();
-        return customer.isPresent();
+        if (customer.isPresent())
+            return customer.get().getActive();
+        return false;
     }
 
     public List<Payment> getPayments() {
@@ -172,5 +174,25 @@ public class Customer extends User {
 
     public static List<DashboardEntries> getDashboardEntries() {
         return null;
+    }
+
+    public void fill(Customer editedCustomer) {
+        super.fill(editedCustomer);
+        if (this.emailVerified != editedCustomer.emailVerified)
+            this.emailVerified = editedCustomer.emailVerified;
+        if (this.isStudent != editedCustomer.isStudent)
+            this.isStudent = editedCustomer.isStudent;
+        if (this.isComplete != editedCustomer.isComplete)
+            this.isComplete = editedCustomer.isComplete;
+        if (!this.balance.equals(editedCustomer.balance))
+            this.balance = editedCustomer.balance;
+    }
+
+    public Boolean getStudent() {
+        return isStudent;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 }

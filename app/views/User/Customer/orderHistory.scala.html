@@ -88,6 +88,10 @@
         </div>
     </div>
 @table
+@helper.form( action = controllers.User.routes.CustomerController.index()) {
+    @helper.CSRF.formField
+    <input type="submit" class="btn btn-default button-small" value="Home">
+}
 
 }
 

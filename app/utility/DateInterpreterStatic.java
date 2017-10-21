@@ -66,4 +66,8 @@ public class DateInterpreterStatic {
     public static String getTime(Date date){
         return String.format("%dh%d", getHour(date), getMinute(date));
     }
+
+    public static boolean isToday(Date date) {
+        return (getDate(date).equals(DateInterpreterStatic.getDate(new Date())));
+    }
 }

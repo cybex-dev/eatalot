@@ -1,10 +1,78 @@
 @import Global.Static.masterpage
+@import java.util.List
+@import controllers.Application.AppTags
+@import helper._
+@import models.User.Admin.DiscountItem
 
-@()
+@(discountList: List[DiscountItem])
+
+    @getColor(isActive: Boolean, index: Integer) = {
+        @if(isActive) {
+            @if((index % 2) == 0) {
+                odd
+            } else {
+                even
+            }
+        } else {
+            disabledAccount
+        }
+    }
+
+@table = {
+    <div class="row-width-center">
+        <div class="panel panel-default">
+            @*<div class="panel-heading">*@
+            @*Advanced Tables*@
+            @*</div>*@
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <table class="table table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Order: activate to sort column ascending" style="width: 189px;">
+                                        Discount Id</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Meals: activate to sort column ascending" style="width: 291px;">
+                                        Description</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 291px;">
+                                        Discount Percentage</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 291px;">
+                                        Discount Enabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @*https://groups.google.com/d/msg/play-framework/hEQ33y6_kSI/9pZ-RLRnRpsJ*@
+                                @for((item, index) <- discountList.zipWithIndex) {
+                                    <tr class="@getColor(item.isEnabled, index)">
+                                        <td class="sorting_1"><a href="@CSRF(controllers.Finance.routes.UserFinanceController.editDiscount(item.getId))">@item.getId </a></td>
+                                        <td class=" ">@item.getDescription</td>
+                                        <td class=" ">@String.valueOf(item.getPercentage) %</td>
+                                        <td class=" "><input type="checkbox" disabled class="pull-center" @if(item.isEnabled) {checked}/></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="small-margin">
+        @form(action = controllers.User.routes.CustomerController.index()) {
+            @CSRF.formField
+            <input class="btn btn-info button-small" type="submit" value="Home">
+            }
+        </div>
+    </div>
+}
 
 @bodyContent = {
-    <h1>Manage Discounts</h1>
-
+    <div class="row pad-botm">
+        <div class="col-md-12">
+            <h1 class="header-line">Manage Discounts</h1>
+        </div>
+    </div>
+@table
 }
 
 @masterpage.apply(" :: Manage Discounts", bodyContent)

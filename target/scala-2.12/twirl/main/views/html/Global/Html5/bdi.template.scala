@@ -50,7 +50,7 @@ Seq[Any](format.raw/*1.17*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 11:02:13 SAST 2017
+                  DATE: Sun Oct 22 04:28:34 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Html5/bdi.scala.html
                   HASH: 02673bdad0f5c7bb5044a1ae7510d4d851c5ddef
                   MATRIX: 957->1|1067->16|1095->18|1131->29|1158->36|1185->37

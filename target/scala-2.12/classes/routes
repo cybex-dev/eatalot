@@ -116,15 +116,34 @@ POST        /Delivery/User/Edit                     controllers.User.DeliverySta
 
 # Admin Controller
 
-GET         /Admin/Dashboard                         controllers.User.AdminController.index()
+GET         /Admin/Dashboard                            controllers.User.AdminController.index()
 +nocsrf
-GET         /Admin/Dashboard/Update                  controllers.User.AdminController.getAdminDashUpdate()
-GET         /Admin/Manage/Meals                      controllers.User.AdminController.manageMeals()
-GET         /Admin/Manage/Users                      controllers.User.AdminController.manageUsers()
-GET         /Admin/Manage/Discounts                  controllers.User.AdminController.manageDiscounts()
-GET         /Admin/Edit                              controllers.User.AdminController.edit()
+GET         /Admin/Dashboard/Update                     controllers.User.AdminController.getAdminDashUpdate()
+GET         /Admin/Manage/Meals                         controllers.User.AdminController.manageMeals()
+GET         /Admin/Manage/Meals/Add                     controllers.User.AdminController.addMeal()
+GET         /Admin/Manage/Meals/Edit/:mealId            controllers.User.AdminController.editMeal(mealId: String)
+GET         /Admin/Manage/Users                         controllers.User.AdminController.manageUsers()
+GET         /Admin/Manage/Users/Customer/New            controllers.User.AdminController.addCustomer()
+GET         /Admin/Manage/Users/Staff/New               controllers.User.AdminController.addCustomer()
+GET         /Admin/Manage/Users/Customer/Edit:userId    controllers.User.AdminController.editCustomer(userId: String)
+GET         /Admin/Manage/Users/Staff/Edit:userId       controllers.User.AdminController.editStaff(userId: String)
+GET         /Admin/Manage/Discounts                     controllers.User.AdminController.manageDiscounts()
+GET         /Admin/Manage/Discounts/Add/                controllers.Finance.UserFinanceController.addDiscount()
+GET         /Admin/Manage/Discounts/Edit/:discountId    controllers.Finance.UserFinanceController.editDiscount(discountId: String)
+GET         /Admin/Edit                                 controllers.User.AdminController.edit()
 
-POST        /Admin/Edit                              controllers.User.AdminController.doEdit()
+POST        /Admin/Edit                                 controllers.User.AdminController.doEdit()
+POST        /Admin/Manage/Discounts/Edit                controllers.Finance.UserFinanceController.updateDiscount()
+POST        /Admin/Manage/Meals/Edit                    controllers.User.AdminController.updateMeal()
+POST        /Admin/Manage/Users/Customer/Edit           controllers.User.AdminController.updateCustomer()
+POST        /Admin/Manage/Users/Staff/Edit              controllers.User.AdminController.updateStaff()
+POST        /Admin/Manage/Discounts/Edit                controllers.Finance.UserFinanceController.updateDiscount()
++nocsrf
+POST        /Admin/Manage/Meals/Remove/:mealId          controllers.User.AdminController.removeMeal(mealId: String)
++nocsrf
+POST        /Admin/Manage/Users/Remove/:userId/:userType controllers.User.AdminController.removeUser(userId: String, userType: String)
++nocsrf
+POST        /Admin/Manage/Discounts/Remove/:discountId  controllers.Finance.UserFinanceController.removeDiscount(discountId: String)
 
 ##############################################################################
 
@@ -132,9 +151,9 @@ POST        /Admin/Edit                              controllers.User.AdminContr
 
 # Finance Controller
 
-GET         /User/AddFunds                          controllers.Finance.UserFinance.addFunds()
+GET         /User/AddFunds                          controllers.Finance.UserFinanceController.addFunds()
 
-POST        /User/AddFunds                          controllers.Finance.UserFinance.doAddFunds()
+POST        /User/AddFunds                          controllers.Finance.UserFinanceController.doAddFunds()
 
 ##############################################################################
 
@@ -215,6 +234,8 @@ GET         /assets/javascripts/adminJSRoutes       controllers.User.AdminContro
 GET         /assets/javascripts/deliveryJSRoutes    controllers.User.DeliveryStaffController.deliveryJSRoutes()
 +nocsrf
 GET         /assets/javascripts/kitchenJSRoutes     controllers.User.KitchenStaffController.kitchenJSRoutes()
++nocsrf
+GET         /assets/javascripts/financeJSRoutes     controllers.Finance.UserFinanceController.financeJSRoutes()
 
 ##############################################################################
 

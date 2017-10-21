@@ -72,7 +72,7 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  DATE: Sun Oct 22 04:28:35 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/kitchenHome.scala.html
                   HASH: e71c552057467942561328f3be66639be9effaa8
                   MATRIX: 955->1|1051->3|1080->6|1181->81|1200->92|1271->143|1404->249|1424->260|1491->306|1632->420|1652->431|1726->484|1862->593|1882->604|1959->660

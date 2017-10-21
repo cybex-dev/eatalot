@@ -1,0 +1,40 @@
+@import models.Finance.Discount
+@import play.data.Form
+@import helper._
+@import models.User.Customer.Customer
+@import Global.Static.masterpage
+
+
+@(customerForm: Form[Customer])
+
+@bodyContent = {
+    <h1>Edit User</h1>
+    <br/>
+@form( action = controllers.User.routes.AdminController.updateCustomer() ){
+    @CSRF.formField
+    @inputText(customerForm("userId"), '_class -> "hidden-field")
+    @inputText(customerForm("name"), '_name -> "Name")
+    @inputText(customerForm("surname"), '_name -> "Surname")
+    @inputText(customerForm("email"), '_name -> "Email")
+    @inputText(customerForm("cellNumber"), '_name -> "Cell Number")
+    @inputText(customerForm("password"), '_class -> "hidden-field")
+    @inputText(customerForm("balance"), '_class -> "hidden-field")
+    @inputText(customerForm("address"), '_class -> "hidden-field")
+    @inputText(customerForm("orderSchedule"), '_class -> "hidden-field")
+    <br/>
+    @checkbox(customerForm("isStudent"), '_name -> "Is a Student")
+    @checkbox(customerForm("emailVerified"), '_name -> "Email Verified")
+    @checkbox(customerForm("isComplete"), '_name -> "Profile Complete")
+    @checkbox(customerForm("isActive"), '_name -> "Account Active State")
+    <br/>
+    @inputText(customerForm("balance"), '_name -> "Balance:")
+    <br/>
+    <div class="row">
+        <div class="pull-center">
+            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+        </div>
+    </div>
+}
+}
+
+@masterpage.apply(" :: Edit Customer", bodyContent)

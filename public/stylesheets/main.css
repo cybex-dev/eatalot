@@ -374,3 +374,27 @@
 .margin-bottom-small {
     margin-bottom: 5px;
 }
+
+.disabledAccount {
+    background-color: #ffb3b8;
+}
+
+.disabledAccount:hover {
+    background-color: #c7898e;
+}
+
+.unverifiedAccount {
+    background-color: #ffd2a8;
+}
+
+.unverifiedAccount:hover {
+    background-color: #e2b68c;
+}
+
+.activeAccount {
+    background-color: lightblue;
+}
+
+.hidden-field{
+    display: none;
+}

@@ -80,6 +80,11 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="pull-center">
+            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.CustomerController.index()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+        </div>
+    </div>
 }
 }
 
@@ -87,11 +92,6 @@
     <h1 class="center-parent">Profile Information</h1>
 @navTabsContent
     <br/>
-    <div class="row">
-        <div class="pull-center">
-            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.CustomerController.index()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
-        </div>
-    </div>
 }
 
 @masterpage.apply(" :: Edit Profile", bodyContent)

@@ -42,7 +42,7 @@ Seq[Any](format.raw/*8.17*/("""
         <p>Note: we only support redeeming vouchers bought at select stores, in future further methods will be added</p>
         <br/>
         <br/>
-        """),_display_(/*15.10*/helper/*15.16*/.form(action = controllers.Finance.routes.UserFinance.doAddFunds(), 'class -> "body")/*15.101*/ {_display_(Seq[Any](format.raw/*15.103*/("""
+        """),_display_(/*15.10*/helper/*15.16*/.form(action = controllers.Finance.routes.UserFinanceController.doAddFunds(), 'class -> "body")/*15.111*/ {_display_(Seq[Any](format.raw/*15.113*/("""
             """),_display_(/*16.14*/CSRF/*16.18*/.formField),format.raw/*16.28*/("""
             """),_display_(/*17.14*/helper/*17.20*/.inputText(userFunds("voucherCode"), '_name -> "Voucher Code")),format.raw/*17.82*/("""
             """),format.raw/*18.13*/("""<br/>
@@ -70,10 +70,10 @@ Seq[Any](format.raw/*6.30*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 15:27:46 SAST 2017
+                  DATE: Sun Oct 22 04:28:37 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Finance/UserFinance/AddFunds.scala.html
-                  HASH: 6cea0cfbff726fd9102f63c8186861a2709cb27d
-                  MATRIX: 671->1|694->18|733->51|762->74|1121->119|1227->150|1246->161|1326->165|1357->170|1614->400|1629->406|1724->491|1765->493|1806->507|1819->511|1850->521|1891->535|1906->541|1989->603|2030->616|2153->708|2185->713|2232->147|2261->721|2290->724
+                  HASH: 7c551011b6876ff311c178a0dc32a0307ac9471e
+                  MATRIX: 671->1|694->18|733->51|762->74|1121->119|1227->150|1246->161|1326->165|1357->170|1614->400|1629->406|1734->501|1775->503|1816->517|1829->521|1860->531|1901->545|1916->551|1999->613|2040->626|2163->718|2195->723|2242->147|2271->731|2300->734
                   LINES: 24->1|25->2|26->3|27->4|32->6|36->8|36->8|38->8|39->9|45->15|45->15|45->15|45->15|46->16|46->16|46->16|47->17|47->17|47->17|48->18|50->20|51->21|53->6|55->22|57->24
                   -- GENERATED --
               */

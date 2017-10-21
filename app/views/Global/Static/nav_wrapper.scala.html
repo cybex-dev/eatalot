@@ -33,7 +33,7 @@
         </ul>
     </li>
 
-    <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Finance.routes.UserFinance.addFunds())">
+    <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Finance.routes.UserFinanceController.addFunds())">
         Add Funds</a></li>
     <li><a class="@standardMenuCSSClass" href="@CSRF(controllers.Order.routes.ScheduleController.index())">
         Schedule</a></li>
@@ -74,7 +74,7 @@
 }
 
 @buildAdminNav = {
-    <li><a href="@controllers.User.routes.CustomerController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon " src="@routes.Assets.versioned("images/icons/dashboard.png")"/>
+    <li><a href="@controllers.User.routes.AdminController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon " src="@routes.Assets.versioned("images/icons/dashboard.png")"/>
     </a>
     </li>
     <li><a href="@controllers.User.routes.AdminController.manageUsers()" class="@standardMenuCSSClass">
@@ -97,7 +97,7 @@
 }
 
 @buildBasicNav = {
-    <li><a href="@controllers.Application.routes.HomeController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon invert" src="@routes.Assets.versioned("images/icons/home.png")"/></a>
+    <li><a href="@controllers.Application.routes.HomeController.index()" class="@standardNavIconCSSClass"><img class="nav-icon large-icon" src="@routes.Assets.versioned("images/icons/home.png")"/></a>
     </li>
     <li>
         <a href="#" class="dropdown-toggle @standardMenuCSSClass" id="ddlmenuItem" data-toggle="dropdown">

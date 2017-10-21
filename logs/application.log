@@ -1,12 +1,4 @@
-2017-10-21 15:58:18,761 [INFO] from application in scala-execution-context-global-64 - Creating Pool for datasource 'default'
-2017-10-21 15:58:20,574 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-64 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
-2017-10-21 15:58:25,608 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-64 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2017-10-21 15:58:26,178 [INFO] from play.api.Play in scala-execution-context-global-64 - Application started (Dev)
-2017-10-21 16:00:20,985 [INFO] from application in scala-execution-context-global-64 - Shutting down connection pool.
-2017-10-21 16:00:21,374 [INFO] from application in scala-execution-context-global-64 - Creating Pool for datasource 'default'
-2017-10-21 16:00:21,387 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-64 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
-2017-10-21 16:00:22,048 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-64 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2017-10-21 16:00:22,242 [INFO] from play.api.Play in scala-execution-context-global-64 - Application started (Dev)
-2017-10-21 16:00:26,626 [WARN] from play in application-akka.actor.default-dispatcher-6 - You are using status code '200' with flashing, which should only be used with a redirect status!
-2017-10-21 16:03:17,336 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
-2017-10-21 16:03:44,041 [WARN] from play in application-akka.actor.default-dispatcher-11 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 10:19:43,217 [INFO] from application in scala-execution-context-global-59 - Creating Pool for datasource 'default'
+2017-10-22 10:19:43,953 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-59 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
+2017-10-22 10:19:46,297 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-59 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 10:19:46,697 [INFO] from play.api.Play in scala-execution-context-global-59 - Application started (Dev)

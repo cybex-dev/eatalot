@@ -15,12 +15,15 @@ import java.util.Optional;
 @Table(name = "staff")
 public class Staff extends User {
 
-    @Constraints.Required
     private Boolean isKitchenStaff;
 
     private String alias;
 
     public static Finder<String, Staff> find = new Finder<String, Staff>(Staff.class);
+
+    public Staff(){
+        super();
+    }
 
     public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff, String alias) {
         super(userId, name, surname, password, email, cellNumber);
@@ -74,5 +77,15 @@ public class Staff extends User {
         save();
     }
 
+    public void fill(Staff staff){
+        super.fill(staff);
+        if (this.isKitchenStaff != staff.isKitchenStaff)
+            this.isKitchenStaff = staff.isKitchenStaff;
+        if (!this.alias.equals(staff.alias))
+            this.alias = staff.alias;
+        if (!this.getPassword().equals(staff.getPassword())) {
+            this.setPassword(staff.getPassword());
+        }
+    }
 
 }

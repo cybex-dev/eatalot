@@ -166,6 +166,14 @@ public class UserController extends Controller {
             }
         }
 
+        //check if user is active
+        if (userType != UserType.ADMIN) {
+            if (!user.getActive()) {
+                flash().put(FlashCodes.danger.toString(), "Your account has been disable, please contact the Eatalot to resolve this!");
+                return CompletableFuture.completedFuture(badRequest(login.render(form)));
+            }
+        }
+
         // user is authenticated, adding login cookies (if remember me is true) and session
 
         // response contains login cookies, session login also added via context

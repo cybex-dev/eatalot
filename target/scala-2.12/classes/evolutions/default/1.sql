@@ -28,6 +28,7 @@ create table customer (
   email                         varchar(255),
   cell_number                   varchar(255),
   token                         varchar(255),
+  is_active                     tinyint(1) default 0,
   is_student                    tinyint(1) default 0,
   email_verified                tinyint(1) default 0,
   is_complete                   tinyint(1) default 0 not null,
@@ -48,6 +49,14 @@ create table customer_order (
   constraint pk_customer_order primary key (order_id)
 );
 
+create table discount (
+  discount_id                   varchar(255) not null,
+  description                   varchar(255),
+  percentage                    double not null,
+  enabled                       tinyint(1) default 0 not null,
+  constraint pk_discount primary key (discount_id)
+);
+
 create table ingredient (
   ingredient_id                 varchar(255) not null,
   description                   varchar(255),
@@ -62,6 +71,7 @@ create table meal (
   type                          varchar(255),
   image                         varchar(255),
   cost                          double not null,
+  active                        tinyint(1) default 0 not null,
   constraint pk_meal primary key (meal_id)
 );
 
@@ -136,6 +146,7 @@ create table staff (
   email                         varchar(255),
   cell_number                   varchar(255),
   token                         varchar(255),
+  is_active                     tinyint(1) default 0,
   is_kitchen_staff              tinyint(1) default 0,
   alias                         varchar(255),
   constraint pk_staff primary key (user_id)
@@ -178,6 +189,8 @@ drop table if exists admin;
 drop table if exists customer;
 
 drop table if exists customer_order;
+
+drop table if exists discount;
 
 drop table if exists ingredient;
 

@@ -2,6 +2,7 @@ package controllers.User;
 
 import annotations.CheckCSRF;
 import annotations.Routing.CustomersOnly;
+import annotations.Routing.CustomersStrictOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -71,7 +72,7 @@ public class CustomerController extends Controller implements CRUD {
      * @return
      */
     @With(LoadOrRedirectToLogin.class)
-    @CustomersOnly
+    @CustomersStrictOnly
     public Result index() {
         List<DashboardButton> arrayList = new ArrayList<>();
         CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session().get(AppCookie.user_id.toString()));

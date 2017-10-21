@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sat Oct 21 11:02:12 SAST 2017
+// @DATE:Sun Oct 22 04:28:34 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,13 +19,45 @@ package controllers.User {
     }
 
   
-    // @LINE:125
+    // @LINE:139
+    def updateStaff(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Staff/Edit")
+    }
+  
+    // @LINE:126
+    def addCustomer(): Call = {
+    
+      () match {
+      
+        // @LINE:126
+        case ()  =>
+          
+          Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Customer/New")
+      
+      }
+    
+    }
+  
+    // @LINE:144
+    def removeUser(userId:String, userType:String): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Remove/" + implicitly[play.api.mvc.PathBindable[String]].unbind("userId", play.core.routing.dynamicString(userId)) + "/" + implicitly[play.api.mvc.PathBindable[String]].unbind("userType", play.core.routing.dynamicString(userType)))
+    }
+  
+    // @LINE:133
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Edit")
     }
   
-    // @LINE:127
+    // @LINE:142
+    def removeMeal(mealId:String): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Remove/" + implicitly[play.api.mvc.PathBindable[String]].unbind("mealId", play.core.routing.dynamicString(mealId)))
+    }
+  
+    // @LINE:135
     def doEdit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "Admin/Edit")
@@ -37,16 +69,46 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard/Update")
     }
   
-    // @LINE:123
+    // @LINE:125
     def manageUsers(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users")
     }
   
-    // @LINE:124
+    // @LINE:129
+    def editStaff(userId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Staff/Edit" + implicitly[play.api.mvc.PathBindable[String]].unbind("userId", play.core.routing.dynamicString(userId)))
+    }
+  
+    // @LINE:130
     def manageDiscounts(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts")
+    }
+  
+    // @LINE:124
+    def editMeal(mealId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Edit/" + implicitly[play.api.mvc.PathBindable[String]].unbind("mealId", play.core.routing.dynamicString(mealId)))
+    }
+  
+    // @LINE:138
+    def updateCustomer(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Customer/Edit")
+    }
+  
+    // @LINE:123
+    def addMeal(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Add")
+    }
+  
+    // @LINE:128
+    def editCustomer(userId:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Customer/Edit" + implicitly[play.api.mvc.PathBindable[String]].unbind("userId", play.core.routing.dynamicString(userId)))
     }
   
     // @LINE:119
@@ -55,7 +117,13 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Dashboard")
     }
   
-    // @LINE:213
+    // @LINE:137
+    def updateMeal(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Edit")
+    }
+  
+    // @LINE:232
     def adminJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/adminJSRoutes")
@@ -154,7 +222,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:211
+    // @LINE:230
     def customerJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/customerJSRoutes")
@@ -193,7 +261,7 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Deliver")
     }
   
-    // @LINE:215
+    // @LINE:234
     def deliveryJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/deliveryJSRoutes")
@@ -288,7 +356,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
     }
   
-    // @LINE:217
+    // @LINE:236
     def kitchenJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/kitchenJSRoutes")

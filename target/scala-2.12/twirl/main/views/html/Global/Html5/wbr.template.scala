@@ -48,8 +48,8 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:56 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Global/Html5/wbr.scala.html
+                  DATE: Sat Oct 21 11:02:13 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Html5/wbr.scala.html
                   HASH: c4b4d8eab7b40246cf7bbff88c727d0c4e2084cc
                   MATRIX: 952->1|1048->3|1076->5
                   LINES: 28->1|33->1|35->3

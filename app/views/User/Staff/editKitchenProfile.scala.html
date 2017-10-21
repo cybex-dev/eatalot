@@ -6,6 +6,7 @@
 @(userProfile: Form[UserProfile])
 
     @scriptsContent = {
+
     }
 
     @navContent = {
@@ -59,7 +60,7 @@
     @aside.apply("", navSide)
 
     @article.apply(userContent)
-        <script href="@controllers.User.routes.javascript.KitchenStaffController.kitchenJSRoutes" type="text/javascript"></script>
+
     }
 
     @essentials.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)

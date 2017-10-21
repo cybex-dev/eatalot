@@ -1,8 +1,14 @@
 package utility;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.User.Customer.Customer;
+import models.User.Customer.DashboardEntries;
 import play.api.mvc.Call;
+import play.libs.Json;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DashboardButton {
@@ -31,12 +37,16 @@ public class DashboardButton {
         this.cssClassSecondaryImage = cssClassSecondaryImage;
     }
 
-    public static Map<String, String> dashbuttonJsonMap(String s0, String s1, String s2, String s3) {
-        Map<String, String> map = new HashMap<>();
-        map.put("dashButton0", s0);
-        map.put("dashButton1", s1);
-        map.put("dashButton2", s2);
-        map.put("dashButton3", s3);
-        return map;
+    public static ArrayNode dashbuttonJsonMap(String s0, String s1, String s2, String s3) {
+        ArrayNode dashButtonArray = Json.newArray();
+        ObjectNode dashButton0 = Json.newObject().put("dashButton0", s0);
+        ObjectNode dashButton1 = Json.newObject().put("dashButton1", s1);
+        ObjectNode dashButton2 = Json.newObject().put("dashButton2", s2);
+        ObjectNode dashButton3 = Json.newObject().put("dashButton3", s3);
+        dashButtonArray.add(dashButton0);
+        dashButtonArray.add(dashButton1);
+        dashButtonArray.add(dashButton2);
+        dashButtonArray.add(dashButton3);
+        return dashButtonArray;
     }
 }

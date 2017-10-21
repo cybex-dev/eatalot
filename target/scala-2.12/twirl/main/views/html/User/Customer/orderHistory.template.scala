@@ -34,83 +34,99 @@ object orderHistory extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.a
     _display_ {
       {
 
-def /*9.6*/table/*9.11*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*9.2*/table/*9.7*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*9.15*/("""
-        """),format.raw/*10.9*/("""<div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">Ordering History</h4>
-
-            </div>
-
-        </div>
+Seq[Any](format.raw/*9.11*/("""
+    """),format.raw/*10.5*/("""<div class="row-width-center">
         <div class="panel panel-default">
-            """),format.raw/*18.44*/("""
-                """),format.raw/*19.36*/("""
-            """),format.raw/*20.23*/("""
-            """),format.raw/*21.13*/("""<div class="panel-body">
+            """),format.raw/*12.44*/("""
+            """),format.raw/*13.32*/("""
+            """),format.raw/*14.23*/("""
+            """),format.raw/*15.13*/("""<div class="panel-body">
                 <div class="table-responsive">
-                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">
-                        10</option><option value="25">25</option><option value="50">50</option><option value="100">
-                        100</option></select>
-                        Orders per page</label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>
-                        Search:<input type="search" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
-                        <thead>
-                            <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Order: activate to sort column ascending" style="width: 189px;">
-                                    # Order</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Meals: activate to sort column ascending" style="width: 291px;">
-                                    Meals</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 264px;">
-                                    Total ("""),_display_(/*35.45*/AppTags/*35.52*/.Locale.Currency.ZAR),format.raw/*35.72*/(""")</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 291px;">
-                                    Date</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Time: activate to sort column ascending" style="width: 264px;">
-                                    Time</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 113px;">
-                                    Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            """),format.raw/*45.104*/("""
-                            """),_display_(/*46.30*/for((item, index) <- ordersList.zipWithIndex) yield /*46.75*/ {_display_(Seq[Any](format.raw/*46.77*/("""
-"""),format.raw/*47.63*/("""
-                                """),format.raw/*48.33*/("""<tr class="gradeA """),_display_(/*48.52*/if((index % 2) == 0)/*48.72*/ {_display_(Seq[Any](format.raw/*48.74*/("""odd""")))}/*48.79*/else/*48.84*/{_display_(Seq[Any](format.raw/*48.85*/("""even""")))}),format.raw/*48.90*/("""">
-                                    <td class="sorting_1"><a href=""""),_display_(/*49.69*/controllers/*49.80*/.User.routes.CustomerController.viewOrder(item.orderId)),format.raw/*49.135*/("""">"""),_display_(/*49.138*/item/*49.142*/.orderId),format.raw/*49.150*/("""</a></td>
-                                    <td class=" ">"""),_display_(/*50.52*/item/*50.56*/.mealNames),format.raw/*50.66*/("""</td>
-                                    <td class=" ">"""),_display_(/*51.52*/AppTags/*51.59*/.Locale.Currency.ZAR),format.raw/*51.79*/(""" """),_display_(/*51.81*/item/*51.85*/.amount),format.raw/*51.92*/("""</td>
-                                    <td class="center "></td>
-                                    <td class="center ">"""),_display_(/*53.58*/String/*53.64*/.format("%sh%s", item.getHour(), item.getMinute())),format.raw/*53.114*/("""</td>
-                                    <td class=" ">"""),_display_(/*54.52*/item/*54.56*/.status),format.raw/*54.63*/("""</td>
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="dataTables-example_filter" class="dataTables_filter">
+                                    <div class="pull-left">
+                                        <input id="searchInput" type="search" onkeyup="searchOrder()" placeholder="Search here..." class="form-control input-sm search-box standard-box-height" aria-controls="dataTables-example">
+                                    </div>
+                                    <div class="pull-left margin-left-small">
+                                        <h4>Filter:
+                                            <select id="paymentsTable_search_column" aria-controls="dataTables-example" class="standard-box-height form-control input-sm ">
+                                                <option value="query_order_id">Order Number</option>
+                                                <option value="query_meals_desc">Meals Description</option>
+                                                <option value="query_date">Date Delivered</option>
+                                                <option value="query_time">Time Delivered</option>
+                                                <option value="query_status">Status</option>
+                                                <option value="query_total">Total Amount</option>
+                                            </select>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Order: activate to sort column ascending" style="width: 189px;">
+                                        # Order</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Meals: activate to sort column ascending" style="width: 291px;">
+                                        Meals</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 291px;">
+                                        Date</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 291px;">
+                                        Time</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 113px;">
+                                        Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 264px;">
+                                        Total ("""),_display_(/*53.49*/AppTags/*53.56*/.Locale.Currency.ZAR),format.raw/*53.76*/(""")</th>
                                 </tr>
-                            """)))}),format.raw/*56.30*/("""
-                        """),format.raw/*57.25*/("""</tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                """),format.raw/*57.108*/("""
+                                """),_display_(/*58.34*/for((item, index) <- ordersList.zipWithIndex) yield /*58.79*/ {_display_(Seq[Any](format.raw/*58.81*/("""
+                                    """),format.raw/*59.37*/("""<tr class="gradeA """),_display_(/*59.56*/if((index % 2) == 0)/*59.76*/ {_display_(Seq[Any](format.raw/*59.78*/("""odd""")))}/*59.83*/else/*59.88*/{_display_(Seq[Any](format.raw/*59.89*/("""even""")))}),format.raw/*59.94*/("""">
+                                        <td class="sorting_1"><a href=""""),_display_(/*60.73*/CSRF(controllers.User.routes.CustomerController.viewOrder(item.orderId))),format.raw/*60.145*/("""">"""),_display_(/*60.148*/item/*60.152*/.orderId),format.raw/*60.160*/("""</a></td>
+                                        <td class=" ">"""),_display_(/*61.56*/item/*61.60*/.mealNames),format.raw/*61.70*/("""</td>
+                                        <td class="center ">"""),_display_(/*62.62*/item/*62.66*/.getDate),format.raw/*62.74*/("""</td>
+                                        <td class="center ">"""),_display_(/*63.62*/item/*63.66*/.getTime),format.raw/*63.74*/("""</td>
+                                        <td class=" ">"""),_display_(/*64.56*/item/*64.60*/.status),format.raw/*64.67*/("""</td>
+                                        <td class=" ">"""),_display_(/*65.56*/AppTags/*65.63*/.Locale.Currency.ZAR),format.raw/*65.83*/(""" """),_display_(/*65.85*/item/*65.89*/.amount),format.raw/*65.96*/("""</td>
+                                    </tr>
+                                """)))}),format.raw/*67.34*/("""
+                            """),format.raw/*68.29*/("""</tbody>
+                        </table>
+                    </div>
 
-                        <div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">
-                            Showing 1 to 10 of 57 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">
-                            Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            1</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            2</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            3</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            4</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            5</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            6</a></li><li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">
-                            Next</a></li></ul></div></div></div></div>
                 </div>
-
             </div>
         </div>
-        """),_display_(/*74.10*/form( action = controllers.User.routes.CustomerController.index())/*74.76*/{_display_(Seq[Any](format.raw/*74.77*/("""
-            """),_display_(/*75.14*/CSRF/*75.18*/.formField),format.raw/*75.28*/("""
-            """),format.raw/*76.13*/("""<input class="btn btn-info" type="submit" name="Home">
-        """)))}),format.raw/*77.10*/("""
-    """)))};
+        <div class="small-margin">
+        """),_display_(/*76.10*/form(action = controllers.User.routes.CustomerController.index())/*76.75*/ {_display_(Seq[Any](format.raw/*76.77*/("""
+            """),_display_(/*77.14*/CSRF/*77.18*/.formField),format.raw/*77.28*/("""
+            """),format.raw/*78.13*/("""<input class="btn btn-info button-small" type="submit" value="Home">
+            """)))}),format.raw/*79.14*/("""
+        """),format.raw/*80.9*/("""</div>
+    </div>
+""")))};def /*84.2*/bodyContent/*84.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*84.17*/("""
+    """),format.raw/*85.5*/("""<div class="row pad-botm">
+        <div class="col-md-12">
+            <h1 class="header-line">Ordering History</h1>
+        </div>
+    </div>
+"""),_display_(/*90.2*/table),format.raw/*90.7*/("""
+
+""")))};
 Seq[Any](format.raw/*7.36*/("""
 
-    """),format.raw/*78.6*/("""
+"""),format.raw/*82.2*/("""
 
-    """),_display_(/*80.6*/masterpage/*80.16*/.apply(" :: Past Orders", table)),format.raw/*80.48*/("""
+"""),format.raw/*92.2*/("""
+
+"""),_display_(/*94.2*/masterpage/*94.12*/.apply(" :: Past Orders", bodyContent)),format.raw/*94.50*/("""
 """))
       }
     }
@@ -127,11 +143,11 @@ Seq[Any](format.raw/*7.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Customer/orderHistory.scala.html
-                  HASH: 3ef7acf5d78d91cbb4ac6c7cdcb30683d416670d
-                  MATRIX: 665->1|694->25|733->58|779->98|802->115|1162->151|1274->192|1287->197|1367->201|1403->210|1646->456|1691->492|1732->515|1773->528|3667->2395|3683->2402|3724->2422|4629->3373|4686->3403|4747->3448|4787->3450|4816->3513|4877->3546|4923->3565|4952->3585|4992->3587|5015->3592|5028->3597|5067->3598|5103->3603|5201->3674|5221->3685|5298->3740|5329->3743|5343->3747|5373->3755|5461->3816|5474->3820|5505->3830|5589->3887|5605->3894|5646->3914|5675->3916|5688->3920|5716->3927|5868->4052|5883->4058|5955->4108|6039->4165|6052->4169|6080->4176|6184->4249|6237->4274|7899->5909|7974->5975|8013->5976|8054->5990|8067->5994|8098->6004|8139->6017|8234->6081|8279->185|8312->6087|8345->6094|8364->6104|8417->6136
-                  LINES: 24->1|25->3|26->4|27->5|28->6|33->7|37->9|37->9|39->9|40->10|48->18|49->19|50->20|51->21|65->35|65->35|65->35|75->45|76->46|76->46|76->46|77->47|78->48|78->48|78->48|78->48|78->48|78->48|78->48|78->48|79->49|79->49|79->49|79->49|79->49|79->49|80->50|80->50|80->50|81->51|81->51|81->51|81->51|81->51|81->51|83->53|83->53|83->53|84->54|84->54|84->54|86->56|87->57|104->74|104->74|104->74|105->75|105->75|105->75|106->76|107->77|109->7|111->78|113->80|113->80|113->80
+                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/orderHistory.scala.html
+                  HASH: 50ba8cce3dd0667302c200f63dee69cff837b0a3
+                  MATRIX: 665->1|694->25|733->58|779->98|802->115|1162->151|1274->188|1286->193|1366->197|1398->202|1511->318|1552->350|1593->373|1634->386|5328->4053|5344->4060|5385->4080|5564->4305|5625->4339|5686->4384|5726->4386|5791->4423|5837->4442|5866->4462|5906->4464|5929->4469|5942->4474|5981->4475|6017->4480|6119->4555|6213->4627|6244->4630|6258->4634|6288->4642|6380->4707|6393->4711|6424->4721|6518->4788|6531->4792|6560->4800|6654->4867|6667->4871|6696->4879|6784->4940|6797->4944|6825->4951|6913->5012|6929->5019|6970->5039|6999->5041|7012->5045|7040->5052|7152->5133|7209->5162|7407->5333|7481->5398|7521->5400|7562->5414|7575->5418|7606->5428|7647->5441|7760->5523|7796->5532|7838->5554|7858->5565|7939->5569|7971->5574|8141->5718|8166->5723|8208->185|8237->5551|8266->5726|8295->5729|8314->5739|8373->5777
+                  LINES: 24->1|25->3|26->4|27->5|28->6|33->7|37->9|37->9|39->9|40->10|42->12|43->13|44->14|45->15|83->53|83->53|83->53|87->57|88->58|88->58|88->58|89->59|89->59|89->59|89->59|89->59|89->59|89->59|89->59|90->60|90->60|90->60|90->60|90->60|91->61|91->61|91->61|92->62|92->62|92->62|93->63|93->63|93->63|94->64|94->64|94->64|95->65|95->65|95->65|95->65|95->65|95->65|97->67|98->68|106->76|106->76|106->76|107->77|107->77|107->77|108->78|109->79|110->80|112->84|112->84|114->84|115->85|120->90|120->90|123->7|125->82|127->92|129->94|129->94|129->94
                   -- GENERATED --
               */
           

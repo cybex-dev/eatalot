@@ -14,10 +14,12 @@
 
 <script src="@routes.Assets.versioned("javascripts/bootstrap-toggle.min.js")"></script>
 
-@*<script src="@routes.Assets.versioned("javascripts/editProfile.js")" rel="script"></script>*@
-
-@*<script src="@routes.Assets.versioned("javascripts/openWindow.js")" rel="script"></script>*@
-
-@*<script src="@routes.Assets.versioned("javascripts/redirect.js")" rel="script"></script>*@
-
 <script type="text/javascript" src="@controllers.Order.routes.ScheduleController.scheduleJSRoutes()"></script>
+
+<script type="text/javascript" src="@controllers.User.routes.CustomerController.customerJSRoutes"></script>
+
+<script type="text/javascript" src="@controllers.User.routes.AdminController.adminJSRoutes"></script>
+
+<script type="text/javascript" src="@controllers.User.routes.KitchenStaffController.kitchenJSRoutes"></script>
+
+<script type="text/javascript" src="@controllers.User.routes.DeliveryStaffController.deliveryJSRoutes"></script>

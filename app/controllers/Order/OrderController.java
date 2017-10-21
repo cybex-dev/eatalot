@@ -80,7 +80,7 @@ public class OrderController extends Controller implements StatusId {
             return redirect(controllers.User.routes.UserController.login());
         if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())) {
             CustomerOrder order;
-            Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
+            Customer customer = Customer.find.byId(session(AppTags.AppCookie.user_id.toString()));
             if(session("orderId") == null){
                 order = new CustomerOrder();
                 order.setUserId(session(AppTags.AppCookie.user_id.toString()));

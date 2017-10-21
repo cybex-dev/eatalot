@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/cybex/Projects/eatalot-temp/conf/routes
-// @DATE:Sat Oct 21 09:12:55 SAST 2017
+// @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
+// @DATE:Sat Oct 21 11:02:12 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,28 +19,34 @@ package controllers.Application {
     }
 
   
+    // @LINE:7
+    def contactUs(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "ContactUs")
+    }
+  
+    // @LINE:241
+    def invalidRoute(path:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("path", path))
+    }
+  
     // @LINE:8
+    def forbiddenAccess(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "Forbidden")
+    }
+  
+    // @LINE:9
     def unknown(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "unknown")
+      Call("GET", _prefix + { _defaultPrefix } + "Unknown")
     }
   
     // @LINE:6
     def index(): Call = {
       
       Call("GET", _prefix)
-    }
-  
-    // @LINE:202
-    def invalidRoute(path:String): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("path", path))
-    }
-  
-    // @LINE:7
-    def forbiddenAccess(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "forbidden")
     }
   
   }

@@ -3,6 +3,7 @@ package controllers.User;
 import annotations.Routing.AdminOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import controllers.Application.AppTags;
 import models.User.Admin.Admin;
 import models.User.Admin.AdminInfo;
@@ -119,8 +120,8 @@ public class AdminController extends Controller {
                 s1 = "",
                 s2 = "",
                 s3 = "";
-        Map<String, String> jsonMap = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
-        return ok(Json.toJson(jsonMap));
+        ArrayNode arrayNode = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+        return ok(Json.toJson(arrayNode));
     }
 
     public Result adminJSRoutes() {

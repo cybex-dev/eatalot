@@ -34,77 +34,78 @@ object editKitchenProfile extends _root_.play.twirl.api.BaseScalaTemplate[play.t
     _display_ {
       {
 
-def /*8.2*/scriptsContent/*8.16*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*8.6*/scriptsContent/*8.20*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*8.20*/("""
-""")))};def /*11.2*/navContent/*11.12*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+Seq[Any](format.raw/*8.24*/("""
 
-Seq[Any](format.raw/*11.16*/("""
+    """)))};def /*12.6*/navContent/*12.16*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-""")))};def /*15.2*/userContent/*15.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+Seq[Any](format.raw/*12.20*/("""
 
-Seq[Any](format.raw/*15.17*/("""
-    """),format.raw/*16.5*/("""<div class="input-group">
-        """),_display_(/*17.10*/helper/*17.16*/.form( action = controllers.User.routes.KitchenStaffController.doEdit())/*17.88*/{_display_(Seq[Any](format.raw/*17.89*/("""
-            """),_display_(/*18.14*/CSRF/*18.18*/.formField),format.raw/*18.28*/("""
-            """),format.raw/*19.13*/("""<h2>Your information</h2>
-            <br/>
-            <div class="container input-container">
-                <h4>Your Login Information</h4>
-                """),_display_(/*23.18*/helper/*23.24*/.inputText(userProfile("alias"), '_name -> "Login ID")),format.raw/*23.78*/("""
-            """),format.raw/*24.13*/("""</div>
-            <br/>
-            <div class="container input-container">
-                <h4>Change Password</h4>
-                """),_display_(/*28.18*/helper/*28.24*/.inputText(userProfile("password"), '_name -> "Password")),format.raw/*28.81*/("""
-                """),_display_(/*29.18*/helper/*29.24*/.inputText(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*29.96*/("""
-            """),format.raw/*30.13*/("""</div>
-            <br/>
-            <br/>
-            <div class="container input-container">
-                <h6>Your Personal Details</h6>
-                """),_display_(/*35.18*/helper/*35.24*/.inputPassword(userProfile("name"), '_name -> "Name")),format.raw/*35.77*/("""
-                """),_display_(/*36.18*/helper/*36.24*/.inputPassword(userProfile("surname"), '_name -> "Surname")),format.raw/*36.83*/("""
-            """),format.raw/*37.13*/("""</div>
-            <br/>
-            <div class="container input-container">
-                <h6>Your Contact Information</h6>
-                """),_display_(/*41.18*/helper/*41.24*/.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")),format.raw/*41.91*/("""
-            """),format.raw/*42.13*/("""</div>
-            <br/>
-            <div class="container input-container">
-                <input class="btn btn-default button-padding" type="button" onclick="location.href='"""),_display_(/*45.102*/controllers/*45.113*/.User.routes.KitchenStaffController.index()),format.raw/*45.156*/("""';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+    """)))};def /*16.6*/userContent/*16.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*16.21*/("""
+        """),format.raw/*17.9*/("""<div class="input-group">
+        """),_display_(/*18.10*/helper/*18.16*/.form(action = controllers.User.routes.KitchenStaffController.doEdit())/*18.87*/ {_display_(Seq[Any](format.raw/*18.89*/("""
+            """),_display_(/*19.14*/CSRF/*19.18*/.formField),format.raw/*19.28*/("""
+            """),format.raw/*20.13*/("""<div class="margin-left-small">
+                <h1>Your information</h1>
+                <br/>
+                <div class="container input-container">
+                    <h4>Your Login Information</h4>
+                    """),_display_(/*25.22*/helper/*25.28*/.inputText(userProfile("alias"), '_name -> "Login ID")),format.raw/*25.82*/("""
+                """),format.raw/*26.17*/("""</div>
+                <br/>
+                <div class="container input-container">
+                    <h4>Change Password</h4>
+                    """),_display_(/*30.22*/helper/*30.28*/.inputText(userProfile("password"), '_name -> "Password")),format.raw/*30.85*/("""
+                    """),_display_(/*31.22*/helper/*31.28*/.inputText(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*31.100*/("""
+                """),format.raw/*32.17*/("""</div>
+                <br/>
+                <br/>
+                <div class="container input-container">
+                    <h6>Your Personal Details</h6>
+                    """),_display_(/*37.22*/helper/*37.28*/.inputPassword(userProfile("name"), '_name -> "Name")),format.raw/*37.81*/("""
+                    """),_display_(/*38.22*/helper/*38.28*/.inputPassword(userProfile("surname"), '_name -> "Surname")),format.raw/*38.87*/("""
+                """),format.raw/*39.17*/("""</div>
+                <br/>
+                <div class="container input-container">
+                    <h6>Your Contact Information</h6>
+                    """),_display_(/*43.22*/helper/*43.28*/.inputText(userProfile("cellNumber"), '_name -> "Cellphone Number")),format.raw/*43.95*/("""
+                """),format.raw/*44.17*/("""</div>
+            </div>
+            <div class="row">
+                <div class="pull-center">
+                    <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '"""),_display_(/*48.121*/controllers/*48.132*/.User.routes.KitchenStaffController.index()),format.raw/*48.175*/("""';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+                </div>
             </div>
             <br/>
-        """)))}),format.raw/*48.10*/("""
-    """),format.raw/*49.5*/("""</div>
-""")))};def /*52.2*/navSide/*52.9*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+        """)))}),format.raw/*52.10*/("""
+        """),format.raw/*53.9*/("""</div>
+    """)))};def /*56.6*/navSide/*56.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*52.13*/("""
-    """),format.raw/*53.5*/("""<a href="#" onclick="">Basic Information</a>
-    <a href="#">Edit Address</a>
-    <a href="#">Change Password</a>
-""")))};def /*58.2*/bodyContent/*58.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+Seq[Any](format.raw/*56.17*/("""
+    """)))};def /*59.6*/bodyContent/*59.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*58.17*/("""
-"""),_display_(/*59.2*/aside/*59.7*/.apply("", navSide)),format.raw/*59.26*/("""
+Seq[Any](format.raw/*59.21*/("""
+    """),_display_(/*60.6*/aside/*60.11*/.apply("", navSide)),format.raw/*60.30*/("""
 
-"""),_display_(/*61.2*/article/*61.9*/.apply(userContent)),format.raw/*61.28*/("""
-    """),format.raw/*62.5*/("""<script href=""""),_display_(/*62.20*/controllers/*62.31*/.User.routes.javascript.KitchenStaffController.kitchenJSRoutes),format.raw/*62.93*/("""" type="text/javascript"></script>
-""")))};
+    """),_display_(/*62.6*/article/*62.13*/.apply(userContent)),format.raw/*62.32*/("""
+
+    """)))};
 Seq[Any](format.raw/*6.34*/("""
 
-"""),format.raw/*9.2*/("""
+    """),format.raw/*10.6*/("""
 
-"""),format.raw/*13.2*/("""
+    """),format.raw/*14.6*/("""
 
-"""),format.raw/*50.2*/("""
+    """),format.raw/*54.6*/("""
 
-"""),format.raw/*56.2*/("""
+    """),format.raw/*57.6*/("""
 
-"""),format.raw/*63.2*/("""
+    """),format.raw/*64.6*/("""
 
-"""),_display_(/*65.2*/essentials/*65.12*/.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)),format.raw/*65.79*/("""
+    """),_display_(/*66.6*/essentials/*66.16*/.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)),format.raw/*66.83*/("""
 """))
       }
     }
@@ -121,11 +122,11 @@ Seq[Any](format.raw/*6.34*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:58 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Staff/editKitchenProfile.scala.html
-                  HASH: 3b8a2d4a6a25e6f03013f9607a3cc63bd00484e9
-                  MATRIX: 662->1|691->24|730->57|756->77|794->109|1144->132|1254->167|1276->181|1356->185|1381->190|1400->200|1481->204|1507->210|1527->221|1608->225|1640->230|1702->265|1717->271|1798->343|1837->344|1878->358|1891->362|1922->372|1963->385|2151->546|2166->552|2241->606|2282->619|2444->754|2459->760|2537->817|2582->835|2597->841|2690->913|2731->926|2917->1085|2932->1091|3006->1144|3051->1162|3066->1168|3146->1227|3187->1240|3358->1384|3373->1390|3461->1457|3502->1470|3708->1648|3729->1659|3794->1702|3967->1844|3999->1849|4030->1860|4045->1867|4126->1871|4158->1876|4296->1994|4316->2005|4397->2009|4425->2011|4438->2016|4478->2035|4507->2038|4522->2045|4562->2064|4594->2069|4636->2084|4656->2095|4739->2157|4814->164|4842->187|4871->207|4900->1857|4929->1991|4958->2193|4987->2196|5006->2206|5094->2273
-                  LINES: 24->1|25->2|26->3|27->4|28->5|33->6|37->8|37->8|39->8|40->11|40->11|42->11|44->15|44->15|46->15|47->16|48->17|48->17|48->17|48->17|49->18|49->18|49->18|50->19|54->23|54->23|54->23|55->24|59->28|59->28|59->28|60->29|60->29|60->29|61->30|66->35|66->35|66->35|67->36|67->36|67->36|68->37|72->41|72->41|72->41|73->42|76->45|76->45|76->45|79->48|80->49|81->52|81->52|83->52|84->53|87->58|87->58|89->58|90->59|90->59|90->59|92->61|92->61|92->61|93->62|93->62|93->62|93->62|95->6|97->9|99->13|101->50|103->56|105->63|107->65|107->65|107->65
+                  DATE: Sat Oct 21 13:29:09 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Staff/editKitchenProfile.scala.html
+                  HASH: 248b85298e8a8a73d035dbfa9302823e67595095
+                  MATRIX: 662->1|691->24|730->57|756->77|794->109|1144->132|1254->171|1276->185|1356->189|1386->203|1405->213|1486->217|1516->231|1536->242|1617->246|1653->255|1715->290|1730->296|1810->367|1850->369|1891->383|1904->387|1935->397|1976->410|2228->635|2243->641|2318->695|2363->712|2541->863|2556->869|2634->926|2683->948|2698->954|2792->1026|2837->1043|3043->1222|3058->1228|3132->1281|3181->1303|3196->1309|3276->1368|3321->1385|3508->1545|3523->1551|3611->1618|3656->1635|3902->1853|3923->1864|3988->1907|4197->2085|4233->2094|4268->2113|4284->2120|4365->2124|4394->2137|4414->2148|4495->2152|4527->2158|4541->2163|4581->2182|4614->2189|4630->2196|4670->2215|4716->164|4749->196|4782->224|4815->2106|4848->2130|4881->2222|4914->2229|4933->2239|5021->2306
+                  LINES: 24->1|25->2|26->3|27->4|28->5|33->6|37->8|37->8|39->8|41->12|41->12|43->12|45->16|45->16|47->16|48->17|49->18|49->18|49->18|49->18|50->19|50->19|50->19|51->20|56->25|56->25|56->25|57->26|61->30|61->30|61->30|62->31|62->31|62->31|63->32|68->37|68->37|68->37|69->38|69->38|69->38|70->39|74->43|74->43|74->43|75->44|79->48|79->48|79->48|83->52|84->53|85->56|85->56|87->56|88->59|88->59|90->59|91->60|91->60|91->60|93->62|93->62|93->62|96->6|98->10|100->14|102->54|104->57|106->64|108->66|108->66|108->66
                   -- GENERATED --
               */
           

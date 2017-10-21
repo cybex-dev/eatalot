@@ -4,6 +4,10 @@ import annotations.CheckCSRF;
 import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.*;
 import libs.Mailer;
@@ -11,10 +15,7 @@ import models.CRUD;
 import models.Finance.Payment;
 import models.Finance.PaymentItemBasic;
 import models.Order.*;
-import models.User.Customer.Address;
-import models.User.Customer.Customer;
-import models.User.Customer.CustomerInfo;
-import models.User.Customer.UserRegisterInfo;
+import models.User.Customer.*;
 import models.User.UserDetails;
 import models.User.UserProfile;
 import org.jetbrains.annotations.NotNull;
@@ -100,7 +101,7 @@ public class CustomerController extends Controller implements CRUD {
     }
 
     @With(CheckCSRF.class)
-    public Result redirectHome(){
+    public Result redirectHome() {
         return redirect(controllers.User.routes.CustomerController.index());
     }
 
@@ -152,11 +153,10 @@ public class CustomerController extends Controller implements CRUD {
         CompletableFuture.supplyAsync(() -> Mailer.SendWelcome("New User", c.getEmail()), httpExecutionContext.current());
         return CompletableFuture.supplyAsync(() -> Mailer.SendVerificationEmail(userEmail, finalCsrfToken), httpExecutionContext.current()).thenApply(aBoolean -> {
             Result r = null;
-            if (aBoolean){
+            if (aBoolean) {
                 ctx().flash().put(FlashCodes.success.toString(), "Verification email has been sent");
                 r = ok(verify.render());
-            }
-            else {
+            } else {
                 ctx().flash().put(FlashCodes.danger.toString(), "Verification email could not be sent, but you can still login");
                 r = redirect(controllers.User.routes.UserController.login());
             }
@@ -199,8 +199,7 @@ public class CustomerController extends Controller implements CRUD {
                 //passswords do not match, notify
                 flash(FlashCodes.danger.toString(), "Please check passwords match and are valid");
                 return CompletableFuture.completedFuture(badRequest(editProfile.render(formUserProfile)));
-            }
-            else {
+            } else {
                 flash(FlashCodes.info.toString(), "Password updated!");
             }
         }
@@ -489,20 +488,34 @@ public class CustomerController extends Controller implements CRUD {
 
     @With(RequiresActive.class)
     @CustomersOnly
-    public Result getCustomerDashUpdate(){
+    public Result getCustomerDashEntries() {
         CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session(user_id.toString()));
         String s0 = AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
-                        s1 = String.valueOf(customerInfo.getActiveOrderCount()),
-                        s2 = "New",
-                        s3 = customerInfo.isScheduleActive() ? "Active" : "  Inactive";
-        Map<String, String> jsonMap = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
-        return ok(Json.toJson(jsonMap));
+                s1 = String.valueOf(customerInfo.getActiveOrderCount()),
+                s2 = "New",
+                s3 = customerInfo.isScheduleActive() ? "Active" : "  Inactive";
+        ArrayNode arrayNode = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+
+        return ok(Json.toJson(arrayNode));
+    }
+
+    @With(RequiresActive.class)
+    @CustomersOnly
+    public Result getCustomerDashUpdate() {
+        CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session(user_id.toString()));
+        String s0 = AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
+                s1 = String.valueOf(customerInfo.getActiveOrderCount()),
+                s2 = "New",
+                s3 = customerInfo.isScheduleActive() ? "Active" : "  Inactive";
+        ArrayNode arrayNode = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+        return ok(Json.toJson(arrayNode));
     }
 
     public Result customerJSRoutes() {
         return ok(
                 JavaScriptReverseRouter.create(Routes.CustomerJSRoutes.toString(),
                         routes.javascript.CustomerController.getCustomerDashUpdate(),
+//                        routes.javascript.CustomerController.getCustomerDashEntries(),
                         routes.javascript.CustomerController.orderHistory(),
                         routes.javascript.CustomerController.paymentHistory()
                 )

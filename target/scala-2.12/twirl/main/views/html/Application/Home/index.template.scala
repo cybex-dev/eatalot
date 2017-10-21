@@ -39,16 +39,16 @@ Seq[Any](format.raw/*5.14*/("""
                 <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="assets/images/food/pancakes.png" alt="" />
+                            <img src=""""),_display_(/*12.40*/routes/*12.46*/.Assets.versioned("images/food/food01.png")),format.raw/*12.89*/("""" alt="Food" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/burger.png" alt="" />
+                            <img src=""""),_display_(/*15.40*/routes/*15.46*/.Assets.versioned("images/food/food02.png")),format.raw/*15.89*/("""" alt="Food" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/chickenwrap.png" alt="" />
+                            <img src=""""),_display_(/*18.40*/routes/*18.46*/.Assets.versioned("images/food/food03.png")),format.raw/*18.89*/("""" alt="Food" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/food04.png" alt="" />
+                            <img src=""""),_display_(/*21.40*/routes/*21.46*/.Assets.versioned("images/food/food04.png")),format.raw/*21.89*/("""" alt="Food" />
                         </div>
                     </div>
                         <!--INDICATORS-->
@@ -133,11 +133,11 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:56 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Application/Home/index.scala.html
-                  HASH: 8f1aa9aed4a9df7ba66e78eef91f20c0b8370d2e
-                  MATRIX: 668->1|1008->46|1088->51|1104->59|1184->63|1215->68|3140->1973|3160->1984|3241->1988|3273->1993|3492->2216|3520->2218|3549->2226|3582->2261|3614->2266|3847->2472|3867->2483|3931->2525|4503->48|4532->1970|4561->3059|4591->3063|4610->3073
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|72->44|72->44|74->44|75->45|81->51|82->52|82->52|83->53|84->54|90->60|90->60|90->60|113->3|115->42|117->82|120->85|120->85
+                  DATE: Sat Oct 21 11:02:13 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Application/Home/index.scala.html
+                  HASH: b8b085bfe13049d6d4418455245e4fa94c13cdaa
+                  MATRIX: 668->1|1008->46|1088->51|1104->59|1184->63|1215->68|1583->409|1598->415|1662->458|1818->587|1833->593|1897->636|2053->765|2068->771|2132->814|2288->943|2303->949|2367->992|3461->2066|3481->2077|3562->2081|3594->2086|3813->2309|3841->2311|3870->2319|3903->2354|3935->2359|4168->2565|4188->2576|4252->2618|4824->48|4853->2063|4882->3152|4912->3156|4931->3166
+                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|42->12|42->12|42->12|45->15|45->15|45->15|48->18|48->18|48->18|51->21|51->21|51->21|72->44|72->44|74->44|75->45|81->51|82->52|82->52|83->53|84->54|90->60|90->60|90->60|113->3|115->42|117->82|120->85|120->85
                   -- GENERATED --
               */
           

@@ -32,6 +32,7 @@ public class RedeemedVouchers extends Model {
     public RedeemedVouchers(){}
 
     public RedeemedVouchers(@Constraints.Required String voucherId, @Constraints.Required String userId, @Constraints.Required Date redeemedOn) {
+        voucherCode = new RandomString(16, ThreadLocalRandom.current()).nextString();
         this.voucherId = voucherId;
         this.userId = userId;
         this.redeemedOn = redeemedOn;
@@ -67,11 +68,5 @@ public class RedeemedVouchers extends Model {
 
     public void setRedeemedOn(Date redeemedOn) {
         this.redeemedOn = redeemedOn;
-    }
-
-    @Override
-    public void insert() {
-        voucherCode = new RandomString(16, ThreadLocalRandom.current()).nextString();
-        super.insert();
     }
 }

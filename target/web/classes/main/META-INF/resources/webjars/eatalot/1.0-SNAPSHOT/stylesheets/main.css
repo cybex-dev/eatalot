@@ -56,7 +56,6 @@
 }
 
 .footer-brand {
-    float: left;
     font-style: italic;
     font-size: 0.8em;
     color: #777;
@@ -101,10 +100,10 @@
     background-color: lightgray;
 }
 
-.settings-icon {
+.small-icon {
     width: 24px;
     height: 24px;
-    margin-left: 10px;
+    margin-bottom: 5px;
 }
 
 .button-padding {
@@ -139,13 +138,239 @@
 }
 
 .btn {
-    height: 50px;
+    height: 40px;
     padding: 10px;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .button-small {
-    width: 70px;
+    width: 80px;
+}
+
+.button-status {
+    width: 120px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.container-dashboard {
+    width: 90%;
+}
+
+.container-nav {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.margin-right-large {
+    margin-right: 30px;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.schedule-heading {
+    position: relative;
+}
+
+.overflow-auto {
+    overflow:  auto;
+}
+
+.overflow-hidden {
+    overflow:  hidden;
+}
+
+.small-image {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.half-width {
+    width: 49%;
+}
+
+.display-block {
+    display: block;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.schedule-week {
+    background: #c0c1fc;
+}
+
+.schedule-week a {
+    text-decoration: none;
+}
+
+.schedule-week:hover {
+    background: #b9baf5;
+
+}
+
+.schedule-week:hover a{
+    text-decoration: none;
+}
+
+.schedule-day-bold {
+    font-weight: bold;
+}
+
+.margin-left-small {
+    margin-left: 15px;
+}
+
+.round-corners-small {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.row-width-center {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.clear-formating {
+    clear: both;
+}
+
+.add-button {
+    padding-left: 20px;
+    opacity:.70;
+}
+
+.add-button:hover {
+    opacity: 1;
+}
+
+.no-link {
+    text-decoration: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.smaller-font {
+    font-size: 75%;
+}
+
+.larger-text {
+    font-size: 140%;
+}
+
+.schedule-text {
+    color: black;
+}
+
+.text-bold {
+    font-weight: bolder;
+}
+
+.invert{
+    -webkit-filter: invert(100%);
+}
+
+.schedule-subtitle {
+    font-style: italic;
+}
+
+.nav-menu-top-margin {
+    margin-top: 10px;
+}
+
+.large-icon {
+    width: 40px;
+}
+
+.nav-icon {
+    opacity: 0.7;
+}
+
+.nav-icon:hover {
+    opacity: 1;
+}
+
+.align-button-contents {
+    vertical-align: text-top;
+    margin-top: -6px;
+}
+
+.search-box {
+    /* Add a search icon to input */
+    /* Position the search icon */
+    /* Do not repeat the icon image */
+    background: url("../images/icons/searchicon.png") no-repeat 10px 12px;
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.standard-box-height {
+    height: 45px;
+}
+
+.vertical-line-left {
+    border-left: thin solid #ffffff;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.vertical-line-right {
+    border-right: thin solid #ffffff;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.vertical-line-right-bold {
+    border-right: medium solid #ffffff;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.margin-top-small {
+    margin-top: 8px;
+}
+
+.padding-top {
+    padding-top: 12px;
+}
+
+.margin-left-large {
+    margin-left: 25px;
+}
+
+.margin-left-very-small {
+    margin-left: 10px;
+}
+
+.alert-margin-top {
+    magin-top: 8px;
+}
+
+.align-center {
+    margin: 0 auto;
+}
+
+.text-larger {
+    font-size:1.2em;
+}
+
+.margin-bottom-small {
+    margin-bottom: 5px;
 }

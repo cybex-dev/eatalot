@@ -33,78 +33,93 @@ object paymentHistory extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
     _display_ {
       {
 
-def /*10.6*/table/*10.11*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*10.2*/table/*10.7*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*10.15*/("""
-        """),format.raw/*11.9*/("""<div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">Payments History</h4>
-
-            </div>
-
-        </div>
+Seq[Any](format.raw/*10.11*/("""
+    """),format.raw/*11.5*/("""<div class="row-width-center">
         <div class="panel panel-default">
-            """),format.raw/*19.44*/("""
-                """),format.raw/*20.36*/("""
-            """),format.raw/*21.23*/("""
-            """),format.raw/*22.13*/("""<div class="panel-body">
+            """),format.raw/*13.44*/("""
+            """),format.raw/*14.32*/("""
+            """),format.raw/*15.23*/("""
+            """),format.raw/*16.13*/("""<div class="panel-body">
                 <div class="table-responsive">
-                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="dataTables-example_length"><label><select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"><option value="10">
-                        10</option><option value="25">25</option><option value="50">50</option><option value="100">
-                        100</option></select>
-                        records per page</label></div></div><div class="col-sm-6"><div id="dataTables-example_filter" class="dataTables_filter"><label>
-                        Search:<input type="search" class="form-control input-sm" aria-controls="dataTables-example"></label></div></div></div><table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
-                        <thead>
-                            <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Payment: activate to sort column ascending" style="width: 189px;">
-                                    # Payment</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 291px;">
-                                    Total</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Cash: activate to sort column ascending" style="width: 264px;">
-                                    Cash</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Delivered By: activate to sort column ascending" style="width: 160px;">
-                                    Delivered By</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            """),format.raw/*42.104*/("""
-                            """),_display_(/*43.30*/for((item, index) <- paymentList.zipWithIndex) yield /*43.76*/ {_display_(Seq[Any](format.raw/*43.78*/("""
-                                """),format.raw/*44.95*/("""
-                                """),format.raw/*45.33*/("""<tr class="gradeA """),_display_(/*45.52*/if((index % 2) == 0)/*45.72*/ {_display_(Seq[Any](format.raw/*45.74*/("""odd""")))}/*45.79*/else/*45.84*/{_display_(Seq[Any](format.raw/*45.85*/("""even""")))}),format.raw/*45.90*/("""">
-                                    <td class="sorting_1"><a href=""""),_display_(/*46.69*/controllers/*46.80*/.User.routes.CustomerController.viewPayment(item.paymentId)),format.raw/*46.139*/("""">"""),_display_(/*46.142*/item/*46.146*/.paymentId),format.raw/*46.156*/("""</a></td>
-                                    <td class=" ">"""),_display_(/*47.52*/item/*47.56*/.amount),format.raw/*47.63*/("""</td>
-                                    <td class=" ">"""),_display_(/*48.52*/if(item.isCash == true)/*48.75*/{_display_(Seq[Any](format.raw/*48.76*/(""""Yes"""")))}/*48.82*/else/*48.86*/{_display_(Seq[Any](format.raw/*48.87*/(""""No"""")))}),format.raw/*48.92*/("""</td>
-                                    <td class=" ">"""),_display_(/*49.52*/item/*49.56*/.delivererName),format.raw/*49.70*/("""</td>
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="dataTables-example_filter" class="dataTables_filter">
+                                    <div class="pull-left">
+                                        <input id="searchInput" type="search" onkeyup="searchPayment()" placeholder="Search here..." class="form-control input-sm search-box standard-box-height" aria-controls="dataTables-example">
+                                    </div>
+                                    <div class="pull-left margin-left-small">
+                                        <h4>Filter:
+                                            <select id="paymentsTable_search_column" aria-controls="dataTables-example" class="standard-box-height form-control input-sm ">
+                                                <option value="query_payment_id">Payment Number</option>
+                                                <option value="query_total">Total Amount</option>
+                                                <option value="query_cash_payment">Cash Payments</option>
+                                                <option value="query_credit_payment">Credit Payments</option>
+                                                <option value="query_deliverer">Deliverer</option>
+                                            </select>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover dataTable no-footer" id="paymentsTable" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="# Payment: activate to sort column ascending" style="width: 189px;">
+                                        # Payment</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Total: activate to sort column ascending" style="width: 291px;">
+                                        Total</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Cash: activate to sort column ascending" style="width: 264px;">
+                                        Cash</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-label="Delivered By: activate to sort column ascending" style="width: 160px;">
+                                        Delivered By</th>
                                 </tr>
-                            """)))}),format.raw/*51.30*/("""
-                        """),format.raw/*52.25*/("""</tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                """),format.raw/*53.108*/("""
+                                """),_display_(/*54.34*/for((item, index) <- paymentList.zipWithIndex) yield /*54.80*/ {_display_(Seq[Any](format.raw/*54.82*/("""
+                                    """),format.raw/*55.37*/("""<tr class="gradeA """),_display_(/*55.56*/if((index % 2) == 0)/*55.76*/ {_display_(Seq[Any](format.raw/*55.78*/("""odd""")))}/*55.83*/else/*55.88*/{_display_(Seq[Any](format.raw/*55.89*/("""even""")))}),format.raw/*55.94*/("""">
+                                        <td class="sorting_1"><a href=""""),_display_(/*56.73*/CSRF(controllers.User.routes.CustomerController.viewPayment(item.paymentId))),format.raw/*56.149*/("""">"""),_display_(/*56.152*/item/*56.156*/.paymentId),format.raw/*56.166*/("""</a></td>
+                                        <td class=" ">"""),_display_(/*57.56*/item/*57.60*/.amount),format.raw/*57.67*/("""</td>
+                                        <td class=" ">"""),_display_(/*58.56*/if(item.isCash == true)/*58.79*/ {_display_(Seq[Any](format.raw/*58.81*/(""""Yes"""")))}/*58.88*/else/*58.93*/{_display_(Seq[Any](format.raw/*58.94*/(""""No"""")))}),format.raw/*58.99*/("""</td>
+                                        <td class=" ">"""),_display_(/*59.56*/item/*59.60*/.delivererName),format.raw/*59.74*/("""</td>
+                                    </tr>
+                                """)))}),format.raw/*61.34*/("""
+                            """),format.raw/*62.29*/("""</tbody>
+                        </table>
+                    </div>
 
-                        <div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">
-                            Showing 1 to 10 of 57 entries</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination"><li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">
-                            Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            1</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            2</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            3</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            4</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            5</a></li><li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">
-                            6</a></li><li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">
-                            Next</a></li></ul></div></div></div></div>
                 </div>
-
             </div>
         </div>
-    """),_display_(/*69.6*/form( action = controllers.User.routes.CustomerController.index())/*69.72*/{_display_(Seq[Any](format.raw/*69.73*/("""
-        """),_display_(/*70.10*/CSRF/*70.14*/.formField),format.raw/*70.24*/("""
-        """),format.raw/*71.9*/("""<input class="btn btn-info" type="submit" name="Home">
-    """)))}),format.raw/*72.6*/("""
-    """)))};
+        <div class="small-margin">
+        """),_display_(/*70.10*/form(action = controllers.User.routes.CustomerController.index())/*70.75*/ {_display_(Seq[Any](format.raw/*70.77*/("""
+            """),_display_(/*71.14*/CSRF/*71.18*/.formField),format.raw/*71.28*/("""
+            """),format.raw/*72.13*/("""<input class="btn btn-info button-small" type="submit" value="Home">
+            """)))}),format.raw/*73.14*/("""
+        """),format.raw/*74.9*/("""</div>
+    </div>
+""")))};def /*78.2*/bodyContent/*78.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*78.17*/("""
+    """),format.raw/*79.5*/("""<div class="row pad-botm">
+        <div class="col-md-12">
+            <h1 class="header-line">Payment History</h1>
+        </div>
+    </div>
+"""),_display_(/*84.2*/table),format.raw/*84.7*/("""
+
+""")))};
 Seq[Any](format.raw/*7.39*/("""
 
 
-    """),format.raw/*73.6*/("""
+"""),format.raw/*76.2*/("""
 
-    """),_display_(/*75.6*/masterpage/*75.16*/.apply(" :: Past Payments", table)),format.raw/*75.50*/("""
+"""),format.raw/*86.2*/("""
+
+"""),_display_(/*88.2*/masterpage/*88.12*/.apply(" :: Past Payments", bodyContent)),format.raw/*88.52*/("""
 """))
       }
     }
@@ -121,11 +136,11 @@ Seq[Any](format.raw/*7.39*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Customer/paymentHistory.scala.html
-                  HASH: b60e1a4ebd6b6d8b4bb9524a1ac330ac5d6a4d50
-                  MATRIX: 665->1|694->25|733->58|756->75|1124->116|1240->161|1254->166|1335->170|1371->179|1614->425|1659->461|1700->484|1741->497|4032->2834|4089->2864|4151->2910|4191->2912|4252->3007|4313->3040|4359->3059|4388->3079|4428->3081|4451->3086|4464->3091|4503->3092|4539->3097|4637->3168|4657->3179|4738->3238|4769->3241|4783->3245|4815->3255|4903->3316|4916->3320|4944->3327|5028->3384|5060->3407|5099->3408|5124->3414|5137->3418|5176->3419|5212->3424|5296->3481|5309->3485|5344->3499|5448->3572|5501->3597|7158->5228|7233->5294|7272->5295|7309->5305|7322->5309|7353->5319|7389->5328|7479->5388|7524->153|7558->5394|7591->5401|7610->5411|7665->5445
-                  LINES: 24->1|25->3|26->4|27->5|32->7|36->10|36->10|38->10|39->11|47->19|48->20|49->21|50->22|70->42|71->43|71->43|71->43|72->44|73->45|73->45|73->45|73->45|73->45|73->45|73->45|73->45|74->46|74->46|74->46|74->46|74->46|74->46|75->47|75->47|75->47|76->48|76->48|76->48|76->48|76->48|76->48|76->48|77->49|77->49|77->49|79->51|80->52|97->69|97->69|97->69|98->70|98->70|98->70|99->71|100->72|102->7|105->73|107->75|107->75|107->75
+                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/paymentHistory.scala.html
+                  HASH: 8c3350cb54ecac5463cdd1ed9d467e9743f5b20d
+                  MATRIX: 665->1|694->25|733->58|756->75|1124->116|1240->157|1253->162|1334->166|1366->171|1479->287|1520->319|1561->342|1602->355|4867->3666|4928->3700|4990->3746|5030->3748|5095->3785|5141->3804|5170->3824|5210->3826|5233->3831|5246->3836|5285->3837|5321->3842|5423->3917|5521->3993|5552->3996|5566->4000|5598->4010|5690->4075|5703->4079|5731->4086|5819->4147|5851->4170|5891->4172|5916->4179|5929->4184|5968->4185|6004->4190|6092->4251|6105->4255|6140->4269|6252->4350|6309->4379|6507->4550|6581->4615|6621->4617|6662->4631|6675->4635|6706->4645|6747->4658|6860->4740|6896->4749|6938->4771|6958->4782|7039->4786|7071->4791|7240->4934|7265->4939|7307->153|7337->4768|7366->4942|7395->4945|7414->4955|7475->4995
+                  LINES: 24->1|25->3|26->4|27->5|32->7|36->10|36->10|38->10|39->11|41->13|42->14|43->15|44->16|81->53|82->54|82->54|82->54|83->55|83->55|83->55|83->55|83->55|83->55|83->55|83->55|84->56|84->56|84->56|84->56|84->56|85->57|85->57|85->57|86->58|86->58|86->58|86->58|86->58|86->58|86->58|87->59|87->59|87->59|89->61|90->62|98->70|98->70|98->70|99->71|99->71|99->71|100->72|101->73|102->74|104->78|104->78|106->78|107->79|112->84|112->84|115->7|118->76|120->86|122->88|122->88|122->88
                   -- GENERATED --
               */
           

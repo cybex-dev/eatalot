@@ -32,7 +32,7 @@ object meta extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlF
 
 Seq[Any](format.raw/*1.4*/("""
 
-"""),format.raw/*3.1*/("""<link rel="shortcut icon" href=""""),_display_(/*3.34*/routes/*3.40*/.Assets.versioned("images/favicon.png")),format.raw/*3.79*/("""">
+"""),format.raw/*3.1*/("""<link rel="shortcut icon" href=""""),_display_(/*3.34*/routes/*3.40*/.Assets.versioned("images/navigation/favicon.png")),format.raw/*3.90*/("""" type="image/x-icon">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="description" content="" />
@@ -55,10 +55,10 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:56 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Global/Static/meta.scala.html
-                  HASH: c80ff87a8891e305490009f09f54952542e6707a
-                  MATRIX: 954->1|1050->3|1078->5|1137->38|1151->44|1210->83
+                  DATE: Sat Oct 21 14:44:11 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/meta.scala.html
+                  HASH: 1066e7872067d48e8820e670ab34877a65ffc39e
+                  MATRIX: 954->1|1050->3|1078->5|1137->38|1151->44|1221->94
                   LINES: 28->1|33->1|35->3|35->3|35->3|35->3
                   -- GENERATED --
               */

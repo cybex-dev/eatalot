@@ -37,57 +37,60 @@ object editAdminProfile extends _root_.play.twirl.api.BaseScalaTemplate[play.twi
 def /*9.2*/scriptsContent/*9.16*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*9.20*/("""
-""")))};def /*12.2*/navContent/*12.12*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+    """),format.raw/*10.5*/("""<script href=""""),_display_(/*10.20*/controllers/*10.31*/.User.routes.javascript.AdminController.adminJSRoutes),format.raw/*10.84*/("""" type="text/javascript"></script>
+""")))};def /*13.2*/navContent/*13.12*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*12.16*/("""
+Seq[Any](format.raw/*13.16*/("""
 
-""")))};def /*16.2*/userContent/*16.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+""")))};def /*17.2*/userContent/*17.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*16.17*/("""
-    """),format.raw/*17.5*/("""<div class="input-group">
-        """),_display_(/*18.10*/helper/*18.16*/.form(action = controllers.User.routes.CustomerController.update())/*18.83*/{_display_(Seq[Any](format.raw/*18.84*/("""
-            """),_display_(/*19.14*/CSRF/*19.18*/.formField),format.raw/*19.28*/("""
-            """),format.raw/*20.13*/("""<h2>Your information</h2>
+Seq[Any](format.raw/*17.17*/("""
+    """),format.raw/*18.5*/("""<div class="input-group">
+    """),_display_(/*19.6*/helper/*19.12*/.form(action = controllers.User.routes.CustomerController.update())/*19.79*/ {_display_(Seq[Any](format.raw/*19.81*/("""
+        """),_display_(/*20.10*/CSRF/*20.14*/.formField),format.raw/*20.24*/("""
+        """),format.raw/*21.9*/("""<div class="margin-left-small">
+            <h1>Your information</h1>
             <br/>
+
             <div class="container input-container">
                 <h4>Change Password</h4>
-                """),_display_(/*24.18*/helper/*24.24*/.inputPassword(userProfile("password"), '_name -> "Password")),format.raw/*24.85*/("""
-                """),_display_(/*25.18*/helper/*25.24*/.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*25.100*/("""
-            """),format.raw/*26.13*/("""</div>
+                """),_display_(/*27.18*/helper/*27.24*/.inputPassword(userProfile("password"), '_name -> "Password")),format.raw/*27.85*/("""
+                """),_display_(/*28.18*/helper/*28.24*/.inputPassword(userProfile("confirmPassword"), '_name -> "Confirm Password")),format.raw/*28.100*/("""
+            """),format.raw/*29.13*/("""</div>
             <br/>
             <br/>
-            <div class="container input-container">
-                <input class="btn btn-default button-padding" type="button" onclick="location.href='"""),_display_(/*30.102*/controllers/*30.113*/.User.routes.AdminController.index()),format.raw/*30.149*/("""';" value="Cancel"> <input class="btn btn-success button-padding" type="submit" value="Update">
+        </div>
+        <div class="row">
+            <div class="pull-center">
+                <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '"""),_display_(/*35.117*/controllers/*35.128*/.User.routes.AdminController.index()),format.raw/*35.164*/("""';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
             </div>
-            <br/>
-        """)))}),format.raw/*33.10*/("""
-    """),format.raw/*34.5*/("""</div>
-""")))};def /*37.2*/navSide/*37.9*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+        </div>
+        <br/>
+    """)))}),format.raw/*39.6*/("""
+    """),format.raw/*40.5*/("""</div>
+""")))};def /*43.2*/navSide/*43.9*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*37.13*/("""
-    """),format.raw/*38.5*/("""<a href="#" onclick="">Basic Information</a>
-    <a href="#">Edit Address</a>
-    <a href="#">Change Password</a>
-""")))};def /*43.2*/bodyContent/*43.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+Seq[Any](format.raw/*43.13*/("""
+""")))};def /*46.2*/bodyContent/*46.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*43.17*/("""
-"""),_display_(/*44.2*/aside/*44.7*/.apply("", navSide)),format.raw/*44.26*/("""
+Seq[Any](format.raw/*46.17*/("""
+"""),_display_(/*47.2*/aside/*47.7*/.apply("", navSide)),format.raw/*47.26*/("""
 
-"""),_display_(/*46.2*/article/*46.9*/.apply(userContent)),format.raw/*46.28*/("""
+"""),_display_(/*49.2*/article/*49.9*/.apply(userContent)),format.raw/*49.28*/("""
 """)))};
 Seq[Any](format.raw/*7.34*/("""
 
-"""),format.raw/*10.2*/("""
+"""),format.raw/*11.2*/("""
 
-"""),format.raw/*14.2*/("""
-
-"""),format.raw/*35.2*/("""
+"""),format.raw/*15.2*/("""
 
 """),format.raw/*41.2*/("""
 
-"""),format.raw/*47.2*/("""
+"""),format.raw/*44.2*/("""
 
-"""),_display_(/*49.2*/essentials/*49.12*/.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)),format.raw/*49.79*/("""
+"""),format.raw/*50.2*/("""
+
+"""),_display_(/*52.2*/essentials/*52.12*/.apply(" :: Edit Profile", navContent, bodyContent, scriptsContent)),format.raw/*52.79*/("""
 """))
       }
     }
@@ -104,11 +107,11 @@ Seq[Any](format.raw/*7.34*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Admin/editAdminProfile.scala.html
-                  HASH: 69536bfc53f5bdd6953de2849f162d2cfd95c3af
-                  MATRIX: 662->1|691->24|730->57|756->77|794->109|1142->133|1252->168|1274->182|1354->186|1379->191|1398->201|1479->205|1505->211|1525->222|1606->226|1638->231|1700->266|1715->272|1791->339|1830->340|1871->354|1884->358|1915->368|1956->381|2137->535|2152->541|2234->602|2279->620|2294->626|2392->702|2433->715|2657->911|2678->922|2736->958|2909->1100|2941->1105|2972->1116|2987->1123|3068->1127|3100->1132|3238->1250|3258->1261|3339->1265|3367->1267|3380->1272|3420->1291|3449->1294|3464->1301|3504->1320|3545->165|3574->188|3603->208|3632->1113|3661->1247|3690->1322|3719->1325|3738->1335|3826->1402
-                  LINES: 24->1|25->2|26->3|27->4|28->5|33->7|37->9|37->9|39->9|40->12|40->12|42->12|44->16|44->16|46->16|47->17|48->18|48->18|48->18|48->18|49->19|49->19|49->19|50->20|54->24|54->24|54->24|55->25|55->25|55->25|56->26|60->30|60->30|60->30|63->33|64->34|65->37|65->37|67->37|68->38|71->43|71->43|73->43|74->44|74->44|74->44|76->46|76->46|76->46|78->7|80->10|82->14|84->35|86->41|88->47|90->49|90->49|90->49
+                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Admin/editAdminProfile.scala.html
+                  HASH: 207549651ab985b58863d306b862e354067be640
+                  MATRIX: 662->1|691->24|730->57|756->77|794->109|1142->133|1252->168|1274->182|1354->186|1386->191|1428->206|1448->217|1522->270|1581->309|1600->319|1681->323|1707->329|1727->340|1808->344|1840->349|1897->380|1912->386|1988->453|2028->455|2065->465|2078->469|2109->479|2145->488|2371->687|2386->693|2468->754|2513->772|2528->778|2626->854|2667->867|2933->1105|2954->1116|3012->1152|3204->1314|3236->1319|3267->1330|3282->1337|3363->1341|3388->1346|3408->1357|3489->1361|3517->1363|3530->1368|3570->1387|3599->1390|3614->1397|3654->1416|3695->165|3724->306|3753->326|3782->1327|3811->1343|3840->1418|3869->1421|3888->1431|3976->1498
+                  LINES: 24->1|25->2|26->3|27->4|28->5|33->7|37->9|37->9|39->9|40->10|40->10|40->10|40->10|41->13|41->13|43->13|45->17|45->17|47->17|48->18|49->19|49->19|49->19|49->19|50->20|50->20|50->20|51->21|57->27|57->27|57->27|58->28|58->28|58->28|59->29|65->35|65->35|65->35|69->39|70->40|71->43|71->43|73->43|74->46|74->46|76->46|77->47|77->47|77->47|79->49|79->49|79->49|81->7|83->11|85->15|87->41|89->44|91->50|93->52|93->52|93->52
                   -- GENERATED --
               */
           

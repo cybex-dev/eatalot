@@ -3,6 +3,7 @@ package controllers.User;
 import annotations.Routing.DeliveryStaffOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import controllers.Application.AppTags;
 import models.User.DeliveryStaff.DeliveryStaffInfo;
 import models.User.Staff;
@@ -147,8 +148,8 @@ public class DeliveryStaffController extends Controller {
                 s1 = "",
                 s2 = "",
                 s3 = "";
-        Map<String, String> jsonMap = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
-        return ok(Json.toJson(jsonMap));
+        ArrayNode arrayNode = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
+        return ok(Json.toJson(arrayNode));
     }
 
     public Result deliveryJSRoutes() {

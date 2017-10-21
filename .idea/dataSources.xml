@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< HEAD
-    <data-source source="LOCAL" name="eatalotdb@cxbase.ddns.net" uuid="3adccc8d-0f00-4515-b44a-50babbf165ca">
+    <data-source source="LOCAL" name="eatalotdb@earth" uuid="7748f25f-498d-407e-ad89-375b60799242">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://cxbase.ddns.net:3306/eatalotdb</jdbc-url>
-=======
-    <data-source source="LOCAL" name="eatalotdb@192.168.0.1" uuid="f05f6800-e449-429c-bc17-364dd5a7b7dd">
-      <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://192.168.0.1:3306/eatalotdb</jdbc-url>
->>>>>>> Order-Management-Devel
+      <jdbc-url>jdbc:mysql://earth:3306/eatalotdb</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

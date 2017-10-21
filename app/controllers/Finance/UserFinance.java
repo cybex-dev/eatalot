@@ -3,6 +3,7 @@ package controllers.Finance;
 import annotations.Routing.CustomersDeliveryOnly;
 import annotations.Routing.CustomersOnly;
 import annotations.SessionVerifier.RequiresActive;
+import controllers.Application.AppTags;
 import models.Finance.Payment;
 import models.Finance.RedeemedVouchers;
 import models.Finance.UserFunds;
@@ -13,6 +14,7 @@ import play.Logger;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
 import views.html.Finance.UserFinance.AddFunds;
@@ -35,9 +37,7 @@ public class UserFinance extends Controller {
     @With(RequiresActive.class)
     @CustomersOnly
     public Result addFunds(){
-        HashMap<String, String> map = new HashMap<>();
-        map.put("userId", session().get(AppCookie.user_id.toString()));
-        Form<UserFunds> userFundsForm = formFactory.form(UserFunds.class).bind(map);
+        Form<UserFunds> userFundsForm = formFactory.form(UserFunds.class);
         return ok(AddFunds.render(userFundsForm));
     }
 
@@ -56,7 +56,9 @@ public class UserFinance extends Controller {
                 flash().put(FlashCodes.danger.toString(), "Voucher has already been redeemed");
                 return badRequest(AddFunds.render(formFactory.form(UserFunds.class)));
             }
-            RedeemedVouchers redeemedVoucher = new RedeemedVouchers(userFunds.getVoucherCode(), userFunds.getUserId(), new Date());
+            String s = session().get(AppCookie.user_id.toString());
+            String code = userFunds.getVoucherCode();
+            RedeemedVouchers redeemedVoucher = new RedeemedVouchers(code, s, new Date());
             redeemedVoucher.save();
             Voucher voucher = null;
             try {

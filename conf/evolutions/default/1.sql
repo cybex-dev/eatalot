@@ -41,11 +41,7 @@ create table customer (
 
 create table customer_order (
   order_id                      varchar(255) not null,
-<<<<<<< HEAD
-  customer_user_id              varchar(255) not null,
-=======
   customer_user_id              varchar(255),
->>>>>>> Order-Management-Devel
   status_id                     varchar(255),
   payment_id                    varchar(255),
   delivery_date                 datetime(6),
@@ -93,11 +89,7 @@ create table order_schedule_item (
 
 create table payment (
   payment_id                    varchar(255) not null,
-<<<<<<< HEAD
-  customer_user_id              varchar(255) not null,
-=======
   customer_user_id              varchar(255),
->>>>>>> Order-Management-Devel
   date                          varchar(255),
   time                          varchar(255),
   amount                        double,
@@ -172,34 +164,13 @@ alter table customer add constraint fk_customer_address_address_id foreign key (
 
 alter table customer add constraint fk_customer_order_schedule_order_sched_id foreign key (order_schedule_order_sched_id) references order_schedule (order_sched_id) on delete restrict on update restrict;
 
-<<<<<<< HEAD
-alter table customer_order add constraint fk_customer_order_customer_user_id foreign key (customer_user_id) references customer (user_id) on delete restrict on update restrict;
-create index ix_customer_order_customer_user_id on customer_order (customer_user_id);
-
-alter table payment add constraint fk_payment_customer_user_id foreign key (customer_user_id) references customer (user_id) on delete restrict on update restrict;
-create index ix_payment_customer_user_id on payment (customer_user_id);
-
 
 # --- !Downs
 
-=======
-
-# --- !Downs
-
->>>>>>> Order-Management-Devel
 alter table customer drop foreign key fk_customer_address_address_id;
 
 alter table customer drop foreign key fk_customer_order_schedule_order_sched_id;
 
-<<<<<<< HEAD
-alter table customer_order drop foreign key fk_customer_order_customer_user_id;
-drop index ix_customer_order_customer_user_id on customer_order;
-
-alter table payment drop foreign key fk_payment_customer_user_id;
-drop index ix_payment_customer_user_id on payment;
-
-=======
->>>>>>> Order-Management-Devel
 drop table if exists address;
 
 drop table if exists admin;

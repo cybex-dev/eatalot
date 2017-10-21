@@ -42,13 +42,13 @@ Seq[Any](format.raw/*9.21*/("""
                 <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="assets/images/food/pancakes.png" alt="" />
+                            <img src="assets/images/food/food01.png" alt="" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/burger.png" alt="" />
+                            <img src="assets/images/food/food02.png" alt="" />
                         </div>
                         <div class="item">
-                            <img src="assets/images/food/chickenwrap.png" alt="" />
+                            <img src="assets/images/food/food03.png" alt="" />
                         </div>
                         <div class="item">
                             <img src="assets/images/food/food04.png" alt="" />
@@ -74,15 +74,12 @@ Seq[Any](format.raw/*9.21*/("""
             <br/>
         </div>
 
-        <script href=""""),_display_(/*48.24*/controllers/*48.35*/.Order.routes.javascript.ScheduleController.scheduleJSRoutes),format.raw/*48.95*/("""" type="text/javascript"></script>
-        <script href=""""),_display_(/*49.24*/controllers/*49.35*/.User.routes.javascript.CustomerController.customerJSRoutes),format.raw/*49.94*/("""" type="text/javascript"></script>
-
     """)))};
 Seq[Any](format.raw/*7.66*/("""
 
-    """),format.raw/*51.6*/("""
+    """),format.raw/*48.6*/("""
 
-    """),_display_(/*53.6*/dashboard/*53.15*/.apply(dashButtons, bodyContent)))
+    """),_display_(/*50.6*/dashboard/*50.15*/.apply(dashButtons, bodyContent)))
       }
     }
   }
@@ -98,11 +95,11 @@ Seq[Any](format.raw/*7.66*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Customer/customerHome.scala.html
-                  HASH: ac90539a9d5e94a38ce4bdfed29f03853a22f832
-                  MATRIX: 665->1|694->25|742->67|780->99|1161->143|1303->214|1322->225|1402->229|1439->270|1475->279|3420->2197|3440->2208|3521->2268|3606->2326|3626->2337|3706->2396|3786->207|3819->2437|3852->2444|3870->2453
-                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|40->11|77->48|77->48|77->48|78->49|78->49|78->49|81->7|83->51|85->53|85->53
+                  DATE: Sat Oct 21 13:29:08 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Customer/customerHome.scala.html
+                  HASH: 1d8345a9c006ca14504bc8e7836a17f4d1067088
+                  MATRIX: 665->1|694->25|742->67|780->99|1161->143|1303->214|1322->225|1402->229|1439->270|1475->279|3407->207|3440->2172|3473->2179|3491->2188
+                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|40->11|78->7|80->48|82->50|82->50
                   -- GENERATED --
               */
           

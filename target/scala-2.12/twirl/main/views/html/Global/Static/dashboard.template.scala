@@ -36,63 +36,83 @@ object dashboard extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.
 def /*9.6*/generateDashButton/*9.24*/(dashboardButton: DashboardButton, index: Integer):play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*9.78*/("""
-        """),format.raw/*10.9*/("""<div class="col-md-3 col-sm-3 col-xs-6 div-button-hover" id="dashButton"""),_display_(/*10.81*/index),format.raw/*10.86*/("""">
-            <a href=""""),_display_(/*11.23*/CSRF(dashboardButton.link)),format.raw/*11.49*/("""">
-                <div class="alert """),_display_(/*12.36*/dashboardButton/*12.51*/.cssClassButtonColour),format.raw/*12.72*/(""" """),format.raw/*12.73*/("""back-widget-set text-center">
-                    <i class="fa """),_display_(/*13.35*/dashboardButton/*13.50*/.cssClassMainImage),format.raw/*13.68*/(""" """),format.raw/*13.69*/("""fa-5x"></i>
-                    <h3>"""),_display_(/*14.26*/dashboardButton/*14.41*/.largeText),format.raw/*14.51*/("""
-                        """),format.raw/*15.25*/("""<i class="fa """),_display_(/*15.39*/dashboardButton/*15.54*/.cssClassSecondaryImage),format.raw/*15.77*/(""""></i></h3>
-                    """),_display_(/*16.22*/dashboardButton/*16.37*/.smallText),format.raw/*16.47*/("""
-                """),format.raw/*17.17*/("""</div>
+
+        """),format.raw/*11.9*/("""<div class="col-md-3 col-sm-3 col-xs-6 div-button-hover" id="dashButton"""),_display_(/*11.81*/index),format.raw/*11.86*/("""">
+            <a href=""""),_display_(/*12.23*/CSRF(dashboardButton.link)),format.raw/*12.49*/("""">
+                <div class="alert """),_display_(/*13.36*/dashboardButton/*13.51*/.cssClassButtonColour),format.raw/*13.72*/(""" """),format.raw/*13.73*/("""back-widget-set text-center">
+                    <i class="fa """),_display_(/*14.35*/dashboardButton/*14.50*/.cssClassMainImage),format.raw/*14.68*/(""" """),format.raw/*14.69*/("""fa-5x"></i>
+                    <h3><span id="dashButtonText"""),_display_(/*15.50*/index),format.raw/*15.55*/("""">"""),_display_(/*15.58*/dashboardButton/*15.73*/.largeText),format.raw/*15.83*/("""</span>
+                        <i class="fa """),_display_(/*16.39*/dashboardButton/*16.54*/.cssClassSecondaryImage),format.raw/*16.77*/(""""></i></h3>
+                    """),_display_(/*17.22*/dashboardButton/*17.37*/.smallText),format.raw/*17.47*/("""
+                """),format.raw/*18.17*/("""</div>
             </a>
         </div>
-    """)))};def /*22.6*/bodyContent/*22.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*22.21*/("""
-        """),format.raw/*23.9*/("""<div class="container row">
-        """),_display_(/*24.10*/for((button, index) <- dashButtons.zipWithIndex) yield /*24.58*/ {_display_(Seq[Any](format.raw/*24.60*/("""
-            """),_display_(/*25.14*/generateDashButton(button, index)),format.raw/*25.47*/("""
-        """)))}),format.raw/*26.10*/("""
-        """),format.raw/*27.9*/("""</div>
+    """)))};def /*24.6*/bodyContent/*24.17*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+
+Seq[Any](format.raw/*24.21*/("""
+        """),format.raw/*25.9*/("""<div class="row">
+            <div class="container-dashboard center-parent">
+            """),_display_(/*27.14*/for((button, index) <- dashButtons.zipWithIndex) yield /*27.62*/ {_display_(Seq[Any](format.raw/*27.64*/("""
+                """),_display_(/*28.18*/generateDashButton(button, index)),format.raw/*28.51*/("""
+            """)))}),format.raw/*29.14*/("""
+            """),format.raw/*30.13*/("""</div>
+        </div>
         <script type="text/javascript">
-                var link = null, s = "";
-                s = """"),_display_(/*30.23*/session()/*30.32*/.get(user_type.toString)),format.raw/*30.56*/("""";
-                switch (s) """),format.raw/*31.28*/("""{"""),format.raw/*31.29*/("""
-                    case "CUSTOMER":
-                        link = customerJSRoutes.controllers.User.CustomerController.getCustomerDashUpdate();
-                        break;
-                    case "ADMIN":
-                        link = adminJSRoutes.controllers.User.AdminController.getAdminDashUpdate();
-                        break;
-                    case "KITCHEN":
-                        link = kitchenJSRoutes.controllers.User.KitchenStaffController.getKitchenDashUpdate();
-                        break;
-                    case "DELIVERY":
-                        link = deliveryJSRoutes.controllers.User.DeliveryStaffController.getDeliveryDashUpdate();
-                        break;
-                    default:
-                        alert("Unknown user_type: " + s);
-                        break;
-                """),format.raw/*47.17*/("""}"""),format.raw/*47.18*/("""
+                var intervalNum;
+                $(document).ready(function () """),format.raw/*34.47*/("""{"""),format.raw/*34.48*/("""
+                    """),format.raw/*35.21*/("""intervalNum = window.setInterval(updateDom, 5000)
+                """),format.raw/*36.17*/("""}"""),format.raw/*36.18*/(""");
 
-                """),format.raw/*49.17*/("""var updateDom = function () """),format.raw/*49.45*/("""{"""),format.raw/*49.46*/("""
-                    """),format.raw/*50.21*/("""$.get(link.url, function (data) """),format.raw/*50.53*/("""{"""),format.raw/*50.54*/("""
-                        """),format.raw/*51.25*/("""alert(data)
-                    """),format.raw/*52.21*/("""}"""),format.raw/*52.22*/(""")
-                """),format.raw/*53.17*/("""}"""),format.raw/*53.18*/(""";
-                $(document).ready(function () """),format.raw/*54.47*/("""{"""),format.raw/*54.48*/("""
-"""),format.raw/*55.1*/("""//                scope.setInterval(updateDom,2000)
-                    updateDom();
-                """),format.raw/*57.17*/("""}"""),format.raw/*57.18*/(""");
+
+                var updateDom = function () """),format.raw/*39.45*/("""{"""),format.raw/*39.46*/("""
+                    """),format.raw/*40.21*/("""var link = null,
+                            s = """"),_display_(/*41.35*/session()/*41.44*/.get(user_type.toString)),format.raw/*41.68*/("""";
+                    switch (s) """),format.raw/*42.32*/("""{"""),format.raw/*42.33*/("""
+                        case "CUSTOMER":
+                            link = CustomerJSRoutes.controllers.User.CustomerController.getCustomerDashUpdate();
+                            break;
+                        case "ADMIN":
+                            link = AdminJSRoutes.controllers.User.AdminController.getAdminDashUpdate();
+                            break;
+                        case "KITCHEN":
+                            link = KitchenJSRoutes.controllers.User.KitchenStaffController.getKitchenDashUpdate();
+                            break;
+                        case "DELIVERY":
+                            link = DeliveryJSRoutes.controllers.User.DeliveryStaffController.getDeliveryDashUpdate();
+                            break;
+                        default:
+                            alert("Unknown user_type: " + s);
+                            break;
+                    """),format.raw/*58.21*/("""}"""),format.raw/*58.22*/("""
+                    """),format.raw/*59.21*/("""link.ajax("""),format.raw/*59.31*/("""{"""),format.raw/*59.32*/("""
+                        """),format.raw/*60.25*/("""success: function (data) """),format.raw/*60.50*/("""{"""),format.raw/*60.51*/("""
+                            """),format.raw/*61.29*/("""setText(document.getElementById("dashButtonText0"), data[0].dashButton0);
+                            setText(document.getElementById("dashButtonText1"), data[1].dashButton1);
+                            setText(document.getElementById("dashButtonText2"), data[2].dashButton2);
+                            setText(document.getElementById("dashButtonText3"), data[3].dashButton3);
+                        """),format.raw/*65.25*/("""}"""),format.raw/*65.26*/(""",
+                        error: function (error) """),format.raw/*66.49*/("""{"""),format.raw/*66.50*/("""
+                            """),format.raw/*67.29*/("""alert("Connection lost");
+                            clearInterval(intervalNum);
+                        """),format.raw/*69.25*/("""}"""),format.raw/*69.26*/("""
+                    """),format.raw/*70.21*/("""}"""),format.raw/*70.22*/(""");
+
+                    function setText(field, text) """),format.raw/*72.51*/("""{"""),format.raw/*72.52*/("""
+                        """),format.raw/*73.25*/("""field.innerText = text;
+                        field.innerHTML = text;
+                    """),format.raw/*75.21*/("""}"""),format.raw/*75.22*/("""
+                """),format.raw/*76.17*/("""}"""),format.raw/*76.18*/(""";
+
         </script>
     """)))};
 Seq[Any](format.raw/*7.57*/("""
 
-    """),format.raw/*20.6*/("""
+    """),format.raw/*22.6*/("""
 
-    """),format.raw/*59.6*/("""
+    """),format.raw/*79.6*/("""
 
-    """),_display_(/*61.6*/masterpage/*61.16*/.apply(" :: Dashboard", bodyContent)))
+    """),_display_(/*81.6*/masterpage/*81.16*/.apply(" :: Dashboard", bodyContent)))
       }
     }
   }
@@ -108,11 +128,11 @@ Seq[Any](format.raw/*7.57*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:56 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Global/Static/dashboard.scala.html
-                  HASH: ae54fdc99fc942c0bcf731126b6a02a19733decd
-                  MATRIX: 665->1|694->25|760->85|798->117|1156->149|1289->211|1315->229|1445->283|1481->292|1580->364|1606->369|1658->394|1705->420|1770->458|1794->473|1836->494|1865->495|1956->559|1980->574|2019->592|2048->593|2112->630|2136->645|2167->655|2220->680|2261->694|2285->709|2329->732|2389->765|2413->780|2444->790|2489->807|2556->858|2576->869|2657->873|2693->882|2757->919|2821->967|2861->969|2902->983|2956->1016|2997->1026|3033->1035|3170->1145|3188->1154|3233->1178|3291->1208|3320->1209|4185->2046|4214->2047|4260->2065|4316->2093|4345->2094|4394->2115|4454->2147|4483->2148|4536->2173|4596->2205|4625->2206|4671->2224|4700->2225|4776->2273|4805->2274|4833->2275|4962->2376|4991->2377|5056->204|5089->851|5122->2403|5155->2410|5174->2420
-                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|39->10|39->10|40->11|40->11|41->12|41->12|41->12|41->12|42->13|42->13|42->13|42->13|43->14|43->14|43->14|44->15|44->15|44->15|44->15|45->16|45->16|45->16|46->17|49->22|49->22|51->22|52->23|53->24|53->24|53->24|54->25|54->25|55->26|56->27|59->30|59->30|59->30|60->31|60->31|76->47|76->47|78->49|78->49|78->49|79->50|79->50|79->50|80->51|81->52|81->52|82->53|82->53|83->54|83->54|84->55|86->57|86->57|89->7|91->20|93->59|95->61|95->61
+                  DATE: Sat Oct 21 15:59:37 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/dashboard.scala.html
+                  HASH: fb8e9b66f83801d0838d0604d62f71faacdc808e
+                  MATRIX: 665->1|694->25|760->85|798->117|1156->149|1289->211|1315->229|1445->283|1482->293|1581->365|1607->370|1659->395|1706->421|1771->459|1795->474|1837->495|1866->496|1957->560|1981->575|2020->593|2049->594|2137->655|2163->660|2193->663|2217->678|2248->688|2321->734|2345->749|2389->772|2449->805|2473->820|2504->830|2549->847|2617->899|2637->910|2718->914|2754->923|2872->1014|2936->1062|2976->1064|3021->1082|3075->1115|3120->1129|3161->1142|3330->1283|3359->1284|3408->1305|3502->1371|3531->1372|3608->1421|3637->1422|3686->1443|3764->1494|3782->1503|3827->1527|3889->1561|3918->1562|4847->2463|4876->2464|4925->2485|4963->2495|4992->2496|5045->2521|5098->2546|5127->2547|5184->2576|5616->2980|5645->2981|5723->3031|5752->3032|5809->3061|5943->3167|5972->3168|6021->3189|6050->3190|6132->3244|6161->3245|6214->3270|6334->3362|6363->3363|6408->3380|6437->3381|6502->204|6535->892|6568->3407|6601->3414|6620->3424
+                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|40->11|40->11|40->11|41->12|41->12|42->13|42->13|42->13|42->13|43->14|43->14|43->14|43->14|44->15|44->15|44->15|44->15|44->15|45->16|45->16|45->16|46->17|46->17|46->17|47->18|51->24|51->24|53->24|54->25|56->27|56->27|56->27|57->28|57->28|58->29|59->30|63->34|63->34|64->35|65->36|65->36|68->39|68->39|69->40|70->41|70->41|70->41|71->42|71->42|87->58|87->58|88->59|88->59|88->59|89->60|89->60|89->60|90->61|94->65|94->65|95->66|95->66|96->67|98->69|98->69|99->70|99->70|101->72|101->72|102->73|104->75|104->75|105->76|105->76|109->7|111->22|113->79|115->81|115->81
                   -- GENERATED --
               */
           

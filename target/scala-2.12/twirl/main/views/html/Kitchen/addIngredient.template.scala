@@ -59,8 +59,8 @@ Seq[Any](format.raw/*3.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Kitchen/addIngredient.scala.html
+                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/addIngredient.scala.html
                   HASH: 2ac663478786a83c473ab4019601151d9da237fb
                   MATRIX: 659->1|693->29|1046->61|1175->95|1202->96|1239->108|1317->178|1355->179|1391->189|1405->195|1551->321|1587->331|1601->337|1744->459|1780->468|1861->519|1889->520
                   LINES: 24->1|25->2|30->3|35->3|36->4|37->5|37->5|37->5|38->6|38->6|40->8|41->9|41->9|43->11|44->12|45->13|46->14

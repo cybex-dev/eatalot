@@ -192,7 +192,7 @@ public class CustomerOrder extends Model implements StatusId {
 
     private void notifyStatus(){
         Email email = new Email();
-        String[] list = {Customer.findCustomerByUserId(customerUserId).getEmail()};
+        String[] list = {Customer.find.byId(customerUserId).getEmail()};
         email.setTo(Arrays.asList(list));
         email.setSubject("Order: " + orderId + " status changed to " + statusId);
         email.setBodyText("Your order status has been updated to " + statusId);

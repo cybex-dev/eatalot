@@ -46,8 +46,8 @@ Seq[Any]()
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Order/remove.scala.html
+                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Order/remove.scala.html
                   HASH: b69ab619ff62d3be8924609ce8823c253a177462
                   MATRIX: 948->1
                   LINES: 28->1

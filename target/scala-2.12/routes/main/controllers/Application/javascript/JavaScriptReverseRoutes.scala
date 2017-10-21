@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/cybex/Projects/eatalot-temp/conf/routes
-// @DATE:Sat Oct 21 09:12:55 SAST 2017
+// @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
+// @DATE:Sat Oct 21 11:02:12 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,12 +20,42 @@ package controllers.Application.javascript {
     }
 
   
+    // @LINE:7
+    def contactUs: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.HomeController.contactUs",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ContactUs"})
+        }
+      """
+    )
+  
+    // @LINE:241
+    def invalidRoute: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.HomeController.invalidRoute",
+      """
+        function(path0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("path", path0)})
+        }
+      """
+    )
+  
     // @LINE:8
+    def forbiddenAccess: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.HomeController.forbiddenAccess",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Forbidden"})
+        }
+      """
+    )
+  
+    // @LINE:9
     def unknown: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.HomeController.unknown",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "unknown"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Unknown"})
         }
       """
     )
@@ -36,26 +66,6 @@ package controllers.Application.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-    // @LINE:202
-    def invalidRoute: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.HomeController.invalidRoute",
-      """
-        function(path0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("path", path0)})
-        }
-      """
-    )
-  
-    // @LINE:7
-    def forbiddenAccess: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Application.HomeController.forbiddenAccess",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "forbidden"})
         }
       """
     )

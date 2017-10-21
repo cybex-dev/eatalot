@@ -169,4 +169,8 @@ public class Customer extends User {
     public static Customer findCustomerByEmail(String email) {
         return find.query().where().eq("email", email).findOne();
     }
+
+    public static List<DashboardEntries> getDashboardEntries() {
+        return null;
+    }
 }

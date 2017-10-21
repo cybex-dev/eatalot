@@ -33,18 +33,25 @@ object forbidden extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.
 def /*5.2*/bodyContent/*5.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*5.17*/("""
-    """),format.raw/*6.5*/("""<div style="background-color: #ff9e9e;">
-        <div class="center-block align-middle">
-            <img src=""""),_display_(/*8.24*/routes/*8.30*/.Assets.versioned("images/navigation/forbidden.png")),format.raw/*8.82*/("""" class="top img-fluid">
-            <p class="bottom">"""),_display_(/*9.32*/message),format.raw/*9.39*/("""</p>
+    """),format.raw/*6.5*/("""<div style="background-color: #eaeaea;">
+        <div class="center-parent">
+            <div class="center-child">
+                <img src=""""),_display_(/*9.28*/routes/*9.34*/.Assets.versioned("images/navigation/forbidden.png")),format.raw/*9.86*/("""" class="top img-fluid">
+                <p class="bottom">"""),_display_(/*10.36*/message),format.raw/*10.43*/("""</p>
+            </div>
         </div>
     </div>
+    <br/>
+"""),_display_(/*15.2*/helper/*15.8*/.form( action = controllers.Application.routes.HomeController.index())/*15.78*/ {_display_(Seq[Any](format.raw/*15.80*/("""
+    """),_display_(/*16.6*/helper/*16.12*/.CSRF.formField),format.raw/*16.27*/("""
+    """),format.raw/*17.5*/("""<input type="submit" class="btn btn-default button-small" value="Home">
+""")))}),format.raw/*18.2*/("""
 """)))};
 Seq[Any](format.raw/*3.19*/("""
 
-"""),format.raw/*12.2*/("""
+"""),format.raw/*19.2*/("""
 
-"""),_display_(/*14.2*/masterpage/*14.12*/.apply(" :: Forbidden", bodyContent)))
+"""),_display_(/*21.2*/masterpage/*21.12*/.apply(" :: Forbidden", bodyContent)))
       }
     }
   }
@@ -60,11 +67,11 @@ Seq[Any](format.raw/*3.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:56 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Application/forbidden.scala.html
-                  HASH: 9bb33370153a30f3675984f0312ce20988cbd546
-                  MATRIX: 663->1|1003->35|1098->55|1117->66|1197->70|1228->75|1366->187|1380->193|1452->245|1534->301|1561->308|1632->52|1661->340|1690->343|1709->353
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|38->8|38->8|38->8|39->9|39->9|43->3|45->12|47->14|47->14
+                  DATE: Sat Oct 21 11:02:12 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Application/forbidden.scala.html
+                  HASH: d347fd9a8dfa40558e69746e883afc4f2d190e83
+                  MATRIX: 663->1|1003->35|1098->55|1117->66|1197->70|1228->75|1397->218|1411->224|1483->276|1570->336|1598->343|1685->404|1699->410|1778->480|1818->482|1850->488|1865->494|1901->509|1933->514|2036->587|2077->52|2106->589|2135->592|2154->602
+                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|39->9|39->9|39->9|40->10|40->10|45->15|45->15|45->15|45->15|46->16|46->16|46->16|47->17|48->18|50->3|52->19|54->21|54->21
                   -- GENERATED --
               */
           

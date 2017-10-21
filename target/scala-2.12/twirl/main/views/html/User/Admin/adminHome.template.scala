@@ -36,7 +36,7 @@ object adminHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.
 def /*9.2*/bodyContent/*9.13*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
 Seq[Any](format.raw/*9.17*/("""
-    """),format.raw/*10.5*/("""<script href=""""),_display_(/*10.20*/controllers/*10.31*/.User.routes.javascript.AdminController.adminJSRoutes),format.raw/*10.84*/("""" type="text/javascript"></script>
+
 """)))};
 Seq[Any](format.raw/*7.60*/("""
 
@@ -58,11 +58,11 @@ Seq[Any](format.raw/*7.60*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Admin/adminHome.scala.html
-                  HASH: 33e0f4541cf32214a7b5402d78a426c1ba841483
-                  MATRIX: 662->1|691->25|733->61|771->93|1146->137|1282->198|1301->209|1381->213|1413->218|1455->233|1475->244|1549->297|1624->195|1653->333|1682->336|1700->345
-                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|39->10|39->10|39->10|41->7|43->11|45->13|45->13
+                  DATE: Sat Oct 21 13:29:08 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Admin/adminHome.scala.html
+                  HASH: 29a94d68fe17cf31e5cf5c93e351dcb3c7814353
+                  MATRIX: 662->1|691->25|733->61|771->93|1146->137|1282->198|1301->209|1381->213|1423->195|1452->216|1481->219|1499->228
+                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|41->7|43->11|45->13|45->13
                   -- GENERATED --
               */
           

@@ -30,20 +30,22 @@ object footer_wrapper extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
     _display_ {
       {
 
-def /*5.2*/footerContent/*5.15*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
+def /*5.6*/footerContent/*5.19*/:play.twirl.api.HtmlFormat.Appendable = {_display_(
 
-Seq[Any](format.raw/*5.19*/("""
-    """),format.raw/*6.5*/("""<div class="footer navbar-inverse">
-        <div class="container">
-            <p class="footer-brand">Created by Intelligents 2017 (NMU)</p>
+Seq[Any](format.raw/*5.23*/("""
+        """),format.raw/*6.9*/("""<div class="footer navbar-inverse round-corners-small small-margin">
+            <div class="container center-parent">
+                <div class="center-child">
+                    <p class="footer-brand">Created by Intelligents 2017 (NMU)</p>
+                </div>
+            </div>
         </div>
-    </div>
-""")))};
+    """)))};
 Seq[Any](format.raw/*3.4*/("""
 
-"""),format.raw/*11.2*/("""
+    """),format.raw/*13.6*/("""
 
-"""),_display_(/*13.2*/footer/*13.8*/.apply("", footerContent)),format.raw/*13.33*/("""
+    """),_display_(/*15.6*/footer/*15.12*/.apply("null", footerContent)),format.raw/*15.41*/("""
 """))
       }
     }
@@ -60,11 +62,11 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:56 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/Global/Static/footer_wrapper.scala.html
-                  HASH: 800cf4a34a385ad8cb1a20f9c8ed2a72dc6cdece
-                  MATRIX: 665->1|998->30|1078->35|1099->48|1179->52|1210->57|1418->32|1447->227|1476->230|1490->236|1536->261
-                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|42->3|44->11|46->13|46->13|46->13
+                  DATE: Sat Oct 21 11:02:13 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Static/footer_wrapper.scala.html
+                  HASH: 15c1f88bd8e1b4b3274498f44c15db93155ff4a7
+                  MATRIX: 665->1|998->30|1078->39|1099->52|1179->56|1214->65|1559->32|1592->372|1625->379|1640->385|1690->414
+                  LINES: 24->1|29->3|33->5|33->5|35->5|36->6|44->3|46->13|48->15|48->15|48->15
                   -- GENERATED --
               */
           

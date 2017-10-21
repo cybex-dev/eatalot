@@ -313,7 +313,7 @@
     /* Add a search icon to input */
     /* Position the search icon */
     /* Do not repeat the icon image */
-    background: url("../public/images/icons/searchicon.png") no-repeat 10px 12px;
+    background: url("../images/icons/searchicon.png") no-repeat 10px 12px;
     width: 100%; /* Full-width */
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
@@ -325,10 +325,22 @@
     height: 45px;
 }
 
-.vertical-line {
+.vertical-line-left {
     border-left: thin solid #ffffff;
     height: 40px;
     margin-left: 15px;
+}
+
+.vertical-line-right {
+    border-right: thin solid #ffffff;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.vertical-line-right-bold {
+    border-right: medium solid #ffffff;
+    height: 40px;
+    margin-right: 15px;
 }
 
 .margin-top-small {
@@ -357,4 +369,8 @@
 
 .text-larger {
     font-size:1.2em;
+}
+
+.margin-bottom-small {
+    margin-bottom: 5px;
 }

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-<<<<<<< HEAD
-    <data-source name="eatalotdb@cxbase.ddns.net" uuid="3adccc8d-0f00-4515-b44a-50babbf165ca">
-=======
-    <data-source name="eatalotdb@192.168.0.1" uuid="f05f6800-e449-429c-bc17-364dd5a7b7dd">
->>>>>>> Order-Management-Devel
+    <data-source name="eatalotdb@earth" uuid="7748f25f-498d-407e-ad89-375b60799242">
       <database-info product="MySQL" version="5.7.19-0ubuntu0.17.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>

@@ -89,7 +89,7 @@ public class Mailer {
 
 
 
-    private boolean sendEmail(Email email) {
+    public boolean sendEmail(Email email) {
         try {
             MailerClient mailer = mailerClient;
             mailer.send(email);

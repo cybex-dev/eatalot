@@ -14,12 +14,11 @@
         <br/>
         @helper.form(action = controllers.Finance.routes.UserFinance.doAddFunds(), 'class -> "body") {
             @CSRF.formField
-            <label>Voucher Code</label>
-            @helper.inputText(userFunds("voucherValue"), '_name -> "")
+            @helper.inputText(userFunds("voucherCode"), '_name -> "Voucher Code")
             <br/>
             <input type="submit" class="btn btn-success" value="Redeem">
             }
     </div>
 }
 
-@masterpage(" : Add Funds", bodyContent)
+@masterpage(" :: Add Funds", bodyContent)

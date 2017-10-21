@@ -56,8 +56,8 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Oct 21 09:12:57 SAST 2017
-                  SOURCE: /home/cybex/Projects/eatalot-temp/app/views/User/Admin/manageDiscounts.scala.html
+                  DATE: Sat Oct 21 11:02:14 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Admin/manageDiscounts.scala.html
                   HASH: 6c7debc82fa1d2e1aab69153b627bb1076ea9887
                   MATRIX: 662->1|1001->35|1081->40|1100->51|1180->55|1211->60|1277->37|1305->88|1334->91|1353->101
                   LINES: 24->1|29->3|33->5|33->5|35->5|36->6|39->3|41->8|43->10|43->10

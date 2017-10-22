@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
-// @DATE:Sun Oct 22 11:23:02 SAST 2017
+// @DATE:Sun Oct 22 13:11:41 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -184,7 +184,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:232
+    // @LINE:230
     def adminJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.AdminController.adminJSRoutes",
       """
@@ -344,7 +344,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:230
+    // @LINE:228
     def customerJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.CustomerController.customerJSRoutes",
       """
@@ -404,7 +404,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:234
+    // @LINE:232
     def deliveryJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.DeliveryStaffController.deliveryJSRoutes",
       """
@@ -548,7 +548,7 @@ package controllers.User.javascript {
       """
     )
   
-    // @LINE:236
+    // @LINE:234
     def kitchenJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.User.KitchenStaffController.kitchenJSRoutes",
       """

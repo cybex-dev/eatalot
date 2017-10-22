@@ -167,17 +167,11 @@ GET     /menu                   controllers.Order.OrderController.getMenu()
 
 GET     /menu/:menutype         controllers.Order.OrderController.switchMenu(menutype: Integer)
 
-GET     /signup                 controllers.Order.AccountController.getSignUp
-
 POST    /addmealtoorder         controllers.Order.OrderController.addMealToOrder(mealId: String)
 
 GET     /addmeal                controllers.Order.OrderController.getAddMealToMenu
 
 POST    /postmeal               controllers.Order.OrderController.addMeal
-
-GET     /dologin                controllers.Order.AccountController.doLogin()
-
-GET     /dosignout              controllers.Order.AccountController.doSignOut()
 
 GET     /cart                   controllers.Order.OrderController.getCart()
 
@@ -205,7 +199,7 @@ POST    /kitchen/ingredient/order/op        controllers.Order.KitchenController.
 
 GET     /kitchen/ingredient/ordernew        controllers.Order.KitchenController.getNewIngredientPage()
 
-POST    /kitchen/ingredient/add           controllers.Order.KitchenController.addIngredient()
+POST    /kitchen/ingredient/add             controllers.Order.KitchenController.addIngredient()
 
 # Maintain Order
 
@@ -218,6 +212,10 @@ GET     /kitchen/processingorders         controllers.Order.KitchenController.ge
 POST    /kitchen/customerorders/mealorder controllers.Order.KitchenController.getMealOrderPage(orderId: String)
 
 POST    /kitchen/customerorders/mealorder/update    controllers.Order.KitchenController.updateOrderStatus(orderId: String)
+
+GET     /kitchen/customerorders/mealorder/cancel    controllers.Order.KitchenController.getCancelOrderPage(orderId: String)
+
+POST    /kitchen/customerorders/mealorder/docancel  controllers.Order.KitchenController.doOrderCancellation(orderId: String)
 
 ##############################################################################
 

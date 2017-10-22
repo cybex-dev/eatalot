@@ -96,6 +96,24 @@ public class KitchenController extends Controller {
                                 CustomerOrder.findOrderById(orderId).getStatusId()), 2)));
     }
 
+    /**
+     * Get the page that allows kitchen staff to cancel order
+     * Can select and enter reason for order cancellation
+     * @return
+     */
+    public Result getCancelOrderPage(String orderId){
+        return ok(master.render("Cancel Order",
+                masterKitchen.render(cancelOrder.render(CustomerOrder.findOrderById(orderId)), 2)));
+    }
+
+    /**
+     * Sets orders
+     * @return
+     */
+    public Result doOrderCancellation(String orderId){
+        return redirect(routes.KitchenController.getOrderPage());
+    }
+
 //  ===== Maintain Ingredients =====
 
     public Result getIngredientPage(){

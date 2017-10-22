@@ -32,38 +32,39 @@ object header extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Htm
 
 
 Seq[Any](format.raw/*2.4*/("""
-"""),format.raw/*3.1*/("""<div>
-    <img src=""""),_display_(/*4.16*/routes/*4.22*/.Assets.versioned("images/logo.png")),format.raw/*4.58*/("""" href=""""),_display_(/*4.67*/controllers/*4.78*/.Application.routes.HomeController.index()),format.raw/*4.120*/("""" />
+"""),format.raw/*3.1*/("""<div class="header-wrapper">
+    <div>
+        <img class="header-title" src=""""),_display_(/*5.41*/routes/*5.47*/.Assets.versioned("images/logo.png")),format.raw/*5.83*/("""" href=""""),_display_(/*5.92*/controllers/*5.103*/.Application.routes.HomeController.index()),format.raw/*5.145*/("""" />
+    </div>
+
+    <div style="float: left">
+    """),_display_(/*9.6*/if(session.get("display_name") == null)/*9.45*/{_display_(Seq[Any](format.raw/*9.46*/("""
+        """),format.raw/*10.9*/("""<a href=""""),_display_(/*10.19*/controllers/*10.30*/.User.routes.UserController.login()),format.raw/*10.65*/("""">Sign up</a>
+    """)))}/*11.7*/else/*11.11*/{_display_(Seq[Any](format.raw/*11.12*/("""
+        """),format.raw/*12.9*/("""<p>Welcome """),_display_(/*12.21*/session/*12.28*/.get("display_name")),format.raw/*12.48*/("""
+            """),format.raw/*13.13*/("""<br>
+            <a href=""""),_display_(/*14.23*/controllers/*14.34*/.User.routes.UserController.logout),format.raw/*14.68*/("""">Sign out</a>
+        </p>
+    """)))}),format.raw/*16.6*/("""
+
+
+    """),format.raw/*19.5*/("""</div>
+
+    <div class="cart-wrapper">
+        <a href=""""),_display_(/*22.19*/controllers/*22.30*/.Order.routes.OrderController.getCart()),format.raw/*22.69*/(""""><img src=""""),_display_(/*22.82*/routes/*22.88*/.Assets.versioned("images/menu/cart.png")),format.raw/*22.129*/("""" class="cart-image" /></a>
+        """),_display_(/*23.10*/if(session.get("display_name") != null)/*23.49*/{_display_(Seq[Any](format.raw/*23.50*/("""
+            """),format.raw/*24.13*/("""<p class="cart-wrapper">"""),_display_(/*24.38*/MealOrder/*24.47*/.findMealOrderByOrderId(session.get("orderId")).size()),format.raw/*24.101*/("""</p>
+        """)))}),format.raw/*25.10*/("""
+    """),format.raw/*26.5*/("""</div>
 </div>
-
-<div style="float: left">
-"""),_display_(/*8.2*/if(session.get("display_name") == null)/*8.41*/{_display_(Seq[Any](format.raw/*8.42*/("""
-    """),format.raw/*9.5*/("""<a href=""""),_display_(/*9.15*/controllers/*9.26*/.User.routes.UserController.login()),format.raw/*9.61*/("""">Sign up</a>
-""")))}/*10.3*/else/*10.7*/{_display_(Seq[Any](format.raw/*10.8*/("""
-    """),format.raw/*11.5*/("""<p>Welcome """),_display_(/*11.17*/session/*11.24*/.get("display_name")),format.raw/*11.44*/("""
-        """),format.raw/*12.9*/("""<br>
-        <a href=""""),_display_(/*13.19*/controllers/*13.30*/.User.routes.UserController.logout),format.raw/*13.64*/("""">Sign out</a>
-    </p>
-""")))}),format.raw/*15.2*/("""
-
-
-"""),format.raw/*18.1*/("""</div>
-
-<div class="cart-wrapper">
-    <a href=""""),_display_(/*21.15*/controllers/*21.26*/.Order.routes.OrderController.getCart()),format.raw/*21.65*/(""""><img src=""""),_display_(/*21.78*/routes/*21.84*/.Assets.versioned("images/menu/cart.png")),format.raw/*21.125*/("""" class="cart-image" /></a>
-    """),_display_(/*22.6*/if(session.get("display_name") != null)/*22.45*/{_display_(Seq[Any](format.raw/*22.46*/("""
-        """),format.raw/*23.9*/("""<p class="cart-wrapper">"""),_display_(/*23.34*/MealOrder/*23.43*/.findMealOrderByOrderId(session.get("orderId")).size()),format.raw/*23.97*/("""</p>
-    """)))}),format.raw/*24.6*/("""
-"""),format.raw/*25.1*/("""</div>
-
 <div class="nav-menu-wrapper">
     <div class="nav-bar">
         <ul>
-            <li><a href=""""),_display_(/*30.27*/controllers/*30.38*/.User.routes.CustomerController.index),format.raw/*30.75*/("""">Dashboard</a></li>
-            <li><a href=""""),_display_(/*31.27*/controllers/*31.38*/.Application.routes.HomeController.index()),format.raw/*31.80*/("""">Home</a></li>
-            <li><a href=""""),_display_(/*32.27*/controllers/*32.38*/.Order.routes.OrderController.getCart()),format.raw/*32.77*/("""">Checkout</a></li>
-            <li><a href=""""),_display_(/*33.27*/controllers/*33.38*/.Order.routes.OrderController.getMenu()),format.raw/*33.77*/("""">Menu</a></li>
-            <li><a href=""""),_display_(/*34.27*/controllers/*34.38*/.Order.routes.OrderController.getActiveOrders()),format.raw/*34.85*/("""">Active Orders</a></li>
+            <li><a href=""""),_display_(/*31.27*/controllers/*31.38*/.User.routes.CustomerController.index),format.raw/*31.75*/("""">Dashboard</a></li>
+            <li><a href=""""),_display_(/*32.27*/controllers/*32.38*/.Application.routes.HomeController.index()),format.raw/*32.80*/("""">Home</a></li>
+            """),format.raw/*33.100*/("""
+            """),format.raw/*34.13*/("""<li><a href=""""),_display_(/*34.27*/controllers/*34.38*/.Order.routes.OrderController.getMenu()),format.raw/*34.77*/("""">Menu</a></li>
+            <li><a href=""""),_display_(/*35.27*/controllers/*35.38*/.Order.routes.OrderController.getActiveOrders()),format.raw/*35.85*/("""">Active Orders</a></li>
         </ul>
     </div>
 </div>"""))
@@ -82,11 +83,11 @@ Seq[Any](format.raw/*2.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 14:15:09 SAST 2017
+                  DATE: Sun Oct 22 22:30:42 SAST 2017
                   SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Ordering/header.scala.html
-                  HASH: 858259fd1f810b0d766164bbc9ebf9a221d1249c
-                  MATRIX: 660->1|988->32|1084->34|1111->35|1158->56|1172->62|1228->98|1263->107|1282->118|1345->160|1410->200|1457->239|1495->240|1526->245|1562->255|1581->266|1636->301|1669->317|1681->321|1719->322|1751->327|1790->339|1806->346|1847->366|1883->375|1933->398|1953->409|2008->443|2063->468|2093->471|2169->520|2189->531|2249->570|2289->583|2304->589|2367->630|2426->663|2474->702|2513->703|2549->712|2601->737|2619->746|2694->800|2734->810|2762->811|2893->915|2913->926|2971->963|3045->1010|3065->1021|3128->1063|3197->1105|3217->1116|3277->1155|3350->1201|3370->1212|3430->1251|3499->1293|3519->1304|3587->1351
-                  LINES: 24->1|29->2|34->2|35->3|36->4|36->4|36->4|36->4|36->4|36->4|40->8|40->8|40->8|41->9|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|43->11|43->11|44->12|45->13|45->13|45->13|47->15|50->18|53->21|53->21|53->21|53->21|53->21|53->21|54->22|54->22|54->22|55->23|55->23|55->23|55->23|56->24|57->25|62->30|62->30|62->30|63->31|63->31|63->31|64->32|64->32|64->32|65->33|65->33|65->33|66->34|66->34|66->34
+                  HASH: 1b9e7dff1e2878c12f21c67f1cec2789cb2e5090
+                  MATRIX: 660->1|988->32|1084->34|1111->35|1216->114|1230->120|1286->156|1321->165|1341->176|1404->218|1481->270|1528->309|1566->310|1602->319|1639->329|1659->340|1715->375|1752->395|1765->399|1804->400|1840->409|1879->421|1895->428|1936->448|1977->461|2031->488|2051->499|2106->533|2169->566|2203->573|2287->630|2307->641|2367->680|2407->693|2422->699|2485->740|2549->777|2597->816|2636->817|2677->830|2729->855|2747->864|2823->918|2868->932|2900->937|3037->1047|3057->1058|3115->1095|3189->1142|3209->1153|3272->1195|3329->1310|3370->1323|3411->1337|3431->1348|3491->1387|3560->1429|3580->1440|3648->1487
+                  LINES: 24->1|29->2|34->2|35->3|37->5|37->5|37->5|37->5|37->5|37->5|41->9|41->9|41->9|42->10|42->10|42->10|42->10|43->11|43->11|43->11|44->12|44->12|44->12|44->12|45->13|46->14|46->14|46->14|48->16|51->19|54->22|54->22|54->22|54->22|54->22|54->22|55->23|55->23|55->23|56->24|56->24|56->24|56->24|57->25|58->26|63->31|63->31|63->31|64->32|64->32|64->32|65->33|66->34|66->34|66->34|66->34|67->35|67->35|67->35
                   -- GENERATED --
               */
           

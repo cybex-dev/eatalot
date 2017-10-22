@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * Created by dylan on 2017/10/14.
  */
-public class DateUtility {
+public class  DateUtility {
 
     public static Date readDate(String tbr) throws ParseException {
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy");

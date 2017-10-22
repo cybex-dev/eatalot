@@ -11,19 +11,13 @@ import models.User.User;
 import org.h2.engine.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
-import scala.App;
 import utility.DateUtility;
 import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
-
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**

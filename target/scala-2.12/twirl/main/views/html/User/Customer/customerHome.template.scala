@@ -24,7 +24,7 @@ import play.core.j.PlayFormsMagicForJava._
 /*1.2*/import java.util.List
 /*3.2*/import models.User.Customer.CustomerInfo
 /*4.2*/import utility.DashboardButton
-/*5.2*/import views.html.Global.Static.dashboard
+/*5.2*/import views.html.Global.Static.customerDashboard
 
 object customerHome extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[List[DashboardButton],CustomerInfo,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -79,7 +79,9 @@ Seq[Any](format.raw/*7.66*/("""
 
     """),format.raw/*48.6*/("""
 
-    """),_display_(/*50.6*/dashboard/*50.15*/.apply(dashButtons, bodyContent)))
+
+    """),_display_(/*51.6*/customerDashboard/*51.23*/.apply(dashButtons, bodyContent)),format.raw/*51.55*/("""
+"""))
       }
     }
   }
@@ -95,11 +97,11 @@ Seq[Any](format.raw/*7.66*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 11:23:03 SAST 2017
+                  DATE: Sun Oct 22 20:16:58 SAST 2017
                   SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/User/Customer/customerHome.scala.html
-                  HASH: 1d8345a9c006ca14504bc8e7836a17f4d1067088
-                  MATRIX: 665->1|694->25|742->67|780->99|1161->143|1303->214|1322->225|1402->229|1439->270|1475->279|3407->207|3440->2172|3473->2179|3491->2188
-                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|40->11|78->7|80->48|82->50|82->50
+                  HASH: 9f116fae0c881b51f548e1fba13993e3a261f73a
+                  MATRIX: 665->1|694->25|742->67|780->99|1169->151|1311->222|1330->233|1410->237|1447->278|1483->287|3415->215|3448->2180|3482->2188|3508->2205|3561->2237
+                  LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|40->11|78->7|80->48|83->51|83->51|83->51
                   -- GENERATED --
               */
           

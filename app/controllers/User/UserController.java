@@ -20,9 +20,12 @@ import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
+import utility.Mobile;
 import utility.Utility;
 import views.html.Application.Home.index;
 import views.html.User.User.login;
+import views.html.User.User.loginMobile;
+import views.html.Ordering.masterOrder;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -73,7 +76,10 @@ public class UserController extends Controller {
     @With(RedirectToDashIfActive.class)
     @AnyAllowed
     public Result login() {
-        return ok(login.render(formFactory.form(UserLoginInfo.class)));
+        if(Mobile.isMobile(request().getHeaders()))
+            return ok(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class))));
+        else
+            return ok(login.render(formFactory.form(UserLoginInfo.class)));
     }
 
     /**
@@ -101,7 +107,10 @@ public class UserController extends Controller {
 
         if (form.hasErrors()) {
             flash(FlashCodes.danger.toString(), "Please check all fields are correct");
-            return CompletableFuture.completedFuture(badRequest(login.render(form)));
+            if(Mobile.isMobile(request().getHeaders()))
+                return CompletableFuture.completedFuture(badRequest(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class)))));
+            else
+                return CompletableFuture.completedFuture(badRequest(login.render(formFactory.form(UserLoginInfo.class))));
         }
 
         UserLoginInfo userLoginInfo = form.get();
@@ -139,7 +148,10 @@ public class UserController extends Controller {
                 s == null &&
                 a == null) {
             flash(FlashCodes.danger.toString(), "Username/Password combination invalid");
-            return CompletableFuture.completedFuture(notFound(login.render(form)));
+            if(Mobile.isMobile(request().getHeaders()))
+                return CompletableFuture.completedFuture(notFound((masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class))))));
+            else
+                return CompletableFuture.completedFuture(notFound((login.render(formFactory.form(UserLoginInfo.class)))));
         }
 
 
@@ -153,7 +165,10 @@ public class UserController extends Controller {
             if (c != null &&
                     s != null) {
                 flash().put(FlashCodes.danger.toString(), "Please log in using your staff");
-                return CompletableFuture.completedFuture(badRequest(login.render(form)));
+                if(Mobile.isMobile(request().getHeaders()))
+                    return CompletableFuture.completedFuture(badRequest(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class)))));
+                else
+                    return CompletableFuture.completedFuture(badRequest(login.render(formFactory.form(UserLoginInfo.class))));
             }
 
             // determine if user is staff or customer
@@ -172,7 +187,10 @@ public class UserController extends Controller {
         if (userType != UserType.ADMIN) {
             if (!user.getActive()) {
                 flash().put(FlashCodes.danger.toString(), "Your account has been disable, please contact the Eatalot to resolve this!");
-                return CompletableFuture.completedFuture(badRequest(login.render(form)));
+                if(Mobile.isMobile(request().getHeaders()))
+                    return CompletableFuture.completedFuture(badRequest(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class)))));
+                else
+                    return CompletableFuture.completedFuture(badRequest(login.render(formFactory.form(UserLoginInfo.class))));
             }
         }
 

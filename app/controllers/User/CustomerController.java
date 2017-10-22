@@ -28,8 +28,12 @@ import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.*;
 import play.routing.JavaScriptReverseRouter;
 import utility.DashboardButton;
+import utility.Mobile;
 import utility.Utility;
 import views.html.User.Customer.*;
+import views.html.Global.Temp.master;
+import views.html.Ordering.masterOrder;
+
 
 import javax.inject.Inject;
 import java.util.*;
@@ -84,14 +88,14 @@ public class CustomerController extends Controller implements CRUD {
                             controllers.User.routes.CustomerController.paymentHistory()));
             arrayList.add(
                     new DashboardButton(
-                            String.valueOf(customerInfo.getActiveOrderCount()),
+                            String.valueOf(customerInfo.getActiveOrderCount(session(AppCookie.user_id.toString()))),
                             "Active Orders",
-                            controllers.User.routes.CustomerController.activeOrders()));
+                            controllers.Order.routes.OrderController.getActiveOrders()));
             arrayList.add(
                     new DashboardButton(
                             "New",
                             "Order",
-                            controllers.Application.routes.HomeController.unknown()));
+                            controllers.Order.routes.OrderController.getMenu()));
             arrayList.add(
                     new DashboardButton(
                             customerInfo.isScheduleActive() ? "Active" : "  Inactive",
@@ -114,7 +118,10 @@ public class CustomerController extends Controller implements CRUD {
     @With(annotations.CheckCSRF.class)
     public Result register() {
         Form<UserRegisterInfo> userForm = formFactory.form(UserRegisterInfo.class);
-        return ok(register.render(userForm));
+        if(Mobile.isMobile(request().getHeaders()))
+            return ok(master.render("Register", masterOrder.render(registerMobile.render(userForm))));
+        else
+            return ok(register.render(userForm));
     }
 
     /**
@@ -129,7 +136,10 @@ public class CustomerController extends Controller implements CRUD {
 
         if (userForm.hasErrors()) {
             flash(FlashCodes.danger.toString(), "Please check all fields");
-            return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
+            if(Mobile.isMobile(request().getHeaders()))
+                return CompletableFuture.completedFuture(badRequest(master.render("Register", masterOrder.render(registerMobile.render(userForm)))));
+            else
+                return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
         }
         UserRegisterInfo userRegisterInfo = userForm.get();
         String csrfToken = "";
@@ -251,7 +261,10 @@ public class CustomerController extends Controller implements CRUD {
 
         if (userForm.hasErrors()) {
             flash(FlashCodes.danger.toString(), "Please check all fields");
-            return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
+            if(Mobile.isMobile(request().getHeaders()))
+                return CompletableFuture.completedFuture(badRequest(master.render("Register", masterOrder.render(registerMobile.render(userForm)))));
+            else
+                return CompletableFuture.completedFuture(badRequest(register.render(userForm)));
         }
 
         String userEmail = userForm.field("edtEmail").getValue().get(),
@@ -299,7 +312,10 @@ public class CustomerController extends Controller implements CRUD {
         m.put("Password", "");
         m.put("Confirm Password", "");
         userForm.bind(m);
-        return badRequest(register.render(userForm));
+        if(Mobile.isMobile(request().getHeaders()))
+            return badRequest(master.render("Register", masterOrder.render(registerMobile.render(userForm))));
+        else
+            return badRequest(register.render(userForm));
     }
 
     @With(RequiresActive.class)
@@ -492,7 +508,7 @@ public class CustomerController extends Controller implements CRUD {
     public Result getCustomerDashEntries() {
         CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session(user_id.toString()));
         String s0 = AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
-                s1 = String.valueOf(customerInfo.getActiveOrderCount()),
+                s1 = String.valueOf(customerInfo.getActiveOrderCount(AppCookie.user_id.toString())),
                 s2 = "New",
                 s3 = customerInfo.isScheduleActive() ? "Active" : "  Inactive";
         ArrayNode arrayNode = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);
@@ -505,7 +521,7 @@ public class CustomerController extends Controller implements CRUD {
     public Result getCustomerDashUpdate() {
         CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(session(user_id.toString()));
         String s0 = AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
-                s1 = String.valueOf(customerInfo.getActiveOrderCount()),
+                s1 = String.valueOf(customerInfo.getActiveOrderCount(AppCookie.user_id.toString())),
                 s2 = "New",
                 s3 = customerInfo.isScheduleActive() ? "Active" : "  Inactive";
         ArrayNode arrayNode = DashboardButton.dashbuttonJsonMap(s0, s1, s2, s3);

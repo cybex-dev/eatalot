@@ -4,7 +4,11 @@
 		module="eatalot_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
+<<<<<<< HEAD
 		publication="20171022224332"
+=======
+		publication="20171022112236"
+>>>>>>> master
 	>
 		<description>
 		eatalot

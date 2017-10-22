@@ -39,10 +39,10 @@ Seq[Any](format.raw/*5.29*/("""
     """),_display_(/*8.6*/if(list.isEmpty)/*8.22*/{_display_(Seq[Any](format.raw/*8.23*/("""
         """),format.raw/*9.9*/("""<p><i>dust</i></p>
     """)))}/*10.6*/else/*10.10*/{_display_(Seq[Any](format.raw/*10.11*/("""
-        """),format.raw/*11.9*/("""<table>
+        """),format.raw/*11.9*/("""<table class="ingredient-table-wrapper">
             <tr>
-                <td>Order Number</td>
-                <td>Status</td>
+                <th>Order Number</th>
+                <th>Status</th>
             </tr>
             """),_display_(/*16.14*/for(x <- 0 until list.size()) yield /*16.43*/{_display_(Seq[Any](format.raw/*16.44*/("""
                 """),_display_(/*17.18*/form(CSRF(controllers.Order.routes.KitchenController.getMealOrderPage(list.get(x).getOrderId().toString)))/*17.124*/ {_display_(Seq[Any](format.raw/*17.126*/("""
@@ -71,10 +71,17 @@ Seq[Any](format.raw/*5.29*/("""
 
               /*
                   -- GENERATED --
+<<<<<<< HEAD
                   DATE: Sun Oct 22 22:44:13 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/orders.scala.html
                   HASH: 9d4fe690cc8bbc90dd797f37d3fc06a1652292ef
                   MATRIX: 659->1|688->25|722->53|1074->88|1196->115|1224->117|1261->129|1285->145|1323->146|1358->155|1400->179|1413->183|1452->184|1488->193|1641->319|1686->348|1725->349|1770->367|1886->473|1927->475|1976->496|2037->530|2050->534|2089->552|2151->587|2164->591|2204->610|2377->752|2422->766|2458->775|2502->789|2530->790
+=======
+                  DATE: Sun Oct 22 12:05:34 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Kitchen/orders.scala.html
+                  HASH: 9adafcd660cf7f602ccbb25c1a6d1f7e32e61d34
+                  MATRIX: 659->1|688->25|722->53|1074->88|1196->115|1224->117|1261->129|1285->145|1323->146|1358->155|1400->179|1413->183|1452->184|1488->193|1674->352|1719->381|1758->382|1803->400|1919->506|1960->508|2009->529|2070->563|2083->567|2122->585|2184->620|2197->624|2237->643|2410->785|2455->799|2491->808|2535->822|2563->823
+>>>>>>> master
                   LINES: 24->1|25->3|26->4|31->5|36->5|38->7|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|47->16|47->16|47->16|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|51->20|51->20|54->23|55->24|56->25|57->26|58->27
                   -- GENERATED --
               */

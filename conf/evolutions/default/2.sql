@@ -57,6 +57,41 @@ INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L3'
 INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R4', 1, 25);
 INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L4', 'R4', 'Chicken Pasta', 'Dinner', 'chickenpasta.jpg', 45);
 
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R5', 2, 2);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L5', 'R5', 'Happy Meal', 'Lunch', 'happymeal.png', 15);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R6', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L6', 'R6', 'Street Wise Special', 'Dinner', 'streetwise.jpg', 20);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R7', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L7', 'R7', 'Fish n Chips', 'Dinner', 'fishnchips.jpg', 30);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R8', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L8', 'R8', 'Chicken Spring Rolls', 'Snacks', 'springrolls.jpg', 20);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R9', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L9', 'R9', 'Mutton Samosas', 'Snacks', 'samosa.jpg', 20);
+
+INSERT INTO recipe(recipe_id, num_people_serves, preparation_time) VALUES('R10', 1, 25);
+INSERT INTO meal(meal_id, recipe_id, description, type, image, cost) VALUES('L10', 'R10', 'Bacon and Eggs', 'Breakfast', 'baconandeggs.jpg', 25);
+
+
+INSERT INTO payment(payment_id, amount, is_cash, is_paid) VALUES ('4', 250, NULL, FALSE);
+INSERT INTO customer_order(order_id, status_id, customer_user_id, payment_payment_id, delivery_date) VALUES ('1', 'unsubmitted', '3', '4', null);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L1-1', 'L1', '1', 3);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L2-1', 'L2', '1', 2);
+
+INSERT INTO payment(payment_id, amount, is_cash, is_paid) VALUES ('3', 135, TRUE, FALSE);
+INSERT INTO customer_order(order_id, status_id, customer_user_id, payment_payment_id, delivery_date) VALUES ('2', 'pending', '1', '3', null);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L1-2', 'L1', '2', 1);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L2-2', 'L2', '2', 1);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L3-2', 'L3', '2', 1);
+
+INSERT INTO payment(payment_id, amount, is_cash, is_paid) VALUES ('2', 135, FALSE, TRUE);
+INSERT INTO customer_order(order_id, status_id, customer_user_id, payment_payment_id, delivery_date) VALUES ('3', 'processing', '8', '2', null);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L2-3', 'L2', '3', 2);
+INSERT INTO meal_order(meal_order_id, meal_id, order_id, order_qty) VALUES ('L3-3', 'L3', '3', 1);
+
 # --- !Downs
 
 DELETE FROM admin;

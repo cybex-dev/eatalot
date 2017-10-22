@@ -23,24 +23,10 @@ public class Payment extends Model {
     @Id
     @Constraints.Required
     private String paymentId;
-
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private String customerUserId;
-
-    //TODO: I changed date & time to string, Date objects don't save right in database.
-    @Formats.DateTime(pattern="dd/MM/yyyy")
-    private String date;
-//    private Date date;
-    @Constraints.Required
-    private String time;
-//    private Date time;
-
     @Constraints.Required
     private Double amount;
     private Boolean isCash;
     private Boolean isPaid;
-
-
 
     public Payment() {
         setPaymentId();
@@ -55,12 +41,6 @@ public class Payment extends Model {
 
     }
 
-
-
-    // Needs foreign key to order.
-    @Constraints.Required
-    private String orderId;
-
     public static Finder<String, Payment> find = new Finder<>(Payment.class);
 
     public Payment(@Constraints.Required String paymentId, @Constraints.Required Date date, @Constraints.Required Double amount, Boolean isCash, Boolean isPaid) {
@@ -73,29 +53,6 @@ public class Payment extends Model {
                 .eq("paymentId", paymentId)
                 .findOne();
     }
-
-    public Payment(String orderId) {
-        this.orderId = orderId;
-        paymentId = String.valueOf(orderId.hashCode());
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    //    public Payment setDate(Date date) {
-//        this.date = date;
-//        return this;
-//    }
-//
-//    public Payment setTime(Date time) {
-//        this.time = time;
-//        return this;
-//    }
 
     public Payment setAmount(Double amount) {
         this.amount = amount;
@@ -126,7 +83,6 @@ public class Payment extends Model {
 
     @Override
     public void insert() {
-        paymentId = new RandomString(16, ThreadLocalRandom.current()).nextString();
         super.insert();
     }
 
@@ -139,39 +95,11 @@ public class Payment extends Model {
         return paymentId;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    //    public Date getDate() {
-//        return date;
-//    }
-//
-//    public Date getTime() {
-//        return time;
-//    }
-
     public Double getAmount() {
         return amount;
     }
 
     public Boolean getCash() {
         return isCash;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public String getCustomerUserId() {
-        return customerUserId;
-    }
-
-    public void setCustomerUserId(String customerUserId) {
-        this.customerUserId = customerUserId;
     }
 }

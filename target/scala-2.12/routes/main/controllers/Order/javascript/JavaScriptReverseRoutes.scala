@@ -1,7 +1,12 @@
 
 // @GENERATOR:play-routes-compiler
+<<<<<<< HEAD
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
 // @DATE:Mon Oct 23 01:02:05 SAST 2017
+=======
+// @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
+// @DATE:Sun Oct 22 14:40:06 SAST 2017
+>>>>>>> master
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -11,6 +16,146 @@ import _root_.play.libs.F
 
 // @LINE:56
 package controllers.Order.javascript {
+
+  // @LINE:192
+  class ReverseKitchenController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:208
+    def getOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getOrderPage",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/customerorders"})
+        }
+      """
+    )
+  
+    // @LINE:210
+    def getPendingOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getPendingOrderPage",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/pendingorders"})
+        }
+      """
+    )
+  
+    // @LINE:220
+    def doOrderCancellation: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.doOrderCancellation",
+      """
+        function(orderId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/customerorders/mealorder/docancel" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
+        }
+      """
+    )
+  
+    // @LINE:196
+    def getIngredientPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getIngredientPage",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/ingredients"})
+        }
+      """
+    )
+  
+    // @LINE:218
+    def getCancelOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getCancelOrderPage",
+      """
+        function(orderId0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/customerorders/mealorder/cancel" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
+        }
+      """
+    )
+  
+    // @LINE:202
+    def getNewIngredientPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getNewIngredientPage",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/ingredient/ordernew"})
+        }
+      """
+    )
+  
+    // @LINE:204
+    def addIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.addIngredient",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/ingredient/add"})
+        }
+      """
+    )
+  
+    // @LINE:216
+    def updateOrderStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.updateOrderStatus",
+      """
+        function(orderId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/customerorders/mealorder/update" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
+        }
+      """
+    )
+  
+    // @LINE:192
+    def home: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.home",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen"})
+        }
+      """
+    )
+  
+    // @LINE:214
+    def getMealOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getMealOrderPage",
+      """
+        function(orderId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/customerorders/mealorder" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
+        }
+      """
+    )
+  
+    // @LINE:212
+    def getProcessingOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getProcessingOrderPage",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/processingorders"})
+        }
+      """
+    )
+  
+    // @LINE:200
+    def editIngredient: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.editIngredient",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/ingredient/order/op" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+    // @LINE:198
+    def getIngredientOrderPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.KitchenController.getIngredientOrderPage",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "kitchen/ingredients/order" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("id", id0)])})
+        }
+      """
+    )
+  
+  }
 
   // @LINE:74
   class ReverseMenuController(_prefix: => String) {
@@ -160,7 +305,11 @@ package controllers.Order.javascript {
     }
 
   
+<<<<<<< HEAD
     // @LINE:190
+=======
+    // @LINE:182
+>>>>>>> master
     def submitCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.submitCart",
       """
@@ -180,17 +329,25 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:194
+=======
+    // @LINE:184
+>>>>>>> master
     def getViewOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getViewOrder",
       """
         function(orderId0) {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "history/order" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "activeorders/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("orderId", encodeURIComponent(orderId0))})
         }
       """
     )
   
+<<<<<<< HEAD
     // @LINE:188
+=======
+    // @LINE:180
+>>>>>>> master
     def getSubmitPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getSubmitPage",
       """
@@ -200,7 +357,11 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:186
+=======
+    // @LINE:178
+>>>>>>> master
     def removeMealFromOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.removeMealFromOrder",
       """
@@ -210,12 +371,28 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:192
     def getHistoryPage: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getHistoryPage",
+=======
+    // @LINE:186
+    def getActiveOrders: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.OrderController.getActiveOrders",
+>>>>>>> master
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "history"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "activeorders"})
+        }
+      """
+    )
+  
+    // @LINE:188
+    def activeOrderAction: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Order.OrderController.activeOrderAction",
+      """
+        function(orderId0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "orderaction" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("orderId", orderId0)])})
         }
       """
     )
@@ -230,7 +407,11 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:178
+=======
+    // @LINE:174
+>>>>>>> master
     def addMeal: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.addMeal",
       """
@@ -240,7 +421,11 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:174
+=======
+    // @LINE:170
+>>>>>>> master
     def addMealToOrder: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.addMealToOrder",
       """
@@ -250,7 +435,11 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:176
+=======
+    // @LINE:172
+>>>>>>> master
     def getAddMealToMenu: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getAddMealToMenu",
       """
@@ -260,7 +449,11 @@ package controllers.Order.javascript {
       """
     )
   
+<<<<<<< HEAD
     // @LINE:184
+=======
+    // @LINE:176
+>>>>>>> master
     def getCart: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Order.OrderController.getCart",
       """
@@ -272,6 +465,7 @@ package controllers.Order.javascript {
   
   }
 
+<<<<<<< HEAD
   // @LINE:198
   class ReverseKitchenController(_prefix: => String) {
 
@@ -432,5 +626,7 @@ package controllers.Order.javascript {
   
   }
 
+=======
+>>>>>>> master
 
 }

@@ -2,7 +2,7 @@
 
 @import models.User.Customer.CustomerInfo
 @import utility.DashboardButton
-@import views.html.Global.Static.dashboard
+@import views.html.Global.Static.customerDashboard
 
 @(dashButtons: List[DashboardButton], customerInfo: CustomerInfo)
 
@@ -47,4 +47,5 @@
 
     }
 
-    @dashboard.apply(dashButtons, bodyContent)
+
+    @customerDashboard.apply(dashButtons, bodyContent)

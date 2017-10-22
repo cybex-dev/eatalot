@@ -1,0 +1,85 @@
+@import views.html.Ordering.masterOrder
+@import views.html.Global.Static.stylesheets
+@()
+
+@stylesheets.apply()
+@carousel = {
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="@routes.Assets.versioned("images/food/food01.png")" alt="Food" />
+                        </div>
+                        <div class="item">
+                            <img src="@routes.Assets.versioned("images/food/food02.png")" alt="Food" />
+                        </div>
+                        <div class="item">
+                            <img src="@routes.Assets.versioned("images/food/food03.png")" alt="Food" />
+                        </div>
+                        <div class="item">
+                            <img src="@routes.Assets.versioned("images/food/food04.png")" alt="Food" />
+                        </div>
+                    </div>
+                        <!--INDICATORS-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                        <li data-target="#carousel-example" data-slide-to="3"></li>
+                    </ol>
+                        <!--PREVIUS-NEXT BUTTONS-->
+                    <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@bodyContent = {
+    <h1 class="html-editor-indent">Welcome to EatAloT</h1>
+    <br/>
+    <br/>
+    <h2 class="html-editor-indent">If you are hungry, you have come to the right place</h2>
+    <br/>
+    <br/>
+    @*Start of blocks and carousel*@
+@carousel
+    @*End of blocks and carousel*@
+    <br/>
+    <h2>You can order a meal in 3 simple steps</h2>
+    <ul>
+        <li>
+            <Span class="text-large-bold">Step 1</Span>
+            <ul>
+                <li>Create an account <form action="@controllers.User.routes.CustomerController.register()" method="get">
+                    <button id="btnHomeRegisterRedirect" class="btn btn-default">Register</button>
+                </form></li>
+            </ul>
+        </li>
+        <li>
+            <Span class="text-large-bold">Step 2</Span>
+            <ul>
+                <li>Order a meal</li>
+            </ul>
+        </li>
+        <li>
+            <Span class="text-large-bold">Step 3</Span>
+            <ul>
+                <li><h4>Enjoy your meal!</h4></li>
+            </ul>
+        </li>
+    </ul>
+
+    <br/>
+    <br/>
+
+}
+
+    @bodyContent

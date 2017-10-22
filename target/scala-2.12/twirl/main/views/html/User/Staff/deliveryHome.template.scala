@@ -59,8 +59,13 @@ Seq[Any](format.raw/*7.76*/("""
 
               /*
                   -- GENERATED --
+<<<<<<< HEAD
                   DATE: Sun Oct 22 22:44:14 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/Staff/deliveryHome.scala.html
+=======
+                  DATE: Sun Oct 22 11:23:03 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/User/Staff/deliveryHome.scala.html
+>>>>>>> master
                   HASH: 81d86ce6f63b1896d78cb3535ab82a45af9c363c
                   MATRIX: 662->1|691->25|749->77|787->109|1173->153|1325->230|1344->241|1424->245|1456->250|1519->227|1548->274|1577->277|1595->286|1648->318
                   LINES: 24->1|25->3|26->4|27->5|32->7|36->9|36->9|38->9|39->10|41->7|43->11|45->13|45->13|45->13

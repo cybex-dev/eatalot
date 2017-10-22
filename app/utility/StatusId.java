@@ -9,4 +9,5 @@ public interface StatusId {
     String PROCESSING = "processing";
     String DELIVERING = "delivering";
     String CANCELLED = "cancelled";
+    String COMPLETE = "completed";
 }

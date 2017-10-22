@@ -398,3 +398,6 @@
 .hidden-field{
     display: none;
 }
+.full-height{
+    height: 12%;
+}

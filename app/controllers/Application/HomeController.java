@@ -5,10 +5,13 @@ import annotations.SessionVerifier.LoadActive;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.With;
+import utility.Mobile;
 import views.html.Application.Home.index;
+import views.html.Application.Home.indexMobile;
 import views.html.Application.forbidden;
 import views.html.Application.unknown;
 import views.html.Application.contact_us;
+import views.html.Ordering.masterOrder;
 
 import static controllers.Application.AppTags.AppCookie.*;
 import static controllers.Application.AppTags.Session.SessionTags.visited;
@@ -64,7 +67,8 @@ public class HomeController extends Controller {
             if (request().cookie(org.toString()) == null) {
                 flash().put(AppTags.FlashCodes.info.toString(), "Welcome to EatAloT!");
                 response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
-                return ok(index.render());
+                if(Mobile.isMobile(request().getHeaders())) return ok(masterOrder.render(indexMobile.render()));
+                else return ok(index.render());
             }
             if (request().cookie(org.toString()).value().equals(AppTags.General.SITEURL.toString()))
                 flash().put(AppTags.FlashCodes.info.toString(), "Welcome back!");
@@ -73,7 +77,9 @@ public class HomeController extends Controller {
                 response().setCookie(buildCookie(org.toString(), AppTags.General.SITEURL.toString()));
             }
         }
-        return ok(index.render());
+
+        if(Mobile.isMobile(request().getHeaders())) return ok(masterOrder.render(indexMobile.render()));
+        else return ok(index.render());
     }
 
 }

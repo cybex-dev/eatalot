@@ -44,6 +44,7 @@ Seq[Any](format.raw/*5.44*/("""
                     <td>R """),_display_(/*13.28*/order/*13.33*/.getPaymentObject().getAmount()),format.raw/*13.64*/("""</td>
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     """),_display_(/*16.22*/if(customer.getStudent)/*16.45*/{_display_(Seq[Any](format.raw/*16.46*/("""
                         """),format.raw/*17.25*/("""<td>Discount:</td>
                         <td>%15.00</td>
@@ -60,6 +61,24 @@ Seq[Any](format.raw/*5.44*/("""
                         """),format.raw/*29.25*/("""<td>Total Cost:</td>
                         <td>R """),_display_(/*30.32*/order/*30.37*/.getPaymentObject().getAmount()),format.raw/*30.68*/("""</td>
                     """)))}),format.raw/*31.22*/("""
+=======
+                """),_display_(/*16.18*/if(customer.isStudent)/*16.40*/{_display_(Seq[Any](format.raw/*16.41*/("""
+                    """),format.raw/*17.21*/("""<td>Discount:</td>
+                    <td>%15.00</td>
+                """)))}/*19.18*/else/*19.22*/{_display_(Seq[Any](format.raw/*19.23*/("""
+                    """),format.raw/*20.21*/("""<td>Discount:</td>
+                    <td>%0.00</td>
+                """)))}),format.raw/*22.18*/("""
+                """),format.raw/*23.17*/("""</tr>
+                <tr>
+                """),_display_(/*25.18*/if(customer.isStudent)/*25.40*/{_display_(Seq[Any](format.raw/*25.41*/("""
+                    """),format.raw/*26.21*/("""<td>Total Cost:</td>
+                    <td>R """),_display_(/*27.28*/(order.getPaymentObject().getAmount()- order.getPaymentObject().getAmount() * 0.15)),format.raw/*27.111*/("""</td>
+                """)))}/*28.18*/else/*28.22*/{_display_(Seq[Any](format.raw/*28.23*/("""
+                    """),format.raw/*29.21*/("""<td>Total Cost:</td>
+                    <td>R """),_display_(/*30.28*/order/*30.33*/.getPaymentObject().getAmount()),format.raw/*30.64*/("""</td>
+                """)))}),format.raw/*31.18*/("""
+>>>>>>> master
                 """),format.raw/*32.17*/("""</tr>
                 <tr>
                     <td>Select Payment Option:</td>
@@ -67,7 +86,7 @@ Seq[Any](format.raw/*5.44*/("""
                     """),format.raw/*36.103*/("""
                     """),_display_(/*37.22*/if(customer.getAccBalance >= order.getPaymentObject.getAmount)/*37.84*/{_display_(Seq[Any](format.raw/*37.85*/("""
                         """),format.raw/*38.25*/("""<td>
-                            <label for="credit"></label>
+                            <label for="credit">Credit</label>
                             <input id="credit" type="radio" name="payment" value="credit">
                         </td>
                     """)))}/*42.22*/else/*42.26*/{_display_(Seq[Any](format.raw/*42.27*/("""
@@ -76,9 +95,9 @@ Seq[Any](format.raw/*5.44*/("""
                         </td>
                     """)))}),format.raw/*46.22*/("""
                     """),format.raw/*47.29*/("""
-                        """),format.raw/*48.69*/("""
-                        """),format.raw/*49.63*/("""
-                        """),format.raw/*50.91*/("""
+                    """),format.raw/*48.65*/("""
+                    """),format.raw/*49.59*/("""
+                    """),format.raw/*50.87*/("""
                     """),format.raw/*51.30*/("""
                     """),format.raw/*52.21*/("""<td>
                         <label for="cash">Cash</label>
@@ -100,24 +119,24 @@ Seq[Any](format.raw/*5.44*/("""
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="3">
                         <p>
                             """),format.raw/*74.42*/("""
-                            """),format.raw/*75.29*/("""Once you click submit,<br>
-                            your order status will<br>
-                            change to "Pending" where it<br>
-                            awaits approval of our staff.<br>
-                            Once approved it will enter<br>
-                            the "Processing" stage then<br>
-                            into "Delivering".<br>
-                            You will be notified of these<br>
-                            status changes and can check<br>
-                            up on them at any time.
+                                """),format.raw/*75.33*/("""Once you click submit,
+                                your order status will
+                                change to "Pending" where it
+                                awaits approval of our staff.
+                                Once approved it will enter
+                                the "Processing" stage then
+                                into "Delivering".
+                                You will be notified of these
+                                status changes and can check
+                                up on them at any time.
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="3" style="float: right">
                         <button type="submit">Submit</button>
                     </td>
                 </tr>
@@ -140,10 +159,17 @@ Seq[Any](format.raw/*5.44*/("""
 
               /*
                   -- GENERATED --
+<<<<<<< HEAD
                   DATE: Sun Oct 22 22:44:14 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Ordering/submitCart.scala.html
                   HASH: 213c3f4e145a28ec4294c0e68273ad493c450064
                   MATRIX: 660->1|694->29|735->64|1097->103|1234->145|1262->147|1315->174|1388->239|1427->241|1468->254|1586->345|1600->350|1652->381|1749->451|1781->474|1820->475|1873->500|1972->580|1985->584|2024->585|2077->610|2187->689|2232->706|2307->754|2339->777|2378->778|2431->803|2510->855|2615->938|2661->965|2674->969|2713->970|2766->995|2845->1047|2859->1052|2911->1083|2969->1110|3014->1127|3143->1309|3192->1331|3263->1393|3302->1394|3355->1419|3578->1623|3591->1627|3630->1628|3683->1653|3849->1788|3898->1817|3951->1886|4004->1949|4057->2040|4106->2070|4155->2091|4510->2493|4563->2534|4616->2583|4669->2608|5120->3044|5177->3073|6022->3887|6054->3892
+=======
+                  DATE: Sun Oct 22 18:57:42 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Ordering/submitCart.scala.html
+                  HASH: d0a785cfce97a5cd3911e0f4d7d858e137cc2f2b
+                  MATRIX: 660->1|694->29|735->64|1097->103|1234->145|1262->147|1315->174|1388->239|1427->241|1468->254|1586->345|1600->350|1652->381|1745->447|1776->469|1815->470|1864->491|1955->563|1968->567|2007->568|2056->589|2158->660|2203->677|2274->721|2305->743|2344->744|2393->765|2468->813|2573->896|2615->919|2628->923|2667->924|2716->945|2791->993|2805->998|2857->1029|2911->1052|2956->1069|3085->1248|3134->1270|3209->1336|3248->1337|3301->1362|3530->1572|3543->1576|3582->1577|3635->1602|3798->1734|3847->1763|3896->1828|3945->1887|3994->1974|4043->2004|4092->2025|4447->2427|4500->2468|4553->2517|4606->2542|5069->2990|5130->3023|6008->3870|6040->3875
+>>>>>>> master
                   LINES: 24->1|25->2|26->3|31->5|36->5|38->7|40->9|40->9|40->9|41->10|44->13|44->13|44->13|47->16|47->16|47->16|48->17|50->19|50->19|50->19|51->20|53->22|54->23|56->25|56->25|56->25|57->26|58->27|58->27|59->28|59->28|59->28|60->29|61->30|61->30|61->30|62->31|63->32|67->36|68->37|68->37|68->37|69->38|73->42|73->42|73->42|74->43|77->46|78->47|79->48|80->49|81->50|82->51|83->52|91->60|92->61|93->62|94->63|105->74|106->75|125->94|126->95
                   -- GENERATED --
               */

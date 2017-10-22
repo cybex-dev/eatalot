@@ -5,25 +5,31 @@ import models.Finance.Payment;
 import models.Order.CustomerOrder;
 import models.Order.OrderSchedule;
 import models.User.User;
+import utility.StatusId;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "customer")
-public class Customer extends User {
+public class Customer extends User implements StatusId{
 
     private Boolean student = false;
     private Boolean emailVerifiedStatus = false;
     private boolean complete = false;
     private Double accBalance = 0.00;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private OrderSchedule orderSchedule;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<CustomerOrder> orders = new ArrayList<>();
 
     public Customer() {
         super();
@@ -48,6 +54,21 @@ public class Customer extends User {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Boolean isStudent() {
+        return this.isStudent;
+    }
+
+    public void setStudent(Boolean status) {
+        this.isStudent = status;
+            save();
+    }
+
+    public int countActiveOrders(){
+        return orders.stream().filter(customerOrder -> !customerOrder.getStatusId().equals(UNSUBMITTED)
+                && !customerOrder.getStatusId().equals(COMPLETE)
+                && !customerOrder.getStatusId().equals(CANCELLED)).collect(Collectors.toList()).size();
     }
 
     /**
@@ -168,6 +189,10 @@ public class Customer extends User {
 
     public void setStudent(Boolean student) {
         this.student = student;
+    }
+
+    public static Customer findCustomerByUserId(String userId){
+        return find.query().where().eq("userId", userId).findOne();
     }
 
     public boolean isComplete() {

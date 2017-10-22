@@ -1,6 +1,8 @@
 package libs;
 
 import controllers.Application.AppTags;
+import io.ebeaninternal.server.lib.util.Str;
+import models.Order.CustomerOrder;
 import org.apache.commons.mail.EmailAttachment;
 import play.Environment;
 import play.api.Play;
@@ -86,10 +88,21 @@ public class Mailer {
         return false;
     }
 
+    public static boolean notifyOrderStatusChange(CustomerOrder order, String before, String after, String address){
+        Email email = Mailer.StandardEmail()
+                .addTo(address)
+                .setSubject("Your EatAloT order #" + order.getOrderId() + " status has changed to " + after)
+                .setBodyHtml("Hey there, " + order.getCustomer().getName() +
+                        "<br/><br/>Your order status has changed from: " + before +
+                        " to " + after +
+                        "<br/><br/>Check your dashboard for more info " +
+                        "<br/><br/>Regards," +
+                        "<br/>The " + AppTags.General.SITENAME.toString() + " Team");
+        return new Mailer().sendEmail(email);
+    }
 
 
-
-    public boolean sendEmail(Email email) {
+    private boolean sendEmail(Email email) {
         try {
             MailerClient mailer = mailerClient;
             mailer.send(email);

@@ -1,0 +1,32 @@
+@import java.util.List
+@import models.Order.CustomerOrder
+@import helper._
+@(list: List[CustomerOrder])
+
+<!DOCTYPE html>
+<html>
+    <div class="center-wrapper">
+        <table class="fill-wrapper">
+            <tr class="bottom_row">
+                <th>Order ID</th>
+                <th>Status</th>
+            </tr>
+            @for(x <- 0 until list.size()){
+                @form(CSRF(controllers.Order.routes.OrderController.activeOrderAction(list.get(x).getOrderId))) {
+                    <tr class="center-text">
+                        <td>@list.get(x).getOrderId</td>
+                        <td>@list.get(x).getStatusId</td>
+                    </tr>
+                    <tr class="bottom_row">
+                        <td><button type="submit" value="view" name="action">View</button></td>
+                        @if(list.get(x).getStatusId == "pending") {
+                            <td><button type="submit" value="cancel" name="action">Cancel</button></td>
+                        }else {
+                            <td></td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</html>

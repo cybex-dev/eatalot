@@ -5,10 +5,7 @@ import annotations.Routing.CustomersOnly;
 import annotations.Routing.CustomersStrictOnly;
 import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import annotations.SessionVerifier.RequiresActive;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import controllers.Application.AppTags;
 import controllers.Application.AppTags.*;
 import libs.Mailer;
@@ -40,7 +37,6 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static controllers.Application.AppTags.*;
 import static controllers.Application.AppTags.AppCookie.buildCookie;
 import static controllers.Application.AppTags.AppCookie.user_id;
 
@@ -247,9 +243,9 @@ public class CustomerController extends Controller implements CRUD {
         Customer c = userList.get(0);
         if (c.getToken().isEmpty())
             return notFound(invalid.render("Verification URL has expired, please request a new email verification link"));
-        if (c.getEmailVerified())
+        if (c.getEmailVerifiedStatus())
             return badRequest(invalid.render("Your email has already been verified"));
-        c.setEmailVerified(true);
+        c.setEmailVerifiedStatus(true);
         c.save();
         return ok(verified.render());
 
@@ -401,7 +397,7 @@ public class CustomerController extends Controller implements CRUD {
         if (c.completeCheck())
             c.setComplete(true);
         else {
-            if (!c.isVerified()) {
+            if (!c.getEmailVerifiedStatus()) {
                 CompletableFuture.runAsync(() -> {
                     if (Mailer.SendVerificationEmail(c.getEmail(), c.getToken())) {
                         flash().put(FlashCodes.info.toString(), "Please verify for your email address, we will be sending you another email verification link");

@@ -13,35 +13,35 @@
                     <td>R @order.getPaymentObject().getAmount()</td>
                 </tr>
                 <tr>
-                @if(customer.isStudent){
-                    <td>Discount:</td>
-                    <td>%15.00</td>
-                }else{
-                    <td>Discount:</td>
-                    <td>%0.00</td>
-                }
+                    @if(customer.getStudent){
+                        <td>Discount:</td>
+                        <td>%15.00</td>
+                    }else{
+                        <td>Discount:</td>
+                        <td>%0.00</td>
+                    }
                 </tr>
                 <tr>
-                @if(customer.isStudent){
-                    <td>Total Cost:</td>
-                    <td>R @(order.getPaymentObject().getAmount()- order.getPaymentObject().getAmount() * 0.15)</td>
-                }else{
-                    <td>Total Cost:</td>
-                    <td>R @order.getPaymentObject().getAmount()</td>
-                }
+                    @if(customer.getStudent){
+                        <td>Total Cost:</td>
+                        <td>R @(order.getPaymentObject().getAmount()- order.getPaymentObject().getAmount() * 0.15)</td>
+                    }else{
+                        <td>Total Cost:</td>
+                        <td>R @order.getPaymentObject().getAmount()</td>
+                    }
                 </tr>
                 <tr>
                     <td>Select Payment Option:</td>
 
-                    @*TODO: Integrate Customer to Order, Customer object needed to check balance.*@
-                    @if(customer.getBalanceNumeric >= order.getPaymentObject.getAmount){
+                    @*TODO: Integrate Customer to Order, Customer object needed to check accBalance.*@
+                    @if(customer.getAccBalance >= order.getPaymentObject.getAmount){
                         <td>
                             <label for="credit">Credit</label>
                             <input id="credit" type="radio" name="payment" value="credit">
                         </td>
                     }else{
                         <td>
-                            <p>Insufficient balance for credit payment.</p>
+                            <p>Insufficient accBalance for credit payment.</p>
                         </td>
                     }
                     @*<td>*@

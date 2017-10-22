@@ -4,37 +4,62 @@
 @import models.User.Customer.Customer
 @import Global.Static.masterpage
 
-
 @(customerForm: Form[Customer])
 
-@bodyContent = {
-    <h1>Edit User</h1>
-    <br/>
-@form( action = controllers.User.routes.AdminController.updateCustomer() ){
-    @CSRF.formField
-    @inputText(customerForm("userId"), '_class -> "hidden-field")
-    @inputText(customerForm("name"), '_name -> "Name")
-    @inputText(customerForm("surname"), '_name -> "Surname")
-    @inputText(customerForm("email"), '_name -> "Email")
-    @inputText(customerForm("cellNumber"), '_name -> "Cell Number")
-    @inputText(customerForm("password"), '_class -> "hidden-field")
-    @inputText(customerForm("balance"), '_class -> "hidden-field")
-    @inputText(customerForm("address"), '_class -> "hidden-field")
-    @inputText(customerForm("orderSchedule"), '_class -> "hidden-field")
-    <br/>
-    @checkbox(customerForm("isStudent"), '_name -> "Is a Student")
-    @checkbox(customerForm("emailVerified"), '_name -> "Email Verified")
-    @checkbox(customerForm("isComplete"), '_name -> "Profile Complete")
-    @checkbox(customerForm("isActive"), '_name -> "Account Active State")
-    <br/>
-    @inputText(customerForm("balance"), '_name -> "Balance:")
-    <br/>
-    <div class="row">
-        <div class="pull-center">
-            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
-        </div>
-    </div>
-}
+@removeButton = {
+    @if(customerForm.get().getUserId != null) {
+        @helper.form( action = controllers.User.routes.AdminController.removeCustomer()){
+        @CSRF.formField
+        <input class="btn btn-danger button-padding button-small" value="Remove" type="submit">
+        }
+    }
 }
 
-@masterpage.apply(" :: Edit Customer", bodyContent)
+    @bodyContent = {
+        <div class="container-dashboard">
+            <h1>Edit User</h1>
+            <br/>
+
+            <div class="row margin-left-large">
+                <div class="pull-right">
+                @removeButton
+
+                </div>
+                <div class="input-container">
+                    <div class="col-md-12">
+                    @form(action = controllers.User.routes.AdminController.updateCustomer()) {
+                        <div class="pull-left margin-left-large">
+                            @CSRF.formField
+                            @checkbox(customerForm("accountActive"), '_name -> "Account Enabled:")
+                            <br/>
+
+                            @inputText(customerForm("name"), '_name -> "Name")
+                            @inputText(customerForm("surname"), '_name -> "Surname")
+                            @inputText(customerForm("cellNumber"), '_name -> "Cell Number")
+                            <br/>
+                            @inputText(customerForm("email"), '_name -> "Email")
+                            @checkbox(customerForm("emailVerifiedStatus"), '_name -> "Email Verified")
+                            @checkbox(customerForm("student"), '_name -> "Is a Student")
+                            <br/>
+                            @inputText(customerForm("password"), '_name -> "Password")
+                            @inputText(customerForm("accBalance"), '_name -> "Balance:")
+                            <br/>
+                            @checkbox(customerForm("complete"), '_name -> "Profile Complete")
+                            <br/>
+                        </div>
+                        @inputText(customerForm("userId"), '_class -> "hidden-field")
+                    }
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="pull-center">
+                    <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+                </div>
+            </div>
+
+        </div>
+    }
+
+    @masterpage.apply(" :: Edit Customer", bodyContent)

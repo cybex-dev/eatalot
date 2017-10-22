@@ -50,8 +50,13 @@ Seq[Any](format.raw/*1.17*/("""
 
               /*
                   -- GENERATED --
+<<<<<<< HEAD
+                  DATE: Sun Oct 22 22:44:13 SAST 2017
+                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Html5/figure.scala.html
+=======
                   DATE: Sun Oct 22 11:23:04 SAST 2017
                   SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Global/Html5/figure.scala.html
+>>>>>>> master
                   HASH: df865194cb1674ac0c72e4c8d07f132364b32226
                   MATRIX: 960->1|1070->16|1098->18|1137->32|1164->39|1191->40
                   LINES: 28->1|33->1|35->3|36->4|36->4|37->5

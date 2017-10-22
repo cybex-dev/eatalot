@@ -7,28 +7,59 @@
 
 @(staffForm: Form[Staff])
 
-@bodyContent = {
-    <h1>Edit User</h1>
-    <br/>
-@form( action = controllers.User.routes.AdminController.updateStaff() ){
+@removeButton = {
+@if(staffForm.get().getUserId != null) {
+    @helper.form( action = controllers.User.routes.AdminController.removeStaff()){
     @CSRF.formField
-    @inputText(staffForm("userId"), '_class -> "hidden-field")
-    @inputText(staffForm("name"), '_name -> "Name")
-    @inputText(staffForm("surname"), '_name -> "Surname")
-    @inputText(staffForm("alias"), '_name -> "Alias")
-    @inputText(staffForm("email"), '_name -> "Email")
-    @inputText(staffForm("cellNumber"), '_name -> "Cell Number")
-    @inputText(staffForm("password"), '_name -> "Password")
-    @inputText(staffForm("token"), '_class -> "hidden-field")
-    <br/>
-    @checkbox(staffForm("isKitchenStaff"), '_name -> "Is kitchen staff")
-    @checkbox(staffForm("isActive"), '_name -> "Account Active State")
-    <div class="row">
-        <div class="pull-center">
-            <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+    <input class="btn btn-danger button-padding button-small" value="Remove" type="submit">
+    }
+}
+}
+
+@bodyContent = {
+
+    <div class="container-dashboard">
+        <h1>Edit User</h1>
+        <br/>
+
+        <div class="row margin-left-large">
+            <div class="pull-right">
+                @removeButton
+            </div>
+            <div class="input-container">
+                <div class="col-md-12">
+
+                @form(action = controllers.User.routes.AdminController.updateStaff()) {
+                    <div class="pull-left margin-left-large">
+                        @CSRF.formField
+                        @checkbox(staffForm("accountActive"), '_name -> "Account Enabled")
+                        <br/>
+                        @inputText(staffForm("name"), '_name -> "Name")
+                        @inputText(staffForm("surname"), '_name -> "Surname")
+                        <br/>
+                        @inputText(staffForm("loginAlias"), '_name -> "Alias")
+                        @checkbox(field = staffForm("kitchenStaffStatus"), '_name -> "Kitchen Member")
+                        <br/>
+                        @inputText(staffForm("email"), '_name -> "Email")
+                        @inputText(staffForm("cellNumber"), '_name -> "Cell Number")
+                        @inputText(staffForm("password"), '_name -> "Password")
+                        <br/>
+                    </div>
+                    @inputText(staffForm("token"), '_class -> "hidden-field")
+                    @inputText(staffForm("userId"), '_class -> "hidden-field")
+                </div>
+                }
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="pull-center">
+                <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
+            </div>
         </div>
     </div>
-}
+    </div>
+    <br/>
 }
 
 @masterpage.apply(" :: Edit Customer", bodyContent)

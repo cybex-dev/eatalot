@@ -108,7 +108,7 @@ public class DeliveryStaffController extends Controller {
     public CompletionStage<Result> doEdit(){
         Staff staff = Staff.find.byId(session().get(AppTags.AppCookie.user_id.toString()));
         Form<UserProfile> userDetailsForm = formFactory.form(UserProfile.class).bindFromRequest();
-        if (!staff.isDeliveryStaff()){
+        if (!staff.getDeliveryStaff()){
             flash().put(AppTags.FlashCodes.danger.toString(), "You are trying to edit someone else's profile, this will be reported!");
             return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.forbiddenAccess()));
         }

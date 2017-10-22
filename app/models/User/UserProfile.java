@@ -96,7 +96,7 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
                 setName(staff.getName());
                 setSurname(staff.getSurname());
                 setCellNumber(staff.getCellNumber());
-                setAlias(staff.getAlias());
+                setAlias(staff.getLoginAlias());
                 setPassword(staff.getPassword());
                 confirmPassword = staff.getPassword();
                 break;
@@ -140,12 +140,12 @@ public class UserProfile extends UserDetails implements Serializable, Constraint
                     return;
 
                 if (userType == AppTags.AppCookie.UserType.DELIVERY &&
-                        staff.isKitchenStaff())
+                        staff.getKitchenStaffStatus())
                     return;
                 staff.setName(getName());
                 staff.setSurname(getSurname());
                 staff.setCellNumber(getCellNumber());
-                staff.setAlias(getAlias());
+                staff.setLoginAlias(getAlias());
 
                 if (!passwordsEmpty() && !staff.getPassword().equals(getPassword())) {
                     staff.setPassword(getPassword());

@@ -2,11 +2,9 @@ package models.User.Admin;
 
 import models.User.Customer.Customer;
 import models.User.Staff;
-import org.jetbrains.annotations.NotNull;
 import utility.NumberAwareStringComparator;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class UserItem  {
@@ -14,7 +12,7 @@ public class UserItem  {
     private boolean isKitchenStaff = false, isStaff = false, isStudent = false, isCustomer = false, isVerified = false, isComplete = false, isActive = false;
 
     public static UserItem UserCustomer(Customer customer) {
-        return UserCustomer(customer.getUserId(), customer.getName(), customer.getSurname(), customer.getEmail(), customer.getCellNumber(), customer.isStudent(), customer.isVerified(), customer.isComplete(), customer.getActive());
+        return UserCustomer(customer.getUserId(), customer.getName(), customer.getSurname(), customer.getEmail(), customer.getCellNumber(), customer.getStudent(), customer.getEmailVerifiedStatus(), customer.isComplete(), customer.getAccountActive());
     }
 
     public static UserItem UserCustomer(String userId, String name, String surname, String email, String cellNumber, boolean isStudent, boolean isVerified, boolean isComplete, boolean isActive) {
@@ -33,7 +31,7 @@ public class UserItem  {
     }
 
     public static UserItem UserStaff(Staff staff) {
-        return UserStaff(staff.getUserId(), staff.getName(), staff.getSurname(), staff.getAlias(), staff.getEmail(), staff.getCellNumber(), staff.isKitchenStaff(), staff.getActive());
+        return UserStaff(staff.getUserId(), staff.getName(), staff.getSurname(), staff.getLoginAlias(), staff.getEmail(), staff.getCellNumber(), staff.getKitchenStaffStatus(), staff.getAccountActive());
     }
 
     public static UserItem UserStaff(String userId, String name, String surname, String alias, String email, String cellNumber, boolean isKitchenStaff, boolean isActive) {

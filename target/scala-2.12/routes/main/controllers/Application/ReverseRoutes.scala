@@ -1,7 +1,12 @@
 
 // @GENERATOR:play-routes-compiler
+<<<<<<< HEAD
+// @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
+// @DATE:Mon Oct 23 01:02:05 SAST 2017
+=======
 // @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
 // @DATE:Sun Oct 22 14:40:06 SAST 2017
+>>>>>>> master
 
 import play.api.mvc.Call
 
@@ -25,7 +30,7 @@ package controllers.Application {
       Call("GET", _prefix + { _defaultPrefix } + "ContactUs")
     }
   
-    // @LINE:262
+    // @LINE:264
     def invalidRoute(path:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("path", path))

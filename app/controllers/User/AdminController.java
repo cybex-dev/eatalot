@@ -16,6 +16,7 @@ import play.api.mvc.Call;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
+import play.data.validation.ValidationError;
 import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
@@ -72,8 +73,8 @@ public class AdminController extends Controller {
         final List<UserItem> deliveryList = new ArrayList<>();
         return CompletableFuture.runAsync(() -> {
             customerList.addAll(Customer.find.all().stream().map(UserItem::UserCustomer).sorted(UserItem::compare).collect(Collectors.toList()));
-            kitchenList.addAll(Staff.find.all().stream().filter(Staff::isKitchenStaff).map(UserItem::UserStaff).sorted(UserItem::compare).collect(Collectors.toList()));
-            deliveryList.addAll(Staff.find.all().stream().filter(Staff::isDeliveryStaff).map(UserItem::UserStaff).sorted(UserItem::compare).collect(Collectors.toList()));
+            kitchenList.addAll(Staff.find.all().stream().filter(Staff::getKitchenStaffStatus).map(UserItem::UserStaff).sorted(UserItem::compare).collect(Collectors.toList()));
+            deliveryList.addAll(Staff.find.all().stream().filter(Staff::getDeliveryStaff).map(UserItem::UserStaff).sorted(UserItem::compare).collect(Collectors.toList()));
 
         }, httpExecutionContext.current()).thenApply(u -> ok(manageUsers.render(customerList, kitchenList, deliveryList)));
     }
@@ -221,16 +222,20 @@ public class AdminController extends Controller {
             flash().put(AppTags.FlashCodes.danger.toString(), "Please ensure all form fields are entered!");
             return badRequest(viewCustomer.render(form));
         }
-        Customer editedCustomer = form.get();
+        Customer editedCustomer = form.discardingErrors().get();
         String id = editedCustomer.getUserId();
         Customer customer = null;
         if (id != null && !id.isEmpty()){
             customer = Customer.find.byId(id);
+            customer.fill(editedCustomer);
+            customer.update();
         } else {
             customer = new Customer();
+            customer.generateId();
+            customer.init();
+            customer.fill(editedCustomer);
+            customer.save();
         }
-        customer.fill(editedCustomer);
-        customer.save();
         flash().put(AppTags.FlashCodes.success.toString(), "Customer information updated");
         return redirect(controllers.User.routes.AdminController.manageUsers());
     }
@@ -248,65 +253,75 @@ public class AdminController extends Controller {
         Staff staff = null;
         if (id != null && !id.isEmpty()){
             staff = Staff.find.byId(id);
+            staff.fill(editedStaff);
+            staff.update();
         } else {
             staff = new Staff();
-
+            staff.generateId();
+            staff.fill(editedStaff);
+            staff.save();
         }
-        staff.fill(editedStaff);
-        staff.save();
-        flash().put(AppTags.FlashCodes.danger.toString(), "Staff information updated");
+        flash().put(AppTags.FlashCodes.success.toString(), "Staff information updated");
         return redirect(controllers.User.routes.AdminController.manageUsers());
     }
 
     @With(RequiresActive.class)
     @AdminOnly
-    public Result removeMeal(String mealId) {
+    public Result removeMeal() {
+        String mealId = formFactory.form(Meal.class).bindFromRequest().discardingErrors().get().getMealId();
         Meal meal = Meal.find.byId(mealId);
         if (meal == null) {
             flash().put(AppTags.FlashCodes.danger.toString(), "Failed to delete meal!");
             return badRequest();
         }
         String mealName = meal.getDescription();
-        meal.delete();
-        flash().put(AppTags.FlashCodes.success.toString(), "Meal \'" + mealName + "\' deleted!");
-        return ok();
+        boolean result = meal.delete();
+        if (result) {
+            flash().put(AppTags.FlashCodes.success.toString(), "Meal \'" + mealName + "\' deleted!");
+        } else {
+            flash().put(AppTags.FlashCodes.warning.toString(), "Meal \'" + mealName + "\' could not be deleted!");
+        }
+        return redirect(controllers.User.routes.AdminController.manageMeals());
+    }
+
+
+    @With(RequiresActive.class)
+    @AdminOnly
+    public Result removeCustomer() {
+        Form<Customer> customerForm = formFactory.form(Customer.class).bindFromRequest();
+        String userId = customerForm.discardingErrors().get().getUserId();
+        Customer customer = Customer.find.byId(userId);
+        if (customer == null) {
+            flash().put(AppTags.FlashCodes.danger.toString(), "Failed to delete customer!");
+            return badRequest();
+        }
+        String customerName = customer.getName();
+        boolean result = customer.delete();
+        if (result) {
+            flash().put(AppTags.FlashCodes.success.toString(), "Customer \'" + customerName + "\' deleted!");
+        } else {
+            flash().put(AppTags.FlashCodes.warning.toString(), "Customer \'" + customerName + "\' could not be deleted!");
+        }
+        return redirect(controllers.User.routes.AdminController.manageUsers());
     }
 
     @With(RequiresActive.class)
     @AdminOnly
-    public Result removeUser(String userId, String userType) {
-        AppTags.AppCookie.UserType type = AppTags.AppCookie.UserType.parse(userType);
-        if (type == null) {
-            flash().put(AppTags.FlashCodes.danger.toString(), "Malformed data receieved!");
-            return redirect(controllers.User.routes.AdminController.manageUsers());
+    public Result removeStaff() {
+        String userId = formFactory.form(Staff.class).bindFromRequest().discardingErrors().get().getUserId();
+        Staff staff = Staff.find.byId(userId);
+        if (staff == null) {
+            flash().put(AppTags.FlashCodes.danger.toString(), "Failed to delete staff member!");
+            return badRequest();
         }
-        switch (type) {
-            case DELIVERY:
-            case KITCHEN: {
-                Staff staff = Staff.find.byId(userId);
-                String staffName = staff.getName();
-                boolean result = staff.delete();
-                if (result) {
-                    flash().put(AppTags.FlashCodes.success.toString(), "Staff \'" + staffName + "\' deleted!");
-                } else {
-                    flash().put(AppTags.FlashCodes.warning.toString(), "Staff \'" + staffName + "\' could not be deleted!");
-                }
-                break;
-            }
-
-            case CUSTOMER: {
-                Customer customer = Customer.find.byId(userId);
-                String customerName = customer.getName();
-                boolean result = customer.delete();
-                if (result) {
-                    flash().put(AppTags.FlashCodes.success.toString(), "Customer \'" + customerName + "\' deleted!");
-                } else {
-                    flash().put(AppTags.FlashCodes.warning.toString(), "Customer \'" + customerName + "\' could not be deleted!");
-                }
-                break;
-            }
+        String staffName = staff.getName();
+        boolean result = staff.delete();
+        if (result) {
+            flash().put(AppTags.FlashCodes.success.toString(), "Staff \'" + staffName + "\' deleted!");
+        } else {
+            flash().put(AppTags.FlashCodes.warning.toString(), "Staff \'" + staffName + "\' could not be deleted!");
         }
-        return ok();
+        return redirect(controllers.User.routes.AdminController.manageUsers());
     }
 
     public Result adminJSRoutes() {
@@ -316,8 +331,7 @@ public class AdminController extends Controller {
                         routes.javascript.AdminController.editMeal(),
                         routes.javascript.AdminController.editCustomer(),
                         routes.javascript.AdminController.editStaff(),
-                        routes.javascript.AdminController.removeMeal(),
-                        routes.javascript.AdminController.removeUser()
+                        routes.javascript.AdminController.removeMeal()
                 )
         ).as("text/javascript");
     }

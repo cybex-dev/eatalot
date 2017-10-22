@@ -61,7 +61,7 @@ public class Utility {
         session.put(AppCookie.user_token.toString(), csrfToken);
         String userType = UserType.CUSTOMER.toString();
         if (user instanceof Staff)
-            userType = ((Staff)user).isKitchenStaff() ? UserType.KITCHEN.toString() : UserType.DELIVERY.toString();
+            userType = ((Staff)user).getKitchenStaffStatus() ? UserType.KITCHEN.toString() : UserType.DELIVERY.toString();
         session.put(AppCookie.user_type.toString(), userType);
         session.put(SessionTags.session_status.toString(), SessionTags.valid.toString());
         String displayName = "User";

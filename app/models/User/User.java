@@ -2,15 +2,12 @@ package models.User;
 
 import io.ebean.Finder;
 import io.ebean.Model;
-import models.User.Customer.Customer;
 import play.data.validation.Constraints;
 import utility.IdGenerator;
-import utility.RandomString;
 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Pattern;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by cybex on 2017/07/08.
@@ -22,32 +19,34 @@ public abstract class User extends Model {
     @Id
     private String userId;
 
-    private String name;
+    private String name = "";
 
-    private String surname;
+    private String surname = "";
 
-    @Pattern(regexp="[\\S]{8,}", message="Check password length, minimum length of 8\nCheck that no spaces are used")
-    private String password;
+    @Pattern(regexp = "[\\S]{8,}", message = "Check password length, minimum length of 8\nCheck that no spaces are used")
+    private String password = "";
 
-    @Pattern(regexp="[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message="Invalid email address!")
-    private String email;
+//    @Pattern(regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid email address!")
+    private String email = "";
 
-    @Pattern( regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
-    private String cellNumber;
+    @Pattern(regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
+    private String cellNumber = "";
 
-    private String token;
+    private String token = "";
 
-    private Boolean isActive;
+    private Boolean accountActive = false;
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 
-    public User(){
+    public User() {
+    }
+
+    public void generateId() {
         userId = IdGenerator.generate();
     }
 
 
-
-    public User( @Constraints.Required String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
+    public User(@Constraints.Required String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -56,7 +55,7 @@ public abstract class User extends Model {
         this.cellNumber = cellNumber;
     }
 
-    public boolean completeCheck(){
+    public boolean completeCheck() {
         return (getName() != null &&
                 !getName().equals("") &&
                 getSurname() != null &&
@@ -65,13 +64,9 @@ public abstract class User extends Model {
                 !getCellNumber().equals(""));
     }
 
-    //// TODO: 2017/08/14
-    public boolean isSafePassword(){
-        return true;
-    }
-
     /**
      * Deep comparison on user object. Ignores userId field
+     *
      * @param obj user object to compare
      * @return true if object data is equal
      */
@@ -85,78 +80,12 @@ public abstract class User extends Model {
                 u.email.equals(email));
     }
 
-    public void setToken(String token) {
-        this.token = token;
-            save();
-    }
-
-    public String getToken() {
-        return token;
-    }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(surname).append(", ").append(name).append(" {").append(email);
         stringBuilder.append("} - ");
         return stringBuilder.toString();
-    }
-
-    public String getUserId() {
-        return String.valueOf(userId);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-        save();
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-        save();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-        save();
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-        save();
-    }
-
-    public String getCellNumber() {
-        return cellNumber;
-    }
-
-    public void setCellNumber(String cellNumber) {
-        this.cellNumber = cellNumber;
-        save();
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
     }
 
     public void fill(User user) {
@@ -168,11 +97,73 @@ public abstract class User extends Model {
             this.cellNumber = user.cellNumber;
         if (!this.email.equals(user.email))
             this.email = user.email;
-        if (this.isActive != user.isActive)
-            this.isActive = user.isActive;
+        if (this.accountActive != user.accountActive)
+            this.accountActive = user.accountActive;
+        if (this.password.isEmpty())
+            this.setPassword(user.password);
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCellNumber() {
+        return cellNumber;
+    }
+
+    public void setCellNumber(String cellNumber) {
+        this.cellNumber = cellNumber;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Boolean getAccountActive() {
+        return accountActive;
+    }
+
+    public void setAccountActive(Boolean accountActive) {
+        this.accountActive = accountActive;
     }
 }

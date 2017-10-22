@@ -14,7 +14,9 @@ import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by dylan on 2017/07/18.
@@ -23,48 +25,84 @@ import java.util.ArrayList;
 public class OrderController extends Controller implements StatusId {
 
 
+    /**
+     * TODO: Possible bug:
+     *          Logged in, hit submit order, redirected to page that said I was verified?
+     *          Account is not verified.
+     *
+     * Allows for the viewing of the final page in submitting an order
+     * Displays total cost and any associated discounts
+     * Allows customer to select payment method - credit/cash
+     * Allows customer to select date and time for delivery
+     * @return
+     */
     public Result getSubmitPage(){
-        //TODO: Uncomment once Customer is integrated
+        Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
+        if(customer == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(!customer.isComplete())
+            return redirect(controllers.User.routes.CustomerController.completeRegistration());
+
+        CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
         return ok(master.render("Finalise Cart",
-                submitCart.render(
-                        CustomerOrder.findOrderById(session("orderId")),
-                        Customer.findCustomerByEmail(session("email")))));
-//        Customer customer = new Customer();
-//        customer.setStudent(true);
-
-//        return ok(master.render("Finalise Cart",
-//                submitCart.render(
-//                        CustomerOrder.findOrderById(session("orderId")),
-//                        customer)));
-
+                masterOrder.render(
+                        submitCart.render(order, order.getCustomer()))));
     }
 
+    /**
+     * Allows for the viewing of a Customers order history
+     * Displays all Customer orders associated with the customer's userId
+     * @return
+     */
     public Result getHistoryPage() {
         return ok(master.render("Order History",
-                createdOrders.render(CustomerOrder.findOrderByUserId(session("email")))));
+                masterOrder.render(
+                        createdOrders.render(CustomerOrder.findOrderByUserId(session("email"))))));
     }
 
+    /**
+     * Allows for the viewing of a CustomerOrder
+     * Displays all MealOrders of a CustomerOrder
+     * @param orderId of order to be viewed
+     * @return
+     */
     public Result getViewOrder(String orderId) {
         return ok(master.render("View Order",
-                viewOrder.render(CustomerOrder.findAllMealsFromOrder(orderId))));
+                masterOrder.render(
+                        viewOrder.render(CustomerOrder.findAllMealsFromOrder(orderId)))));
     }
 
     public Result removeOrder(String orderId){
         return redirect(controllers.Order.routes.OrderController.getHistoryPage());
     }
 
+    /**
+     * Fetches the menu type - Breakfast, Lunch, Dinner, Desert, Snacks - selected by user.
+     * Default menu is Breakfast when none are selected.
+     * @return
+     */
     public Result getMenu(){
-        // Uncomment and comment to add data after evolutions
-//        addData();
         if(flash("menuType") == null){
-            return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Breakfast"), 0)));
+            return ok(master.render("Place Order",
+                    masterOrder.render(
+                            menu.render(Meal.findMealsByType("Breakfast"), 0))));
         }
         switch(flash("menuType")){
-            case "0": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Breakfast"), 0)));
-            case "1": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Lunch"), 1)));
-            case "2": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Dinner"), 2)));
-            case "3": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Desert"), 3)));
-            case "4": return ok(master.render("Place Order", menu.render(Meal.findMealsByType("Snacks"), 4)));
+            case "0": return ok(master.render("Place Order",
+                    masterOrder.render(
+                            menu.render(Meal.findMealsByType("Breakfast"), 0))));
+            case "1": return ok(master.render("Place Order",
+                    masterOrder.render(
+                            menu.render(Meal.findMealsByType("Lunch"), 1))));
+            case "2": return ok(master.render("Place Order",
+                    masterOrder.render(
+                            menu.render(Meal.findMealsByType("Dinner"), 2))));
+            case "3": return ok(master.render("Place Order",
+                    masterOrder.render(
+                            menu.render(Meal.findMealsByType("Desert"), 3))));
+            case "4": return ok(master.render("Place Order",
+                    masterOrder.render(
+                            menu.render(Meal.findMealsByType("Snacks"), 4))));
             default: return badRequest();
         }
     }
@@ -80,29 +118,20 @@ public class OrderController extends Controller implements StatusId {
             return redirect(controllers.User.routes.UserController.login());
         if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())) {
             CustomerOrder order;
-            Customer customer = Customer.find.byId(session(AppTags.AppCookie.user_id.toString()));
+            Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
             if(session("orderId") == null){
-                order = new CustomerOrder();
-                order.setUserId(session(AppTags.AppCookie.user_id.toString()));
+                order = new CustomerOrder(customer);
+                order.setCustomer(customer);
                 order.setStatusId(UNSUBMITTED);
 
-                Payment payment = new Payment(order.getOrderId());
-                order.setPaymentId(payment.getPaymentId());
-                order.setUserId(customer.getUserId());
-                payment.setCustomerUserId(customer.getUserId());
-
+                Payment payment = new Payment();
+                order.setPayment(payment);
+                order.setCustomer(customer);
                 customer.getOrders().add(order);
-                customer.getPayments().add(payment);
+                customer.save();
 
-//                Ebean.save(customer);
-                customer.update();
-
-                Ebean.insert(order);
-                Ebean.insert(payment);
-
-//                Ebean.save(order);
-//                Ebean.save(payment);
-
+                payment.insert();
+                order.insert();
 
                 session("orderId", String.valueOf(order.getOrderId()));
                 createMealOrder(mealId);
@@ -169,11 +198,14 @@ public class OrderController extends Controller implements StatusId {
         if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())) {
             if (session("orderId") != null)
                 return ok(master.render("Cart",
-                        cart.render(
-                                CustomerOrder.findAllMealsFromOrder(session("orderId")),
-                                CustomerOrder.findOrderById(session("orderId")))));
+                        masterOrder.render(
+                                cart.render(
+                                        CustomerOrder.findAllMealsFromOrder(session("orderId")),
+                                        CustomerOrder.findOrderById(session("orderId"))))));
             else
-                return ok(master.render("Cart", cart.render(new ArrayList<>(), null)));
+                return ok(master.render("Cart",
+                        masterOrder.render(
+                                cart.render(new ArrayList<>(), null))));
         }
         else
             return redirect(controllers.User.routes.UserController.login());
@@ -189,26 +221,24 @@ public class OrderController extends Controller implements StatusId {
     public Result submitCart(){
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
         Payment payment = order.getPaymentObject();
-        Customer customer = Customer.findCustomerByEmail(session("email"));
+        Customer customer = order.getCustomer();
 
         order.setStatusId(PENDING).update();
 
-        // ===== UNCOMMENT ONCE CUSTOMER IS INTEGRATED =====
-//        if(customer.isStudent()){
-//            payment.setAmount(payment.getAmount() - 0.15);
-//            payment.update();
-//        }
+        if(customer.isStudent()){
+            payment.setAmount(payment.getAmount() - 0.15);
+            payment.update();
+        }
 
         String[] result = request().body().asFormUrlEncoded().get("payment");
         switch(result[0].toLowerCase()){
             case "cash":
-                payment.setCash(true);
+                payment.setCash(true).setPaid(false);
                 break;
             case "credit":
-                payment.setCash(false);
-                // UNCOMMENT HERE WHEN INTEGRATED
-//                customer.pay(payment.getAmount());
-//                customer.update();
+                payment.setCash(false).setPaid(true);
+                customer.pay(payment.getAmount());
+                customer.update();
                 break;
         }
 
@@ -218,15 +248,13 @@ public class OrderController extends Controller implements StatusId {
         String[] time = request().body().asFormUrlEncoded().get("time");
         String[] date = request().body().asFormUrlEncoded().get("date");
 
-//        System.out.println("=====HERE====    " + time[0]);
-
-//        try {
-        payment.setDate(date[0]);
-        payment.setTime(time[0]);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//            System.out.println("$$ ERROR: INVALID DATE FORMAT");
-//        }
+        try {
+            Date datetime = utility.Date.readDateTime(time[0] + date[0]);
+            order.setDeliveryDate(datetime);
+            System.out.println(datetime.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         payment.update();
         session("orderId", null);

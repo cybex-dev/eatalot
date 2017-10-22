@@ -5,6 +5,7 @@ import annotations.SessionVerifier.RedirectToDashIfActive;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
 import libs.Mailer;
+import models.Order.CustomerOrder;
 import models.User.Admin.Admin;
 import models.User.Customer.Customer;
 import models.User.Customer.CustomerInfo;
@@ -24,6 +25,7 @@ import views.html.Application.Home.index;
 import views.html.User.User.login;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -225,6 +227,7 @@ public class UserController extends Controller {
 
             case CUSTOMER: {
                 CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(user.getUserId());
+                setCurrentOrder();
                 return customerCheckComplete(customerInfo);
             }
 
@@ -237,6 +240,26 @@ public class UserController extends Controller {
         }
         flash().put(FlashCodes.danger.toString(), "An unknown login error occurred. Close your browser and try again.");
         return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.index()));
+    }
+
+    /**
+     * TODO: ADDED THIS TO FIND AN EXISTING ORDER FOR A CUSTOMER. ADDED TO LINE 230.
+     *
+     * Check if there is an unsubmitted order from a previous session
+     * Resume previous order after logout
+     * Set session to that orderId
+     * There should only ever be one unsubmitted order per user
+     */
+    private void setCurrentOrder(){
+        List<CustomerOrder> lstOrders = CustomerOrder.findOrderByUserId(session(AppTags.AppCookie.user_id.toString()));
+        if (lstOrders != null) {
+            for (CustomerOrder lstOrder : lstOrders) {
+                if (lstOrder.getStatusId().equals("unsubmitted")) {
+                    session("orderId", String.valueOf(lstOrder.getOrderId()));
+                    break;
+                }
+            }
+        }
     }
 
     private CompletionStage<Result> customerCheckComplete(CustomerInfo customerInfo) {

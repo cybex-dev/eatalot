@@ -36,33 +36,39 @@ object ingredients extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.ap
 Seq[Any](format.raw/*5.26*/("""
 
 """),format.raw/*7.1*/("""<html>
-    """),_display_(/*8.6*/if(list.size() == 0)/*8.26*/{_display_(Seq[Any](format.raw/*8.27*/("""
-        """),format.raw/*9.9*/("""<p><i>dust</i></p>
-    """)))}/*10.6*/else/*10.10*/{_display_(Seq[Any](format.raw/*10.11*/("""
-        """),format.raw/*11.9*/("""<table>
+
+    """),_display_(/*9.6*/if(list.size() == 0)/*9.26*/{_display_(Seq[Any](format.raw/*9.27*/("""
+        """),format.raw/*10.9*/("""<p><i>dust</i></p>
+    """)))}/*11.6*/else/*11.10*/{_display_(Seq[Any](format.raw/*11.11*/("""
+        """),format.raw/*12.41*/("""
+        """),format.raw/*13.9*/("""<table class="ingredient-table-wrapper">
             <tr>
-                <td>Description</td>
-                <td>Quantity Ordered</td>
+                <th>Description</th>
+                <th>Quantity Ordered</th>
             </tr>
-            """),_display_(/*16.14*/for(x <- 0 until list.size()) yield /*16.43*/{_display_(Seq[Any](format.raw/*16.44*/("""
-                """),_display_(/*17.18*/form(CSRF(controllers.Order.routes.KitchenController.getIngredientOrderPage(list.get(x).getIngredientId)))/*17.124*/ {_display_(Seq[Any](format.raw/*17.126*/("""
-                    """),format.raw/*18.21*/("""<tr>
-                        <td>"""),_display_(/*19.30*/list/*19.34*/.get(x).getDescription),format.raw/*19.56*/("""</td>
-                        <td>"""),_display_(/*20.30*/list/*20.34*/.get(x).getQtyOrdered),format.raw/*20.55*/("""</td>
+            """),_display_(/*18.14*/for(x <- 0 until list.size()) yield /*18.43*/{_display_(Seq[Any](format.raw/*18.44*/("""
+                """),_display_(/*19.18*/form(CSRF(controllers.Order.routes.KitchenController.getIngredientOrderPage(list.get(x).getIngredientId)))/*19.124*/ {_display_(Seq[Any](format.raw/*19.126*/("""
+                    """),format.raw/*20.21*/("""<tr>
+                        <td>"""),_display_(/*21.30*/list/*21.34*/.get(x).getDescription),format.raw/*21.56*/("""</td>
+                        <td>"""),_display_(/*22.30*/list/*22.34*/.get(x).getQtyOrdered),format.raw/*22.55*/("""</td>
                         <td><button type="submit" name="action" value="order">Order</button></td>
                     </tr>
-                """)))}),format.raw/*23.18*/("""
-            """)))}),format.raw/*24.14*/("""
-        """),format.raw/*25.9*/("""</table>
-    """)))}),format.raw/*26.6*/("""
-    """),format.raw/*27.5*/("""<table>
+                """)))}),format.raw/*25.18*/("""
+            """)))}),format.raw/*26.14*/("""
+        """),format.raw/*27.9*/("""</table>
+        """),format.raw/*28.19*/("""
+    """)))}),format.raw/*29.6*/("""
+
+    """),format.raw/*31.37*/("""
+    """),format.raw/*32.5*/("""<table>
         <tr>
             <td>
-                <a href=""""),_display_(/*30.27*/controllers/*30.38*/.Order.routes.KitchenController.getNewIngredientPage),format.raw/*30.90*/("""">New Ingredient</a>
+                <a href=""""),_display_(/*35.27*/controllers/*35.38*/.Order.routes.KitchenController.getNewIngredientPage),format.raw/*35.90*/("""">New Ingredient</a>
             </td>
         </tr>
     </table>
-</html>"""))
+    """),format.raw/*39.15*/("""
+"""),format.raw/*40.1*/("""</html>"""))
       }
     }
   }
@@ -78,11 +84,11 @@ Seq[Any](format.raw/*5.26*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 04:28:35 SAST 2017
-                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/ingredients.scala.html
-                  HASH: 6de887c4fa10ce02d2e8dd5d674027244eab03ed
-                  MATRIX: 659->1|688->25|722->53|1073->85|1192->109|1220->111|1257->123|1285->143|1323->144|1358->153|1400->177|1413->181|1452->182|1488->191|1650->326|1695->355|1734->356|1779->374|1895->480|1936->482|1985->503|2046->537|2059->541|2102->563|2164->598|2177->602|2219->623|2397->770|2442->784|2478->793|2522->807|2554->812|2645->876|2665->887|2738->939
-                  LINES: 24->1|25->3|26->4|31->5|36->5|38->7|39->8|39->8|39->8|40->9|41->10|41->10|41->10|42->11|47->16|47->16|47->16|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|51->20|51->20|54->23|55->24|56->25|57->26|58->27|61->30|61->30|61->30
+                  DATE: Sun Oct 22 12:05:34 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Kitchen/ingredients.scala.html
+                  HASH: f3b04673a7d6afa0c763c4b7c4ebd5cd290b6d06
+                  MATRIX: 659->1|688->25|722->53|1073->85|1192->109|1220->111|1258->124|1286->144|1324->145|1360->154|1402->178|1415->182|1454->183|1491->224|1527->233|1722->401|1767->430|1806->431|1851->449|1967->555|2008->557|2057->578|2118->612|2131->616|2174->638|2236->673|2249->677|2291->698|2469->845|2514->859|2550->868|2595->895|2631->901|2665->939|2697->944|2788->1008|2808->1019|2881->1071|2979->1151|3007->1152
+                  LINES: 24->1|25->3|26->4|31->5|36->5|38->7|40->9|40->9|40->9|41->10|42->11|42->11|42->11|43->12|44->13|49->18|49->18|49->18|50->19|50->19|50->19|51->20|52->21|52->21|52->21|53->22|53->22|53->22|56->25|57->26|58->27|59->28|60->29|62->31|63->32|66->35|66->35|66->35|70->39|71->40
                   -- GENERATED --
               */
           

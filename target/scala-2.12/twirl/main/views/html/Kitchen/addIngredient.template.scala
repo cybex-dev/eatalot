@@ -34,16 +34,19 @@ object addIngredient extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
 
 Seq[Any](format.raw/*3.36*/("""
 """),format.raw/*4.1*/("""<html>
-    """),_display_(/*5.6*/form(CSRF(controllers.Order.routes.KitchenController.addIngredient()))/*5.76*/{_display_(Seq[Any](format.raw/*5.77*/("""
-        """),_display_(/*6.10*/helper/*6.16*/.inputText(ingredientForm("description"),
+
+    """),format.raw/*6.37*/("""
+    """),_display_(/*7.6*/form(CSRF(controllers.Order.routes.KitchenController.addIngredient()))/*7.76*/{_display_(Seq[Any](format.raw/*7.77*/("""
+        """),_display_(/*8.10*/helper/*8.16*/.inputText(ingredientForm("description"),
             '_name -> "Ingredient Description",
-            '_class -> "text-field")),format.raw/*8.37*/("""
-        """),_display_(/*9.10*/helper/*9.16*/.inputText(ingredientForm("qtyOrdered"),
-            '_name -> "Quantity (Optional)",
-            '_class -> "text-field")),format.raw/*11.37*/("""
-        """),format.raw/*12.9*/("""<input type="submit" value="Add Ingredient"/>
-    """)))}),format.raw/*13.6*/("""
-"""),format.raw/*14.1*/("""</html>"""))
+            '_class -> "text-field")),format.raw/*10.37*/("""
+        """),_display_(/*11.10*/helper/*11.16*/.inputText(ingredientForm("qtyOrdered"),
+            '_name -> "Quantity",
+            '_class -> "text-field")),format.raw/*13.37*/("""
+        """),format.raw/*14.9*/("""<input type="submit" value="Add Ingredient"/>
+    """)))}),format.raw/*15.6*/("""
+    """),format.raw/*16.15*/("""
+"""),format.raw/*17.1*/("""</html>"""))
       }
     }
   }
@@ -59,11 +62,11 @@ Seq[Any](format.raw/*3.36*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 04:28:35 SAST 2017
-                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Kitchen/addIngredient.scala.html
-                  HASH: 2ac663478786a83c473ab4019601151d9da237fb
-                  MATRIX: 659->1|693->29|1046->61|1175->95|1202->96|1239->108|1317->178|1355->179|1391->189|1405->195|1551->321|1587->331|1601->337|1744->459|1780->468|1861->519|1889->520
-                  LINES: 24->1|25->2|30->3|35->3|36->4|37->5|37->5|37->5|38->6|38->6|40->8|41->9|41->9|43->11|44->12|45->13|46->14
+                  DATE: Sun Oct 22 12:05:34 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Kitchen/addIngredient.scala.html
+                  HASH: 80fdc3bd8b3f837f826b53a8001593291b52dfdc
+                  MATRIX: 659->1|693->29|1046->61|1175->95|1202->96|1241->140|1272->146|1350->216|1388->217|1424->227|1438->233|1585->359|1622->369|1637->375|1769->486|1805->495|1886->546|1919->561|1947->562
+                  LINES: 24->1|25->2|30->3|35->3|36->4|38->6|39->7|39->7|39->7|40->8|40->8|42->10|43->11|43->11|45->13|46->14|47->15|48->16|49->17
                   -- GENERATED --
               */
           

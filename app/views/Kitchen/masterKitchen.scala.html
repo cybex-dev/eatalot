@@ -1,0 +1,18 @@
+@import views.html.Kitchen.kitchenMenu
+@import views.html.Global.Static.footer_wrapper
+@(page: Html, selected: Integer)
+
+<link href="@routes.Assets.versioned("stylesheets/kitchen.css")" rel="stylesheet" />
+
+<div class="kitchen-header">
+    <img src="@routes.Assets.versioned("images/logo.png")">
+    <h1>Kitchen Dashboard</h1>
+</div>
+
+@kitchenMenu.render(selected)
+
+
+<div class="center-wrapper">
+    @page
+    @footer_wrapper.render()
+</div>

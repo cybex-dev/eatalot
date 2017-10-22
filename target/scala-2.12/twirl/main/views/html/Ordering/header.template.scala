@@ -37,14 +37,14 @@ Seq[Any](format.raw/*2.4*/("""
 </div>
 
 <div style="float: left">
-    """),_display_(/*8.6*/if(session.get("display_name") == null)/*8.45*/{_display_(Seq[Any](format.raw/*8.46*/("""
-        """),format.raw/*9.9*/("""<a href=""""),_display_(/*9.19*/controllers/*9.30*/.User.routes.UserController.login()),format.raw/*9.65*/("""">Sign up</a>
-    """)))}/*10.7*/else/*10.11*/{_display_(Seq[Any](format.raw/*10.12*/("""
-        """),format.raw/*11.9*/("""<p>Welcome """),_display_(/*11.21*/session/*11.28*/.get("display_name")),format.raw/*11.48*/("""
+"""),_display_(/*8.2*/if(session.get("display_name") == null)/*8.41*/{_display_(Seq[Any](format.raw/*8.42*/("""
+    """),format.raw/*9.5*/("""<a href=""""),_display_(/*9.15*/controllers/*9.26*/.User.routes.UserController.login()),format.raw/*9.61*/("""">Sign up</a>
+""")))}/*10.3*/else/*10.7*/{_display_(Seq[Any](format.raw/*10.8*/("""
+    """),format.raw/*11.5*/("""<p>Welcome """),_display_(/*11.17*/session/*11.24*/.get("display_name")),format.raw/*11.44*/("""
         """),format.raw/*12.9*/("""<br>
-        <a href=""""),_display_(/*13.19*/controllers/*13.30*/.Order.routes.AccountController.doSignOut()),format.raw/*13.73*/("""">Sign out</a>
-        </p>
-    """)))}),format.raw/*15.6*/("""
+        <a href=""""),_display_(/*13.19*/controllers/*13.30*/.User.routes.UserController.logout),format.raw/*13.64*/("""">Sign out</a>
+    </p>
+""")))}),format.raw/*15.2*/("""
 
 
 """),format.raw/*18.1*/("""</div>
@@ -52,18 +52,17 @@ Seq[Any](format.raw/*2.4*/("""
 <div class="cart-wrapper">
     <a href=""""),_display_(/*21.15*/controllers/*21.26*/.Order.routes.OrderController.getCart()),format.raw/*21.65*/(""""><img src=""""),_display_(/*21.78*/routes/*21.84*/.Assets.versioned("images/menu/cart.png")),format.raw/*21.125*/("""" class="cart-image" /></a>
     """),_display_(/*22.6*/if(session.get("display_name") != null)/*22.45*/{_display_(Seq[Any](format.raw/*22.46*/("""
-        """),format.raw/*23.105*/("""
-        """),format.raw/*24.9*/("""<p class="cart-wrapper">5</p>
-    """)))}),format.raw/*25.6*/("""
-"""),format.raw/*26.1*/("""</div>
+        """),format.raw/*23.9*/("""<p class="cart-wrapper">"""),_display_(/*23.34*/MealOrder/*23.43*/.findMealOrderByOrderId(session.get("orderId")).size()),format.raw/*23.97*/("""</p>
+    """)))}),format.raw/*24.6*/("""
+"""),format.raw/*25.1*/("""</div>
 
 <div class="nav-menu-wrapper">
     <div class="nav-bar">
         <ul>
-            <li><a href=""""),_display_(/*31.27*/controllers/*31.38*/.User.routes.CustomerController.index),format.raw/*31.75*/("""">Dashboard</a></li>
-            <li><a href=""""),_display_(/*32.27*/controllers/*32.38*/.Application.routes.HomeController.index()),format.raw/*32.80*/("""">Home</a></li>
-            <li><a href=""""),_display_(/*33.27*/controllers/*33.38*/.Order.routes.OrderController.getCart()),format.raw/*33.77*/("""">Checkout</a></li>
-            <li><a href=""""),_display_(/*34.27*/controllers/*34.38*/.Order.routes.OrderController.getMenu()),format.raw/*34.77*/("""">Menu</a></li>
+            <li><a href=""""),_display_(/*30.27*/controllers/*30.38*/.User.routes.CustomerController.index),format.raw/*30.75*/("""">Dashboard</a></li>
+            <li><a href=""""),_display_(/*31.27*/controllers/*31.38*/.Application.routes.HomeController.index()),format.raw/*31.80*/("""">Home</a></li>
+            <li><a href=""""),_display_(/*32.27*/controllers/*32.38*/.Order.routes.OrderController.getCart()),format.raw/*32.77*/("""">Checkout</a></li>
+            <li><a href=""""),_display_(/*33.27*/controllers/*33.38*/.Order.routes.OrderController.getMenu()),format.raw/*33.77*/("""">Menu</a></li>
         </ul>
     </div>
 </div>"""))
@@ -82,11 +81,11 @@ Seq[Any](format.raw/*2.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 04:28:36 SAST 2017
-                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/Ordering/header.scala.html
-                  HASH: 14b129d135c4022844cc9529aa6e0bf2da48142c
-                  MATRIX: 660->1|988->32|1084->34|1111->35|1158->56|1172->62|1228->98|1263->107|1282->118|1345->160|1414->204|1461->243|1499->244|1534->253|1570->263|1589->274|1644->309|1681->329|1694->333|1733->334|1769->343|1808->355|1824->362|1865->382|1901->391|1951->414|1971->425|2035->468|2098->501|2128->504|2204->553|2224->564|2284->603|2324->616|2339->622|2402->663|2461->696|2509->735|2548->736|2586->841|2622->850|2687->885|2715->886|2846->990|2866->1001|2924->1038|2998->1085|3018->1096|3081->1138|3150->1180|3170->1191|3230->1230|3303->1276|3323->1287|3383->1326
-                  LINES: 24->1|29->2|34->2|35->3|36->4|36->4|36->4|36->4|36->4|36->4|40->8|40->8|40->8|41->9|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|43->11|43->11|44->12|45->13|45->13|45->13|47->15|50->18|53->21|53->21|53->21|53->21|53->21|53->21|54->22|54->22|54->22|55->23|56->24|57->25|58->26|63->31|63->31|63->31|64->32|64->32|64->32|65->33|65->33|65->33|66->34|66->34|66->34
+                  DATE: Sun Oct 22 12:05:34 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Ordering/header.scala.html
+                  HASH: 61989dba9ab3594ba19108c1a111cb724d523a2b
+                  MATRIX: 660->1|988->32|1084->34|1111->35|1158->56|1172->62|1228->98|1263->107|1282->118|1345->160|1410->200|1457->239|1495->240|1526->245|1562->255|1581->266|1636->301|1669->317|1681->321|1719->322|1751->327|1790->339|1806->346|1847->366|1883->375|1933->398|1953->409|2008->443|2063->468|2093->471|2169->520|2189->531|2249->570|2289->583|2304->589|2367->630|2426->663|2474->702|2513->703|2549->712|2601->737|2619->746|2694->800|2734->810|2762->811|2893->915|2913->926|2971->963|3045->1010|3065->1021|3128->1063|3197->1105|3217->1116|3277->1155|3350->1201|3370->1212|3430->1251
+                  LINES: 24->1|29->2|34->2|35->3|36->4|36->4|36->4|36->4|36->4|36->4|40->8|40->8|40->8|41->9|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|43->11|43->11|44->12|45->13|45->13|45->13|47->15|50->18|53->21|53->21|53->21|53->21|53->21|53->21|54->22|54->22|54->22|55->23|55->23|55->23|55->23|56->24|57->25|62->30|62->30|62->30|63->31|63->31|63->31|64->32|64->32|64->32|65->33|65->33|65->33
                   -- GENERATED --
               */
           

@@ -20,16 +20,13 @@ public class Customer extends User {
     private boolean isComplete = false;
     private Double balance = 0.00;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private OrderSchedule orderSchedule;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Payment> payments = new ArrayList<>();
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CustomerOrder> orders = new ArrayList<>();
 
     public Customer() {
@@ -148,10 +145,6 @@ public class Customer extends User {
         return false;
     }
 
-    public List<Payment> getPayments() {
-        return payments;
-    }
-
     public List<CustomerOrder> getOrders() {
         return orders;
     }
@@ -194,5 +187,9 @@ public class Customer extends User {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public static Customer findCustomerByUserId(String userId){
+        return find.query().where().eq("userId", userId).findOne();
     }
 }

@@ -1,0 +1,14 @@
+@import views.html.Ordering.header
+@import views.html.Global.Static.footer_wrapper
+@(page: Html)
+
+<head>
+    <link href="@routes.Assets.versioned("stylesheets/mobile.css")" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width">
+</head>
+
+@header.render()
+
+@page
+
+@footer_wrapper.render()

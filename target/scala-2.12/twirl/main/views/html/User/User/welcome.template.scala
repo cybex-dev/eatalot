@@ -62,8 +62,8 @@ Seq[Any](format.raw/*3.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 04:28:37 SAST 2017
-                  SOURCE: /home/cybex/Projects/project-eatalot/app/views/User/User/welcome.scala.html
+                  DATE: Sun Oct 22 11:23:03 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/User/User/welcome.scala.html
                   HASH: 7a968aad196f3c970cf566865407475c1d102ff9
                   MATRIX: 661->1|1003->46|1083->51|1102->62|1182->66|1213->71|1337->169|1356->180|1411->215|1520->297|1540->308|1603->350|1668->48|1697->377|1726->380|1745->390
                   LINES: 24->1|29->3|33->5|33->5|35->5|36->6|39->9|39->9|39->9|42->12|42->12|42->12|45->3|47->14|49->16|49->16

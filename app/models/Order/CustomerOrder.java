@@ -1,5 +1,6 @@
 package models.Order;
 
+import controllers.Application.AppTags;
 import io.ebean.Finder;
 import io.ebean.Model;
 import libs.Mailer;
@@ -11,6 +12,7 @@ import utility.Pair;
 import utility.StatusId;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -25,33 +27,29 @@ public class CustomerOrder extends Model implements StatusId {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String orderId;
     private String statusId = UNSUBMITTED;
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-    private String customerUserId;
-    private String paymentId;
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Customer customer;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Payment payment;
     //todo #NOTIFY [Charles] Added date of delivery object. This is saved automatically in the database, is required to display info for user and determine the delivery time and date
     private Date deliveryDate;
-//    private String aymentId;
 
-//    private String date;
-//    private String time;
-//    private String mealOrderId; // Not needed
+    private String cancelMessage;
 
-
-    public CustomerOrder() {
+    public CustomerOrder(Customer customer) {
+        this.customer = customer;
         setOrderId();
     }
 
     public Payment getPaymentObject(){
-        return Payment.findPaymentById(paymentId);
+        return payment;
     }
 
     public void updateCost(){
         List<MealOrder> mealOrders = MealOrder.findMealOrderByOrderId(orderId);
         final double[] total = {0};
         mealOrders.stream().forEach(mealOrder -> total[0] += Meal.findMealByMealId(mealOrder.getMealId()).getCost() * mealOrder.getOrderQty());
-        Payment.findPaymentById(paymentId).setAmount(total[0]).update();
+        payment.setAmount(total[0]).update();
     }
 
     //todo #NOTIFY [Charles] change access from private to public, is used to query database to get results when displaying info to user
@@ -73,11 +71,12 @@ public class CustomerOrder extends Model implements StatusId {
         }
     }
 
+    /**
+     * Returns list of all customer orders.
+     * @return
+     */
     public static List<CustomerOrder> findAllOrders(){
         return find.query()
-                .where()
-                .not()
-                .eq("statusId", "unsubmitted")
                 .findList();
     }
 
@@ -87,18 +86,18 @@ public class CustomerOrder extends Model implements StatusId {
     }
 
     private void setOrderId() {
-        orderId = String.valueOf((statusId + ThreadLocalRandom.current().nextInt(100, 1000) + customerUserId + ThreadLocalRandom.current().nextInt(100, 1000)).hashCode());
+        orderId = String.valueOf((statusId + ThreadLocalRandom.current().nextInt(100, 1000) + customer.getUserId() + ThreadLocalRandom.current().nextInt(100, 1000)).hashCode());
     }
 
     /**
      * Find and return all orders placed by a specific user
-     * @param userId of user
-     * @return list of orders with given userId
+     * @param customerUserId of user
+     * @return list of orders with given customerUserId
      */
-    public static List<CustomerOrder> findOrderByUserId(String userId){
+    public static List<CustomerOrder> findOrderByUserId(String customerUserId){
         try{
             return find.query().where()
-                    .eq("userId", userId)
+                    .eq("customer_user_id", customerUserId)
                     .findList();
         }
         catch (NullPointerException e){
@@ -125,7 +124,7 @@ public class CustomerOrder extends Model implements StatusId {
     public static List<CustomerOrder> findAllPendingOrders(){
         return  find.query()
                 .where()
-                .eq("statusId", "pending")
+                .eq("statusId", PENDING)
                 .findList();
     }
 
@@ -133,27 +132,9 @@ public class CustomerOrder extends Model implements StatusId {
     public static List<CustomerOrder> findAllProcessingOrders() {
         return find.query()
                 .where()
-                .eq("statusId", "processing")
+                .eq("statusId", PROCESSING)
                 .findList();
     }
-
-
-
-//    public String getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(String date) {
-//        this.date = date;
-//    }
-
-//    public String getTime() {
-//        return time;
-//    }
-//
-//    public void setTime(String time) {
-//        this.time = time;
-//    }
 
     public String getOrderId() {
         return orderId;
@@ -163,61 +144,57 @@ public class CustomerOrder extends Model implements StatusId {
         return statusId;
     }
 
-    public CustomerOrder setStatusId(String statusId) {
-        this.statusId = statusId;
+    public CustomerOrder setUnsubmitted(){
+        statusId = UNSUBMITTED;
         return this;
     }
 
     public CustomerOrder setPending(){
         statusId = PENDING;
-        notifyStatus();
+        notifyStatus(UNSUBMITTED, statusId);
         return this;
     }
 
     public CustomerOrder setProcessing(){
         statusId = PROCESSING;
-        notifyStatus();
+        notifyStatus(PENDING, statusId);
         return this;
     }
 
     public CustomerOrder setDelivering(){
         statusId = DELIVERING;
+        notifyStatus(PROCESSING, statusId);
         return this;
     }
 
-    public CustomerOrder setCancelle(){
+    public CustomerOrder setCancelled(){
+        String before = statusId;
         statusId = CANCELLED;
+        notifyStatus(before, statusId);
         return this;
     }
 
-    private void notifyStatus(){
-        Email email = new Email();
-        String[] list = {Customer.find.byId(customerUserId).getEmail()};
-        email.setTo(Arrays.asList(list));
-        email.setSubject("Order: " + orderId + " status changed to " + statusId);
-        email.setBodyText("Your order status has been updated to " + statusId);
-        Mailer mailer = new Mailer();
-        if(mailer.sendEmail(email))
-            System.out.println("Email sent");
-        else
-            System.out.println("Email not sent");
+    private void notifyStatus(String before, String after){
+        CustomerOrder order = this;
+        Thread thread = new Thread(() -> Mailer.notifyOrderStatusChange(order, before, after, customer.getEmail()));
+        thread.start();
     }
 
-    public String getUserId() {
-        return customerUserId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public CustomerOrder setUserId(String userId) {
-        this.customerUserId = userId;
+    public CustomerOrder setCustomer(Customer customer) {
+        this.customer = customer;
         return this;
     }
 
     public String getPaymentId() {
-        return paymentId;
+        return payment.getPaymentId();
     }
 
-    public CustomerOrder setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
+    public CustomerOrder setPayment(Payment payment) {
+        this.payment = payment;
         return this;
     }
 
@@ -229,11 +206,11 @@ public class CustomerOrder extends Model implements StatusId {
         this.deliveryDate = deliveryDate;
     }
 
-//    public String getMealOrderId() {
-//        return mealOrderId;
-//    }
-//
-//    public void setMealOrderId(String mealOrderId) {
-//        this.mealOrderId = mealOrderId;
-//    }
+    public String getCancelMessage() {
+        return cancelMessage;
+    }
+
+    public void setCancelMessage(String cancelMessage) {
+        this.cancelMessage = cancelMessage;
+    }
 }

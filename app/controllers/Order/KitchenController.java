@@ -1,16 +1,19 @@
 package controllers.Order;
 
+import io.ebeaninternal.server.lib.util.Str;
 import models.Order.CustomerOrder;
 import models.Order.Ingredient;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
+import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Kitchen.*;
 
 import javax.inject.Inject;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class KitchenController extends Controller {
 
@@ -22,7 +25,9 @@ public class KitchenController extends Controller {
     }
 
     public Result home(){
-        return ok(master.render("Kitchen Home", kitchenHome.render()));
+        // TODO: Add kitchen dashboard to render
+        return ok(master.render("Kitchen Home",
+                masterKitchen.render(null, 0)));
     }
 
 //  ===== Maintain Orders =====
@@ -37,19 +42,16 @@ public class KitchenController extends Controller {
         switch (result[0]){
             case "process":
                 CustomerOrder.findOrderById(orderId)
-                        .setStatusId("processing")
+                        .setProcessing()
                         .update();
                 break;
             case "deliver":
                 CustomerOrder.findOrderById(orderId)
-                        .setStatusId("delivering")
+                        .setDelivering()
                         .update();
                 break;
             case "cancel":
-                CustomerOrder.findOrderById(orderId)
-                        .setStatusId("cancelled")
-                        .update();
-                break;
+                return redirect(routes.KitchenController.getCancelOrderPage(orderId));
             default: return badRequest();
         }
         return redirect(controllers.Order.routes.KitchenController.getOrderPage());
@@ -57,41 +59,95 @@ public class KitchenController extends Controller {
 
     public Result getPendingOrderPage(){
         return ok(master.render("Pending Orders",
-                orders.render(CustomerOrder.findAllPendingOrders())));
+                masterKitchen.render(
+                        orders.render(CustomerOrder.findAllPendingOrders()), 3)));
     }
 
     public Result getProcessingOrderPage(){
         return ok(master.render("Processing Orders",
-                orders.render(CustomerOrder.findAllProcessingOrders())));
+                masterKitchen.render(
+                        orders.render(CustomerOrder.findAllProcessingOrders()), 4)));
     }
 
+    /**
+     * Displays list of all orders that are not unsubmitted or cancelled.
+     * @return
+     */
     public Result getOrderPage(){
         return ok(master.render("Customer Orders",
-                orders.render(CustomerOrder.findAllOrders())));
+                masterKitchen.render(
+                        orders.render(CustomerOrder.findAllOrders()
+                                .stream()
+                                .filter(order -> (!order.getStatusId().equals(StatusId.CANCELLED) && !order.getStatusId().equals(StatusId.UNSUBMITTED))).collect(Collectors.toList())),
+                        2)));
     }
 
+    /**
+     * Returns all meal orders associated with the given orderId
+     * @param orderId
+     * @return
+     */
     public Result getMealOrderPage(String orderId){
         return ok(master.render("Meal Orders",
-                mealOrders.render(CustomerOrder.findAllMealsFromOrder(orderId),
-                        CustomerOrder.findOrderById(orderId).getStatusId())));
+                masterKitchen.render(
+                        mealOrders.render(CustomerOrder.findAllMealsFromOrder(orderId),
+                                CustomerOrder.findOrderById(orderId).getStatusId()), 2)));
+    }
+
+    /**
+     * Get the page that allows kitchen staff to cancel order
+     * Can select and enter reason for order cancellation
+     * @return
+     */
+    public Result getCancelOrderPage(String orderId){
+        return ok(master.render("Cancel Order",
+                masterKitchen.render(cancelOrder.render(CustomerOrder.findOrderById(orderId)), 2)));
+    }
+
+    /**
+     * Sets orders
+     * @return
+     */
+    public Result doOrderCancellation(String orderId){
+        CustomerOrder order = CustomerOrder.findOrderById(orderId);
+
+        String[] reason = request().body().asFormUrlEncoded().get("reason");
+        String[] explain = request().body().asFormUrlEncoded().get("explain");
+
+        if(reason[0].equals("other")) {
+            order.setCancelMessage(explain[0]);
+        } else {
+            if(explain[0] != null)
+                order.setCancelMessage(reason[0] + " - " + explain[0]);
+            else
+                order.setCancelMessage(reason[0]);
+        }
+
+        order.setCancelled();
+        order.save();
+
+        return redirect(routes.KitchenController.getOrderPage());
     }
 
 //  ===== Maintain Ingredients =====
 
     public Result getIngredientPage(){
         return ok(master.render("Ingredients",
-                ingredients.render(Ingredient.findAllIngredients())));
+                masterKitchen.render(
+                        ingredients.render(Ingredient.findAllIngredients()), 1)));
     }
 
     public Result getNewIngredientPage(){
         Form<Ingredient> ingredientForm = formFactory.form(Ingredient.class);
         return ok(master.render("New Ingredient",
-                addIngredient.render(ingredientForm)));
+                masterKitchen.render(
+                        addIngredient.render(ingredientForm), 1)));
     }
 
     public Result getIngredientOrderPage(String ingredientId){
         return ok(master.render("Order Ingredients",
-                orderIngredient.render(Ingredient.findIngredientById(ingredientId))));
+                masterKitchen.render(
+                        orderIngredient.render(Ingredient.findIngredientById(ingredientId)), 1)));
     }
 
     public Result addIngredient(){

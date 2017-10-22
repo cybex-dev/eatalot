@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2017-10-23 01:02:51,408 [INFO] from application in scala-execution-context-global-62 - Creating Pool for datasource 'default'
 2017-10-23 01:02:51,835 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-62 - Database [default] connected at jdbc:mysql://cxbase.ddns.net:3306/eatalotdb?verifyServerCertificate=false&useSSL=true
 2017-10-23 01:02:54,364 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-62 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
@@ -56,6 +57,37 @@ Caused by: java.lang.IllegalStateException: Error(s) binding form: {"password":[
 	at annotations.CheckCSRF.call(CheckCSRF.java:20)
 	at annotations.SessionVerifier.RequiresActive.call(RequiresActive.java:39)
 	at play.core.j.JavaAction.$anonfun$apply$2(JavaAction.scala:113)
+=======
+2017-10-22 20:10:42,728 [INFO] from application in scala-execution-context-global-82 - Creating Pool for datasource 'default'
+2017-10-22 20:10:43,310 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-82 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:10:46,390 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-82 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:10:47,076 [INFO] from play.api.Play in scala-execution-context-global-82 - Application started (Dev)
+2017-10-22 20:12:11,183 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-16 - 
+
+! @75llna2jp - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[Invalid '@' symbol]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+>>>>>>> master
 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
 	at scala.util.Success.$anonfun$map$1(Try.scala:251)
 	at scala.util.Success.map(Try.scala:209)
@@ -63,6 +95,7 @@ Caused by: java.lang.IllegalStateException: Error(s) binding form: {"password":[
 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+<<<<<<< HEAD
 	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
 	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
 	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
@@ -133,6 +166,38 @@ Caused by: java.lang.NullPointerException: The id is null
 	at annotations.CheckCSRF.call(CheckCSRF.java:20)
 	at annotations.SessionVerifier.RequiresActive.call(RequiresActive.java:39)
 	at play.core.j.JavaAction.$anonfun$apply$2(JavaAction.scala:113)
+=======
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:12:13,907 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-11 - 
+
+! @75llna6kj - Internal server error, for (GET) [/User/Dashboard/Update] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[Invalid '@' symbol]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+>>>>>>> master
 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
 	at scala.util.Success.$anonfun$map$1(Try.scala:251)
 	at scala.util.Success.map(Try.scala:209)
@@ -140,6 +205,7 @@ Caused by: java.lang.NullPointerException: The id is null
 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+<<<<<<< HEAD
 	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
 	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
 	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
@@ -211,6 +277,37 @@ Caused by: java.lang.NullPointerException: The id is null
 	at annotations.CheckCSRF.call(CheckCSRF.java:20)
 	at annotations.SessionVerifier.RequiresActive.call(RequiresActive.java:39)
 	at play.core.j.JavaAction.$anonfun$apply$2(JavaAction.scala:113)
+=======
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:12:15,296 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-4 - 
+
+! @75llna8m4 - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[Invalid '@' symbol]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
 	at scala.util.Success.$anonfun$map$1(Try.scala:251)
 	at scala.util.Success.map(Try.scala:209)
@@ -218,6 +315,92 @@ Caused by: java.lang.NullPointerException: The id is null
 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:12:29,837 [INFO] from application in scala-execution-context-global-113 - Shutting down connection pool.
+2017-10-22 20:12:29,987 [INFO] from application in scala-execution-context-global-113 - Creating Pool for datasource 'default'
+2017-10-22 20:12:30,056 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-113 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:12:30,510 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-113 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:12:30,691 [INFO] from play.api.Play in scala-execution-context-global-113 - Application started (Dev)
+2017-10-22 20:13:22,392 [INFO] from application in scala-execution-context-global-304 - Shutting down connection pool.
+2017-10-22 20:13:22,585 [INFO] from application in scala-execution-context-global-304 - Creating Pool for datasource 'default'
+2017-10-22 20:13:22,670 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-304 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:13:23,165 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-304 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:13:23,241 [INFO] from play.api.Play in scala-execution-context-global-304 - Application started (Dev)
+2017-10-22 20:16:37,913 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-68 - 
+
+! @75llnp78m - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value customerDashboard]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:16:44,976 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-68 - 
+
+! @75llnphkc - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value customerDashboard]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+>>>>>>> master
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+<<<<<<< HEAD
 	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
 	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
 	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
@@ -283,6 +466,86 @@ Caused by: java.lang.NullPointerException: The id is null
 	at annotations.CheckCSRF.call(CheckCSRF.java:20)
 	at annotations.SessionVerifier.RequiresActive.call(RequiresActive.java:39)
 	at play.core.j.JavaAction.$anonfun$apply$2(JavaAction.scala:113)
+=======
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:17:05,737 [INFO] from application in scala-execution-context-global-403 - Shutting down connection pool.
+2017-10-22 20:17:05,909 [INFO] from application in scala-execution-context-global-403 - Creating Pool for datasource 'default'
+2017-10-22 20:17:05,989 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-403 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:17:06,376 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-403 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:17:06,517 [INFO] from play.api.Play in scala-execution-context-global-403 - Application started (Dev)
+2017-10-22 20:18:26,689 [INFO] from application in scala-execution-context-global-403 - Shutting down connection pool.
+2017-10-22 20:18:26,822 [INFO] from application in scala-execution-context-global-403 - Creating Pool for datasource 'default'
+2017-10-22 20:18:26,878 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-403 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:18:27,179 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-403 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:18:27,235 [INFO] from play.api.Play in scala-execution-context-global-403 - Application started (Dev)
+2017-10-22 20:20:34,852 [INFO] from application in scala-execution-context-global-403 - Shutting down connection pool.
+2017-10-22 20:20:34,984 [INFO] from application in scala-execution-context-global-403 - Creating Pool for datasource 'default'
+2017-10-22 20:20:35,045 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-403 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:20:35,391 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-403 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:20:35,434 [INFO] from play.api.Play in scala-execution-context-global-403 - Application started (Dev)
+2017-10-22 20:21:31,238 [INFO] from application in scala-execution-context-global-550 - Shutting down connection pool.
+2017-10-22 20:21:31,350 [INFO] from application in scala-execution-context-global-550 - Creating Pool for datasource 'default'
+2017-10-22 20:21:31,392 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-550 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:21:31,685 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-550 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:21:31,766 [INFO] from play.api.Play in scala-execution-context-global-550 - Application started (Dev)
+2017-10-22 20:21:45,055 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 20:22:10,179 [INFO] from application in scala-execution-context-global-603 - Shutting down connection pool.
+2017-10-22 20:22:10,287 [INFO] from application in scala-execution-context-global-603 - Creating Pool for datasource 'default'
+2017-10-22 20:22:10,331 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-603 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:22:10,613 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-603 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:22:10,670 [INFO] from play.api.Play in scala-execution-context-global-603 - Application started (Dev)
+2017-10-22 20:22:26,799 [INFO] from application in scala-execution-context-global-621 - Shutting down connection pool.
+2017-10-22 20:22:26,935 [INFO] from application in scala-execution-context-global-621 - Creating Pool for datasource 'default'
+2017-10-22 20:22:27,016 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-621 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:22:27,286 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-621 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:22:27,346 [INFO] from play.api.Play in scala-execution-context-global-621 - Application started (Dev)
+2017-10-22 20:22:38,629 [INFO] from application in scala-execution-context-global-653 - Shutting down connection pool.
+2017-10-22 20:22:38,765 [INFO] from application in scala-execution-context-global-653 - Creating Pool for datasource 'default'
+2017-10-22 20:22:38,828 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-653 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:22:39,083 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-653 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:22:39,165 [INFO] from play.api.Play in scala-execution-context-global-653 - Application started (Dev)
+2017-10-22 20:23:30,099 [INFO] from application in scala-execution-context-global-711 - Shutting down connection pool.
+2017-10-22 20:23:30,230 [INFO] from application in scala-execution-context-global-711 - Creating Pool for datasource 'default'
+2017-10-22 20:23:30,294 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-711 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:23:30,584 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-711 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:23:30,646 [INFO] from play.api.Play in scala-execution-context-global-711 - Application started (Dev)
+2017-10-22 20:26:10,039 [INFO] from application in scala-execution-context-global-760 - Shutting down connection pool.
+2017-10-22 20:26:10,152 [INFO] from application in scala-execution-context-global-760 - Creating Pool for datasource 'default'
+2017-10-22 20:26:10,239 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-760 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:26:10,485 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-760 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:26:10,525 [INFO] from play.api.Play in scala-execution-context-global-760 - Application started (Dev)
+2017-10-22 20:34:08,348 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-144 - 
+
+! @75lm07165 - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[method getActiveOrderCount in class models.User.Customer.CustomerInfo cannot be applied to given types;
+  required: java.lang.String
+  found: no arguments
+  reason: actual and formal argument lists differ in length]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
 	at scala.util.Success.$anonfun$map$1(Try.scala:251)
 	at scala.util.Success.map(Try.scala:209)
@@ -290,6 +553,88 @@ Caused by: java.lang.NullPointerException: The id is null
 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:34:56,019 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-142 - 
+
+! @75lm09jjh - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[method getActiveOrderCount in class models.User.Customer.CustomerInfo cannot be applied to given types;
+  required: java.lang.String
+  found: no arguments
+  reason: actual and formal argument lists differ in length]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:35:04,311 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-143 - 
+
+! @75lm0a60f - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[method getActiveOrderCount in class models.User.Customer.CustomerInfo cannot be applied to given types;
+  required: java.lang.String
+  found: no arguments
+  reason: actual and formal argument lists differ in length]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+>>>>>>> master
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+<<<<<<< HEAD
 	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
 	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
 	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
@@ -371,6 +716,69 @@ Caused by: java.lang.RuntimeException: Cannot fill a form with a null value
 	at annotations.CheckCSRF.call(CheckCSRF.java:20)
 	at annotations.SessionVerifier.RequiresActive.call(RequiresActive.java:39)
 	at play.core.j.JavaAction.$anonfun$apply$2(JavaAction.scala:113)
+=======
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:35:18,604 [INFO] from application in scala-execution-context-global-840 - Shutting down connection pool.
+2017-10-22 20:35:18,710 [INFO] from application in scala-execution-context-global-840 - Creating Pool for datasource 'default'
+2017-10-22 20:35:18,762 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-840 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:35:19,040 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-840 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:35:19,095 [INFO] from play.api.Play in scala-execution-context-global-840 - Application started (Dev)
+2017-10-22 20:35:45,491 [INFO] from application in scala-execution-context-global-948 - Shutting down connection pool.
+2017-10-22 20:35:45,584 [INFO] from application in scala-execution-context-global-948 - Creating Pool for datasource 'default'
+2017-10-22 20:35:45,632 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-948 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:35:45,877 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-948 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:35:45,967 [INFO] from play.api.Play in scala-execution-context-global-948 - Application started (Dev)
+2017-10-22 20:35:49,344 [INFO] from application in scala-execution-context-global-948 - Shutting down connection pool.
+2017-10-22 20:35:49,444 [INFO] from application in scala-execution-context-global-948 - Creating Pool for datasource 'default'
+2017-10-22 20:35:49,513 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-948 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:35:49,862 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-948 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:35:49,938 [INFO] from play.api.Play in scala-execution-context-global-948 - Application started (Dev)
+2017-10-22 20:36:00,511 [INFO] from application in scala-execution-context-global-948 - Shutting down connection pool.
+2017-10-22 20:36:00,640 [INFO] from application in scala-execution-context-global-948 - Creating Pool for datasource 'default'
+2017-10-22 20:36:00,680 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-948 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:36:00,927 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-948 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:36:00,985 [INFO] from play.api.Play in scala-execution-context-global-948 - Application started (Dev)
+2017-10-22 20:36:12,008 [INFO] from application in scala-execution-context-global-948 - Shutting down connection pool.
+2017-10-22 20:36:12,099 [INFO] from application in scala-execution-context-global-948 - Creating Pool for datasource 'default'
+2017-10-22 20:36:12,143 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-948 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:36:12,408 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-948 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:36:12,451 [INFO] from play.api.Play in scala-execution-context-global-948 - Application started (Dev)
+2017-10-22 20:37:21,133 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 20:38:29,210 [INFO] from application in scala-execution-context-global-1149 - Shutting down connection pool.
+2017-10-22 20:38:29,321 [INFO] from application in scala-execution-context-global-1149 - Creating Pool for datasource 'default'
+2017-10-22 20:38:29,375 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1149 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:38:29,691 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1149 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:38:29,741 [INFO] from play.api.Play in scala-execution-context-global-1149 - Application started (Dev)
+2017-10-22 20:38:38,544 [WARN] from play in play-dev-mode-akka.actor.default-dispatcher-227 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 20:44:16,862 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-250 - 
+
+! @75lm1fhae - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[';' expected]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
 	at scala.util.Success.$anonfun$map$1(Try.scala:251)
 	at scala.util.Success.map(Try.scala:209)
@@ -378,6 +786,104 @@ Caused by: java.lang.RuntimeException: Cannot fill a form with a null value
 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 20:44:25,075 [INFO] from application in scala-execution-context-global-1214 - Shutting down connection pool.
+2017-10-22 20:44:25,187 [INFO] from application in scala-execution-context-global-1214 - Creating Pool for datasource 'default'
+2017-10-22 20:44:25,247 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1214 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:44:25,489 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1214 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:44:25,530 [INFO] from play.api.Play in scala-execution-context-global-1214 - Application started (Dev)
+2017-10-22 20:47:09,636 [INFO] from application in scala-execution-context-global-1298 - Shutting down connection pool.
+2017-10-22 20:47:09,715 [INFO] from application in scala-execution-context-global-1298 - Creating Pool for datasource 'default'
+2017-10-22 20:47:09,784 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1298 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:47:10,007 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1298 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:47:10,052 [INFO] from play.api.Play in scala-execution-context-global-1298 - Application started (Dev)
+2017-10-22 20:48:36,937 [INFO] from application in scala-execution-context-global-1343 - Shutting down connection pool.
+2017-10-22 20:48:37,031 [INFO] from application in scala-execution-context-global-1343 - Creating Pool for datasource 'default'
+2017-10-22 20:48:37,087 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1343 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:48:37,315 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1343 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:48:37,365 [INFO] from play.api.Play in scala-execution-context-global-1343 - Application started (Dev)
+2017-10-22 20:53:36,510 [INFO] from application in scala-execution-context-global-1387 - Shutting down connection pool.
+2017-10-22 20:53:36,590 [INFO] from application in scala-execution-context-global-1387 - Creating Pool for datasource 'default'
+2017-10-22 20:53:36,640 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1387 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:53:36,864 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1387 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:53:36,898 [INFO] from play.api.Play in scala-execution-context-global-1387 - Application started (Dev)
+2017-10-22 20:54:45,260 [INFO] from application in scala-execution-context-global-1432 - Shutting down connection pool.
+2017-10-22 20:54:45,340 [INFO] from application in scala-execution-context-global-1432 - Creating Pool for datasource 'default'
+2017-10-22 20:54:45,388 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1432 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 20:54:45,656 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1432 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 20:54:45,712 [INFO] from play.api.Play in scala-execution-context-global-1432 - Application started (Dev)
+2017-10-22 20:55:24,102 [WARN] from play in play-dev-mode-akka.actor.default-dispatcher-292 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 20:57:28,580 [WARN] from play in play-dev-mode-akka.actor.default-dispatcher-294 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 20:57:56,836 [WARN] from play in play-dev-mode-akka.actor.default-dispatcher-314 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 21:14:42,646 [INFO] from application in scala-execution-context-global-1615 - Shutting down connection pool.
+2017-10-22 21:14:42,745 [INFO] from application in scala-execution-context-global-1615 - Creating Pool for datasource 'default'
+2017-10-22 21:14:42,796 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1615 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:14:43,034 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1615 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:14:43,097 [INFO] from play.api.Play in scala-execution-context-global-1615 - Application started (Dev)
+2017-10-22 21:17:10,355 [INFO] from application in scala-execution-context-global-1713 - Shutting down connection pool.
+2017-10-22 21:17:10,437 [INFO] from application in scala-execution-context-global-1713 - Creating Pool for datasource 'default'
+2017-10-22 21:17:10,500 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1713 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:17:10,835 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1713 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:17:10,899 [INFO] from play.api.Play in scala-execution-context-global-1713 - Application started (Dev)
+2017-10-22 21:25:09,352 [INFO] from application in scala-execution-context-global-1782 - Shutting down connection pool.
+2017-10-22 21:25:09,438 [INFO] from application in scala-execution-context-global-1782 - Creating Pool for datasource 'default'
+2017-10-22 21:25:09,494 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1782 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:25:09,747 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1782 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:25:09,786 [INFO] from play.api.Play in scala-execution-context-global-1782 - Application started (Dev)
+2017-10-22 21:25:56,437 [WARN] from play in play-dev-mode-akka.actor.default-dispatcher-515 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 21:27:06,645 [INFO] from application in scala-execution-context-global-1875 - Shutting down connection pool.
+2017-10-22 21:27:06,730 [INFO] from application in scala-execution-context-global-1875 - Creating Pool for datasource 'default'
+2017-10-22 21:27:06,793 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1875 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:27:07,142 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1875 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:27:07,185 [INFO] from play.api.Play in scala-execution-context-global-1875 - Application started (Dev)
+2017-10-22 21:27:39,014 [INFO] from application in scala-execution-context-global-1917 - Shutting down connection pool.
+2017-10-22 21:27:39,126 [INFO] from application in scala-execution-context-global-1917 - Creating Pool for datasource 'default'
+2017-10-22 21:27:39,171 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1917 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:27:39,380 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1917 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:27:39,413 [INFO] from play.api.Play in scala-execution-context-global-1917 - Application started (Dev)
+2017-10-22 21:28:01,474 [INFO] from application in scala-execution-context-global-1937 - Shutting down connection pool.
+2017-10-22 21:28:01,567 [INFO] from application in scala-execution-context-global-1937 - Creating Pool for datasource 'default'
+2017-10-22 21:28:01,623 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-1937 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:28:01,861 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-1937 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:28:01,891 [INFO] from play.api.Play in scala-execution-context-global-1937 - Application started (Dev)
+2017-10-22 21:28:52,263 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-514 - 
+
+! @75lm7bn2g - Internal server error, for (GET) [/User/Dashboard] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value stylesheets]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+>>>>>>> master
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+<<<<<<< HEAD
 	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
 	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
 	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
@@ -461,6 +967,37 @@ Caused by: java.lang.RuntimeException: Cannot fill a form with a null value
 	at annotations.CheckCSRF.call(CheckCSRF.java:20)
 	at annotations.SessionVerifier.RequiresActive.call(RequiresActive.java:39)
 	at play.core.j.JavaAction.$anonfun$apply$2(JavaAction.scala:113)
+=======
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 21:28:55,169 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-569 - 
+
+! @75lm7c1aa - Internal server error, for (GET) [/] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value stylesheets]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
 	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
 	at scala.util.Success.$anonfun$map$1(Try.scala:251)
 	at scala.util.Success.map(Try.scala:209)
@@ -468,6 +1005,102 @@ Caused by: java.lang.RuntimeException: Cannot fill a form with a null value
 	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
 	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
 	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 21:29:39,788 [INFO] from application in scala-execution-context-global-2056 - Shutting down connection pool.
+2017-10-22 21:29:39,874 [INFO] from application in scala-execution-context-global-2056 - Creating Pool for datasource 'default'
+2017-10-22 21:29:39,922 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2056 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:29:40,151 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2056 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:29:40,199 [INFO] from play.api.Play in scala-execution-context-global-2056 - Application started (Dev)
+2017-10-22 21:40:31,858 [INFO] from application in scala-execution-context-global-2184 - Shutting down connection pool.
+2017-10-22 21:40:31,953 [INFO] from application in scala-execution-context-global-2184 - Creating Pool for datasource 'default'
+2017-10-22 21:40:32,017 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2184 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:40:32,262 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2184 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:40:32,311 [INFO] from play.api.Play in scala-execution-context-global-2184 - Application started (Dev)
+2017-10-22 21:40:51,360 [INFO] from application in scala-execution-context-global-2203 - Shutting down connection pool.
+2017-10-22 21:40:51,439 [INFO] from application in scala-execution-context-global-2203 - Creating Pool for datasource 'default'
+2017-10-22 21:40:51,488 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2203 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:40:51,722 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2203 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:40:51,752 [INFO] from play.api.Play in scala-execution-context-global-2203 - Application started (Dev)
+2017-10-22 21:41:10,795 [INFO] from application in scala-execution-context-global-2248 - Shutting down connection pool.
+2017-10-22 21:41:10,872 [INFO] from application in scala-execution-context-global-2248 - Creating Pool for datasource 'default'
+2017-10-22 21:41:10,915 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2248 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:41:11,126 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2248 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:41:11,173 [INFO] from play.api.Play in scala-execution-context-global-2248 - Application started (Dev)
+2017-10-22 21:42:07,100 [INFO] from application in scala-execution-context-global-2303 - Shutting down connection pool.
+2017-10-22 21:42:07,190 [INFO] from application in scala-execution-context-global-2303 - Creating Pool for datasource 'default'
+2017-10-22 21:42:07,236 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2303 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:42:07,459 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2303 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:42:07,487 [INFO] from play.api.Play in scala-execution-context-global-2303 - Application started (Dev)
+2017-10-22 21:42:27,422 [INFO] from application in scala-execution-context-global-2337 - Shutting down connection pool.
+2017-10-22 21:42:27,496 [INFO] from application in scala-execution-context-global-2337 - Creating Pool for datasource 'default'
+2017-10-22 21:42:27,557 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2337 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:42:27,744 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2337 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:42:27,782 [INFO] from play.api.Play in scala-execution-context-global-2337 - Application started (Dev)
+2017-10-22 21:42:38,086 [INFO] from application in scala-execution-context-global-2354 - Shutting down connection pool.
+2017-10-22 21:42:38,164 [INFO] from application in scala-execution-context-global-2354 - Creating Pool for datasource 'default'
+2017-10-22 21:42:38,231 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2354 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:42:38,539 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2354 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:42:38,608 [INFO] from play.api.Play in scala-execution-context-global-2354 - Application started (Dev)
+2017-10-22 21:42:56,656 [WARN] from play in application-akka.actor.default-dispatcher-3 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:43:10,152 [WARN] from play in application-akka.actor.default-dispatcher-4 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:43:12,813 [WARN] from play in application-akka.actor.default-dispatcher-6 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:47:37,547 [WARN] from play in application-akka.actor.default-dispatcher-8 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:47:40,466 [WARN] from play in application-akka.actor.default-dispatcher-9 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:47:47,649 [INFO] from application in scala-execution-context-global-2433 - Shutting down connection pool.
+2017-10-22 21:47:47,745 [INFO] from application in scala-execution-context-global-2433 - Creating Pool for datasource 'default'
+2017-10-22 21:47:47,803 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2433 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:47:48,001 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2433 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:47:48,034 [INFO] from play.api.Play in scala-execution-context-global-2433 - Application started (Dev)
+2017-10-22 21:47:51,557 [WARN] from play in application-akka.actor.default-dispatcher-5 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:47:55,949 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:48:40,645 [WARN] from play in application-akka.actor.default-dispatcher-6 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:48:47,279 [INFO] from application in scala-execution-context-global-2486 - Shutting down connection pool.
+2017-10-22 21:48:47,359 [INFO] from application in scala-execution-context-global-2486 - Creating Pool for datasource 'default'
+2017-10-22 21:48:47,422 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2486 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:48:47,606 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2486 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:48:47,640 [INFO] from play.api.Play in scala-execution-context-global-2486 - Application started (Dev)
+2017-10-22 21:48:50,540 [WARN] from play in application-akka.actor.default-dispatcher-5 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:48:52,782 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:48:55,650 [WARN] from play in application-akka.actor.default-dispatcher-3 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:48:56,776 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:51:58,853 [ERROR] from application in play-dev-mode-akka.actor.default-dispatcher-720 - 
+
+! @75lmack70 - Internal server error, for (GET) [/User/Login] ->
+ 
+play.sbt.PlayExceptions$CompilationException: Compilation error[not found: value show_flash]
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
+	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
+	at scala.Option.map(Option.scala:145)
+	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
+	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
+	at scala.util.Either$LeftProjection.map(Either.scala:377)
+	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$3.apply(PlayRun.scala:71)
+	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:413)
+	at play.runsupport.Reloader$$anon$5.run(Reloader.scala:51)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:47)
+	at play.runsupport.Reloader.reload(Reloader.scala:411)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$get$1(DevServerStart.scala:125)
+>>>>>>> master
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:653)
+	at scala.util.Success.$anonfun$map$1(Try.scala:251)
+	at scala.util.Success.map(Try.scala:209)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:287)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:29)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:29)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:60)
+<<<<<<< HEAD
 	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
 	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
 	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
@@ -489,3 +1122,88 @@ Caused by: java.lang.RuntimeException: Cannot fill a form with a null value
 	at play.api.libs.streams.StrictAccumulator.$anonfun$mapFuture$3(Accumulator.scala:174)
 	at scala.Function1.$anonfun$andThen$1(Function1.scala:52)
 	... 27 common frames omitted
+=======
+	at scala.concurrent.impl.ExecutionContextImpl$AdaptedForkJoinTask.exec(ExecutionContextImpl.scala:140)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+2017-10-22 21:52:44,297 [INFO] from application in scala-execution-context-global-2570 - Shutting down connection pool.
+2017-10-22 21:52:44,541 [INFO] from application in scala-execution-context-global-2570 - Creating Pool for datasource 'default'
+2017-10-22 21:52:44,621 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2570 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:52:44,922 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2570 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:52:44,960 [INFO] from play.api.Play in scala-execution-context-global-2570 - Application started (Dev)
+2017-10-22 21:52:51,967 [WARN] from play in application-akka.actor.default-dispatcher-3 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:52:54,773 [WARN] from play in application-akka.actor.default-dispatcher-3 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:55:19,886 [INFO] from application in scala-execution-context-global-2619 - Shutting down connection pool.
+2017-10-22 21:55:19,972 [INFO] from application in scala-execution-context-global-2619 - Creating Pool for datasource 'default'
+2017-10-22 21:55:20,014 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2619 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:55:20,229 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2619 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:55:20,256 [INFO] from play.api.Play in scala-execution-context-global-2619 - Application started (Dev)
+2017-10-22 21:55:20,319 [WARN] from play in application-akka.actor.default-dispatcher-5 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:55:31,061 [INFO] from application in scala-execution-context-global-2641 - Shutting down connection pool.
+2017-10-22 21:55:31,166 [INFO] from application in scala-execution-context-global-2641 - Creating Pool for datasource 'default'
+2017-10-22 21:55:31,215 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2641 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:55:31,436 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2641 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:55:31,488 [INFO] from play.api.Play in scala-execution-context-global-2641 - Application started (Dev)
+2017-10-22 21:55:31,564 [WARN] from play in application-akka.actor.default-dispatcher-7 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:55:47,114 [INFO] from application in scala-execution-context-global-2681 - Shutting down connection pool.
+2017-10-22 21:55:47,195 [INFO] from application in scala-execution-context-global-2681 - Creating Pool for datasource 'default'
+2017-10-22 21:55:47,235 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2681 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:55:47,419 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2681 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:55:47,452 [INFO] from play.api.Play in scala-execution-context-global-2681 - Application started (Dev)
+2017-10-22 21:55:47,510 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:56:12,216 [INFO] from application in scala-execution-context-global-2731 - Shutting down connection pool.
+2017-10-22 21:56:12,297 [INFO] from application in scala-execution-context-global-2731 - Creating Pool for datasource 'default'
+2017-10-22 21:56:12,343 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2731 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 21:56:12,567 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2731 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 21:56:12,598 [INFO] from play.api.Play in scala-execution-context-global-2731 - Application started (Dev)
+2017-10-22 21:56:12,663 [WARN] from play in application-akka.actor.default-dispatcher-4 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:56:29,283 [WARN] from play in application-akka.actor.default-dispatcher-5 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:56:39,165 [WARN] from play in application-akka.actor.default-dispatcher-5 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:56:43,745 [WARN] from play in application-akka.actor.default-dispatcher-5 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:56:53,941 [WARN] from play in application-akka.actor.default-dispatcher-8 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:57:02,652 [WARN] from play in application-akka.actor.default-dispatcher-8 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:57:08,897 [WARN] from play in application-akka.actor.default-dispatcher-8 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:57:13,012 [WARN] from play in application-akka.actor.default-dispatcher-9 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:57:20,077 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 21:57:43,112 [WARN] from play in application-akka.actor.default-dispatcher-3 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:06:49,434 [INFO] from application in scala-execution-context-global-2936 - Shutting down connection pool.
+2017-10-22 22:06:49,513 [INFO] from application in scala-execution-context-global-2936 - Creating Pool for datasource 'default'
+2017-10-22 22:06:49,582 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-2936 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 22:06:49,806 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-2936 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 22:06:49,846 [INFO] from play.api.Play in scala-execution-context-global-2936 - Application started (Dev)
+2017-10-22 22:06:49,933 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:09:29,819 [INFO] from application in scala-execution-context-global-3003 - Shutting down connection pool.
+2017-10-22 22:09:29,922 [INFO] from application in scala-execution-context-global-3003 - Creating Pool for datasource 'default'
+2017-10-22 22:09:29,985 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-3003 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 22:09:30,269 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-3003 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 22:09:30,318 [INFO] from play.api.Play in scala-execution-context-global-3003 - Application started (Dev)
+2017-10-22 22:09:30,393 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:10:50,965 [INFO] from application in scala-execution-context-global-3042 - Shutting down connection pool.
+2017-10-22 22:10:51,056 [INFO] from application in scala-execution-context-global-3042 - Creating Pool for datasource 'default'
+2017-10-22 22:10:51,101 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-3042 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 22:10:51,380 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-3042 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 22:10:51,428 [INFO] from play.api.Play in scala-execution-context-global-3042 - Application started (Dev)
+2017-10-22 22:10:51,498 [WARN] from play in application-akka.actor.default-dispatcher-6 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:10:54,633 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:12:13,874 [WARN] from play in application-akka.actor.default-dispatcher-7 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 22:14:56,281 [WARN] from play in application-akka.actor.default-dispatcher-9 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:15:13,802 [WARN] from play in application-akka.actor.default-dispatcher-10 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:15:49,184 [WARN] from play in application-akka.actor.default-dispatcher-8 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:18:04,991 [WARN] from play in application-akka.actor.default-dispatcher-12 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:18:23,412 [WARN] from play in application-akka.actor.default-dispatcher-15 - You are using status code '400' with flashing, which should only be used with a redirect status!
+2017-10-22 22:20:35,236 [INFO] from application in scala-execution-context-global-3484 - Shutting down connection pool.
+2017-10-22 22:20:35,311 [INFO] from application in scala-execution-context-global-3484 - Creating Pool for datasource 'default'
+2017-10-22 22:20:35,356 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-3484 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 22:20:35,541 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-3484 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 22:20:35,588 [INFO] from play.api.Play in scala-execution-context-global-3484 - Application started (Dev)
+2017-10-22 22:27:19,755 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 22:30:44,540 [INFO] from application in scala-execution-context-global-3896 - Shutting down connection pool.
+2017-10-22 22:30:44,618 [INFO] from application in scala-execution-context-global-3896 - Creating Pool for datasource 'default'
+2017-10-22 22:30:44,659 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-3896 - Database [default] connected at jdbc:mysql://localhost:3306/eatalotdb
+2017-10-22 22:30:44,864 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in scala-execution-context-global-3896 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-10-22 22:30:44,896 [INFO] from play.api.Play in scala-execution-context-global-3896 - Application started (Dev)
+2017-10-22 22:32:49,284 [WARN] from play in play-dev-mode-akka.actor.default-dispatcher-1185 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2017-10-22 22:34:39,936 [WARN] from play in application-akka.actor.default-dispatcher-2 - You are using status code '200' with flashing, which should only be used with a redirect status!
+>>>>>>> master

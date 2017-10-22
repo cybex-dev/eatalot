@@ -67,8 +67,13 @@ Seq[Any](format.raw/*7.32*/("""
 
               /*
                   -- GENERATED --
+<<<<<<< HEAD
                   DATE: Sun Oct 22 22:44:13 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Global/Temp/master.scala.html
+=======
+                  DATE: Sun Oct 22 11:23:04 SAST 2017
+                  SOURCE: /home/dylan/Desktop/eatalot/eatalot/app/views/Global/Temp/master.scala.html
+>>>>>>> master
                   HASH: 02f10cb419121536314ea34b5fc16f25d149a7cf
                   MATRIX: 1215->255|1340->285|1368->287|1450->394|1486->403|1521->411|1547->416|1593->531|1631->641|1669->749|1701->754|1758->872|1795->882|1823->889|1855->894
                   LINES: 33->7|38->7|40->9|43->12|44->13|44->13|44->13|45->14|46->15|47->16|48->17|50->20|51->21|51->21|52->22

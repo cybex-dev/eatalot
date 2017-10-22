@@ -1,0 +1,42 @@
+@import Global.Static.masterpage
+@import controllers.Application.AppTags.General
+@import helper.CSRF
+@import models.User.Customer.UserRegisterInfo
+@import play.data.Form
+@import views.html.Global.Static.show_flash
+@import Global.Static.stylesheets
+
+@(userForm: Form[UserRegisterInfo])
+
+@stylesheets.apply()
+@bodyContent = {
+    @for(key <- Array("danger","warning","success","info")) {
+        @if(flash().containsKey(key)) {
+            @show_flash(key, flash().get(key).toString)
+        }
+    }
+    <div class="center-wrapper">
+        <h1>Register for @General.SITENAME.toString</h1>
+        <div class="center-child">
+            <br>
+            @helper.form(action = controllers.User.routes.CustomerController.create()) {
+                @CSRF.formField
+                @helper.inputText(userForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
+                <br/>
+                @helper.inputPassword(userForm("password"), '_name -> "Password", '_class -> "text-field")
+                @helper.inputPassword(userForm("confirmPassword"), '_name -> "Confirm Password", '_class -> "text-field")
+                <br/>
+                <input class="btn btn-success" type="submit" value="Register"/>
+            }
+            <hr/>
+            @helper.form(action = controllers.User.routes.UserController.login()) {
+                @CSRF.formField
+                <input class="btn btn-default" type="submit" value="Login"/>
+            }
+        </div>
+        <br/>
+    </div>
+    <br/>
+}
+
+    @bodyContent

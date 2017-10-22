@@ -1,5 +1,6 @@
 package models.User.Customer;
 
+import models.Order.CustomerOrder;
 import models.Order.OrderSchedule;
 import models.Order.OrderScheduleItem;
 import models.User.UserInfo;
@@ -75,7 +76,8 @@ public class CustomerInfo extends UserInfo {
         return isScheduleActive;
     }
 
-    public int getActiveOrderCount() {
+    public int getActiveOrderCount(String userId) {
+        activeOrderCount = Customer.findCustomerByUserId(userId).countActiveOrders();
         return activeOrderCount;
     }
 

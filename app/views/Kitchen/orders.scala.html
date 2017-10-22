@@ -8,10 +8,10 @@
     @if(list.isEmpty){
         <p><i>dust</i></p>
     }else{
-        <table>
+        <table class="ingredient-table-wrapper">
             <tr>
-                <td>Order Number</td>
-                <td>Status</td>
+                <th>Order Number</th>
+                <th>Status</th>
             </tr>
             @for(x <- 0 until list.size()){
                 @form(CSRF(controllers.Order.routes.KitchenController.getMealOrderPage(list.get(x).getOrderId().toString))) {

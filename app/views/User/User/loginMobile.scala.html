@@ -1,0 +1,42 @@
+@import Global.Static.stylesheets
+@import controllers.Application.AppTags.General
+@import helper._
+@import models.User.UserLoginInfo
+@import play.data.Form
+@import views.html.Global.Static.show_flash
+
+@(loginForm: Form[UserLoginInfo])
+
+@stylesheets.apply()
+@bodyContent = {
+    @for(key <- Array("danger","warning","success","info")) {
+        @if(flash().containsKey(key)) {
+            @show_flash(key, flash().get(key).toString)
+        }
+    }
+    <div class="center-wrapper">
+        <h1>Login to @General.SITENAME.toString</h1>
+        <div class="center-child">
+            <br/>
+            @helper.form(action = controllers.User.routes.UserController.doLogin) {
+                @CSRF.formField
+                @inputText(loginForm("loginId"), '_name -> "E-Mail", '_class -> "text-field")
+                @inputPassword(loginForm("password"), '_name -> "Password", '_class -> "text-field")
+                @checkbox(loginForm("rememberMe"), '_name -> "Remember Me")
+                <br/>
+                <input class="btn btn-success button-small" type="submit" value="Login"/>
+                <br/>
+            }
+            <hr style="background-color: black;" size="3px"/>
+            @form(action = controllers.User.routes.CustomerController.register(), '_class -> "header-line") {
+                @CSRF.formField
+                <input class="btn btn-default" type="submit" value="Register"/>
+            }
+        </div>
+        <br/>
+    </div>
+    <br/>
+}
+
+
+    @bodyContent

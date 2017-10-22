@@ -5,6 +5,7 @@ import annotations.SessionVerifier.RedirectToDashIfActive;
 import annotations.SessionVerifier.RequiresActive;
 import controllers.Application.AppTags;
 import libs.Mailer;
+import models.Order.CustomerOrder;
 import models.User.Admin.Admin;
 import models.User.Customer.Customer;
 import models.User.Customer.CustomerInfo;
@@ -19,11 +20,15 @@ import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
+import utility.Mobile;
 import utility.Utility;
 import views.html.Application.Home.index;
 import views.html.User.User.login;
+import views.html.User.User.loginMobile;
+import views.html.Ordering.masterOrder;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -71,7 +76,10 @@ public class UserController extends Controller {
     @With(RedirectToDashIfActive.class)
     @AnyAllowed
     public Result login() {
-        return ok(login.render(formFactory.form(UserLoginInfo.class)));
+        if(Mobile.isMobile(request().getHeaders()))
+            return ok(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class))));
+        else
+            return ok(login.render(formFactory.form(UserLoginInfo.class)));
     }
 
     /**
@@ -99,7 +107,10 @@ public class UserController extends Controller {
 
         if (form.hasErrors()) {
             flash(FlashCodes.danger.toString(), "Please check all fields are correct");
-            return CompletableFuture.completedFuture(badRequest(login.render(form)));
+            if(Mobile.isMobile(request().getHeaders()))
+                return CompletableFuture.completedFuture(badRequest(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class)))));
+            else
+                return CompletableFuture.completedFuture(badRequest(login.render(formFactory.form(UserLoginInfo.class))));
         }
 
         UserLoginInfo userLoginInfo = form.get();
@@ -137,7 +148,10 @@ public class UserController extends Controller {
                 s == null &&
                 a == null) {
             flash(FlashCodes.danger.toString(), "Username/Password combination invalid");
-            return CompletableFuture.completedFuture(notFound(login.render(form)));
+            if(Mobile.isMobile(request().getHeaders()))
+                return CompletableFuture.completedFuture(notFound((masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class))))));
+            else
+                return CompletableFuture.completedFuture(notFound((login.render(formFactory.form(UserLoginInfo.class)))));
         }
 
 
@@ -151,7 +165,10 @@ public class UserController extends Controller {
             if (c != null &&
                     s != null) {
                 flash().put(FlashCodes.danger.toString(), "Please log in using your staff");
-                return CompletableFuture.completedFuture(badRequest(login.render(form)));
+                if(Mobile.isMobile(request().getHeaders()))
+                    return CompletableFuture.completedFuture(badRequest(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class)))));
+                else
+                    return CompletableFuture.completedFuture(badRequest(login.render(formFactory.form(UserLoginInfo.class))));
             }
 
             // determine if user is staff or customer
@@ -170,7 +187,10 @@ public class UserController extends Controller {
         if (userType != UserType.ADMIN) {
             if (!user.getAccountActive()) {
                 flash().put(FlashCodes.danger.toString(), "Your account has been disable, please contact the Eatalot to resolve this!");
-                return CompletableFuture.completedFuture(badRequest(login.render(form)));
+                if(Mobile.isMobile(request().getHeaders()))
+                    return CompletableFuture.completedFuture(badRequest(masterOrder.render(loginMobile.render(formFactory.form(UserLoginInfo.class)))));
+                else
+                    return CompletableFuture.completedFuture(badRequest(login.render(formFactory.form(UserLoginInfo.class))));
             }
         }
 
@@ -225,6 +245,7 @@ public class UserController extends Controller {
 
             case CUSTOMER: {
                 CustomerInfo customerInfo = CustomerInfo.GetCustomerInfo(user.getUserId());
+                setCurrentOrder();
                 return customerCheckComplete(customerInfo);
             }
 
@@ -237,6 +258,26 @@ public class UserController extends Controller {
         }
         flash().put(FlashCodes.danger.toString(), "An unknown login error occurred. Close your browser and try again.");
         return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.index()));
+    }
+
+    /**
+     * TODO: ADDED THIS TO FIND AN EXISTING ORDER FOR A CUSTOMER. ADDED TO LINE 230.
+     *
+     * Check if there is an unsubmitted order from a previous session
+     * Resume previous order after logout
+     * Set session to that orderId
+     * There should only ever be one unsubmitted order per user
+     */
+    private void setCurrentOrder(){
+        List<CustomerOrder> lstOrders = CustomerOrder.findOrderByUserId(session(AppTags.AppCookie.user_id.toString()));
+        if (lstOrders != null) {
+            for (CustomerOrder lstOrder : lstOrders) {
+                if (lstOrder.getStatusId().equals("unsubmitted")) {
+                    session("orderId", String.valueOf(lstOrder.getOrderId()));
+                    break;
+                }
+            }
+        }
     }
 
     private CompletionStage<Result> customerCheckComplete(CustomerInfo customerInfo) {

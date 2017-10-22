@@ -113,6 +113,13 @@
         <div class="row pad-botm">
             <div class="col-md-12">
                 <h1 class="header-line">Customers</h1>
+                <br/>
+                <div class="margin-left-large">
+                    <a href="@CSRF(controllers.User.routes.AdminController.addCustomer())" class="btn btn-success add-button text-bold">
+                    New Customer<img class="small-icon align-button-contents" src="@routes.Assets.versioned("images/icons/add.png")">
+                    </a>
+                </div>
+                <br/>
             </div>
         </div>
     @tableGeneric(true, customerList)
@@ -122,6 +129,13 @@
         <div class="row pad-botm">
             <div class="col-md-12">
                 <h1 class="header-line">Kitchen Staff</h1>
+                <br/>
+                <div class="margin-left-large">
+                    <a href="@CSRF(controllers.User.routes.AdminController.addStaff())" class="btn btn-success add-button text-bold">
+                    New Staff Member<img class="small-icon align-button-contents" src="@routes.Assets.versioned("images/icons/add.png")">
+                    </a>
+                </div>
+                <br/>
             </div>
         </div>
     @tableGeneric(false, kitchenStaffList)
@@ -131,6 +145,13 @@
         <div class="row pad-botm">
             <div class="col-md-12">
                 <h1 class="header-line">Delivery Staff</h1>
+                <br/>
+                <div class="margin-left-large">
+                    <a href="@CSRF(controllers.User.routes.AdminController.addStaff())" class="btn btn-success add-button text-bold">
+                    New Staff Member<img class="small-icon align-button-contents" src="@routes.Assets.versioned("images/icons/add.png")">
+                    </a>
+                </div>
+                <br/>
             </div>
         </div>
     @tableGeneric(false, deliveryStaffList)

@@ -97,7 +97,7 @@ public class KitchenStaffController extends Controller {
             return CompletableFuture.completedFuture(redirect(controllers.User.routes.KitchenStaffController.index()));
         }
 
-        if (!staff.isDeliveryStaff()){
+        if (!staff.getKitchenStaffStatus()){
             flash().put(AppTags.FlashCodes.danger.toString(), "You are trying to edit someone else's profile, this will be reported!");
             return CompletableFuture.completedFuture(redirect(controllers.Application.routes.HomeController.forbiddenAccess()));
         }

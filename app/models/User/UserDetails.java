@@ -118,7 +118,7 @@ public class UserDetails implements Constraints.Validatable<ValidationError> {
         }
         if (user instanceof Staff) {
             Staff s = (Staff) user;
-            map.put("alias", s.getAlias() != null ? s.getAlias() : "");
+            map.put("alias", s.getLoginAlias() != null ? s.getLoginAlias() : "");
         }
         return map;
     }

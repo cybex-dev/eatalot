@@ -70,7 +70,7 @@ Seq[Any](format.raw/*6.30*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Oct 22 04:28:37 SAST 2017
+                  DATE: Sun Oct 22 22:44:14 SAST 2017
                   SOURCE: /home/cybex/Projects/project-eatalot/app/views/Finance/UserFinance/AddFunds.scala.html
                   HASH: 7c551011b6876ff311c178a0dc32a0307ac9471e
                   MATRIX: 671->1|694->18|733->51|762->74|1121->119|1227->150|1246->161|1326->165|1357->170|1614->400|1629->406|1734->501|1775->503|1816->517|1829->521|1860->531|1901->545|1916->551|1999->613|2040->626|2163->718|2195->723|2242->147|2271->731|2300->734

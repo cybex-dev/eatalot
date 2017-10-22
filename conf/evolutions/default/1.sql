@@ -28,11 +28,11 @@ create table customer (
   email                         varchar(255),
   cell_number                   varchar(255),
   token                         varchar(255),
-  is_active                     tinyint(1) default 0,
-  is_student                    tinyint(1) default 0,
-  email_verified                tinyint(1) default 0,
-  is_complete                   tinyint(1) default 0 not null,
-  balance                       double,
+  account_active                tinyint(1) default 0,
+  student                       tinyint(1) default 0,
+  email_verified_status         tinyint(1) default 0,
+  complete                      tinyint(1) default 0 not null,
+  acc_balance                   double,
   address_address_id            varchar(255),
   order_schedule_order_sched_id varchar(255),
   constraint uq_customer_address_address_id unique (address_address_id),
@@ -42,8 +42,8 @@ create table customer (
 
 create table customer_order (
   order_id                      varchar(255) not null,
-  customer_user_id              varchar(255),
   status_id                     varchar(255),
+  customer_user_id              varchar(255),
   payment_id                    varchar(255),
   delivery_date                 datetime(6),
   constraint pk_customer_order primary key (order_id)
@@ -146,9 +146,9 @@ create table staff (
   email                         varchar(255),
   cell_number                   varchar(255),
   token                         varchar(255),
-  is_active                     tinyint(1) default 0,
-  is_kitchen_staff              tinyint(1) default 0,
-  alias                         varchar(255),
+  account_active                tinyint(1) default 0,
+  kitchen_staff_status          tinyint(1) default 0,
+  login_alias                   varchar(255),
   constraint pk_staff primary key (user_id)
 );
 

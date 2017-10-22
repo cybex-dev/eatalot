@@ -35,7 +35,7 @@ public class OrderItemDetail {
     public String getDelivererName() {
         String name = "Not Found";
         List<StaffOrderInteraction> orderStaff = StaffOrderInteraction.find.query().where().ilike("orderId", orderId).findList();
-        StaffOrderInteraction staffOrderInteraction1 = orderStaff.stream().filter(staffOrderInteraction -> Staff.find.byId(staffOrderInteraction.getStaffId()).isDeliveryStaff()).findFirst().orElse(null);
+        StaffOrderInteraction staffOrderInteraction1 = orderStaff.stream().filter(staffOrderInteraction -> Staff.find.byId(staffOrderInteraction.getStaffId()).getDeliveryStaff()).findFirst().orElse(null);
         if (staffOrderInteraction1 != null) {
             Staff staff = Staff.find.byId(staffOrderInteraction1.getStaffId());
             name = staff.getName().concat(" ").concat(staff.getSurname());

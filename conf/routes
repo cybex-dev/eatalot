@@ -124,7 +124,7 @@ GET         /Admin/Manage/Meals/Add                     controllers.User.AdminCo
 GET         /Admin/Manage/Meals/Edit/:mealId            controllers.User.AdminController.editMeal(mealId: String)
 GET         /Admin/Manage/Users                         controllers.User.AdminController.manageUsers()
 GET         /Admin/Manage/Users/Customer/New            controllers.User.AdminController.addCustomer()
-GET         /Admin/Manage/Users/Staff/New               controllers.User.AdminController.addCustomer()
+GET         /Admin/Manage/Users/Staff/New               controllers.User.AdminController.addStaff()
 GET         /Admin/Manage/Users/Customer/Edit:userId    controllers.User.AdminController.editCustomer(userId: String)
 GET         /Admin/Manage/Users/Staff/Edit:userId       controllers.User.AdminController.editStaff(userId: String)
 GET         /Admin/Manage/Discounts                     controllers.User.AdminController.manageDiscounts()
@@ -139,9 +139,11 @@ POST        /Admin/Manage/Users/Customer/Edit           controllers.User.AdminCo
 POST        /Admin/Manage/Users/Staff/Edit              controllers.User.AdminController.updateStaff()
 POST        /Admin/Manage/Discounts/Edit                controllers.Finance.UserFinanceController.updateDiscount()
 +nocsrf
-POST        /Admin/Manage/Meals/Remove/:mealId          controllers.User.AdminController.removeMeal(mealId: String)
+POST        /Admin/Manage/Meals/Remove                  controllers.User.AdminController.removeMeal()
 +nocsrf
-POST        /Admin/Manage/Users/Remove/:userId/:userType controllers.User.AdminController.removeUser(userId: String, userType: String)
+POST        /Admin/Manage/Users/Customer/Remove         controllers.User.AdminController.removeCustomer()
++nocsrf
+POST        /Admin/Manage/Users/Staff/Remove            controllers.User.AdminController.removeStaff()
 +nocsrf
 POST        /Admin/Manage/Discounts/Remove/:discountId  controllers.Finance.UserFinanceController.removeDiscount(discountId: String)
 

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sun Oct 22 04:28:34 SAST 2017
+// @DATE:Mon Oct 23 01:02:05 SAST 2017
 
 import play.api.mvc.Call
 
@@ -25,36 +25,22 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Staff/Edit")
     }
   
-    // @LINE:126
-    def addCustomer(): Call = {
-    
-      () match {
+    // @LINE:127
+    def addStaff(): Call = {
       
-        // @LINE:126
-        case ()  =>
-          
-          Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Customer/New")
-      
-      }
-    
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Staff/New")
     }
   
-    // @LINE:144
-    def removeUser(userId:String, userType:String): Call = {
+    // @LINE:126
+    def addCustomer(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Remove/" + implicitly[play.api.mvc.PathBindable[String]].unbind("userId", play.core.routing.dynamicString(userId)) + "/" + implicitly[play.api.mvc.PathBindable[String]].unbind("userType", play.core.routing.dynamicString(userType)))
+      Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Customer/New")
     }
   
     // @LINE:133
     def edit(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Edit")
-    }
-  
-    // @LINE:142
-    def removeMeal(mealId:String): Call = {
-      
-      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Remove/" + implicitly[play.api.mvc.PathBindable[String]].unbind("mealId", play.core.routing.dynamicString(mealId)))
     }
   
     // @LINE:135
@@ -81,10 +67,22 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Staff/Edit" + implicitly[play.api.mvc.PathBindable[String]].unbind("userId", play.core.routing.dynamicString(userId)))
     }
   
+    // @LINE:144
+    def removeCustomer(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Customer/Remove")
+    }
+  
     // @LINE:130
     def manageDiscounts(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts")
+    }
+  
+    // @LINE:146
+    def removeStaff(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Users/Staff/Remove")
     }
   
     // @LINE:124
@@ -105,6 +103,12 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Add")
     }
   
+    // @LINE:142
+    def removeMeal(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Remove")
+    }
+  
     // @LINE:128
     def editCustomer(userId:String): Call = {
       
@@ -123,7 +127,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Edit")
     }
   
-    // @LINE:232
+    // @LINE:234
     def adminJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/adminJSRoutes")
@@ -222,7 +226,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:230
+    // @LINE:232
     def customerJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/customerJSRoutes")
@@ -261,7 +265,7 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Deliver")
     }
   
-    // @LINE:234
+    // @LINE:236
     def deliveryJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/deliveryJSRoutes")
@@ -356,7 +360,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
     }
   
-    // @LINE:236
+    // @LINE:238
     def kitchenJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/kitchenJSRoutes")

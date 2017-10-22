@@ -126,14 +126,14 @@ public class Requires {
                     Staff s = Staff.find.byId(userIdCookie.value());
                     return (s != null &&
                             s.getToken().equals(userTokenCookie.value()) &&
-                            s.isKitchenStaff());
+                            s.getKitchenStaffStatus());
                 }
 
                 case DELIVERY: {
                     Staff sd = Staff.find.byId(userIdCookie.value());
                     return (sd != null &&
                             sd.getToken().equals(userTokenCookie.value()) &&
-                            !sd.isKitchenStaff());
+                            sd.getDeliveryStaff());
                 }
             }
         } catch (Exception x) {

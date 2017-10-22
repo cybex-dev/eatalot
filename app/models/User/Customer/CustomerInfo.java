@@ -90,6 +90,6 @@ public class CustomerInfo extends UserInfo {
             isActive = orderSchedule.isActive();
             count = OrderScheduleItem.find.query().where().ilike("orderSchedId", orderSchedule.getOrderSchedId()).findCount();
         }
-        return new CustomerInfo(customer.getUserId(), customer.getName(), customer.getSurname(), customer.getEmail(), customer.isComplete(), customer.isStudent(), customer.getBalance(), count, isActive);
+        return new CustomerInfo(customer.getUserId(), customer.getName(), customer.getSurname(), customer.getEmail(), customer.isComplete(), customer.getStudent(), customer.getAccBalanceString(), count, isActive);
     }
 }

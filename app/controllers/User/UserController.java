@@ -115,7 +115,7 @@ public class UserController extends Controller {
 
         Optional<Staff> staffMember =  Staff.find.query().where()
                 .or()
-                .eq("alias", userLoginInfo.getLoginId())
+                .eq("loginAlias", userLoginInfo.getLoginId())
                 .eq("email", userLoginInfo.getLoginId())
                 .endOr()
                 .findList().stream()
@@ -161,14 +161,14 @@ public class UserController extends Controller {
                 user = c;
             } else {
                 //user is staff
-                userType = (s.isKitchenStaff()) ? UserType.KITCHEN : UserType.DELIVERY;
+                userType = (s.getKitchenStaffStatus()) ? UserType.KITCHEN : UserType.DELIVERY;
                 user = s;
             }
         }
 
         //check if user is active
         if (userType != UserType.ADMIN) {
-            if (!user.getActive()) {
+            if (!user.getAccountActive()) {
                 flash().put(FlashCodes.danger.toString(), "Your account has been disable, please contact the Eatalot to resolve this!");
                 return CompletableFuture.completedFuture(badRequest(login.render(form)));
             }
@@ -257,7 +257,7 @@ public class UserController extends Controller {
 
         //either profile is incomplete or email not verified
         boolean profileComplete = customer.isProfileComplete(),
-                emailVerified = customer.getEmailVerified();
+                emailVerified = customer.getEmailVerifiedStatus();
 
         if (!emailVerified && profileComplete)
             return supplyAsync(() -> {

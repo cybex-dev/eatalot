@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cybex/Projects/project-eatalot/conf/routes
-// @DATE:Sun Oct 22 04:28:34 SAST 2017
+// @DATE:Mon Oct 23 01:02:05 SAST 2017
 
 import play.api.mvc.Call
 
@@ -19,25 +19,25 @@ package controllers.Finance {
     }
 
   
-    // @LINE:238
+    // @LINE:240
     def financeJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/financeJSRoutes")
     }
   
-    // @LINE:146
+    // @LINE:148
     def removeDiscount(discountId:String): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Discounts/Remove/" + implicitly[play.api.mvc.PathBindable[String]].unbind("discountId", play.core.routing.dynamicString(discountId)))
     }
   
-    // @LINE:154
+    // @LINE:156
     def addFunds(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "User/AddFunds")
     }
   
-    // @LINE:156
+    // @LINE:158
     def doAddFunds(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "User/AddFunds")

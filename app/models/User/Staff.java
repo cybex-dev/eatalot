@@ -15,48 +15,32 @@ import java.util.Optional;
 @Table(name = "staff")
 public class Staff extends User {
 
-    private Boolean isKitchenStaff;
+    private Boolean kitchenStaffStatus = true;
 
-    private String alias;
+    private String loginAlias = "";
 
     public static Finder<String, Staff> find = new Finder<String, Staff>(Staff.class);
 
-    public Staff(){
+    public Staff() {
         super();
     }
 
-    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean isKitchenStaff, String alias) {
+    public Staff(@Constraints.MinLength(10) @Constraints.MaxLength(10) String userId, String name, String surname, @Constraints.Required String password, @Constraints.Email @Constraints.Required String email, @Constraints.Required @Constraints.Pattern("[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}") String cellNumber, @Constraints.Required Boolean bKitchenStaff, String alias) {
         super(userId, name, surname, password, email, cellNumber);
-        this.isKitchenStaff = isKitchenStaff;
-        this.alias = alias;
-    }
-
-    public Boolean isKitchenStaff() {
-        return isKitchenStaff;
+        this.kitchenStaffStatus = bKitchenStaff;
+        this.loginAlias = alias;
     }
 
     @Override
     public boolean equals(Object obj) {
         Staff s = (Staff) obj;
         return super.equals(obj) &&
-                s.isKitchenStaff.equals(isKitchenStaff);
+                s.kitchenStaffStatus.equals(kitchenStaffStatus);
     }
 
     @Override
     public String toString() {
-        return super.toString() + " [ " + (isKitchenStaff ? "Kitchen" : "Delivery") + " ]";
-    }
-
-    public boolean isDeliveryStaff() {
-        return !isKitchenStaff;
-    }
-
-    public Boolean getKitchenStaff() {
-        return isKitchenStaff;
-    }
-
-    public String getAlias() {
-        return alias;
+        return super.toString() + " [ " + (kitchenStaffStatus ? "Kitchen" : "Delivery") + " ]";
     }
 
     public static boolean Authenticate(String id, String token, boolean isKitchenStaff) {
@@ -68,24 +52,34 @@ public class Staff extends User {
         return staff.isPresent();
     }
 
-    public void setKitchenStaff(Boolean kitchenStaff) {
-        isKitchenStaff = kitchenStaff;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-        save();
-    }
-
-    public void fill(Staff staff){
+    public void fill(Staff staff) {
         super.fill(staff);
-        if (this.isKitchenStaff != staff.isKitchenStaff)
-            this.isKitchenStaff = staff.isKitchenStaff;
-        if (!this.alias.equals(staff.alias))
-            this.alias = staff.alias;
+        if (this.kitchenStaffStatus != staff.kitchenStaffStatus)
+            this.kitchenStaffStatus = staff.kitchenStaffStatus;
+        if (!this.loginAlias.equals(staff.loginAlias))
+            this.loginAlias = staff.loginAlias;
         if (!this.getPassword().equals(staff.getPassword())) {
             this.setPassword(staff.getPassword());
         }
     }
 
+    public boolean getDeliveryStaff(){
+        return !kitchenStaffStatus;
+    }
+
+    public String getLoginAlias() {
+        return loginAlias;
+    }
+
+    public void setLoginAlias(String loginAlias) {
+        this.loginAlias = loginAlias;
+    }
+
+    public Boolean getKitchenStaffStatus() {
+        return kitchenStaffStatus;
+    }
+
+    public void setKitchenStaffStatus(Boolean kitchenStaffStatus) {
+        this.kitchenStaffStatus = kitchenStaffStatus;
+    }
 }

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
-// @DATE:Sun Oct 22 13:11:41 SAST 2017
+// @DATE:Sun Oct 22 14:40:06 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,10 +9,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:245
+// @LINE:247
 package controllers.javascript {
 
-  // @LINE:245
+  // @LINE:247
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:245
+    // @LINE:247
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

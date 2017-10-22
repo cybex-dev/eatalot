@@ -9,6 +9,13 @@
 
 @header.render()
 
+@if(flash().get("message") != null){
+    <br><br>
+    <p style="color: #ac2925"> @flash().get("message")</p>
+    <br><br>
+}
+
+
 @page
 
 @footer_wrapper.render()

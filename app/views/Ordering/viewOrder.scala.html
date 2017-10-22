@@ -5,18 +5,20 @@
 @(list: List[Pair[MealOrder, Meal]])
 
 <html>
-    <table>
-        <tr>
-            <td>Description</td>
-            <td>Quantity</td>
-            <td>Cost</td>
-        </tr>
-        @for(x <- 0 until list.size()){
-            <tr>
-                <td>@list.get(x).getObject2().getDescription()</td>
-                <td>@list.get(x).getObject1().getOrderQty()</td>
-                <td>@list.get(x).getObject2().getCost()</td>
+    <div class="center-wrapper">
+        <table class="fill-wrapper">
+            <tr class="bottom_row">
+                <th class="space-cell-big">Description</th>
+                <th>Quantity</th>
+                <th>Cost</th>
             </tr>
-        }
-    </table>
+            @for(x <- 0 until list.size()){
+                <tr class="bottom_row">
+                    <td class="space-cell-small">@list.get(x).getObject2.getDescription</td>
+                    <td>@list.get(x).getObject1.getOrderQty</td>
+                    <td>@list.get(x).getObject2.getCost</td>
+                </tr>
+            }
+        </table>
+    </div>
 </html>

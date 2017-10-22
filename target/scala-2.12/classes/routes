@@ -181,9 +181,11 @@ GET     /cart/submit            controllers.Order.OrderController.getSubmitPage(
 
 POST    /cart/submitcart        controllers.Order.OrderController.submitCart()
 
-GET     /history                controllers.Order.OrderController.getHistoryPage()
+GET     /activeorders/:orderId  controllers.Order.OrderController.getViewOrder(orderId: String)
 
-POST    /history/order          controllers.Order.OrderController.getViewOrder(orderId: String)
+GET     /activeorders           controllers.Order.OrderController.getActiveOrders()
+
+POST    /orderaction            controllers.Order.OrderController.activeOrderAction(orderId: String)
 
 # ===== Kitchen routes =====
 

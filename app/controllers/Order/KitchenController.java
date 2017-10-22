@@ -1,5 +1,6 @@
 package controllers.Order;
 
+import io.ebeaninternal.server.lib.util.Str;
 import models.Order.CustomerOrder;
 import models.Order.Ingredient;
 import play.data.Form;
@@ -41,19 +42,16 @@ public class KitchenController extends Controller {
         switch (result[0]){
             case "process":
                 CustomerOrder.findOrderById(orderId)
-                        .setStatusId("processing")
+                        .setProcessing()
                         .update();
                 break;
             case "deliver":
                 CustomerOrder.findOrderById(orderId)
-                        .setStatusId("delivering")
+                        .setDelivering()
                         .update();
                 break;
             case "cancel":
-                CustomerOrder.findOrderById(orderId)
-                        .setStatusId("cancelled")
-                        .update();
-                break;
+                return redirect(routes.KitchenController.getCancelOrderPage(orderId));
             default: return badRequest();
         }
         return redirect(controllers.Order.routes.KitchenController.getOrderPage());
@@ -111,6 +109,23 @@ public class KitchenController extends Controller {
      * @return
      */
     public Result doOrderCancellation(String orderId){
+        CustomerOrder order = CustomerOrder.findOrderById(orderId);
+
+        String[] reason = request().body().asFormUrlEncoded().get("reason");
+        String[] explain = request().body().asFormUrlEncoded().get("explain");
+
+        if(reason[0].equals("other")) {
+            order.setCancelMessage(explain[0]);
+        } else {
+            if(explain[0] != null)
+                order.setCancelMessage(reason[0] + " - " + explain[0]);
+            else
+                order.setCancelMessage(reason[0]);
+        }
+
+        order.setCancelled();
+        order.save();
+
         return redirect(routes.KitchenController.getOrderPage());
     }
 

@@ -46,6 +46,7 @@ create table customer_order (
   customer_user_id              varchar(255),
   payment_payment_id            varchar(255),
   delivery_date                 datetime(6),
+  cancel_message                varchar(255),
   constraint uq_customer_order_payment_payment_id unique (payment_payment_id),
   constraint pk_customer_order primary key (order_id)
 );

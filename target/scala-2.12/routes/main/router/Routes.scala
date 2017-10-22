@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
-// @DATE:Sun Oct 22 13:11:41 SAST 2017
+// @DATE:Sun Oct 22 14:40:06 SAST 2017
 
 package router
 
@@ -35,9 +35,9 @@ class Routes(
   UserFinanceController_8: controllers.Finance.UserFinanceController,
   // @LINE:166
   OrderController_4: controllers.Order.OrderController,
-  // @LINE:190
+  // @LINE:192
   KitchenController_9: controllers.Order.KitchenController,
-  // @LINE:245
+  // @LINE:247
   Assets_10: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -64,9 +64,9 @@ class Routes(
     UserFinanceController_8: controllers.Finance.UserFinanceController,
     // @LINE:166
     OrderController_4: controllers.Order.OrderController,
-    // @LINE:190
+    // @LINE:192
     KitchenController_9: controllers.Order.KitchenController,
-    // @LINE:245
+    // @LINE:247
     Assets_10: controllers.Assets
   ) = this(errorHandler, HomeController_5, UserController_3, DeliveryStaffController_0, CustomerController_7, ScheduleController_2, MenuController_1, KitchenStaffController_6, AdminController_11, UserFinanceController_8, OrderController_4, KitchenController_9, Assets_10, "/")
 
@@ -167,8 +167,9 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """cart/removemeal""", """controllers.Order.OrderController.removeMealFromOrder(mealId:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """cart/submit""", """controllers.Order.OrderController.getSubmitPage()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """cart/submitcart""", """controllers.Order.OrderController.submitCart()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """history""", """controllers.Order.OrderController.getHistoryPage()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """history/order""", """controllers.Order.OrderController.getViewOrder(orderId:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """activeorders/""" + "$" + """orderId<[^/]+>""", """controllers.Order.OrderController.getViewOrder(orderId:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """activeorders""", """controllers.Order.OrderController.getActiveOrders()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """orderaction""", """controllers.Order.OrderController.activeOrderAction(orderId:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """kitchen""", """controllers.Order.KitchenController.home()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """kitchen/ingredients""", """controllers.Order.KitchenController.getIngredientPage()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """kitchen/ingredients/order""", """controllers.Order.KitchenController.getIngredientOrderPage(id:String)"""),
@@ -1770,46 +1771,64 @@ class Routes(
   )
 
   // @LINE:184
-  private[this] lazy val controllers_Order_OrderController_getHistoryPage87_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("history")))
+  private[this] lazy val controllers_Order_OrderController_getViewOrder87_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("activeorders/"), DynamicPart("orderId", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_Order_OrderController_getHistoryPage87_invoker = createInvoker(
-    OrderController_4.getHistoryPage(),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.Order.OrderController",
-      "getHistoryPage",
-      Nil,
-      "GET",
-      this.prefix + """history""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:186
-  private[this] lazy val controllers_Order_OrderController_getViewOrder88_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("history/order")))
-  )
-  private[this] lazy val controllers_Order_OrderController_getViewOrder88_invoker = createInvoker(
+  private[this] lazy val controllers_Order_OrderController_getViewOrder87_invoker = createInvoker(
     OrderController_4.getViewOrder(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Order.OrderController",
       "getViewOrder",
       Seq(classOf[String]),
-      "POST",
-      this.prefix + """history/order""",
+      "GET",
+      this.prefix + """activeorders/""" + "$" + """orderId<[^/]+>""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:190
-  private[this] lazy val controllers_Order_KitchenController_home89_route = Route("GET",
+  // @LINE:186
+  private[this] lazy val controllers_Order_OrderController_getActiveOrders88_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("activeorders")))
+  )
+  private[this] lazy val controllers_Order_OrderController_getActiveOrders88_invoker = createInvoker(
+    OrderController_4.getActiveOrders(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Order.OrderController",
+      "getActiveOrders",
+      Nil,
+      "GET",
+      this.prefix + """activeorders""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:188
+  private[this] lazy val controllers_Order_OrderController_activeOrderAction89_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("orderaction")))
+  )
+  private[this] lazy val controllers_Order_OrderController_activeOrderAction89_invoker = createInvoker(
+    OrderController_4.activeOrderAction(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Order.OrderController",
+      "activeOrderAction",
+      Seq(classOf[String]),
+      "POST",
+      this.prefix + """orderaction""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:192
+  private[this] lazy val controllers_Order_KitchenController_home90_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen")))
   )
-  private[this] lazy val controllers_Order_KitchenController_home89_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_home90_invoker = createInvoker(
     KitchenController_9.home(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1823,11 +1842,11 @@ class Routes(
     )
   )
 
-  // @LINE:194
-  private[this] lazy val controllers_Order_KitchenController_getIngredientPage90_route = Route("GET",
+  // @LINE:196
+  private[this] lazy val controllers_Order_KitchenController_getIngredientPage91_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/ingredients")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getIngredientPage90_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getIngredientPage91_invoker = createInvoker(
     KitchenController_9.getIngredientPage(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1841,11 +1860,11 @@ class Routes(
     )
   )
 
-  // @LINE:196
-  private[this] lazy val controllers_Order_KitchenController_getIngredientOrderPage91_route = Route("POST",
+  // @LINE:198
+  private[this] lazy val controllers_Order_KitchenController_getIngredientOrderPage92_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/ingredients/order")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getIngredientOrderPage91_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getIngredientOrderPage92_invoker = createInvoker(
     KitchenController_9.getIngredientOrderPage(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1859,11 +1878,11 @@ class Routes(
     )
   )
 
-  // @LINE:198
-  private[this] lazy val controllers_Order_KitchenController_editIngredient92_route = Route("POST",
+  // @LINE:200
+  private[this] lazy val controllers_Order_KitchenController_editIngredient93_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/ingredient/order/op")))
   )
-  private[this] lazy val controllers_Order_KitchenController_editIngredient92_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_editIngredient93_invoker = createInvoker(
     KitchenController_9.editIngredient(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1877,11 +1896,11 @@ class Routes(
     )
   )
 
-  // @LINE:200
-  private[this] lazy val controllers_Order_KitchenController_getNewIngredientPage93_route = Route("GET",
+  // @LINE:202
+  private[this] lazy val controllers_Order_KitchenController_getNewIngredientPage94_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/ingredient/ordernew")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getNewIngredientPage93_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getNewIngredientPage94_invoker = createInvoker(
     KitchenController_9.getNewIngredientPage(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1895,11 +1914,11 @@ class Routes(
     )
   )
 
-  // @LINE:202
-  private[this] lazy val controllers_Order_KitchenController_addIngredient94_route = Route("POST",
+  // @LINE:204
+  private[this] lazy val controllers_Order_KitchenController_addIngredient95_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/ingredient/add")))
   )
-  private[this] lazy val controllers_Order_KitchenController_addIngredient94_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_addIngredient95_invoker = createInvoker(
     KitchenController_9.addIngredient(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1913,11 +1932,11 @@ class Routes(
     )
   )
 
-  // @LINE:206
-  private[this] lazy val controllers_Order_KitchenController_getOrderPage95_route = Route("GET",
+  // @LINE:208
+  private[this] lazy val controllers_Order_KitchenController_getOrderPage96_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/customerorders")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getOrderPage95_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getOrderPage96_invoker = createInvoker(
     KitchenController_9.getOrderPage(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1931,11 +1950,11 @@ class Routes(
     )
   )
 
-  // @LINE:208
-  private[this] lazy val controllers_Order_KitchenController_getPendingOrderPage96_route = Route("GET",
+  // @LINE:210
+  private[this] lazy val controllers_Order_KitchenController_getPendingOrderPage97_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/pendingorders")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getPendingOrderPage96_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getPendingOrderPage97_invoker = createInvoker(
     KitchenController_9.getPendingOrderPage(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1949,11 +1968,11 @@ class Routes(
     )
   )
 
-  // @LINE:210
-  private[this] lazy val controllers_Order_KitchenController_getProcessingOrderPage97_route = Route("GET",
+  // @LINE:212
+  private[this] lazy val controllers_Order_KitchenController_getProcessingOrderPage98_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/processingorders")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getProcessingOrderPage97_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getProcessingOrderPage98_invoker = createInvoker(
     KitchenController_9.getProcessingOrderPage(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1967,11 +1986,11 @@ class Routes(
     )
   )
 
-  // @LINE:212
-  private[this] lazy val controllers_Order_KitchenController_getMealOrderPage98_route = Route("POST",
+  // @LINE:214
+  private[this] lazy val controllers_Order_KitchenController_getMealOrderPage99_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/customerorders/mealorder")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getMealOrderPage98_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getMealOrderPage99_invoker = createInvoker(
     KitchenController_9.getMealOrderPage(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -1985,11 +2004,11 @@ class Routes(
     )
   )
 
-  // @LINE:214
-  private[this] lazy val controllers_Order_KitchenController_updateOrderStatus99_route = Route("POST",
+  // @LINE:216
+  private[this] lazy val controllers_Order_KitchenController_updateOrderStatus100_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/customerorders/mealorder/update")))
   )
-  private[this] lazy val controllers_Order_KitchenController_updateOrderStatus99_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_updateOrderStatus100_invoker = createInvoker(
     KitchenController_9.updateOrderStatus(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2003,11 +2022,11 @@ class Routes(
     )
   )
 
-  // @LINE:216
-  private[this] lazy val controllers_Order_KitchenController_getCancelOrderPage100_route = Route("GET",
+  // @LINE:218
+  private[this] lazy val controllers_Order_KitchenController_getCancelOrderPage101_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/customerorders/mealorder/cancel")))
   )
-  private[this] lazy val controllers_Order_KitchenController_getCancelOrderPage100_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_getCancelOrderPage101_invoker = createInvoker(
     KitchenController_9.getCancelOrderPage(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2021,11 +2040,11 @@ class Routes(
     )
   )
 
-  // @LINE:218
-  private[this] lazy val controllers_Order_KitchenController_doOrderCancellation101_route = Route("POST",
+  // @LINE:220
+  private[this] lazy val controllers_Order_KitchenController_doOrderCancellation102_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("kitchen/customerorders/mealorder/docancel")))
   )
-  private[this] lazy val controllers_Order_KitchenController_doOrderCancellation101_invoker = createInvoker(
+  private[this] lazy val controllers_Order_KitchenController_doOrderCancellation102_invoker = createInvoker(
     KitchenController_9.doOrderCancellation(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2039,11 +2058,11 @@ class Routes(
     )
   )
 
-  // @LINE:226
-  private[this] lazy val controllers_Order_ScheduleController_scheduleJSRoutes102_route = Route("GET",
+  // @LINE:228
+  private[this] lazy val controllers_Order_ScheduleController_scheduleJSRoutes103_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/javascripts/scheduleJSRoutes")))
   )
-  private[this] lazy val controllers_Order_ScheduleController_scheduleJSRoutes102_invoker = createInvoker(
+  private[this] lazy val controllers_Order_ScheduleController_scheduleJSRoutes103_invoker = createInvoker(
     ScheduleController_2.scheduleJSRoutes(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2057,11 +2076,11 @@ class Routes(
     )
   )
 
-  // @LINE:228
-  private[this] lazy val controllers_User_CustomerController_customerJSRoutes103_route = Route("GET",
+  // @LINE:230
+  private[this] lazy val controllers_User_CustomerController_customerJSRoutes104_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/javascripts/customerJSRoutes")))
   )
-  private[this] lazy val controllers_User_CustomerController_customerJSRoutes103_invoker = createInvoker(
+  private[this] lazy val controllers_User_CustomerController_customerJSRoutes104_invoker = createInvoker(
     CustomerController_7.customerJSRoutes(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2075,11 +2094,11 @@ class Routes(
     )
   )
 
-  // @LINE:230
-  private[this] lazy val controllers_User_AdminController_adminJSRoutes104_route = Route("GET",
+  // @LINE:232
+  private[this] lazy val controllers_User_AdminController_adminJSRoutes105_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/javascripts/adminJSRoutes")))
   )
-  private[this] lazy val controllers_User_AdminController_adminJSRoutes104_invoker = createInvoker(
+  private[this] lazy val controllers_User_AdminController_adminJSRoutes105_invoker = createInvoker(
     AdminController_11.adminJSRoutes(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2093,11 +2112,11 @@ class Routes(
     )
   )
 
-  // @LINE:232
-  private[this] lazy val controllers_User_DeliveryStaffController_deliveryJSRoutes105_route = Route("GET",
+  // @LINE:234
+  private[this] lazy val controllers_User_DeliveryStaffController_deliveryJSRoutes106_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/javascripts/deliveryJSRoutes")))
   )
-  private[this] lazy val controllers_User_DeliveryStaffController_deliveryJSRoutes105_invoker = createInvoker(
+  private[this] lazy val controllers_User_DeliveryStaffController_deliveryJSRoutes106_invoker = createInvoker(
     DeliveryStaffController_0.deliveryJSRoutes(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2111,11 +2130,11 @@ class Routes(
     )
   )
 
-  // @LINE:234
-  private[this] lazy val controllers_User_KitchenStaffController_kitchenJSRoutes106_route = Route("GET",
+  // @LINE:236
+  private[this] lazy val controllers_User_KitchenStaffController_kitchenJSRoutes107_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/javascripts/kitchenJSRoutes")))
   )
-  private[this] lazy val controllers_User_KitchenStaffController_kitchenJSRoutes106_invoker = createInvoker(
+  private[this] lazy val controllers_User_KitchenStaffController_kitchenJSRoutes107_invoker = createInvoker(
     KitchenStaffController_6.kitchenJSRoutes(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2129,11 +2148,11 @@ class Routes(
     )
   )
 
-  // @LINE:236
-  private[this] lazy val controllers_Finance_UserFinanceController_financeJSRoutes107_route = Route("GET",
+  // @LINE:238
+  private[this] lazy val controllers_Finance_UserFinanceController_financeJSRoutes108_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/javascripts/financeJSRoutes")))
   )
-  private[this] lazy val controllers_Finance_UserFinanceController_financeJSRoutes107_invoker = createInvoker(
+  private[this] lazy val controllers_Finance_UserFinanceController_financeJSRoutes108_invoker = createInvoker(
     UserFinanceController_8.financeJSRoutes(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2147,11 +2166,11 @@ class Routes(
     )
   )
 
-  // @LINE:245
-  private[this] lazy val controllers_Assets_versioned108_route = Route("GET",
+  // @LINE:247
+  private[this] lazy val controllers_Assets_versioned109_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned108_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned109_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2165,11 +2184,11 @@ class Routes(
     )
   )
 
-  // @LINE:246
-  private[this] lazy val controllers_Assets_versioned109_route = Route("GET",
+  // @LINE:248
+  private[this] lazy val controllers_Assets_versioned110_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/User/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned109_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned110_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2183,11 +2202,11 @@ class Routes(
     )
   )
 
-  // @LINE:247
-  private[this] lazy val controllers_Assets_versioned110_route = Route("GET",
+  // @LINE:249
+  private[this] lazy val controllers_Assets_versioned111_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/User/Registration/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned110_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned111_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2201,11 +2220,11 @@ class Routes(
     )
   )
 
-  // @LINE:248
-  private[this] lazy val controllers_Assets_versioned111_route = Route("GET",
+  // @LINE:250
+  private[this] lazy val controllers_Assets_versioned112_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/Delivery/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned111_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned112_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2219,11 +2238,11 @@ class Routes(
     )
   )
 
-  // @LINE:249
-  private[this] lazy val controllers_Assets_versioned112_route = Route("GET",
+  // @LINE:251
+  private[this] lazy val controllers_Assets_versioned113_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/Kitchen/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned112_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned113_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2237,11 +2256,11 @@ class Routes(
     )
   )
 
-  // @LINE:250
-  private[this] lazy val controllers_Assets_versioned113_route = Route("GET",
+  // @LINE:252
+  private[this] lazy val controllers_Assets_versioned114_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/Staff/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned113_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned114_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2255,11 +2274,11 @@ class Routes(
     )
   )
 
-  // @LINE:251
-  private[this] lazy val controllers_Assets_versioned114_route = Route("GET",
+  // @LINE:253
+  private[this] lazy val controllers_Assets_versioned115_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/History/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned114_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned115_invoker = createInvoker(
     Assets_10.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2273,11 +2292,11 @@ class Routes(
     )
   )
 
-  // @LINE:260
-  private[this] lazy val controllers_Application_HomeController_invalidRoute115_route = Route("GET",
+  // @LINE:262
+  private[this] lazy val controllers_Application_HomeController_invalidRoute116_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), DynamicPart("path", """.+""",false)))
   )
-  private[this] lazy val controllers_Application_HomeController_invalidRoute115_invoker = createInvoker(
+  private[this] lazy val controllers_Application_HomeController_invalidRoute116_invoker = createInvoker(
     HomeController_5.invalidRoute(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -2817,177 +2836,183 @@ class Routes(
       }
   
     // @LINE:184
-    case controllers_Order_OrderController_getHistoryPage87_route(params) =>
-      call { 
-        controllers_Order_OrderController_getHistoryPage87_invoker.call(OrderController_4.getHistoryPage())
+    case controllers_Order_OrderController_getViewOrder87_route(params) =>
+      call(params.fromPath[String]("orderId", None)) { (orderId) =>
+        controllers_Order_OrderController_getViewOrder87_invoker.call(OrderController_4.getViewOrder(orderId))
       }
   
     // @LINE:186
-    case controllers_Order_OrderController_getViewOrder88_route(params) =>
+    case controllers_Order_OrderController_getActiveOrders88_route(params) =>
+      call { 
+        controllers_Order_OrderController_getActiveOrders88_invoker.call(OrderController_4.getActiveOrders())
+      }
+  
+    // @LINE:188
+    case controllers_Order_OrderController_activeOrderAction89_route(params) =>
       call(params.fromQuery[String]("orderId", None)) { (orderId) =>
-        controllers_Order_OrderController_getViewOrder88_invoker.call(OrderController_4.getViewOrder(orderId))
+        controllers_Order_OrderController_activeOrderAction89_invoker.call(OrderController_4.activeOrderAction(orderId))
       }
   
-    // @LINE:190
-    case controllers_Order_KitchenController_home89_route(params) =>
+    // @LINE:192
+    case controllers_Order_KitchenController_home90_route(params) =>
       call { 
-        controllers_Order_KitchenController_home89_invoker.call(KitchenController_9.home())
-      }
-  
-    // @LINE:194
-    case controllers_Order_KitchenController_getIngredientPage90_route(params) =>
-      call { 
-        controllers_Order_KitchenController_getIngredientPage90_invoker.call(KitchenController_9.getIngredientPage())
+        controllers_Order_KitchenController_home90_invoker.call(KitchenController_9.home())
       }
   
     // @LINE:196
-    case controllers_Order_KitchenController_getIngredientOrderPage91_route(params) =>
-      call(params.fromQuery[String]("id", None)) { (id) =>
-        controllers_Order_KitchenController_getIngredientOrderPage91_invoker.call(KitchenController_9.getIngredientOrderPage(id))
+    case controllers_Order_KitchenController_getIngredientPage91_route(params) =>
+      call { 
+        controllers_Order_KitchenController_getIngredientPage91_invoker.call(KitchenController_9.getIngredientPage())
       }
   
     // @LINE:198
-    case controllers_Order_KitchenController_editIngredient92_route(params) =>
+    case controllers_Order_KitchenController_getIngredientOrderPage92_route(params) =>
       call(params.fromQuery[String]("id", None)) { (id) =>
-        controllers_Order_KitchenController_editIngredient92_invoker.call(KitchenController_9.editIngredient(id))
+        controllers_Order_KitchenController_getIngredientOrderPage92_invoker.call(KitchenController_9.getIngredientOrderPage(id))
       }
   
     // @LINE:200
-    case controllers_Order_KitchenController_getNewIngredientPage93_route(params) =>
-      call { 
-        controllers_Order_KitchenController_getNewIngredientPage93_invoker.call(KitchenController_9.getNewIngredientPage())
+    case controllers_Order_KitchenController_editIngredient93_route(params) =>
+      call(params.fromQuery[String]("id", None)) { (id) =>
+        controllers_Order_KitchenController_editIngredient93_invoker.call(KitchenController_9.editIngredient(id))
       }
   
     // @LINE:202
-    case controllers_Order_KitchenController_addIngredient94_route(params) =>
+    case controllers_Order_KitchenController_getNewIngredientPage94_route(params) =>
       call { 
-        controllers_Order_KitchenController_addIngredient94_invoker.call(KitchenController_9.addIngredient())
+        controllers_Order_KitchenController_getNewIngredientPage94_invoker.call(KitchenController_9.getNewIngredientPage())
       }
   
-    // @LINE:206
-    case controllers_Order_KitchenController_getOrderPage95_route(params) =>
+    // @LINE:204
+    case controllers_Order_KitchenController_addIngredient95_route(params) =>
       call { 
-        controllers_Order_KitchenController_getOrderPage95_invoker.call(KitchenController_9.getOrderPage())
+        controllers_Order_KitchenController_addIngredient95_invoker.call(KitchenController_9.addIngredient())
       }
   
     // @LINE:208
-    case controllers_Order_KitchenController_getPendingOrderPage96_route(params) =>
+    case controllers_Order_KitchenController_getOrderPage96_route(params) =>
       call { 
-        controllers_Order_KitchenController_getPendingOrderPage96_invoker.call(KitchenController_9.getPendingOrderPage())
+        controllers_Order_KitchenController_getOrderPage96_invoker.call(KitchenController_9.getOrderPage())
       }
   
     // @LINE:210
-    case controllers_Order_KitchenController_getProcessingOrderPage97_route(params) =>
+    case controllers_Order_KitchenController_getPendingOrderPage97_route(params) =>
       call { 
-        controllers_Order_KitchenController_getProcessingOrderPage97_invoker.call(KitchenController_9.getProcessingOrderPage())
+        controllers_Order_KitchenController_getPendingOrderPage97_invoker.call(KitchenController_9.getPendingOrderPage())
       }
   
     // @LINE:212
-    case controllers_Order_KitchenController_getMealOrderPage98_route(params) =>
-      call(params.fromQuery[String]("orderId", None)) { (orderId) =>
-        controllers_Order_KitchenController_getMealOrderPage98_invoker.call(KitchenController_9.getMealOrderPage(orderId))
+    case controllers_Order_KitchenController_getProcessingOrderPage98_route(params) =>
+      call { 
+        controllers_Order_KitchenController_getProcessingOrderPage98_invoker.call(KitchenController_9.getProcessingOrderPage())
       }
   
     // @LINE:214
-    case controllers_Order_KitchenController_updateOrderStatus99_route(params) =>
+    case controllers_Order_KitchenController_getMealOrderPage99_route(params) =>
       call(params.fromQuery[String]("orderId", None)) { (orderId) =>
-        controllers_Order_KitchenController_updateOrderStatus99_invoker.call(KitchenController_9.updateOrderStatus(orderId))
+        controllers_Order_KitchenController_getMealOrderPage99_invoker.call(KitchenController_9.getMealOrderPage(orderId))
       }
   
     // @LINE:216
-    case controllers_Order_KitchenController_getCancelOrderPage100_route(params) =>
+    case controllers_Order_KitchenController_updateOrderStatus100_route(params) =>
       call(params.fromQuery[String]("orderId", None)) { (orderId) =>
-        controllers_Order_KitchenController_getCancelOrderPage100_invoker.call(KitchenController_9.getCancelOrderPage(orderId))
+        controllers_Order_KitchenController_updateOrderStatus100_invoker.call(KitchenController_9.updateOrderStatus(orderId))
       }
   
     // @LINE:218
-    case controllers_Order_KitchenController_doOrderCancellation101_route(params) =>
+    case controllers_Order_KitchenController_getCancelOrderPage101_route(params) =>
       call(params.fromQuery[String]("orderId", None)) { (orderId) =>
-        controllers_Order_KitchenController_doOrderCancellation101_invoker.call(KitchenController_9.doOrderCancellation(orderId))
+        controllers_Order_KitchenController_getCancelOrderPage101_invoker.call(KitchenController_9.getCancelOrderPage(orderId))
       }
   
-    // @LINE:226
-    case controllers_Order_ScheduleController_scheduleJSRoutes102_route(params) =>
-      call { 
-        controllers_Order_ScheduleController_scheduleJSRoutes102_invoker.call(ScheduleController_2.scheduleJSRoutes())
+    // @LINE:220
+    case controllers_Order_KitchenController_doOrderCancellation102_route(params) =>
+      call(params.fromQuery[String]("orderId", None)) { (orderId) =>
+        controllers_Order_KitchenController_doOrderCancellation102_invoker.call(KitchenController_9.doOrderCancellation(orderId))
       }
   
     // @LINE:228
-    case controllers_User_CustomerController_customerJSRoutes103_route(params) =>
+    case controllers_Order_ScheduleController_scheduleJSRoutes103_route(params) =>
       call { 
-        controllers_User_CustomerController_customerJSRoutes103_invoker.call(CustomerController_7.customerJSRoutes())
+        controllers_Order_ScheduleController_scheduleJSRoutes103_invoker.call(ScheduleController_2.scheduleJSRoutes())
       }
   
     // @LINE:230
-    case controllers_User_AdminController_adminJSRoutes104_route(params) =>
+    case controllers_User_CustomerController_customerJSRoutes104_route(params) =>
       call { 
-        controllers_User_AdminController_adminJSRoutes104_invoker.call(AdminController_11.adminJSRoutes())
+        controllers_User_CustomerController_customerJSRoutes104_invoker.call(CustomerController_7.customerJSRoutes())
       }
   
     // @LINE:232
-    case controllers_User_DeliveryStaffController_deliveryJSRoutes105_route(params) =>
+    case controllers_User_AdminController_adminJSRoutes105_route(params) =>
       call { 
-        controllers_User_DeliveryStaffController_deliveryJSRoutes105_invoker.call(DeliveryStaffController_0.deliveryJSRoutes())
+        controllers_User_AdminController_adminJSRoutes105_invoker.call(AdminController_11.adminJSRoutes())
       }
   
     // @LINE:234
-    case controllers_User_KitchenStaffController_kitchenJSRoutes106_route(params) =>
+    case controllers_User_DeliveryStaffController_deliveryJSRoutes106_route(params) =>
       call { 
-        controllers_User_KitchenStaffController_kitchenJSRoutes106_invoker.call(KitchenStaffController_6.kitchenJSRoutes())
+        controllers_User_DeliveryStaffController_deliveryJSRoutes106_invoker.call(DeliveryStaffController_0.deliveryJSRoutes())
       }
   
     // @LINE:236
-    case controllers_Finance_UserFinanceController_financeJSRoutes107_route(params) =>
+    case controllers_User_KitchenStaffController_kitchenJSRoutes107_route(params) =>
       call { 
-        controllers_Finance_UserFinanceController_financeJSRoutes107_invoker.call(UserFinanceController_8.financeJSRoutes())
+        controllers_User_KitchenStaffController_kitchenJSRoutes107_invoker.call(KitchenStaffController_6.kitchenJSRoutes())
       }
   
-    // @LINE:245
-    case controllers_Assets_versioned108_route(params) =>
-      call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned108_invoker.call(Assets_10.versioned(path, file))
+    // @LINE:238
+    case controllers_Finance_UserFinanceController_financeJSRoutes108_route(params) =>
+      call { 
+        controllers_Finance_UserFinanceController_financeJSRoutes108_invoker.call(UserFinanceController_8.financeJSRoutes())
       }
   
-    // @LINE:246
+    // @LINE:247
     case controllers_Assets_versioned109_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned109_invoker.call(Assets_10.versioned(path, file))
       }
   
-    // @LINE:247
+    // @LINE:248
     case controllers_Assets_versioned110_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned110_invoker.call(Assets_10.versioned(path, file))
       }
   
-    // @LINE:248
+    // @LINE:249
     case controllers_Assets_versioned111_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned111_invoker.call(Assets_10.versioned(path, file))
       }
   
-    // @LINE:249
+    // @LINE:250
     case controllers_Assets_versioned112_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned112_invoker.call(Assets_10.versioned(path, file))
       }
   
-    // @LINE:250
+    // @LINE:251
     case controllers_Assets_versioned113_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned113_invoker.call(Assets_10.versioned(path, file))
       }
   
-    // @LINE:251
+    // @LINE:252
     case controllers_Assets_versioned114_route(params) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
         controllers_Assets_versioned114_invoker.call(Assets_10.versioned(path, file))
       }
   
-    // @LINE:260
-    case controllers_Application_HomeController_invalidRoute115_route(params) =>
+    // @LINE:253
+    case controllers_Assets_versioned115_route(params) =>
+      call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
+        controllers_Assets_versioned115_invoker.call(Assets_10.versioned(path, file))
+      }
+  
+    // @LINE:262
+    case controllers_Application_HomeController_invalidRoute116_route(params) =>
       call(params.fromPath[String]("path", None)) { (path) =>
-        controllers_Application_HomeController_invalidRoute115_invoker.call(HomeController_5.invalidRoute(path))
+        controllers_Application_HomeController_invalidRoute116_invoker.call(HomeController_5.invalidRoute(path))
       }
   }
 }

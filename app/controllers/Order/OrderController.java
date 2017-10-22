@@ -2,21 +2,29 @@ package controllers.Order;
 
 import controllers.Application.AppTags;
 import controllers.User.*;
+import controllers.User.routes;
 import io.ebean.Ebean;
 import models.Finance.Payment;
 import models.Order.*;
 import models.User.Customer.Customer;
+import models.User.User;
 import org.h2.engine.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
 import scala.App;
+import utility.DateUtility;
 import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by dylan on 2017/07/18.
@@ -61,6 +69,47 @@ public class OrderController extends Controller implements StatusId {
     }
 
     /**
+     * Allows user to view all orders that are considered active.
+     * An active order is anything other than cancelled or complete
+     * @return
+     */
+    public Result getActiveOrders(){
+        if(session(AppTags.AppCookie.user_type.toString()) == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString()))
+            return ok(master.render("Active Orders",
+                masterOrder.render(
+                        activeOrders.render(CustomerOrder.findOrderByUserId(session(AppTags.AppCookie.user_id.toString()))
+                                .stream().filter(order -> !(order.getStatusId().equals(COMPLETE) || order.getStatusId().equals(CANCELLED)))
+                                .collect(Collectors.toList())))));
+        else
+            return redirect(controllers.User.routes.UserController.login());
+    }
+
+    public Result activeOrderAction(String orderId){
+        if(session(AppTags.AppCookie.user_type.toString()) == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString())){
+            String[] postAction = request().body().asFormUrlEncoded().get("action");
+
+            switch(postAction[0]){
+                case "view":
+                    // retarded bug from intellij, just ignore it compiles fine
+                    return redirect(controllers.Order.routes.OrderController.getViewOrder(orderId));
+                case "cancel":
+                    CustomerOrder order = CustomerOrder.findOrderById(orderId);
+                    assert order != null;
+                    order.setCancelled().update();
+                    return redirect(controllers.Order.routes.OrderController.getActiveOrders());
+            }
+            return badRequest();
+        }
+        else return redirect(controllers.User.routes.UserController.login());
+
+    }
+
+    /**
+     * Used by customer for detail view of a CustomerOrder
      * Allows for the viewing of a CustomerOrder
      * Displays all MealOrders of a CustomerOrder
      * @param orderId of order to be viewed
@@ -70,10 +119,6 @@ public class OrderController extends Controller implements StatusId {
         return ok(master.render("View Order",
                 masterOrder.render(
                         viewOrder.render(CustomerOrder.findAllMealsFromOrder(orderId)))));
-    }
-
-    public Result removeOrder(String orderId){
-        return redirect(controllers.Order.routes.OrderController.getHistoryPage());
     }
 
     /**
@@ -122,7 +167,7 @@ public class OrderController extends Controller implements StatusId {
             if(session("orderId") == null){
                 order = new CustomerOrder(customer);
                 order.setCustomer(customer);
-                order.setStatusId(UNSUBMITTED);
+                order.setUnsubmitted();
 
                 Payment payment = new Payment();
                 order.setPayment(payment);
@@ -181,6 +226,9 @@ public class OrderController extends Controller implements StatusId {
      */
     public Result removeMealFromOrder(String mealId){
         MealOrder.findMealByMealIdAndOrderId(mealId, session("orderId")).deductQty();
+        CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
+        assert order != null;
+        order.updateCost();
         return redirect(controllers.Order.routes.OrderController.getCart());
 
     }
@@ -220,17 +268,48 @@ public class OrderController extends Controller implements StatusId {
     // TODO: Integrate Customer to subtract balance from order amount.
     public Result submitCart(){
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
+//      OUTPUTS - DATE YYYY/MM/DD
+//              - TIME HH:MM
+        String[] time = request().body().asFormUrlEncoded().get("time");
+        String[] date = request().body().asFormUrlEncoded().get("date");
+        String[] result = request().body().asFormUrlEncoded().get("payment");
+
+        if(time == null || date == null || result == null){
+            flash("message", "Form invalid");
+            return redirect(controllers.Order.routes.OrderController.getSubmitPage());
+        }
+
+        if(time[0].equals("") || date[0].equals("") || result[0].equals("")){
+            flash("message", "Form invalid");
+            return redirect(controllers.Order.routes.OrderController.getSubmitPage());
+        }
+
+        try {
+            LocalDateTime dateTime = DateUtility.readDateTime(date[0], time[0]);
+            if(!DateUtility.verifyDate(dateTime)){
+                flash("message", "Please enter a delivery date that is at least 1 hour from now.");
+                return redirect(controllers.Order.routes.OrderController.getSubmitPage());
+            }
+            order.setDeliveryDate(DateUtility.convertToDate(dateTime));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            flash("message", "Invalid date selected");
+            return redirect(controllers.Order.routes.OrderController.getSubmitPage());
+        }
+
+
+
         Payment payment = order.getPaymentObject();
         Customer customer = order.getCustomer();
 
-        order.setStatusId(PENDING).update();
+        order.setPending().update();
 
         if(customer.isStudent()){
             payment.setAmount(payment.getAmount() - 0.15);
             payment.update();
         }
 
-        String[] result = request().body().asFormUrlEncoded().get("payment");
+
         switch(result[0].toLowerCase()){
             case "cash":
                 payment.setCash(true).setPaid(false);
@@ -240,20 +319,6 @@ public class OrderController extends Controller implements StatusId {
                 customer.pay(payment.getAmount());
                 customer.update();
                 break;
-        }
-
-
-//      OUTPUTS - DATE YYYY/MM/DD
-//              - TIME HH:MM
-        String[] time = request().body().asFormUrlEncoded().get("time");
-        String[] date = request().body().asFormUrlEncoded().get("date");
-
-        try {
-            Date datetime = utility.Date.readDateTime(time[0] + date[0]);
-            order.setDeliveryDate(datetime);
-            System.out.println(datetime.toString());
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
 
         payment.update();

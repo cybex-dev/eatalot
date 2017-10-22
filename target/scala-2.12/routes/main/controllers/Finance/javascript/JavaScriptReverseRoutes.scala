@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
-// @DATE:Sun Oct 22 13:11:41 SAST 2017
+// @DATE:Sun Oct 22 14:40:06 SAST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,7 +20,7 @@ package controllers.Finance.javascript {
     }
 
   
-    // @LINE:236
+    // @LINE:238
     def financeJSRoutes: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Finance.UserFinanceController.financeJSRoutes",
       """

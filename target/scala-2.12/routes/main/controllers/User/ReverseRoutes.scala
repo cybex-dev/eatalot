@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dylan/Desktop/eatalot/eatalot/conf/routes
-// @DATE:Sun Oct 22 13:11:41 SAST 2017
+// @DATE:Sun Oct 22 14:40:06 SAST 2017
 
 import play.api.mvc.Call
 
@@ -123,7 +123,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "Admin/Manage/Meals/Edit")
     }
   
-    // @LINE:230
+    // @LINE:232
     def adminJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/adminJSRoutes")
@@ -222,7 +222,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "User/Profile")
     }
   
-    // @LINE:228
+    // @LINE:230
     def customerJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/customerJSRoutes")
@@ -261,7 +261,7 @@ package controllers.User {
       Call("GET", _prefix + { _defaultPrefix } + "Delivery/Order/Deliver")
     }
   
-    // @LINE:232
+    // @LINE:234
     def deliveryJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/deliveryJSRoutes")
@@ -356,7 +356,7 @@ package controllers.User {
       Call("POST", _prefix + { _defaultPrefix } + "Kitchen/User/Edit")
     }
   
-    // @LINE:234
+    // @LINE:236
     def kitchenJSRoutes(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "assets/javascripts/kitchenJSRoutes")

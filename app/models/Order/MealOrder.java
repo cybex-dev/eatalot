@@ -88,6 +88,11 @@ public class MealOrder extends Model{
         }
     }
 
+    @Override
+    public void update() {
+        super.update();
+    }
+
     public String getMealOrderId(){
         return mealOrderId;
     }

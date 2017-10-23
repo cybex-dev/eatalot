@@ -33,6 +33,7 @@ import views.html.Ordering.masterOrder;
 
 
 import javax.inject.Inject;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -79,7 +80,7 @@ public class CustomerController extends Controller implements CRUD {
         if (customerInfo != null) {
             arrayList.add(
                     new DashboardButton(
-                            AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(customerInfo.getBalance()),
+                            AppTags.Locale.Currency.ZAR.toString().concat(" ").concat(format(customerInfo.getBalance())),
                             "Balance",
                             controllers.User.routes.CustomerController.paymentHistory()));
             arrayList.add(
@@ -99,6 +100,13 @@ public class CustomerController extends Controller implements CRUD {
                             controllers.Order.routes.ScheduleController.index()));
         }
         return ok(customerHome.render(arrayList, customerInfo));
+    }
+
+    private String format(String string){
+        float f = Float.parseFloat(string);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        float x = Float.valueOf(decimalFormat.format(f));
+        return String.valueOf(x);
     }
 
     @With(CheckCSRF.class)
@@ -148,6 +156,8 @@ public class CustomerController extends Controller implements CRUD {
 
         Customer c = new Customer();
         String regexNMMUCheck = "([s]{0,1}[0-9]{8,9}|[a-zA-Z0-9\\. ]+)([@]{1})(live\\.|LIVE\\.){0,1}(nm|NM){0,1}[mM]{0,1}(u|U){0,1}(\\.){0,1}(ac|AC){0,1}(\\.){0,1}(za|ZA){0,1}";
+        c.generateId();
+        c.init();
         c.setEmail(userEmail);
         c.setPassword(userRegisterInfo.getPassword());
         c.setToken(csrfToken);
@@ -449,7 +459,9 @@ public class CustomerController extends Controller implements CRUD {
     public CompletionStage<Result> paymentHistory() {
         return getPayments().thenApplyAsync(paymentItems -> {
             ctx().flash().put(FlashCodes.success.toString(), "Payment History Results");
-            return ok(views.html.User.Customer.paymentHistory.render(paymentItems));
+            return ok(master.render("Payment History",
+                    masterOrder.render(views.html.User.Customer.paymentHistory.render(paymentItems))));
+//            return ok(views.html.User.Customer.paymentHistory.render(paymentItems));
         }, httpExecutionContext.current());
     }
 

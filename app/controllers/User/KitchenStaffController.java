@@ -52,7 +52,8 @@ public class KitchenStaffController extends Controller {
         String userId = session().get(user_id);
 
         KitchenStaffInfo kitchenStaffInfo = KitchenStaffInfo.GetKitchenStaffInfo(userId);
-        return ok(kitchenHome.render(arrayList, kitchenStaffInfo));
+        return redirect(controllers.Order.routes.KitchenController.home());
+//        return ok(kitchenHome.render(arrayList, kitchenStaffInfo));
     }
 
     @With(RequiresActive.class)

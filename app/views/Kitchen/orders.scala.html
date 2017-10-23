@@ -12,12 +12,14 @@
             <tr>
                 <th>Order Number</th>
                 <th>Status</th>
+                <th>Delivery Date</th>
             </tr>
             @for(x <- 0 until list.size()){
                 @form(CSRF(controllers.Order.routes.KitchenController.getMealOrderPage(list.get(x).getOrderId().toString))) {
                     <tr>
                         <td>@list.get(x).getOrderId</td>
                         <td>@list.get(x).getStatusId</td>
+                        <td>@list.get(x).getDeliveryDate</td>
                         <td><button type="submit" value="viewOrder">View Order</button></td>
                     </tr>
                 }

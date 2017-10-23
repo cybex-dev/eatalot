@@ -13,27 +13,25 @@
                     <td>R @order.getPaymentObject().getAmount()</td>
                 </tr>
                 <tr>
-                    @if(customer.getStudent){
-                        <td>Discount:</td>
-                        <td>%15.00</td>
-                    }else{
-                        <td>Discount:</td>
-                        <td>%0.00</td>
-                    }
+                @if(customer.getStudent){
+                    <td>Discount:</td>
+                    <td>%15.00</td>
+                }else{
+                    <td>Discount:</td>
+                    <td>%0.00</td>
+                }
                 </tr>
                 <tr>
-                    @if(customer.getStudent){
-                        <td>Total Cost:</td>
-                        <td>R @(order.getPaymentObject().getAmount()- order.getPaymentObject().getAmount() * 0.15)</td>
-                    }else{
-                        <td>Total Cost:</td>
-                        <td>R @order.getPaymentObject().getAmount()</td>
-                    }
+                @if(customer.getStudent){
+                    <td>Total Cost:</td>
+                    <td>R @(order.getPaymentObject().getAmount()- order.getPaymentObject().getAmount() * 0.15)</td>
+                }else{
+                    <td>Total Cost:</td>
+                    <td>R @order.getPaymentObject().getAmount()</td>
+                }
                 </tr>
                 <tr>
                     <td>Select Payment Option:</td>
-
-                    @*TODO: Integrate Customer to Order, Customer object needed to check accBalance.*@
                     @if(customer.getAccBalance >= order.getPaymentObject.getAmount){
                         <td>
                             <label for="credit">Credit</label>
@@ -44,11 +42,6 @@
                             <p>Insufficient accBalance for credit payment.</p>
                         </td>
                     }
-                    @*<td>*@
-                    @*TODO: REMOVE once Customer is integrated*@
-                    @*<label for="credit">Credit</label>*@
-                    @*<input id="credit" type="radio" name="payment" value="credit">*@
-                    @*</td>*@
                     <td>
                         <label for="cash">Cash</label>
                         <input id="cash" type="radio" name="payment" value="cash"/>
@@ -58,7 +51,7 @@
                     <td>Select data and time for delivery:</td>
                     <td>
                         @*TIME INPUT DEPENDS ON BROWSER SUPPORT, IT NEEDS TO PROVIDE A TIME HELPER*@
-                        @*SAFARI WORKS*@
+                        @*SAFARI WORKS AMNDROID WORKS@
                         @*OUTPUTS - YYYY/MM/DD*@
                         <label for="date">Date:</label>
                         <input id="date" type="date" name="date"/>
@@ -71,22 +64,24 @@
                 <tr>
                     <td colspan="3">
                         <p>
-                            @*TODO: fix*@
-                                Once you click submit,
-                                your order status will
-                                change to "Pending" where it
-                                awaits approval of our staff.
-                                Once approved it will enter
-                                the "Processing" stage then
-                                into "Delivering".
-                                You will be notified of these
-                                status changes and can check
-                                up on them at any time.
+                            Once you click submit,
+                            your order status will
+                            change to "Pending" where it
+                            awaits approval of our staff.
+                            Once approved it will enter
+                            the "Processing" stage then
+                            into "Delivering".
+                            You will be notified of these
+                            status changes and can check
+                            up on them at any time.
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="float: right">
+                    <td>
+                        <label for="cbxadd">Add to Schedule</label><input type="checkbox" name="addschedule" value="true" id="cbxadd">
+                    </td>
+                    <td colspan="2" style="float: right">
                         <button type="submit">Submit</button>
                     </td>
                 </tr>

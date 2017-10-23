@@ -1,0 +1,40 @@
+@import java.util.List
+@import helper._
+@import models.Order.CustomerOrder
+@(list: List[CustomerOrder])
+
+<!DOCTYPE html>
+<html>
+    @if(list.isEmpty){
+        <p><i>dust</i></p>
+    }else{
+        <table class="ingredient-table-wrapper">
+        <tr>
+            <th>Order Number</th>
+            <th>Price</th>
+            <th>Cash</th>
+            @*<th>Address</th>*@
+            <th>Delivery Time</th>
+        </tr>
+        @for(x <- 0 until list.size()){
+            @form(CSRF(controllers.User.routes.DeliveryStaffController.viewOrder(list.get(x).getOrderId()))) {
+                <tr class="no-border">
+                    <td style="text-align: center" class="no-border">@list.get(x).getOrderId</td>
+                    <td class="no-border">@list.get(x).getPaymentObject.getAmount</td>
+                    <td class="no-border">@list.get(x).getPaymentObject.getCash</td>
+                    <td class="no-border">@list.get(x).getDeliveryDate</td>
+                </tr>
+                <tr>
+                    <th>Address: </th>
+                    <td colspan="4">
+                        @list.get(x).getCustomer.getAddress.getStreetName
+                        @list.get(x).getCustomer.getAddress.getCommunityName
+                        @list.get(x).getCustomer.getAddress.getUnitNumber
+                    </td>
+                    <td><button type="submit" value="viewOrder">View Order</button></td>
+                </tr>
+        }
+    }
+    </table>
+}
+</html>

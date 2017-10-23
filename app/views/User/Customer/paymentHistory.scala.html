@@ -3,10 +3,10 @@
 @import Global.Static.masterpage
 @import helper._
 @import models.Finance.PaymentItemBasic
-
+@import views.html.Global.Static.stylesheets
 @(paymentList: List[PaymentItemBasic])
 
-
+@stylesheets.apply()
 @table = {
     <div class="row-width-center">
         <div class="panel panel-default">
@@ -85,4 +85,4 @@
 
 }
 
-@masterpage.apply(" :: Past Payments", bodyContent)
+@bodyContent

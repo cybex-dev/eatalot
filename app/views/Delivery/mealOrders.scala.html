@@ -1,0 +1,34 @@
+@import java.util.List
+@import helper._
+@import models.Order.{Meal, MealOrder}
+@import utility.Pair
+@(list: List[Pair[MealOrder, Meal]], status: String)
+
+<html>
+    <table>
+        <tr>
+            <td>Description</td>
+            <td>Type</td>
+            <td>Order Quantity</td>
+        </tr>
+
+        @form(CSRF(controllers.User.routes.DeliveryStaffController.updateOrderStatus(list.get(0).getObject1().getOrderId))) {
+            @for(x <- 0 until list.size()) {
+                <tr>
+                    <td>@list.get(x).getObject2.getDescription</td>
+                    <td>@list.get(x).getObject2.getType</td>
+                    <td>@list.get(x).getObject1.getOrderQty</td>
+                </tr>
+            }
+            <tr>
+                <td><button type="submit" name="action" value="complete">Complete</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit" name="action" value="completebroke">Complete but customer was broke</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit" name="action" value="cancel">Cancel Order</button></td>
+            </tr>
+        }
+    </table>
+</html>

@@ -1,5 +1,6 @@
 package controllers.Order;
 
+import com.sun.org.apache.regexp.internal.RE;
 import controllers.Application.AppTags;
 import controllers.User.*;
 import controllers.User.routes;
@@ -12,12 +13,15 @@ import org.h2.engine.Session;
 import play.mvc.Controller;
 import play.mvc.Result;
 import utility.DateUtility;
+import utility.IdGenerator;
 import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Ordering.*;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -28,10 +32,6 @@ public class OrderController extends Controller implements StatusId {
 
 
     /**
-     * TODO: Possible bug:
-     *          Logged in, hit submit order, redirected to page that said I was verified?
-     *          Account is not verified.
-     *
      * Allows for the viewing of the final page in submitting an order
      * Displays total cost and any associated discounts
      * Allows customer to select payment method - credit/cash
@@ -42,8 +42,11 @@ public class OrderController extends Controller implements StatusId {
         Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
         if(customer == null)
             return redirect(controllers.User.routes.UserController.login());
-        if(!customer.isComplete())
-            return redirect(controllers.User.routes.CustomerController.completeRegistration());
+        if(!customer.isComplete()) {
+//            return redirect(controllers.User.routes.CustomerController.completeRegistration());
+            flash(AppTags.FlashCodes.warning.toString(), "Please complete your account and verify your email before submitting your cart.");
+            return redirect(controllers.User.routes.CustomerController.edit());
+        }
 
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
         return ok(master.render("Finalise Cart",
@@ -51,15 +54,34 @@ public class OrderController extends Controller implements StatusId {
                         submitCart.render(order, order.getCustomer()))));
     }
 
-    /**
-     * Allows for the viewing of a Customers order history
-     * Displays all Customer orders associated with the customer's userId
-     * @return
-     */
-    public Result getHistoryPage() {
-        return ok(master.render("Order History",
-                masterOrder.render(
-                        createdOrders.render(CustomerOrder.findOrderByUserId(session("email"))))));
+    public Result getOrderHistory(){
+        Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
+        if(customer == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(!customer.isComplete()) {
+//            return redirect(controllers.User.routes.CustomerController.completeRegistration());
+            flash(AppTags.FlashCodes.warning.toString(), "Please complete your account and verify your email before submitting your cart.");
+            return redirect(controllers.User.routes.CustomerController.edit());
+        }
+        List<CustomerOrder> list = CustomerOrder.findOrderByUserId(customer.getUserId())
+                .stream()
+                .filter(order -> order.getStatusId().equals(COMPLETE) || order.getStatusId().equals(CANCELLED))
+                .collect(Collectors.toList());
+
+        return ok(master.render("Order History", masterOrder.render(activeOrders.render(list))));
+    }
+
+    public Result getPaymentHistory(){
+        Customer customer = Customer.findCustomerByUserId(session(AppTags.AppCookie.user_id.toString()));
+        if(customer == null)
+            return redirect(controllers.User.routes.UserController.login());
+        if(!customer.isComplete()) {
+//            return redirect(controllers.User.routes.CustomerController.completeRegistration());
+            flash(AppTags.FlashCodes.warning.toString(), "Please complete your account and verify your email before submitting your cart.");
+            return redirect(controllers.User.routes.CustomerController.edit());
+        }
+        List<Payment> list = customer.findPayments();
+        return ok(master.render("Payment History", masterOrder.render(paymentHistory.render(list))));
     }
 
     /**
@@ -72,13 +94,14 @@ public class OrderController extends Controller implements StatusId {
             return redirect(controllers.User.routes.UserController.login());
         if(session(AppTags.AppCookie.user_type.toString()).equals(AppTags.AppCookie.UserType.CUSTOMER.toString()))
             return ok(master.render("Active Orders",
-                masterOrder.render(
-                        activeOrders.render(CustomerOrder.findOrderByUserId(session(AppTags.AppCookie.user_id.toString()))
-                                .stream().filter(order -> !(order.getStatusId().equals(COMPLETE) || order.getStatusId().equals(CANCELLED)))
-                                .collect(Collectors.toList())))));
+                    masterOrder.render(
+                            activeOrders.render(CustomerOrder.findOrderByUserId(session(AppTags.AppCookie.user_id.toString()))
+                                    .stream().filter(order -> !(order.getStatusId().equals(COMPLETE) || order.getStatusId().equals(CANCELLED)))
+                                    .collect(Collectors.toList())))));
         else
             return redirect(controllers.User.routes.UserController.login());
     }
+
 
     public Result activeOrderAction(String orderId){
         if(session(AppTags.AppCookie.user_type.toString()) == null)
@@ -166,7 +189,7 @@ public class OrderController extends Controller implements StatusId {
                 Payment payment = new Payment();
                 order.setPayment(payment);
                 order.setCustomer(customer);
-                customer.getOrders().add(order);
+                customer.addOrder(order);
                 customer.save();
 
                 payment.insert();
@@ -259,7 +282,6 @@ public class OrderController extends Controller implements StatusId {
      * Updates payment entry with discount if customer is student
      * @return
      */
-    // TODO: Integrate Customer to subtract balance from order amount.
     public Result submitCart(){
         CustomerOrder order = CustomerOrder.findOrderById(session("orderId"));
 //      OUTPUTS - DATE YYYY/MM/DD
@@ -296,6 +318,15 @@ public class OrderController extends Controller implements StatusId {
         Payment payment = order.getPaymentObject();
         Customer customer = order.getCustomer();
 
+        String[] addtoschedule = request().body().asFormUrlEncoded().get("addschedule");
+
+        if(addtoschedule[0].equals("true")){
+            OrderScheduleItem orderScheduleItem = new OrderScheduleItem(IdGenerator.generate(),
+                    session("orderId"),
+                    customer.getOrderSchedule().getOrderSchedId());
+            orderScheduleItem.save();
+        }
+
         order.setPending().update();
 
         if(customer.getStudent()){
@@ -316,7 +347,7 @@ public class OrderController extends Controller implements StatusId {
         }
 
         payment.update();
-        session("orderId", null);
+        session().remove("orderId");
         return redirect(controllers.Order.routes.OrderController.getMenu());
     }
 }

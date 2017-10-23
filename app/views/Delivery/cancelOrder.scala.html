@@ -1,0 +1,18 @@
+@import helper._
+@import models.Order.CustomerOrder
+@(order: CustomerOrder)
+<h3>Please specify reason for cancellation</h3>
+
+@form(CSRF(controllers.User.routes.DeliveryStaffController.doOrderCancellation(order.getOrderId))){
+
+    <input type="radio" name="reason" value="Insufficient ingredients" id="ingre"><label for="ingre">Insufficient ingredients</label>
+    <br><input type="radio" name="reason" value="Insufficient time" id="time"><label for="time">Insufficient time for preparation</label>
+    <br><input type="radio" name="reason" value="Invalid order" id="invalid"><label for="invalid">Invalid Order</label>
+    <br><input type="radio" name="reason" value="other" id="other"><label for="other">Other</label>
+
+    <br><br><label for="explain">Enter any additional details:</label> <input type="text" id="explain" name="explain">
+
+    <br><br>
+    <button type="submit" value="back">Back</button>
+    <button type="submit" value="cancel">Cancel Order</button>
+}

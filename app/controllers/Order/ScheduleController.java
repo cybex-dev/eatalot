@@ -18,8 +18,10 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.With;
 import play.routing.JavaScriptReverseRouter;
+import views.html.Global.Temp.master;
 import views.html.Order.Schedule.create;
 import views.html.Order.Schedule.index;
+import views.html.Ordering.masterOrder;
 
 import javax.inject.Inject;
 import java.util.HashMap;
@@ -50,6 +52,7 @@ public class ScheduleController extends Controller {
             return redirect(controllers.Order.routes.ScheduleController.createSchedule());
         }
         OrderScheduleDays orderScheduleDays = new OrderScheduleDays(orderSchedule.getOrderSchedId());
+
         return ok(index.render(orderSchedule.getTitle(), orderScheduleDays));
     }
 
@@ -58,7 +61,8 @@ public class ScheduleController extends Controller {
     @CustomersOnly
     public Result createSchedule() {
         Form<OrderSchedule> scheduleForm = formFactory.form(OrderSchedule.class);
-        return ok(create.render(true, scheduleForm));
+        return ok(master.render("Order Schedule", masterOrder.render(create.render(true, scheduleForm))));
+//        return ok(create.render(true, scheduleForm));
     }
 
     // GET

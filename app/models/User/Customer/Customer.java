@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -61,6 +62,10 @@ public class Customer extends User implements StatusId{
         return orders.stream().filter(customerOrder -> !customerOrder.getStatusId().equals(UNSUBMITTED)
                 && !customerOrder.getStatusId().equals(COMPLETE)
                 && !customerOrder.getStatusId().equals(CANCELLED)).collect(Collectors.toList()).size();
+    }
+
+    public List<Payment> findPayments(){
+        return orders.stream().map(CustomerOrder::getPaymentObject).collect(Collectors.toList());
     }
 
     /**
@@ -120,6 +125,10 @@ public class Customer extends User implements StatusId{
         if (customer.isPresent())
             return customer.get().getAccountActive();
         return false;
+    }
+
+    public void addOrder(CustomerOrder order){
+        orders.add(order);
     }
 
     public List<Payment> getPayments() {

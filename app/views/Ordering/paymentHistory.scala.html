@@ -1,0 +1,29 @@
+@import java.util.List
+@import models.Order.CustomerOrder
+@import helper._
+@import models.Finance.Payment
+@(payments: List[Payment])
+
+<!DOCTYPE html>
+<html>
+    <div class="center-wrapper">
+        <table class="fill-wrapper">
+            <tr class="bottom_row">
+                <th>Payment Amount</th>
+                <th>Cash</th>
+            </tr>
+            @for(x <- 0 until payments.size()){
+                <tr class="center-text">
+                    <td>@payments.get(x).getAmount</td>
+                    <td>
+                        @if(payments.get(x).getCash){
+                            Yes
+                        }else{
+                            No
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</html>

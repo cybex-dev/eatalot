@@ -98,14 +98,17 @@ POST        /Kitchen/User/Edit                      controllers.User.KitchenStaf
 
 GET         /Delivery/Dashboard                     controllers.User.DeliveryStaffController.index()
 +nocsrf
+GET         /Delivery/Orders/Order/:orderId         controllers.User.DeliveryStaffController.viewOrder(orderId: String)
 GET         /Delivery/Dashboard/Update              controllers.User.DeliveryStaffController.getDeliveryDashUpdate()
-GET         /Delivery/Order                         controllers.User.DeliveryStaffController.viewOrder()
 GET         /Delivery/Order/Deliver                 controllers.User.DeliveryStaffController.deliverOrder()
 GET         /Delivery/Order/Checkout                controllers.User.DeliveryStaffController.checkoutOrder()
 GET         /Delivery/Orders/Completed              controllers.User.DeliveryStaffController.viewCompletedDeliveries()
 GET         /Delivery/Orders/Active                 controllers.User.DeliveryStaffController.viewActiveDeliveries()
 GET         /Delivery/Orders/Waiting                controllers.User.DeliveryStaffController.viewWaitingDeliveries()
 GET         /Delivery/User/Edit                     controllers.User.DeliveryStaffController.edit()
+POST        /Delivery/Orders/Update/                controllers.User.DeliveryStaffController.updateOrderStatus(orderId: String)
+GET         /Delivery/Orders/Cancel/:orderId        controllers.User.DeliveryStaffController.getCancelPage(orderId: String)
+POST        /Delivery/Orders/DoCancel/              controllers.User.DeliveryStaffController.doOrderCancellation(orderId: String)
 
 POST        /Delivery/User/Edit                     controllers.User.DeliveryStaffController.doEdit()
 
@@ -186,8 +189,9 @@ POST    /cart/submitcart        controllers.Order.OrderController.submitCart()
 GET     /activeorders/:orderId  controllers.Order.OrderController.getViewOrder(orderId: String)
 
 GET     /activeorders           controllers.Order.OrderController.getActiveOrders()
-
 POST    /orderaction            controllers.Order.OrderController.activeOrderAction(orderId: String)
+GET     /orderhistory           controllers.Order.OrderController.getOrderHistory()
+GET     /payment                controllers.Order.OrderController.getPaymentHistory()
 
 # ===== Kitchen routes =====
 

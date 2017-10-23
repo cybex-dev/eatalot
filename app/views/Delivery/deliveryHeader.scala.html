@@ -1,0 +1,29 @@
+@(selected: Int)
+
+@*Not sure of a better way to do this??*@
+<html>
+    <div class="nav-menu-wrapper"><div class="nav-bar">
+        @selected match{
+            case 0 =>{
+                @*<ul>*@
+                    @*<li><a class="selected_menu" href="@controllers.User.routes.DeliveryStaffController.index()">Dashboard</a></li>*@
+                    @*<li><a href="@controllers.User.routes.DeliveryStaffController.viewActiveDeliveries()">Active Deliveries</a></li>*@
+                @*</ul>*@
+            }
+            case 1 =>{
+                <ul>
+                    @*<li><a href="@controllers.User.routes.DeliveryStaffController.index()">Dashboard</a></li>*@
+                    <li><a class="selected_menu" href="@controllers.User.routes.DeliveryStaffController.viewActiveDeliveries()">Active Deliveries</a></li>
+                    <li><a href="@controllers.User.routes.DeliveryStaffController.viewCompletedDeliveries()">Completed Deliveries</a></li>
+                </ul>
+            }
+            case 2 =>{
+                <ul>
+                    @*<li><a href="@controllers.User.routes.DeliveryStaffController.index()">Dashboard</a></li>*@
+                <li><a href="@controllers.User.routes.DeliveryStaffController.viewActiveDeliveries()">Active Deliveries</a></li>
+                <li><a class="selected_menu" href="@controllers.User.routes.DeliveryStaffController.viewCompletedDeliveries()">Completed Deliveries</a></li>
+                </ul>
+            }
+        }
+    </div></div>
+</html>

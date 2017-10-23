@@ -6,6 +6,7 @@ import io.ebean.Model;
 import libs.Mailer;
 import models.Finance.Payment;
 import models.User.Customer.Customer;
+import org.jetbrains.annotations.NotNull;
 import play.data.validation.Constraints;
 import play.libs.mailer.Email;
 import utility.Pair;
@@ -20,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Created by dylan on 2017/07/18.
  */
 @Entity
-public class CustomerOrder extends Model implements StatusId {
+public class CustomerOrder extends Model implements StatusId, Comparable<CustomerOrder> {
     @Id
     @Constraints.MinLength(10)
     @Constraints.MaxLength(10)
@@ -174,6 +175,13 @@ public class CustomerOrder extends Model implements StatusId {
         return this;
     }
 
+    public CustomerOrder setComplete(){
+        String before = statusId;
+        statusId = COMPLETE;
+        notifyStatus(before, statusId);
+        return this;
+    }
+
     private void notifyStatus(String before, String after){
         CustomerOrder order = this;
         Thread thread = new Thread(() -> Mailer.notifyOrderStatusChange(order, before, after, customer.getEmail()));
@@ -212,5 +220,16 @@ public class CustomerOrder extends Model implements StatusId {
 
     public void setCancelMessage(String cancelMessage) {
         this.cancelMessage = cancelMessage;
+    }
+
+
+    @Override
+    public int compareTo(@NotNull CustomerOrder order) {
+        if(order.deliveryDate == null)
+            return 0;
+        if(this.deliveryDate == null)
+            return 0;
+//        return order.deliveryDate.compareTo(this.getDeliveryDate());
+        return this.deliveryDate.compareTo(order.getDeliveryDate());
     }
 }

@@ -34,7 +34,7 @@ public abstract class User extends Model {
 
     private String token = "";
 
-    private Boolean accountActive = false;
+    private Boolean accountActive = true;
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 

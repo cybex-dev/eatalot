@@ -2,45 +2,165 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14f9315b-3e72-427e-a187-825454ca3d17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" afterPath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Delivery/cancelOrder.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Delivery/deliveryHeader.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Delivery/deliveryMaster.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Delivery/deliveryMenu.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Delivery/mealOrders.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Delivery/orders.scala.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/Ordering/paymentHistory.scala.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/.history" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/com.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/com.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-compile-internal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-compile.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-debian.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-docker.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-docs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-linux.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-optional.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-provided.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-rpm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-runtime-internal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-runtime.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-scala-tool.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-sources.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-test-internal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal-docs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal-src.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-windows.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/inputs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/exportedProducts/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.12" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/runtime/exportedProducts/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/runtime/internalDependencyClasspath/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/menu/burger.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/menu/cart.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/menu/chickenpasta.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/menu/chickenwrap.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/menu/food04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/menu/pancakes.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/navigation/forbidden.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/images/navigation/question_mark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/customer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/jquery-1.10.2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/popper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/javascripts/registerDetails.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-grid.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-grid.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-grid.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-grid.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-reboot.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-reboot.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-reboot.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap-reboot.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/classes/main/META-INF/resources/webjars/eatalot/1.0-SNAPSHOT/stylesheets/mobile.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/menu/burger.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/menu/cart.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/menu/chickenpasta.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/menu/chickenwrap.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/menu/food04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/menu/pancakes.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/navigation/forbidden.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/images/navigation/question_mark.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/customer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/jquery-1.10.2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/popper.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/javascripts/registerDetails.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-grid.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-grid.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-grid.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-grid.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-reboot.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-reboot.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-reboot.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap-reboot.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/web/public/main/stylesheets/mobile.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/KitchenController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/KitchenController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/OrderController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/OrderController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" afterPath="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" afterPath="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java" afterPath="$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java" afterPath="$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Finance/Payment.java" afterPath="$PROJECT_DIR$/app/models/Finance/Payment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order/CustomerOrder.java" afterPath="$PROJECT_DIR$/app/models/Order/CustomerOrder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/Customer/Customer.java" afterPath="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User/User.java" afterPath="$PROJECT_DIR$/app/models/User/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Ordering/viewMeal.scala.html" afterPath="$PROJECT_DIR$/app/views/Ordering/viewMeal.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/viewCustomer.scala.html" afterPath="$PROJECT_DIR$/app/views/User/viewCustomer.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/viewStaff.scala.html" afterPath="$PROJECT_DIR$/app/views/User/viewStaff.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Kitchen/cancelOrder.scala.html" afterPath="$PROJECT_DIR$/app/views/Kitchen/cancelOrder.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Kitchen/masterKitchen.scala.html" afterPath="$PROJECT_DIR$/app/views/Kitchen/masterKitchen.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Kitchen/orders.scala.html" afterPath="$PROJECT_DIR$/app/views/Kitchen/orders.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" afterPath="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Ordering/cart.scala.html" afterPath="$PROJECT_DIR$/app/views/Ordering/cart.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Ordering/header.scala.html" afterPath="$PROJECT_DIR$/app/views/Ordering/header.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/Ordering/submitCart.scala.html" afterPath="$PROJECT_DIR$/app/views/Ordering/submitCart.scala.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" afterPath="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application.conf" afterPath="$PROJECT_DIR$/conf/application.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/application.log" afterPath="$PROJECT_DIR$/logs/application.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/com.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.properties" afterPath="$PROJECT_DIR$/target/resolution-cache/com.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/com.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/com.intelligents/eatalot_2.12/1.0-SNAPSHOT/resolved.xml.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-compile-internal.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-compile-internal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-compile.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-compile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-debian.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-debian.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-docker.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-docker.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-docs.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-docs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-linux.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-linux.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-optional.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-optional.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-plugin.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-pom.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-provided.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-provided.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-rpm.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-rpm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-runtime-internal.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-runtime-internal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-runtime.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-runtime.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-scala-tool.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-scala-tool.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-sources.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-sources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-test-internal.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-test-internal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-test.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal-docs.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal-docs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal-src.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal-src.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-universal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-windows.xml" afterPath="$PROJECT_DIR$/target/resolution-cache/reports/com.intelligents-eatalot_2.12-windows.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/update/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.12" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/kitchen.css" afterPath="$PROJECT_DIR$/public/stylesheets/kitchen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/mobile.css" afterPath="$PROJECT_DIR$/public/stylesheets/mobile.css" />
     </list>
     <ignored path="$PROJECT_DIR$/target/resolution-cache/" />
     <ignored path="$PROJECT_DIR$/target/streams/" />
@@ -54,110 +174,72 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User/Customer/Customer.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="submitCart.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/Ordering/submitCart.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="130" column="5" lean-forward="false" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
-              <folding>
-                <element signature="e#3763#3764#0" expanded="true" />
-                <element signature="e#3790#3791#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.conf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/application.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="352" column="11" lean-forward="false" selection-start-line="352" selection-start-column="11" selection-end-line="352" selection-end-column="11" />
+            <state relative-caret-position="220">
+              <caret line="81" column="107" lean-forward="false" selection-start-line="81" selection-start-column="96" selection-end-line="81" selection-end-column="107" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/User/AdminController.java">
+      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Order/OrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="227" column="27" lean-forward="true" selection-start-line="227" selection-start-column="27" selection-end-line="227" selection-end-column="27" />
+            <state relative-caret-position="683">
+              <caret line="348" column="25" lean-forward="false" selection-start-line="348" selection-start-column="25" selection-end-line="348" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppTags.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Application/AppTags.java">
+      <file leaf-file-name="header.scala.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/Ordering/header.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="143" column="20" lean-forward="false" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
+            <state relative-caret-position="760">
+              <caret line="38" column="85" lean-forward="false" selection-start-line="38" selection-start-column="85" selection-end-line="38" selection-end-column="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User/User.java">
+      <file leaf-file-name="ScheduleController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+            <state relative-caret-position="235">
+              <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-642">
+              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewCustomer.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/User/viewCustomer.scala.html">
+      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="19" />
-              <folding>
-                <element signature="e#1#31#0#Scala" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewStaff.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/User/viewStaff.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-              <folding>
-                <element signature="e#1#31#0#Scala" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewMeal.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Ordering/viewMeal.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-              <folding>
-                <element signature="e#1#31#0#Scala" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewDiscount.scala.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/Finance/Discount/viewDiscount.scala.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#1#31#0#Scala" expanded="true" />
-              </folding>
+            <state relative-caret-position="157">
+              <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,7 +252,15 @@
       <find>getOrders</find>
       <find>updateCus</find>
       <find>Update</find>
+      <find>gene</find>
+      <find>paymenthi</find>
+      <find>paymenthis</find>
+      <find>list</find>
+      <find>submitcart</find>
     </findStrings>
+    <replaceStrings>
+      <replace>payments</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -183,15 +273,34 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
-        <option value="$PROJECT_DIR$/app/controllers/Order/OrderController.java" />
         <option value="$PROJECT_DIR$/app/views/Ordering/viewOrder.scala.html" />
         <option value="$PROJECT_DIR$/conf/evolutions/default/1.sql" />
-        <option value="$PROJECT_DIR$/conf/application.conf" />
         <option value="$PROJECT_DIR$/app/views/User/viewCustomer.scala.html" />
         <option value="$PROJECT_DIR$/app/views/User/viewStaff.scala.html" />
         <option value="$PROJECT_DIR$/app/views/Ordering/viewMeal.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Order/KitchenController.java" />
+        <option value="$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java" />
+        <option value="$PROJECT_DIR$/app/models/Order/CustomerOrder.java" />
+        <option value="$PROJECT_DIR$/app/views/Kitchen/cancelOrder.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Kitchen/masterKitchen.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Kitchen/orders.scala.html" />
+        <option value="$PROJECT_DIR$/app/views/Ordering/cart.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java" />
         <option value="$PROJECT_DIR$/app/models/User/User.java" />
+        <option value="$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Order/ScheduleController.java" />
+        <option value="$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html" />
+        <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/models/Finance/Payment.java" />
+        <option value="$PROJECT_DIR$/app/models/User/Customer/Customer.java" />
+        <option value="$PROJECT_DIR$/app/views/Ordering/paymentHistory.scala.html" />
+        <option value="$PROJECT_DIR$/public/stylesheets/mobile.css" />
+        <option value="$PROJECT_DIR$/public/stylesheets/kitchen.css" />
+        <option value="$PROJECT_DIR$/app/views/Ordering/submitCart.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/Order/OrderController.java" />
+        <option value="$PROJECT_DIR$/app/views/Ordering/header.scala.html" />
+        <option value="$PROJECT_DIR$/app/controllers/User/CustomerController.java" />
       </list>
     </option>
   </component>
@@ -223,9 +332,10 @@
       </array>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="-4" />
     <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="height" value="721" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -243,316 +353,208 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Delivery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Finance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="filters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Finance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardEntries.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="DeliveryStaff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="KitchenStaff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="utility" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Finance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Finance" type="462c0819:PsiDirectoryNode" />
-              <item name="Discount" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Finance" type="462c0819:PsiDirectoryNode" />
-              <item name="UserFinance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Global" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Global" type="462c0819:PsiDirectoryNode" />
-              <item name="Html5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Global" type="462c0819:PsiDirectoryNode" />
-              <item name="Static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Global" type="462c0819:PsiDirectoryNode" />
-              <item name="Temp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Kitchen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
-              <item name="Schedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Ordering" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Customer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="Staff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eatalot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="project-eatalot" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ordering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Order" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Schedule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project-eatalot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -561,10 +563,15 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.scala.compiler.ScalaCompileServerForm" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eatalot_order_package" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="User&#9;PSI&#9;JAVA://models.User.User&#10;viewDisc&#9;null&#9;null&#10;viewMe&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Ordering/viewMeal.scala.html&#10;viewS&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/viewStaff.scala.html&#10;viewCustomer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/viewCustomer.scala.html&#10;updateCust&#9;null&#9;null&#10;AdminCont&#9;PSI&#9;JAVA://controllers.User.AdminController&#10;application.con&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/application.conf&#10;Customer&#9;PSI&#9;JAVA://models.User.Customer.Customer&#10;OrderC&#9;PSI&#9;JAVA://controllers.Order.OrderController&#10;CustomerOr&#9;PSI&#9;JAVA://models.Order.CustomerOrder&#10;Cust&#9;PSI&#9;JAVA://models.User.Customer.Customer&#10;2.sql&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql" />
+    <property name="SearchEverywhereHistoryKey" value="2.sq&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql&#10;User&#9;PSI&#9;JAVA://models.User.User&#10;viewDisc&#9;null&#9;null&#10;viewMe&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/Ordering/viewMeal.scala.html&#10;viewS&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/viewStaff.scala.html&#10;viewCustomer&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/app/views/User/viewCustomer.scala.html&#10;updateCust&#9;null&#9;null&#10;AdminCont&#9;PSI&#9;JAVA://controllers.User.AdminController&#10;application.con&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/application.conf&#10;Customer&#9;PSI&#9;JAVA://models.User.Customer.Customer&#10;OrderC&#9;PSI&#9;JAVA://controllers.Order.OrderController&#10;CustomerOr&#9;PSI&#9;JAVA://models.Order.CustomerOrder&#10;Cust&#9;PSI&#9;JAVA://models.User.Customer.Customer&#10;2.sql&#9;FILE&#9;file:///home/cybex/Projects/project-eatalot/conf/evolutions/default/2.sql" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -578,18 +585,75 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="SBT Task.Unnamed">
-    <configuration name="Unnamed" type="SbtRunConfiguration" factoryName="SBT Task">
-      <setting name="tasks" value="run" />
-      <setting name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
-      <setting name="workingDir" value="$PROJECT_DIR$" />
-      <envs />
+  <component name="RunManager" selected="SBT Task.run bitch run">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
+      <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -604,6 +668,161 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -624,12 +843,81 @@
       </option>
       <envs />
       <patterns />
+      <method />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="root-build" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App">
+      <module name="" />
+      <setting name="play2JpdaPort" value="9999" />
+      <setting name="play2JvmOptions" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M" />
+      <setting name="play2NeedOpenInBrowser" value="true" />
+      <setting name="play2OpenUrl" value="http://localhost:9000" />
+      <setting name="play2EnvVariables" value="" />
+      <setting name="play2IsNonDefaultInstallDirUsed" value="false" />
+      <setting name="play2NonDefaultInstallDir" value="" />
+      <setting name="play2isAutoReloadEnabled" value="false" />
+      <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -637,6 +925,58 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SbtRunConfiguration" factoryName="SBT Task">
+      <setting name="tasks" value="run bitch run" />
+      <setting name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
+      <setting name="workingDir" value="$PROJECT_DIR$" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -664,7 +1004,66 @@
       <envs />
       <properties />
       <listeners />
+      <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="run bitch run" type="SbtRunConfiguration" factoryName="SBT Task">
+      <setting name="tasks" value="run" />
+      <setting name="vmparams" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled" />
+      <setting name="workingDir" value="$PROJECT_DIR$" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="pls work" type="Play2FrameworkRunConfigurations" factoryName="Play 2 App">
+      <module name="root" />
+      <setting name="play2JpdaPort" value="9999" />
+      <setting name="play2JvmOptions" value="-Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M" />
+      <setting name="play2NeedOpenInBrowser" value="true" />
+      <setting name="play2OpenUrl" value="http://localhost:8080" />
+      <setting name="play2EnvVariables" value="" />
+      <setting name="play2IsNonDefaultInstallDirUsed" value="false" />
+      <setting name="play2NonDefaultInstallDir" value="" />
+      <setting name="play2isAutoReloadEnabled" value="false" />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="SBT Task.run bitch run" />
+      <item index="1" class="java.lang.String" itemvalue="Play 2 App.pls work" />
+    </list>
   </component>
   <component name="SbtLocalSettings">
     <option name="lastUpdateTimestamp" value="1508715089973" />
@@ -711,265 +1110,67 @@
       <updated>1508715004456</updated>
       <workItem from="1508715006448" duration="1708000" />
       <workItem from="1508744021081" duration="1068000" />
+      <workItem from="1508745495373" duration="870000" />
+      <workItem from="1508747459207" duration="1624000" />
+      <workItem from="1508749111124" duration="5522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2779000" />
+    <option name="totallyTimeSpent" value="10795000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="732" extended-state="6" />
+    <frame x="0" y="-4" width="1366" height="721" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3970346" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5525424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6118644" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="sbt-shell-toolwindow" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/index.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/activeOrders.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/addOrder.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/cart.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/createdOrders.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/header.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/masterOrder.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/menu.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/orderStyles.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/selectedMenu.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/submitCart.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/viewOrder.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/adminHome.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/editAdminProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/manageDiscounts.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/manageMeals.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Admin/manageUsers.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/customerHome.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/editProfile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/invalid.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/orderHistory.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/register.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/registerDetails.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/registerMobile.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/requestVerification.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/verified.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/verify.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/User/Customer/viewActiveOrders.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1047,100 +1248,361 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/2.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1623">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/Customer/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="130" column="5" lean-forward="false" selection-start-line="130" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
-          <folding>
-            <element signature="e#3763#3764#0" expanded="true" />
-            <element signature="e#3790#3791#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/application.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="352" column="11" lean-forward="false" selection-start-line="352" selection-start-column="11" selection-end-line="352" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/ReverseRoutes.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="94" column="8" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/scala-2.12/routes/main/controllers/User/ReverseRoutes.scala" />
     <entry file="file://$PROJECT_DIR$/app/views/User/viewCustomer.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
+        <state relative-caret-position="1020">
           <caret line="55" column="4" lean-forward="false" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="19" />
           <folding>
-            <element signature="e#1#31#0#Scala" expanded="true" />
+            <element signature="e#1#31#0#Scala" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/User/viewStaff.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
+        <state relative-caret-position="1000">
           <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
           <folding>
-            <element signature="e#1#31#0#Scala" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/Ordering/viewMeal.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding>
-            <element signature="e#1#31#0#Scala" expanded="true" />
+            <element signature="e#1#31#0#Scala" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/Finance/Discount/viewDiscount.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#31#0#Scala" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application/AppTags.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="2460">
           <caret line="143" column="20" lean-forward="false" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#560#561#0" expanded="false" />
+            <element signature="e#599#600#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+            <element signature="e#690#691#0" expanded="false" />
+            <element signature="e#897#898#0" expanded="false" />
+            <element signature="e#934#935#0" expanded="false" />
+            <element signature="e#988#989#0" expanded="false" />
+            <element signature="e#1024#1025#0" expanded="false" />
+            <element signature="e#1430#1431#0" expanded="false" />
+            <element signature="e#1463#1464#0" expanded="false" />
+            <element signature="e#1517#1518#0" expanded="false" />
+            <element signature="e#1553#1554#0" expanded="false" />
+            <element signature="e#1786#1787#0" expanded="false" />
+            <element signature="e#1831#1832#0" expanded="false" />
+            <element signature="e#3035#3036#0" expanded="false" />
+            <element signature="e#3076#3077#0" expanded="false" />
+            <element signature="e#3801#3802#0" expanded="false" />
+            <element signature="e#3846#3847#0" expanded="false" />
+            <element signature="e#4042#4043#0" expanded="false" />
+            <element signature="e#4100#4101#0" expanded="false" />
+            <element signature="e#4516#4517#0" expanded="false" />
+            <element signature="e#4561#4562#0" expanded="false" />
+            <element signature="e#4623#4624#0" expanded="false" />
+            <element signature="e#4667#4668#0" expanded="false" />
+            <element signature="e#5031#5032#0" expanded="false" />
+            <element signature="e#5083#5084#0" expanded="false" />
+            <element signature="e#5145#5146#0" expanded="false" />
+            <element signature="e#5190#5191#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/User/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="227" column="27" lean-forward="true" selection-start-line="227" selection-start-column="27" selection-end-line="227" selection-end-column="27" />
+        <state relative-caret-position="3820">
+          <caret line="227" column="27" lean-forward="false" selection-start-line="227" selection-start-column="27" selection-end-line="227" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/evolutions/default/2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="230" lean-forward="false" selection-start-line="25" selection-start-column="230" selection-end-line="25" selection-end-column="230" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/KitchenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2714">
+          <caret line="222" column="5" lean-forward="false" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/KitchenStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Order/CustomerOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3960">
+          <caret line="233" column="5" lean-forward="false" selection-start-line="233" selection-start-column="5" selection-end-line="233" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Delivery/orders.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Kitchen/cancelOrder.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="76" lean-forward="false" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
+          <folding>
+            <element signature="e#1#16#0#Scala" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Kitchen/masterKitchen.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Kitchen/orders.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.sbt/boot/scala-2.10.6/org.scala-sbt/sbt/0.13.15/tasks-0.13.15.jar!/sbt/CompletionService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1502">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/User/Customer/paymentHistory.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/DeliveryStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2360">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Order/Schedule/create.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="9" lean-forward="false" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <element signature="e#1#32#0#Scala" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/menu.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/viewOrder.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#22#0#Scala" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/viewMeal.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Finance/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/activeOrders.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/application.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="360" column="27" lean-forward="false" selection-start-line="360" selection-start-column="27" selection-end-line="360" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/routes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="193" column="85" lean-forward="false" selection-start-line="193" selection-start-column="85" selection-end-line="193" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User/Customer/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="66" column="37" lean-forward="false" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/mobile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/paymentHistory.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/kitchen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1820">
+          <caret line="127" column="1" lean-forward="false" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/cart.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utility/IdGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utility/Mobile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="348" column="25" lean-forward="false" selection-start-line="348" selection-start-column="25" selection-end-line="348" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/header.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="38" column="85" lean-forward="false" selection-start-line="38" selection-start-column="85" selection-end-line="38" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Order/ScheduleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/Ordering/submitCart.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="81" column="107" lean-forward="false" selection-start-line="81" selection-start-column="96" selection-end-line="81" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Application/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-642">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/User/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
           <folding />
         </state>
       </provider>

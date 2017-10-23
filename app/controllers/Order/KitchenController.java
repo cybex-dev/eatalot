@@ -1,5 +1,7 @@
 package controllers.Order;
 
+import annotations.Routing.KitchenStaffOnly;
+import annotations.SessionVerifier.LoadOrRedirectToLogin;
 import io.ebeaninternal.server.lib.util.Str;
 import models.Order.CustomerOrder;
 import models.Order.Ingredient;
@@ -7,6 +9,7 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.With;
 import utility.StatusId;
 import views.html.Global.Temp.master;
 import views.html.Kitchen.*;
@@ -21,7 +24,7 @@ public class KitchenController extends Controller {
     FormFactory formFactory;
 
     public Result index(){
-        return TODO;
+        return redirect(controllers.Order.routes.KitchenController.home());
     }
 
     public Result home(){
@@ -37,6 +40,8 @@ public class KitchenController extends Controller {
      * @param orderId of order to have statusId changed
      * @return redirect to order page
      */
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result updateOrderStatus(String orderId){
         String[] result = request().body().asFormUrlEncoded().get("action");
         switch (result[0]){
@@ -57,28 +62,37 @@ public class KitchenController extends Controller {
         return redirect(controllers.Order.routes.KitchenController.getOrderPage());
     }
 
+
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getPendingOrderPage(){
         return ok(master.render("Pending Orders",
                 masterKitchen.render(
-                        orders.render(CustomerOrder.findAllPendingOrders()), 3)));
+                        orders.render(CustomerOrder.findAllPendingOrders().stream().sorted().collect(Collectors.toList())), 3)));
     }
 
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getProcessingOrderPage(){
         return ok(master.render("Processing Orders",
                 masterKitchen.render(
-                        orders.render(CustomerOrder.findAllProcessingOrders()), 4)));
+                        orders.render(CustomerOrder.findAllProcessingOrders().stream().sorted().collect(Collectors.toList())), 4)));
     }
 
     /**
      * Displays list of all orders that are not unsubmitted or cancelled.
      * @return
      */
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getOrderPage(){
         return ok(master.render("Customer Orders",
                 masterKitchen.render(
                         orders.render(CustomerOrder.findAllOrders()
                                 .stream()
-                                .filter(order -> (!order.getStatusId().equals(StatusId.CANCELLED) && !order.getStatusId().equals(StatusId.UNSUBMITTED))).collect(Collectors.toList())),
+                                .filter(order -> (!order.getStatusId().equals(StatusId.CANCELLED) && !order.getStatusId().equals(StatusId.UNSUBMITTED)))
+                                .sorted()
+                                .collect(Collectors.toList())),
                         2)));
     }
 
@@ -87,6 +101,8 @@ public class KitchenController extends Controller {
      * @param orderId
      * @return
      */
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getMealOrderPage(String orderId){
         return ok(master.render("Meal Orders",
                 masterKitchen.render(
@@ -99,6 +115,8 @@ public class KitchenController extends Controller {
      * Can select and enter reason for order cancellation
      * @return
      */
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getCancelOrderPage(String orderId){
         return ok(master.render("Cancel Order",
                 masterKitchen.render(cancelOrder.render(CustomerOrder.findOrderById(orderId)), 2)));
@@ -108,7 +126,12 @@ public class KitchenController extends Controller {
      * Sets orders
      * @return
      */
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result doOrderCancellation(String orderId){
+        if(request().body().asFormUrlEncoded().get("action").equals("back"))
+            return redirect(routes.KitchenController.getOrderPage());
+
         CustomerOrder order = CustomerOrder.findOrderById(orderId);
 
         String[] reason = request().body().asFormUrlEncoded().get("reason");
@@ -131,12 +154,16 @@ public class KitchenController extends Controller {
 
 //  ===== Maintain Ingredients =====
 
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getIngredientPage(){
         return ok(master.render("Ingredients",
                 masterKitchen.render(
                         ingredients.render(Ingredient.findAllIngredients()), 1)));
     }
 
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getNewIngredientPage(){
         Form<Ingredient> ingredientForm = formFactory.form(Ingredient.class);
         return ok(master.render("New Ingredient",
@@ -144,12 +171,16 @@ public class KitchenController extends Controller {
                         addIngredient.render(ingredientForm), 1)));
     }
 
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result getIngredientOrderPage(String ingredientId){
         return ok(master.render("Order Ingredients",
                 masterKitchen.render(
                         orderIngredient.render(Ingredient.findIngredientById(ingredientId)), 1)));
     }
 
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result addIngredient(){
         Form<Ingredient> ingredientForm = formFactory.form(Ingredient.class).bindFromRequest();
         if (ingredientForm.hasErrors()) return badRequest();
@@ -167,6 +198,8 @@ public class KitchenController extends Controller {
      * @param ingredientId of ingredient to be edited/removed
      * @return redirect to ingredient page
      */
+    @With(LoadOrRedirectToLogin.class)
+    @KitchenStaffOnly
     public Result editIngredient(String ingredientId){
         String[] postAction = request().body().asFormUrlEncoded().get("action");
 

@@ -6,7 +6,9 @@
 
 <div class="kitchen-header">
     <img src="@routes.Assets.versioned("images/logo.png")">
-    <h1>Kitchen Dashboard</h1>
+    <h1>Kitchen Dashboard</h1><br>
+    <a style="float: right" href="@controllers.User.routes.UserController.logout()">Logout</a>
+    <br><br><br>
 </div>
 
 @kitchenMenu.render(selected)

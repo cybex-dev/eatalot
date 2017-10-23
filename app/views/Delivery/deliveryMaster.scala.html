@@ -1,0 +1,22 @@
+@import views.html.Global.Static.footer_wrapper
+@import views.html.Delivery.deliveryMenu
+@import views.html.Delivery.deliveryHeader
+@(page: Html, selected: Integer)
+
+<link href="@routes.Assets.versioned("stylesheets/kitchen.css")" rel="stylesheet" />
+
+<div class="kitchen-header">
+    <img src="@routes.Assets.versioned("images/logo.png")">
+    <h1>Delivery Dashboard</h1><br>
+    <a style="float: right" href="@controllers.User.routes.UserController.logout()">Logout</a>
+    <br><br><br>
+</div>
+
+@deliveryHeader.render(selected)
+
+@deliveryMenu.render(selected)
+
+<div class="center-wrapper">
+    @page
+    @footer_wrapper.render()
+</div>

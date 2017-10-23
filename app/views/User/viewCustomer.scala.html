@@ -27,7 +27,7 @@
                 </div>
                 <div class="input-container">
                     <div class="col-md-12">
-                    @form(action = controllers.User.routes.AdminController.updateCustomer()) {
+
                         <div class="pull-left margin-left-large">
                             @CSRF.formField
                             @checkbox(customerForm("accountActive"), '_name -> "Account Enabled:")
@@ -48,16 +48,18 @@
                             <br/>
                         </div>
                         @inputText(customerForm("userId"), '_class -> "hidden-field")
-                    }
                     </div>
                 </div>
             </div>
             <br/>
+@form(action = controllers.User.routes.AdminController.updateCustomer()) {
+    @CSRF.formField
             <div class="row">
                 <div class="pull-center">
                     <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
                 </div>
             </div>
+}
 
         </div>
     }

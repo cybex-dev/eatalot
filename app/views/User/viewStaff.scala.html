@@ -29,7 +29,6 @@
             <div class="input-container">
                 <div class="col-md-12">
 
-                @form(action = controllers.User.routes.AdminController.updateStaff()) {
                     <div class="pull-left margin-left-large">
                         @CSRF.formField
                         @checkbox(staffForm("accountActive"), '_name -> "Account Enabled")
@@ -48,15 +47,18 @@
                     @inputText(staffForm("token"), '_class -> "hidden-field")
                     @inputText(staffForm("userId"), '_class -> "hidden-field")
                 </div>
-                }
             </div>
         </div>
         <br/>
+
+        @form(action = controllers.User.routes.AdminController.updateStaff()) {
+            @CSRF.formField
         <div class="row">
             <div class="pull-center">
                 <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageUsers()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
             </div>
         </div>
+        }
     </div>
     </div>
     <br/>

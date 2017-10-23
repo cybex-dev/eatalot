@@ -23,13 +23,13 @@ public abstract class User extends Model {
 
     private String surname = "";
 
-    @Pattern(regexp = "[\\S]{8,}", message = "Check password length, minimum length of 8\nCheck that no spaces are used")
+//    @Pattern(regexp = "[\\S]{8,}", message = "Check password length, minimum length of 8\nCheck that no spaces are used")
     private String password = "";
 
 //    @Pattern(regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid email address!")
     private String email = "";
 
-    @Pattern(regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
+    //@Pattern(regexp = "[0]\\d{2}[- ]{0,1}\\d{3}[- ]{0,1}\\d{4}", message = "Invalid cellphone number, use format 0XX-XXX-XXXX")
     private String cellNumber = "";
 
     private String token = "";

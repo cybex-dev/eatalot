@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="runtime"
 		confs="universal, universal-docs, universal-src, compile, runtime, test, provided, optional, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20171023055944"/>
+		date="20171023093508"/>
 	<dependencies>
 		<module organisation="com.typesafe.play" name="play-mailer-guice_2.12">
 			<revision name="6.0.1" status="release" pubdate="20170801214847" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/play-mailer" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="102">

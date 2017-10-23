@@ -25,7 +25,6 @@
         <h1>Edit Meal</h1>
         <br/>
         <div class="input-container">
-        @form(action = controllers.User.routes.AdminController.updateMeal()) {
             @CSRF.formField
             <div class="row">
                 <div class="col-md-12">
@@ -48,12 +47,15 @@
 
         </div>
     </div>
+
+@form(action = controllers.User.routes.AdminController.updateMeal()) {
+    @CSRF.formField
     <div class="row">
         <div class="pull-center">
             <input class="btn btn-default button-padding button-small" type="button" onclick="location.href = '@controllers.User.routes.AdminController.manageMeals()';" value="Cancel"> <input class="btn btn-success button-padding button-small" type="submit" value="Update">
         </div>
     </div>
-}
+        }
 }
 
 @masterpage.apply(" :: Edit Meal", bodyContent)

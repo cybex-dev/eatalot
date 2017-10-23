@@ -44,7 +44,6 @@ create table customer_order (
   order_id                      varchar(255) not null,
   status_id                     varchar(255),
   customer_user_id              varchar(255),
-  payment_id                    varchar(255),
   payment_payment_id            varchar(255),
   delivery_date                 datetime(6),
   cancel_message                varchar(255),

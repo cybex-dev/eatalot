@@ -8,6 +8,7 @@ import models.User.User;
 import utility.StatusId;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -54,15 +55,6 @@ public class Customer extends User implements StatusId{
 
     public Address getAddress() {
         return address;
-    }
-
-    public Boolean isStudent() {
-        return this.isStudent;
-    }
-
-    public void setStudent(Boolean status) {
-        this.isStudent = status;
-            save();
     }
 
     public int countActiveOrders(){

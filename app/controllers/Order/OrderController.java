@@ -298,7 +298,7 @@ public class OrderController extends Controller implements StatusId {
 
         order.setPending().update();
 
-        if(customer.isStudent()){
+        if(customer.getStudent()){
             payment.setAmount(payment.getAmount() - 0.15);
             payment.update();
         }

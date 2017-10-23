@@ -44,11 +44,8 @@ create table customer_order (
   order_id                      varchar(255) not null,
   status_id                     varchar(255),
   customer_user_id              varchar(255),
-<<<<<<< HEAD
   payment_id                    varchar(255),
-=======
   payment_payment_id            varchar(255),
->>>>>>> master
   delivery_date                 datetime(6),
   cancel_message                varchar(255),
   constraint uq_customer_order_payment_payment_id unique (payment_payment_id),
